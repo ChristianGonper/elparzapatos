@@ -4,41 +4,41 @@
 
 ### Concepto
 
-- Proyecto editorial sobre zapatos femeninos reales.
+- Proyecto editorial sobre zapatos femeninos aportados por la comunidad.
 - Cada par tiene una entrada explicada; no es un banco de imágenes.
 - Público general, terminología precisa y accesible.
-- Se excluye inicialmente la construcción no visible del calzado.
+- Se excluye inicialmente la construcción no visible del calzado salvo como causa funcional de lo que se ve.
 - Valoración estética moderada y siempre sostenida por lo observable.
 
 ### Entrada
 
 - Título breve, descriptivo y normalmente sin color.
 - Abstract breve reutilizable.
-- Texto narrativo, no ficha técnica visible.
-- Imagen principal, galería accesible e imágenes inline.
+- Texto narrativo y riguroso; en la web se recorre la anatomía completa sin relleno, mientras que en redes se destacan de 1 a 3 rasgos.
+- Distribución visual de la página y posición de la ficha técnica abiertas a la fase de diseño web.
+- Imagen principal, galería accesible e imágenes inline cerca del texto explicativo.
 - Anotaciones solo cuando explican algo mejor que la imagen limpia.
 - Marca y modelo como información secundaria.
-- Para mirar un par: `activos/caracterizacion_partes_zapato_plantilla.md`.
+- Para mirar y redactar un par: [activos/plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md) (unificada y ágil).
 
 ### Fotografía
 
-- Guía cerrada en HTML y PDF.
-- Seis perspectivas base más detalles opcionales.
-- Luz natural, fondo tranquilo y zapato completo.
-- Movimiento natural de cámara y calzado; no se exige fondo idéntico.
+- Guía fotográfica base disponible en HTML y PDF (en uso, pendiente de refinamiento final tras las primeras colaboraciones).
+- Seis perspectivas base más detalles opcionales ([activos/perspectivas_imagenes.md](activos/perspectivas_imagenes.md)).
+- Luz natural, fondo tranquilo, zapato completo y movimiento natural de la persona respecto a la toma.
 
 ### Publicación
 
 - La primera entrada real servirá como prueba del formato; no habrá piloto separado.
-- Web para piezas largas.
-- Instagram para stories de detalle, posts educativos, recopilaciones y presentación selectiva de entradas.
+- Web para piezas largas y archivo central.
+- Instagram (`@elparzapatos`) para stories de detalle, carruseles de concepto («de la foto al nombre») y presentación de piezas.
 
 ### Colaboración
 
 - Primeros casos con personas cercanas y colaboraciones ya encaminadas.
 - Envío mediante formulario.
-- Opciones de nombre, handle, enlace y etiqueta elegidas por la colaboradora.
-- Debe existir permiso claro y procedimiento de retirada.
+- Opciones de nombre, handle, enlace o anonimato elegidas por la colaboradora.
+- Flujo en 5 fases y protocolo estricto de retirada ([04-flujo-de-colaboracion.md](04-flujo-de-colaboracion.md) y [activos/Contactos-previos.md](activos/Contactos-previos.md)).
 
 ## Estado de materiales en `marca/activos`
 
@@ -47,20 +47,19 @@
 | Guía fotográfica HTML | Existe y contiene la versión consolidada |
 | Guía fotográfica PDF | Existe y es la versión para enviar |
 | Assets de la guía | Existen en carpeta propia |
-| Caracterización de partes y perspectivas | Existe (cómo mirar; no definitiva) |
+| Perspectivas base | Existe ([perspectivas_imagenes.md](activos/perspectivas_imagenes.md)) |
+| Guía de conversación | Existe ([Contactos-previos.md](activos/Contactos-previos.md)), ágil y adaptable |
+| Plantilla de entrada calzado | Existe ([plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md)), unificada y ágil |
 
 ## Orden de trabajo aceptado
 
-### 1. Cerrar nombre y presentación
+### 1. Nombre y presentación (Cerrado)
 
-Resultado esperado:
+Consolidado en [02-nombre-y-presentacion.md](02-nombre-y-presentacion.md): **El Par — Zapatos en detalle** y `@elparzapatos`.
 
-- elegir nombre definitivo;
-- confirmar arroba dentro de Instagram y revisar dominio;
-- probar marca + descriptor en avatar, cabecera, guía y contenido;
-- fijar frase breve y bio.
+### 2. Flujo de colaboración y sistema editorial (Cerrado)
 
-Nombre con el que trabajamos: **El Par — Zapatos en detalle**. Arroba que mejor encaja de lo visto: `@elparzapatos`.
+Consolidados en [03-sistema-editorial-y-contenidos.md](03-sistema-editorial-y-contenidos.md) y [04-flujo-de-colaboracion.md](04-flujo-de-colaboracion.md). Pendiente técnico: montar el formulario web/Drive y fijar buzón de retirada.
 
 ### 2. Definir el flujo de colaboración
 
@@ -72,7 +71,7 @@ Resultado esperado:
 - crear registro de estados;
 - elegir las primeras colaboradoras y pares.
 
-El borrador operativo está en `04-flujo-de-colaboracion.md`.
+El borrador operativo está en [04-flujo-de-colaboracion.md](04-flujo-de-colaboracion.md).
 
 ### 3. Construir reserva editorial
 
