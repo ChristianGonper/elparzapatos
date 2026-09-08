@@ -1,43 +1,67 @@
-# Flujo de colaboración
+# Flujo de Colaboración
 
-Escribir a alguien concreto, con un motivo. Contar el proyecto antes de pedir fotos. Invitar, no encargar. El primer mensaje es corto: interés y encaje; las instrucciones van después. No se buscan fotos de estudio. No se promete publicación hasta ver el material.
+Manual operativo para la gestión de colaboraciones con dueñas de calzado.
 
-Los ejemplos de mensajes están en `activos/Contactos-previos.md`. Aquí, qué hay que tener claro.
+---
 
-## Qué tiene que entender la persona
+## 1. Principio Fundamental
 
-El Par mira zapatos reales —los suyos— de cerca: formas, partes, materiales, detalles. Cada par puede ser una pieza en la web. Ella hace varias fotos naturales con una guía breve y las envía por formulario. Elige cómo aparece (nombre, usuario, etiqueta, o nada). Puede pedir que retiremos las imágenes.
+Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para la persona que aporta sus zapatos. No se piden fotos de estudio ni se abruma a la colaboradora con instrucciones técnicas en la primera toma de contacto. 
 
-No hace falta soltar todo eso en el primer mensaje.
+*Para ejemplos de conversación y fórmulas de mensaje adaptables, consultar [activos/Contactos-previos.md](activos/Contactos-previos.md).*
 
-## Cómo avanza
+---
 
-1. Elegir a quién y por qué (un par que le hayamos visto, cercanía, un rasgo).
-2. Primer contacto: qué es El Par y por qué ella. ¿Le apetece enseñar algunos pares?
-3. Si hay interés: cómo sería (fotos naturales, guía, formulario, crédito). Elegir el par juntos; no tiene que ser “especial” ni muy adornado.
-4. Guía en PDF y enlace al formulario.
-5. Revisar. Si falta una vista, pedir solo esa.
-6. Antes de publicar: confirmar crédito.
-7. Publicar. Si pide retirada, se tramita.
+## 2. Las Cinco Fases del Proceso
 
-Antes del lanzamiento, pocas personas cercanas. Un registro simple basta: persona, par, último paso, permiso, crédito, enlaces.
+```
+[1. Selección] ➔ [2. Primer Contacto] ➔ [3. Guía y Envío] ➔ [4. Edición] ➔ [5. Publicación]
+                                                                      │
+                                                                      ▼
+                                                                (Retirada si se solicita)
+```
 
-Estados útiles: por valorar → invitada → interesada → guía enviada → material recibido → falta material / en edición → publicada / retirada.
+### Fase 1. Identificación y Selección
+- **Criterio:** Elegir un par por un motivo visual concreto (silueta, puntera, tacón, cierre o textura), no por su valor económico ni su condición de «nuevo».
+- **Perfil inicial:** Priorizar personas cercanas o perfiles afines con interés por el diseño.
 
-## Formulario
+### Fase 2. Primer Contacto
+- **Objetivo:** Despertar interés y validar disposición de forma natural.
+- **Qué contar:** Presentar qué es *El Par — Zapatos en detalle* en una frase y plantear la invitación según el caso:
+  - *Opción A (Par concreto visto):* Explicar qué detalle o silueta nos ha llamado la atención de ese modelo en particular.
+  - *Opción B (Armario / Colección interesante):* Proponerle la idea sabiendo que le gusta el calzado o tiene pares con personalidad, invitándola a compartir fotos de varios para seleccionar juntas el primero.
+- **Qué NO hacer:** No enviar la guía fotográfica ni enlaces de formularios todavía. No dar instrucciones técnicas en este primer mensaje.
 
-Del par: descripción libre, marca y modelo si se saben, un comentario suyo si quiere, fotos.
+### Fase 3. Envío de Guía y Recepción
+- **Momento:** Solo cuando la colaboradora confirma su entusiasmo o interés.
+- **Qué entregar:** PDF de la guía *Tus zapatos en cámara* y enlace al formulario de recepción.
+- **Mensaje clave:** Recordar que son fotos caseras con luz natural y fondo tranquilo, sin necesidad de equipo profesional ni salir ella.
 
-Del crédito, cada cosa por separado: nombre en la pieza, usuario en la web, etiqueta en Instagram, permiso para citar su texto.
+### Fase 4. Curaduría, Chequeo y Redacción
+- **Revisión visual:** Comprobar si las 6 perspectivas base permiten una lectura completa.
+- **Si falta una vista clave:** Pedir únicamente esa toma específica de forma amable, explicando qué detalle nos ayudará a apreciar mejor (ej. *«¿Podrías mandarme una foto más del talón para ver bien la costura trasera?»*).
+- **Redacción:** Análisis y redacción de la pieza según la plantilla de calzado.
+- **Validación de crédito:** Confirmar con ella antes de maquetar cómo desea figurar (nombre de pila, @usuario de Instagram, enlace web o mención anónima).
 
-Permiso de uso, en claro: las fotos son suyas (o tiene permiso); autoriza a El Par a recortar, ajustar y anotar, y a publicarlas en web e Instagram; es gratuito y no exclusivo; puede pedir la retirada.
+### Fase 5. Publicación y Seguimiento
+- **Aviso previo:** Notificar el día de publicación y facilitarle el enlace directo o etiquetado en Instagram.
+- **Agradecimiento:** Reconocer formalmente su aportación a la comunidad.
 
-Guardar fecha, versión del texto y contacto.
+---
 
-Crédito posible: «Par aportado por [nombre].» No debe sonar a patrocinio ni a que ella escribió la pieza.
+## 3. Registro y Estados de Seguimiento
 
-## Retirada
+Llevar una tabla de control mínima con los siguientes estados operativos:
 
-Canal público (aún por fijar): escribir, confirmamos, retiramos de lo que controlamos. No podemos borrar copias de terceros.
+`Por valorar` ➔ `Invitada` ➔ `Interesada` ➔ `Guía enviada` ➔ `Material recibido` ➔ `En edición / Falta vista` ➔ `Aprobada para publicar` ➔ `Publicada` (o `Retirada`).
 
-Por dentro: identificar par y publicaciones, registrar la petición, retirar o anonimizar según lo pedido, decidir con ella si los originales se guardan como registro o se borran, confirmar por escrito.
+---
+
+## 4. Política y Protocolo de Retirada
+
+La colaboradora mantiene pleno control sobre la presencia de su par en el proyecto:
+
+1. **Recepción de solicitud:** Si solicita retirar su par por cualquier motivo (canal directo o formulario), se acusa recibo inmediatamente sin pedir justificaciones.
+2. **Despublicación:** Retirada de la pieza en la web y eliminación de publicaciones en redes sociales propias en un plazo máximo de 48 horas.
+3. **Gestión de archivos:** Consulta con la colaboradora si desea el borrado permanente de las fotos originales del archivo interno o si autoriza conservarlas de modo confidencial como registro histórico.
+4. **Confirmación:** Envío de confirmación por escrito una vez completada la despublicación.

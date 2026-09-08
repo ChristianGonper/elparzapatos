@@ -1,39 +1,60 @@
-# Sistema editorial y contenidos
+# Sistema Editorial y Contenidos
 
-## Dónde vive cada cosa
+Manual operativo de producción de contenidos para web y redes sociales.
 
-La **web** es el archivo: una pieza larga por par, con texto, fotos y camino hacia otros pares (familia, puntera, tacón, cierre, material, detalle).
+---
 
-**Instagram** descubre, enseña en corto y mantiene el hilo con la gente. No resume la entrada entera.
+## 1. Ecosistema de Canales
 
-El **formulario** recibe fotos, datos del par, crédito y permiso, y los deja en Drive.
+- **La Web (El Archivo Central):** Publica la pieza completa por cada par analizado. Incluye galería fotográfica en alta resolución, texto narrativo estructurado, hipervínculos al glosario interactivo y conexiones temáticas (misma puntera, misma familia de tacón, mismo tipo de cierre).
+- **Instagram (`@elparzapatos`):** Descubrimiento visual, divulgación cercana y canal de captación de colaboradoras. No resume la pieza entera: extrae ángulos específicos y dinamiza el archivo.
+- **El Formulario de Colaboración:** Punto de entrada privado para la recepción de fotografías, metadatos del calzado (marca, modelo, antigüedad aproximada si se conocen), preferencias de crédito y consentimiento formal de uso.
 
-## Una entrada, un par
+---
 
-Título corto, casi nunca el color. Una imagen principal y el resto de vistas a mano. Un abstract que sirva en listados y en redes. Prosa que agrupa lo que se ve, con la foto al lado del fragmento que explica —a veces dos fotos juntas si hay que comparar. Anotar sobre la imagen solo si aclara. Al final, dos a cuatro frases que dejan el par. Marca, modelo y colaboradora, si toca, detrás.
+## 2. Anatomía de una Pieza Web
 
-El artículo no copia el orden de la plantilla interna. El par dicta el orden.
+Cada entrada documenta un único par bajo el principio rector: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
 
-Cómo se trabaja, de momento: se mira el par con `activos/caracterizacion_partes_zapato_plantilla.md` (qué partes, qué rasgos, qué vista). Se eligen pocos rasgos. Se escribe.
+1. **Título:** Breve y enfocado en la silueta, geometría o rasgo dominante (ej. *«Salón de escote asimétrico y tacón bobina»*). Evitar menciones de color salvo que sea estructural al diseño.
+2. **Abstract / Entradilla:** 2-3 líneas sintéticas que sitúan la pieza y sirven tanto de entradilla web como de texto para previsualizaciones o redes.
+3. **Cuerpo narrativo:** Texto en prosa fluida que agrupa zonas anatómicas afines (delantera, línea de calce/sujeción, elevación/base, interior/acabados). Cada observación técnica debe ir acompañada de la fotografía exacta que la demuestra.
+4. **Términos enlazados:** Las palabras técnicas de oficio se vinculan de manera interactiva al glosario (`pala`, `garganta`, `collarín`, `enfranque`).
+5. **Cierre y Caracterización:** Párrafo final de síntesis (2 a 4 frases) que resume la personalidad del zapato y, si procede, incluye una reflexión aportada por su dueña.
+6. **Ficha técnica secundaria:** Datos objetivos organizados (marca, modelo, material confirmado, crédito acordado). *Nota de diseño: su posición final en la página (lateral, desplegable o pie) y la distribución visual de los bloques en la web quedan abiertas a la fase de diseño de la interfaz.*
 
-Regla: observar todo, publicar poco, demostrar con fotos.
+---
 
-## Fotos
+## 3. Formatos Tácticos para Instagram
 
-Luz natural, sin flash ni sol directo. Fondo tranquilo (pared, cortina, sábana). Zapato entero. Seis vistas: tres cuartos delantero, perfil, frente, cenital, tres cuartos trasero, suela. Detalles si hay un cierre, un adorno, una tira. Se mueve el par y la cámara; el fondo puede cambiar un poco. Solo el zapato.
+Para evitar convertir el perfil en un catálogo frío o en una clase académica densa, el contenido se estructura en tres formatos definidos:
 
-La guía en PDF se envía cuando la persona ya ha dicho que sí, no en el primer mensaje.
+### A. Stories de Detalle («El ojo entrenado»)
+- **Objetivo:** Educar la mirada en 1 a 3 pantallas rápidas.
+- **Estructura:**
+  1. *Pantalla 1 (Curiosidad):* Foto de detalle en primer plano con una pregunta o contraste sutil (ej. «¿Escote en V o línea de calce baja?»).
+  2. *Pantalla 2 (Explicación limpia):* Definición en una sola frase directa señalando el rasgo clave.
+  3. *Pantalla 3 (Llamada a la acción / Enlace):* Si pertenece a un par publicado, enlace directo a la pieza en la web.
 
-## Instagram — cómo lo veo
+### B. Carrusel de Concepto («De la foto al nombre»)
+- **Objetivo:** Enseñar un concepto anatómico comparando múltiples pares reales del archivo.
+- **Estructura (5 a 7 diapositivas):**
+  - Diapositiva de apertura: Portada limpia con el dilema o familia a explorar (ej. *«Cinco formas de rematar una puntera»* o *«Por qué este tacón no es un kitten»*).
+  - Diapositivas centrales: Un par real por lámina, mostrando la variación morfológica con anotaciones discretas.
+  - Cierre: Síntesis pedagógica y pregunta de conversación abierta a la comunidad («¿Qué silueta predomina en tu armario?»).
 
-Tres usos, siempre con fotos reales del archivo cuando las haya:
+### C. Presentación de Par Publicado
+- **Objetivo:** Anunciar la llegada de una nueva pieza al archivo.
+- **Estructura:**
+  - Selección de las 2 o 3 mejores perspectivas (tres cuartos delantero + perfil exterior + detalle clave).
+  - Copy centrado en el rasgo más sorprendente o distintivo del diseño.
+  - Crédito cálido a la colaboradora y llamada a leer el reportaje completo en la web.
 
-1. **Un detalle.** Una story o tres: una pregunta o un acercamiento, el término en una frase, y si hay pieza larga, el enlace. Sirve para enseñar pala ≠ garganta o kitten ≠ aguja baja sin dar clase.
-2. **Un carrusel de concepto.** Varios pares del archivo que comparten un rasgo (punteras, tiras, familias de tacón). De la foto al nombre. Es el formato que más se parece a cómo aprendemos aquí.
-3. **Un par publicado.** No se recuenta la entrada. Se elige el rasgo que lo marca, dos o tres fotos, y se manda a la web.
+---
 
-Recopilaciones y detalles pueden vivir sin entrada detrás; la presentación de pieza, no.
+## 4. Estándar Fotográfico
 
-La identidad visual (tipo, paleta, tratamiento de foto) aún no está definida. La guía usa de momento una dirección cálida; no es definitiva.
-
-El primer par real sirve para probar densidad del texto, galería, fotos inline, anotaciones y qué tal baja a Instagram. No hay piloto aparte.
+- **Luz:** Luz natural indirecta, sin sombras duras de flash ni sol abrasivo.
+- **Fondo y composición:** Entorno neutro y tranquilo (pared lisa, suelo despejado, madera, tela neutra). Se motiva que la colaboradora no solo gire el zapato sobre su eje, sino que ella misma se mueva ligeramente de posición respecto a la toma para aportar mayor realismo, frescura y ángulos espontáneos.
+- **Perspectivas base indispensables:** Tres cuartos delantero, perfil exterior, frontal, cenital, tres cuartos trasero y planta/suela.
+- **Detalles singulares** (ejemplos): Cierres, hebillas, costuras de remate, texturas, contrastes de material, forros o cualquier particularidad que distinga al par.
