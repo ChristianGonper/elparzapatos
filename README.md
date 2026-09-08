@@ -13,6 +13,6 @@ Abrir esta carpeta como bóveda de Obsidian.
 | `sitio/` | La web, cuando la hagamos |
 | `archivo/` | Instrucciones viejas, por si hay que consultarlas |
 
-Para ver en qué punto estamos: [[ESTADO]].
+Para ver en qué punto estamos: [ESTADO](ESTADO.md).
 
 Conocimiento, marca y sitio se van ajustando al hablar; no están fijados de una vez.
