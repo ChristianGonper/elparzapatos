@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía Fotográfica para colaboradores</title>
+  <style>
+    :root {
+      --lino: #f6f2eb;
+      --papel: #ece4d9;
+      --carbon: #292724;
+      --piedra: #887d72;
+      --vino: #8d3438;
+      --blanco: #fffdf9;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      background: #cfc8be;
+      color: var(--carbon);
+    }
+
+    body {
+      font-family: "Nimbus Sans", "DejaVu Sans", Arial, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      page-break-after: always;
+      background: var(--lino);
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .serif {
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--vino);
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 7mm;
+      max-width: 150mm;
+      font-size: 34pt;
+      line-height: .98;
+      font-weight: 400;
+      letter-spacing: -.025em;
+    }
+
+    h2 {
+      margin-bottom: 5mm;
+      font-size: 28pt;
+      line-height: 1.02;
+      font-weight: 400;
+      letter-spacing: -.02em;
+    }
+
+    .deck {
+      max-width: 116mm;
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 15pt;
+      line-height: 1.36;
+    }
+
+    .rule {
+      width: 18mm;
+      height: 1.5px;
+      margin: 5mm 0 7mm;
+      background: var(--vino);
+    }
+
+    .folio {
+      position: absolute;
+      right: 14mm;
+      bottom: 10mm;
+      display: flex;
+      align-items: center;
+      gap: 4mm;
+      color: var(--piedra);
+      font-size: 7.5pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .folio b {
+      color: var(--vino);
+      font-size: 10pt;
+    }
+
+    /* Portada */
+    .cover {
+      background: var(--carbon);
+      color: var(--blanco);
+    }
+
+    .cover-copy {
+      position: relative;
+      z-index: 3;
+      padding: 22mm 18mm 0;
+    }
+
+    .cover .eyebrow {
+      color: #cf9b97;
+    }
+
+    .cover h1 {
+      margin-top: 15mm;
+      font-size: 40pt;
+    }
+
+    .cover .subtitle {
+      margin: 0;
+      color: #e9ded2;
+      font-size: 11pt;
+      font-weight: 600;
+      letter-spacing: .09em;
+    }
+
+    .cover .tagline {
+      width: 112mm;
+      margin-top: 12mm;
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 17pt;
+      line-height: 1.34;
+    }
+
+    .cover-visual {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 128mm;
+      overflow: hidden;
+    }
+
+    .cover-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 52%;
+      filter: saturate(.82);
+    }
+
+    .cover-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, var(--carbon) 0, transparent 30mm, transparent 100%);
+    }
+
+    .cover-mark {
+      position: absolute;
+      z-index: 4;
+      right: 15mm;
+      bottom: 12mm;
+      padding: 3mm 4mm;
+      border: 1px solid rgba(255, 255, 255, .65);
+      font-size: 7pt;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    /* Introducción */
+    .intro {
+      padding: 19mm 18mm;
+    }
+
+    .intro h2 {
+      width: 120mm;
+      margin-top: 14mm;
+    }
+
+    .intro .lead {
+      width: 144mm;
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 19pt;
+      line-height: 1.4;
+    }
+
+    .principles {
+      position: absolute;
+      left: 18mm;
+      right: 18mm;
+      bottom: 31mm;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5mm;
+    }
+
+    .principle {
+      min-height: 65mm;
+      padding: 8mm 7mm;
+      border-top: 1.5px solid var(--vino);
+      background: var(--papel);
+    }
+
+    .principle .n {
+      color: var(--vino);
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 24pt;
+      line-height: 1;
+    }
+
+    .principle h3 {
+      margin: 12mm 0 4mm;
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 17pt;
+      font-weight: 400;
+    }
+
+    .principle p {
+      margin: 0;
+      font-size: 9.3pt;
+      line-height: 1.55;
+    }
+
+    /* Perspectivas */
+    .views {
+      padding: 15mm 14mm 13mm;
+    }
+
+    .views header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin: 0 4mm 7mm;
+    }
+
+    .views h2 {
+      margin: 0;
+    }
+
+    .views .header-note {
+      width: 55mm;
+      margin: 0 0 1mm;
+      color: var(--piedra);
+      font-size: 8pt;
+      line-height: 1.45;
+    }
+
+    .contact-sheet {
+      position: relative;
+      width: 182mm;
+      height: 121.3mm;
+      overflow: hidden;
+      background: var(--papel);
+    }
+
+    .contact-sheet img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pin {
+      position: absolute;
+      width: 8mm;
+      height: 8mm;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--vino);
+      color: white;
+      box-shadow: 0 1mm 3mm rgba(0, 0, 0, .2);
+      font-size: 8pt;
+      font-weight: 700;
+    }
+
+    .p1 {
+      left: 2.5mm;
+      top: 2.5mm;
+    }
+
+    .p2 {
+      left: 63.2mm;
+      top: 2.5mm;
+    }
+
+    .p3 {
+      left: 123.8mm;
+      top: 2.5mm;
+    }
+
+    .p4 {
+      left: 2.5mm;
+      top: 63.1mm;
+    }
+
+    .p5 {
+      left: 63.2mm;
+      top: 63.1mm;
+    }
+
+    .p6 {
+      left: 123.8mm;
+      top: 63.1mm;
+    }
+
+    .view-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 8mm;
+      row-gap: 4mm;
+      margin-top: 7mm;
+    }
+
+    .view-item {
+      display: grid;
+      grid-template-columns: 8mm 1fr;
+      gap: 3mm;
+      align-items: start;
+    }
+
+    .view-item .num {
+      padding-top: .6mm;
+      color: var(--vino);
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 15pt;
+      line-height: 1;
+    }
+
+    .view-item h3 {
+      margin-bottom: 1mm;
+      font-size: 9.3pt;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .view-item p {
+      margin: 0;
+      color: #5d5852;
+      font-size: 7.8pt;
+      line-height: 1.4;
+    }
+
+    /* Detalles */
+    .details {
+      padding: 18mm 16mm 15mm;
+    }
+
+    .details header {
+      display: grid;
+      grid-template-columns: 1fr 73mm;
+      gap: 10mm;
+      align-items: end;
+      margin: 0 2mm 10mm;
+    }
+
+    .details h2 {
+      margin: 2mm 0 0;
+      font-size: 38pt;
+    }
+
+    .details .detail-intro {
+      margin: 0 0 2mm;
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 14pt;
+      line-height: 1.4;
+    }
+
+    .detail-image {
+      position: relative;
+      width: 178mm;
+      height: 118.7mm;
+      overflow: hidden;
+    }
+
+    .detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-labels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2mm;
+      margin-top: 0;
+    }
+
+    .detail-label {
+      padding: 5mm 4mm 6mm;
+      border-top: 1.5px solid var(--vino);
+      background: var(--papel);
+    }
+
+    .detail-label small {
+      display: block;
+      margin-bottom: 2mm;
+      color: var(--vino);
+      font-size: 7pt;
+      letter-spacing: .14em;
+    }
+
+    .detail-label strong {
+      font-family: "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-size: 14pt;
+      font-weight: 400;
+    }
+
+    .detail-label p {
+      margin: 2mm 0 0;
+      color: #5d5852;
+      font-size: 8pt;
+      line-height: 1.4;
+    }
+
+    @media screen {
+      body {
+        padding: 12mm 0;
+      }
+
+      .page {
+        margin: 0 auto 10mm;
+        box-shadow: 0 2mm 8mm rgba(0, 0, 0, .16);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="page cover">
+    <div class="cover-copy">
+      <!-- Sustituir por el nombre definitivo del proyecto -->
+      <h1 class="serif">NOMBRE PROVISIONAL</h1>
+      <p class="subtitle">Guía Fotográfica para colaboradores</p>
+      <p class="tagline">Fotografía su forma, sus proporciones y los detalles que lo hacen único.</p>
+    </div>
+    <div class="cover-visual"><img src="guia-fotografica-assets/perspectivas.png"
+        alt="Varias perspectivas de unos stilettos negros"></div>
+  </section>
+
+  <section class="page intro">
+    <p class="eyebrow">Antes de empezar</p>
+    <h2 class="serif">Lo importante es poder mirar bien el calzado.</h2>
+    <div class="rule"></div>
+    <p class="lead">No buscamos fotografías perfectas ni un entorno profesional. Preferimos imágenes naturales, claras y
+      completas.</p>
+
+    <div class="principles">
+      <article class="principle">
+        <div class="n">01</div>
+        <h3>Luz natural</h3>
+        <p>Utiliza luz natural siempre que puedas. Evita luz directa y el flash.</p>
+      </article>
+      <article class="principle">
+        <div class="n">02</div>
+        <h3>Fondo neutro</h3>
+        <p>Una pared, una cortina o una sábana ayudarán a no robar protagonismo al calzado.</p>
+      </article>
+      <article class="principle">
+        <div class="n">03</div>
+        <h3>Calzado completo</h3>
+        <p>Captura los zapatos sin que queden cortados ni aparezcan demasiado lejos.</p>
+      </article>
+    </div>
+    <div class="folio"><span>Guía Fotográfica</span><b>02</b></div>
+  </section>
+
+  <section class="page views">
+    <header>
+      <div>
+        <p class="eyebrow">Seis posiciones</p>
+        <h2 class="serif">Perspectivas</h2>
+      </div>
+      <p class="header-note"> Muévete alrededor del calzado, no solo lo gires. Cambiar ligeramente al fondo aporta
+        naturalidad.
+      </p>
+    </header>
+
+    <div class="contact-sheet">
+      <img src="guia-fotografica-assets/perspectivas.png" alt="Seis perspectivas fotográficas de un mismo calzado">
+      <span class="pin p1">1</span><span class="pin p2">2</span><span class="pin p3">3</span>
+      <span class="pin p4">4</span><span class="pin p5">5</span><span class="pin p6">6</span>
+    </div>
+
+    <div class="view-list">
+      <article class="view-item"><span class="num">1</span>
+        <div>
+          <h3>Tres cuartos delantero</h3>
+        </div>
+      </article>
+      <article class="view-item"><span class="num">2</span>
+        <div>
+          <h3>Perfil</h3>
+        </div>
+      </article>
+      <article class="view-item"><span class="num">3</span>
+        <div>
+          <h3>Frontal</h3>
+        </div>
+      </article>
+      <article class="view-item"><span class="num">4</span>
+        <div>
+          <h3>Cenital</h3>
+        </div>
+      </article>
+      <article class="view-item"><span class="num">5</span>
+        <div>
+          <h3>Tres cuartos trasero</h3>
+        </div>
+      </article>
+      <article class="view-item"><span class="num">6</span>
+        <div>
+          <h3>Suela</h3>
+        </div>
+      </article>
+    </div>
+    <div class="folio"><span>Guía Fotográfica</span><b>03</b></div>
+  </section>
+
+  <section class="page details">
+    <header>
+      <div>
+        <p class="eyebrow">Detalles</p>
+        <h2 class="serif">Acércate</h2>
+      </div>
+      <p class="detail-intro">Puedes enviarnos una fotografía cercana de cualquier elemento que merezca más detalle.</p>
+    </header>
+
+    <div class="detail-image"><img src="guia-fotografica-assets/detalles.png"
+        alt="Primeros planos de una hebilla, un aplique y unas tiras traseras"></div>
+    <div class="detail-labels">
+      <article class="detail-label"><small>01</small><strong>Cierres</strong>
+        <p>Hebillas, cordones, cremalleras o lazadas.</p>
+      </article>
+      <article class="detail-label"><small>02</small><strong>Adornos</strong>
+        <p>Pompones, lazos o piezas ornamentales.</p>
+      </article>
+      <article class="detail-label"><small>03</small><strong>Tiras traseras</strong>
+        <p>Talones abiertos, tiras, ajustes y pequeños cierres.</p>
+      </article>
+    </div>
+    <div class="folio"><span>Guía Fotográfica</span><b>04</b></div>
+  </section>
+</body>
+
+</html>
