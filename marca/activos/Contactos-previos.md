@@ -1,72 +1,53 @@
-# Contactos
+# Guía de Conversación con Colaboradoras
 
-Qué contar y cómo puede sonar. No es un guion letra a letra: se personaliza. El proceso está en [[04-flujo-de-colaboracion]].
+Pautas y fórmulas de apoyo para el diálogo con las dueñas de los zapatos.  
+*No es un guion para copiar letra por letra: adapta el tono a la relación que tengas con cada persona.*
 
-## Lo que somos al presentarnos
+---
 
-**El Par — Zapatos en detalle.**  
-Frase: Vuestros zapatos, vistos a través de las formas y los detalles que los hacen únicos.  
-Bio: Zapatos. Formas y detalles que cuentan cada par.  
-Arroba que mejor encaja de lo visto: `@elparzapatos`.
+## 1. Claves de Comunicación
 
-## Qué tiene que quedar claro (no hace falta en el primer mensaje)
+- **Tono natural y personal:** Trato de tú, cálido y cercano. Siempre incluye al menos una frase genuina sobre su zapato o su estilo.
+- **Sin agobios técnicos:** No hables de requisitos de cámara ni des explicaciones enciclopédicas en el primer contacto.
+- **El zapato como protagonista:** No juzgamos la marca, el precio ni si está de moda. Buscamos formas, siluetas, tiras, tacones o texturas interesantes.
+- **Transparencia total:** Explica desde el principio que ella decide su grado de visibilidad (crédito con nombre, @usuario o anónimo) y que puede pedir la retirada cuando quiera.
 
-Miramos el zapato como pieza, no como complemento. Formas, proporciones, materiales, detalles, y cómo se llaman las partes, en un lenguaje que se entiende. Los pares son de las colaboradoras. No hace falta saber de calzado ni hacer fotos de estudio. Guía breve, formulario, ella elige el crédito y puede pedir la retirada.
+---
 
-Dos tiempos: primero interés y encaje; después envío y guía.
+## 2. Fórmulas de Conversación por Fase
 
-## Lo que funcionó al principio
+### A. Primer Contacto (Presentar e invitar)
 
-Protagonismo del zapato, más que marca o tendencia, y pares de la comunidad. Una persona llegó a mandar fotos espontáneas en casa. Eso está bien como intención.
+> «Hola, [Nombre]. Estoy dando forma a **El Par**, un proyecto editorial donde miramos zapatos de cerca: sus formas, las proporciones, los detalles y cómo están construidos, trabajando con pares de personas de la comunidad.  
+> Me acordé de ti porque te vi [ese par / esos tacones / unos zapatos que tienes] y me parece que tienen una silueta genial para documentarla. ¿Te apetecería que le hagamos un reportaje a alguno de tus pares? Podemos elegirlo juntas.»
 
-Ajustes: no repartir la explicación en muchos mensajes ni repetir «detalles». No definir el proyecto por oposición al stock caro. Pedir entorno cotidiano y natural, no «que se note que no es un montaje». No dar a entender que solo valen adornos llamativos: también una silueta, una puntera, una abertura. Anticipar guía, formulario, una vista de más si hace falta, crédito.
+### B. Si pregunta en qué consiste la colaboración
 
-## Ejemplos (adaptar)
+> «Cada par se convierte en una pieza en la web con fotos desde varios ángulos y un texto que explica lo que hace único su diseño.  
+> No necesitas saber de calzado ni hacer fotos de estudio ni salir tú en imagen: solo los zapatos, en casa con buena luz natural y sobre un fondo despejado. Si te animas, te paso una guía visual cortita de 1 minuto y las subes por un formulario. Tú eliges cómo quieres aparecer acreditada (nombre, tu usuario de Instagram o sin mención).»
 
-**Primero, antes de lanzar**
+### C. Para elegir el par juntas
 
-> Hola, [nombre]. Estoy preparando El Par, un proyecto para mirar zapatos de cerca: formas, proporciones, materiales, lo que hace distinto cada par. La idea es hacerlo con los zapatos de las propias personas, y había pensado en ti porque [motivo]. ¿Te apetecería enseñarme algunos que tengas? Podemos elegirlos juntos.
+> «Si dudas entre varios, mándame una foto rápida con el móvil de los que tengas en mente. No hace falta que sean nuevos ni piezas de fiesta: nos puede interesar una puntera especial, la curvatura de un tacón, un juego de tiras o un acabado curioso.»
 
-**Si pregunta en qué consiste**
+### D. Envío de la guía y formulario
 
-> Cada par puede ser una pieza con fotos desde varios ángulos y un texto que explique lo que se ve. No hace falta estudio ni salir tú: solo los zapatos, luz natural, fondo tranquilo. Si encaja, te paso una guía corta y las subes por un formulario. Tú eliges si apareces con nombre, usuario o sin crédito.
+> «¡Ese par tiene muchísimo juego por [rasgo o motivo]! Te dejo por aquí la guía fotográfica en PDF para que veas las vistas base. Cuando tengas un ratito y luz natural, le sacas las fotos y me las subes por este formulario: [enlace]. No te preocupes si no quedan perfectas, la naturalidad es parte de la pieza.»
 
-**Elegir el par**
+### E. Si falta una vista o se necesita repetir una foto
 
-> Mandame una foto rápida de varios si quieres. No tienen que ser raros: puede interesarnos la silueta, la punta, las tiras, el tacón o un material.
+> «¡Muchísimas gracias por las fotos, están fenomenal! Para poder hacerle justicia total a la pieza, ¿podrías sacarle una toma rápida a [zona concreta: ej. el tacón desde el lateral / la suela]? Así se apreciará perfecto [el motivo]. Con la misma luz de antes nos sirve, no hace falta repetir ninguna de las otras.»
 
-**Guía**
+### F. Confirmación de crédito (antes de publicar)
 
-> Este par encaja por [rasgo]. Te paso la guía. Cuando las tengas: [formulario]. No hace falta que todas queden iguales.
+> «Ya tengo maquetada la pieza del par. Antes de lanzarla, quería confirmar contigo cómo prefieres figurar en los créditos: ¿con tu nombre de pila, tu cuenta de Instagram para etiquetarte, un enlace, o prefieres mantenerlo anónimo? Puedes combinar como te sientas más cómoda.»
 
-**Falta una vista**
+### G. Publicación y agradecimiento
 
-> Me ayudaría una foto más de [zona], porque ahí se ve [motivo]. Misma luz; no hace falta repetir el resto.
+> «¡Ya está publicada la pieza de tus zapatos! Puedes verla completa aquí: [enlace]. Muchísimas gracias por formar parte del archivo de El Par y prestarle tu calzado a la comunidad. Si la compartes en redes, ¡será un placer!»
 
-**Crédito, antes de publicar**
+### H. Si el material recibido no es viable técnicamente
 
-> ¿Cómo prefieres aparecer: sin nombre, con nombre, con usuario en la web, etiquetada en Instagram? Puedes combinar. Te lo confirmo antes de publicar.
+*Regla: jamás decir que el zapato «no es especial» ni criticar su dispositivo.*
 
-**Cuando ya hay piezas**
-
-> Llevo El Par, sobre las formas y los detalles de cada par, con fotos de sus dueñas. He pensado en ti por [motivo]. Un ejemplo: [enlace]. ¿Te apetecería participar con alguno?
-
-**Si el material no da para pieza**
-
-Pedir primero las vistas que falten. Si aun así no:
-
-> Gracias por las fotos. No se ve con claridad [aspecto], y prefiero no publicar una pieza que no haga justicia al par. Si más adelante quieres repetir esa vista u otro par, encantado.
-
-No decir que sus zapatos «no son especiales».
-
-## Del primer material recibido
-
-Tres fotos de casa, par completo, variación natural: buena intención. Faltaba la serie de vistas, había contraluz, los dos zapatos se tapaban. La respuesta es agradecer y pedir lo que falte con la guía, no descartar.
-
-## Tono
-
-Tú, con naturalidad. Vosotros solo en la voz pública a la comunidad. No prometer fecha antes de ver fotos. No hablar de precio, marca ni si está de moda. Personalizar al menos una frase del primer mensaje.
-
-## Pendiente para usar esto del todo
-
-Formulario con enlace. Canal y plazo de retirada. Si la colaboradora ve la pieza antes: crédito y datos, no la línea editorial entera.
+> «Muchas gracias por tomarte el tiempo de mandarme las fotos. Revisándolas con el equipo editorial, vemos que la luz no permite apreciar con nitidez [la textura / la silueta / los remates], y preferimos no publicar una entrada que no le haga justicia al par. Si más adelante te apetece probar con otro momento de luz o con otro calzado, estaré encantado de contar con tus zapatos.»
