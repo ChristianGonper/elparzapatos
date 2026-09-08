@@ -1,22 +1,35 @@
-# Nombre y presentación
+# Nombre y Presentación
 
-Somos **El Par — Zapatos en detalle**.
+Ficha de identidad de marca para canales públicos y materiales editoriales.
 
-**El Par** es la cabecera: el objeto de cada vez, y también la publicación. **Zapatos en detalle** dice qué hacemos.
+---
 
-En Instagram: El Par · Zapatos en detalle.  
-Bio: Zapatos. Formas y detalles que cuentan cada par.  
-Guía: El Par / Guía fotográfica para colaboradores.  
-Una pieza: Una pieza de El Par.
+## 1. Nomenclatura
 
-En inglés, si llega: El Par — Shoes in Detail. No hace falta traducir la marca.
+- **Nombre principal:** **El Par**
+- **Descriptor oficial:** **Zapatos en detalle**
+- **Fórmula combinada estándar:** **El Par — Zapatos en detalle**
+- **Uso internacional (si aplica):** El Par — Shoes in Detail (el nombre propio *El Par* no se traduce).
 
-El nombre solo no dice “zapatos”; el descriptor tiene que ir con él al principio. `El Par` es genérico: habrá colisiones de dominio y de búsqueda. Eso no lo cambia por ahora.
+---
 
-## Arroba
+## 2. Aplicaciones en Canales
 
-De lo comprobado, **`@elparzapatos`** es el identificador más claro.
+| Canal / Formato | Aplicación oficial |
+| --- | --- |
+| **Instagram (Nombre de cuenta)** | El Par · Zapatos en detalle |
+| **Instagram (Handle / Arroba)** | `@elparzapatos` |
+| **Biografía de Instagram** | Tus zapatos vistos de cerca. Las líneas, formas y detalles que cuentan cada silueta. |
+| **Lema oficial / Claim (Web y piezas)** | Aprender a leer un zapato: las piezas que construyen cada silueta. |
+| **Manifiesto web (Cabecera / Acerca de)** | Tus zapatos vistos de cerca. Miramos cada par para aprender a leer el calzado a través de sus formas, proporciones y las piezas que construyen cada silueta. |
+| **Guía para colaboradoras** | Tus zapatos en cámara · Guía sencilla de El Par |
+| **Pie de pieza web (Cierre de reportaje)** | Archivo El Par — Zapatos en detalle |
+| **Mención de pertenencia del calzado** | Desde el armario de [Nombre / @usuario] |
 
-Si más adelante hay uno más corto que conserve *El Par* y esté libre, se puede cambiar. Sin números.
+---
 
-Esta ficha es la nuestra. Si el nombre o el arroba se mueven, se actualiza aquí y en [[ESTADO]].
+## 3. Criterios de Uso
+
+1. **Acompañamiento obligatorio del descriptor:** Dado el carácter sintético del nombre *El Par*, en todas las cabeceras, firmas y materiales de presentación inicial debe figurar junto al descriptor: *Zapatos en detalle*.
+2. **Identificador en redes:** `@elparzapatos` es el handle oficial consolidado. No se emplean guiones bajos ni números añadidos.
+3. **Actualización:** Cualquier variación de denominación o identificadores debe registrarse de inmediato en este archivo y en [ESTADO.md](../ESTADO.md).

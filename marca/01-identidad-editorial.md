@@ -1,45 +1,42 @@
-# Identidad
+# Identidad Editorial
 
-**El Par** mira zapatos femeninos, aportados por quien los tiene. Cada par es una pieza: forma, proporciones, partes, materiales que se ven y los detalles que lo distinguen. Texto accesible, fotos desde varios ángulos.
+Documento de directrices internas para la gestión de **El Par — Zapatos en detalle**.
 
-La web guarda las piezas largas. Instagram acerca un detalle, un concepto o una recopilación, y es también cómo llegamos a nuevas colaboradoras.
+---
 
-## Qué nos diferencia
+## 1. Misión y Propósito
 
-No tratamos el zapato como un complemento dentro de un look. El objeto va primero. Trabajamos con pares de la comunidad, no con stock. Observamos con calma, nombramos lo que se ve y lo explicamos para quien no tiene el oficio. Las fotos son naturales. El texto es una lectura, no una ficha ni un banco de imágenes. Si la dueña quiere, el par lleva su nombre, su usuario o un comentario suyo.
+Analizar y documentar zapatos femeninos de armarios particulares, aportados por la comunidad. Tratamos el calzado como un objeto de diseño autónomo con valor propio, no como un mero accesorio supeditado a un estilismo o conjunto de ropa.
 
-## Cómo lo decimos
+### Voz y Lemas hacia el Exterior
 
-> Vuestros zapatos, vistos a través de las formas y los detalles que los hacen únicos.
+- **Lema principal (versión corta y contundente):**
+  > «Aprender a leer un zapato: las piezas que construyen cada silueta.»
+- **Biografía de Instagram (cálida y cercana):**
+  > «Tus zapatos vistos de cerca. Las líneas, formas y detalles que cuentan cada silueta.»
+- **Manifiesto / Versión larga (para cabecera o 'Acerca de' en la web):**
+  > «Tus zapatos vistos de cerca. Miramos cada par para aprender a leer el calzado a través de las formas, proporciones y piezas que construyen cada silueta.»
+- **Descriptor de marca:** **Zapatos en detalle.**
 
-Más corto:
+---
 
-> Zapatos. Formas y detalles que cuentan cada par.
+## 2. Principios Operativos Internos
 
-Descriptor: **Zapatos en detalle.**
+1. **El objeto es el protagonista:** Trabajamos con pares aportados por la comunidad, prescindiendo de catálogos comerciales o imágenes de stock.
+2. **Mirada reposada y archivo duradero:** Se percibe ajeno al contenido rápido o sensacionalista, huyendo del ruido de tendencias efímeras para construir un archivo con criterio de diseño que perdure en el tiempo.
+3. **Análisis profundo en web, síntesis selectiva en redes:**
+   - **En la web:** El análisis recorre la anatomía completa del par de forma narrativa y estructurada, siempre que aporte información visual genuina y sin relleno.
+   - **En redes y difusión:** Seleccionamos de 1 a 3 rasgos diferenciales para captar el interés sin abrumar.
+4. **Rigor visual y honestidad:** Solo afirmamos lo que la fotografía demuestra o lo que está documentado. Las piezas estructurales ocultas (como el cambrillón o contrafuertes) se mencionan de forma concisa únicamente cuando explican la razón de ser de una forma observable (ej. la curvatura del arco o el aplomo del tacón), sin extenderse en teorías que la imagen no enseña.
+5. **Claridad pedagógica:** Empleamos la terminología precisa del calzado (pala, garganta, enfranque, fuste) explicándola en contexto o vinculándola al glosario interactivo, haciéndola accesible a cualquier persona interesada en moda.
+6. **Fotografía honesta y natural:** Luz natural, fondos neutros y zapato completo. Las imágenes domésticas bien iluminadas son parte de la identidad documental de la publicación; no se persigue la artificialidad de un estudio publicitario.
+7. **Respeto a la colaboradora:** La persona que aporta el par decide su grado de visibilidad (nombre, handle de Instagram, mención web o anonimato absoluto) y mantiene en todo momento el derecho a solicitar la retirada de las imágenes.
 
-## Cómo miramos
+---
 
-Cada entrada es un par. El título habla del diseño o del rasgo que lo marca; marca y modelo, si se saben, van detrás.
+## 3. Alcance Editorial
 
-Usamos términos precisos cuando ayudan a ver. Se explican en contexto (y, en la web, en un glosario). No es una exhibición técnica.
-
-Solo afirmamos lo que muestran las fotos o lo que está documentado. Se observa todo; se publica lo que explica el par —tres a cinco rasgos, no el inventario.
-
-Las imágenes no pretenden estudio: luz natural, fondo tranquilo, el zapato entero. Mover un poco el par y la cámara entre vista y vista es parte del archivo.
-
-La colaboradora elige cómo aparece. Puede no aparecer.
-
-## Público y tono
-
-Quien se interesa por el calzado, la moda o el diseño, sin exigir conocimientos previos. Quien ya sabe tiene que encontrar rigor.
-
-Descriptivo antes que poético. Claro, cercano, atento al par y a quien lo aporta. Una valoración estética solo si la sostiene algo visible. Narrativo, no una ristra de etiquetas. No comercial por defecto.
-
-## Alcance
-
-Salones, agujas, bailarinas, sandalias de tacón, alpargatas, plataformas y lo que tenga interés visual. Formas, aberturas, tiras, tacones, bases, interior, texturas, ornamentos.
-
-No entramos en la fabricación. No filtramos por lujo, novedad ni “pieza perfecta”.
-
-Lanzamos en español. El inglés puede llegar después; el léxico interno ya guarda las equivalencias. El nombre **El Par** se queda como nombre propio.
+- **Siluetas prioritarias:** Salones, tacones (aguja, bloque, bobina, kitten, cubano), bailarinas, slingbacks, cuñas, plataformas y sandalias estructuradas.
+- **Fuera de alcance inicial:** Botas y botines (reservados para etapas posteriores), calzado deportivo técnico y sandalia plana sin estructura.
+- **Criterio de selección:** Interés visual, proporción o particularidad de diseño. No filtramos por nivel de precio, estatus de lujo ni estado de novedad.
+- **Idioma:** Publicación en español. Mantenemos la correspondencia con la terminología internacional en inglés dentro del glosario para futuras ampliaciones.
