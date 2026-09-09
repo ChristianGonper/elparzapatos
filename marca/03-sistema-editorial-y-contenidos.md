@@ -8,7 +8,7 @@ Manual operativo de producción de contenidos para web y redes sociales.
 
 - **La Web (El Archivo Central):** Publica la pieza completa por cada par analizado. Incluye galería fotográfica en alta resolución, texto narrativo estructurado, hipervínculos al glosario interactivo y conexiones temáticas (misma puntera, misma familia de tacón, mismo tipo de cierre).
 - **Instagram (`@elparzapatos`):** Descubrimiento visual, divulgación cercana y canal de captación de colaboradoras. No resume la pieza entera: extrae ángulos específicos y dinamiza el archivo.
-- **El Formulario de Colaboración:** Punto de entrada privado para la recepción de fotografías, metadatos del calzado (marca, modelo, antigüedad aproximada si se conocen), preferencias de crédito y consentimiento formal de uso.
+- **El Formulario de Colaboración:** Punto de entrada privado para la recepción de fotografías, metadatos del calzado (marca, modelo, si se conocen), preferencias de crédito y consentimiento formal de uso.
 
 ---
 
