@@ -34,7 +34,7 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 
 ### Fase 3. Envío de Guía y Recepción
 - **Momento:** Solo cuando la colaboradora confirma su entusiasmo o interés.
-- **Qué entregar:** PDF de la guía *Tus zapatos en cámara* y enlace al formulario de recepción.
+- **Qué entregar:** PDF de la guía *Tus zapatos en cámara* y enlace al formulario de recepción en Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl) (admite hasta siete pares por envío). Detalles operativos y de almacenamiento en [activos/tally-recepcion.md](activos/tally-recepcion.md); fuente de referencia en [activos/tally-formulario-colaboracion.md](activos/tally-formulario-colaboracion.md).
 - **Mensaje clave:** Recordar que son fotos caseras con luz natural y fondo tranquilo, sin necesidad de equipo profesional ni salir ella.
 
 ### Fase 4. Curaduría, Chequeo y Redacción
@@ -63,5 +63,5 @@ La colaboradora mantiene pleno control sobre la presencia de su par en el proyec
 
 1. **Recepción de solicitud:** Si solicita retirar su par por cualquier motivo (canal directo o formulario), se acusa recibo inmediatamente sin pedir justificaciones.
 2. **Despublicación:** Retirada de la pieza en la web y eliminación de publicaciones en redes sociales propias en un plazo máximo de 48 horas.
-3. **Gestión de archivos:** Consulta con la colaboradora si desea el borrado permanente de las fotos originales del archivo interno o si autoriza conservarlas de modo confidencial como registro histórico.
+3. **Gestión de archivos:** Consulta con la colaboradora si desea el borrado permanente de las fotos originales del archivo interno (copia local y envío en Tally) o si autoriza conservarlas de modo confidencial como registro histórico.
 4. **Confirmación:** Envío de confirmación por escrito una vez completada la despublicación.

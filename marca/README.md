@@ -22,5 +22,10 @@ Snapshot: [ESTADO](../ESTADO.md). Hoja de ruta: [05-estado-y-hoja-de-ruta](05-es
 | [plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md) | Plantilla ágil: chequeo A-J + 3-5 rasgos + redacción web |
 | [perspectivas_imagenes.md](activos/perspectivas_imagenes.md) | Las seis perspectivas fotográficas base |
 | [Contactos-previos.md](activos/Contactos-previos.md) | Guía de conversación y fórmulas ágiles con colaboradoras |
+| [formulario-colaboracion.html](activos/formulario-colaboracion.html) | Prototipo local (no envía) |
+| [tally-formulario-colaboracion.md](activos/tally-formulario-colaboracion.md) | Fuente para importar el formulario en Tally |
+| [tally-recepcion.md](activos/tally-recepcion.md) | Buzón Tally activo ([tally.so/r/Npj2bl](https://tally.so/r/Npj2bl)): almacenamiento, límites, gestión |
+| [tally-cover.png](activos/tally-cover.png) | Portada del formulario Tally (cabecera de El Par) |
+| [tally-cover.html](activos/tally-cover.html) | Fuente para volver a renderizar la portada |
 
 El vocabulario de anatomía está en [LEXICO](../conocimiento/LEXICO.md).

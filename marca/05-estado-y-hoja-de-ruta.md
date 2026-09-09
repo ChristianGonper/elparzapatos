@@ -50,6 +50,7 @@
 | Perspectivas base | Existe ([perspectivas_imagenes.md](activos/perspectivas_imagenes.md)) |
 | Guía de conversación | Existe ([Contactos-previos.md](activos/Contactos-previos.md)), ágil y adaptable |
 | Plantilla de entrada calzado | Existe ([plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md)), unificada y ágil |
+| Formulario de recepción | Publicado y operativo en Tally ([https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl)) |
 
 ## Orden de trabajo aceptado
 
@@ -59,7 +60,7 @@ Consolidado en [02-nombre-y-presentacion.md](02-nombre-y-presentacion.md): **El 
 
 ### 2. Flujo de colaboración y sistema editorial (Cerrado)
 
-Consolidados en [03-sistema-editorial-y-contenidos.md](03-sistema-editorial-y-contenidos.md) y [04-flujo-de-colaboracion.md](04-flujo-de-colaboracion.md). Pendiente técnico: montar el formulario web/Drive y fijar buzón de retirada.
+Consolidados en [03-sistema-editorial-y-contenidos.md](03-sistema-editorial-y-contenidos.md) y [04-flujo-de-colaboracion.md](04-flujo-de-colaboracion.md). Formulario de colaboración publicado y operativo en Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl) (documentado en [activos/tally-recepcion.md](activos/tally-recepcion.md)). Pendiente técnico: fijar canal y buzón de retirada.
 
 ### 2. Definir el flujo de colaboración
 
