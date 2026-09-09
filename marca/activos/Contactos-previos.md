@@ -40,7 +40,7 @@ Pautas y fórmulas de apoyo para el diálogo con las dueñas de los zapatos.
 
 ### F. Confirmación de crédito (antes de publicar)
 
-> «Ya tengo maquetada la pieza del par. Antes de lanzarla, quería confirmar contigo cómo prefieres figurar en los créditos: ¿con tu nombre de pila, tu cuenta de Instagram para etiquetarte, un enlace, o prefieres mantenerlo anónimo? Puedes combinar como te sientas más cómoda.»
+> «Ya tengo maquetada la pieza del par. Antes de lanzarla, quería confirmar contigo cómo prefieres figurar en los créditos: ¿con tu nombre de pila, tu cuenta de Instagram para etiquetarte, o prefieres mantenerlo anónimo? Puedes combinar como te sientas más cómoda.»
 
 ### G. Publicación y agradecimiento
 
