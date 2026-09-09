@@ -58,15 +58,19 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
 
 ## Fase 3: Estructura de Redacción Narrativa (Web)
 
-### 1. Título
-*Breve, centrado en el diseño y sin color (ej. «Salón destalonado con tacón bobina y pala profunda»)*  
+### 1. Título observacional
+*Frase que revela un rasgo o tensión formal genuino, demostrable en las fotos. Sin paradojas publicitarias ni metáforas vacías (ej. «Dos extremos, una silueta», «La cintura del tacón», «Una línea sobre el empeine»).*  
 **Título:** 
 
-### 2. Abstract / Entradilla
+### 2. Subtítulo taxonómico
+*Denominación anatómica completa: familia, escote o sujeción, material aparente y tipo de tacón o base (ej. «Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»).*  
+**Subtítulo:** 
+
+### 3. Abstract / Entradilla
 *2 a 3 frases directas para previsualización y cabecera web.*  
 > 
 
-### 3. Párrafos en Prosa (Demostración visual)
+### 4. Párrafos en Prosa (Demostración visual)
 *Agrupa por zonas afines, colocando al lado la imagen que demuestra cada afirmación. Marca entre corchetes los términos que enlazarán al glosario.*
 
 - **Párrafo 1 (La silueta y rasgo principal):**  
@@ -85,11 +89,11 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
   *Foto asociada:* `detalle.jpg`  
   *Borrador:* 
 
-### 4. Caracterización Final y Cierre
+### 5. Caracterización Final y Cierre
 *Párrafo de 2 a 4 frases que sintetiza la personalidad del calzado e incluye la voz de la dueña si aportó una reflexión.*  
 > 
 
-### 5. Ficha Técnica de Cierre
+### 6. Ficha Técnica de Cierre
 - **Familia:** 
-- **Marca y Modelo:** *(si se conocen; si no, dejar vacío)*
-- **Crédito:** Desde el armario de [Nombre / @usuario] (o mención anónima)
+- **Marca y Modelo:** *(si se conocen; si no, dejar vacío; información secundaria)*
+- **Crédito:** Armario de [Nombre / @usuario] (o mención anónima)
