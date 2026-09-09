@@ -6,7 +6,7 @@ Espacio de diseño, especificación y prototipado web de **El Par — Zapatos en
 
 - [DESIGN.md](DESIGN.md): sistema de diseño semántico (paleta, tipografía, estilo litográfico).
 - [ESPECIFICACION.md](ESPECIFICACION.md): especificación funcional y de componentes.
-- [DECISIONES.md](DECISIONES.md): protocolo de consolidación, decisiones aceptadas, debate y lo descartado.
+- [DECISIONES.md](DECISIONES.md): lo resuelto (aceptado, descartado, pospuesto) y lo que bloquea ahora. El trabajo está en [TAREAS.md](../TAREAS.md).
 
 ## Prototipos
 
