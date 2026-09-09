@@ -57,6 +57,7 @@ Atmosphere of an independent fashion publication, art catalog folio, and archiva
 - Understated floating popover card positioned directly next to the word with its definition and craft role, closing gracefully upon clicking outside or mouse leave without dimming or blocking the page background.
 
 ### 4.5. Pedagogical Image Dimension Overlay (Cotas Vectoriales Conmutables)
+- **Not in v1 publications.** Clean photograph only until a later web version (1.5 / 2). Spec below is for that phase; the local prototype may keep the toggle as a preview.
 - Subtle conmutator button `[ + Cotas anatómicas ]` / `[ − Ocultar cotas ]` placed in the corner of technical photographs.
 - When toggled active: overlays hairline SVG dimension lines (0.75px–1.2px) in `#9E6B55` and `#1C1A18` with micro-labels in `JetBrains Mono` pointing to exact anatomical transition nodes (*Quiebre del fuste*, *Garganta rebajada*, *Curvatura de enfranque*).
 - By default (off): preserves pure photographic contemplation without visual pollution.

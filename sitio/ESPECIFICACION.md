@@ -43,6 +43,8 @@ A diferencia de un catálogo rígido de comercio electrónico, el ritmo visual s
 - **Numeración Discreta:** Foliación sutil en el margen para orientar la lectura sin manchar la imagen ni evocar despieces industriales (opciones en definición: foliación minimalista romana `I, II, III`, viñeta editorial `· 01`, o código de lámina de moda `pl. 01`).
 
 ### 2.3. Sistema de Anotaciones Anatómicas en Imagen (Pedagogía Gráfica)
+**Fuera de v1.** Las primeras publicaciones van con fotografía limpia, sin interruptor ni capa de cotas. Este módulo se incorpora en una versión posterior de la web (1.5 o 2). El prototipo local puede conservarlo como avance de esa fase.
+
 Para que el lector entienda con precisión lo que observa sin saturar la composición:
 
 - **Control de Modo:** Cada fotografía técnica cuenta en su base o esquina superior con un micro-control conmutador: `[ + Cotas anatómicas ]` / `[ − Ocultar cotas ]`.
