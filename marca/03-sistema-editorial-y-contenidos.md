@@ -60,5 +60,15 @@ Para evitar convertir el perfil en un catálogo frío o en una clase académica 
 
 - **Luz:** Luz natural indirecta, sin sombras duras de flash ni sol abrasivo.
 - **Fondo y composición:** Entorno neutro y tranquilo (pared lisa, suelo despejado, madera, tela neutra). Se motiva que la colaboradora no solo gire el zapato sobre su eje, sino que ella misma se mueva ligeramente de posición respecto a la toma para aportar mayor realismo, frescura y ángulos espontáneos.
-- **Perspectivas base indispensables:** Tres cuartos delantero, perfil exterior, frontal, cenital, tres cuartos trasero y planta/suela.
-- **Detalles singulares** (ejemplos): Cierres, hebillas, costuras de remate, texturas, contrastes de material, forros o cualquier particularidad que distinga al par.
+
+### Perspectivas base
+
+Seis tomas indispensables y un detalle libre. Cada una enseña algo que las otras no cubren del todo:
+
+1. **Tres cuartos delantero** — La más útil como imagen principal. Enseña a la vez puntera, pala, abertura/escote, volumen y parte del lateral.
+2. **Perfil exterior** — Silueta general, tacón/cuña/plataforma y curva lateral.
+3. **Frontal** — Simetría, forma de puntera y lectura de la abertura delantera.
+4. **Cenital / superior** — Interior visible, plantilla, forma de la boca del zapato y relación puntera–garganta–empeine.
+5. **Tres cuartos trasero** — Talón, cierre trasero, collarín/talonera y continuidad del tacón.
+6. **Inferior / planta / suela** — Silueta de la suela, enfranque y base del tacón.
+7. **Detalle libre** — Textura, costuras, hebillas, trenzados, apliques o cualquier particularidad que distinga al par.
