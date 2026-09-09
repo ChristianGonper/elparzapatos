@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salón de aguja cerrado con puntera aguda y escote en U | El Par</title>
+  <!-- Google Fonts: Newsreader, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAF8F5',
+            'paper-muted': '#F3EFEA',
+            ink: '#1C1A18',
+            graphite: '#6B6661',
+            cognac: '#9E6B55',
+            'cognac-dark': '#7A4D38',
+            hairline: '#E8E3DC',
+            specimen: '#FFFFFF',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1C1A18;
+      -webkit-font-smoothing: antialiased;
+    }
+    .term-tooltip {
+      border-bottom: 1px dotted #9E6B55;
+      cursor: pointer;
+      position: relative;
+      font-weight: 500;
+      color: #1C1A18;
+      transition: color 0.15s ease, background-color 0.15s ease;
+      padding: 0 1px;
+    }
+    .term-tooltip:hover {
+      color: #9E6B55;
+      background-color: rgba(158, 107, 85, 0.08);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans relative">
+
+  <!-- TOP NAVBAR (AUTÓNOMA, LIMPIA, SIN BOTONES DE VENTA) -->
+  <header class="w-full border-b border-hairline bg-paper/95 backdrop-blur-sm sticky top-0 z-40">
+    <div class="flex justify-between items-center w-full px-6 sm:px-12 py-5 max-w-[1440px] mx-auto">
+      <div class="flex-1">
+        <a href="../index.html" class="inline-flex items-center gap-2 text-graphite font-mono text-xs uppercase tracking-widest hover:text-ink transition-colors">
+          <span>&larr;</span> Volver al Archivo
+        </a>
+      </div>
+      <div class="flex-1 text-center flex flex-col items-center justify-center">
+        <a href="../index.html" class="font-serif text-2xl sm:text-3xl text-ink tracking-tight leading-none hover:opacity-80 transition-opacity">
+          El Par
+        </a>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-graphite mt-1">
+          Zapatos en detalle
+        </span>
+      </div>
+      <div class="flex-1 flex justify-end">
+        <span class="font-mono text-xs uppercase tracking-widest text-cognac font-medium">
+          Salón de aguja
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="flex-grow">
+
+    <!-- CABECERA DEL ARTÍCULO & HERO -->
+    <section class="max-w-[1440px] mx-auto px-6 sm:px-12 pt-16 sm:pt-24 pb-16">
+      
+      <!-- TÍTULO PRINCIPAL CENTRADO -->
+      <div class="max-w-4xl mx-auto text-center mb-12 sm:mb-16">
+        <p class="font-mono text-xs uppercase tracking-[0.25em] text-cognac mb-4 font-medium">
+          Monografía de diseño
+        </p>
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl text-ink font-normal leading-[1.15] max-w-3xl mx-auto">
+          Salón de aguja cerrado con puntera aguda y escote en U
+        </h1>
+      </div>
+
+      <!-- ABSTRACT EDITORIAL EN 2 COLUMNAS (PLIEGO DE ARTE) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto mb-16 sm:mb-24 font-sans text-base sm:text-lg text-graphite leading-relaxed">
+        <div>
+          <p>
+            El salón clásico representa la abstracción definitiva del calzado formal. Desprovisto de cierres, hebillas o añadidos ornamentales, su existencia se sostiene en la tensión exacta entre la forma viva del pie y la arquitectura de la <span class="term-tooltip" data-term="horma">horma</span>.
+          </p>
+        </div>
+        <div>
+          <p>
+            La verticalidad del tacón de aguja impone una rigurosa disciplina postural. La <span class="term-tooltip" data-term="garganta">garganta</span> en U profunda despeja el empeine, mientras la curvatura del <span class="term-tooltip" data-term="enfranque">enfranque</span> y el aplomo del <span class="term-tooltip" data-term="fuste">fuste</span> distribuyen el peso sin recurrir a compensaciones en la suela.
+          </p>
+        </div>
+      </div>
+
+      <!-- FOTOGRAFÍA PRINCIPAL HERO (LIMPIA, EN GRAN FORMATO) -->
+      <div class="w-full max-w-5xl mx-auto bg-specimen border border-hairline p-4 sm:p-8">
+        <div class="w-full flex items-center justify-center bg-paper-muted/30 overflow-hidden">
+          <img 
+            src="../../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/02-tres-cuartos.png" 
+            alt="Salón de aguja cerrado, perspectiva tres cuartos" 
+            class="w-full h-auto object-contain max-h-[75vh]"
+          />
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PASEO NARRATIVO ANATÓMICO (GRID EN 2 COLUMNAS CON RATIO 7:5 ALTERNO) -->
+    <section class="max-w-[1440px] mx-auto px-6 sm:px-12 py-8 sm:py-16">
+      <div class="max-w-5xl mx-auto space-y-24 sm:space-y-36">
+
+        <!-- BLOQUE 1: FOTO A LA IZQUIERDA (COL-7) / TEXTO A LA DERECHA (COL-5) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center">
+          <div class="md:col-span-7 order-2 md:order-1 bg-specimen border border-hairline p-4 sm:p-6">
+            <div class="aspect-[4/3] bg-paper-muted/30 flex items-center justify-center overflow-hidden">
+              <img 
+                src="../../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/01-perfil.png" 
+                alt="Perfil exterior del salón de aguja" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="md:col-span-5 order-1 md:order-2 md:pl-4 space-y-4">
+            <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+              1. La silueta y el equilibrio del aplomo
+            </h2>
+            <p class="font-sans text-base text-graphite leading-relaxed">
+              La vista lateral revela el aplomo vertical riguroso. El tacón desciende perpendicular al suelo bajo el centro de gravedad del talón, proporcionando estabilidad sin desviaciones curvas. La tensión del <span class="term-tooltip" data-term="enfranque">enfranque</span> eleva el arco de forma continua, transfiriendo la carga hacia los metatarsos sin necesidad de plataforma delantera.
+            </p>
+            <p class="font-sans text-sm text-graphite/80 leading-relaxed">
+              Toda la cota de elevación (105&nbsp;mm) es resuelta por la inclinación limpia de la suela y rematada en una <span class="term-tooltip" data-term="tapa">tapa</span> milimétrica.
+            </p>
+          </div>
+        </div>
+
+        <!-- BLOQUE 2: TEXTO A LA IZQUIERDA (COL-5) / FOTO A LA DERECHA (COL-7) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center">
+          <div class="md:col-span-5 md:pr-4 space-y-4">
+            <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+              2. Puntera y línea de calce
+            </h2>
+            <p class="font-sans text-base text-graphite leading-relaxed">
+              En la vista frontal, la <span class="term-tooltip" data-term="puntera">puntera</span> aguda finaliza en un vértice nítido proyectado con un sutil <span class="term-tooltip" data-term="toe-spring">toe spring</span> que despeja la punta del suelo. La <span class="term-tooltip" data-term="pala">pala</span> cubre únicamente la base de los dedos, recortándose en una <span class="term-tooltip" data-term="garganta">garganta</span> en U baja y limpia.
+            </p>
+            <p class="font-sans text-sm text-graphite/80 leading-relaxed">
+              La <span class="term-tooltip" data-term="linea-de-calce">línea de calce</span> desciende velozmente en los flancos, despejando el empeine para generar una sensación de levedad estructural.
+            </p>
+          </div>
+          <div class="md:col-span-7 bg-specimen border border-hairline p-4 sm:p-6">
+            <div class="aspect-[4/3] bg-paper-muted/30 flex items-center justify-center overflow-hidden">
+              <img 
+                src="../../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/03-frente.png" 
+                alt="Vista frontal del salón de aguja" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOQUE 3: FOTO A LA IZQUIERDA (COL-7) / TEXTO A LA DERECHA (COL-5) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center">
+          <div class="md:col-span-7 order-2 md:order-1 bg-specimen border border-hairline p-4 sm:p-6">
+            <div class="aspect-[4/3] bg-paper-muted/30 flex items-center justify-center overflow-hidden">
+              <img 
+                src="../../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/04-talon.png" 
+                alt="Vista trasera y fuste del salón de aguja" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+          <div class="md:col-span-5 order-1 md:order-2 md:pl-4 space-y-4">
+            <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+              3. Arquitectura trasera y fuste
+            </h2>
+            <p class="font-sans text-base text-graphite leading-relaxed">
+              La perspectiva trasera evidencia la verticalidad de la costura dorsal que une los paneles de la <span class="term-tooltip" data-term="talonera">talonera</span>. El <span class="term-tooltip" data-term="contrafuerte">contrafuerte</span> interno abraza firmemente el talón para retener el pie sin necesidad de correas.
+            </p>
+            <p class="font-sans text-sm text-graphite/80 leading-relaxed">
+              Desde el <span class="term-tooltip" data-term="asiento">asiento</span> curvo, el <span class="term-tooltip" data-term="fuste">fuste</span> cilíndrico forrado en piel se adelgaza con precisión hasta conectar con la tapa de apoyo.
+            </p>
+          </div>
+        </div>
+
+        <!-- BLOQUE 4: TEXTO A LA IZQUIERDA (COL-5) / FOTO A LA DERECHA (COL-7) -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-14 items-center">
+          <div class="md:col-span-5 md:pr-4 space-y-4">
+            <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+              4. El enfranque y el plano de apoyo
+            </h2>
+            <p class="font-sans text-base text-graphite leading-relaxed">
+              La suela desvela un repliegue extremo en la zona media. El <span class="term-tooltip" data-term="enfranque">enfranque</span> se estrecha al ancho anatómico del arco, reforzado internamente por el <span class="term-tooltip" data-term="cambrillon">cambrillón</span> para impedir que el quiebre ceda bajo el peso corporal.
+            </p>
+            <p class="font-sans text-sm text-graphite/80 leading-relaxed">
+              La superficie de contacto con el suelo se reduce al óvalo plantar delantero y a la base circular del tacón, definiendo una marcha liviana y formal.
+            </p>
+          </div>
+          <div class="md:col-span-7 bg-specimen border border-hairline p-4 sm:p-6">
+            <div class="aspect-[4/3] bg-paper-muted/30 flex items-center justify-center overflow-hidden">
+              <img 
+                src="../../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/05-planta.png" 
+                alt="Vista de la planta y enfranque" 
+                class="w-full h-full object-contain"
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CIERRE, CITA EDITORIAL Y DATOS DEL PAR -->
+    <section class="max-w-[1440px] mx-auto px-6 sm:px-12 pt-12 pb-24">
+      
+      <!-- CITA TIPOGRÁFICA EDITORIAL CENTRADA (NEWSREADER ITALIC) -->
+      <div class="max-w-3xl mx-auto my-16 text-center">
+        <blockquote class="font-serif text-xl sm:text-2xl lg:text-3xl text-ink italic font-normal leading-relaxed">
+          &laquo;El salón de aguja no camina: percute. Es una herramienta arquitectónica diseñada para elevar y desafiar la gravedad simultáneamente.&raquo;
+        </blockquote>
+      </div>
+
+      <!-- MÓDULO INSET DE DATOS DEL PAR (SOBRIO, EN PAPEL LINO) -->
+      <div class="max-w-2xl mx-auto bg-paper-muted border border-hairline p-8 sm:p-12 mb-16">
+        <div class="space-y-4 font-mono text-xs sm:text-sm">
+          <div class="flex justify-between py-2 border-b border-hairline">
+            <span class="text-graphite uppercase tracking-widest text-[11px]">Silueta</span>
+            <span class="text-ink font-medium">Salón cerrado, escote en U</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-hairline">
+            <span class="text-graphite uppercase tracking-widest text-[11px]">Puntera</span>
+            <span class="text-ink font-medium">Aguda simétrica con toe spring</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-hairline">
+            <span class="text-graphite uppercase tracking-widest text-[11px]">Tacón</span>
+            <span class="text-ink font-medium">Aguja perpendicular (105 mm)</span>
+          </div>
+          <div class="flex justify-between py-2 border-b border-hairline">
+            <span class="text-graphite uppercase tracking-widest text-[11px]">Procedencia</span>
+            <span class="text-cognac font-medium">Armario particular (Elena R.)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- INVITACIÓN CONTEXTUAL Y BREVE -->
+      <div class="max-w-2xl mx-auto text-center p-8 bg-paper border border-hairline mb-16">
+        <p class="font-sans text-sm text-graphite leading-relaxed mb-4">
+          Este análisis es posible gracias al armario de una colaboradora. Si guardas un par cuya silueta, tacón o particularidad de diseño merezca ser mirada de cerca, nos encantaría documentarlo.
+        </p>
+        <a href="mailto:contacto@elpar.es?subject=Propuesta%20de%20par%20para%20El%20Par" class="inline-block text-xs font-mono uppercase tracking-wider text-ink border-b border-ink pb-0.5 hover:text-cognac hover:border-cognac transition-colors">
+          Proponer un par para documentar &rarr;
+        </a>
+      </div>
+
+      <!-- RETORNO LIMPIO AL ARCHIVO -->
+      <div class="max-w-2xl mx-auto pt-6 border-t border-hairline flex items-center justify-between text-xs font-mono">
+        <a href="../index.html" class="text-ink hover:text-cognac transition-colors flex items-center gap-1.5">
+          <span>&larr;</span> Volver a la colección
+        </a>
+        <span class="text-graphite/50 italic">El Par &mdash; Archivo</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- POPOVER FLOTANTE CONTEXTUAL (NO MODAL, NO OSCURECE EL FONDO) -->
+  <div 
+    id="term-popover" 
+    class="fixed hidden z-50 bg-specimen border border-hairline shadow-[0_8px_30px_rgb(0,0,0,0.08)] max-w-xs sm:max-w-sm p-4 text-left transition-opacity duration-150"
+    role="tooltip"
+  >
+    <div class="flex items-start justify-between gap-3 mb-1.5 border-b border-hairline pb-1.5">
+      <span id="popover-term" class="font-serif text-base font-normal text-ink">Término</span>
+      <button id="popover-close" class="text-graphite hover:text-ink text-sm font-mono leading-none p-1" aria-label="Cerrar">&times;</button>
+    </div>
+    <p id="popover-desc" class="font-sans text-xs text-graphite leading-relaxed">
+      Definición.
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-hairline bg-paper-muted py-12 text-graphite mt-auto">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+      <p>El Par &mdash; Zapatos en detalle. 2026.</p>
+      <div class="flex items-center space-x-6">
+        <a href="mailto:contacto@elpar.es" class="hover:text-ink transition-colors">Colaborar con un par</a>
+        <span class="text-hairline">|</span>
+        <a href="https://instagram.com/elparzapatos" target="_blank" class="hover:text-cognac">@elparzapatos</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT POPOVER CONTEXTUAL FLOTANTE -->
+  <script>
+    const definitions = {
+      pala: {
+        title: "Pala (vamp)",
+        desc: "Pieza delantera del corte que cubre el empeine y los dedos, extendiéndose desde la garganta hasta la puntera."
+      },
+      garganta: {
+        title: "Garganta (throat)",
+        desc: "Borde delantero del escote por donde asoma el pie. Puede presentar trazado en U, en V o asimétrico."
+      },
+      puntera: {
+        title: "Puntera (toe)",
+        desc: "Remate delantero de la pala que aloja los dedos. En este salón concluye en un vértice agudo que alarga la silueta."
+      },
+      "linea-de-calce": {
+        title: "Línea de calce (topline)",
+        desc: "Perímetro continuo superior del corte por el que entra el pie. Marca la frontera entre el zapato y la piel."
+      },
+      fuste: {
+        title: "Fuste (shaft/stem)",
+        desc: "Cuerpo vertical del tacón que conecta el asiento con la tapa inferior. En tacones de aguja aloja una varilla metálica interna."
+      },
+      enfranque: {
+        title: "Enfranque (waist/shank area)",
+        desc: "Zona curvada de la suela bajo el arco plantar. Aloja el cambrillón para mantener la altura sin quebrar la base."
+      },
+      cambrillon: {
+        title: "Cambrillón (shank)",
+        desc: "Pletina curva de acero o fibra situada bajo la palmilla que transmite el peso corporal entre el talón y el metatarso."
+      },
+      tapa: {
+        title: "Tapa (top lift)",
+        desc: "Pieza pequeña de caucho o poliuretano colocada en el extremo inferior del tacón que contacta directamente con el suelo."
+      },
+      talonera: {
+        title: "Talonera (quarter)",
+        desc: "Panel trasero del corte que abraza el talón. Se refuerza internamente con el contrafuerte para asegurar el pie."
+      },
+      contrafuerte: {
+        title: "Contrafuerte (heel counter)",
+        desc: "Refuerzo rígido oculto en la parte trasera del talón para fijar el calcáneo y evitar descalces."
+      },
+      asiento: {
+        title: "Asiento (seat)",
+        desc: "Base superior del tacón acoplada a la curvatura de la talonera y la suela trasera para garantizar un aplomo nivelado."
+      },
+      horma: {
+        title: "Horma (last)",
+        desc: "Molde tridimensional alrededor del cual se construye el zapato. Define el volumen, el arco y la silueta final."
+      },
+      "toe-spring": {
+        title: "Toe spring (quiebre de puntera)",
+        desc: "Elevación milimétrica de la punta respecto al plano del suelo que facilita la fase de despegue durante el paso."
+      }
+    };
+
+    const popover = document.getElementById('term-popover');
+    const popoverTerm = document.getElementById('popover-term');
+    const popoverDesc = document.getElementById('popover-desc');
+    const popoverClose = document.getElementById('popover-close');
+    let activeTermEl = null;
+
+    function showPopover(termEl, key) {
+      const data = definitions[key];
+      if (!data) return;
+
+      popoverTerm.textContent = data.title;
+      popoverDesc.textContent = data.desc;
+
+      popover.classList.remove('hidden');
+
+      const rect = termEl.getBoundingClientRect();
+      const popoverRect = popover.getBoundingClientRect();
+
+      let top = rect.bottom + 8;
+      let left = rect.left + (rect.width / 2) - (popoverRect.width / 2);
+
+      if (top + popoverRect.height > window.innerHeight - 16) {
+        top = rect.top - popoverRect.height - 8;
+      }
+
+      if (left < 16) left = 16;
+      if (left + popoverRect.width > window.innerWidth - 16) {
+        left = window.innerWidth - popoverRect.width - 16;
+      }
+
+      popover.style.top = `${top}px`;
+      popover.style.left = `${left}px`;
+      activeTermEl = termEl;
+    }
+
+    function hidePopover() {
+      popover.classList.add('hidden');
+      activeTermEl = null;
+    }
+
+    document.querySelectorAll('.term-tooltip').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (activeTermEl === el && !popover.classList.contains('hidden')) {
+          hidePopover();
+        } else {
+          showPopover(el, el.dataset.term);
+        }
+      });
+    });
+
+    popoverClose.addEventListener('click', (e) => {
+      e.stopPropagation();
+      hidePopover();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!popover.contains(e.target)) {
+        hidePopover();
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (!popover.classList.contains('hidden')) {
+        hidePopover();
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
