@@ -21,7 +21,6 @@ Marca `[x]` y mueve a **Hecho**.
 - [ ] Chequeo de las seis perspectivas (+ detalle libre); pedir solo la toma que falte
 - [ ] Elegir el primer par y redactar la pieza (plantilla)
 - [ ] Confirmar con ella crédito y citas
-- [ ] Primera pieza en Instagram: 2–3 perspectivas + crédito + enlace cuando exista
 
 ## Copys
 

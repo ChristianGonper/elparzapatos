@@ -14,11 +14,11 @@ Actualizado: 2026-09-10.
 
 ## Cubierto
 
-Identidad editorial (01 a 04, lemas, flujo de colaboración). Prototipos de portada, monografía y formulario local con [sitio/DESIGN.md](sitio/DESIGN.md). Tally operativo. Guía enviada a compañeras. La primera entrada real prueba formato web, Instagram y flujo; no hay piloto separado.
+Identidad editorial (01 a 04, lemas, flujo de colaboración). Prototipos de portada, monografía y formulario local con [sitio/DESIGN.md](sitio/DESIGN.md). Tally operativo. Guía enviada a compañeras. La primera entrada real prueba formato web y flujo; no hay piloto separado. v1 y primeras publicaciones: foto limpia, sin cotas. El lanzamiento en Instagram está pospuesto.
 
 ## Abierto
 
-Detalle en [TAREAS.md](TAREAS.md). Debate de cotas en v1 y lo pospuesto: [sitio/DECISIONES.md](sitio/DECISIONES.md).
+Detalle en [TAREAS.md](TAREAS.md). Lo pospuesto (Instagram, cotas en v1.5/v2, stack): [sitio/DECISIONES.md](sitio/DECISIONES.md).
 
 ## Cómo se actualiza
 
