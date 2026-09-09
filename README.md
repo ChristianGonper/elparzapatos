@@ -6,8 +6,7 @@
 
 | | |
 | --- | --- |
-| [conocimiento/](conocimiento/README.md) | Lo ya aprendido: léxico, lecciones, notas |
 | [marca/](marca/README.md) | Identidad, contenidos, colaboración, guía y plantillas |
 | [sitio/](sitio/README.md) | Diseño, especificación y prototipos de la web |
 
-Para ver en qué punto estamos: [ESTADO](ESTADO.md).
+Punto del día: [ESTADO](ESTADO.md). Qué hay que hacer: [TAREAS](TAREAS.md).

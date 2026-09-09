@@ -56,7 +56,7 @@ Para que el lector entienda con precisión lo que observa sin saturar la composi
 - Los términos de oficio presentes en el cuerpo del texto (`pala`, `garganta`, `collarín`, `enfranque`, `cambrillón`) se distinguen con un subrayado de puntos sutil en color cuero `#9E6B55`.
 - Al pasar el cursor (*hover*) o pulsar el término (*click / tap*), se despliega un popover flotante adyacente a la palabra con:
   - Nombre del término y función biomecánica/constructiva sintética (1-2 frases).
-  - Enlace discreto a la ficha de concepto en la base de conocimiento ([conocimiento/conceptos/](conocimiento/conceptos/)).
+  - Definición breve en el propio popover (1–2 frases). Sin ficha pedagógica enlazada desde este repositorio.
   - Cierre al mover el cursor, hacer clic fuera o pulsar la tecla `Esc`, sin bloquear ni oscurecer la pantalla.
 
 ### 2.5. Notas Concisas
