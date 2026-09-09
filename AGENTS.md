@@ -4,7 +4,9 @@ Responde en español.
 
 Tres carpetas: `conocimiento/` (aprender a leer los zapatos, a verlos), `marca/` (el proyecto editorial) y `sitio/` (la web, cuando exista).
 
-Al empezar, lee `ESTADO.md`. Si el chat y un archivo chocan, gana el archivo; si el criterio ha cambiado, actualiza el archivo. Esta carpeta es viva: se ajusta mientras hablamos y se pueden añadir documentos cuando haga falta.
+Al empezar, lee [ESTADO.md](ESTADO.md). Si el chat y un archivo chocan, gana el archivo; si el criterio ha cambiado, actualiza el archivo. Esta carpeta es viva: se ajusta mientras hablamos y se pueden añadir documentos cuando haga falta.
+
+Los enlaces a archivos locales en cualquier documento de la bóveda deben utilizar siempre la sintaxis de enlace de Markdown `[texto](ruta/al/archivo.md)` en lugar de backticks aislados o texto plano.
 
 ## Conocimiento
 

@@ -16,12 +16,16 @@ Manual operativo de producción de contenidos para web y redes sociales.
 
 Cada entrada documenta un único par bajo el principio rector: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
 
-1. **Título:** Breve y enfocado en la silueta, geometría o rasgo dominante (ej. *«Salón de escote asimétrico y tacón bobina»*). Evitar menciones de color salvo que sea estructural al diseño.
-2. **Abstract / Entradilla:** 2-3 líneas sintéticas que sitúan la pieza y sirven tanto de entradilla web como de texto para previsualizaciones o redes.
-3. **Cuerpo narrativo:** Texto en prosa fluida que agrupa zonas anatómicas afines (delantera, línea de calce/sujeción, elevación/base, interior/acabados). Cada observación técnica debe ir acompañada de la fotografía exacta que la demuestra.
-4. **Términos enlazados:** Las palabras técnicas de oficio se vinculan de manera interactiva al glosario (`pala`, `garganta`, `collarín`, `enfranque`).
-5. **Cierre y Caracterización:** Párrafo final de síntesis (2 a 4 frases) que resume la personalidad del zapato y, si procede, incluye una reflexión aportada por su dueña.
-6. **Ficha técnica secundaria:** Datos objetivos organizados (marca, modelo, material confirmado, crédito acordado). *Nota de diseño: su posición final en la página (lateral, desplegable o pie) y la distribución visual de los bloques en la web quedan abiertas a la fase de diseño de la interfaz.*
+1. **Título (Observación visual sincera):** Frase editorial que revela un rasgo o tensión formal genuino del zapato que las fotografías demostrarán, evitando artificios metafóricos o paradojas forzadas. Debe despertar curiosidad legítima a partir de la anatomía real.
+   - *Ejemplos:* Para un salón aguja: *«Dos extremos, una silueta»*. Para un tacón bobina: *«La cintura del tacón»* o *«Estrecharse para volver a abrirse»*. Para una merceditas: *«Una línea sobre el empeine»* o *«La tira que cambia el zapato»*.
+2. **Subtítulo taxonómico riguroso:** Denominación anatómica completa y sin rodeos que fija la tipología formal (ej. *«Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»*).
+3. **Procedencia y Armario:** Atribución visible al inicio (*«Armario de: [Colaboradora]»*), vinculada a las demás piezas cedidas por la misma persona.
+4. **Abstract / Entradilla:** 2-3 párrafos sintéticos que sitúan la pieza agrupando sus rasgos más característicos, haciendo de esta descripción formal una justificación implícita de su interés sin recurrir a explicaciones forzadas.
+5. **Cuerpo narrativo y Paseo Visual:** Prosa fluida con retícula flexible (bloques alternos 7:5, 5:7, 6:6 o dípticos). Cada afirmación técnica se sustenta en la fotografía contigua.
+6. **Marcas y cotas pedagógicas:** Sistema conmutable en imagen que permite a la lectora identificar las líneas y transiciones morfológicas clave de las que habla el texto.
+7. **Términos enlazados interactivos:** Palabras técnicas vinculadas a micro-popovers contextuales con definiciones concisas (`pala`, `garganta`, `collarín`, `enfranque`).
+8. **Testimonio de la dueña (Orgánico y condicional):** No se impone una tarjeta biográfica rígida. Si la colaboradora aporta un recuerdo, un matiz de uso o una reflexión personal sobre el par, se integra con naturalidad tipográfica (cita destacada o nota narrativa). Si no existe, no se fuerza.
+9. **Ficha de datos del par:** Bloque editorial creativo y sobrio (alejado de tablas rígidas de fila por campo), sin iconos ni sobrecarga técnica. Destaca con elegancia: tipo (salón, bailarina, merceditas, sandalia de tacón…), marca y modelo, material exterior (piel, ante, textil, satén…), acabado, color (principal y contraste si procede), clasificación del tacón/base y colaboradora.
 
 ---
 
