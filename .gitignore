@@ -46,7 +46,3 @@ ehthumbs.db
 # Grok / MCP local
 stitch-mcp-headers.txt
 .grok/*.log
-
-# Archivo
-archivo/
-archivo-grok-bot/
