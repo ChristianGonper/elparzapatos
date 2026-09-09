@@ -619,17 +619,23 @@
       align-items: center;
       gap: 2mm;
       padding: 2.5mm 4mm;
-      background: var(--ink);
+      background: var(--cognac);
       color: var(--paper);
       font-family: "JetBrains Mono", monospace;
       font-size: 8.5pt;
       letter-spacing: .05em;
       text-decoration: none;
-      border: 1px solid var(--ink);
+      border: 1px solid var(--cognac);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .form-btn-mock:hover {
+      background: var(--cognac-dark);
+      border-color: var(--cognac-dark);
     }
 
     .form-btn-mock span {
-      color: #D6CCC0;
+      color: #F3EFEA;
       font-size: 7.8pt;
     }
 
@@ -964,8 +970,8 @@
         <div class="send-step">
           <strong>1. Vía de envío</strong>
           <p>Puedes enviárnoslas por mensaje directo en Instagram o a través de nuestro formulario:</p>
-          <a href="#formulario" class="form-btn-mock">
-            Abrir formulario de recepción <span>· elpar.es/colaborar →</span>
+          <a href="https://tally.so/r/Npj2bl" target="_blank" rel="noopener" class="form-btn-mock">
+            Formulario de recepción
           </a>
         </div>
         <div class="send-step">
