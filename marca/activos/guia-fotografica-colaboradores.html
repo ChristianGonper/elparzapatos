@@ -39,6 +39,8 @@
     body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      overflow-x: hidden;
       background: #E8E3DC;
       color: var(--ink);
     }
@@ -50,9 +52,15 @@
       print-color-adjust: exact;
     }
 
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .page {
       position: relative;
       width: 210mm;
+      max-width: 100%;
       height: 297mm;
       overflow: hidden;
       page-break-after: always;
@@ -650,36 +658,103 @@
       }
     }
 
-    /* Adaptación nativa y lectura cómoda para móviles */
+    /* Adaptación para pantallas de móvil / tablet: vista de páginas como hojas de documento / PDF */
     @media screen and (max-width: 768px) {
       body {
-        padding: 0;
-        background: var(--paper);
+        padding: 12px 10px !important;
+        background: #E8E3DC !important;
+        overflow-x: hidden;
       }
 
       .page {
         width: 100% !important;
+        max-width: 100% !important;
         height: auto !important;
         min-height: auto !important;
-        margin: 0 !important;
-        padding: 22px 18px 28px !important;
-        box-shadow: none !important;
-        border-bottom: 1px solid var(--hairline);
+        margin: 0 auto 16px !important;
+        padding: 24px 18px 24px !important;
+        background: var(--paper);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08) !important;
+        border-radius: 2px;
+        border-bottom: none !important;
         page-break-after: auto;
+        box-sizing: border-box !important;
+        overflow: hidden;
       }
 
+      /* Portada (Página 1) */
       .cover {
-        min-height: 100vh;
+        background: var(--ink) !important;
+        min-height: auto !important;
+        padding: 0 !important;
       }
 
       .cover-copy {
-        padding: 24px 16px 0 !important;
+        padding: 24px 18px 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      .cover-brand {
+        margin-bottom: 6mm !important;
+      }
+
+      .cover h1 {
+        font-size: 28px !important;
+        line-height: 1.08 !important;
+        word-break: normal;
+      }
+
+      .cover .tagline {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 14.5px !important;
+        line-height: 1.45 !important;
+        margin-top: 14px !important;
       }
 
       .cover-visual {
         position: relative !important;
-        height: 300px !important;
-        margin-top: 24px;
+        width: 100% !important;
+        height: 240px !important;
+        margin-top: 18px !important;
+        bottom: auto !important;
+      }
+
+      .cover-mark {
+        position: absolute !important;
+        right: 14px !important;
+        bottom: 12px !important;
+      }
+
+      /* Página 2: Intro */
+      .intro {
+        padding: 24px 18px 24px !important;
+      }
+
+      .intro h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 23px !important;
+        line-height: 1.15 !important;
+      }
+
+      .intro .lead {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+      }
+
+      .privacy-card {
+        margin-top: 16px !important;
+        padding: 16px 14px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Páginas 3 y 4 */
+      .views,
+      .details {
+        padding: 24px 18px 24px !important;
       }
 
       .views header,
@@ -687,29 +762,49 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 12px !important;
+        gap: 10px !important;
+        margin: 0 0 14px 0 !important;
+        width: 100% !important;
+      }
+
+      .views header>div,
+      .details header>div {
+        width: 100% !important;
+      }
+
+      .views h2,
+      .details h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 22px !important;
+        line-height: 1.15 !important;
       }
 
       .views .header-note,
       .details .detail-intro {
         width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
       }
 
       .sheets-stack {
-        gap: 16px !important;
+        gap: 14px !important;
+        width: 100% !important;
       }
 
       .contact-sheet,
       .detail-image {
         width: 100% !important;
+        max-width: 100% !important;
         height: auto !important;
-        aspect-ratio: 3 / 2 !important;
+        aspect-ratio: 16 / 10 !important;
+        box-sizing: border-box !important;
       }
 
       .pin {
-        width: 22px !important;
-        height: 22px !important;
-        font-size: 11px !important;
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 10.5px !important;
       }
 
       .p1 {
@@ -764,6 +859,31 @@
         min-height: auto !important;
       }
 
+      .collab-footer-card {
+        margin-top: 16px !important;
+        padding: 16px 14px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      .collab-footer-card .cf-top {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+      }
+
+      .form-btn-mock {
+        display: flex !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 10px 14px !important;
+        font-size: 13px !important;
+        margin-top: 8px !important;
+      }
+
       .folio {
         position: static !important;
         margin-top: 20px !important;
@@ -787,6 +907,27 @@
       .send-step strong,
       .privacy-col strong {
         font-size: 15.5px !important;
+      }
+    }
+
+    @media print {
+      body {
+        padding: 0 !important;
+        background: transparent !important;
+      }
+
+      .page {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: initial;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        overflow: hidden !important;
+      }
+
+      .page:last-child {
+        page-break-after: auto !important;
       }
     }
   </style>
