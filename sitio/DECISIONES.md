@@ -38,6 +38,9 @@ flowchart TD
 - **Sistema de diseño definitivo:** Consolidado y fijado [DESIGN.md](DESIGN.md) como la especificación visual y semántica definitiva del proyecto.
 - **Sin piloto paralelo:** la primera entrada real prueba a la vez el formato web, la galería, las imágenes junto al texto, el paso a Instagram y el flujo de colaboración.
 - **Stack de publicación diferido:** gestor de contenido, modelo de datos, relaciones entre entradas, categorías y buscador, y arquitectura multilingüe se deciden después de esa primera pieza, no antes.
+- **Formulario Tally provisional:** el canal actual ([tally.so/r/Npj2bl](https://tally.so/r/Npj2bl)) se sustituye cuando el sitio tenga formulario propio. No es una tarea de ahora.
+- **Revisión de la colaboradora:** crédito y citas, no la pieza completa, salvo excepción.
+- **Formatos de Instagram:** tres formatos ya definidos en [03](../marca/03-sistema-editorial-y-contenidos.md) (stories de detalle, carrusel de concepto, presentación de par). No hay que inventar una estrategia de canal aparte.
 
 ### Entrada Monográfica y Estructura Editorial
 - **Titulación nacida de la mirada honesta:** El título del par revela una observación visual auténtica que la fotografía demuestra (ej. *«Dos extremos, una silueta»*, *«La cintura del tacón»*, *«Una línea sobre el empeine»*), sin forzar paradojas metafóricas artificiales.
@@ -64,6 +67,11 @@ flowchart TD
 ### 3.2. Sección «Sobre El Par» / «Nuestra Mirada»
 - **Planteamiento:** Documento fundacional accesible desde la cabecera y el pie que expone el manifiesto de rigor técnico, la captura con luz natural y el estudio del calzado doméstico sin artificios publicitarios.
 
+### 3.3. Cotas en la primera publicación
+- **Tensión:** el prototipo ya tiene el interruptor de cotas (Variante A, consolidada más arriba). En la lista de trabajo se llegó a plantear publicar la v1 **sin** anotaciones sobre la imagen.
+- **Qué falta decidir:** si la primera pieza real sale con cotas conmutables o con foto limpia solamente. Hasta entonces no es una tarea: es esta decisión.
+- **Si se elige con cotas:** hará falta una guía breve de cómo se marcan (oficio, no diseño).
+
 ---
 
 ## 4. Archivo de Ideas Descartadas o Pospuestas
@@ -80,3 +88,4 @@ flowchart TD
 | **Traducción completa al inglés** | **Pospuesta** | El archivo se publica en español; la correspondencia EN vive en el glosario. No bloquea prototipo ni primera pieza. |
 | **Categorías exhaustivas y ritmo final de publicación** | **Pospuesta** | Se afinan con un archivo real, no a priori. |
 | **Monetización, afiliados o colaboraciones comerciales** | **Pospuesta** | Fuera de alcance mientras se fija el archivo editorial. |
+| **Formulario de recepción «definitivo»** | **Pospuesta** | Tally cubre el piloto. El formulario propio espera a la web. |
