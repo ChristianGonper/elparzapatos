@@ -1,10 +1,17 @@
 # Design System: El Par — Zapatos en detalle
-**Project ID:** 8645313318093331337
+**Project ID:** 8645313318093331337  
+**Design System Asset ID:** 3592a1acabaa418dad4b8488ee9c3bcd (Archival Monograph)
+
+---
 
 ## 1. Visual Theme & Atmosphere
-Atmosphere of an independent fashion publication and archival monograph. Quiet, warm, intellectual, and unhurried. The shoe is treated as an autonomous sculptural and architectural object. Negative space is generous and intentional, inspired by fine book design, art catalog folios, and natural daylight. Zero marketing clutter, zero screaming CTAs, zero badge pollution over images, zero generic cards with heavy drop shadows.
+
+Atmosphere of an independent fashion publication, art catalog folio, and archival monograph. Quiet, warm, intellectual, and unhurried. The shoe is treated as an autonomous sculptural and architectural object. Negative space is generous and intentional, inspired by fine book design, art catalog folios, and natural daylight. Zero marketing clutter, zero screaming CTAs, zero badge pollution over images, zero generic cards with heavy drop shadows.
+
+---
 
 ## 2. Color Palette & Roles
+
 - **Paper Canvas (`#FAF8F5`):** Warm alabaster/parchment base across all viewports.
 - **Surface Elevation / Muted Linen (`#F3EFEA`):** Used for abstract callouts, quiet inset panels, and the collaboration invitation block.
 - **Specimen Card White (`#FFFFFF`):** Archival crisp white reserved for image mats and clean specimen frames.
@@ -13,26 +20,71 @@ Atmosphere of an independent fashion publication and archival monograph. Quiet, 
 - **Cognac Leather Accent (`#9E6B55`):** Natural vegetable-tanned leather warmth for subtle dotted term underlines and active indicators.
 - **Hairline Dust Border (`#E8E3DC`):** Crisp, 1px architectural divider and frame lines.
 
+---
+
 ## 3. Typography Rules
-- **Display & Headlines (`Newsreader` / `Playfair Display`, Serif):** Elegant, high-contrast, editorial serif conveying historical provenance and design authority. Title cases and subtle italics for monographs.
-- **Body Prose (`Plus Jakarta Sans` / `Inter`, Sans):** Clean, spacious, highly legible humanistic grotesque sans-serif dedicated to long-form reading (max 65ch width, line-height 1.75).
-- **Technical Annotations & Metrics (`JetBrains Mono`, Monospace):** Monospaced precision reserved for taxonomy labels, dates, and technical data.
+
+- **Display & Headlines (`Newsreader`, Serif):** Elegant, high-contrast, editorial serif conveying historical provenance and design authority. Title cases and subtle italics for monographs (`«Dos extremos, una silueta»`, `«A ras de suelo, la curva justa»`).
+- **Body Prose (`Plus Jakarta Sans` / `Inter`, Sans):** Clean, spacious, highly legible humanistic grotesque sans-serif dedicated to long-form reading (max 65ch width, line-height 1.75). Fluid, responsive font sizes without locking pixels in stone.
+- **Technical Annotations & Metrics (`JetBrains Mono`, Monospace):** Monospaced precision reserved for taxonomy labels, dimensions, foliage numbers (`· 01`), and data metadata.
+
+---
 
 ## 4. Component Stylings
-- **Shoe Specimen Cards:** Sharp rectangular layout (`rounded-none`), crisp 1px `#E8E3DC` border, `#FFFFFF` image container with warm neutral backing, clean photograph with no badges or text overlay, title in serif, and 2-line abstract excerpt in sans.
-- **Contextual Anatomical Popover:** Subtle dotted underline in `#9E6B55` beneath anatomical terms (`pala`, `garganta`, `fuste`, `enfranque`); clicking triggers an understated floating popover card positioned directly next to the word with its definition, without dimming or blocking the page background.
-- **Datos del Par:** Minimalist border-collapse data list with 1px `#E8E3DC` hairlines, mono labels, and clean values—free of catalog codes or reference numbers.
-- **Editorial Navigation Bar:** Austere, quiet header with the wordmark **El Par** in commanding serif and descriptor **Zapatos en detalle**. No aggressive buttons.
+
+### 4.1. Editorial Navigation Bar
+- Austere, quiet header with the wordmark **El Par** in commanding serif and descriptor **Zapatos en detalle**.
+- Navigation links: *Archivo*, *Ver Armarios*, *Sobre El Par* (o *Nuestra Mirada*).
+- Complete absence of commercial buttons, carts, or aggressive calls to action.
+
+### 4.2. Hero Piece (Portada)
+- Prominent full-width split card highlighting a key specimen.
+- Left column: Specimen photograph in generous square mat over subtle muted backing.
+- Right column: Minimal metadata header (`Pieza Destacada` / `Armario de [Nombre]`), headline in serif, concise 1-line taxonomic identification, and quiet link `Ver estudio →`. Redundant descriptive prose is suppressed to let the photography and whitespace lead.
+
+### 4.3. Shoe Specimen Cards (Cuadrícula de Archivo)
+- Sharp rectangular layout (`rounded-none`), crisp 1px `#E8E3DC` border, `#FFFFFF` image container with warm neutral backing.
+- Clean photograph with zero badges, labels, or overlays.
+- Content block: Attentive, non-invasive metadata:
+  - Provenance: `Armario de [Nombre]` in subtle mono.
+  - Title: Editorial observation headline in serif.
+  - Subtitle: Clear 1-line taxonomic identification in muted sans.
+- Natural interactivity: The entire card / title serves as the natural link; no repetitive `Leer análisis anatómico` action lines or dividers.
+
+### 4.4. Contextual Anatomical Popover
+- Subtle dotted underline in `#9E6B55` beneath anatomical terms (`pala`, `garganta`, `fuste`, `enfranque`, `cambrillón`).
+- Triggered by both **hover** (desktop) and **click / tap** (mobile and pointer).
+- Understated floating popover card positioned directly next to the word with its definition and craft role, closing gracefully upon clicking outside or mouse leave without dimming or blocking the page background.
+
+### 4.5. Pedagogical Image Dimension Overlay (Cotas Vectoriales Conmutables)
+- Subtle conmutator button `[ + Cotas anatómicas ]` / `[ − Ocultar cotas ]` placed in the corner of technical photographs.
+- When toggled active: overlays hairline SVG dimension lines (0.75px–1.2px) in `#9E6B55` and `#1C1A18` with micro-labels in `JetBrains Mono` pointing to exact anatomical transition nodes (*Quiebre del fuste*, *Garganta rebajada*, *Curvatura de enfranque*).
+- By default (off): preserves pure photographic contemplation without visual pollution.
+
+### 4.6. Datos del Par (Bloque de Créditos Tipográficos Continuos)
+- Fluid, continuous editorial folio bordered by subtle top and bottom hairlines (no rigid multi-row forms or icons).
+- Refined typography grouping:
+  - Category and Model: *Salón clásico · Christian Louboutin So Kate* (in serif/italic).
+  - Material and Finish: *Piel vacuno en acabado charol mate · Negro profundo* (in uppercase sans).
+  - Base and Contributor: *Tacón aguja 90 mm · Armario de Carmen* (in mono accent).
+
+### 4.7. Collaboration Block («Abrir mi armario»)
+- Quiet card at the close of archive and monographs on `#F3EFEA` paper with a hairline border.
+- Tone of complicity and intimacy: inviting readers to open the doors of their own wardrobes for pieces with distinct architectural lines.
+- Quiet action link: `Abrir mi armario →`.
+
+---
 
 ## 5. Layout Principles
-- **Home Grid:** Rhythmic 2-column or 3-column gallery on desktop, single column fluid flow on mobile.
-- **Monograph Entry Layout (Paseo Visual Alterno):**
-  - *Hero Specimen:* La primera imagen de la entrada (perspectiva principal tres cuartos) se presenta en gran formato a ancho completo de la caja de lectura, acompañada del título en serif y el abstract enmarcado.
-  - *Walkthrough en 2 columnas alternas (Desktop):* Los bloques anatómicos siguientes se estructuran en dos columnas en escritorio, alternando de forma rítmica la posición de la imagen y el texto:
-    - Bloque 1: Texto explicativo a la izquierda, fotografía de perfil a la derecha.
-    - Bloque 2: Fotografía frontal a la izquierda, texto explicativo a la derecha.
-    - Bloque 3: Texto explicativo a la izquierda, fotografía de talón a la derecha.
-    - Bloque 4: Fotografía de planta/enfranque a la izquierda, texto explicativo a la derecha.
-  - *Adaptación Mobile:* En pantallas móviles, las dos columnas colapsan de manera natural en un flujo vertical continuo (encabezado del bloque, texto explicativo y fotografía debajo).
-- **Purity:** Images are left unadorned without floating badges or redundant caption text; all descriptive information lives in the accompanying narrative.
-- **Elevation:** Flat, lithographic depth established strictly through hairlines and paper tier contrast—no fuzzy modern drop shadows.
+
+- **Home Grid:** Responsive 3-column / 2-column gallery on desktop, single-column fluid flow on mobile.
+- **Monograph Entry Layout (Paseo Visual Flexible):**
+  - *Hero Specimen:* La toma de apertura (perspectiva tres cuartos exterior) a gran formato en paspartú limpio, con título y entradilla a dos columnas.
+  - *Ratios de Retícula Flexible:*
+    - `7:5`: Desarrollo conceptual amplio con fotografía apaisada.
+    - `5:7`: Fotografía marcadamente vertical (talón, caña) con texto conciso de 3 líneas, **sin forzar párrafos de relleno**.
+    - `6:6`: Equilibrio simétrico entre texto y análisis morfológico.
+    - `Dípticos`: Dos fotografías contiguas (ej. frontal + planta) analizadas bajo un texto común de contacto y convergencia.
+  - *Foliación Editorial:* Indicadores marginales discretos con punto tipográfico (`· 01`, `· 02`, `· 03`...) que orientan la lectura sin ensuciar la fotografía.
+- **Purity:** Images are left unadorned without floating badges, category tags, or catalogue codes; all descriptive knowledge lives in the accompanying prose.
+- **Elevation:** Strictly flat, lithographic depth established through hairlines (`#E8E3DC`) and paper canvas contrasts (`#FAF8F5` vs. `#F3EFEA` vs. `#FFFFFF`)—zero fuzzy modern drop shadows.
