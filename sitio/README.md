@@ -1,15 +1,14 @@
 # Sitio
 
-Espacio de diseño, especificación técnica y prototipado web de **El Par — Zapatos en detalle**.
+Espacio de diseño, especificación y prototipado web de **El Par — Zapatos en detalle**.
 
-## Documentación Activa
+## Documentación
 
-- [DESIGN.md](file:///c:/Users/chris/Documents/Proyectos/Shoes-moda-zapatos/sitio/DESIGN.md): Sistema de diseño semántico (paleta, tipografía, estilo litográfico).
-- [ESPECIFICACION.md](file:///c:/Users/chris/Documents/Proyectos/Shoes-moda-zapatos/sitio/ESPECIFICACION.md): Especificación funcional, componentes (Home, Entrada monográfica, paseo visual flexible, cotas pedagógicas).
-- [DECISIONES.md](file:///c:/Users/chris/Documents/Proyectos/Shoes-moda-zapatos/sitio/DECISIONES.md): Protocolo de sincronización, registro de decisiones aceptadas, propuestas en debate y archivo de ideas descartadas.
+- [DESIGN.md](DESIGN.md): sistema de diseño semántico (paleta, tipografía, estilo litográfico).
+- [ESPECIFICACION.md](ESPECIFICACION.md): especificación funcional y de componentes.
+- [DECISIONES.md](DECISIONES.md): protocolo de consolidación, decisiones aceptadas, debate y lo descartado.
 
-## Prototipos y Código
+## Prototipos
 
-- `index.html`: Prototipo local de la portada.
-- `entradas/salon-aguja.html`: Prototipo local de monografía de calzado (Lección 01).
-
+- [index.html](index.html): portada local.
+- [entradas/salon-aguja.html](entradas/salon-aguja.html): monografía local (Lección 01).

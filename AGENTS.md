@@ -2,22 +2,27 @@
 
 Responde en español.
 
-Tres carpetas: `conocimiento/` (aprender a leer los zapatos, a verlos), `marca/` (el proyecto editorial) y `sitio/` (la web, cuando exista).
+Al empezar, lee [ESTADO.md](ESTADO.md). Si el chat y un archivo chocan, gana el archivo. Si el criterio cambia, se actualiza el archivo en el mismo turno.
 
-Al empezar, lee [ESTADO.md](ESTADO.md). Si el chat y un archivo chocan, gana el archivo; si el criterio ha cambiado, actualiza el archivo. Esta carpeta es viva: se ajusta mientras hablamos y se pueden añadir documentos cuando haga falta.
+Enlaces locales siempre `[texto](ruta/al/archivo.md)`, nunca backticks aislados ni rutas en texto plano.
 
-Los enlaces a archivos locales en cualquier documento de la bóveda deben utilizar siempre la sintaxis de enlace de Markdown `[texto](ruta/al/archivo.md)` en lugar de backticks aislados o texto plano.
+## Mapa
 
-## Conocimiento
+Tres carpetas. El detalle vive dentro de cada una.
 
-Las definiciones cortas están en `LEXICO.md`. El texto largo de lo ya explicado, en `EXPLICACIONES.md`. Las fotos anotadas, en `lecciones/`. Si hay que dejar una explicación para releer, escríbela en `conceptos/` con una foto relativa; no copies el léxico entero.
+| Carpeta | Qué es | Dónde está el detalle |
+| --- | --- | --- |
+| [conocimiento/](conocimiento/README.md) | Aprender a mirar zapatos | [conocimiento/README.md](conocimiento/README.md) y skill `vault-calzado` |
+| [marca/](marca/README.md) | Identidad, contenidos, colaboración | [marca/README.md](marca/README.md) |
+| [sitio/](sitio/README.md) | Diseño, especificación y prototipos de la web | [sitio/README.md](sitio/README.md) |
 
-Si cambia el mapa, actualiza el léxico y `PROGRESO.md`. `PLAN.md` solo si se cubre o se abre un bloque. No cierres lo que aún no está definido.
+Snapshot del día: [ESTADO.md](ESTADO.md).
 
-## Marca
+## Siempre
 
-Lo escrito en `marca/` se actualiza cuando hablemos. Si se decide algo nuevo, va al documento que toque y una línea en `ESTADO.md`. Pueden aparecer archivos nuevos; la lista de ahora no es definitiva.
+- Un acuerdo nuevo se escribe en el documento que lo rige y se deja una línea en [ESTADO.md](ESTADO.md) (fecha y lo que cambió).
 
-## Sitio
+- **Conocimiento.** Operar con la skill `vault-calzado`: [LEXICO.md](conocimiento/LEXICO.md) es el índice; las fichas atómicas van en [conceptos/](conocimiento/conceptos/); las crónicas y láminas, en [lecciones/](conocimiento/lecciones/). Si cambia el mapa, actualizar léxico y [PROGRESO.md](conocimiento/PROGRESO.md); [PLAN.md](conocimiento/PLAN.md) solo si se cubre o se abre un bloque. No cerrar lo que aún no está definido.
 
-Vacío hasta que pidamos construirlo.
+- **Marca.** Identidad y operación en [01](marca/01-identidad-editorial.md)–[04](marca/04-flujo-de-colaboracion.md); piezas enviables y buzón en [activos/](marca/activos/). No reabrir lo que [ESTADO.md](ESTADO.md) da por cubierto.
+- **Sitio.** [DESIGN.md](sitio/DESIGN.md) es el sistema visual. Lo aprobado va a [ESPECIFICACION.md](sitio/ESPECIFICACION.md); el debate, lo diferido y lo descartado, a [DECISIONES.md](sitio/DECISIONES.md). No consolidar pruebas no validadas.
