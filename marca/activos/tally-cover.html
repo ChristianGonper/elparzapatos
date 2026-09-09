@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Cover Tally · El Par</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #FAF8F5;
+      --ink: #1C1A18;
+      --cognac: #9E6B55;
+      --hairline: #E8E3DC;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      width: 1500px;
+      height: 500px;
+      background: var(--paper);
+      overflow: hidden;
+    }
+
+    /* Misma cabecera que formulario-colaboracion.html, a escala de portada Tally (≥1500 px). */
+    header.brand-header {
+      width: 1500px;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--paper);
+      padding: 0 80px 8px;
+    }
+
+    .brand-wordmark {
+      font-family: "Newsreader", Georgia, serif;
+      font-weight: 400;
+      font-size: 72px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .brand-descriptor {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--cognac);
+      line-height: 1;
+    }
+
+    .brand-rule {
+      width: 120px;
+      height: 1px;
+      background: var(--hairline);
+      margin-top: 36px;
+    }
+  </style>
+</head>
+<body>
+  <header class="brand-header">
+    <h1 class="brand-wordmark">El Par</h1>
+    <div class="brand-descriptor">Zapatos en detalle</div>
+    <div class="brand-rule" aria-hidden="true"></div>
+  </header>
+</body>
+</html>
