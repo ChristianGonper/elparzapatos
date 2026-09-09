@@ -22,7 +22,7 @@ flowchart TD
 ```
 
 > [!IMPORTANT]
-> **Regla de consolidación:** Un cambio solo se incorpora a [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md) cuando se ha probado en Stitch, el usuario lo ha validado visualmente y se ha acordado como definitivo. Las ideas previas y el debate abierto permanecen en [sitio/DECISIONES.md](sitio/DECISIONES.md).
+> **Regla de consolidación:** Un cambio solo se incorpora a [ESPECIFICACION.md](ESPECIFICACION.md) cuando se ha probado en Stitch, el usuario lo ha validado visualmente y se ha acordado como definitivo. Las ideas previas y el debate abierto permanecen en [DECISIONES.md](DECISIONES.md).
 
 ---
 
@@ -35,7 +35,9 @@ flowchart TD
 - **Tono de archivo sin agresividad comercial:** Suprimido cualquier banner superior o botón tipo venta en cabecera. La invitación a colaborar se aloja serena al final del archivo y con tono de complicidad editorial. Se adopta la fórmula conceptual de *«abrir las puertas del propio armario»* (quedando el copy exacto y los enlaces del footer como borradores de trabajo a afinar en la fase de redacción de marca).
 - **Navegación e índices:** Menú sobrio con *Archivo*, *Ver Armarios* y *Sobre El Par* (o *Nuestra Mirada*), descartando definitivamente el término *Manifiesto*.
 - **Filtro de colecciones:** Botón y selector claro con la etiqueta exacta *«Ver Armarios»*.
-- **Sistema de diseño definitivo:** Consolidado y fijado [sitio/DESIGN.md](sitio/DESIGN.md) como la especificación visual y semántica definitiva del proyecto.
+- **Sistema de diseño definitivo:** Consolidado y fijado [DESIGN.md](DESIGN.md) como la especificación visual y semántica definitiva del proyecto.
+- **Sin piloto paralelo:** la primera entrada real prueba a la vez el formato web, la galería, las imágenes junto al texto, el paso a Instagram y el flujo de colaboración.
+- **Stack de publicación diferido:** gestor de contenido, modelo de datos, relaciones entre entradas, categorías y buscador, y arquitectura multilingüe se deciden después de esa primera pieza, no antes.
 
 ### Entrada Monográfica y Estructura Editorial
 - **Titulación nacida de la mirada honesta:** El título del par revela una observación visual auténtica que la fotografía demuestra (ej. *«Dos extremos, una silueta»*, *«La cintura del tacón»*, *«Una línea sobre el empeine»*), sin forzar paradojas metafóricas artificiales.
@@ -75,3 +77,6 @@ flowchart TD
 | **Cuadrícula 7:5 fija e inmutable** | **Descartada** | Generaba monotonía y obligaba a extender artificialmente párrafos explicativos para igualar la altura de las fotografías. Se sustituye por un sistema de retícula flexible (5:7, 6:6, 7:5 y dípticos). |
 | **Numeración de catálogo visible (`par * 0001`, `Lámina 03`)** | **Descartada** | Ensucia la fotografía y evoca un manual de despiece industrial o inventario de almacén en lugar de una edición de arte y moda. Las referencias numéricas quedan exclusivamente en el sistema interno de gestión. |
 | **Capitulares (Drop Caps) sistemáticas** | **Limitada** | Se descarta su uso automático en todos los bloques. Únicamente se valorará de forma puntual en entradillas de gran extensión para no competir con el título. |
+| **Traducción completa al inglés** | **Pospuesta** | El archivo se publica en español; la correspondencia EN vive en el glosario. No bloquea prototipo ni primera pieza. |
+| **Categorías exhaustivas y ritmo final de publicación** | **Pospuesta** | Se afinan con un archivo real, no a priori. |
+| **Monetización, afiliados o colaboraciones comerciales** | **Pospuesta** | Fuera de alcance mientras se fija el archivo editorial. |
