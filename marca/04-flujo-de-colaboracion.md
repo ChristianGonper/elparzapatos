@@ -34,14 +34,14 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 
 ### Fase 3. Envío de Guía y Recepción
 - **Momento:** Solo cuando la colaboradora confirma su entusiasmo o interés.
-- **Qué entregar:** PDF de la guía *Tus zapatos en cámara* y enlace al formulario de recepción en Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl) (admite hasta siete pares por envío). Detalles operativos y de almacenamiento en [activos/tally-recepcion.md](activos/tally-recepcion.md); fuente de referencia en [activos/tally-formulario-colaboracion.md](activos/tally-formulario-colaboracion.md).
+- **Qué entregar:** la guía *Tus zapatos en cámara* ([https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html); fuente local en [activos/guia-fotografica-colaboradores.html](activos/guia-fotografica-colaboradores.html)) y el enlace al formulario de recepción en Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl) (admite hasta siete pares por envío). Detalles operativos y de almacenamiento en [activos/tally-recepcion.md](activos/tally-recepcion.md); fuente de referencia en [activos/tally-formulario-colaboracion.md](activos/tally-formulario-colaboracion.md).
 - **Mensaje clave:** Recordar que son fotos caseras con luz natural y fondo tranquilo, sin necesidad de equipo profesional ni salir ella.
 
 ### Fase 4. Curaduría, Chequeo y Redacción
-- **Revisión visual:** Comprobar si las 6 perspectivas base permiten una lectura completa.
+- **Revisión visual:** Comprobar si las seis perspectivas base (y el detalle libre, si aporta) permiten una lectura completa.
 - **Si falta una vista clave:** Pedir únicamente esa toma específica de forma amable, explicando qué detalle nos ayudará a apreciar mejor (ej. *«¿Podrías mandarme una foto más del talón para ver bien la costura trasera?»*).
 - **Redacción:** Análisis y redacción de la pieza según la plantilla de calzado.
-- **Validación de crédito:** Confirmar con ella antes de maquetar cómo desea figurar (nombre de pila, @usuario de Instagram, enlace web o mención anónima).
+- **Validación de crédito y citas:** Confirmar con ella antes de maquetar cómo desea figurar (nombre de pila, @usuario de Instagram o mención anónima) y, si aportó una anécdota, el texto que se citará. La pieza completa no se somete a aprobación editorial conjunta, salvo excepción.
 
 ### Fase 5. Publicación y Seguimiento
 - **Aviso previo:** Notificar el día de publicación y facilitarle el enlace directo o etiquetado en Instagram.

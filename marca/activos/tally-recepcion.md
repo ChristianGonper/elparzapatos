@@ -35,7 +35,7 @@ Fuentes de Tally: [importar](https://tally.so/help/import), [subida de archivos]
 | Consentimiento | Casilla obligatoria |
 | Página de gracias | Copy del Markdown |
 | Notificación | Correo propio al recibir un envío |
-| Guía fotográfica | Sin URL pública aún; el PDF se manda en la fase 3. Enlazar cuando el sitio exista |
+| Guía fotográfica | URL pública provisional en GitHub Pages: [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Se manda en la fase 3. Sustituir cuando el sitio propio exista |
 | Cover | Subir [tally-cover.png](tally-cover.png): al título del formulario → `Add cover`. 3000×1000 px (mínimo Tally: 1500 px de ancho). Fuente para volver a renderizar: [tally-cover.html](tally-cover.html) |
 | Tema | Papel `#FAF8F5`, tinta `#1C1A18`, coñac `#9E6B55` |
 

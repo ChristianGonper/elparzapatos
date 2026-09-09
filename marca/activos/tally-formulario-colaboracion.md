@@ -26,7 +26,7 @@ Una ficha por par, como en el prototipo: fotos, marca y anécdota juntas. Siempr
 **Fotografías del zapato — Par 01**
 Tipo: subida de archivos. Obligatorio. Varios archivos. Solo imágenes (JPG, PNG, HEIC).
 Mínimo 4 archivos. Máximo 15 archivos. Máximo 10 MB por archivo.
-Ayuda: Las fotos de este bloque deben corresponder al mismo par. Puedes subir las tomas generales y añadir detalles libremente (texturas, tacón, cierres o costuras). Si quieres comprobar los ángulos, usa la guía fotográfica que te pasamos. Cada imagen, menos de 10 MB.
+Ayuda: Las fotos de este bloque deben corresponder al mismo par. Puedes subir las tomas generales y añadir detalles libremente (texturas, tacón, cierres o costuras). Si quieres comprobar los ángulos, usa la guía fotográfica: https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html. Cada imagen, menos de 10 MB.
 
 **Marca, diseñador o modelo (si lo recuerdas) — Par 01**
 Tipo: respuesta corta. Opcional.
