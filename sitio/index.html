@@ -39,12 +39,16 @@
       color: #1C1A18;
       -webkit-font-smoothing: antialiased;
     }
+    ::selection {
+      background-color: #F3EFEA;
+      color: #1C1A18;
+    }
   </style>
 </head>
-<body class="min-h-screen flex flex-col font-sans">
+<body class="min-h-screen flex flex-col font-sans selection:bg-paper-muted selection:text-ink">
 
-  <!-- BARRA DE NAVEGACIÓN SUPERIOR REPOSADA -->
-  <header class="border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-30">
+  <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR REPOSADA -->
+  <header class="border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
       <div class="flex items-baseline space-x-3">
         <a href="index.html" class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-ink hover:opacity-80 transition-opacity">
@@ -56,237 +60,250 @@
       </div>
       <nav class="flex items-center space-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
         <a href="#archivo" class="text-ink font-medium border-b border-ink pb-0.5">Archivo</a>
-        <a href="#manifiesto" class="hover:text-ink transition-colors">El Proyecto</a>
-        <a href="https://instagram.com/elparzapatos" target="_blank" class="hover:text-cognac transition-colors hidden sm:inline-block">@elparzapatos</a>
+        <a href="armarios.html" class="hover:text-ink transition-colors">Ver Armarios</a>
+        <a href="#sobre-el-par" class="hover:text-ink transition-colors">Sobre El Par</a>
+        <a href="https://instagram.com/elparzapatos" target="_blank" class="hover:text-cognac transition-colors hidden md:inline-block">@elparzapatos</a>
       </nav>
     </div>
   </header>
 
-  <!-- SECCIÓN HERO / MANIFIESTO EDITORIAL -->
-  <section id="manifiesto" class="pt-16 sm:pt-24 pb-14 sm:pb-18 border-b border-hairline bg-paper">
-    <div class="max-w-3xl mx-auto px-6 sm:px-10 text-center">
-      <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-ink leading-[1.18] tracking-tight mb-7">
-        Aprender a leer un zapato:<br class="hidden sm:inline"/>
-        <span class="italic font-light">las piezas que construyen cada silueta.</span>
-      </h1>
-      <p class="font-sans text-base sm:text-lg text-graphite leading-relaxed max-w-2xl mx-auto mb-10">
-        Tus zapatos vistos de cerca. Miramos cada par para aprender a leer el calzado a través de las formas, proporciones y piezas que construyen cada silueta.
-      </p>
+  <main class="flex-grow max-w-7xl mx-auto px-6 sm:px-10 w-full">
 
-      <!-- FILTROS DE SILUETAS -->
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-2.5 text-xs font-mono">
-        <span class="px-3.5 py-1.5 border border-ink bg-ink text-paper rounded-none cursor-pointer">Todas</span>
-        <span class="px-3.5 py-1.5 border border-hairline bg-paper text-graphite hover:border-ink hover:text-ink transition-colors rounded-none cursor-pointer">Salón</span>
-        <span class="px-3.5 py-1.5 border border-hairline bg-paper text-graphite hover:border-ink hover:text-ink transition-colors rounded-none cursor-pointer">Destalonado</span>
-        <span class="px-3.5 py-1.5 border border-hairline bg-paper text-graphite hover:border-ink hover:text-ink transition-colors rounded-none cursor-pointer">Tacón bloque</span>
-        <span class="px-3.5 py-1.5 border border-hairline bg-paper text-graphite hover:border-ink hover:text-ink transition-colors rounded-none cursor-pointer">Peep-toe</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- GRID EDITORIAL LIMPIO -->
-  <main id="archivo" class="flex-grow max-w-7xl mx-auto px-6 sm:px-10 py-16 sm:py-20 w-full">
-    <div class="flex items-baseline justify-between mb-10 border-b border-hairline pb-4">
-      <h2 class="text-xs font-mono uppercase tracking-[0.2em] text-ink font-medium">
-        Colección
-      </h2>
-      <span class="text-xs font-mono text-graphite">6 pares</span>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-12">
-
-      <!-- TARJETA 01 (PAR ACTIVO Y COMPLETO) -->
-      <article class="group flex flex-col bg-specimen border border-hairline hover:border-ink transition-colors duration-200">
-        <a href="entradas/salon-aguja.html" class="block overflow-hidden bg-paper-muted/50 p-6 sm:p-8 border-b border-hairline">
-          <div class="aspect-square flex items-center justify-center overflow-hidden">
+    <!-- 2. PIEZA DESTACADA (HERO PIECE) -->
+    <section class="py-12 sm:py-16">
+      <div class="border border-hairline bg-specimen grid grid-cols-1 lg:grid-cols-12 overflow-hidden shadow-sm">
+        
+        <!-- Fotografía del Espécimen con Paspartú -->
+        <div class="lg:col-span-7 bg-paper-muted/40 p-6 sm:p-12 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-hairline">
+          <div class="w-full max-w-md aspect-square bg-specimen border border-hairline p-6 sm:p-8 flex items-center justify-center">
             <img 
               src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/02-tres-cuartos.png" 
-              alt="Salón de aguja cerrado con puntera aguda y escote en U" 
-              class="object-contain w-full h-full group-hover:scale-105 transition-transform duration-500 ease-out"
+              alt="Salón clásico de escote asimétrico y tacón aguja" 
+              class="w-full h-full object-contain filter drop-shadow-sm hover:scale-102 transition-transform duration-500 ease-out"
             />
           </div>
-        </a>
-        <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-specimen">
+        </div>
+
+        <!-- Ficha y Extracto Editorial de la Pieza Destacada -->
+        <div class="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between bg-specimen">
           <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-normal text-ink leading-snug mb-3 group-hover:text-cognac transition-colors">
-              <a href="entradas/salon-aguja.html">
-                Salón de aguja cerrado con puntera aguda y escote en U
-              </a>
-            </h3>
-            <p class="font-sans text-sm text-graphite leading-relaxed mb-6 line-clamp-3">
-              Un análisis riguroso sobre la verticalidad, la tensión estructural del tacón de aguja y la geometría del escote. Miramos este par para entender cómo la curvatura del enfranque y el aplomo del fuste distribuyen las fuerzas sin recurrir al adorno.
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-hairline text-xs font-mono uppercase tracking-widest">
+              <span class="text-cognac font-medium">Pieza Destacada</span>
+              <span class="text-graphite">Armario de Carmen</span>
+            </div>
+            
+            <h1 class="font-serif text-3xl sm:text-4xl text-ink mb-3 leading-tight font-normal">
+              «Dos extremos, una silueta»
+            </h1>
+            
+            <p class="font-sans text-sm sm:text-base text-graphite leading-relaxed">
+              Salón clásico de escote asimétrico y tacón aguja de 90 mm.
             </p>
           </div>
-          <div class="pt-4 border-t border-hairline flex items-center justify-end text-xs font-mono">
-            <a href="entradas/salon-aguja.html" class="text-ink group-hover:text-cognac font-medium flex items-center gap-1 transition-colors">
-              Leer análisis anatómico <span class="group-hover:translate-x-1 transition-transform">→</span>
+
+          <div class="mt-8 pt-6 border-t border-hairline">
+            <a href="entradas/salon-aguja.html" class="inline-flex items-center text-xs font-mono uppercase tracking-widest text-ink hover:text-cognac transition-colors group">
+              <span>Ver estudio</span>
+              <span class="ml-2 transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
           </div>
         </div>
-      </article>
 
-      <!-- TARJETA 02 -->
-      <article class="group flex flex-col bg-specimen border border-hairline hover:border-ink transition-colors duration-200">
-        <div class="bg-paper-muted/50 p-6 sm:p-8 border-b border-hairline">
-          <div class="aspect-square flex items-center justify-center overflow-hidden">
-            <img 
-              src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/01-perfil.png" 
-              alt="Salón destalonado con tacón bobina" 
-              class="object-contain w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-specimen">
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-normal text-ink leading-snug mb-3">
-              Salón destalonado con tacón bobina y pala profunda
-            </h3>
-            <p class="font-sans text-sm text-graphite leading-relaxed mb-6 line-clamp-3">
-              La sinuosidad del tacón bobina redefine la silueta clásica con una base de apoyo ensanchada y una cintura cóncava que responde con solidez al calce abierto en talón.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-hairline flex items-center justify-end text-xs font-mono">
-            <span class="text-graphite/60 italic">En redacción</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- TARJETA 03 -->
-      <article class="group flex flex-col bg-specimen border border-hairline hover:border-ink transition-colors duration-200">
-        <div class="bg-paper-muted/50 p-6 sm:p-8 border-b border-hairline">
-          <div class="aspect-square flex items-center justify-center overflow-hidden">
-            <img 
-              src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/03-frente.png" 
-              alt="Merceditas de piel suave con tacón bloque" 
-              class="object-contain w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-specimen">
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-normal text-ink leading-snug mb-3">
-              Merceditas de tacón bloque con pulsera al empeine
-            </h3>
-            <p class="font-sans text-sm text-graphite leading-relaxed mb-6 line-clamp-3">
-              Geometría funcional aplicada a un calzado de herencia clásica. El anclaje horizontal estabiliza el empeine y compensa la rotunda sobriedad del bloque posterior.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-hairline flex items-center justify-end text-xs font-mono">
-            <span class="text-graphite/60 italic">En redacción</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- TARJETA 04 -->
-      <article class="group flex flex-col bg-specimen border border-hairline hover:border-ink transition-colors duration-200">
-        <div class="bg-paper-muted/50 p-6 sm:p-8 border-b border-hairline">
-          <div class="aspect-square flex items-center justify-center overflow-hidden">
-            <img 
-              src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/04-talon.png" 
-              alt="Peep-toe de línea continua con tacón cubano" 
-              class="object-contain w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-specimen">
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-normal text-ink leading-snug mb-3">
-              Peep-toe de línea continua con tacón cubano
-            </h3>
-            <p class="font-sans text-sm text-graphite leading-relaxed mb-6 line-clamp-3">
-              La transición fluida entre el fuste y el enfranque destaca en esta pieza de volumen rotundo y apoyo firme, con una ventana delantera de apertura milimétrica.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-hairline flex items-center justify-end text-xs font-mono">
-            <span class="text-graphite/60 italic">En archivo</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- TARJETA 05 -->
-      <article class="group flex flex-col bg-specimen border border-hairline hover:border-ink transition-colors duration-200">
-        <div class="bg-paper-muted/50 p-6 sm:p-8 border-b border-hairline">
-          <div class="aspect-square flex items-center justify-center overflow-hidden">
-            <img 
-              src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/05-planta.png" 
-              alt="Salón clásico con escote corazón y tacón cónico" 
-              class="object-contain w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-specimen">
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-normal text-ink leading-snug mb-3">
-              Salón clásico con escote corazón y tacón cónico
-            </h3>
-            <p class="font-sans text-sm text-graphite leading-relaxed mb-6 line-clamp-3">
-              El escote corazón aporta una curvatura orgánica que contrasta con la conicidad del tacón posterior, modulando el arco con sutileza formal.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-hairline flex items-center justify-end text-xs font-mono">
-            <span class="text-graphite/60 italic">En archivo</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- TARJETA 06 -->
-      <article class="group flex flex-col bg-specimen border border-hairline hover:border-ink transition-colors duration-200">
-        <div class="bg-paper-muted/50 p-6 sm:p-8 border-b border-hairline">
-          <div class="aspect-square flex items-center justify-center overflow-hidden">
-            <img 
-              src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/02-tres-cuartos.png" 
-              alt="Kitten heel destalonado con puntera afilada" 
-              class="object-contain w-full h-full opacity-90 group-hover:scale-105 transition-transform duration-500 ease-out"
-            />
-          </div>
-        </div>
-        <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-specimen">
-          <div>
-            <h3 class="font-serif text-xl sm:text-2xl font-normal text-ink leading-snug mb-3">
-              Kitten heel destalonado con puntera afilada
-            </h3>
-            <p class="font-sans text-sm text-graphite leading-relaxed mb-6 line-clamp-3">
-              La contención en la cota de elevación se contrapone a una puntera proyectada en vértice, articulando un perfil dinámico de calce ligero.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-hairline flex items-center justify-end text-xs font-mono">
-            <span class="text-graphite/60 italic">En archivo</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-    <!-- INVITACIÓN EDITORIAL REPOSADA A COLABORAR (AL FINAL DEL ARCHIVO, NO INTRUSIVA) -->
-    <section class="mt-24 pt-12 border-t border-hairline">
-      <div class="max-w-2xl mx-auto text-center">
-        <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal mb-3">
-          Sobre los pares del archivo
-        </h3>
-        <p class="font-sans text-sm sm:text-base text-graphite leading-relaxed mb-6">
-          Cada pieza documentada procede de un armario particular, analizada con luz natural y sin alteración digital. Si guardas un par cuya silueta o construcción merezca ser leída, puedes escribirnos para incorporarlo al archivo.
-        </p>
-        <a href="mailto:contacto@elpar.es" class="inline-block text-xs font-mono uppercase tracking-wider text-ink border-b border-ink pb-1 hover:text-cognac hover:border-cognac transition-colors">
-          Proponer un par para documentar &rarr;
-        </a>
       </div>
     </section>
+
+    <!-- 3. FILTROS Y CONTADOR -->
+    <section id="archivo" class="pb-8">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 py-4 border-y border-hairline">
+        <div class="flex items-center gap-2 overflow-x-auto text-xs font-mono">
+          <span class="uppercase text-graphite mr-2">Tipología:</span>
+          <button class="px-3 py-1.5 uppercase tracking-wider text-ink border-b-2 border-ink font-medium">Todos</button>
+          <button class="px-3 py-1.5 uppercase tracking-wider text-graphite hover:text-ink transition-colors">Salones</button>
+          <button class="px-3 py-1.5 uppercase tracking-wider text-graphite hover:text-ink transition-colors">Merceditas</button>
+          <button class="px-3 py-1.5 uppercase tracking-wider text-graphite hover:text-ink transition-colors">Bailarinas</button>
+          <button class="px-3 py-1.5 uppercase tracking-wider text-graphite hover:text-ink transition-colors">Tacón bajo</button>
+        </div>
+        <div class="flex items-center justify-between md:justify-end gap-6 text-xs font-mono">
+          <span class="text-graphite uppercase">6 especímenes catalogados</span>
+          <a href="armarios.html" class="inline-flex items-center uppercase tracking-widest text-ink hover:text-cognac transition-colors border-l border-hairline pl-4 font-medium">
+            Ver Armarios &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. CUADRÍCULA DE ARCHIVO LIMPIA -->
+    <section class="pb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+
+      <!-- TARJETA 01: SALÓN AGUJA -->
+      <article class="flex flex-col border border-hairline bg-specimen group hover:border-ink transition-colors duration-200">
+        <a href="entradas/salon-aguja.html" class="aspect-square bg-paper-muted/30 border-b border-hairline p-6 sm:p-8 flex items-center justify-center overflow-hidden">
+          <img 
+            src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/01-perfil.png" 
+            alt="Salón clásico de escote asimétrico y tacón aguja" 
+            class="w-full h-full object-contain filter drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+          />
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-wider text-graphite mb-1.5">Armario de Carmen</div>
+            <h2 class="font-serif text-xl sm:text-2xl text-ink font-normal leading-snug mb-1">
+              <a href="entradas/salon-aguja.html" class="group-hover:text-cognac transition-colors">
+                «Dos extremos, una silueta»
+              </a>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">Salón clásico con tacón aguja de 90 mm</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TARJETA 02: BAILARINA PLANA -->
+      <article class="flex flex-col border border-hairline bg-specimen group hover:border-ink transition-colors duration-200">
+        <a href="#" class="aspect-square bg-paper-muted/30 border-b border-hairline p-6 sm:p-8 flex items-center justify-center overflow-hidden">
+          <img 
+            src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/05-planta.png" 
+            alt="Bailarina clásica en napa suave" 
+            class="w-full h-full object-contain filter drop-shadow-sm transition-transform duration-500 group-hover:scale-105 opacity-90"
+          />
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-wider text-graphite mb-1.5">Armario de Elena</div>
+            <h2 class="font-serif text-xl sm:text-2xl text-ink font-normal leading-snug mb-1">
+              <a href="#" class="group-hover:text-cognac transition-colors">
+                «A ras de suelo, la curva justa»
+              </a>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">Bailarina clásica con lazada y ribete textil</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TARJETA 03: TACÓN BOBINA -->
+      <article class="flex flex-col border border-hairline bg-specimen group hover:border-ink transition-colors duration-200">
+        <a href="#" class="aspect-square bg-paper-muted/30 border-b border-hairline p-6 sm:p-8 flex items-center justify-center overflow-hidden">
+          <img 
+            src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/04-talon.png" 
+            alt="Salón destalonado con tacón bobina" 
+            class="w-full h-full object-contain filter drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+          />
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-wider text-graphite mb-1.5">Armario de Lucía</div>
+            <h2 class="font-serif text-xl sm:text-2xl text-ink font-normal leading-snug mb-1">
+              <a href="#" class="group-hover:text-cognac transition-colors">
+                «La cintura del tacón»
+              </a>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">Salón destalonado con tacón bobina de 65 mm</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TARJETA 04: MERCEDITAS -->
+      <article class="flex flex-col border border-hairline bg-specimen group hover:border-ink transition-colors duration-200">
+        <a href="#" class="aspect-square bg-paper-muted/30 border-b border-hairline p-6 sm:p-8 flex items-center justify-center overflow-hidden">
+          <img 
+            src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/03-cenital.png" 
+            alt="Merceditas con pulsera y tacón bloque" 
+            class="w-full h-full object-contain filter drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+          />
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-wider text-graphite mb-1.5">Armario de Teresa</div>
+            <h2 class="font-serif text-xl sm:text-2xl text-ink font-normal leading-snug mb-1">
+              <a href="#" class="group-hover:text-cognac transition-colors">
+                «Una línea sobre el empeine»
+              </a>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">Merceditas con pulsera al empeine y tacón bloque</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TARJETA 05: PEEP-TOE -->
+      <article class="flex flex-col border border-hairline bg-specimen group hover:border-ink transition-colors duration-200">
+        <a href="#" class="aspect-square bg-paper-muted/30 border-b border-hairline p-6 sm:p-8 flex items-center justify-center overflow-hidden">
+          <img 
+            src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/02-tres-cuartos.png" 
+            alt="Peep-toe de corte en una pieza con tacón cubano" 
+            class="w-full h-full object-contain filter drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+          />
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-wider text-graphite mb-1.5">Armario de Sofía</div>
+            <h2 class="font-serif text-xl sm:text-2xl text-ink font-normal leading-snug mb-1">
+              <a href="#" class="group-hover:text-cognac transition-colors">
+                «La ventana de los dedos»
+              </a>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">Peep-toe en piel vacuno con tacón cubano</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TARJETA 06: KITTEN HEEL -->
+      <article class="flex flex-col border border-hairline bg-specimen group hover:border-ink transition-colors duration-200">
+        <a href="#" class="aspect-square bg-paper-muted/30 border-b border-hairline p-6 sm:p-8 flex items-center justify-center overflow-hidden">
+          <img 
+            src="../conocimiento/lecciones/01-mapa-salon-aguja/assets/originales/01-perfil.png" 
+            alt="Kitten heel destalonado con puntera afilada" 
+            class="w-full h-full object-contain filter drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+          />
+        </a>
+        <div class="p-6 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs uppercase tracking-wider text-graphite mb-1.5">Armario de Clara</div>
+            <h2 class="font-serif text-xl sm:text-2xl text-ink font-normal leading-snug mb-1">
+              <a href="#" class="group-hover:text-cognac transition-colors">
+                «Tensión en escala reducida»
+              </a>
+            </h2>
+            <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">Kitten heel destalonado con puntera afilada</p>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- 5. CIERRE EDITORIAL: APERTURA DEL PROPIO ARMARIO -->
+    <section id="sobre-el-par" class="pb-20">
+      <div class="bg-paper-muted border border-hairline p-8 sm:p-12 flex flex-col md:flex-row md:items-center justify-between gap-8">
+        <div class="max-w-2xl">
+          <span class="font-mono text-xs uppercase tracking-widest text-cognac block mb-2 font-medium">Aportación y Registro</span>
+          <p class="font-serif text-xl sm:text-2xl text-ink leading-relaxed font-normal">
+            Un archivo construido desde la cercanía. Si en tu colección descansa un par con una silueta singular o una arquitectura que merezca ser estudiada, puedes abrir las puertas de tu propio armario.
+          </p>
+        </div>
+        <div class="shrink-0">
+          <a href="mailto:contacto@elpar.es" class="inline-flex items-center font-mono text-xs uppercase tracking-widest text-ink border-b border-ink pb-1 hover:text-cognac hover:border-cognac transition-colors group">
+            <span>Abrir mi armario</span>
+            <span class="ml-2 transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- FOOTER EDITORIAL -->
-  <footer class="border-t border-hairline bg-paper-muted py-12 text-graphite">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="text-center sm:text-left">
-        <p class="font-serif text-lg text-ink font-normal">El Par &mdash; Zapatos en detalle</p>
-        <p class="text-xs font-mono text-graphite mt-1">Archivo documental independiente de diseño de calzado femenino.</p>
+  <!-- 6. FOOTER EDITORIAL -->
+  <footer class="bg-paper-muted border-t border-hairline w-full py-16 text-graphite">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-start gap-10">
+      <div class="max-w-sm">
+        <p class="font-serif text-2xl text-ink font-normal tracking-tight mb-2">El Par</p>
+        <p class="font-sans text-xs text-graphite leading-relaxed">
+          &copy; El Par. Zapatos en detalle. Un registro taxonómico y visual del diseño de calzado femenino.
+        </p>
       </div>
-      <div class="flex items-center space-x-6 text-xs font-mono uppercase tracking-wider">
-        <a href="mailto:contacto@elpar.es" class="hover:text-ink transition-colors">Colaborar con un par</a>
-        <span class="text-hairline">|</span>
+      <nav class="flex flex-wrap gap-6 sm:gap-8 text-xs font-mono uppercase tracking-wider">
+        <a href="mailto:contacto@elpar.es" class="hover:text-ink transition-colors">Abrir mi armario</a>
+        <a href="armarios.html" class="hover:text-ink transition-colors">Ver Armarios</a>
+        <a href="#sobre-el-par" class="hover:text-ink transition-colors">Sobre El Par</a>
         <a href="https://instagram.com/elparzapatos" target="_blank" class="hover:text-cognac transition-colors">@elparzapatos</a>
-        <span class="text-hairline">|</span>
-        <span class="text-graphite/70">2026</span>
-      </div>
+      </nav>
     </div>
   </footer>
 
