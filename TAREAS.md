@@ -35,7 +35,8 @@ Marca `[x]` y mueve a **Hecho**.
 
 - [x] Auditar preliminarmente la estructura de Drive, la Sheet y el código entregado por Gemini.
 - [x] Mantener IDs internos secuenciales y legibles (`COL`, `ENV`, `PAR`) y separar de ellos el identificador público de los enlaces.
-- [ ] Añadir a `Personas` un `token_enlace` aleatorio, único, estable y reutilizable para varios envíos de la misma persona; una nueva solicitud de enlace debe recuperar el token existente, no crear otro `COL`.
+- [x] Añadir a `Personas` la columna `token_enlace` y asignar un token aleatorio único a los 100 contactos importados.
+- [ ] Ajustar el script para que los contactos nuevos reciban un único `token_enlace` estable y una nueva solicitud de enlace recupere el existente, sin crear otro `COL`.
 - [ ] Comprobar que la integración real añade el encabezado `token_colaborador` y conserva las columnas técnicas `EP_*`.
 - [ ] Ajustar el Apps Script a los encabezados reales de Tally, implementar realmente la coincidencia alternativa por correo y confirmar el destino de las carpetas personales respecto de `01_Envíos Tally`.
 - [ ] Resolver identidad con estas reglas: token e Instagram/correo coincidentes → mismo `COL`; discrepancia, identidad nueva o ambigua → `Revisar` sin atribuir ni crear persona automáticamente; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
