@@ -17,7 +17,7 @@ Actualizado: 2026-09-10.
 
 Identidad editorial (01 a 04, lemas, flujo de colaboración). Prototipos de portada, monografía y formulario local con [sitio/DESIGN.md](sitio/DESIGN.md). Tally operativo como formulario. Guía enviada a compañeras. Criterio de calidad fotográfica, umbral para pedir tomas y límites éticos de edición acordados en [marca/04](marca/04-flujo-de-colaboracion.md) y gestionados en Drive. La primera entrada real prueba formato web y flujo; no hay piloto separado. v1 y primeras publicaciones: foto limpia, sin cotas. El lanzamiento en Instagram está pospuesto.
 
-Está implementada y superada la primera prueba del seguimiento por persona, envío y par. Se retiraron los tokens personales de la Sheet y del manifiesto de prueba, y se eliminó la respuesta incompleta. Falta retirar el campo oculto antiguo en Tally, eliminar después su columna vacía y repetir el procesamiento para comprobar idempotencia.
+Está implementada y superada la primera prueba del seguimiento por persona, envío y par. Se retiraron los tokens personales de la Sheet y del manifiesto de prueba, y se eliminó la respuesta incompleta. La columna antigua ya se retiró de `Tally_raw` sin afectar la integración. Falta eliminar el campo oculto en el editor de Tally y repetir el procesamiento para comprobar idempotencia.
 
 ## Abierto
 
