@@ -9,7 +9,7 @@ Actualizado: 2026-09-10.
 ## Ahora
 
 - **Marca.** Revisión integral cerrada ([01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md) y [activos/](marca/activos/)). Snapshot: este archivo. Decisiones de producto y web: [sitio/DECISIONES.md](sitio/DECISIONES.md). Fronteras al redactar: [marca/conceptos-editoriales.md](marca/conceptos-editoriales.md). Guía fotográfica en [guia-fotografica-colaboradores.html](marca/activos/guia-fotografica-colaboradores.html), publicada de momento en GitHub Pages: [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Formulario Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl).
-- **Colaboraciones.** Ya existen en Drive la carpeta operativa, una Google Sheet con ocho pestañas y 100 contactos importados desde el Markdown previamente depurado. El Apps Script fue copiado a la Sheet y autorizado; se ejecutó sin datos y dejó log. Tally ya contiene el campo oculto `colaborador_id`, pero la integración con `Tally_raw` y el primer envío real siguen pendientes. Los IDs internos continúan secuenciales (`COL`, `ENV`, `PAR`).
+- **Colaboraciones.** Ya existen en Drive la carpeta operativa, una Google Sheet con ocho pestañas y 100 contactos importados desde el Markdown previamente depurado. El Apps Script fue copiado a la Sheet y autorizado; se ejecutó sin datos y dejó log. Tally ya contiene el campo oculto provisional `colaborador_id`, pero antes de la prueba se sustituirá por `token_colaborador`: un token público aleatorio, estable y separado de los IDs internos secuenciales (`COL`, `ENV`, `PAR`). La integración con `Tally_raw` y el primer envío real siguen pendientes.
 - **Sitio.** Portada y monografía locales; [DESIGN.md](sitio/DESIGN.md) como sistema visual. [DECISIONES.md](sitio/DECISIONES.md) y [ESPECIFICACION.md](sitio/ESPECIFICACION.md).
 - **Avance.** Trabajo y reparto de responsables en [TAREAS.md](TAREAS.md).
 
@@ -17,7 +17,7 @@ Actualizado: 2026-09-10.
 
 Identidad editorial (01 a 04, lemas, flujo de colaboración). Prototipos de portada, monografía y formulario local con [sitio/DESIGN.md](sitio/DESIGN.md). Tally operativo como formulario. Guía enviada a compañeras. Criterio de calidad fotográfica, umbral para pedir tomas y límites éticos de edición acordados en [marca/04](marca/04-flujo-de-colaboracion.md) y gestionados en Drive. La primera entrada real prueba formato web y flujo; no hay piloto separado. v1 y primeras publicaciones: foto limpia, sin cotas. El lanzamiento en Instagram está pospuesto.
 
-Está implementada la estructura inicial del seguimiento por persona, envío y par. Todavía no debe considerarse operativo el archivo automático: falta conectar Tally, verificar los encabezados reales, procesar un envío con archivos y repetir la ejecución para comprobar que no duplica datos.
+Está implementada la estructura inicial del seguimiento por persona, envío y par. Todavía no debe considerarse operativo el archivo automático: falta añadir y resolver el token público sin atribuciones silenciosas, conectar Tally, verificar los encabezados reales, procesar un envío con archivos y repetir la ejecución para comprobar que no duplica datos.
 
 ## Abierto
 
