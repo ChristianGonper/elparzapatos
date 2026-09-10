@@ -27,8 +27,9 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Conectar Tally con la pestaña `Tally_raw`.
 - [x] Hacer dos envíos crudos con `COL-0101 — Prueba interna`: el primero se conserva como prueba incompleta y el segundo sirve como prueba válida.
 - [x] Ejecutar `Validar configuración` sobre v2 con resultado correcto.
-- [ ] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v3.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
-- [ ] Después de validar v3, ejecutar una vez `El Par → Procesar nuevos envíos` y comunicar el resultado.
+- [x] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v3.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
+- [x] Después de validar v3, ejecutar una vez `El Par → Procesar nuevos envíos` y comunicar el resultado.
+- [ ] Eliminar en el editor de Tally el campo oculto `token_colaborador`; después se retirará también su columna vacía de `Tally_raw`.
 
 ### Bloque B · Primera prueba real
 
@@ -40,12 +41,13 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Adoptar un único enlace público de Tally para invitaciones, web y reenvíos entre personas.
 - [x] Definir el correo normalizado como clave operativa principal: mismo correo → mismo `COL`; cada respuesta válida → nuevo `ENV`.
 - [x] Definir altas directas: correo nuevo sin coincidencia → nuevo `COL` automático y ficha marcada para revisar.
-- [x] Definir el control de posibles duplicados: Instagram nuevo coincidente con ficha sin correo → vincular y revisar; si la ficha ya tiene otro correo o hay ambigüedad → no sobrescribir y dejar la respuesta en `Revisar`.
-- [x] Mantener `token_enlace` y `token_colaborador` solo como campos heredados, sin usarlos para identificar ni generar enlaces.
+- [x] Definir el control de posibles duplicados: en los contactos iniciales sin correo, una coincidencia exacta de Instagram identifica el `COL`, incorpora el correo y marca la ficha para revisar; si la ficha ya tiene otro correo o hay ambigüedad, no sobrescribir y dejar la respuesta en `Revisar`.
+- [x] Retirar `token_enlace` de `Personas`, limpiar el token del envío válido y de su manifiesto, y dejar de usar tokens en el código.
 - [x] Cambiar todos los valores de `enlace_tally` al enlace público único.
-- [x] Marcar el primer envío incompleto como `Ignorar`, conservando sus datos originales; dejar el segundo pendiente para la prueba válida.
+- [x] Eliminar de `Tally_raw` el primer envío incompleto y corregir la referencia de fila del envío válido.
 - [x] Preparar y verificar sintácticamente `El_Par_Apps_Script_v3.gs` con identificación por correo, alta directa e Instagram opcional.
-- [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
+- [x] Auditar el primer procesamiento: se crearon `ENV-0001`, `PAR-0001`, actividad, log, manifiesto y cinco imágenes en la carpeta esperada.
+- [ ] Ejecutar de nuevo `Procesar nuevos envíos` y verificar que no se duplica ninguna fila, carpeta ni imagen.
 - [ ] Documentar y probar el procedimiento operativo mínimo para enviar el enlace público, registrar la invitación y revisar altas o conflictos.
 - [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
 
