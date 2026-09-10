@@ -28,9 +28,9 @@ Pautas y fórmulas de apoyo para el diálogo con las dueñas de los zapatos.
 
 ### C. Para elegir el par juntas
 
-> «Si dudas entre varios, mándame una foto rápida con el móvil de los que tengas en mente. No hace falta que sean nuevos ni piezas de fiesta: nos puede interesar una puntera especial, la curvatura de un tacón, un juego de tiras o un acabado curioso.»
+> «Si dudas entre varios, mándame una foto rápida con el móvil de los que tengas en mente.»
 
-> «¡Ese par tiene muchísimo juego por [rasgo o motivo]! Te dejo por aquí la guía fotográfica para que veas las vistas base: https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html. Cuando tengas un ratito y luz natural, le sacas las fotos y me las subes por este formulario: https://tally.so/r/Npj2bl. En el mismo envío puedes añadir hasta siete pares. No te preocupes si no quedan perfectas, la naturalidad es parte de la pieza.»
+> «¡Ese par tiene muchísimo juego por [rasgo o motivo]! Te dejo por aquí la guía fotográfica para que veas las vistas base: https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html. Cuando tengas un ratito, le sacas las fotos y me las subes por este formulario: https://tally.so/r/Npj2bl. En el mismo envío puedes añadir hasta siete pares. No te preocupes si no quedan perfectas, la naturalidad es parte de la pieza.»
 
 Guía pública (GitHub Pages, provisional): [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Formulario en Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl). Detalles operativos, almacenamiento y límites en [tally-recepcion.md](tally-recepcion.md).
 

@@ -34,7 +34,7 @@ Atmosphere of an independent fashion publication, art catalog folio, and archiva
 
 ### 4.1. Editorial Navigation Bar
 - Austere, quiet header with the wordmark **El Par** in commanding serif and descriptor **Zapatos en detalle**.
-- Navigation links: *Archivo*, *Ver Armarios*, *Sobre El Par* (o *Nuestra Mirada*).
+- Navigation links: *Archivo*, *Ver Armarios*, *Sobre El Par*.
 - Complete absence of commercial buttons, carts, or aggressive calls to action.
 
 ### 4.2. Hero Piece (Portada)
@@ -56,20 +56,14 @@ Atmosphere of an independent fashion publication, art catalog folio, and archiva
 - Triggered by both **hover** (desktop) and **click / tap** (mobile and pointer).
 - Understated floating popover card positioned directly next to the word with its definition and craft role, closing gracefully upon clicking outside or mouse leave without dimming or blocking the page background.
 
-### 4.5. Pedagogical Image Dimension Overlay (Cotas Vectoriales Conmutables)
-- **Not in v1 publications.** Clean photograph only until a later web version (1.5 / 2). Spec below is for that phase; the local prototype may keep the toggle as a preview.
-- Subtle conmutator button `[ + Cotas anatómicas ]` / `[ − Ocultar cotas ]` placed in the corner of technical photographs.
-- When toggled active: overlays hairline SVG dimension lines (0.75px–1.2px) in `#9E6B55` and `#1C1A18` with micro-labels in `JetBrains Mono` pointing to exact anatomical transition nodes (*Quiebre del fuste*, *Garganta rebajada*, *Curvatura de enfranque*).
-- By default (off): preserves pure photographic contemplation without visual pollution.
-
-### 4.6. Datos del Par (Bloque de Créditos Tipográficos Continuos)
+### 4.5. Datos del Par (Bloque de Créditos Tipográficos Continuos)
 - Fluid, continuous editorial folio bordered by subtle top and bottom hairlines (no rigid multi-row forms or icons).
 - Refined typography grouping:
   - Category and Model: *Salón clásico · Christian Louboutin So Kate* (in serif/italic).
   - Material and Finish: *Piel vacuno en acabado charol mate · Negro profundo* (in uppercase sans).
   - Base and Contributor: *Tacón aguja 90 mm · Armario de Carmen* (in mono accent).
 
-### 4.7. Collaboration Block («Abrir mi armario»)
+### 4.6. Collaboration Block («Abrir mi armario»)
 - Quiet card at the close of archive and monographs on `#F3EFEA` paper with a hairline border.
 - Tone of complicity and intimacy: inviting readers to open the doors of their own wardrobes for pieces with distinct architectural lines.
 - Quiet action link: `Abrir mi armario →`.
@@ -82,11 +76,11 @@ Atmosphere of an independent fashion publication, art catalog folio, and archiva
 - **Monograph Entry Layout (Paseo Visual Flexible):**
   - *Hero Specimen:* La toma de apertura (perspectiva tres cuartos exterior) a gran formato en paspartú limpio, con título y entradilla a dos columnas.
   - *Ratios de Retícula Flexible (Columnas Web vs. Formato de Imagen):*
-    - **Distinción clave:** Las proporciones `7:5`, `5:7` y `6:6` definen exclusivamente el reparto de columnas de la retícula web (ancho relativo de la columna de texto frente a la de imagen sobre 12 columnas). No imponen una relación de aspecto a la fotografía.
+    - **Distinción clave:** Las proporciones `7:5`, `5:7` y `6:6` definen exclusivamente el reparto de columnas de la retícula web (ancho relativo de la columna de texto frente a la de imagen sobre 12 columnas).
     - **Formato fotográfico:** Las imágenes se capturan y muestran en proporciones fotográficas estándar de cámara, normalmente `3:4` (vertical) o `4:3` (horizontal).
     - Comportamiento de las columnas:
       - `7:5`: 7 columnas de texto y 5 de imagen. Para desarrollo conceptual amplio con texto explicativo extenso.
-      - `5:7`: 5 columnas de texto y 7 de imagen. Da máxima presencia visual a tomas marcadamente verticales (talón, caña) con texto conciso de 2-3 líneas, **sin forzar párrafos de relleno**.
+      - `5:7`: 5 columnas de texto y 7 de imagen. Da máxima presencia visual a tomas marcadamente verticales (talón, caña) con texto conciso de 2-3 líneas.
       - `6:6`: Equilibrio simétrico entre el bloque de texto y el análisis morfológico.
       - `Dípticos`: Dos fotografías contiguas (ej. frontal + planta) analizadas bajo un bloque de texto común de contacto y convergencia.
   - *Foliación Editorial:* Indicadores marginales discretos con punto tipográfico (`· 01`, `· 02`, `· 03`...) que orientan la lectura sin ensuciar la fotografía.

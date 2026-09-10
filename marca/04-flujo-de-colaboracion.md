@@ -22,7 +22,7 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 ```
 
 ### Fase 1. Identificación y Selección
-- **Criterio:** Elegir un par por un motivo visual concreto (silueta, puntera, tacón, cierre o textura), no por su valor económico ni su condición de «nuevo».
+- **Criterio:** Elegir un par por un motivo visual concreto (silueta, puntera, tacón, cierre o textura).
 - **Perfil inicial:** Priorizar personas cercanas o perfiles afines con interés por el diseño.
 
 ### Fase 2. Primer Contacto
@@ -45,11 +45,11 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 - **Tratamiento y límites de edición de la imagen:**
   - *Proporciones fotográficas:* Las fotos se capturan habitualmente en ratio nativo de cámara 3:4 (vertical) o 4:3 (horizontal).
   - *Ajustes válidos:* Reencuadre sutil para equilibrar o cuadrar formato, nivelado leve del plano de apoyo y corrección tonal limpia (balance de blancos para neutralizar dominantes domésticas y levantamiento de sombras en cueros oscuros).
-  - *Prohibición de IA generativa masiva:* Prohibido usar modelos generativos completos (Nanobanana, GPT Images, Grok Imagen). Solo se admiten herramientas de edición puntual / redes neuronales pequeñas que no dejen huella ni inventen píxeles nuevos.
-  - *Respeto al calzado:* No borrar arrugas, pliegues ni marcas de uso naturales; son la historia real del par.
+  - *Prohibición de IA generativa masiva:* Prohibido usar modelos generativos completos. Solo se admiten herramientas de edición puntual / redes neuronales pequeñas que no dejen huella ni inventen píxeles nuevos.
+  - *Respeto al calzado:* No borrar arrugas, pliegues ni marcas de uso naturales.
   - *Fondos y sombras reales:* En la operación habitual no se extraen fondos ni se siluetea el calzado; el zapato conserva su apoyo y sombra natural (la extracción de fondos queda reservada solo a posibles experimentos futuros como collages o modelos 3D).
 - **Redacción:** Análisis y redacción de la pieza según la plantilla de calzado.
-- **Validación de crédito y citas:** Confirmar con ella antes de maquetar cómo desea figurar (nombre de pila, @usuario de Instagram o mención anónima) y, si aportó una anécdota, el texto que se citará. La pieza completa no se somete a aprobación editorial conjunta, salvo excepción.
+- **Validación de crédito y citas:** Confirmar con ella antes de maquetar cómo desea figurar, y si aportó una anécdota, el texto que se citará.
 
 ### Fase 5. Publicación y Seguimiento
 - **Aviso previo:** Notificar el día de publicación y facilitarle el enlace directo o etiquetado en Instagram.
@@ -59,7 +59,7 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 
 ## 3. Registro y Estados de Seguimiento
 
-El registro operativo vive en una única Google Sheet restringida de Drive. Separa tres entidades:
+El registro operativo vive en una única Google Sheet de Drive. Separa tres entidades:
 
 1. **Persona** (`COL-0001`): identidad, relación general, último contacto y próxima acción. Su carpeta se nombra de forma reconocible: `COL-0001 — Nombre (@usuario)`.
 2. **Envío de Tally** (`ENV-0001`): una recepción técnica del formulario. Una persona puede hacer varios envíos y cada envío puede contener hasta siete pares. Su estado técnico es `Pendiente`, `Procesado` o `Error`.
@@ -69,7 +69,7 @@ Estados editoriales del par:
 
 `Por valorar` ➔ `Invitada` ➔ `Interesada` ➔ `Guía enviada` ➔ `Material recibido` ➔ `Falta vista` / `En edición` ➔ `Pendiente de confirmación` ➔ `Publicada` (o `Retirada` / `Pausada`).
 
-La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`. La actividad y las notas originales se conservan como historial; los resúmenes nunca las sustituyen.
+La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`. La actividad y las notas originales se conservan como historial.
 
 ---
 
@@ -77,7 +77,7 @@ La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `
 
 La colaboradora mantiene pleno control sobre la presencia de su par en el proyecto:
 
-1. **Recepción de solicitud:** Si solicita retirar su par por cualquier motivo (canal directo o formulario), se acusa recibo inmediatamente sin pedir justificaciones.
-2. **Despublicación:** Retirada de la pieza en la web y eliminación de publicaciones en redes sociales propias en un plazo máximo de 48 horas.
+1. **Recepción de solicitud:** Si solicita retirar su par por cualquier motivo (canal directo o formulario), se acusa recibo inmediatamente.
+2. **Eliminación:** Retirada de la pieza en la web y eliminación de publicaciones en redes sociales propias en un plazo máximo de 48 horas.
 3. **Gestión de archivos:** Consulta con la colaboradora si desea el borrado permanente de las fotos originales del archivo interno (copia local y envío en Tally) o si autoriza conservarlas de modo confidencial como registro histórico.
-4. **Confirmación:** Envío de confirmación por escrito una vez completada la despublicación.
+4. **Confirmación:** Envío de confirmación por escrito una vez completada la eliminación.

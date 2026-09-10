@@ -1,8 +1,6 @@
 # Registro de Decisiones
 
-Libro de lo **ya resuelto** (aceptado, descartado o pospuesto) y de las pocas preguntas que **bloquean ahora**. No es una lista de trabajo: eso es [TAREAS.md](../TAREAS.md).
-
-Una pantalla futura no se debate aquí hasta que toque hacerla. Entonces se prueba en Stitch, se cierra en este archivo y pasa a [ESPECIFICACION.md](ESPECIFICACION.md).
+Libro de lo **ya resuelto** (aceptado, descartado o pospuesto) y de las preguntas que **bloquean ahora**. No es una lista de trabajo: eso es [TAREAS.md](../TAREAS.md).
 
 ---
 

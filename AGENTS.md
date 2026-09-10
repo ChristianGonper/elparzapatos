@@ -15,13 +15,12 @@ Enlaces locales siempre `[texto](ruta/al/archivo.md)`, nunca backticks aislados 
 | [TAREAS.md](TAREAS.md) | Trabajo por hacer | — |
 | [ESTADO.md](ESTADO.md) | Snapshot del día | — |
 
-Lo cerrado, descartado o pospuesto, y las preguntas que bloquean ahora: [sitio/DECISIONES.md](sitio/DECISIONES.md). Fronteras al redactar: [marca/conceptos-editoriales.md](marca/conceptos-editoriales.md). Una pantalla futura no se debate en Decisiones hasta que su tarea toque.
-
-El archivo de láminas y léxico pedagógico vive fuera de este repositorio. No cargarlo ni buscarlo aquí.
+Lo cerrado, descartado o pospuesto, y las preguntas que bloquean ahora: [sitio/DECISIONES.md](sitio/DECISIONES.md).
 
 ## Siempre
 
-- Un acuerdo nuevo se escribe en el documento que lo rige y se deja una línea en [ESTADO.md](ESTADO.md) (fecha y lo que cambió). Lo que hay que **hacer** se marca en [TAREAS.md](TAREAS.md). Lo que se **decide, descarta o aplaza** va a [sitio/DECISIONES.md](sitio/DECISIONES.md) (o a `marca/01`–`04` si es criterio editorial). El debate abierto en Decisiones es solo lo que bloquea ahora. No reabrir en TAREAS lo ya cerrado.
-- **Marca.** Identidad y operación en [01](marca/01-identidad-editorial.md)–[04](marca/04-flujo-de-colaboracion.md); piezas enviables y buzón en [activos/](marca/activos/). No reabrir lo que [ESTADO.md](ESTADO.md) da por cubierto.
-- **Sitio.** [DESIGN.md](sitio/DESIGN.md) es el sistema visual. Lo aprobado va a [ESPECIFICACION.md](sitio/ESPECIFICACION.md); el debate y lo descartado, a [DECISIONES.md](sitio/DECISIONES.md). No consolidar pruebas no validadas.
-- No afirmar lo que una foto no muestra.
+- Un acuerdo nuevo se escribe en el documento que lo rige y se deja una línea en [ESTADO.md](ESTADO.md) (fecha y lo que cambió). Lo que hay que **hacer** se marca en [TAREAS.md](TAREAS.md). Lo que se **decide, descarta o aplaza** va a [sitio/DECISIONES.md](sitio/DECISIONES.md) (o a `marca/01`–`04` si es criterio editorial). El debate abierto en Decisiones es solo lo que bloquea ahora.
+
+- **Marca.** Identidad y operación en [01](marca/01-identidad-editorial.md)–[04](marca/04-flujo-de-colaboracion.md); piezas enviables y buzón en [activos/](marca/activos/). 
+
+- **Sitio.** [DESIGN.md](sitio/DESIGN.md) es el sistema visual. Lo aprobado va a [ESPECIFICACION.md](sitio/ESPECIFICACION.md); el debate y lo descartado, a [DECISIONES.md](sitio/DECISIONES.md).

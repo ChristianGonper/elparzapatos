@@ -30,13 +30,13 @@ Analizar y documentar zapatos femeninos de armarios particulares, aportados por 
 4. **Rigor visual y honestidad:** Solo afirmamos lo que la fotografía demuestra o lo que está documentado. Las piezas estructurales ocultas (como el cambrillón o contrafuertes) se mencionan de forma concisa únicamente cuando explican la razón de ser de una forma observable (ej. la curvatura del arco o el aplomo del tacón), sin extenderse en teorías que la imagen no enseña.
 5. **Claridad pedagógica:** Empleamos la terminología precisa del calzado (pala, garganta, enfranque, fuste) explicándola en contexto o vinculándola al glosario interactivo, haciéndola accesible a cualquier persona interesada en moda.
 6. **Fotografía honesta y natural:** Luz natural, fondos neutros y zapato completo. Las imágenes domésticas bien iluminadas son parte de la identidad documental de la publicación; no se persigue la artificialidad de un estudio publicitario.
-7. **Respeto a la colaboradora:** La persona que aporta el par decide su grado de visibilidad (nombre, handle de Instagram o anonimato) y mantiene en todo momento el derecho a solicitar la retirada de las imágenes. La revisión previa cubre crédito y citas, no la pieza completa, salvo excepción.
+7. **Respeto a la colaboradora:** La persona que aporta el par decide su grado de visibilidad (nombre, handle de Instagram o anonimato) y mantiene en todo momento el derecho a solicitar la retirada de las imágenes.
 
 ---
 
 ## 3. Alcance Editorial
 
-- **Siluetas prioritarias:** Salones, tacones (aguja, bloque, bobina, kitten, cubano), bailarinas, slingbacks, cuñas, plataformas y sandalias estructuradas.
-- **Fuera de alcance inicial:** Botas y botines (reservados para etapas posteriores), calzado deportivo técnico y sandalia plana sin estructura.
-- **Criterio de selección:** Interés visual, proporción o particularidad de diseño. No filtramos por nivel de precio, estatus de lujo ni estado de novedad.
+- **Siluetas prioritarias:** Salones, tacones (aguja, bloque, bobina, kitten, cubano), bailarinas, slingbacks, cuñas, plataformas y sandalias con tacón y estructura.
+- **Fuera de alcance inicial:** Botas y botines, calzado deportivo técnico y sandalia plana sin estructura.
+- **Criterio de selección:** Interés visual, proporción o particularidad de diseño. No filtramos por nivel de precio ni estatus de lujo.
 - **Idioma:** Publicación en español. Mantenemos la correspondencia con la terminología internacional en inglés dentro del glosario para futuras ampliaciones.

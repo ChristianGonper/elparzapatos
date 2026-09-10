@@ -6,14 +6,6 @@ Fuentes de Tally: [importar](https://tally.so/help/import), [subida de archivos]
 
 ---
 
-## Estado y publicación
-
-- **URL pública del formulario:** [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl)
-- **Gestión de envíos y ajustes:** Directamente desde el panel de control de Tally.
-- **Procedimiento de montaje original:** Documentado abajo para auditoría o si se necesita recrear el formulario.
-
----
-
 ## Cómo importar (referencia)
 
 1. En Tally: `+ New form` → `Import from` → Markdown.
@@ -35,8 +27,8 @@ Fuentes de Tally: [importar](https://tally.so/help/import), [subida de archivos]
 | Consentimiento | Casilla obligatoria |
 | Página de gracias | Copy del Markdown |
 | Notificación | Correo propio al recibir un envío |
-| Guía fotográfica | URL pública provisional en GitHub Pages: [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Se manda en la fase 3. Sustituir cuando el sitio propio exista |
-| Cover | Subir [tally-cover.png](tally-cover.png): al título del formulario → `Add cover`. 3000×1000 px (mínimo Tally: 1500 px de ancho). Fuente para volver a renderizar: [tally-cover.html](tally-cover.html) |
+| Guía fotográfica | URL pública provisional en GitHub Pages: [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Sustituir cuando el sitio propio exista |
+| Cover | Subir [tally-cover.png](tally-cover.png): al título del formulario → `Add cover`. Fuente para volver a renderizar: [tally-cover.html](tally-cover.html) |
 | Tema | Papel `#FAF8F5`, tinta `#1C1A18`, coñac `#9E6B55` |
 
 La marca «Made with Tally» y el dominio `tally.so` quedan en el plan gratuito.
@@ -61,7 +53,7 @@ Los títulos de pregunta llevan «— Par 0n» para que las respuestas no se mez
 ### Cómo montarlo (`/conditional`)
 
 1. Par 01 siempre visible, con la pregunta de añadir otro al final de la ficha.
-2. Para Par 02 a 07: seleccionar la ficha entera (título, fotos, marca, anécdota y, salvo 07, la pregunta de añadir). `::` → **Hide**.
+2. Para Par 02 a 07: seleccionar la ficha entera. `::` → **Hide**.
 3. Mostrar Par *n* si la pregunta «tras Par *n−1*» es **Sí**. Cadena: 02 ← 01, …, 07 ← 06.
 4. Lo obligatorio de 02–07 solo aplica cuando la ficha es visible (Tally no valida lo oculto).
 5. Probar un par, dos pares y siete pares. Comprobar que las fotos no se mezclan.

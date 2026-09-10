@@ -9,7 +9,6 @@ Ficha de identidad de marca para canales públicos y materiales editoriales.
 - **Nombre principal:** **El Par**
 - **Descriptor oficial:** **Zapatos en detalle**
 - **Fórmula combinada estándar:** **El Par — Zapatos en detalle**
-- **Uso internacional (si aplica):** El Par — Shoes in Detail (el nombre propio *El Par* no se traduce).
 
 ---
 
@@ -22,9 +21,9 @@ Ficha de identidad de marca para canales públicos y materiales editoriales.
 | **Biografía de Instagram** | Tus zapatos vistos de cerca. Las líneas, formas y detalles que cuentan cada silueta. |
 | **Lema oficial / Claim (Web y piezas)** | Aprender a leer un zapato: las piezas que construyen cada silueta. |
 | **Manifiesto web (Cabecera / Acerca de)** | Tus zapatos vistos de cerca. Miramos cada par para aprender a leer el calzado a través de sus formas, proporciones y las piezas que construyen cada silueta. |
-| **Guía para colaboradoras** | Tus zapatos en cámara · Guía sencilla de El Par |
+| **Guía para colaboradoras** | Tus zapatos en cámara|
 | **Pie de pieza web (Cierre de reportaje)** | Archivo El Par — Zapatos en detalle |
-| **Mención de pertenencia del calzado** | Desde el armario de [Nombre / @usuario] |
+| **Mención de pertenencia del calzado** | Armario de [Nombre / @usuario] |
 
 ---
 

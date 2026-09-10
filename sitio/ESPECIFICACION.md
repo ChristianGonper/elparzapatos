@@ -24,10 +24,10 @@ sitio/
 La página de cada par es el núcleo del proyecto: un estudio morfológico profundo que trata el zapato como una obra de arquitectura en miniatura.
 
 ### 2.1. Bloque de Apertura y Cabecera
-- **Título de Observación:** Tipografía *Newsreader* / *Playfair Display* en gran escala. Expresa una constatación visual honesta del par demostrable en las fotos (ej. *«Dos extremos, una silueta»* para un salón de tacón aguja y puntera fina; *«La cintura del tacón»* para un tacón bobina). Se prohíbe el uso de paradojas o metáforas publicitarias vacías.
+- **Título de Observación:** Tipografía *Newsreader* / *Playfair Display* en gran escala. Expresa una constatación visual honesta del par demostrable en las fotos (ej. *«Dos extremos, una silueta»* para un salón de tacón aguja y puntera fina; *«La cintura del tacón»* para un tacón bobina).
 - **Subtítulo Taxonómico Completo:** Bajo el título, en sans-serif neutra (*Inter* / *Plus Jakarta Sans*), la identificación anatómica rigurosa: `[Familia] con [Escote / Sujeción] en [Material] y [Tipo de tacón / Altura]`. Ejemplo: *Salón clásico con escote redondeado en piel grabada y tacón aguja de 85 mm*.
 - **Atribución de Procedencia:** Situada junto al subtítulo o en la entradilla: *«Armario de: [Nombre o alias acordado]»*. Funciona como enlace al fondo de pares de esa colaboradora.
-- **Entradilla / Abstract:** 2 a 3 párrafos sintéticos que sitúan la pieza agrupando sus rasgos morfológicos dominantes, convirtiendo esta caracterización formal en la justificación implícita de su interés sin recurrir a explicaciones forzadas.
+- **Entradilla / Abstract:** 2 a 3 párrafos sintéticos que sitúan la pieza agrupando sus rasgos morfológicos dominantes, convirtiendo esta caracterización formal en la justificación implícita de su interés.
 - **Reflexión Testimonial de la Dueña:** Bloque puramente condicional. Si la colaboradora aporta una anécdota de uso, memoria sensorial o reflexión lúcida sobre el par, se formatea como cita destacada con filete fino a la izquierda o como párrafo en cursiva. Si no existe, el espacio no se fuerza.
 
 ### 2.2. Sistema de Cuadrícula Flexible y Paseo Visual
@@ -112,11 +112,11 @@ Para que el lector entienda con precisión lo que observa sin saturar la composi
 ### 3.4. Cuadrícula de Fichas del Archivo
 - Tarjetas limpias enmarcadas con filete de 1px `#E8E3DC` y fondo blanco para la imagen.
 - Cero distintivos flotantes, badges de categoría o textos encima de la foto.
-- Metadatos bajo la imagen con jerarquía y espaciado fluido (sin fijar píxeles en piedra):
+- Metadatos bajo la imagen con jerarquía y espaciado fluido:
   - Procedencia: `Armario de [Nombre]` en mono tenue.
   - Título: Observación editorial en serif.
   - Subtítulo: Identificación taxonómica en sans neutra.
-- **Interacción pura:** Toda la tarjeta o la imagen y el título actúan como enlace interactivo natural. Se suprime por completo cualquier línea repetitiva tipo `Leer análisis anatómico →` o divisores innecesarios.
+- **Interacción pura:** Toda la tarjeta o la imagen y el título actúan como enlace interactivo natural. Se evita un botón concreto de `Ver análisis`.
 
 ### 3.5. Pie y Cierre de Portada
 - Bloque en papel reposado `#F3EFEA` invitando a *«abrir las puertas del propio armario»* con llamada sobria `Abrir mi armario →`. *(Nota de redacción: el texto exacto de este bloque y los enlaces del footer permanecen abiertos a afinarse en la fase de redacción de marca).*

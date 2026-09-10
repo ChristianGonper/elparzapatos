@@ -10,7 +10,6 @@ Snapshot: [ESTADO](../ESTADO.md).
 - [02-nombre-y-presentacion](02-nombre-y-presentacion.md): El Par, descriptor, bio, arroba.
 - [03-sistema-editorial-y-contenidos](03-sistema-editorial-y-contenidos.md): web, Instagram, anatomía de pieza, estándar fotográfico.
 - [04-flujo-de-colaboracion](04-flujo-de-colaboracion.md): cómo se invita y se recibe material.
-- [conceptos-editoriales](conceptos-editoriales.md): fronteras al redactar (breve).
 
 ## Activos (`activos/`)
 
@@ -26,4 +25,4 @@ Snapshot: [ESTADO](../ESTADO.md).
 | [tally-cover.png](activos/tally-cover.png) | Portada del formulario Tally |
 | [tally-cover.html](activos/tally-cover.html) | Fuente para volver a renderizar la portada |
 
-Las perspectivas fotográficas base están en [03-sistema-editorial-y-contenidos](03-sistema-editorial-y-contenidos.md). Fronteras al redactar: [conceptos-editoriales](conceptos-editoriales.md).
+Las perspectivas fotográficas base están en [03-sistema-editorial-y-contenidos](03-sistema-editorial-y-contenidos.md).

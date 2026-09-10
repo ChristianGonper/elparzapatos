@@ -59,11 +59,11 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
 ## Fase 3: Estructura de Redacción Narrativa (Web)
 
 ### 1. Título observacional
-*Frase que revela un rasgo o tensión formal genuino, demostrable en las fotos. Sin paradojas publicitarias ni metáforas vacías (ej. «Dos extremos, una silueta», «La cintura del tacón», «Una línea sobre el empeine»).*  
+*Frase que revela un rasgo genuino, demostrable en las fotos, (ej. «Dos extremos, una silueta», «La cintura del tacón», «Una línea sobre el empeine»).*  
 **Título:** 
 
 ### 2. Subtítulo taxonómico
-*Denominación anatómica completa: familia, escote o sujeción, material aparente y tipo de tacón o base (ej. «Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»).*  
+*Denominación completa: familia, escote o sujeción, material aparente y tipo de tacón o base (ej. «Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»).*  
 **Subtítulo:** 
 
 ### 3. Abstract / Entradilla

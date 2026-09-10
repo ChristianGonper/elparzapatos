@@ -8,24 +8,24 @@ Manual operativo de producción de contenidos para web y redes sociales.
 
 - **La Web (El Archivo Central):** Publica la pieza completa por cada par analizado. Incluye galería fotográfica en alta resolución, texto narrativo estructurado, hipervínculos al glosario interactivo y conexiones temáticas (misma puntera, misma familia de tacón, mismo tipo de cierre).
 - **Instagram (`@elparzapatos`):** Descubrimiento visual, divulgación cercana y canal de captación de colaboradoras. No resume la pieza entera: extrae ángulos específicos y dinamiza el archivo.
-- **El Formulario de Colaboración:** Punto de entrada privado para la recepción de fotografías, metadatos del calzado (marca, modelo, si se conocen), preferencias de crédito y consentimiento formal de uso.
+- **El Formulario de Colaboración:** Punto de entrada privado para la recepción de fotografías, metadatos del calzado, preferencias de crédito y consentimiento formal de uso.
 
 ---
 
 ## 2. Anatomía de una Pieza Web
 
-Cada entrada documenta un único par bajo el principio rector: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
+Cada entrada documenta un único par bajo el principio: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
 
-1. **Título (Observación visual sincera):** Frase editorial que revela un rasgo o tensión formal genuino del zapato que las fotografías demostrarán, evitando artificios metafóricos o paradojas forzadas. Debe despertar curiosidad legítima a partir de la anatomía real.
+1. **Título (Observación visual sincera):** Frase editorial que revela un rasgo genuino del zapato que las fotografías demostrarán. Debe despertar curiosidad a partir de la anatomía real.
    - *Ejemplos:* Para un salón aguja: *«Dos extremos, una silueta»*. Para un tacón bobina: *«La cintura del tacón»* o *«Estrecharse para volver a abrirse»*. Para una merceditas: *«Una línea sobre el empeine»* o *«La tira que cambia el zapato»*.
-2. **Subtítulo taxonómico riguroso:** Denominación anatómica completa y sin rodeos que fija la tipología formal (ej. *«Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»*).
+2. **Subtítulo taxonómico:** Denominación que fija la tipología formal (ej. *«Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»*).
 3. **Procedencia y Armario:** Atribución visible al inicio (*«Armario de: [Colaboradora]»*), vinculada a las demás piezas cedidas por la misma persona.
-4. **Abstract / Entradilla:** 2-3 párrafos sintéticos que sitúan la pieza agrupando sus rasgos más característicos, haciendo de esta descripción formal una justificación implícita de su interés sin recurrir a explicaciones forzadas.
-5. **Cuerpo narrativo y Paseo Visual:** Prosa fluida con retícula flexible (bloques alternos 7:5, 5:7, 6:6 o dípticos). Cada afirmación técnica se sustenta en la fotografía contigua.
-6. **Marcas y cotas pedagógicas:** Sistema conmutable en imagen (versión posterior de la web, 1.5 o 2). En v1 y en las primeras publicaciones la foto va limpia, sin cotas.
+4. **Abstract / Entradilla:** 2-3 párrafos que sitúan la pieza agrupando sus rasgos más característicos, haciendo de esta descripción una justificación de su interés.
+5. **Cuerpo narrativo y Paseo Visual:** Prosa fluida con retícula flexible (bloques alternos). Cada afirmación técnica se sustenta en la fotografía contigua.
+6. **Marcas y cotas pedagógicas:** Sistema conmutable en imagen (versión posterior de la web). En v1 y en las primeras publicaciones la foto va limpia, sin cotas.
 7. **Términos enlazados interactivos:** Palabras técnicas vinculadas a micro-popovers contextuales con definiciones concisas (`pala`, `garganta`, `collarín`, `enfranque`).
-8. **Testimonio de la dueña (Orgánico y condicional):** No se impone una tarjeta biográfica rígida. Si la colaboradora aporta un recuerdo, un matiz de uso o una reflexión personal sobre el par, se integra con naturalidad tipográfica (cita destacada o nota narrativa). Si no existe, no se fuerza.
-9. **Ficha de datos del par:** Bloque editorial creativo y sobrio (alejado de tablas rígidas de fila por campo), sin iconos ni sobrecarga técnica. Destaca con elegancia: tipo (salón, bailarina, merceditas, sandalia de tacón…), marca y modelo, material exterior (piel, ante, textil, satén…), acabado, color (principal y contraste si procede), clasificación del tacón/base y colaboradora.
+8. **Testimonio de la dueña (Orgánico y condicional):** Si la colaboradora aporta un recuerdo, un matiz de uso o una reflexión personal sobre el par, se integra con naturalidad tipográfica (cita destacada o nota narrativa).
+9. **Ficha de datos del par:** Bloque editorial creativo y sobrio. Destaca con elegancia: tipo (salón, bailarina, merceditas, sandalia de tacón…), marca y modelo, material exterior (piel, ante, textil, satén…), acabado, color (principal y contraste si procede), clasificación del tacón/base y colaboradora.
 
 ---
 
@@ -63,7 +63,7 @@ Para evitar convertir el perfil en un catálogo frío o en una clase académica 
 
 ### Perspectivas base
 
-Seis tomas indispensables y un detalle libre. Cada una enseña algo que las otras no cubren del todo:
+Seis tomas indispensables y detalles opcionales. Cada una enseña algo que las otras no cubren del todo:
 
 1. **Tres cuartos delantero** — La más útil como imagen principal. Enseña a la vez puntera, pala, abertura/escote, volumen y parte del lateral.
 2. **Perfil exterior** — Silueta general, tacón/cuña/plataforma y curva lateral.
