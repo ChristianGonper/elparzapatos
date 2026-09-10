@@ -17,7 +17,7 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Importar una sola vez `personas_contacto_proyecto_calzado.md`, simplificar sus campos y conservar `Contacto previo = Sí`; no marcar como invitada a El Par salvo evidencia expresa.
 - [x] Crear el Apps Script con ejecución manual desde el menú `El Par → Procesar nuevos envíos`.
 - [x] Dejar preparadas, pero sin instalar ni activar, las funciones de automatización temporal.
-- [ ] Verificar con un envío real la idempotencia, descarga de archivos, carpetas, validaciones y registro de errores.
+- [x] Verificar con un envío real la idempotencia, descarga de archivos, carpetas, validaciones y registro de errores.
 
 **Christian — preparación y conexión**
 
@@ -30,7 +30,7 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v3.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
 - [x] Después de validar v3, ejecutar una vez `El Par → Procesar nuevos envíos` y comunicar el resultado.
 - [x] Retirar de `Tally_raw` la columna `token_colaborador` sin afectar la integración.
-- [ ] Eliminar en el editor de Tally el campo oculto `token_colaborador` y volver a publicar el formulario.
+- [x] Retirar `token_colaborador` del flujo operativo: no se usa en Tally, Sheets, enlaces, código ni manifiestos.
 
 ### Bloque B · Primera prueba real
 
@@ -48,9 +48,9 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Eliminar de `Tally_raw` el primer envío incompleto y corregir la referencia de fila del envío válido.
 - [x] Preparar y verificar sintácticamente `El_Par_Apps_Script_v3.gs` con identificación por correo, alta directa e Instagram opcional.
 - [x] Auditar el primer procesamiento: se crearon `ENV-0001`, `PAR-0001`, actividad, log, manifiesto y cinco imágenes en la carpeta esperada.
-- [ ] Ejecutar de nuevo `Procesar nuevos envíos` y verificar que no se duplica ninguna fila, carpeta ni imagen.
-- [ ] Documentar y probar el procedimiento operativo mínimo para enviar el enlace público, registrar la invitación y revisar altas o conflictos.
-- [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
+- [x] Ejecutar de nuevo `Procesar nuevos envíos`: resultado 0/0/0 y sin duplicar filas, carpetas ni imágenes.
+- [x] Documentar y probar el procedimiento operativo mínimo: enlace público único, correo como clave, Instagram como apoyo y revisión de conflictos.
+- [x] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
 
 ### Bloque C · Notas de seguimiento
 
