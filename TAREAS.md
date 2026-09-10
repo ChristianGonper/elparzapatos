@@ -8,48 +8,47 @@ Marca `[x]` y mueve a **Hecho**.
 
 ## Ahora — sistema de colaboraciones
 
-### Bloque A · Preparación en paralelo
+### Bloque A · Infraestructura inicial
 
 **Gemini — creación de la infraestructura de Sheets**
 
-- [ ] Crear en Drive la carpeta operativa de colaboraciones y una única Google Sheet.
-- [ ] Crear y ordenar las pestañas `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`.
-- [ ] Importar una sola vez `personas_contacto_proyecto_calzado.md`, simplificar sus campos y conservar `Contacto previo = Sí`; no marcar como invitada a El Par salvo evidencia expresa.
-- [ ] Crear el Apps Script con ejecución manual desde el menú `El Par → Procesar nuevos envíos`.
-- [ ] Dejar preparadas, pero sin instalar ni activar, las funciones de automatización temporal.
-- [ ] Verificar estructura, validaciones, permisos, idempotencia y registro de errores.
+- [x] Crear en Drive la carpeta operativa de colaboraciones y una única Google Sheet.
+- [x] Crear y ordenar las pestañas `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`.
+- [x] Importar una sola vez `personas_contacto_proyecto_calzado.md`, simplificar sus campos y conservar `Contacto previo = Sí`; no marcar como invitada a El Par salvo evidencia expresa.
+- [x] Crear el Apps Script con ejecución manual desde el menú `El Par → Procesar nuevos envíos`.
+- [x] Dejar preparadas, pero sin instalar ni activar, las funciones de automatización temporal.
+- [ ] Verificar con un envío real la idempotencia, descarga de archivos, carpetas, validaciones y registro de errores.
 
-**Christian — preparación de la fuente**
+**Christian — preparación y conexión**
 
-- [x] Identificar qué contactos importados no deben permanecer en la Sheet.
-- [ ] Confirmar que Tally recoge o permite relacionar de forma estable a la persona; preferencia: campo oculto `colaborador_id` en enlaces personalizados.
-- [ ] Mantener restringidos la Sheet y los archivos de colaboradoras.
-
-### Bloque B · Requiere la Sheet creada
-
-**Christian**
-
+- [x] Retirar del Markdown los contactos que no debían importarse.
+- [x] Añadir en Tally el campo oculto `colaborador_id`.
+- [x] Pegar el código en el Apps Script asociado y autorizar sus permisos.
+- [ ] Confirmar manualmente que la Sheet y los archivos de colaboradoras mantienen acceso restringido.
 - [ ] Conectar Tally con la pestaña `Tally_raw`.
-- [ ] Autorizar el Apps Script y realizar un envío de prueba.
+- [ ] Hacer un envío de prueba mediante una URL personalizada con `colaborador_id`.
 
-**Gemini**
-
-- [ ] Ajustar el mapa de encabezados del Apps Script a las columnas reales creadas por Tally.
-- [ ] Procesar manualmente el envío de prueba y corregir cualquier error.
+### Bloque B · Primera prueba real
 
 **ChatGPT**
 
-- [ ] Auditar la Sheet, el archivo creado en Drive y el log del primer procesamiento.
+- [x] Auditar preliminarmente la estructura de Drive, la Sheet y el código entregado por Gemini.
+- [x] Mantener IDs internos secuenciales y legibles (`COL`, `ENV`, `PAR`); reservar un token aleatorio separado sólo si aparece una necesidad pública real.
+- [ ] Comprobar que la integración real añade el encabezado `colaborador_id` y conserva las columnas técnicas `EP_*`.
+- [ ] Ajustar el Apps Script a los encabezados reales de Tally.
+- [ ] Hacer que una discrepancia entre `colaborador_id` e Instagram/correo se marque como `Revisar` en lugar de atribuirse silenciosamente.
+- [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
+- [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
+
+### Bloque C · Notas de seguimiento
+
 - [ ] Redactar la instrucción definitiva para procesar `Notas_inbox`.
 - [ ] Configurar o guiar la tarea de ChatGPT con ejecución manual mediante `Run`; probar primero en Work o en la aplicación local según permita elegir modelo, proyecto y conversación.
-- [ ] Archivar el Markdown anterior de contactos cuando la Sheet verificada pase a ser la fuente canónica.
+- [ ] Decidir después de probarla si la tarea continúa manual o pasa a una cadencia programada.
 
-### Bloque C · Después de validar el flujo manual y operativa de archivo
+### Bloque D · Después de validar el flujo manual
 
 - [ ] Decidir si se activa el disparador temporal del Apps Script.
-- [ ] Decidir si la tarea de notas continúa manual o pasa a una cadencia programada.
-- [ ] Tabla de colaboraciones (Invitada → Guía enviada → Material recibido → Falta vista / En edición → Publicada / Retirada).
-- [ ] Carpeta de archivo al descargar de Tally (un envío / `par-01`…`par-07` + plantilla por par).
 - [ ] Canal oficial de retirada (correo, formulario de baja, o ambos).
 - [ ] Decidir originales al retirar: borrado siempre vs registro mínimo restringido.
 - [ ] Reescribir consentimiento en Tally y pegarlo en el formulario publicado.
