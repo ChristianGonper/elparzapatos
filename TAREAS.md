@@ -22,21 +22,23 @@ Marca `[x]` y mueve a **Hecho**.
 **Christian — preparación y conexión**
 
 - [x] Retirar del Markdown los contactos que no debían importarse.
-- [x] Añadir en Tally el campo oculto `colaborador_id`.
+- [x] Añadir en Tally el campo oculto provisional `colaborador_id`.
+- [ ] Sustituirlo antes de la prueba por `token_colaborador`, que recibirá un token público aleatorio y no el `persona_id` interno.
 - [x] Pegar el código en el Apps Script asociado y autorizar sus permisos.
 - [ ] Confirmar manualmente que la Sheet y los archivos de colaboradoras mantienen acceso restringido.
 - [ ] Conectar Tally con la pestaña `Tally_raw`.
-- [ ] Hacer un envío de prueba mediante una URL personalizada con `colaborador_id`.
+- [ ] Hacer un envío de prueba mediante una URL personalizada con `token_colaborador`.
 
 ### Bloque B · Primera prueba real
 
 **ChatGPT**
 
 - [x] Auditar preliminarmente la estructura de Drive, la Sheet y el código entregado por Gemini.
-- [x] Mantener IDs internos secuenciales y legibles (`COL`, `ENV`, `PAR`); reservar un token aleatorio separado sólo si aparece una necesidad pública real.
-- [ ] Comprobar que la integración real añade el encabezado `colaborador_id` y conserva las columnas técnicas `EP_*`.
-- [ ] Ajustar el Apps Script a los encabezados reales de Tally.
-- [ ] Hacer que una discrepancia entre `colaborador_id` e Instagram/correo se marque como `Revisar` en lugar de atribuirse silenciosamente.
+- [x] Mantener IDs internos secuenciales y legibles (`COL`, `ENV`, `PAR`) y separar de ellos el identificador público de los enlaces.
+- [ ] Añadir a `Personas` un `token_enlace` aleatorio, único, estable y reutilizable para varios envíos de la misma persona; una nueva solicitud de enlace debe recuperar el token existente, no crear otro `COL`.
+- [ ] Comprobar que la integración real añade el encabezado `token_colaborador` y conserva las columnas técnicas `EP_*`.
+- [ ] Ajustar el Apps Script a los encabezados reales de Tally, implementar realmente la coincidencia alternativa por correo y confirmar el destino de las carpetas personales respecto de `01_Envíos Tally`.
+- [ ] Resolver identidad con estas reglas: token e Instagram/correo coincidentes → mismo `COL`; discrepancia, identidad nueva o ambigua → `Revisar` sin atribuir ni crear persona automáticamente; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
 - [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
 - [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
 
