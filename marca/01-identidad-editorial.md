@@ -8,15 +8,9 @@ Documento de directrices internas para la gestión de **El Par — Zapatos en de
 
 Analizar y documentar zapatos femeninos de armarios particulares, aportados por la comunidad. Tratamos el calzado como un objeto de diseño autónomo con valor propio, no como un mero accesorio supeditado a un estilismo o conjunto de ropa.
 
-### Voz y Lemas hacia el Exterior
+### Voz, Lemas y Canales Oficiales
 
-- **Lema principal (versión corta y contundente):**
-  > «Aprender a leer un zapato: las piezas que construyen cada silueta.»
-- **Biografía de Instagram (cálida y cercana):**
-  > «Tus zapatos vistos de cerca. Las líneas, formas y detalles que cuentan cada silueta.»
-- **Manifiesto / Versión larga (para cabecera o 'Acerca de' en la web):**
-  > «Tus zapatos vistos de cerca. Miramos cada par para aprender a leer el calzado a través de las formas, proporciones y piezas que construyen cada silueta.»
-- **Descriptor de marca:** **Zapatos en detalle.**
+La nomenclatura oficial, los lemas vigentes hacia el exterior, la biografía de redes y los canales de contacto están centralizados en la tabla canónica de [marca/02-nombre-y-presentacion.md#2-aplicaciones-en-canales](02-nombre-y-presentacion.md#2-aplicaciones-en-canales).
 
 ---
 

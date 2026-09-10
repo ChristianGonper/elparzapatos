@@ -10,7 +10,7 @@ Pautas y fórmulas de apoyo para el diálogo con las dueñas de los zapatos.
 - **Tono natural y personal:** Trato de tú, cálido y cercano. Siempre incluye al menos una frase genuina sobre su zapato o su estilo.
 - **Sin agobios técnicos:** No hables de requisitos de cámara ni des explicaciones enciclopédicas en el primer contacto.
 - **El zapato como protagonista:** No juzgamos la marca, el precio ni si está de moda. Buscamos formas, siluetas, tiras, tacones o texturas interesantes.
-- **Transparencia total:** Explica desde el principio que ella decide su grado de visibilidad (crédito con nombre, @usuario o anónimo) y que puede pedir la retirada cuando quiera.
+- **Transparencia total:** Explica desde el principio que ella decide su grado de visibilidad (crédito con nombre, @usuario o anónimo) y que puede pedir la retirada cuando quiera ([política oficial de retirada en marca/04](../04-flujo-de-colaboracion.md#4-política-y-protocolo-de-retirada)).
 
 ---
 
@@ -30,9 +30,13 @@ Pautas y fórmulas de apoyo para el diálogo con las dueñas de los zapatos.
 
 > «Si dudas entre varios, mándame una foto rápida con el móvil de los que tengas en mente.»
 
-> «¡Ese par tiene muchísimo juego por [rasgo o motivo]! Te dejo por aquí la guía fotográfica para que veas las vistas base: https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html. Cuando tengas un ratito, le sacas las fotos y me las subes por este formulario: https://tally.so/r/Npj2bl. En el mismo envío puedes añadir hasta siete pares. No te preocupes si no quedan perfectas, la naturalidad es parte de la pieza.»
+> «¡Ese par tiene muchísimo juego por [rasgo o motivo]! Te dejo por aquí la guía fotográfica para que veas las tomas base: [guía *Tus zapatos en cámara*](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Cuando tengas un ratito, le sacas las fotos y me las subes por este [formulario de recepción](https://tally.so/r/Npj2bl). En el mismo envío puedes añadir hasta siete pares. No te preocupes si no quedan perfectas, la naturalidad es parte de la pieza.»
 
-Guía pública (GitHub Pages, provisional): [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Formulario en Tally: [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl). Detalles operativos, almacenamiento y límites en [tally-recepcion.md](tally-recepcion.md).
+*(Canales oficiales centralizados en [marca/02-nombre-y-presentacion.md#2-aplicaciones-en-canales](../02-nombre-y-presentacion.md#2-aplicaciones-en-canales)).*
+
+### D. Follow-up si no hay envío (sin tono de encargo)
+
+> «Hola, [Nombre]. ¿Pudiste echarle un vistazo a la guía fotográfica? Te escribo sin ninguna prisa ni compromiso: si te apetece que sigamos adelante cuando encuentres un hueco libre genial, y si prefieres dejarlo para más adelante o no te viene bien ahora, no te preocupes en absoluto. ¡Un abrazo!»
 
 ### E. Si falta una vista o se necesita repetir una foto
 

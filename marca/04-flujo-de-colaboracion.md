@@ -38,17 +38,17 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 - **Mensaje clave:** Recordar que son fotos caseras con luz natural y fondo tranquilo, sin necesidad de equipo profesional ni salir ella.
 
 ### Fase 4. Curaduría, Chequeo y Redacción
-- **Revisión visual y permisividad honesta:** Todo material doméstico tomado con buena luz natural se considera aprovechable por defecto. No se descartan fotos por grano leve o falta de equipo profesional. Si falta una vista secundaria (interior, suela), la monografía se adapta al material existente sin exigir tomas adicionales a la colaboradora.
+- **Revisión visual y permisividad honesta:** Todo material doméstico tomado con buena luz natural se considera aprovechable por defecto. No se descartan fotos por grano leve o falta de equipo profesional. Las tomas se contrastan con las [perspectivas base definidas en marca/03](03-sistema-editorial-y-contenidos.md#perspectivas-base). Si falta una vista secundaria (interior, suela), la monografía se adapta al material existente sin exigir tomas adicionales a la colaboradora.
 - **Criterio para pedir una imagen adicional:**
   - *Cuándo pedir:* Solo si falta una perspectiva vertebral imprescindible (silueta general de perfil o tacón) y el texto no puede sostenerse con rigor sin ella.
-  - *Cómo pedir:* Agradecer primero, plantear la petición desde la curiosidad genuina por un detalle concreto (sin tono de fallo técnico ni encargo profesional) y recordar que basta una toma rápida con el móvil.
+  - *Cómo pedir:* Agradecer primero, plantear la petición desde la curiosidad genuina por un detalle concreto (sin tono de fallo técnico ni encargo profesional) y recordar que basta una toma rápida con el móvil. Fórmulas de mensaje en [marca/activos/Contactos-previos.md#e-si-falta-una-vista-o-se-necesita-repetir-una-foto](activos/Contactos-previos.md#e-si-falta-una-vista-o-se-necesita-repetir-una-foto).
 - **Tratamiento y límites de edición de la imagen:**
   - *Proporciones fotográficas:* Las fotos se capturan habitualmente en ratio nativo de cámara 3:4 (vertical) o 4:3 (horizontal).
   - *Ajustes válidos:* Reencuadre sutil para equilibrar o cuadrar formato, nivelado leve del plano de apoyo y corrección tonal limpia (balance de blancos para neutralizar dominantes domésticas y levantamiento de sombras en cueros oscuros).
   - *Prohibición de IA generativa masiva:* Prohibido usar modelos generativos completos. Solo se admiten herramientas de edición puntual / redes neuronales pequeñas que no dejen huella ni inventen píxeles nuevos.
   - *Respeto al calzado:* No borrar arrugas, pliegues ni marcas de uso naturales.
   - *Fondos y sombras reales:* En la operación habitual no se extraen fondos ni se siluetea el calzado; el zapato conserva su apoyo y sombra natural (la extracción de fondos queda reservada solo a posibles experimentos futuros como collages o modelos 3D).
-- **Redacción:** Análisis y redacción de la pieza según la plantilla de calzado.
+- **Redacción:** Análisis y redacción de la pieza según la [plantilla de calzado](activos/plantilla-entrada-calzado.md).
 - **Validación de crédito y citas:** Confirmar con ella antes de maquetar cómo desea figurar, y si aportó una anécdota, el texto que se citará.
 
 ### Fase 5. Publicación y Seguimiento
@@ -69,7 +69,7 @@ Estados editoriales del par:
 
 `Por valorar` ➔ `Invitada` ➔ `Interesada` ➔ `Guía enviada` ➔ `Material recibido` ➔ `Falta vista` / `En edición` ➔ `Pendiente de confirmación` ➔ `Publicada` (o `Retirada` / `Pausada`).
 
-La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`. La actividad y las notas originales se conservan como historial.
+La Sheet conserva pestañas separadas para `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`. La actividad y las notas originales se conservan como historial vivo.
 
 ---
 
@@ -77,7 +77,7 @@ La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `
 
 La colaboradora mantiene pleno control sobre la presencia de su par en el proyecto:
 
-1. **Recepción de solicitud:** Si solicita retirar su par por cualquier motivo (canal directo o formulario), se acusa recibo inmediatamente.
-2. **Eliminación:** Retirada de la pieza en la web y eliminación de publicaciones en redes sociales propias en un plazo máximo de 48 horas.
-3. **Gestión de archivos:** Consulta con la colaboradora si desea el borrado permanente de las fotos originales del archivo interno (copia local y envío en Tally) o si autoriza conservarlas de modo confidencial como registro histórico.
-4. **Confirmación:** Envío de confirmación por escrito una vez completada la eliminación.
+1. **Canal oficial de solicitud:** Puede solicitar la retirada en cualquier momento escribiendo al correo oficial del proyecto ([`elparzapatos@proton.me`](mailto:elparzapatos@proton.me)) o por mensaje directo si existe un canal previo abierto. Se acusa recibo inmediatamente.
+2. **Plazo de eliminación:** Despublicación de la pieza monográfica en la web y eliminación de publicaciones en redes sociales propias en un plazo máximo de **48 horas**.
+3. **Custodia y borrado de originales:** Se consulta a la colaboradora si desea el borrado total e irreversible de las fotos originales del archivo interno (Drive y registros técnicos) o si autoriza conservarlas de modo estrictamente confidencial como histórico interno no público.
+4. **Confirmación por escrito:** Envío de confirmación formal por correo o mensaje una vez completada la retirada.

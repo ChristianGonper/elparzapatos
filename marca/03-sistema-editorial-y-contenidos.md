@@ -12,20 +12,13 @@ Manual operativo de producción de contenidos para web y redes sociales.
 
 ---
 
-## 2. Anatomía de una Pieza Web
+## 2. Anatomía de la Pieza Web
 
-Cada entrada documenta un único par bajo el principio: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
+Cada entrada documenta un único par bajo el principio rector: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
 
-1. **Título (Observación visual sincera):** Frase editorial que revela un rasgo genuino del zapato que las fotografías demostrarán. Debe despertar curiosidad a partir de la anatomía real.
-   - *Ejemplos:* Para un salón aguja: *«Dos extremos, una silueta»*. Para un tacón bobina: *«La cintura del tacón»* o *«Estrecharse para volver a abrirse»*. Para una merceditas: *«Una línea sobre el empeine»* o *«La tira que cambia el zapato»*.
-2. **Subtítulo taxonómico:** Denominación que fija la tipología formal (ej. *«Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»*).
-3. **Procedencia y Armario:** Atribución visible al inicio (*«Armario de: [Colaboradora]»*), vinculada a las demás piezas cedidas por la misma persona.
-4. **Abstract / Entradilla:** 2-3 párrafos que sitúan la pieza agrupando sus rasgos más característicos, haciendo de esta descripción una justificación de su interés.
-5. **Cuerpo narrativo y Paseo Visual:** Prosa fluida con retícula flexible (bloques alternos). Cada afirmación técnica se sustenta en la fotografía contigua.
-6. **Marcas y cotas pedagógicas:** Sistema conmutable en imagen (versión posterior de la web). En v1 y en las primeras publicaciones la foto va limpia, sin cotas.
-7. **Términos enlazados interactivos:** Palabras técnicas vinculadas a micro-popovers contextuales con definiciones concisas (`pala`, `garganta`, `collarín`, `enfranque`).
-8. **Testimonio de la dueña (Orgánico y condicional):** Si la colaboradora aporta un recuerdo, un matiz de uso o una reflexión personal sobre el par, se integra con naturalidad tipográfica (cita destacada o nota narrativa).
-9. **Ficha de datos del par:** Bloque editorial creativo y sobrio. Destaca con elegancia: tipo (salón, bailarina, merceditas, sandalia de tacón…), marca y modelo, material exterior (piel, ante, textil, satén…), acabado, color (principal y contraste si procede), clasificación del tacón/base y colaboradora.
+La especificación completa de la interfaz vive de forma canónica en [sitio/ESPECIFICACION.md#2-especificación-de-la-entrada-monográfica](../sitio/ESPECIFICACION.md#2-especificación-de-la-entrada-monográfica).
+
+Para la plantilla ágil de redacción previa al maquetado, véase [marca/activos/plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md).
 
 ---
 
