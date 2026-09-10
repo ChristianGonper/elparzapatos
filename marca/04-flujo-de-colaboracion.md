@@ -59,9 +59,19 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 
 ## 3. Registro y Estados de Seguimiento
 
-Llevar una tabla de control mínima con los siguientes estados operativos:
+El registro operativo vive en una única Google Sheet restringida de Drive. Separa tres entidades:
 
-`Por valorar` ➔ `Invitada` ➔ `Interesada` ➔ `Guía enviada` ➔ `Material recibido` ➔ `En edición / Falta vista` ➔ `Aprobada para publicar` ➔ `Publicada` (o `Retirada`).
+1. **Persona** (`COL-0001`): identidad, relación general, último contacto y próxima acción. Su carpeta se nombra de forma reconocible: `COL-0001 — Nombre (@usuario)`.
+2. **Envío de Tally** (`ENV-0001`): una recepción técnica del formulario. Una persona puede hacer varios envíos y cada envío puede contener hasta siete pares. Su estado técnico es `Pendiente`, `Procesado` o `Error`.
+3. **Par** (`PAR-0001`): unidad editorial con estado propio. Los estados de distintos pares de una misma persona no se mezclan.
+
+Estados editoriales del par:
+
+`Por valorar` ➔ `Invitada` ➔ `Interesada` ➔ `Guía enviada` ➔ `Material recibido` ➔ `Falta vista` / `En edición` ➔ `Pendiente de confirmación` ➔ `Publicada` (o `Retirada` / `Pausada`).
+
+La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`. La actividad y las notas originales se conservan como historial; los resúmenes nunca las sustituyen.
+
+El listado privado anterior de contactos se importa una sola vez. Después, la Sheet pasa a ser la fuente canónica del seguimiento vivo y el Markdown queda archivado como snapshot histórico.
 
 ---
 
