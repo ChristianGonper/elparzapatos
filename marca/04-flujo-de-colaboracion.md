@@ -38,8 +38,16 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 - **Mensaje clave:** Recordar que son fotos caseras con luz natural y fondo tranquilo, sin necesidad de equipo profesional ni salir ella.
 
 ### Fase 4. Curaduría, Chequeo y Redacción
-- **Revisión visual:** Comprobar si las seis perspectivas base (y el detalle libre, si aporta) permiten una lectura completa.
-- **Si falta una vista clave:** Pedir únicamente esa toma específica de forma amable, explicando qué detalle nos ayudará a apreciar mejor (ej. *«¿Podrías mandarme una foto más del talón para ver bien la costura trasera?»*).
+- **Revisión visual y permisividad honesta:** Todo material doméstico tomado con buena luz natural se considera aprovechable por defecto. No se descartan fotos por grano leve o falta de equipo profesional. Si falta una vista secundaria (interior, suela), la monografía se adapta al material existente sin exigir tomas adicionales a la colaboradora.
+- **Criterio para pedir una imagen adicional:**
+  - *Cuándo pedir:* Solo si falta una perspectiva vertebral imprescindible (silueta general de perfil o tacón) y el texto no puede sostenerse con rigor sin ella.
+  - *Cómo pedir:* Agradecer primero, plantear la petición desde la curiosidad genuina por un detalle concreto (sin tono de fallo técnico ni encargo profesional) y recordar que basta una toma rápida con el móvil.
+- **Tratamiento y límites de edición de la imagen:**
+  - *Proporciones fotográficas:* Las fotos se capturan habitualmente en ratio nativo de cámara 3:4 (vertical) o 4:3 (horizontal).
+  - *Ajustes válidos:* Reencuadre sutil para equilibrar o cuadrar formato, nivelado leve del plano de apoyo y corrección tonal limpia (balance de blancos para neutralizar dominantes domésticas y levantamiento de sombras en cueros oscuros).
+  - *Prohibición de IA generativa masiva:* Prohibido usar modelos generativos completos (Nanobanana, GPT Images, Grok Imagen). Solo se admiten herramientas de edición puntual / redes neuronales pequeñas que no dejen huella ni inventen píxeles nuevos.
+  - *Respeto al calzado:* No borrar arrugas, pliegues ni marcas de uso naturales; son la historia real del par.
+  - *Fondos y sombras reales:* En la operación habitual no se extraen fondos ni se siluetea el calzado; el zapato conserva su apoyo y sombra natural (la extracción de fondos queda reservada solo a posibles experimentos futuros como collages o modelos 3D).
 - **Redacción:** Análisis y redacción de la pieza según la plantilla de calzado.
 - **Validación de crédito y citas:** Confirmar con ella antes de maquetar cómo desea figurar (nombre de pila, @usuario de Instagram o mención anónima) y, si aportó una anécdota, el texto que se citará. La pieza completa no se somete a aprobación editorial conjunta, salvo excepción.
 

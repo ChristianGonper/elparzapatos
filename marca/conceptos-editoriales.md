@@ -7,6 +7,7 @@ Lo que este archivo hace distinto. No es un glosario de anatomía: el oficio se 
 - El zapato es el objeto. No el look ni la dueña.
 - Observar todo; publicar 3–5 rasgos; cada afirmación, una foto al lado.
 - No afirmar lo que la foto no muestra. Cambrillón o contrafuerte, solo si explican una forma visible.
+- Fotografía honesta: el calzado se muestra natural, con sus marcas de uso y sombras reales de apoyo. Prohibido usar herramientas generativas completas para alterar las fotos de colaboradoras.
 
 ## Titular
 
