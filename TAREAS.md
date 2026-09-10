@@ -27,7 +27,8 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Pegar el código en el Apps Script asociado y autorizar sus permisos.
 - [x] Confirmar que la Sheet y las carpetas están restringidas a la cuenta propietaria y a la cuenta de agente autorizada; no existe acceso público ni de dominio.
 - [x] Conectar Tally con la pestaña `Tally_raw`.
-- [ ] Hacer un envío crudo de prueba con `COL-0101 — Prueba interna`, sin ejecutar todavía `Procesar nuevos envíos`.
+- [x] Hacer dos envíos crudos con `COL-0101 — Prueba interna`: conservar el primero sin token como caso de revisión y usar el segundo, con token y correo correctos, para la prueba válida.
+- [ ] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v2.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
 
 ### Bloque B · Primera prueba real
 
@@ -39,11 +40,11 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Añadir la columna `correo`; los contactos importados quedan vacíos hasta su primera confirmación y la ficha técnica ya contiene el correo verificado.
 - [x] Añadir `enlace_tally` calculado para cada persona y crear `COL-0101 — Prueba interna` para no contaminar una colaboración real.
 - [ ] Ajustar el script para que los contactos nuevos reciban un único `token_enlace` estable y una nueva solicitud de enlace recupere el existente, sin crear otro `COL`.
-- [ ] Tras el primer envío, comprobar que la integración real añade `token_colaborador`; antes de recibir datos, `Tally_raw` aún muestra la cabecera provisional `colaborador_id` y no conserva todas las columnas `EP_*` previstas.
-- [ ] Ajustar el Apps Script a los encabezados reales de Tally, usar el correo obligatorio como comprobación principal y mantener Instagram opcional; confirmar también el destino de las carpetas personales respecto de `01_Envíos Tally`.
-- [ ] Añadir al menú una acción para la fila seleccionada que muestre el enlace con botón de copia y permita registrar la invitación sólo después de enviarla.
+- [x] Comprobar que Tally escribe `token_colaborador`, `Submission ID`, el correo y los archivos múltiples; restaurar al final las columnas técnicas `EP_procesado` y `EP_envio_id`.
+- [x] Preparar `El_Par_Apps_Script_v2.gs` con los encabezados reales, correo obligatorio como comprobación principal, Instagram opcional y carpetas personales dentro de `01_Envíos Tally`; falta instalarlo y probarlo en el proyecto asociado.
+- [x] Añadir en v2 al menú una acción para la fila seleccionada que muestre el enlace con botón de copia y otra que registre la invitación sólo después de enviarla.
 - [ ] Documentar el procedimiento operativo mínimo para buscar o dar de alta una persona, recuperar siempre su enlace estable, enviarlo y registrar la acción sin duplicar `COL`.
-- [ ] Resolver identidad con estas reglas: token + correo conocido coincidentes → mismo `COL`; si la ficha aún no tiene correo, el primer envío queda en `Revisar` y, tras confirmación manual, fija el correo; correo distinto, ya usado, identidad nueva o ambigua → `Revisar` sin crear persona; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
+- [x] Implementar en v2 estas reglas: token + correo conocido coincidentes → mismo `COL`; si la ficha aún no tiene correo, el primer envío queda en `Revisar`; correo distinto, ya usado, identidad nueva o ambigua → `Revisar` sin crear persona; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
 - [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
 - [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
 
