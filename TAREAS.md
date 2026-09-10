@@ -10,7 +10,6 @@ Marca `[x]` y mueve a **Hecho**.
 
 - [ ] Tabla de colaboraciones (Invitada → Guía enviada → Material recibido → Falta vista / En edición → Publicada / Retirada)
 - [ ] Carpeta de archivo al descargar de Tally (un envío / `par-01`…`par-07` + plantilla por par)
-- [ ] Criterio de calidad al guardar (qué se conserva original, qué se descarta, qué se pide de nuevo)
 - [ ] Canal oficial de retirada (correo, formulario de baja, o ambos)
 - [ ] Decidir originales al retirar: borrado siempre vs registro mínimo restringido
 - [ ] Reescribir consentimiento en Tally y pegarlo en el formulario publicado
@@ -42,3 +41,4 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Prototipos locales de portada y monografía
 - [x] Formulario Tally de recepción (provisional)
 - [x] Guía fotográfica enviada a compañeras
+- [x] Criterio de calidad fotográfica, umbral para pedir tomas y límites de edición ([marca/04](marca/04-flujo-de-colaboracion.md) y Drive)

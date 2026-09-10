@@ -14,7 +14,7 @@ Actualizado: 2026-09-10.
 
 ## Cubierto
 
-Identidad editorial (01 a 04, lemas, flujo de colaboración). Prototipos de portada, monografía y formulario local con [sitio/DESIGN.md](sitio/DESIGN.md). Tally operativo. Guía enviada a compañeras. La primera entrada real prueba formato web y flujo; no hay piloto separado. v1 y primeras publicaciones: foto limpia, sin cotas. El lanzamiento en Instagram está pospuesto.
+Identidad editorial (01 a 04, lemas, flujo de colaboración). Prototipos de portada, monografía y formulario local con [sitio/DESIGN.md](sitio/DESIGN.md). Tally operativo. Guía enviada a compañeras. Criterio de calidad fotográfica, umbral para pedir tomas y límites éticos de edición acordados en [marca/04](marca/04-flujo-de-colaboracion.md) y gestionados en Drive. La primera entrada real prueba formato web y flujo; no hay piloto separado. v1 y primeras publicaciones: foto limpia, sin cotas. El lanzamiento en Instagram está pospuesto.
 
 ## Abierto
 
