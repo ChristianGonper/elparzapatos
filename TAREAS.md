@@ -29,7 +29,8 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Ejecutar `Validar configuración` sobre v2 con resultado correcto.
 - [x] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v3.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
 - [x] Después de validar v3, ejecutar una vez `El Par → Procesar nuevos envíos` y comunicar el resultado.
-- [ ] Eliminar en el editor de Tally el campo oculto `token_colaborador`; después se retirará también su columna vacía de `Tally_raw`.
+- [x] Retirar de `Tally_raw` la columna `token_colaborador` sin afectar la integración.
+- [ ] Eliminar en el editor de Tally el campo oculto `token_colaborador` y volver a publicar el formulario.
 
 ### Bloque B · Primera prueba real
 
