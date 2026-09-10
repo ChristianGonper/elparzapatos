@@ -22,31 +22,31 @@ Marca `[x]` y mueve a **Hecho**.
 **Christian — preparación y conexión**
 
 - [x] Retirar del Markdown los contactos que no debían importarse.
-- [x] Añadir en Tally el campo oculto provisional `colaborador_id`.
-- [x] Sustituirlo antes de la prueba por `token_colaborador`, que recibirá un token público aleatorio y no el `persona_id` interno.
-- [x] Pegar el código en el Apps Script asociado y autorizar sus permisos.
+- [x] Pegar y autorizar la versión inicial del Apps Script.
 - [x] Confirmar que la Sheet y las carpetas están restringidas a la cuenta propietaria y a la cuenta de agente autorizada; no existe acceso público ni de dominio.
 - [x] Conectar Tally con la pestaña `Tally_raw`.
-- [x] Hacer dos envíos crudos con `COL-0101 — Prueba interna`: conservar el primero sin token como caso de revisión y usar el segundo, con token y correo correctos, para la prueba válida.
-- [ ] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v2.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
+- [x] Hacer dos envíos crudos con `COL-0101 — Prueba interna`: el primero se conserva como prueba incompleta y el segundo sirve como prueba válida.
+- [x] Ejecutar `Validar configuración` sobre v2 con resultado correcto.
+- [ ] Sustituir el contenido del Apps Script por `El_Par_Apps_Script_v3.gs`, guardar, recargar la Sheet y ejecutar `Validar configuración`.
+- [ ] Después de validar v3, ejecutar una vez `El Par → Procesar nuevos envíos` y comunicar el resultado.
 
 ### Bloque B · Primera prueba real
 
 **ChatGPT**
 
 - [x] Auditar preliminarmente la estructura de Drive, la Sheet y el código entregado por Gemini.
-- [x] Mantener IDs internos secuenciales y legibles (`COL`, `ENV`, `PAR`) y separar de ellos el identificador público de los enlaces.
-- [x] Añadir a `Personas` la columna `token_enlace` y asignar un token aleatorio único a los 100 contactos importados.
-- [x] Añadir la columna `correo`; los contactos importados quedan vacíos hasta su primera confirmación y la ficha técnica ya contiene el correo verificado.
-- [x] Añadir `enlace_tally` calculado para cada persona y crear `COL-0101 — Prueba interna` para no contaminar una colaboración real.
-- [ ] Ajustar el script para que los contactos nuevos reciban un único `token_enlace` estable y una nueva solicitud de enlace recupere el existente, sin crear otro `COL`.
-- [x] Comprobar que Tally escribe `token_colaborador`, `Submission ID`, el correo y los archivos múltiples; restaurar al final las columnas técnicas `EP_procesado` y `EP_envio_id`.
-- [x] Preparar `El_Par_Apps_Script_v2.gs` con los encabezados reales, correo obligatorio como comprobación principal, Instagram opcional y carpetas personales dentro de `01_Envíos Tally`; falta instalarlo y probarlo en el proyecto asociado.
-- [x] Añadir en v2 al menú una acción para la fila seleccionada que muestre el enlace con botón de copia y otra que registre la invitación sólo después de enviarla.
-- [x] Añadir en v2 `Confirmar primer correo (fila Tally)` para fijar una vez el correo de contactos importados y dejar la respuesta lista para procesar.
-- [ ] Documentar el procedimiento operativo mínimo para buscar o dar de alta una persona, recuperar siempre su enlace estable, enviarlo y registrar la acción sin duplicar `COL`.
-- [x] Implementar en v2 estas reglas: token + correo conocido coincidentes → mismo `COL`; si la ficha aún no tiene correo, el primer envío queda en `Revisar`; correo distinto, ya usado, identidad nueva o ambigua → `Revisar` sin crear persona; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
+- [x] Mantener IDs internos secuenciales y legibles (`COL`, `ENV`, `PAR`); ya no se exponen en enlaces.
+- [x] Añadir `correo` a `Personas` e Instagram como dato opcional.
+- [x] Adoptar un único enlace público de Tally para invitaciones, web y reenvíos entre personas.
+- [x] Definir el correo normalizado como clave operativa principal: mismo correo → mismo `COL`; cada respuesta válida → nuevo `ENV`.
+- [x] Definir altas directas: correo nuevo sin coincidencia → nuevo `COL` automático y ficha marcada para revisar.
+- [x] Definir el control de posibles duplicados: Instagram nuevo coincidente con ficha sin correo → vincular y revisar; si la ficha ya tiene otro correo o hay ambigüedad → no sobrescribir y dejar la respuesta en `Revisar`.
+- [x] Mantener `token_enlace` y `token_colaborador` solo como campos heredados, sin usarlos para identificar ni generar enlaces.
+- [x] Cambiar todos los valores de `enlace_tally` al enlace público único.
+- [x] Marcar el primer envío incompleto como `Ignorar`, conservando sus datos originales; dejar el segundo pendiente para la prueba válida.
+- [x] Preparar y verificar sintácticamente `El_Par_Apps_Script_v3.gs` con identificación por correo, alta directa e Instagram opcional.
 - [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
+- [ ] Documentar y probar el procedimiento operativo mínimo para enviar el enlace público, registrar la invitación y revisar altas o conflictos.
 - [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
 
 ### Bloque C · Notas de seguimiento
