@@ -46,3 +46,6 @@ ehthumbs.db
 # Grok / MCP local
 stitch-mcp-headers.txt
 .grok/*.log
+
+# Temporales
+marca/activos/guia-fotografica-assets/demo-webp/*
