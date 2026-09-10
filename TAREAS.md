@@ -40,6 +40,8 @@ Marca `[x]` y mueve a **Hecho**.
 - [ ] Ajustar el script para que los contactos nuevos reciban un único `token_enlace` estable y una nueva solicitud de enlace recupere el existente, sin crear otro `COL`.
 - [ ] Tras el primer envío, comprobar que la integración real añade `token_colaborador`; antes de recibir datos, `Tally_raw` aún muestra la cabecera provisional `colaborador_id` y no conserva todas las columnas `EP_*` previstas.
 - [ ] Ajustar el Apps Script a los encabezados reales de Tally, implementar realmente la coincidencia alternativa por correo y confirmar el destino de las carpetas personales respecto de `01_Envíos Tally`.
+- [ ] Añadir al menú una acción para la fila seleccionada que muestre el enlace con botón de copia y permita registrar la invitación sólo después de enviarla.
+- [ ] Documentar el procedimiento operativo mínimo para buscar o dar de alta una persona, recuperar siempre su enlace estable, enviarlo y registrar la acción sin duplicar `COL`.
 - [ ] Resolver identidad con estas reglas: token e Instagram/correo coincidentes → mismo `COL`; discrepancia, identidad nueva o ambigua → `Revisar` sin atribuir ni crear persona automáticamente; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
 - [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
 - [ ] Registrar la Sheet como fuente canónica del seguimiento vivo después de superar la prueba.
