@@ -43,6 +43,7 @@ Marca `[x]` y mueve a **Hecho**.
 - [x] Comprobar que Tally escribe `token_colaborador`, `Submission ID`, el correo y los archivos múltiples; restaurar al final las columnas técnicas `EP_procesado` y `EP_envio_id`.
 - [x] Preparar `El_Par_Apps_Script_v2.gs` con los encabezados reales, correo obligatorio como comprobación principal, Instagram opcional y carpetas personales dentro de `01_Envíos Tally`; falta instalarlo y probarlo en el proyecto asociado.
 - [x] Añadir en v2 al menú una acción para la fila seleccionada que muestre el enlace con botón de copia y otra que registre la invitación sólo después de enviarla.
+- [x] Añadir en v2 `Confirmar primer correo (fila Tally)` para fijar una vez el correo de contactos importados y dejar la respuesta lista para procesar.
 - [ ] Documentar el procedimiento operativo mínimo para buscar o dar de alta una persona, recuperar siempre su enlace estable, enviarlo y registrar la acción sin duplicar `COL`.
 - [x] Implementar en v2 estas reglas: token + correo conocido coincidentes → mismo `COL`; si la ficha aún no tiene correo, el primer envío queda en `Revisar`; correo distinto, ya usado, identidad nueva o ambigua → `Revisar` sin crear persona; varios envíos válidos → mismo `COL` y un `ENV` nuevo por respuesta.
 - [ ] Auditar el primer procesamiento: fila, descarga, manifiesto, carpetas, IDs, estados, actividad, log e idempotencia.
