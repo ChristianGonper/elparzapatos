@@ -81,11 +81,14 @@ Atmosphere of an independent fashion publication, art catalog folio, and archiva
 - **Home Grid:** Responsive 3-column / 2-column gallery on desktop, single-column fluid flow on mobile.
 - **Monograph Entry Layout (Paseo Visual Flexible):**
   - *Hero Specimen:* La toma de apertura (perspectiva tres cuartos exterior) a gran formato en paspartú limpio, con título y entradilla a dos columnas.
-  - *Ratios de Retícula Flexible:*
-    - `7:5`: Desarrollo conceptual amplio con fotografía apaisada.
-    - `5:7`: Fotografía marcadamente vertical (talón, caña) con texto conciso de 3 líneas, **sin forzar párrafos de relleno**.
-    - `6:6`: Equilibrio simétrico entre texto y análisis morfológico.
-    - `Dípticos`: Dos fotografías contiguas (ej. frontal + planta) analizadas bajo un texto común de contacto y convergencia.
+  - *Ratios de Retícula Flexible (Columnas Web vs. Formato de Imagen):*
+    - **Distinción clave:** Las proporciones `7:5`, `5:7` y `6:6` definen exclusivamente el reparto de columnas de la retícula web (ancho relativo de la columna de texto frente a la de imagen sobre 12 columnas). No imponen una relación de aspecto a la fotografía.
+    - **Formato fotográfico:** Las imágenes se capturan y muestran en proporciones fotográficas estándar de cámara, normalmente `3:4` (vertical) o `4:3` (horizontal).
+    - Comportamiento de las columnas:
+      - `7:5`: 7 columnas de texto y 5 de imagen. Para desarrollo conceptual amplio con texto explicativo extenso.
+      - `5:7`: 5 columnas de texto y 7 de imagen. Da máxima presencia visual a tomas marcadamente verticales (talón, caña) con texto conciso de 2-3 líneas, **sin forzar párrafos de relleno**.
+      - `6:6`: Equilibrio simétrico entre el bloque de texto y el análisis morfológico.
+      - `Dípticos`: Dos fotografías contiguas (ej. frontal + planta) analizadas bajo un bloque de texto común de contacto y convergencia.
   - *Foliación Editorial:* Indicadores marginales discretos con punto tipográfico (`· 01`, `· 02`, `· 03`...) que orientan la lectura sin ensuciar la fotografía.
 - **Purity:** Images are left unadorned without floating badges, category tags, or catalogue codes; all descriptive knowledge lives in the accompanying prose.
 - **Elevation:** Strictly flat, lithographic depth established through hairlines (`#E8E3DC`) and paper canvas contrasts (`#FAF8F5` vs. `#F3EFEA` vs. `#FFFFFF`)—zero fuzzy modern drop shadows.
