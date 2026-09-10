@@ -4,57 +4,37 @@ Libro de lo **ya resuelto** (aceptado, descartado o pospuesto) y de las pregunta
 
 ---
 
-## 1. Protocolo de Trabajo y Consolidación
+## 1. Criterio de Registro
 
-Para mantener la coherencia y avanzar con agilidad visual sin contaminar la especificación con pruebas no confirmadas, seguimos este flujo:
+Este documento es el registro histórico y de gobernanza (ADR) del proyecto. Recoge el **porqué** de las decisiones de diseño y producto adoptadas, descartadas o pospuestas.
 
-```mermaid
-flowchart TD
-    A["1. Propuesta / Observación"] --> B["2. Debate y Definición previa"]
-    B --> C["3. Prueba visual enfocada en Stitch (MCP)"]
-    C --> D["4. Revisión visual del usuario en Stitch"]
-    D -- "Requiere ajustes" --> B
-    D -- "Aprobado / Definitivo" --> E["5. Consolidación formal"]
-    E --> F["Actualización de ESPECIFICACION.md y marca/"]
-    E --> G["Descarga de pantallas a .stitch/designs/"]
-    E --> H["Sincronización y ajuste en HTML local"]
-    E --> I["Registro en Decisiones Consolidadas"]
-```
-
-> [!IMPORTANT]
-> **Regla de consolidación:** Un cambio solo se incorpora a [ESPECIFICACION.md](ESPECIFICACION.md) cuando se ha probado en Stitch, el usuario lo ha validado visualmente y se ha acordado como definitivo. Lo abierto de verdad (una pregunta que hay que cerrar antes de seguir) queda en la sección 3. Lo demás o está cerrado, o está en [TAREAS.md](../TAREAS.md).
+- La especificación técnica y de componentes vive de forma canónica en [ESPECIFICACION.md](ESPECIFICACION.md).
+- El sistema de diseño visual vive en [DESIGN.md](DESIGN.md).
+- El trabajo abierto por hacer está en [TAREAS.md](../TAREAS.md).
 
 ---
 
-## 2. Decisiones Aceptadas y Consolidadas
+## 2. Decisiones de Diseño y Producto Consolidadas
 
-### Identidad Visual y Home
-- **Limpieza radical de láminas e imágenes:** Eliminadas las etiquetas superpuestas (`par * 0001`, badges de familia en esquina). La fotografía se presenta limpia sobre paspartú neutro.
-- **Pieza destacada (*Hero Piece*) depurada:** Se eliminan los párrafos descriptivos secundarios redundantes. La caja de presentación conserva únicamente los metadatos superiores (`Pieza Destacada` y `Armario de [Nombre]`), el título en serif, el subtítulo taxonómico en una sola línea limpia y el enlace sobrio `Ver estudio →`.
-- **Cuadrícula sin ruido de botones:** Se suprimen por completo las frases repetitivas tipo `Leer análisis anatómico →` y los divisores de pie en las tarjetas. Toda la tarjeta o la imagen y el título actúan como enlace interactivo natural. Jerarquía tipográfica y espaciado fluidos y adaptables (sin fijar píxeles en piedra).
-- **Tono de archivo sin agresividad comercial:** Suprimido cualquier banner superior o botón tipo venta en cabecera. La invitación a colaborar se aloja serena al final del archivo y con tono de complicidad editorial. Se adopta la fórmula conceptual de *«abrir las puertas del propio armario»* (quedando el copy exacto y los enlaces del footer como borradores de trabajo a afinar en la fase de redacción de marca).
-- **Navegación e índices:** Menú sobrio con *Archivo*, *Ver Armarios* y *Sobre El Par* (o *Nuestra Mirada*), descartando *Manifiesto*. Cómo se construyen esas vistas se decide cuando toque hacerlas.
-- **Filtro de colecciones:** Botón y selector claro con la etiqueta exacta *«Ver Armarios»*.
-- **Sistema de diseño definitivo:** Consolidado y fijado [DESIGN.md](DESIGN.md) como la especificación visual y semántica definitiva del proyecto.
-- **Sin piloto paralelo:** la primera entrada real prueba el formato web, la galería, las imágenes junto al texto y el flujo de colaboración. El **lanzamiento en Instagram** (cuándo abrir el perfil, con qué, en qué orden) está pospuesto; no va atado a esa primera pieza.
-- **Stack de publicación diferido:** gestor de contenido, modelo de datos, relaciones entre entradas, categorías y buscador, y arquitectura multilingüe se deciden después de esa primera pieza, no antes.
-- **Formulario Tally provisional:** el canal actual ([tally.so/r/Npj2bl](https://tally.so/r/Npj2bl)) se sustituye cuando el sitio tenga formulario propio. No es una tarea de ahora.
-- **Revisión de la colaboradora:** crédito y citas, no la pieza completa, salvo excepción.
-- **Formatos de Instagram (oficio de pieza):** tres formatos en [03](../marca/03-sistema-editorial-y-contenidos.md) (stories de detalle, carrusel de concepto, presentación de par). Eso es cómo se ve un post, no cuándo se lanza el canal.
+### Identidad Visual, Portada y Silencio Editorial
+- **Fotografía limpia sobre paspartú neutro:** Se eliminan etiquetas superpuestas (`par * 0001`, badges en esquinas) para mantener el tono de archivo de arte.
+- **Pieza destacada (*Hero Piece*) depurada:** Se suprimen párrafos descriptivos secundarios redundantes. Solo conserva metadatos superiores, título en serif, subtítulo taxonómico en una línea y enlace sobrio `Ver estudio →` ([detalle en ESPECIFICACION.md#32-pieza-destacada-hero-piece](ESPECIFICACION.md#32-pieza-destacada-hero-piece)).
+- **Cuadrícula interactiva sin ruido de botones:** Toda la tarjeta actúa como enlace natural. Se eliminan divisores de pie y llamadas repetitivas tipo `Leer análisis →` ([detalle en ESPECIFICACION.md#34-cuadrícula-de-fichas-del-archivo](ESPECIFICACION.md#34-cuadrícula-de-fichas-del-archivo)).
+- **Tono no comercial:** Supresión de banners, reclamos de suscripción o botones de compra. La invitación a colaborar se aloja serena al pie bajo la fórmula de *«abrir las puertas del propio armario»* ([detalle en ESPECIFICACION.md#35-pie-y-cierre-de-portada](ESPECIFICACION.md#35-pie-y-cierre-de-portada)).
+- **Navegación sobria:** Menú estructurado con *Archivo*, *Ver Armarios* y *Sobre El Par*, descartando *Manifiesto*.
 
 ### Entrada Monográfica y Estructura Editorial
-- **Titulación nacida de la mirada honesta:** El título del par revela una observación visual auténtica que la fotografía demuestra (ej. *«Dos extremos, una silueta»*, *«La cintura del tacón»*, *«Una línea sobre el empeine»*), sin forzar paradojas metafóricas artificiales.
-- **Subtítulo taxonómico completo:** Acompaña al título con la denominación técnica rigurosa del calzado (familia, escote, tipo de sujeción).
-- **Atribución de procedencia limpia:** Identificación sobria como *«Armario de: [Nombre]»*, sin ubicación geográfica accesoria.
-- **Foliación editorial de fotos:** Numeración sutil en el margen exterior con punto tipográfico (`· 01`, `· 02`, `· 03`...), suprimiendo cualquier prefijo tipo `fig.` o `lámina`.
-- **Flexibilidad de cuadrícula:** Se elimina la proporción rígida 7:5. Se admiten ratios 5:7, 6:6 y 7:5 según la naturaleza de la toma y la extensión del texto, evitando forzar texto de relleno si la explicación es breve. En el prototipo de prueba se dispondrán los tres ratios rotulados al inicio de cada bloque para comparar su ritmo visual.
-- **Dípticos fotográficos:** Se permite agrupar dos imágenes en un mismo bloque compartiendo un único texto explicativo común.
-- **Notas concisas:** Bloques breves para aclarar singularidades terminológicas no presentes en el léxico general o realizar comparaciones morfológicas rápidas.
-- **Anotaciones pedagógicas en imagen (Variante A, para más adelante):** Se descartan las láminas fijas con placas y lupas. El sistema de cotas vectoriales conmutables queda diseñado (el prototipo local puede seguir mostrándolo). **v1 y las primeras publicaciones: foto limpia, sin cotas ni interruptor.** Se aplica en una versión posterior de la web (1.5 o 2).
-- **Ficha «Datos del par» como bloque de créditos tipográficos:** Se descarta la tabla de formulario rígida con encabezados por fila. Se adopta una composición continua fluida estilo catálogo de arte o folio de museo, sin iconos ni sobrecarga técnica, jerarquizada por peso tipográfico y filetes de pelo.
-- **Popovers anatómicos contextuales:** Subrayado punteado en color cuero `#9E6B55` activo tanto en *hover* (escritorio) como en *click / tap* (móvil y ratón).
-- **Cierre contextual:** Mensaje reposado que agradece la cesión (*«Este análisis ha sido posible gracias a [Nombre]...»*) e invita a abrir las puertas del propio armario.
-- **Tipologías contrastadas en archivo:** Consolidado el comportamiento editorial tanto para calzado de tacón alto (Salón) como para calzado plano (Bailarina, donde la tensión visual recae en la línea del escote, la ausencia de cambrillón y el collarín de grosgrain con cordón activo).
+- **Titulación nacida de la observación honesta:** El título revela un rasgo visual auténtico que la fotografía demuestra (ej. *«Dos extremos, una silueta»*), acompañado de subtítulo taxonómico riguroso y procedencia (*«Armario de: [Nombre]»*) ([detalle en ESPECIFICACION.md#21-bloque-de-apertura-y-cabecera](ESPECIFICACION.md#21-bloque-de-apertura-y-cabecera)).
+- **Retícula fluida vs. ratio rígido 7:5:** Para no forzar texto de relleno artificial, se adoptan proporciones variables (7:5, 6:6, 5:7 y dípticos) según el volumen de la explicación y la orientación de la foto ([detalle en ESPECIFICACION.md#22-sistema-de-cuadrícula-flexible-y-paseo-visual](ESPECIFICACION.md#22-sistema-de-cuadrícula-flexible-y-paseo-visual)).
+- **v1 y primeras publicaciones sin cotas:** Se descartan las láminas técnicas fijas con lupas o placas. El sistema de cotas conmutables queda diseñado pero fuera de v1; las primeras piezas van con fotografía limpia ([detalle en ESPECIFICACION.md#23-sistema-de-anotaciones-anatómicas-en-imagen-pedagogía-gráfica](ESPECIFICACION.md#23-sistema-de-anotaciones-anatómicas-en-imagen-pedagogía-gráfica)).
+- **Ficha «Datos del par» tipográfica:** Se descarta la tabla rígida de formulario. Se adopta una composición continua fluida tipo catálogo de museo ([detalle en ESPECIFICACION.md#26-ficha-datos-del-par](ESPECIFICACION.md#26-ficha-datos-del-par)).
+- **Popovers anatómicos contextuales:** Subrayado punteado cuero `#9E6B55` activo en *hover* y *tap*, sin oscurecer la pantalla ([detalle en ESPECIFICACION.md#24-glosario-anatómico-en-contexto-popovers-flotantes](ESPECIFICACION.md#24-glosario-anatómico-en-contexto-popovers-flotantes)).
+
+### Secuenciación y Alcance
+- **Sin piloto paralelo en Instagram:** La primera entrada real valida exclusivamente el formato web, la galería y el flujo de colaboración. El lanzamiento del perfil de Instagram está pospuesto y no va atado a esa primera pieza.
+- **Stack definitivo diferido:** Gestor de contenidos (CMS), arquitectura multilingüe y base de datos se definirán tras validar la publicación de las primeras piezas.
+- **Formulario Tally provisional:** Cubre la fase operativa inicial mientras no exista el formulario integrado en la web.
+- **Revisión de la colaboradora:** Validación previa de crédito y citas textuales, no de la pieza completa.
 
 ---
 
