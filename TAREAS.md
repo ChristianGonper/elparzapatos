@@ -21,7 +21,7 @@ Marca `[x]` y mueve a **Hecho**.
 
 **Christian — preparación de la fuente**
 
-- [ ] Identificar qué contactos importados no deben permanecer en la Sheet.
+- [x] Identificar qué contactos importados no deben permanecer en la Sheet.
 - [ ] Confirmar que Tally recoge o permite relacionar de forma estable a la persona; preferencia: campo oculto `colaborador_id` en enlaces personalizados.
 - [ ] Mantener restringidos la Sheet y los archivos de colaboradoras.
 
@@ -30,7 +30,6 @@ Marca `[x]` y mueve a **Hecho**.
 **Christian**
 
 - [ ] Conectar Tally con la pestaña `Tally_raw`.
-- [ ] Eliminar de `Personas` los contactos que no deban formar parte del registro.
 - [ ] Autorizar el Apps Script y realizar un envío de prueba.
 
 **Gemini**

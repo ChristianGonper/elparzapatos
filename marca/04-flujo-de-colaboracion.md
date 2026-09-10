@@ -71,8 +71,6 @@ Estados editoriales del par:
 
 La Sheet conserva, como mínimo, pestañas separadas para `Personas`, `Pares`, `Envíos`, `Actividad`, `Notas_inbox`, `Tally_raw`, `Catálogos` y `Log_automatización`. La actividad y las notas originales se conservan como historial; los resúmenes nunca las sustituyen.
 
-El listado privado anterior de contactos se importa una sola vez. Después, la Sheet pasa a ser la fuente canónica del seguimiento vivo y el Markdown queda archivado como snapshot histórico.
-
 ---
 
 ## 4. Política y Protocolo de Retirada
