@@ -24,7 +24,7 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
 
 ---
 
-## Fase 1: Chequeo Anatómico Rápido (A - J)
+## Fase 1: Repaso de Partes del Zapato (A - J)
 
 *Anotaciones breves de trabajo. No publicar todo; solo comprobar lo que las fotos muestran.*
 
@@ -62,7 +62,7 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
 *Frase que revela un rasgo genuino, demostrable en las fotos, (ej. «Dos extremos, una silueta», «La cintura del tacón», «Una línea sobre el empeine»).*  
 **Título:** 
 
-### 2. Subtítulo taxonómico
+### 2. Subtítulo descriptivo
 *Denominación completa: familia, escote o sujeción, material aparente y tipo de tacón o base (ej. «Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm»).*  
 **Subtítulo:** 
 
@@ -93,7 +93,7 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
 *Párrafo de 2 a 4 frases que sintetiza la personalidad del calzado e incluye la voz de la dueña si aportó una reflexión.*  
 > 
 
-### 6. Ficha Técnica de Cierre
+### 6. Ficha del Par
 - **Familia:** 
 - **Marca y Modelo:** *(si se conocen; si no, dejar vacío; información secundaria)*
 - **Crédito:** Armario de [Nombre / @usuario] (o mención anónima)

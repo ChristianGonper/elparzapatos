@@ -34,11 +34,11 @@ Para evitar convertir el perfil en un catálogo frío o en una clase académica 
   3. *Pantalla 3 (Llamada a la acción / Enlace):* Si pertenece a un par publicado, enlace directo a la pieza en la web.
 
 ### B. Carrusel de Concepto («De la foto al nombre»)
-- **Objetivo:** Enseñar un concepto anatómico comparando múltiples pares reales del archivo.
+- **Objetivo:** Explicar una parte o detalle del calzado comparando distintos pares del archivo.
 - **Estructura (5 a 7 diapositivas):**
-  - Diapositiva de apertura: Portada limpia con el dilema o familia a explorar (ej. *«Cinco formas de rematar una puntera»* o *«Por qué este tacón no es un kitten»*).
-  - Diapositivas centrales: Un par real por lámina, mostrando la variación morfológica con anotaciones discretas.
-  - Cierre: Síntesis pedagógica y pregunta de conversación abierta a la comunidad («¿Qué silueta predomina en tu armario?»).
+  - Diapositiva de apertura: Portada limpia con el rasgo o duda a explorar (ej. *«Cinco formas de rematar una puntera»* o *«Por qué este tacón no es un kitten»*).
+  - Diapositivas centrales: Un par por lámina, mostrando las diferencias de forma con una indicación discreta.
+  - Cierre: Breve conclusión y pregunta de conversación («¿Qué silueta predomina en tu armario?»).
 
 ### C. Presentación de Par Publicado
 - **Objetivo:** Anunciar la llegada de una nueva pieza al archivo.

@@ -234,4 +234,4 @@ Texto del botón: Enviar calzado y notas
 ## Página de gracias
 
 Título: Muchas gracias por compartir tu calzado
-Texto: Hemos recibido tus fotografías y notas. Revisaremos las tomas con tranquilidad para iniciar el análisis morfológico. Te escribiremos si hiciera falta consultar algún ángulo o detalle, y te avisaremos cuando la entrada esté publicada. Si tienes más de siete pares, puedes volver a enviar el formulario.
+Texto: Hemos recibido tus fotografías y notas. Revisaremos las fotos con tranquilidad para empezar a preparar la publicación. Te escribiremos si hiciera falta consultar algún ángulo o detalle, y te avisaremos cuando la entrada esté publicada. Si tienes más de siete pares, puedes volver a enviar el formulario.

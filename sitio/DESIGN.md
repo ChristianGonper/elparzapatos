@@ -102,11 +102,11 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
   - *Heel & Base:* Morphological family and measured elevation.
   - *Provenance:* Contributor name linking to their personal wardrobe view.
 
-### 4.8. Contextual Collaboration Cierre («Abrir mi armario»)
+### 4.8. Contextual Collaboration Cierre («Comparte un par»)
 - Understated closing panel rendered on `#F3EFEA` paper with a hairline border.
 - Warm, conversational acknowledgement:
-  *«Este análisis ha sido posible gracias a [Nombre]. Si en tu armario descansa un par con una silueta singular o una arquitectura que merezca ser estudiada, puedes proponérnoslo.»*
-- Quiet action link: `Abrir mi armario →` linking to the collaboration intake flow.
+  *«Este estudio ha sido posible gracias a [Nombre]. Si tienes algún par con detalles especiales, una silueta particular o un diseño que merezca verse de cerca, puedes proponérnoslo para formar parte del proyecto.»*
+- Quiet action link: `Cómo colaborar →` linking to the collaboration intake flow (`como-colaborar.html`).
 
 ### 4.9. Image Annotations & Calipers (Post-v1 Roadmap)
 - **v1 Status: Strictly Clean Photography.** First editions publish clean, unblemished imagery without calipers, badges, or toggle controls.
