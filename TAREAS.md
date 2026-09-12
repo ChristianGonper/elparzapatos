@@ -18,6 +18,7 @@ Marca `[x]` y mueve a **Hecho**.
 
 ### 2. Preparación Web y Criterio Editorial (Primera Pieza)
 
+- [ ] Maquetar la página puente «Cómo colaborar» (`como-colaborar.html`) según [sitio/ESPECIFICACION.md#4-especificación-de-la-página-puente-cómo-colaborar-como-colaborarhtml](sitio/ESPECIFICACION.md#4-especificación-de-la-página-puente-cómo-colaborar-como-colaborarhtml) para servir de destino activo al botón de cierre en portada y monografía.
 - [ ] Maquetar y publicar la primera monografía real en cuanto entre el material de una colaboradora.
 
 ---
@@ -36,8 +37,7 @@ Marca `[x]` y mueve a **Hecho**.
 
 ## Pospuesto / Tras la primera pieza
 
-- [ ] Maquetar la página puente «Cómo colaborar» (`como-colaborar.html`) según [sitio/ESPECIFICACION.md#4-especificación-de-la-página-puente-cómo-colaborar-como-colaborarhtml](sitio/ESPECIFICACION.md#4-especificación-de-la-página-puente-cómo-colaborar-como-colaborarhtml).
-- [ ] Implementación de las cartas del glosario: comportamiento interactivo del popover contextual y ficha/página con detalle ampliado del concepto.
+- [ ] Implementación de las fichas ampliadas del glosario (páginas independientes por concepto; en v1 los términos se resuelven mediante popover contextual).
 - [ ] Método para opiniones / testimonios (versiones posteriores de la web).
 - [ ] Página «Sobre El Par».
 - [ ] Vista «Armarios».
@@ -49,6 +49,7 @@ Marca `[x]` y mueve a **Hecho**.
 
 ## Hecho
 
+- [x] **Refinamiento de la especificación para la web real:** Actualizados [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md) y [sitio/DECISIONES.md](sitio/DECISIONES.md) tras sesión de definición detallada: portada adaptativa al volumen (hero dominante, cuadrícula sin duplicar, filtros latentes), monografía modular con mínimo 6 fotos reales e inspección lightbox, encuadre `object-contain` preservando suelo y sombra natural, popovers contextuales con diccionario canónico inicial, navegación secuencial al pie (`← Anterior` / `Siguiente →`) e inclusión de la página puente `como-colaborar.html` en el lanzamiento inicial.
 - [x] **Infraestructura de colaboraciones (Drive, Sheets y Apps Script v3):** Pestañas canónicas creadas, importación depurada, clave por correo normalizado con Instagram opcional, IDs correlativos legibles (`COL`, `ENV`, `PAR`), enlace público único de Tally, y Apps Script v3 verificado e idempotente sin duplicados.
 - [x] **Identidad visual y prototipos locales:** Tipografía, paleta y sistema semántico consolidados en [sitio/DESIGN.md](sitio/DESIGN.md). Prototipos de portada y monografía.
 - [x] **Guía y criterios fotográficos:** Guía colaborativa *Tus zapatos en cámara* publicada. Criterio de calidad fotográfica, umbral para tomas adicionales y límites éticos de edición acordados en [marca/04-flujo-de-colaboracion.md](marca/04-flujo-de-colaboracion.md).
