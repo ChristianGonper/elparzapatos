@@ -484,9 +484,12 @@
       <div class="mono" style="color: var(--cognac); margin-bottom: 8px;">· Envío recibido ·</div>
       <h2 class="serif">Muchas gracias por compartir tu calzado</h2>
       <p id="successMessage">
-        Hemos recibido tus fotografías y notas. Revisaremos las tomas con tranquilidad para iniciar el análisis morfológico. Te escribiremos si hiciera falta consultar algún ángulo o detalle, y te avisaremos cuando la entrada esté publicada.
+        Hemos recibido tus fotografías y notas. Revisaremos las tomas con tranquilidad para iniciar el análisis
+        morfológico. Te escribiremos si hiciera falta consultar algún ángulo o detalle, y te avisaremos cuando la
+        entrada esté publicada.
       </p>
-      <button class="btn-submit" onclick="location.reload()" style="padding: 10px 24px; font-size: 13px;">Enviar más pares</button>
+      <button class="btn-submit" onclick="location.reload()" style="padding: 10px 24px; font-size: 13px;">Enviar más
+        pares</button>
     </div>
 
     <!-- Formulario activo -->
@@ -533,18 +536,23 @@
           <div class="field-group">
             <label class="field-label">Fotografías del zapato *</label>
             <p class="upload-intro">
-              Las fotos de este bloque deben corresponder <strong>al mismo par</strong>. Puedes subir las tomas generales y añadir detalles libremente (texturas, tacón, cierres o costuras). Si quieres comprobar los ángulos sugeridos, consulta la <a href="guia-fotografica-colaboradores.html" target="_blank">guía fotográfica</a>.
+              Las fotos de este bloque deben corresponder <strong>al mismo par</strong>. Puedes subir las tomas
+              generales y añadir detalles libremente (texturas, tacón, cierres o costuras). Si quieres comprobar los
+              ángulos sugeridos, consulta la <a href="guia-fotografica-colaboradores.html" target="_blank">guía
+                fotográfica</a>.
             </p>
 
             <div class="upload-dropzone">
-              <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="17 8 12 3 7 8"></polyline>
                 <line x1="12" y1="3" x2="12" y2="15"></line>
               </svg>
               <div class="upload-text-main">Arrastra aquí las fotos de este par o haz clic para seleccionarlas</div>
               <div class="upload-text-sub">Formatos JPG, PNG, HEIC. Puedes seleccionar varias a la vez.</div>
-              <input type="file" name="fotos_par_1" multiple accept="image/*" required onchange="previewImagesForPair(this, 1)">
+              <input type="file" name="fotos_par_1" multiple accept="image/*" required
+                onchange="previewImagesForPair(this, 1)">
             </div>
 
             <div id="filePreviewGrid-1" class="file-preview-grid"></div>
@@ -553,13 +561,17 @@
           <!-- Información de este par -->
           <div class="field-group">
             <label class="field-label" for="marca_modelo_1">Marca, diseñador o modelo (si lo recuerdas)</label>
-            <input type="text" id="marca_modelo_1" name="marca_modelo_1" placeholder="Ej. Lodi, Martinelli, Zara, vintage sin etiqueta...">
+            <input type="text" id="marca_modelo_1" name="marca_modelo_1"
+              placeholder="Ej. Lodi, Martinelli, Zara, vintage sin etiqueta...">
           </div>
 
           <div class="field-group" style="margin-bottom: 0;">
-            <label class="field-label" for="sensacion_1">¿Qué anécdota, sensación o qué es lo que más te gusta de ellos?</label>
-            <textarea id="sensacion_1" name="sensacion_1" placeholder="¿En qué ocasiones te los pones? ¿Cómo se ven al moverte o qué detalle visual te llamó la atención? ¿Tienen alguna historia especial?"></textarea>
-            <span class="field-hint">Estas palabras podrán utilizarse como cita en nuestra entrada para acompañar la lectura del zapato.</span>
+            <label class="field-label" for="sensacion_1">¿Qué anécdota, sensación o qué es lo que más te gusta de
+              ellos?</label>
+            <textarea id="sensacion_1" name="sensacion_1"
+              placeholder="¿En qué ocasiones te los pones? ¿Cómo se ven al moverte o qué detalle visual te llamó la atención? ¿Tienen alguna historia especial?"></textarea>
+            <span class="field-hint">Estas palabras podrán utilizarse como cita en nuestra entrada para acompañar la
+              lectura del zapato.</span>
           </div>
         </div>
 
@@ -586,9 +598,10 @@
           <label class="field-label">¿Cómo prefieres figurar acreditada en las publicaciones? *</label>
           <div class="radio-card-group">
             <label class="radio-card">
-              <input type="radio" name="tipo_credito" value="nombre" checked onchange="toggleInstagramField(this.value)">
+              <input type="radio" name="tipo_credito" value="nombre" checked
+                onchange="toggleInstagramField(this.value)">
               <div class="radio-card-text">
-                <strong>Con mi nombre de pila</strong>
+                <strong>Con mi nombre</strong>
                 <span>Tus pares aparecerán bajo «Armario de [Tu nombre]»</span>
               </div>
             </label>
@@ -630,7 +643,10 @@
         <div class="consent-card">
           <input type="checkbox" id="consentimiento" name="consentimiento" required>
           <label for="consentimiento" class="consent-text">
-            Autorizo el análisis editorial y la edición ligera de estas fotos y notas en la web y los canales divulgativos de <em>El Par — Zapatos en detalle</em>. Permito ajustes mínimos de luz, nivelado o encuadre para apreciar bien el diseño. Comprendo que El Par no utiliza inteligencia artificial generativa para alterar las imágenes.
+            Autorizo el análisis editorial y la edición ligera de estas fotos y notas en la web y los canales
+            divulgativos de <em>El Par — Zapatos en detalle</em>. Permito ajustes mínimos de luz, nivelado o encuadre
+            para apreciar bien el diseño. Comprendo que El Par no utiliza inteligencia artificial generativa para
+            alterar las imágenes.
           </label>
         </div>
 
@@ -639,14 +655,21 @@
           <input type="checkbox" id="newsletter" name="newsletter">
           <label for="newsletter" class="consent-text">
             <strong>Actualizaciones</strong><br>
-            Avisos de nuevas publicaciones: Me gustaría recibir por correo avisos cuando publiquéis nuevas piezas o novedades de El Par.
+            Avisos de nuevas publicaciones: Me gustaría recibir por correo avisos cuando publiquéis nuevas piezas o
+            novedades de El Par.
           </label>
         </div>
 
         <!-- Bloque informativo de Retirada y Contacto -->
-        <div style="background: var(--paper-muted); border: 1px solid var(--hairline); padding: 14px 16px; margin-top: 14px; font-size: 12.5px; line-height: 1.55; color: var(--graphite);">
-          <strong style="color: var(--ink); display: block; margin-bottom: 4px;">¿Cómo retirar tu calzado o fotos?</strong>
-          Para retirar cualquiera de tus pares, solo tienes que escribirnos a nuestro correo <a href="mailto:elparzapatos@proton.me" style="color: var(--cognac); font-weight: 500;">elparzapatos@proton.me</a> o por Instagram indicándonos qué par deseas retirar. Borraremos la pieza de la web y redes en un plazo máximo de 48 horas y eliminaremos las fotos originales de nuestro archivo si así lo prefieres.
+        <div
+          style="background: var(--paper-muted); border: 1px solid var(--hairline); padding: 14px 16px; margin-top: 14px; font-size: 12.5px; line-height: 1.55; color: var(--graphite);">
+          <strong style="color: var(--ink); display: block; margin-bottom: 4px;">¿Cómo retirar tu calzado o
+            fotos?</strong>
+          Para retirar cualquiera de tus pares, solo tienes que escribirnos a nuestro correo <a
+            href="mailto:elparzapatos@proton.me"
+            style="color: var(--cognac); font-weight: 500;">elparzapatos@proton.me</a> o por Instagram indicándonos qué
+          par deseas retirar. Borraremos la pieza de la web y redes en un plazo máximo de 48 horas y eliminaremos las
+          fotos originales de nuestro archivo si así lo prefieres.
         </div>
       </div>
 

@@ -9,7 +9,7 @@ Guía operativa para pasar de la recepción de fotos al reportaje final en la we
 
 - **Fecha de recepción:** 
 - **Propietaria / Aportado por:** 
-- **Crédito acordado:** [ ] Nombre de pila: _____ | [ ] Instagram: @_____ | [ ] Anónimo
+- **Crédito acordado:** [ ] Nombre: _____ | [ ] Instagram: @_____ | [ ] Anónimo
 - **Marca y Modelo (si se conocen):** 
 - **Comentario de la colaboradora (si aporta alguno):** 
 

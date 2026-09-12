@@ -198,7 +198,7 @@ Común a todo el envío. Este crédito vale para todos los pares.
 **¿Cómo prefieres figurar acreditada en las publicaciones?**
 Tipo: opción única (radio). Obligatorio.
 
-- Con mi nombre de pila — Tus pares aparecerán bajo «Armario de [Tu nombre]»
+- Con mi nombre — Tus pares aparecerán bajo «Armario de [Tu nombre]»
 - Con mi usuario de Instagram — Etiquetaremos tu perfil en los créditos de cada pieza
 - De forma anónima — Aparecerá simplemente como «Colaboradora de El Par»
 
