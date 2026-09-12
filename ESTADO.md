@@ -1,6 +1,6 @@
 # Estado
 
-Actualizado: 2026-09-11.
+Actualizado: 2026-09-12.
 
 ## Qué es
 
@@ -10,8 +10,8 @@ Actualizado: 2026-09-11.
 
 - **Marca.** Documentación saneada bajo el principio de fuente única de verdad ([01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md) y [activos/](marca/activos/)). Claims y canales centralizados en [02](marca/02-nombre-y-presentacion.md#2-aplicaciones-en-canales). Perspectivas canónicas en [03](marca/03-sistema-editorial-y-contenidos.md#perspectivas-base). Correo oficial en `elparzapatos@proton.me`. Protocolo oficial de retirada en [04](marca/04-flujo-de-colaboracion.md#4-política-y-protocolo-de-retirada). Snapshot: este archivo. Decisiones de producto y web: [sitio/DECISIONES.md](sitio/DECISIONES.md).
 - **Colaboraciones.** Fase inicial cerrada y sistema operativo en modo manual. Hay un único enlace público de Tally, con correo obligatorio como clave e Instagram opcional. La versión 3 del Apps Script está instalada y validada. La primera ejecución creó correctamente `ENV-0001`, `PAR-0001`, su actividad, manifiesto y cinco imágenes; la segunda devolvió 0/0/0 y confirmó la idempotencia. La Google Sheet es la fuente canónica del seguimiento vivo. No hay disparadores activos.
-- **Sitio.** Portada y monografía locales; [DESIGN.md](sitio/DESIGN.md) consolidado en inglés y alineado con [ESPECIFICACION.md](sitio/ESPECIFICACION.md) bajo las mejores prácticas de Stitch. Registro histórico ADR en [DECISIONES.md](sitio/DECISIONES.md) (retiradas las instrucciones de Stitch).
-- **Avance.** Lista activa compactada en [TAREAS.md](TAREAS.md), diferenciando tareas de proyecto frente a protocolos del flujo colaborativo.
+- **Sitio.** Portada y monografía locales alineadas con la especificación ([sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md)): fotos limpias sin pies forzados, supratítulos de zona anatómica, títulos H2 descriptivos directos, términos universales para popovers (ES/EN), notas editoriales intercaladas en flujo, ficha técnica de 5 campos objetivos y cierre `Comparte un par` con enlace hacia `como-colaborar.html`. [DESIGN.md](sitio/DESIGN.md) en inglés.
+- **Avance.** Cerrada la revisión de especificación y frases de la monografía y portada en [TAREAS.md](TAREAS.md). Foco inmediato en la captación (Kit para compañeras y refinamiento de primer contacto).
 
 ## Cubierto
 
@@ -21,7 +21,7 @@ Está implementada y verificada la primera fase del seguimiento por persona, env
 
 ## Abierto
 
-La siguiente fase es el procesamiento de `Notas_inbox` mediante una tarea de ChatGPT lanzada manualmente con `Run`; después se decidirá si conviene programarla. Detalle en [TAREAS.md](TAREAS.md). Lo pospuesto: [sitio/DECISIONES.md](sitio/DECISIONES.md).
+El foco actual es la captación de material real mediante el **Kit de recomendación para compañeras/embajadoras** (mensajes directos, mini-argumentario y flyer digital) y la preparación para maquetar la primera pieza web. La automatización de `Notas_inbox` queda diferida para cuando exista volumen recurrente. Detalle en [TAREAS.md](TAREAS.md). Lo pospuesto: [sitio/DECISIONES.md](sitio/DECISIONES.md).
 
 ## Cómo se actualiza
 
