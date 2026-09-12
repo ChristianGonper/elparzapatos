@@ -181,10 +181,10 @@ Página de aterrizaje integrada en el lanzamiento inicial, orientada a acoger a 
 ### 4.2. El Proceso en 3 Pasos
 1. **Elige tu calzado:** Puedes enviar un par o varios a la vez. Cualquier modelo con una silueta singular, un tacón especial o un detalle de diseño que te llame la atención.
 2. **Fotos con tu móvil:** Con naturalidad y sin luces de estudio: simplemente colócalos sobre un fondo neutro y evita los reflejos.
-3. **Envío ágil:** Subida directa por formulario indicando cómo prefieres figurar acreditada (con tu nombre de pila, tu cuenta de Instagram o de forma anónima).
+3. **Envío ágil:** Subida directa por formulario indicando cómo prefieres figurar acreditada (con tu nombre, tu cuenta de Instagram o de forma anónima).
 
 ### 4.3. Resolución de Dudas Rápidas
-- *«¿Tienen que ser zapatos de marca o caros?»* &rarr; En absoluto. Nos interesa la forma, la línea y los detalles constructivos, no el precio ni el logotipo.
+- *«¿Tienen que ser zapatos de marca o caros?»* &rarr; En absoluto. Nos interesa la forma, la línea y los detalles decorativos, no el precio ni el logotipo.
 - *«¿Salgo yo en las fotos o en la web?»* &rarr; No. El foco está 100% en el objeto y su arquitectura.
 - *«¿Tengo control sobre mis fotos?»* &rarr; Total. Decides tu acreditación y puedes solicitar la retirada de cualquiera de tus pares en cualquier momento escribiendo a `elparzapatos@proton.me` o por Instagram (retirada en un máximo de 48 horas).
 

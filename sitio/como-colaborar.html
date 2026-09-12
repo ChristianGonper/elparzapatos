@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cómo Colaborar — El Par · Zapatos en detalle</title>
+  <!-- Google Fonts: Newsreader, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAF8F5',
+            'paper-muted': '#F3EFEA',
+            ink: '#1C1A18',
+            graphite: '#6B6661',
+            cognac: '#9E6B55',
+            'cognac-dark': '#7A4D38',
+            hairline: '#E8E3DC',
+            specimen: '#FFFFFF',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1C1A18;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background-color: #F3EFEA;
+      color: #1C1A18;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col font-sans selection:bg-paper-muted selection:text-ink">
+
+  <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
+  <header class="border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
+      <div class="flex items-baseline space-x-3">
+        <a href="index.html"
+          class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-ink hover:opacity-80 transition-opacity">
+          El Par
+        </a>
+        <span class="text-xs font-mono uppercase tracking-widest text-graphite hidden sm:inline-block">
+          / Zapatos en detalle
+        </span>
+      </div>
+      <nav class="flex items-center space-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
+        <a href="index.html#archivo" class="hover:text-ink transition-colors">Archivo</a>
+        <a href="armarios.html" class="hover:text-ink transition-colors">Ver Armarios</a>
+        <a href="como-colaborar.html" class="text-ink font-medium border-b border-ink pb-0.5">Cómo colaborar</a>
+        <a href="https://instagram.com/elparzapatos" target="_blank"
+          class="hover:text-cognac transition-colors hidden md:inline-block">@elparzapatos</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-4xl mx-auto px-6 sm:px-10 w-full py-12 sm:py-20 space-y-16 sm:space-y-24">
+
+    <!-- 2. ENCABEZADO Y PROPÓSITO EDITORIAL -->
+    <section class="space-y-6 text-center sm:text-left border-b border-hairline pb-12">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-cognac font-medium block">
+        Participación abierta
+      </span>
+      <h1 class="font-serif text-3xl sm:text-5xl text-ink font-normal leading-[1.15] tracking-tight">
+        Tu calzado en El Par
+      </h1>
+      <p class="font-serif text-xl sm:text-2xl text-graphite leading-relaxed max-w-2xl font-normal">
+        No buscamos calzado de pasarela: nos centramos en tacones, salones y bailarinas de vuestras coleciones.
+      </p>
+      <p class="font-sans text-sm sm:text-base text-graphite leading-relaxed max-w-2xl">
+        Miramos cada par de cerca para entender su silueta, el corte del escote y la línea de apoyo del tacón. Cada
+        pieza documenta un calzado tal como existe.
+      </p>
+    </section>
+
+    <!-- 3. EL PROCESO EN 3 PASOS -->
+    <section class="space-y-10">
+      <div class="space-y-2">
+        <span class="font-mono text-xs uppercase tracking-widest text-graphite block">Flujo de colaboración</span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal">
+          Cómo funciona en tres pasos
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- PASO 1 -->
+        <div class="border border-hairline bg-specimen p-6 sm:p-8 flex flex-col justify-start space-y-3">
+          <span class="font-mono text-xs text-cognac font-medium block">01 / Selección</span>
+          <h3 class="font-serif text-xl text-ink font-normal">Elige tu calzado</h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            Puedes proponer varios pares a la vez. Cualquier tacón, salón o bailarina con una silueta singular o un
+            detalle especial encaja en el archivo.
+          </p>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="border border-hairline bg-specimen p-6 sm:p-8 flex flex-col justify-start space-y-3">
+          <span class="font-mono text-xs text-cognac font-medium block">02 / Fotografía</span>
+          <h3 class="font-serif text-xl text-ink font-normal">Fotos con tu móvil</h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            Con total naturalidad y sin fotos de estudio: simplemente colócalos sobre un fondo natural.
+          </p>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="border border-hairline bg-specimen p-6 sm:p-8 flex flex-col justify-start space-y-3">
+          <span class="font-mono text-xs text-cognac font-medium block">03 / Recepción</span>
+          <h3 class="font-serif text-xl text-ink font-normal">Envío y acreditación</h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            Subes las fotos a través del formulario. Tú decides cómo figurar en los créditos: con tu nombre, tu
+            usuario de Instagram o de forma anónima.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. RESOLUCIÓN DE DUDAS RÁPIDAS -->
+    <section class="space-y-8 bg-paper-muted p-8 sm:p-12 border border-hairline">
+      <div class="space-y-2">
+        <span class="font-mono text-xs uppercase tracking-widest text-cognac font-medium block">Preguntas
+          frecuentes</span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal">
+          Dudas antes de participar
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+
+        <div class="space-y-2">
+          <h3 class="font-serif text-lg text-ink font-normal">
+            ¿Tienen que ser zapatos de marca o caros?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            En absoluto. Nos interesa el diseño y las formas: la silueta del tacón, el escote de la pala o los
+            ornamentos.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h3 class="font-serif text-lg text-ink font-normal">
+            ¿Salgo yo en las fotos o en la publicación?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            No. El calzado es el único protagonista. Solo fotografiamos los zapatos sobre un fondo neutro.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h3 class="font-serif text-lg text-ink font-normal">
+            ¿Tengo control sobre mis fotos y mi privacidad?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            Total. Eliges tu grado de visibilidad (nombre, mención en Instagram o anónimo). Si en cualquier momento
+            deseas retirar la pieza, nos escribes a <a href="mailto:elparzapatos@proton.me"
+              class="text-ink underline hover:text-cognac">elparzapatos@proton.me</a> y se retira en menos de 48 horas.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h3 class="font-serif text-lg text-ink font-normal">
+            ¿Cuánto tiempo me llevará hacer las fotos?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            Menos de diez minutos. Es sacar unas fotos con el móvil desde los ángulos que indicamos en la guía visual.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. EMBUDO Y LLAMADAS A LA ACCIÓN (EN DOS TIEMPOS) -->
+    <section class="space-y-8 border-t border-hairline pt-12">
+      <div class="text-center sm:text-left space-y-2">
+        <span class="font-mono text-xs uppercase tracking-widest text-graphite block">Comenzar</span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal">
+          ¿Te animas a compartir un par?
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-graphite max-w-xl">
+          Recomendamos revisar la guía visual antes de subir el material para ver los ángulos del calzado y cómo
+          colocarlos.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 pt-2">
+
+        <!-- BOTÓN PRINCIPAL: GUÍA FOTOGRÁFICA -->
+        <a href="https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html"
+          target="_blank"
+          class="inline-flex items-center justify-center gap-3 bg-ink text-paper px-6 py-4 font-mono text-xs uppercase tracking-widest hover:bg-cognac transition-colors group">
+          <span>1. Ver guía fotográfica (1 min)</span>
+          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </a>
+
+        <!-- BOTÓN SECUNDARIO: FORMULARIO TALLY -->
+        <a href="https://tally.so/r/Npj2bl" target="_blank"
+          class="inline-flex items-center justify-center gap-3 bg-paper border border-hairline text-ink px-6 py-4 font-mono text-xs uppercase tracking-widest hover:border-ink hover:text-ink transition-colors">
+          <span>2. Ir al formulario de envío</span>
+          <span class="text-graphite">&nearr;</span>
+        </a>
+
+      </div>
+
+      <!-- CANAL DE CONTACTO DIRECTO PREVIO -->
+      <div
+        class="pt-6 border-t border-hairline flex flex-col sm:flex-row items-baseline justify-between gap-4 text-xs font-sans text-graphite">
+        <p>
+          ¿Prefieres consultarnos antes si un par encaja o tienes dudas?
+        </p>
+        <div class="flex items-center gap-4 font-mono text-xs uppercase tracking-wider">
+          <a href="mailto:elparzapatos@proton.me"
+            class="text-ink hover:text-cognac transition-colors underline">elparzapatos@proton.me</a>
+          <span>·</span>
+          <a href="https://instagram.com/elparzapatos" target="_blank"
+            class="text-ink hover:text-cognac transition-colors underline">DM @elparzapatos</a>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- 6. FOOTER EDITORIAL -->
+  <footer class="bg-paper-muted border-t border-hairline w-full py-16 text-graphite mt-16">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-start gap-10">
+      <div class="max-w-sm">
+        <p class="font-serif text-2xl text-ink font-normal tracking-tight mb-2">El Par</p>
+        <p class="font-sans text-xs text-graphite leading-relaxed">
+          &copy; El Par. Zapatos en detalle. Un registro taxonómico y visual del diseño de calzado femenino.
+        </p>
+      </div>
+      <nav class="flex flex-wrap gap-6 sm:gap-8 text-xs font-mono uppercase tracking-wider">
+        <a href="index.html" class="hover:text-ink transition-colors">Portada</a>
+        <a href="index.html#archivo" class="hover:text-ink transition-colors">Archivo</a>
+        <a href="armarios.html" class="hover:text-ink transition-colors">Ver Armarios</a>
+        <a href="https://instagram.com/elparzapatos" target="_blank"
+          class="hover:text-cognac transition-colors">@elparzapatos</a>
+      </nav>
+    </div>
+  </footer>
+
+</body>
+
+</html>

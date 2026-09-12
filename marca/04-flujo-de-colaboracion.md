@@ -27,10 +27,13 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
 
 ### Fase 2. Primer Contacto
 - **Objetivo:** Despertar interés y validar disposición de forma natural.
-- **Qué contar:** Presentar qué es *El Par — Zapatos en detalle* en una frase y plantear la invitación según el caso:
-  - *Opción A (Par concreto visto):* Explicar qué detalle o silueta nos ha llamado la atención de ese modelo en particular.
-  - *Opción B (Armario / Colección interesante):* Proponerle la idea sabiendo que le gusta el calzado o tiene pares con personalidad, invitándola a compartir fotos de varios para seleccionar juntas el primero.
-- **Qué NO hacer:** No enviar la guía fotográfica ni enlaces de formularios todavía. No dar instrucciones técnicas en este primer mensaje.
+- **Cuatro vías de entrada:** El contacto inicial se articula según el canal de origen de la persona:
+  1. *Vía 1 (Proactiva pre-lanzamiento):* Invitación cercana a personas de confianza para construir el fondo inicial de calzado.
+  2. *Vía 2 (Stories / Embajadoras):* Invitación a través de compañeras que comparten el [flyer digital](activos/flyer-embajadora.html) para dedicar una publicación a sus zapatos favoritos.
+  3. *Vía 3 (Inbound DM en redes):* Respuesta directa a quienes preguntan por mensaje en Instagram tras ver piezas publicadas.
+  4. *Vía 4 (Web orgánica):* Flujo desde el cierre `Comparte un par` en el sitio hacia el prototipo de la página puente [como-colaborar.html](../sitio/como-colaborar.html).
+- **Criterio rector:** Fomentar la conversación directa y cercana para resolver dudas antes de remitir a guías o enlaces técnicos. Fórmulas de saludo, guiones específicos para embajadoras y mini-argumentario centralizados en [activos/Contactos-previos.md](activos/Contactos-previos.md).
+- **Qué NO hacer:** No enviar la guía fotográfica ni enlaces de formularios de forma fría en el primer mensaje. No dar instrucciones técnicas sin haber validado previamente el interés y el par.
 
 ### Fase 3. Envío de Guía y Recepción
 - **Momento:** Solo cuando la colaboradora confirma su entusiasmo o interés.
