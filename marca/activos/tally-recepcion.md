@@ -24,7 +24,9 @@ Fuentes de Tally: [importar](https://tally.so/help/import), [subida de archivos]
 | Fotos (una por ficha, Par 01 a 07) | Varios archivos, solo imágenes|
 | Lógica: fichas Par 02 a 07 | Ver [Varios pares](#varios-pares-en-un-envío) |
 | Lógica: Instagram | Mostrar «Usuario de Instagram» solo si el crédito es Instagram |
-| Consentimiento | Casilla obligatoria |
+| Consentimiento y edición | Casilla obligatoria (análisis editorial y edición respetuosa sin IA) |
+| Novedades por correo | Casilla opcional (avisos de nuevas piezas / novedades) |
+| Retirada y canal oficial | Bloque informativo con correo `elparzapatos@proton.me` y plazo 48h |
 | Página de gracias | Copy del Markdown |
 | Notificación | Correo propio al recibir un envío |
 | Guía fotográfica | URL pública provisional en GitHub Pages: [https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html). Sustituir cuando el sitio propio exista |
@@ -40,10 +42,10 @@ La marca «Made with Tally» y el dominio `tally.so` quedan en el plan gratuito.
 El orden del prototipo [formulario-colaboracion.html](formulario-colaboracion.html) es el que hay que montar:
 
 1. Intro (`Compartir un par`)
-2. **01 · Contacto**
+2. **01 · Contacto** (nombre + correo)
 3. **Fichas Par 01 … Par 07** — cada una junta fotos + marca + anécdota
 4. **Créditos · Acreditación**
-5. **Política · Uso editorial y eliminación**
+5. **Política · Uso editorial y retirada**
 6. Envío
 
 Tally no tiene el botón «+ Añadir otro par» del HTML. En su lugar, al final de cada ficha (salvo la 07) va «¿Quieres añadir otro par a este envío?» (Sí / No, **opción única**) y [lógica condicional](https://tally.so/help/conditional-form-logic) enseña la ficha siguiente. El importador **no** crea esas reglas.
@@ -82,4 +84,4 @@ Lo que Tally no copia del HTML: previsualizador de miniaturas, tipografía Newsr
 
 - Formulario publicado y activo en [https://tally.so/r/Npj2bl](https://tally.so/r/Npj2bl). Para modificar campos o consultar respuestas recibidas se accede a la cuenta de Tally.
 - El HTML local no envía nada (el botón solo simula el éxito).
-- Buzón de retirada (correo o formulario) sigue abierto en [ESTADO.md](../../ESTADO.md).
+- Canal oficial de retirada: correo `elparzapatos@proton.me` o mensaje de Instagram ([política en marca/04](../04-flujo-de-colaboracion.md#4-política-y-protocolo-de-retirada)).

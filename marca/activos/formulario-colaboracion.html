@@ -517,7 +517,6 @@
         <div class="field-group">
           <label class="field-label" for="email">Correo electrónico *</label>
           <input type="email" id="email" name="email" required placeholder="tu-email@ejemplo.com">
-          <span class="field-hint">Lo utilizaremos para confirmar la recepción, consultarte alguna duda si es necesario y avisarte de la publicación.</span>
         </div>
       </div>
 
@@ -587,7 +586,7 @@
           <label class="field-label">¿Cómo prefieres figurar acreditada en las publicaciones? *</label>
           <div class="radio-card-group">
             <label class="radio-card">
-              <input type="radio" name="tipo_credito" value="nombre" checked>
+              <input type="radio" name="tipo_credito" value="nombre" checked onchange="toggleInstagramField(this.value)">
               <div class="radio-card-text">
                 <strong>Con mi nombre de pila</strong>
                 <span>Tus pares aparecerán bajo «Armario de [Tu nombre]»</span>
@@ -595,7 +594,7 @@
             </label>
 
             <label class="radio-card">
-              <input type="radio" name="tipo_credito" value="instagram">
+              <input type="radio" name="tipo_credito" value="instagram" onchange="toggleInstagramField(this.value)">
               <div class="radio-card-text">
                 <strong>Con mi usuario de Instagram</strong>
                 <span>Etiquetaremos tu perfil en los créditos de cada pieza</span>
@@ -603,7 +602,7 @@
             </label>
 
             <label class="radio-card">
-              <input type="radio" name="tipo_credito" value="anonimo">
+              <input type="radio" name="tipo_credito" value="anonimo" onchange="toggleInstagramField(this.value)">
               <div class="radio-card-text">
                 <strong>De forma anónima</strong>
                 <span>Aparecerá simplemente como «Colaboradora de El Par»</span>
@@ -612,26 +611,42 @@
           </div>
         </div>
 
-        <div class="field-group">
-          <label class="field-label" for="usuario_ig">Usuario de Instagram (opcional)</label>
+        <div class="field-group" id="igFieldGroup" style="display: none;">
+          <label class="field-label" for="usuario_ig">Usuario de Instagram *</label>
           <input type="text" id="usuario_ig" name="usuario_ig" placeholder="@usuario">
         </div>
       </div>
 
-      <!-- Sección: Uso editorial y eliminación (Común a todo el envío) -->
+      <!-- Sección: Uso editorial y retirada (Común a todo el envío) -->
       <div class="form-section">
         <div class="section-header">
           <div>
             <span class="section-step mono">· Política ·</span>
-            <h3 class="section-title serif">Uso editorial y eliminación</h3>
+            <h3 class="section-title serif">Uso editorial y retirada</h3>
           </div>
         </div>
 
+        <!-- Casilla 1: Autorización y edición ligera de fotos (Obligatoria) -->
         <div class="consent-card">
           <input type="checkbox" id="consentimiento" name="consentimiento" required>
           <label for="consentimiento" class="consent-text">
-            <strong>Autorizo el análisis editorial de estas fotos y notas</strong> en la web y los perfiles divulgativos de <em>El Par — Zapatos en detalle</em>. Comprendo que mantengo la potestad sobre mi colaboración y que puedo solicitar la <strong>eliminación</strong> de cualquiera de mis pares en cualquier momento comunicándolo por correo o mensaje directo.
+            Autorizo el análisis editorial y la edición ligera de estas fotos y notas en la web y los canales divulgativos de <em>El Par — Zapatos en detalle</em>. Permito ajustes mínimos de luz, nivelado o encuadre para apreciar bien el diseño. Comprendo que El Par no utiliza inteligencia artificial generativa para alterar las imágenes.
           </label>
+        </div>
+
+        <!-- Casilla 2: Actualizaciones / Novedades por correo (Opcional) -->
+        <div class="consent-card" style="margin-top: 10px;">
+          <input type="checkbox" id="newsletter" name="newsletter">
+          <label for="newsletter" class="consent-text">
+            <strong>Actualizaciones</strong><br>
+            Avisos de nuevas publicaciones: Me gustaría recibir por correo avisos cuando publiquéis nuevas piezas o novedades de El Par.
+          </label>
+        </div>
+
+        <!-- Bloque informativo de Retirada y Contacto -->
+        <div style="background: var(--paper-muted); border: 1px solid var(--hairline); padding: 14px 16px; margin-top: 14px; font-size: 12.5px; line-height: 1.55; color: var(--graphite);">
+          <strong style="color: var(--ink); display: block; margin-bottom: 4px;">¿Cómo retirar tu calzado o fotos?</strong>
+          Para retirar cualquiera de tus pares, solo tienes que escribirnos a nuestro correo <a href="mailto:elparzapatos@proton.me" style="color: var(--cognac); font-weight: 500;">elparzapatos@proton.me</a> o por Instagram indicándonos qué par deseas retirar. Borraremos la pieza de la web y redes en un plazo máximo de 48 horas y eliminaremos las fotos originales de nuestro archivo si así lo prefieres.
         </div>
       </div>
 
@@ -764,6 +779,21 @@
 
         grid.appendChild(item);
       });
+    }
+
+    function toggleInstagramField(creditType) {
+      const igGroup = document.getElementById('igFieldGroup');
+      const igInput = document.getElementById('usuario_ig');
+      if (!igGroup || !igInput) return;
+
+      if (creditType === 'instagram') {
+        igGroup.style.display = 'block';
+        igInput.setAttribute('required', 'required');
+      } else {
+        igGroup.style.display = 'none';
+        igInput.removeAttribute('required');
+        igInput.value = '';
+      }
     }
 
     function handleFormSubmit(e) {

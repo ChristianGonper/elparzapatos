@@ -15,7 +15,6 @@ Placeholder: Ej. Carmen, Clara...
 **Correo electrónico**
 Tipo: email. Obligatorio.
 Placeholder: tu-email@ejemplo.com
-Ayuda: Lo utilizaremos para confirmar la recepción, consultarte alguna duda si es necesario y avisarte de la publicación.
 
 ---
 
@@ -203,20 +202,28 @@ Tipo: opción única (radio). Obligatorio.
 - Con mi usuario de Instagram — Etiquetaremos tu perfil en los créditos de cada pieza
 - De forma anónima — Aparecerá simplemente como «Colaboradora de El Par»
 
-**Usuario de Instagram (opcional)**
-Tipo: respuesta corta. Opcional.
+**Usuario de Instagram**
+Tipo: respuesta corta. Obligatorio (cuando se muestra).
 Placeholder: @usuario
 Lógica: mostrar solo si la acreditación es «Con mi usuario de Instagram».
 
 ---
 
-## Política · Uso editorial y eliminación
+## Política · Uso editorial y retirada
 
 Común a todo el envío.
 
-**Autorizo el análisis editorial**
+**Autorizo el análisis editorial y la edición ligera**
 Tipo: casilla. Obligatorio.
-Texto de la casilla: Autorizo el análisis editorial de estas fotos y notas en la web y los perfiles divulgativos de El Par — Zapatos en detalle. Comprendo que mantengo la potestad sobre mi colaboración y que puedo solicitar la eliminación de cualquiera de mis pares en cualquier momento comunicándolo por correo o mensaje directo.
+Texto de la casilla: Autorizo el análisis editorial de estas fotos y notas en la web y los canales divulgativos de El Par — Zapatos en detalle. Permito ajustes mínimos de luz, nivelado o encuadre para apreciar bien el diseño. Comprendo que El Par no utiliza inteligencia artificial generativa para alterar las imágenes.
+
+**Actualizaciones**
+Tipo: casilla. Opcional.
+Texto de la casilla: Avisos de nuevas publicaciones: Me gustaría recibir por correo avisos cuando publiquéis nuevas piezas o novedades de El Par.
+
+**¿Cómo retirar tu calzado o fotos?**
+Tipo: bloque de texto informativo.
+Texto: Para retirar cualquiera de tus pares, solo tienes que escribirnos a nuestro correo elparzapatos@proton.me o por Instagram indicándonos qué par deseas retirar. Borraremos la pieza de la web y redes en un plazo máximo de 48 horas y eliminaremos las fotos originales de nuestro archivo si así lo prefieres.
 
 ---
 
