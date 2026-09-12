@@ -8,15 +8,7 @@ Marca `[x]` y mueve a **Hecho**.
 
 ## Ahora — Trabajo prioritario
 
-### 1. Captación de Calzado y Contacto con Colaboradoras
-
-- [ ] **Refinar inicio de contacto con persona:** Pulir la primera toma de contacto y fórmulas de saludo en [marca/activos/Contactos-previos.md](marca/activos/Contactos-previos.md).
-- [ ] **Kit de recomendación para compañeras (embajadoras — modelo de ejemplo anotado):**
-  - Redactar mensajes de WhatsApp / DM listos para copiar y reenviar entre amigas (tono cálido, de confianza y sin tecnicismos).
-  - Preparar el mini-argumentario de dudas rápidas para ella («¿Tienen que ser caros?», «¿Salgo yo?», «¿Cuánto se tarda?»).
-  - Diseñar el flyer digital / tarjeta visual compartible (formato Story / tarjeta con estética editorial, claim y enlace a la guía).
-
-### 2. Preparación Web y Criterio Editorial (Primera Pieza)
+### 1. Preparación Web y Criterio Editorial (Primera Pieza)
 
 - [ ] Maquetar y publicar la primera monografía real en cuanto entre el material de una colaboradora.
 
@@ -36,7 +28,6 @@ Marca `[x]` y mueve a **Hecho**.
 
 ## Pospuesto / Tras la primera pieza
 
-- [ ] Maquetar la página puente «Cómo colaborar» (`como-colaborar.html`) según [sitio/ESPECIFICACION.md#4-especificación-de-la-página-puente-cómo-colaborar-como-colaborarhtml](sitio/ESPECIFICACION.md#4-especificación-de-la-página-puente-cómo-colaborar-como-colaborarhtml).
 - [ ] Implementación de las cartas del glosario: comportamiento interactivo del popover contextual y ficha/página con detalle ampliado del concepto.
 - [ ] Método para opiniones / testimonios (versiones posteriores de la web).
 - [ ] Página «Sobre El Par».
@@ -49,6 +40,8 @@ Marca `[x]` y mueve a **Hecho**.
 
 ## Hecho
 
+- [x] **Captación de calzado y flujos de onboarding (Tarea 1):** Definidas y redactadas las 4 vías de toma de contacto en [marca/activos/Contactos-previos.md](marca/activos/Contactos-previos.md) (proactiva previa, respuesta a stories de embajadoras con mini-argumentario de dudas, inbound DM tras publicaciones y asistencia web). Diseñado el flyer digital interactivo para Stories (9:16) en [marca/activos/flyer-embajadora.html](marca/activos/flyer-embajadora.html) con foco en dedicar una publicación a sus zapatos favoritos e invitación a escribir por mensaje/DM directo.
+- [x] **Prototipo local de página puente «Cómo colaborar» (`como-colaborar.html`):** Maquetado en [sitio/como-colaborar.html](sitio/como-colaborar.html) como prototipo local siguiendo [sitio/ESPECIFICACION.md#4](sitio/ESPECIFICACION.md#4) (propósito editorial, proceso en 3 pasos, resolución de dudas rápidas, embudo hacia guía fotográfica y formulario Tally, y canal de dudas).
 - [x] **Infraestructura de colaboraciones (Drive, Sheets y Apps Script v3):** Pestañas canónicas creadas, importación depurada, clave por correo normalizado con Instagram opcional, IDs correlativos legibles (`COL`, `ENV`, `PAR`), enlace público único de Tally, y Apps Script v3 verificado e idempotente sin duplicados.
 - [x] **Identidad visual y prototipos locales:** Tipografía, paleta y sistema semántico consolidados en [sitio/DESIGN.md](sitio/DESIGN.md). Prototipos de portada y monografía.
 - [x] **Guía y criterios fotográficos:** Guía colaborativa *Tus zapatos en cámara* publicada. Criterio de calidad fotográfica, umbral para tomas adicionales y límites éticos de edición acordados en [marca/04-flujo-de-colaboracion.md](marca/04-flujo-de-colaboracion.md).
