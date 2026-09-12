@@ -1,134 +1,178 @@
 # Especificación Funcional y de Componentes Web
 
-Este documento define la especificación interactiva, modular y de componentes para la interfaz web de **El Par — Zapatos en detalle**. Actúa de puente entre la identidad de marca (`marca/`), el sistema de diseño (`sitio/DESIGN.md`) y las pantallas desarrolladas en Stitch y código local.
+Este documento define la especificación interactiva, modular y editorial para la web de **El Par — Zapatos en detalle**. Establece la estructura de la portada (índice), las monografías de calzado y la página puente de colaboración, uniendo la identidad editorial ([marca/README.md](../marca/README.md)) y el sistema de diseño ([sitio/DESIGN.md](DESIGN.md)).
 
 ---
 
 ## 1. Arquitectura General y Vistas del Sitio
 
-El sitio se estructura como una monografía digital de acceso libre y ritmo pausado:
+El sitio se estructura como un archivo monográfico digital de ritmo pausado y lectura reposada:
 
 ```
 sitio/
-├── index.html                  # Portada: Pieza destacada, archivo general y filtro de armarios
-├── como-colaborar.html         # Página puente: proceso acogedor, resolución de dudas y paso por la guía
+├── index.html                  # Portada: Pieza destacada, archivo adaptable y llamada a colaborar
+├── como-colaborar.html         # Página puente: acogida, resolución de dudas, guía y acceso a Tally
 ├── como-se-construye.html      # (Fase 2) Manifiesto de rigor técnico, captura y estudio
 ├── armarios.html               # (Fase 2) Directorio de colaboradoras y colecciones particulares
 └── entradas/
-    └── [slug].html             # Monografías de calzado (ej. salon-aguja.html)
+    └── [slug].html             # Monografías de calzado (ej. salon-aguja-piel-grabada.html)
 ```
 
 ---
 
 ## 2. Especificación de la Entrada Monográfica
 
-La página de cada par es el núcleo del proyecto: un estudio morfológico profundo que trata el zapato como una obra de arquitectura en miniatura.
+La página de cada par es el núcleo del proyecto: un estudio morfológico que examina el zapato como una obra de arquitectura y artesanía en miniatura.
 
 ### 2.1. Bloque de Apertura y Cabecera
-- **Título de Observación:** Tipografía *Newsreader* / *Playfair Display* en gran escala. Expresa una constatación visual honesta del par demostrable en las fotos (ej. *«Dos extremos, una silueta»* para un salón de tacón aguja y puntera fina; *«La cintura del tacón»* para un tacón bobina).
-- **Subtítulo Taxonómico Completo:** Bajo el título, en sans-serif neutra (*Inter* / *Plus Jakarta Sans*), la identificación anatómica rigurosa: `[Familia] con [Escote / Sujeción] en [Material] y [Tipo de tacón / Altura]`. Ejemplo: *Salón clásico con escote redondeado en piel grabada y tacón aguja de 85 mm*.
-- **Atribución de Procedencia:** Situada junto al subtítulo o en la entradilla: *«Armario de: [Nombre o alias acordado]»*. Funciona como enlace al fondo de pares de esa colaboradora.
-- **Entradilla / Abstract:** 2 a 3 párrafos sintéticos que sitúan la pieza agrupando sus rasgos morfológicos dominantes, convirtiendo esta caracterización formal en la justificación implícita de su interés.
-- **Reflexión Testimonial de la Dueña:** Bloque puramente condicional. Si la colaboradora aporta una anécdota de uso, memoria sensorial o reflexión lúcida sobre el par, se formatea como cita destacada con filete fino a la izquierda o como párrafo en cursiva. Si no existe, el espacio no se fuerza.
+- **Retorno al Archivo:** Enlace superior discreto en tipografía mono: `← Volver al Archivo`.
+- **Título de Observación:** Tipografía *Newsreader* / *Playfair Display* en gran escala. Expresa una constatación visual honesta del par demostrable en las fotografías (ej. *«Dos extremos, una silueta»* para un salón de tacón aguja y puntera fina; *«La cintura del tacón»* para un tacón bobina).
+- **Subtítulo Taxonómico Completo:** Bajo el título, en sans-serif neutra (*Plus Jakarta Sans* / *Inter*), la identificación anatómica rigurosa: `[Familia] con [Escote / Sujeción] en [Material] y [Tipo de tacón / Altura]`. Ejemplo: *Salón clásico con escote asimétrico en piel vacuno y tacón aguja de 90 mm*.
+- **Atribución de Procedencia:** Situada junto al subtítulo: *«Armario de: [Nombre o alias acordado]»*. Si la colaboradora autorizó acreditar su cuenta en el formulario, se incluye la mención o enlace discreto a su `@Instagram`. El enlace a una página de armario dedicada se activará cuando dicha vista se incorpore al sitio público.
+- **Entradilla / Abstract:** 2 párrafos sintéticos estructurados a dos columnas (estilo pliego editorial de arte) que sitúan la pieza agrupando sus rasgos morfológicos dominantes.
+- **Reflexión Testimonial de la Dueña:** Bloque puramente condicional. Si la colaboradora aporta una anécdota de uso, memoria sensorial o reflexión sobre el par, se formatea como cita destacada con filete fino a la izquierda. Si no existe, el espacio no se fuerza.
 
-### 2.2. Sistema de Cuadrícula Flexible y Paseo Visual
-A diferencia de un catálogo rígido de comercio electrónico, el ritmo visual se adapta a la morfología particular de cada par:
+### 2.2. Sistema Modular y Paseo Visual (Morfología Flexible)
+A diferencia de una ficha rígida de comercio electrónico, el ritmo visual se adapta a la singularidad morfológica de cada modelo:
 
-- **Hero Specimen:** Fotografía de apertura en formato dominante (perspectiva tres cuartos exterior), que muestra el zapato en su actitud completa sobre paspartú limpio.
+- **Volumen Fotográfico:** Cada monografía cuenta con un mínimo de 6 fotografías reales (las 6 perspectivas establecidas en la guía de colaboración), más las tomas de macro o detalle constructivo que justifiquen su inclusión.
+- **Hero Specimen:** Fotografía de apertura en formato dominante (perspectiva tres cuartos exterior), mostrando el calzado en su actitud completa.
+- **Tratamiento Fotográfico (`object-contain`):** Las fotografías se presentan íntegras sin recortes dentro de marcos de proporción normalizada sobre fondo neutro/blanco (`#FFFFFF` con filete perimetral `#E8E3DC`). Se conserva siempre la silueta completa (puntera, altura de tacón) y el suelo con su sombra natural de apoyo. Se prohíbe el silueteado o la extracción artificial de fondos.
+- **Módulos Morfológicos Variables:** El cuerpo del análisis se articula mediante una secuencia flexible de módulos según la riqueza y particularidad del par.
 - **Ratios de Retícula Alterna:**
-  - `7:5`: Cuando la explicación anatómica requiere desarrollo conceptual y la fotografía complementa con una vista general o longitudinal.
-  - `5:7`: Cuando la toma es marcadamente vertical (ej. vista trasera de un tacón de aguja, embocadura de una caña) y el texto es conciso.
-  - `6:6`: Equilibrio entre texto e imagen para observaciones morfológicas estándar.
-- **Dípticos Visuales:** Módulo compuesto por dos fotografías contiguas (ej. frontal + cenital para analizar la pala; o perfil interior + perfil exterior para contrastar el enfranque) vinculadas a un único bloque de texto que aborda ambas perspectivas conjuntamente.
-- **Pies de Fotografía Limpios:** Las imágenes se presentan sin textos redundantes ni metadatos de maquetación forzados. La fotografía respira sola sobre fondo blanco con filete tenue. Únicamente se admite pie tipográfico breve en casos indispensables de diferenciación entre tomas contiguas (ej. dípticos: *«Cenital»* / *«Planta»*).
-- **Titulación y Supratítulos de Sección:**
-  - **Supratítulo (mono versalitas tenue):** Indica el componente o zona morfológica examinada en ese bloque: `[ La pala y el escote ]`, `[ El fuste y el aplomo ]`, `[ El enfranque ]`, `[ La planta ]`.
-  - **Título H2 (Newsreader serif):** Rasgo físico principal observable, descriptivo y directo, sin exageración lírica ni tecnicismo oscuro: *«Escote asimétrico y caída lateral»*, *«Fuste vertical de 90 mm y apoyo dorsal»*, *«Curvatura del arco y refuerzo interior»*.
-- **Sin Alturas Forzadas:** Si la descripción de una zona concluye en tres líneas, el contenedor de texto respira libremente con espacio en blanco; no se agregan párrafos de relleno.
+  - `7:5`: Explicación anatómica amplia complementada con toma longitudinal o general.
+  - `5:7`: Toma vertical (ej. trasera de tacón aguja o caña de bota) con texto sintético.
+  - `6:6`: Equilibrio estándar entre texto e imagen.
+  - `Dípticos Visuales`: Dos fotografías contiguas (ej. perfil interior + perfil exterior, o frontal + cenital) vinculadas a un único bloque de texto explicativo conjunto.
+- **Pies de Fotografía Limpios:** Las imágenes respiran solas sin textos de relleno. Únicamente se admite pie tipográfico breve en casos indispensables de diferenciación entre tomas contiguas (ej. dípticos: *«Lateral exterior»* / *«Lateral interior»*).
+- **Titulación de Sección:**
+  - **Supratítulo (mono versalitas tenue):** Zona morfológica examinada: `[ La pala y el escote ]`, `[ El fuste y el aplomo ]`, `[ El enfranque ]`.
+  - **Título H2 (Newsreader serif):** Rasgo físico observable, descriptivo y directo: *«Escote asimétrico y caída lateral»*, *«Fuste vertical de 90 mm y apoyo dorsal»*.
+- **Sin Alturas Forzadas:** El contenedor de texto respira libremente con espacio en blanco si el apunte concluye en pocas líneas.
 
-### 2.3. Sistema de Anotaciones Anatómicas en Imagen (Pedagogía Gráfica)
-**Fuera de v1.** Las primeras publicaciones van con fotografía limpia, sin interruptor ni capa de cotas. Este módulo se incorpora en una versión posterior de la web (1.5 o 2). El prototipo local puede conservarlo como avance de esa fase.
+### 2.3. Ampliación Fotográfica (Lightbox Minimalista)
+Para apreciar el detalle constructivo, las costuras y la textura real de los materiales:
+- Al pulsar sobre cualquier fotografía técnica o de detalle, se despliega una vista ampliada limpia a pantalla completa sobre fondo neutro `#FAF8F5` o blanco.
+- Interfaz no invasiva: sin barras de herramientas pesadas ni iconos recargados. Cierre intuitivo mediante clic en cualquier zona exterior o pulsando la tecla `Esc`.
 
-Para que el lector entienda con precisión lo que observa sin saturar la composición:
+### 2.4. Sistema de Anotaciones Anatómicas (Cotas)
+- **Fuera de v1:** Las primeras publicaciones se presentan con fotografía limpia, sin interruptor ni capa de cotas vectoriales. La arquitectura de cotas conmutables queda reservada para una versión posterior del sitio.
 
-- **Control de Modo:** Cada fotografía técnica cuenta en su base o esquina superior con un micro-control conmutador: `[ + Cotas anatómicas ]` / `[ − Ocultar cotas ]`.
-- **Capa Vectorial de Anotación (Toggle On):** Al activarse, se superpone una capa sutil con:
-  - Líneas de cota ultra-finas (0.75px) en color tinta `#1C1A18` o cuero `#9E6B55`.
-  - Flechas o puntos de anclaje que señalan el punto exacto de transición (ej. inicio de la curvatura del enfranque, profundidad de garganta, punto de apoyo del tacón).
-  - Micro-etiquetas tipográficas en `JetBrains Mono` (10-11px, caja alta o versalitas).
-- **Capa Desactivada (Toggle Off - Por defecto):** Fotografía limpia, respetando el silencio y la apreciación pura del objeto.
+### 2.5. Glosario Anatómico en Contexto (Popovers Flotantes) y Diccionario Canónico
+- Los términos anatómicos universales presentes en el texto llevan un subrayado de puntos sutil en color cuero `#9E6B55`.
+- Al pasar el cursor (*hover*) o pulsar (*click / tap*), se despliega una tarjeta flotante adyacente que muestra:
+  - Encabezado: `Término en español (Término en inglés)` en mono versalitas.
+  - Definición funcional concisa: 1-2 frases sobre su función constructiva o biomecánica.
+  - Cierre inmediato al mover el cursor, hacer clic fuera o pulsar `Esc`, sin oscurecer la pantalla.
+- **Diccionario Canónico de Términos Iniciales:**
+  | Término (ES) | Término (EN) | Definición Funcional y Biomecánica |
+  | :--- | :--- | :--- |
+  | **Pala** | *Vamp* | Pieza delantera del corte que cubre los dedos y el empeine hasta la línea de garganta; determina la flexión anterior del pie al caminar. |
+  | **Garganta** | *Throat* | Borde o curva de corte que delimita la embocadura delantera de la pala en contacto con el empeine; su profundidad define cuánto pie queda al descubierto. |
+  | **Línea de calce** | *Topline* | Contorno perimetral continuo por donde calza el pie, desde la garganta delantera hasta el collarín trasero. |
+  | **Collarín** | *Collar* | Tramo trasero de la línea de calce que remata la embocadura a la altura del talón del pie. |
+  | **Talonera** | *Quarter* | Panel o conjunto de paneles del corte que configuran la parte lateral y trasera envolviendo el talón del pie. |
+  | **Puntera** | *Toe / Toe box* | Zona delantera del calzado que aloja los dedos; determina el contorno frontal (redonda, almendra o puntiaguda). |
+  | **Capuchón** | *Toe cap* | Pieza de corte independiente en la punta, rematada con costura transversal propia que interrumpe la pala. |
+  | **Empeine** | *Instep* | Zona dorsal anatómica del pie y del calzado situada entre la garganta y el tobillo, donde asientan las tiras de sujeción. |
+  | **Corte** | *Upper* | Conjunto de todas las piezas y materiales exteriores del zapato, con exclusión del tacón y la suela. |
+  | **Forro** | *Lining* | Capa interior de piel o textil que viste el calzado en contacto directo con el pie. |
+  | **Enfranque** | *Waist* | Zona estrechada del zapato en planta situada bajo el arco del pie, entre la planta delantera y el tacón. |
+  | **Arco** | *Arch* | Curva cóncava inferior del piso observable en el perfil longitudinal bajo el enfranque. |
+  | **Cambrillón** | *Shank* | Refuerzo longitudinal rígido (de acero, madera o fibra) alojado en el enfranque que sostiene el arco óseo del pie e impide que el zapato parta por la mitad. |
+  | **Palmilla** | *Insole* | Suela estructural interior sobre la que se monta y fija el corte del zapato; sirve de base inmediata a la planta del pie. |
+  | **Suela** | *Outsole* | Piso exterior inferior del zapato que hace contacto con el pavimento. |
+  | **Cerco** | *Welt* | Tira perimetral de cuero que une la pala, la palmilla y la suela exterior mediante cosido en las construcciones tradicionales de calidad. |
+  | **Contrafuerte** | *Counter / Heel stiffener* | Refuerzo rígido oculto en el talón entre el corte exterior y el forro que estabiliza el calcáneo e impide el deslizamiento lateral del talón. |
+  | **Plataforma** | *Platform* | Suplemento de grosor bajo el antepié que amortigua y reduce el desnivel efectivo del pie sin restar altura visual al tacón. |
+  | **Fuste** | *Stem* | Columna vertical del tacón comprendida entre la base superior de asiento y la tapa de apoyo; su silueta y perfil definen la familia morfológica. |
+  | **Asiento** | *Heel seat* | Base superior de unión del tacón donde apoya y descarga el talón del pie sobre la suela. |
+  | **Pecho** | *Breast* | Cara delantera del tacón orientada hacia la puntera; en perfil se lee como recto o cóncavo (*scoop*). |
+  | **Tapa** | *Top piece* | Pieza inferior de desgaste en la base del tacón que hace contacto directo con el suelo. |
+  | **Cintura del fuste** | *Stem waist* | Estrechamiento medio del cuerpo del tacón característico de la familia bobina o carrete (*spool*). |
+  | **Aplomo** | *Balance / Pitch* | Distribución geométrica de ejes de carga que asegura que la tapa del tacón descanse plana sobre el suelo sin vencer hacia adelante o hacia atrás. |
+  | **Vivo** | *Piping* | Cordón o tira fina de cuero doblada e insertada en una costura para reforzar la unión y perfilar visualmente los límites del patrón. |
 
-### 2.4. Glosario Anatómico en Contexto (Popovers Flotantes)
-- Los términos anatómicos y geométricos universales presentes en el cuerpo del texto (`pala`, `garganta`, `collarín`, `enfranque`, `cambrillón`, `fuste`, etc.) se distinguen con un subrayado de puntos sutil en color cuero `#9E6B55`.
-- Al pasar el cursor (*hover*) o pulsar el término (*click / tap*), se despliega un popover flotante adyacente a la palabra con:
-  - Encabezado: `Término en español (Término en inglés)` en mono versalitas (ej. *Pala (Vamp)*, *Cambrillón (Shank)*, *Fuste (Stem)*).
-  - Definición funcional concisa: 1-2 frases sobre su papel biomecánico o constructivo.
-  - Cierre al mover el cursor, hacer clic fuera o pulsar la tecla `Esc`, sin bloquear ni oscurecer la pantalla.
+### 2.6. Notas Editoriales Concisas (Caja Intercalada)
+- Módulos secundarios intercalados en el flujo de lectura (estilo pósit / apunte de taller) bajo el párrafo de referencia:
+  - Estilo: fondo suave `#F3EFEA` (*paper-muted*), filete de 1px `#E8E3DC` y tipografía sans o mono de escala reducida.
+  - Uso: particularidades históricas del diseño, notas sobre comparativas morfológicas directas.
 
-### 2.5. Notas Editoriales Concisas (Caja Intercalada)
-- Módulos secundarios intercalados en el flujo de lectura (estilo pósit / ficha de apunte), situados inmediatamente bajo el párrafo de referencia:
-  - Estilo visual: fondo suave `#F3EFEA` (*paper-muted*), filete perimetral de 1px `#E8E3DC` y tipografía sans o mono de escala reducida.
-  - Se descarta la nota marginal (*sidenote*) para garantizar consistencia total en diseño adaptable (móvil, tablet y escritorio) y preparar la retícula para posibles módulos adicionales o menciones en el futuro.
-  - Destinados a: singularidades estéticas o históricas del modelo concreto, comparativas morfológicas entre pares del archivo o notas sobre curtidos y materiales singulares.
+### 2.7. Ficha «Datos del Par» (Cédula de Museo)
+- Bloque editorial sobrio al cierre del análisis, redactado como cédula de museo:
+  1. *Silueta / Tipo:* Salón clásico (*pump*), merceditas (*mary jane*), bailarina...
+  2. *Marca y Modelo:* Firma y modelo si se conocen (o con una linea --- si no se conocen).
+  3. *Material y Acabado:* Tipo de piel o tejido y acabado observable (ej. *Piel vacuna grabada con acabado brillante*).
+  4. *Geometría del tacón:* Silueta, altura aproximada y caída (ej. *Aguja · 90 mm · Pecho recto*, o *Plano · 10 mm*).
+  5. *Procedencia:* «Armario de [Nombre/Alias]», acompañado de su usuario de Instagram si fue autorizado.
 
-### 2.6. Ficha «Datos del Par»
-- Bloque editorial sobrio integrado al cierre del análisis, concebido como una **cédula de museo**: telegráfica, exacta y sin duplicar la narración del texto.
-- Estructura fija de 5 campos objetivos:
-  1. *Silueta / Tipo:* Salón clásico (*pump*), merceditas (*mary jane*), bailarina, sandalia de tacón...
-  2. *Marca y Modelo:* Firma y nombre del modelo si se conoce (ej. Christian Louboutin · *So Kate*).
-  3. *Material y Acabado:* Piel vacuna, ante, satén... y tipo de acabado (charol brillante, grabado, mate...).
-  4. *Geometría del tacón:* Familia morfológica, altura observable y perfil (ej. Aguja · 90 mm · Pecho recto).
-  5. *Procedencia:* «Armario de [Nombre de pila o colaboradora]» con enlace a su fondo particular.
+### 2.8. Navegación Secuencial al Pie
+- Al término de la monografía (tras la cédula técnica y antes del bloque de cierre):
+  - Enlaces secuenciales discretos: `← Entrega anterior: [Título]` y `Entrega siguiente: [Título] →`.
+  - Permite navegar el catálogo ordenado de forma correlativa sin regresar forzosamente al índice. El módulo de piezas sugeridas queda reservado para cuando el archivo tenga mayor volumen.
 
-### 2.7. Cierre de Colaboración Contextual
-- En el remate de la monografía, un bloque sereno con tono de diálogo:
+### 2.9. Cierre de Colaboración Contextual
+- En el remate de la monografía:
   - **Título:** `Comparte un par`
   - **Texto:**
     > «Este estudio ha sido posible gracias a [Nombre]. Si en tu armario descansa un par con detalles singulares, una silueta particular o una construcción que merezca ser compartida, puedes proponérnoslo para formar parte del proyecto.»
-  - **Botón de acción:** `Cómo colaborar →` (enlace directo a la página puente `sitio/como-colaborar.html`).
+  - **Botón de acción:** `Cómo colaborar →` (enlace directo a `como-colaborar.html`).
+
+### 2.10. Nomenclatura de URLs (Slugs)
+- Formato morfológico descriptivo enriquecido: `/entradas/[silueta]-[rasgo]-[material-o-detalle].html` (ej. `entradas/salon-aguja-piel-grabada.html`, `entradas/merceditas-doble-tira-burdeos.html`).
+- En caso de coincidencia morfológica total entre dos piezas distintas, se desempata naturalmente incorporando la procedencia (`/entradas/salon-aguja-carmen.html`).
+
+### 2.11. Metadatos y SEO Editorial
+- `<title>`: `El Par — [Título de Observación] | [Familia]` (ej. *El Par — «Dos extremos, una silueta» | Salón clásico*).
+- `<meta name="description">`: Resumen de 1-2 frases indicando identificación anatómica y procedencia.
+- Metadatos OpenGraph y Twitter Cards (`summary_large_image`) configurados con la imagen Hero en tres cuartos exterior.
 
 ---
 
 ## 3. Especificación de la Home (Portada del Archivo)
 
-### 3.1. Cabecera
-- Logotipo tipográfico **El Par** en serif y subtítulo **Zapatos en detalle**.
-- Navegación minimalista: *Archivo*, *Ver Armarios*, *Sobre El Par* (o *Nuestra Mirada*).
-- Ausencia total de botones de compra, suscripciones intrusivas o banners de reclamo.
+La portada es la antesala y el índice vivo del archivo documental.
 
-### 3.2. Pieza Destacada (Hero Piece)
-- Módulo protagonista superior a ancho completo que rompe la monotonía del grid.
-- Fotografía en paspartú amplio y limpio.
-- Bloque de texto depurado sin redundancias:
+### 3.1. Cabecera y Navegación Esencial Activa
+- Logotipo **El Par** en serif y descriptor **Zapatos en detalle** en sans neutra.
+- Navegación esencial activa:
+  - `Archivo`: Enlace o ancla directa a la colección.
+  - `Cómo colaborar`: Acceso directo a la página puente `como-colaborar.html`.
+- Se suprimen de la navegación pública los enlaces a vistas pospuestas (`Armarios`, `Sobre El Par`) y al perfil de Instagram inactivo hasta su respectivo lanzamiento.
+
+### 3.2. Arquitectura Adaptativa al Volumen
+La interfaz de portada se adapta orgánicamente a la escala real del fondo:
+- **Pieza Destacada (Hero Piece):** La entrega más reciente asume el protagonismo superior a ancho completo.
+- **Cuadrícula Inferior:** Muestra las demás entregas sin duplicar la pieza destacada.
+- **Arranque inicial (1 sola entrega):** La portada destaca con amplitud la pieza inaugural y enlaza directamente al cierre colaborativo, sin mostrar rejillas vacías ni mensajes artificiales de catálogo incompleto.
+- **Filtros por Tipología:** La barra de filtros por familia (*Salones*, *Merceditas*, *Bailarinas*, etc.) permanece latente e invisible hasta que existan al menos dos tipologías distintas catalogadas con suficiente volumen representativo.
+
+### 3.3. Pieza Destacada (Hero Piece)
+- Contenedor con fotografía en marco normalizado con paspartú amplio y limpio (`object-contain`).
+- Ficha editorial:
   - Metadatos superiores: `Pieza Destacada` y `Armario de [Nombre]`.
   - Título observacional en Newsreader serif: ej. *«Dos extremos, una silueta»*.
-  - Subtítulo taxonómico conciso en una sola línea (se suprime el párrafo descriptivo secundario para maximizar el silencio visual).
-  - Enlace sobrio y ligero: `Ver estudio →`.
-
-### 3.3. Filtros y Organización del Archivo
-- Barra de filtrado sobria:
-  - Por familias de calzado: *Todos*, *Salones*, *Merceditas*, *Bailarinas*, *Tacón bajo*.
-  - Contador de fondo documental: *6 especímenes catalogados*.
-  - Acceso directo: *«Ver Armarios →»* (para explorar las aportaciones agrupadas de cada donante).
+  - Subtítulo taxonómico conciso en una sola línea.
+  - Enlace sobrio: `Ver estudio →`.
 
 ### 3.4. Cuadrícula de Fichas del Archivo
-- Tarjetas limpias enmarcadas con filete de 1px `#E8E3DC` y fondo blanco para la imagen.
-- Cero distintivos flotantes, badges de categoría o textos encima de la foto.
-- Metadatos bajo la imagen con jerarquía y espaciado fluido:
+- Tarjetas delimitadas por filete perimetral tenue `#E8E3DC` y fondo blanco `#FFFFFF` para el marco de la imagen.
+- Fotografías presentadas mediante `object-contain` íntegro, garantizando que el calzado completo y su sombra de apoyo respiren sin recortes de puntera o tacón.
+- Metadatos bajo la imagen:
   - Procedencia: `Armario de [Nombre]` en mono tenue.
   - Título: Observación editorial en serif.
   - Subtítulo: Identificación taxonómica en sans neutra.
-- **Interacción pura:** Toda la tarjeta o la imagen y el título actúan como enlace interactivo natural. Se evita un botón concreto de `Ver análisis`.
+- Interacción completa: La tarjeta entera actúa como enlace a la monografía.
 
 ### 3.5. Pie y Cierre de Portada
-- Bloque en papel reposado `#F3EFEA` invitando a compartir calzado bajo el lema `Comparte un par` y botón hacia la página puente `Cómo colaborar →`.
-- Pie institucional sobrio con descriptor taxonómico y enlaces de navegación secundaria.
+- Bloque en papel reposado `#F3EFEA` invitando a compartir calzado bajo el lema `Comparte un par` y botón hacia `como-colaborar.html`.
+- Pie institucional sobrio con descriptor del proyecto y créditos de cortesía.
 
 ---
 
 ## 4. Especificación de la Página Puente «Cómo colaborar» (`como-colaborar.html`)
 
-Página de aterrizaje orientada a acoger a la lectora interesada, resolver dudas inmediatas y conducirla de forma natural por la guía fotográfica antes del formulario.
+Página de aterrizaje integrada en el lanzamiento inicial, orientada a acoger a la lectora interesada, resolver dudas inmediatas y conducirla de forma natural por la guía fotográfica antes del formulario.
 
 ### 4.1. Encabezado y Propósito
 - **Tono:** Cálido, de confianza y sin tecnicismos ni frialdad burocrática.
