@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparativa Visual: PNG Original vs WebP Optimizado</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #F9F8F6;
+      color: #1C1A18;
+      padding: 2rem;
+      margin: 0;
+    }
+    h1 { font-family: serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+    p.lead { color: #666; margin-bottom: 2rem; }
+    .card {
+      background: #fff;
+      border: 1px solid #E5E0D8;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .card-title { font-size: 1.2rem; font-weight: 600; margin: 0; }
+    .badge {
+      font-size: 0.85rem;
+      background: #EAE6DF;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      color: #333;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .img-wrap {
+      background: #f0ede8;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .img-wrap span {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: #e8e3dc;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Comparativa Visual: PNG Original vs WebP Optimizado</h1>
+  <p class="lead">Comprobación de fidelidad visual y compresión de peso para las 3 imágenes de la guía fotográfica.</p>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">1. Detalles</h2>
+      <span class="badge">PNG: 2.28 MB &nbsp;➔&nbsp; WebP: 166 KB (Ahorro del 92.7%)</span>
+    </div>
+    <div class="grid">
+      <div class="img-wrap">
+        <span>Original PNG (2.28 MB)</span>
+        <img src="../detalles.png" alt="Detalles PNG">
+      </div>
+      <div class="img-wrap">
+        <span>WebP Optimizado (166 KB - Calidad 85%)</span>
+        <img src="detalles.webp" alt="Detalles WebP">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">2. Perspectivas Bailarinas</h2>
+      <span class="badge">PNG: 2.06 MB &nbsp;➔&nbsp; WebP: 118 KB (Ahorro del 94.3%)</span>
+    </div>
+    <div class="grid">
+      <div class="img-wrap">
+        <span>Original PNG (2.06 MB)</span>
+        <img src="../perspectivas-bailarinas.png" alt="Bailarinas PNG">
+      </div>
+      <div class="img-wrap">
+        <span>WebP Optimizado (118 KB - Calidad 85%)</span>
+        <img src="perspectivas-bailarinas.webp" alt="Bailarinas WebP">
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">3. Perspectivas Tacones</h2>
+      <span class="badge">PNG: 2.17 MB &nbsp;➔&nbsp; WebP: 135 KB (Ahorro del 93.8%)</span>
+    </div>
+    <div class="grid">
+      <div class="img-wrap">
+        <span>Original PNG (2.17 MB)</span>
+        <img src="../perspectivas-tacones.png" alt="Tacones PNG">
+      </div>
+      <div class="img-wrap">
+        <span>WebP Optimizado (135 KB - Calidad 85%)</span>
+        <img src="perspectivas-tacones.webp" alt="Tacones WebP">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
