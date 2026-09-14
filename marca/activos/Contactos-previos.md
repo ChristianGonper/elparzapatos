@@ -58,7 +58,7 @@ Pautas, fórmulas y guiones de apoyo para el diálogo con las dueñas de los zap
 > **Opción casual con enlace a Story / flyer:**  
 > «Oye [Nombre], mira qué proyecto más chulo: miran zapatos de cerca y cuentan los detalles y la forma de pares que tenemos por casa. Están preguntando a ver quién se anima a que publiquen alguno de sus favoritos. Échale un ojo por aquí: [enlace/story]. Si te apetece participar me dices y te cuento.»
 
-*(El diseño visual de la Story para embajadoras vive en [flyer-embajadora.html](flyer-embajadora.html)).*
+*(Los diseños visuales para Story viven en [story-captacion.html](story-captacion.html) y en [flyer-embajadora.html](flyer-embajadora.html)).*
 
 ---
 
