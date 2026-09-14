@@ -12,4 +12,4 @@ Actualizado: 2026-09-14.
 - Ninguno ([sitio/DECISIONES.md](sitio/DECISIONES.md) § Abierto).
 
 ## Último hito
-- Aplicación del modelo documental SDD adaptado ([PROPUESTA-ORGANIZACION.md](PROPUESTA-ORGANIZACION.md)): constitución en [AGENTS.md](AGENTS.md), specs por superficie en `sitio/specs/`, ADRs depurados en [sitio/DECISIONES.md](sitio/DECISIONES.md) e intenciones estructuradas en [TAREAS.md](TAREAS.md).
+- Guía web de colaboradoras ampliada con una vista previa visual del formulario Tally y adaptación específica para móvil, sin alterar su salida impresa ([guía](marca/activos/guia-fotografica-colaboradores.html)).
