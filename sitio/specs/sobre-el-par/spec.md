@@ -25,7 +25,7 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 2. **Criterio (Lejos de la última tendencia):** Rótulo `CRITERIO`. Declara la distancia con las tendencias efímeras, novedades obligadas o piezas de pasarela. El foco son modelos con siluetas que destacan por sus formas, líneas y proporciones propias, independientemente de su firma o antigüedad.
 3. **Formas y detalles (Punto de partida en tacones y bailarinas):** Rótulo `FORMAS Y DETALLES`. Razona por qué la colección arranca con salones, tacones y bailarinas: es donde se concentran más detalles y variedad de siluetas (escotes, palas, curvas del arco y líneas de tacón). Deja explícita la apertura a incorporar otras siluetas en el futuro.
 4. **El método (Fotografías cercanas y naturales):** Rótulo `EL MÉTODO`. Explica el origen comunitario de las imágenes. Fotografías tomadas con el móvil en casa, con la cercanía de quien enseña sus zapatos a unas amigas. Sin imágenes de catálogo ni escenografías de estudio.
-5. **Conversación y participación (Sugerencias y colaboración):** Rótulo `CONVERSACIÓN`. Espacio abierto para compartir recomendaciones o dudas, con buzón dual (correo institucional y mensaje directo en Instagram), rematando con un módulo de llamada hacia [sitio/como-colaborar.html](../../como-colaborar.html).
+5. **Conversación y participación (Sugerencias y colaboración):** Rótulo `CONVERSACIÓN`. Espacio abierto para compartir recomendaciones o dudas, con buzón directo (correo institucional y canal reservado para redes), rematando con un módulo de llamada hacia [sitio/como-colaborar.html](../../como-colaborar.html).
 
 ### 2.3. Acompañamiento Visual
 - Inserción de un marco sobrio con fotografías de la colección en fondo neutro blanco y proporción íntegra (reglas transversales de [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md) §3), enseñando las líneas de un tacón y una bailarina en formato WebP optimizado.
@@ -35,6 +35,6 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 ## 3. Canales y Enlaces
 
 - **Correo oficial:** `elparzapatos@proton.me` (enlace directo `mailto:`).
-- **Instagram oficial:** `@elparzapatos` ([instagram.com/elparzapatos](https://instagram.com/elparzapatos)).
+- **Instagram oficial:** `@elparzapatos` (identidad de marca visible pero inerte sin enlace externo activo hasta su lanzamiento público).
 - **Puente de colaboración:** Enlace directo a [sitio/como-colaborar.html](../../como-colaborar.html).
 - **Navegación general:** Retorno directo a la colección en [sitio/index.html#coleccion](../../index.html#coleccion).

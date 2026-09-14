@@ -33,7 +33,7 @@ Página de acogida pública integrada en la web real. Su objetivo es recibir a c
 Para asegurar que los envíos contengan las perspectivas necesarias y facilitar la curaduría:
 - **Puerta de entrada interactiva:** Portada editorial de la [Guía fotográfica *Tus zapatos en cámara*](../../../marca/activos/guia-fotografica-colaboradores.html). Toda la tarjeta funciona como medio interactivo sobre el que hacer clic para abrir la guía directamente, sin botones explícitos adicionales ni texto accesorio.
 - **Vista previa de Tally en el flujo natural:** No se incluye un acceso directo a Tally en la página puente. Al final de la guía aparece una vista previa no interactiva de Tally; al pulsarla, el formulario externo se abre en una pestaña nueva.
-- **Canal de dudas previo:** Acceso directo al correo oficial (`elparzapatos@proton.me`) o a [@elparzapatos](https://instagram.com/elparzapatos) para resolver cualquier consulta previa.
+- **Canal de dudas previo:** Acceso directo al correo oficial (`elparzapatos@proton.me`), manteniendo `@elparzapatos` visible como identificador reservado sin enlace activo hasta su lanzamiento.
 
 ---
 
