@@ -51,86 +51,45 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 
 ---
 
-## 4. Component Stylings
+## 4. Transversal UI Patterns
 
-### 4.1. Editorial Navigation Masthead
-- Austere, serene header featuring the wordmark **El Par** in commanding serif and the descriptor **Zapatos en detalle**.
-- Primary navigation: *Archivo*, *Ver Armarios*, *Sobre El Par* (or *Nuestra Mirada*).
-- Complete absence of commercial artifacts: no cart icons, no "Submit Your Shoe" buttons in the header, and no promotional banners.
+### 4.1. Framed Specimen Mat
+- **Visual Pattern:** Pure `#FFFFFF` background enclosure delimited by a crisp 1px `#E8E3DC` hairline border, set upon the warmer `#FAF8F5` canvas.
+- **Image Stance:** Uncropped presentation using `object-contain` that preserves natural ground and shadow. Zero rounded corners (`rounded-none`).
+- **Surface Purity:** Zero overlaid corner badges, tags, or floating labels over the photography.
 
-### 4.2. Hero Specimen (Archive Portada)
-- Prominent full-width split container showcasing a focal specimen.
-- Left column: Specimen photograph framed within a generous square mat on a subtle neutral ground.
-- Right column: Minimalist header metadata (`Pieza Destacada` and `Armario de [Nombre]`), observation headline in serif, concise 1-line taxonomic identification in sans-serif, and a quiet text link `Ver estudio →`.
-- Redundant descriptive body text is eliminated to prioritize photographic presence and breathing room.
+### 4.2. Contextual Popover Card
+- **Trigger Element:** Subtle dotted underline in Cognac Leather (`#9E6B55`).
+- **Floating Panel:** Detached surface on `#FAF8F5` with a crisp 1px `#E8E3DC` hairline border and soft lithographic shadow (`0 4px 12px rgba(28, 26, 24, 0.04)`).
+- **Typography:** Monospace versalitas for term header; sans-serif for definition. Closes gracefully on exit without modalizing the background.
 
-### 4.3. Specimen Grid Cards (Cuadrícula del Archivo)
-- Crisp rectangular geometry (`rounded-none`), bounded by a subtle 1px `#E8E3DC` frame with a `#FFFFFF` mat behind the photograph.
-- Clean photograph presentation: zero overlaid badges, zero family stickers, and zero drop shadows.
-- Metadata block beneath the image:
-  - Provenance: `Armario de [Nombre]` in subtle monospace.
-  - Title: Observation headline in serif.
-  - Subtitle: Taxonomic classification in muted sans-serif.
-- Natural interaction: The entire card (or image and title) functions as an organic interactive link. Repetitive action phrases (e.g., `Leer análisis →`) and button dividers are banned.
+### 4.3. Inset Tinted Note Panel
+- **Visual Pattern:** Quiet inset box rendered in soft Muted Linen Surface (`#F3EFEA`) with a 1px `#E8E3DC` border.
+- **Typography:** Compact sans-serif or monospace typography for concise historical, technical, or comparative annotations.
 
-### 4.4. Collection Filters & Counters
-- Understated filter bar:
-  - Typological families: *Todos*, *Salones*, *Merceditas*, *Bailarinas*, *Tacón bajo*.
-  - Curatorial inventory counter: *6 especímenes catalogados*.
-  - Direct collection route: *«Ver Armarios →»* to explore grouped donations by contributor.
+### 4.4. Continuous Typographic Folio List
+- **Visual Pattern:** Fluid, uninterrupted typographic credits layout replacing rigid tabular forms.
+- **Styling:** Key-value pairs separated by subtle baseline dividers or discrete spacing, pairing monospace descriptors with literary serif or clean sans-serif values.
 
-### 4.5. Contextual Anatomical Popovers
-- Subtly differentiated terms (`pala`, `garganta`, `collarín`, `enfranque`, `cambrillón`) marked with a refined dotted underline in Cognac Leather (`#9E6B55`).
-- Activated via both **hover** (desktop pointer) and **click / tap** (mobile devices and mouse).
-- Floating card positioned adjacently on `#FAF8F5` surface with a crisp 1px `#E8E3DC` border. Displays concise term definition and biomechanical/craft function in 1–2 sentences.
-- Closes gracefully upon clicking outside or cursor exit without dimming or modalizing the background.
-
-### 4.6. Concise Contextual Notes
-- Inline secondary cards styled with a soft paper tint (`#F3EFEA`), smaller typography, and a 1px `#E8E3DC` hairline border.
-- Dedicated to:
-  - Singular terminology not covered in the standard glossary.
-  - Quick morphological comparisons with other archive specimens.
-  - Etymological or historical notes specific to the piece.
-
-### 4.7. Datos del Par (Continuous Editorial Specimen Folio)
-- Fluid, continuous typographic credits block replacing rigid tabular forms.
-- Structured with subtle hairline dividers:
-  - *Type / Silhouette:* Classic pump, slingback, ballet flat, architectural heel...
-  - *Brand & Model:* (Secondary attribution when known; never prioritized over anatomy).
-  - *Exterior Material & Finish:* Calfskin, satin, patent, brushed suede...
-  - *Color:* Dominant hue and secondary accent notes.
-  - *Heel & Base:* Morphological family and measured elevation.
-  - *Provenance:* Contributor name linking to their personal wardrobe view.
-
-### 4.8. Contextual Collaboration Cierre («Comparte un par»)
-- Understated closing panel rendered on `#F3EFEA` paper with a hairline border.
-- Warm, conversational acknowledgement:
-  *«Este estudio ha sido posible gracias a [Nombre]. Si tienes algún par con detalles especiales, una silueta particular o un diseño que merezca verse de cerca, puedes proponérnoslo para formar parte del proyecto.»*
-- Quiet action link: `Cómo colaborar →` linking to the collaboration intake flow (`como-colaborar.html`).
-
-### 4.9. Image Annotations & Calipers (Post-v1 Roadmap)
-- **v1 Status: Strictly Clean Photography.** First editions publish clean, unblemished imagery without calipers, badges, or toggle controls.
-- **Future v1.5 / v2 Specification:** Vector annotation overlay toggled via micro-control `[ + Cotas anatómicas ]` / `[ − Ocultar cotas ]`:
-  - Hairline caliper vectors (0.75px) in `#1C1A18` or `#9E6B55`.
-  - Micro-labels in `JetBrains Mono` (10-11px).
-  - Clean photography default state (`toggle off`).
+### 4.5. Minimalist Inspection Lightbox
+- **Visual Pattern:** Full-viewport specimen inspection over clean neutral alabaster (`#FAF8F5`) or pure white.
+- **Restraint:** Absence of heavy toolbars, zoom carousels, or icon clusters. Effortless dismiss via ambient click or `Esc`.
 
 ---
 
 ## 5. Layout Principles & Grid System
 
-- **Container Constraints:** Main layout constrained to max-width (e.g., `1280px` or `1360px` centered) with generous horizontal page padding.
-- **Home Grid:** Responsive 3-column / 2-column gallery on desktop, single-column fluid flow on mobile.
-- **Monograph Visual Promenade (12-Column Flexible Grid):**
+- **Container Constraints:** Main layout constrained to max-width (`1280px` or `1360px` centered) with generous horizontal page padding.
+- **Multi-Column Column Distributions (12-Column Flexible Grid):**
   - **Key Distinction (Web Column Ratios vs. Photographic Native Aspect Ratios):**
     - The editorial ratios `7:5`, `5:7`, and `6:6` define **grid column distributions** across the 12-column web layout (relative width of prose container vs. image container).
     - Photography is captured and displayed in native camera aspect ratios: predominantly `3:4` (vertical) and `4:3` (horizontal).
   - **Column Distribution Behaviors:**
-    - `7:5` (7 text columns, 5 image columns): Tailored for in-depth conceptual development and comprehensive anatomical exposition alongside a supporting view.
-    - `5:7` (5 text columns, 7 image columns): Grants commanding visual weight to vertical compositions (rear heel profile, collar aperture) paired with concise, 2–3 sentence observations.
-    - `6:6` (6 text columns, 6 image columns): Symmetrical equilibrium between prose analysis and morphological image.
-    - `Diptychs` (Two paired images sharing a single unified text block): Enables side-by-side comparative observation (e.g., frontal throat + dorsal sole view) under one cohesive analytical narrative.
-  - **Whitespace Integrity:** If an anatomical description concludes in three lines, the container does not force artificial filler text; whitespace breathes naturally.
+    - `7:5` (7 text columns, 5 image columns): Tailored for in-depth conceptual development and exposition alongside a supporting view.
+    - `5:7` (5 text columns, 7 image columns): Grants commanding visual weight to vertical compositions paired with concise observations.
+    - `6:6` (6 text columns, 6 image columns): Symmetrical equilibrium between prose analysis and specimen image.
+    - `Diptychs` (Two paired images sharing a single unified text block): Enables side-by-side comparative observation under one cohesive analytical narrative.
+  - **Whitespace Integrity:** If a description concludes in three lines, the container does not force artificial filler text; whitespace breathes naturally.
   - **Marginal Foliation:** Subtle typographic numerals in the outer margin (`· 01`, `· 02`, `· 03`) orient reader progression without cluttering the photograph.
 
 ---
@@ -139,7 +98,7 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 
 - **Lithographic Flat Depth:** Strictly flat, print-like elevation achieved through paper shade contrasts (`#FAF8F5` base vs. `#F3EFEA` insets vs. `#FFFFFF` image mats) and crisp 1px hairline boundaries (`#E8E3DC`).
 - **Zero Fuzzy Drop Shadows:** Heavy blur drop shadows, dark glows, and floating card elevations are banned.
-- **Popovers Elevation:** Floating glossaries use a crisp 1px stroke with a whisper-soft micro-shadow (`0 4px 12px rgba(28, 26, 24, 0.04)`) to subtly detach from underlying prose.
+- **Popovers Elevation:** Floating cards use a crisp 1px stroke with a whisper-soft micro-shadow (`0 4px 12px rgba(28, 26, 24, 0.04)`) to subtly detach from underlying prose.
 
 ---
 
@@ -147,8 +106,8 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 
 - **Mobile-First Collapse (< 768px):**
   - All asymmetric multi-column layouts (7:5, 5:7, 6:6, diptychs) smoothly collapse to a single vertical column.
-  - Hero split view stacks image first, followed by headline and taxonomy.
-- **Touch Targets:** All interactive words (glossary terms), navigation links, and filters uphold a minimum `44px` tap target area.
+  - Split views stack image first, followed by text.
+- **Touch Targets:** All interactive words (glossary terms), navigation links, and buttons uphold a minimum `44px` tap target area.
 - **Horizontal Overflow Prevention:** Zero horizontal scrolling across any viewport.
 - **Fluid Typography:** Display headings and body copy scale smoothly via `clamp()` formulas, maintaining legible hierarchy across mobile, tablet, and wide desktop screens.
 
