@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre El Par — El Par · Zapatos en detalle</title>
+  <!-- Google Fonts: Newsreader, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAF8F5',
+            'paper-muted': '#F3EFEA',
+            ink: '#1C1A18',
+            graphite: '#6B6661',
+            cognac: '#9E6B55',
+            'cognac-dark': '#7A4D38',
+            hairline: '#E8E3DC',
+            specimen: '#FFFFFF',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #1C1A18;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection {
+      background-color: #F3EFEA;
+      color: #1C1A18;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen flex flex-col font-sans selection:bg-paper-muted selection:text-ink">
+
+  <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
+  <header class="border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
+      <div class="flex items-baseline space-x-3">
+        <a href="index.html"
+          class="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-ink hover:opacity-80 transition-opacity">
+          El Par
+        </a>
+        <span class="text-xs font-mono uppercase tracking-widest text-graphite hidden sm:inline-block">
+          / Zapatos en detalle
+        </span>
+      </div>
+      <nav class="flex items-center space-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
+        <a href="index.html#archivo" class="hover:text-ink transition-colors">Colección</a>
+        <a href="sobre-el-par.html" class="text-ink font-medium border-b border-ink pb-0.5">Sobre El Par</a>
+        <a href="como-colaborar.html" class="hover:text-ink transition-colors">Cómo colaborar</a>
+        <a href="https://instagram.com/elparzapatos" target="_blank"
+          class="hover:text-cognac transition-colors hidden md:inline-block">@elparzapatos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 2. CONTENIDO PRINCIPAL -->
+  <main class="flex-grow max-w-3xl mx-auto px-6 sm:px-10 w-full py-12 sm:py-20 space-y-16 sm:space-y-24">
+
+    <!-- CABECERA Y PREÁMBULO -->
+    <header class="space-y-6 border-b border-hairline pb-12">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-cognac font-medium block">
+        Sobre El Par
+      </span>
+      <h1 class="font-serif text-3xl sm:text-5xl text-ink font-normal leading-[1.15] tracking-tight">
+        El calzado visto de cerca
+      </h1>
+      <p class="font-serif text-xl sm:text-2xl text-graphite leading-relaxed font-normal">
+        Una publicación editorial independiente dedicada a fijarse en el diseño de los zapatos que tenemos en casa, sus formas y las piezas que construyen cada silueta.
+      </p>
+    </header>
+
+    <!-- BLOQUE 1: LA MIRADA -->
+    <section class="space-y-4">
+      <span class="font-mono text-xs uppercase tracking-widest text-graphite block">
+        La mirada
+      </span>
+      <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+        Más que un simple complemento
+      </h2>
+      <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
+        <p>
+          En la moda habitual, los zapatos suelen tratarse como un simple añadido al conjunto. La atención suele irse a la ropa y el calzado queda en un segundo plano.
+        </p>
+        <p>
+          En El Par le damos la vuelta a esa prioridad: miramos el zapato como una pieza de diseño con proporciones, equilibrios y decisiones de patronaje propias. Nos interesa entender cómo se dibuja una puntera, la curva del escote o la inclinación y la caída de un tacón. Fijarse en los detalles permite apreciar el calzado por lo que es.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOQUE 2: CRITERIO -->
+    <section class="space-y-4 border-t border-hairline pt-12">
+      <span class="font-mono text-xs uppercase tracking-widest text-graphite block">
+        Criterio
+      </span>
+      <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+        Zapatos con carácter propio, lejos de la última tendencia
+      </h2>
+      <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
+        <p>
+          No buscamos piezas de pasarela, colecciones intocables ni la constante rotación de la última tendencia de temporada.
+        </p>
+        <p>
+          Nos interesan los pares que guardamos en los armarios: modelos que destacan por su silueta, un corte singular o un detalle especial que merece verse de cerca. El interés de un zapato está en sus formas, en sus líneas y en sus proporciones, no en la marca ni en la etiqueta.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOQUE 3: FORMAS Y DETALLES -->
+    <section class="space-y-8 border-t border-hairline pt-12">
+      <div class="space-y-4">
+        <span class="font-mono text-xs uppercase tracking-widest text-graphite block">
+          Formas y detalles
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+          Por qué empezamos por tacones y bailarinas
+        </h2>
+        <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
+          <p>
+            Abrimos la colección centrándonos en zapatos de salón, tacones y bailarinas por la variedad de sus formas: es donde se concentran más detalles y donde más matices encontramos a simple vista.
+          </p>
+          <p>
+            En una bailarina, un cambio de dos milímetros en la altura de la pala o el recorte de los laterales altera por completo el dibujo del empeine. En un tacón, la curva del arco, la inclinación y el grosor del propio tacón transforman por completo su estética. Empezamos aquí porque es donde hay más matices que aprender a leer.
+          </p>
+          <p>
+            El Par no se detiene aquí: este es nuestro punto de partida, pero la colección irá incorporando otras siluetas y tipologías a medida que la publicación crezca.
+          </p>
+        </div>
+      </div>
+
+      <!-- MÓDULO VISUAL DE APOYO -->
+      <div class="bg-specimen border border-hairline p-6 sm:p-8 space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+          <div class="space-y-2 text-center">
+            <div class="aspect-[4/3] bg-paper-muted/50 flex items-center justify-center p-3 border border-hairline/60">
+              <img src="assets/salon-aguja/01-perfil.png" alt="Salón de tacón de aguja en vista de perfil"
+                class="max-h-full max-w-full object-contain" />
+            </div>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-graphite block">
+              Salón clásico · Línea de enfranque y tacón fino
+            </span>
+          </div>
+          <div class="space-y-2 text-center">
+            <div class="aspect-[4/3] bg-paper-muted/50 flex items-center justify-center p-3 border border-hairline/60">
+              <img src="../marca/activos/guia-fotografica-assets/perspectivas-bailarinas.webp" alt="Bailarinas en cuadrícula de perspectivas"
+                class="max-h-full max-w-full object-contain" />
+            </div>
+            <span class="font-mono text-[11px] uppercase tracking-wider text-graphite block">
+              Bailarina · Trazo de pala continua y curva de empeine
+            </span>
+          </div>
+        </div>
+        <p class="font-serif italic text-xs sm:text-sm text-graphite text-center pt-2 border-t border-hairline/60">
+          Dos formas distintas de entender la silueta: la elevación y las curvas del tacón frente a la línea continua de una bailarina.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOQUE 4: EL MÉTODO -->
+    <section class="space-y-4 border-t border-hairline pt-12">
+      <span class="font-mono text-xs uppercase tracking-widest text-graphite block">
+        El método
+      </span>
+      <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+        Fotografías como las que mandarías a tus amigas
+      </h2>
+      <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
+        <p>
+          Todo el material visual de El Par proviene directamente de las personas que deciden compartir sus zapatos con la publicación.
+        </p>
+        <p>
+          No trabajamos con imágenes de catálogo. Son fotografías tomadas con el móvil en casa, igual que si le estuvieses enseñando tus zapatos a unas amigas para que vean cómo son.
+        </p>
+      </div>
+    </section>
+
+    <!-- BLOQUE 5: CONVERSACIÓN Y PARTICIPACIÓN -->
+    <section class="space-y-8 border-t border-hairline pt-12">
+      <div class="space-y-4">
+        <span class="font-mono text-xs uppercase tracking-widest text-graphite block">
+          Conversación
+        </span>
+        <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+          Sugerencias, ideas y colaboraciones
+        </h2>
+        <p class="text-base sm:text-lg text-graphite leading-relaxed">
+          Esta publicación se construye paso a paso con la comunidad. Si tienes en mente algún tipo de calzado que crees que deberíamos analizar, si conoces una silueta singular o simplemente quieres compartir una recomendación o duda con nosotros, puedes escribirnos cuando quieras.
+        </p>
+      </div>
+
+      <!-- BUZÓN DUAL -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a href="mailto:elparzapatos@proton.me"
+          class="p-5 bg-paper-muted border border-hairline hover:border-cognac/50 transition-colors space-y-1 block group">
+          <span class="font-mono text-xs uppercase tracking-wider text-cognac font-medium block">Correo electrónico</span>
+          <span class="font-sans text-sm sm:text-base text-ink font-medium group-hover:text-cognac transition-colors block">
+            elparzapatos@proton.me
+          </span>
+          <span class="text-xs text-graphite block">Escríbenos para sugerencias, dudas o consultas directas.</span>
+        </a>
+        <a href="https://instagram.com/elparzapatos" target="_blank"
+          class="p-5 bg-paper-muted border border-hairline hover:border-cognac/50 transition-colors space-y-1 block group">
+          <span class="font-mono text-xs uppercase tracking-wider text-cognac font-medium block">Instagram</span>
+          <span class="font-sans text-sm sm:text-base text-ink font-medium group-hover:text-cognac transition-colors block">
+            @elparzapatos
+          </span>
+          <span class="text-xs text-graphite block">Mensaje directo para comentarios rápidos o compartir un detalle.</span>
+        </a>
+      </div>
+
+      <!-- LLAMADA A LA ACCIÓN HACIA COLABORACIÓN -->
+      <div class="p-8 bg-ink text-paper space-y-4 border border-ink">
+        <span class="font-mono text-xs uppercase tracking-widest text-cognac block">Participa en El Par</span>
+        <h3 class="font-serif text-2xl text-paper font-normal leading-snug">
+          ¿Te gustaría ver aquí un par tuyo?
+        </h3>
+        <p class="text-sm sm:text-base text-paper-muted/80 leading-relaxed max-w-xl">
+          Si tienes en el armario unos tacones, bailarinas o salones con características singulares y te apetece que los analicemos en la publicación, el proceso lleva menos de diez minutos.
+        </p>
+        <div class="pt-2">
+          <a href="como-colaborar.html"
+            class="inline-flex items-center space-x-2 bg-cognac hover:bg-cognac-dark text-paper px-5 py-2.5 text-xs font-mono uppercase tracking-widest font-medium transition-colors">
+            <span>Descubre cómo colaborar</span>
+            <span>&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 3. PIE DE PÁGINA -->
+  <footer class="border-t border-hairline mt-20 bg-paper py-12">
+    <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="font-serif text-xl text-ink font-normal">
+          El Par
+        </a>
+        <span class="text-xs font-mono uppercase tracking-wider text-graphite">
+          · Zapatos en detalle
+        </span>
+      </div>
+      <div class="flex items-center space-x-6 text-xs font-mono uppercase tracking-wider text-graphite">
+        <a href="index.html#archivo" class="hover:text-ink transition-colors">Colección</a>
+        <a href="sobre-el-par.html" class="text-ink font-medium">Sobre El Par</a>
+        <a href="como-colaborar.html" class="hover:text-ink transition-colors">Cómo colaborar</a>
+        <a href="mailto:elparzapatos@proton.me" class="hover:text-cognac transition-colors">elparzapatos@proton.me</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
