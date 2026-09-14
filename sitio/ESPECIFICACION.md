@@ -15,6 +15,7 @@ El sitio se estructura como un archivo monográfico digital de ritmo pausado y l
 ```
 sitio/
 ├── index.html                  # Portada: Pieza destacada, archivo adaptable y cierre colaborativo
+├── sobre-el-par.html           # Página institucional: manifiesto, mirada al calzado y cómo se construye
 ├── como-colaborar.html         # Página puente: acogida, dudas, guía fotográfica y acceso a Tally
 └── entradas/
     └── [slug].html             # Monografías de calzado (ej. salon-aguja.html)
@@ -22,8 +23,6 @@ sitio/
 
 ### Vistas Futuras (Registradas como Intenciones en TAREAS.md)
 - `armarios.html`: Directorio de colaboradoras y armarios particulares.
-- `como-se-construye.html`: Manifiesto técnico sobre captura fotográfica y rigor de observación.
-- `sobre-el-par.html`: Declaración de intenciones y mirada editorial.
 
 ---
 
@@ -36,6 +35,7 @@ sitio/
 - Glosario contextual con popovers y diccionario canónico de términos iniciales.
 - Ficha continua «Datos del par».
 - Navegación secuencial al pie entre entregas publicadas.
+- Página institucional «Sobre El Par» con manifiesto editorial, criterios de selección y método de archivo.
 - Página puente «Cómo colaborar» con resolución de dudas y embudo guiado.
 - Formulario de recepción provisional mediante enlace externo a Tally.
 
@@ -68,6 +68,7 @@ Cada superficie del sitio cuenta con su propia especificación viva, su plan de 
 | --- | --- | --- |
 | **Portada** | [sitio/index.html](index.html) | [sitio/specs/portada/spec.md](specs/portada/spec.md) · [Plan](specs/portada/plan.md) · [Tareas](specs/portada/tasks.md) |
 | **Monografía** | [sitio/entradas/*.html](entradas/) | [sitio/specs/monografia/spec.md](specs/monografia/spec.md) · [Plan](specs/monografia/plan.md) · [Tareas](specs/monografia/tasks.md) |
+| **Sobre El Par** | [sitio/sobre-el-par.html](sobre-el-par.html) | [sitio/specs/sobre-el-par/spec.md](specs/sobre-el-par/spec.md) · [Plan](specs/sobre-el-par/plan.md) · [Tareas](specs/sobre-el-par/tasks.md) |
 | **Cómo colaborar** | [sitio/como-colaborar.html](como-colaborar.html) | [sitio/specs/como-colaborar/spec.md](specs/como-colaborar/spec.md) · [Plan](specs/como-colaborar/plan.md) · [Tareas](specs/como-colaborar/tasks.md) |
 
 ---

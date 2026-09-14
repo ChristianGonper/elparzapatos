@@ -50,6 +50,13 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 - **Consecuencias:** Elimina la necesidad de escribir párrafos de relleno para igualar alturas y otorga protagonismo visual a tomas verticales o detalles.
 - **Spec que rige:** [sitio/specs/monografia/spec.md](specs/monografia/spec.md) §2.2.
 
+### ADR-06: Página unificada «Sobre El Par» vs. dos páginas independientes
+- **Contexto:** Comunicación institucional del manifiesto editorial, criterios formales de selección y explicación de cómo se construye el archivo a partir de fotos domésticas.
+- **Decisión:** Unificar en una única página (`sitio/sobre-el-par.html`) la mirada al calzado y el método fotográfico de la comunidad, incorporándola como el tercer pilar visible en la navegación de cabecera y pie (`Archivo`, `Sobre El Par` y `Cómo colaborar`).
+- **Alternativas descartadas:** Mantener dos páginas separadas (`sobre-el-par.html` y `como-se-construye.html`), lo cual fragmentaba el relato y generaba páginas excesivamente breves en v1.
+- **Consecuencias:** Ofrece a cualquier visitante o colaboradora una explicación clara, completa y serena de un solo vistazo, evitando duplicar introducciones de principios.
+- **Spec que rige:** [sitio/specs/sobre-el-par/spec.md](specs/sobre-el-par/spec.md) y [sitio/ESPECIFICACION.md](ESPECIFICACION.md) §1.
+
 ---
 
 ## 3. Abierto (bloquea ahora)

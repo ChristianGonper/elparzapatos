@@ -88,9 +88,12 @@ El objetivo es **sonar cercano, educado y honesto, como alguien apasionado por e
 | :--- | :--- |
 | *«De vuestras colecciones»* | *«Los que tenéis en casa» / «tus zapatos»* |
 | *«Armarios de compañeras» / «pares de compañeras»* | *«Zapatos de chicas cercanas» / «calzado de la gente»* |
-| *«Armarios reales»* | *«Armarios particulares» / «tu armario»* |
+| *«Armarios reales» / «calzado real» / «casas reales»* | *«Armarios particulares» / «tus zapatos» / «los que tenemos en casa» / «el calzado de diario»* (desterrar el comodín «real/reales») |
+| *«El proyecto»* (en textos hacia la comunidad) | *«La publicación» / «El Par» / «este espacio»* |
 | *«Prestarle tu calzado a la comunidad»* | *«Compartir tus zapatos en El Par»* |
 | *«Revisándolo con el equipo editorial»* | *«Revisándolo con calma / mirándolo detenidamente»* |
+| *«Canales abiertos»* | *«Puedes escribirnos cuando quieras / hablar por correo o Instagram»* |
+| *«El archivo»* (cuando le quita caché o suena burocrático) | *«La colección» / «la publicación» / «las entregas» / «las piezas»* (en menús y navegación usar *«Colección»*) |
 
 ### C. Clichés de marketing inflado y tics de IA
 * *«Sumergirse en el fascinante universo de...»*
@@ -99,6 +102,7 @@ El objetivo es **sonar cercano, educado y honesto, como alguien apasionado por e
 * *«En conclusión...» / «en resumen...»*
 * *«Eleva tu look / dale un toque único a tu estilo»*
 * *«Una experiencia inolvidable»*
+* Entrar a valorar sensaciones físicas o de uso (*«estiliza sin apretar»*, *«comodidad para todo el día»*): ceñirse a la observación formal del diseño (dibujo de la puntera, caída del escote, aplomo del tacón).
 
 ### D. Coletillas y bucles redundantes
 * Repetir como mantra *«abrir las puertas del propio armario»* en cada pie de página.
