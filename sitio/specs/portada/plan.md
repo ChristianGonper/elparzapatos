@@ -1,6 +1,6 @@
 # Plan de Arquitectura: Portada
 
-**Superficie:** [sitio/index.html](../../index.html)  
+**Superficie:** [sitio/index.html](../../index.html)
 **Estado:** Reposo (prototipo v1 maquetado y validado).
 
 ---

@@ -83,5 +83,3 @@ Cada superficie del sitio cuenta con su propia especificación viva, su plan de 
    - *Cambios posteriores:* un cambio menor actualiza directamente `spec.md`; un cambio amplio o refactor vuelve a desarrollar `plan.md` y `tasks.md` en esa misma carpeta, simplificándose de nuevo al concluir sin acumular tickets obsoletos.
 4. **Prevalencia canónica:** Rige `marca → spec de superficie → implementación`. Cuando una spec web amplía un criterio de Marca, Marca prevalece y la spec no puede rebajarlo ni contradecirlo.
 
-
-

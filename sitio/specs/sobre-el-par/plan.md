@@ -1,6 +1,6 @@
 # Plan de Arquitectura: Página Institucional «Sobre El Par»
 
-**Superficie:** [sitio/sobre-el-par.html](../../sobre-el-par.html)  
+**Superficie:** [sitio/sobre-el-par.html](../../sobre-el-par.html)
 **Estado:** Reposo (prototipo v1 maquetado y verificado).
 
 ---

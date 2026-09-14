@@ -1,6 +1,6 @@
 # Tareas de Trabajo: Página Institucional «Sobre El Par»
 
-**Superficie:** [sitio/sobre-el-par.html](../../sobre-el-par.html)  
+**Superficie:** [sitio/sobre-el-par.html](../../sobre-el-par.html)
 **Estado:** Reposo (cierre de build v1 verificado).
 
 ---

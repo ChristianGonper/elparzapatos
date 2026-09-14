@@ -1,13 +1,13 @@
 # Spec: Entrada Monográfica
 
-**Superficie que rige:** [sitio/entradas/*.html](../../entradas/)  
-**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)  
+**Superficie que rige:** [sitio/entradas/*.html](../../entradas/)
+**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
 
 ## 1. Propósito y Filosofía
 
-La monografía es el núcleo de **El Par**: examina cada zapato como una obra autónoma de diseño y artesanía en miniatura, completamente desvinculada del estilo de vida, la venta o el estilismo de influencers. 
+La monografía es el núcleo de **El Par**: examina cada zapato como una obra autónoma de diseño y artesanía en miniatura, completamente desvinculada del estilo de vida, la venta o el estilismo de influencers.
 
 ---
 

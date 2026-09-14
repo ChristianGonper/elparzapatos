@@ -1,7 +1,7 @@
 # Spec: Página Puente «Cómo colaborar»
 
-**Superficie que rige:** [sitio/como-colaborar.html](../../como-colaborar.html)  
-**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)  
+**Superficie que rige:** [sitio/como-colaborar.html](../../como-colaborar.html)
+**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
 
@@ -32,7 +32,7 @@ Página de acogida pública integrada en la web real. Su objetivo es recibir a c
 ### 2.4. Embudo Guiado hacia la Guía Fotográfica
 Para asegurar que los envíos contengan las perspectivas necesarias y facilitar la curaduría:
 - **Puerta de entrada interactiva:** Portada editorial de la [Guía fotográfica *Tus zapatos en cámara*](../../../marca/activos/guia-fotografica-colaboradores.html). Toda la tarjeta funciona como medio interactivo sobre el que hacer clic para abrir la guía directamente, sin botones explícitos adicionales ni texto accesorio.
-- **Formulario en el flujo natural:** No se incluye botón directo al formulario externo en la página puente. La persona encuentra el formulario de recepción integrado en su recorrido dentro de la guía fotográfica.
+- **Vista previa de Tally en el flujo natural:** No se incluye un acceso directo a Tally en la página puente. Al final de la guía aparece una vista previa no interactiva de Tally; al pulsarla, el formulario externo se abre en una pestaña nueva.
 - **Canal de dudas previo:** Acceso directo al correo oficial (`elparzapatos@proton.me`) o a [@elparzapatos](https://instagram.com/elparzapatos) para resolver cualquier consulta previa.
 
 ---
@@ -40,5 +40,5 @@ Para asegurar que los envíos contengan las perspectivas necesarias y facilitar 
 ## 3. Cobertura Temática Obligatoria y Canales
 
 - **Garantías obligatorias de acogida:** Cobertura de los 4 compromisos éticos (propósito no comercial, sin rostros ni cuerpos, edición respetuosa sin IA y retirada garantizada en 48 horas).
-- **Embudo guiado:** Paso imprescindible por la guía fotográfica interactiva, con formulario y modalidades de acreditación (nombre, Instagram o anonimato) al final de la misma.
+- **Embudo guiado:** Paso imprescindible por la guía fotográfica interactiva, con una vista previa de Tally al final que conduce al formulario externo y sus modalidades de acreditación (nombre, Instagram o anonimato).
 - **Canales oficiales:** [marca/02-nombre-y-presentacion.md](../../../marca/02-nombre-y-presentacion.md) y [marca/04-flujo-de-colaboracion.md](../../../marca/04-flujo-de-colaboracion.md).

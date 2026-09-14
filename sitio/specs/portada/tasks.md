@@ -1,6 +1,6 @@
 # Tareas de Trabajo: Portada
 
-**Superficie:** [sitio/index.html](../../index.html)  
+**Superficie:** [sitio/index.html](../../index.html)
 **Estado:** Reposo (cierre de build v1 verificado).
 
 ---

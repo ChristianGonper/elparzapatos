@@ -1,7 +1,7 @@
 # Spec: Portada de la Colección
 
-**Superficie que rige:** [sitio/index.html](../../index.html)  
-**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)  
+**Superficie que rige:** [sitio/index.html](../../index.html)
+**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
 

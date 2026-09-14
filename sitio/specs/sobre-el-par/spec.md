@@ -1,7 +1,7 @@
 # Spec: Página Institucional y Explicativa «Sobre El Par»
 
-**Superficie que rige:** [sitio/sobre-el-par.html](../../sobre-el-par.html)  
-**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)  
+**Superficie que rige:** [sitio/sobre-el-par.html](../../sobre-el-par.html)
+**Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
 

@@ -1,6 +1,6 @@
 # Tareas de Trabajo: Entrada Monográfica
 
-**Superficie:** [sitio/entradas/*.html](../../entradas/)  
+**Superficie:** [sitio/entradas/*.html](../../entradas/)
 **Estado:** Reposo (plantilla técnica v1 verificada en prototipo).
 
 ---

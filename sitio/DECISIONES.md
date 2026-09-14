@@ -77,4 +77,3 @@ Esta tabla contiene exclusivamente alternativas técnicas o conceptuales analiza
 | **Cuadrícula 7:5 fija e inmutable** | Generaba monotonía y forzaba texto artificial de relleno para igualar la altura de las fotografías. Sustituida por retícula modular fluida. |
 | **Numeración de catálogo visible (`par * 0001`, `Lámina 03`)** | Ensucia la fotografía y evoca un inventario de almacén o despiece de fábrica en lugar de una edición de arte y moda. Las referencias numéricas se conservan solo en la gestión interna de Sheets/Drive. |
 | **Capitulares (Drop Caps) sistemáticas** | Recargan la lectura y compiten visualmente con los títulos observacionales en Newsreader serif. Descartadas como patrón sistemático. |
-

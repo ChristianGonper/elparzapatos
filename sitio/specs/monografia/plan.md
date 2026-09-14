@@ -1,6 +1,6 @@
 # Plan de Arquitectura: Entrada Monográfica
 
-**Superficie:** [sitio/entradas/*.html](../../entradas/)  
+**Superficie:** [sitio/entradas/*.html](../../entradas/)
 **Estado:** Reposo (estructura de plantilla v1 validada en prototipo local).
 
 ---
