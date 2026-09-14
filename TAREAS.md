@@ -25,13 +25,6 @@ Deseos conceptuales y partes del sistema proyectadas para versiones posteriores.
 - **Qué no es:** No es un perfil de red social, ni un muro personal, ni un escaparate de venta de segunda mano.
 - **Spec:** Ninguna (fuera de v1).
 
-### 2.2. Página «Sobre El Par» / «Nuestra mirada»
-- **Qué:** Página institucional breve que condensa el manifiesto editorial del proyecto.
-- **Para qué:** Explicar el origen de la publicación, la devoción por el calzado real y la distancia con el consumismo de temporada.
-- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
-- **Qué no es:** No es una página corporativa de empresa ni un currículum personal.
-- **Spec:** Ninguna (fuera de v1).
-
 ### 2.3. Sistema de Cotas conmutables sobre la imagen
 - **Qué:** Capa vectorial interactiva superpuesta sobre la fotografía con líneas de cota milimétricas y etiquetas anatómicas, conmutable mediante botón.
 - **Para qué:** Proporcionar lectura técnica rigurosa de proporciones sin ensuciar la imagen por defecto.
@@ -74,14 +67,7 @@ Deseos conceptuales y partes del sistema proyectadas para versiones posteriores.
 - **Qué no es:** No es un programa de referidos comercial ni una campaña masiva.
 - **Spec:** Ninguna.
 
-### 2.9. Manifiesto técnico «Cómo se construye» (`como-se-construye.html`)
-- **Qué:** Ensayo divulgativo sobre la técnica fotográfica, iluminación y fidelidad anatómica empleadas en El Par.
-- **Para qué:** Demostrar transparencia artesanal y rigor documental frente al estándar publicitario.
-- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
-- **Qué no es:** No es un manual de usuario de software.
-- **Spec:** Ninguna.
-
-### 2.10. Mecanismos de monetización y afiliados (evaluación futura)
+### 2.9. Mecanismos de monetización y afiliados (evaluación futura)
 - **Qué:** Estudio de vías sostenibles de financiación editorial (enlaces a firmas artesanales, edición en papel o mecenazgo).
 - **Para qué:** Garantizar la sostenibilidad a largo plazo sin comprometer la independencia curatorial.
 - **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
@@ -101,6 +87,8 @@ Deseos conceptuales y partes del sistema proyectadas para versiones posteriores.
 ---
 
 ## 4. Hecho
+
+- [x] **Página unificada «Sobre El Par»:** Creada y validada [sitio/sobre-el-par.html](sitio/sobre-el-par.html) unificando el manifiesto editorial (el calzado como objeto de diseño autónomo y el alejamiento de las tendencias efímeras) y el método fotográfico doméstico de la comunidad. Incorporada su especificación viva en [sitio/specs/sobre-el-par/spec.md](sitio/specs/sobre-el-par/spec.md), consolidado el ADR-06 en [sitio/DECISIONES.md](sitio/DECISIONES.md), actualizada la tríada de navegación (*Archivo*, *Sobre El Par*, *Cómo colaborar*) en todas las cabeceras y pies del sitio, y blindadas las pautas contra el comodín «reales» y numeraciones mecánicas en [.agents/skills/redaccion-editorial/SKILL.md](.agents/skills/redaccion-editorial/SKILL.md).
 
 - [x] **Aplicación del modelo documental SDD adaptado:** Actualizada la constitución en [AGENTS.md](AGENTS.md), transformado [ESTADO.md](ESTADO.md) en tablero ejecutivo de 10-12 líneas, creadas las especificaciones modulares en `sitio/specs/` (`portada`, `monografia`, `como-colaborar`) con sus archivos de trabajo en reposo (`plan.md` y `tasks.md`), depurado [sitio/DECISIONES.md](sitio/DECISIONES.md) en formato ADR sin duplicar specs, delimitado [sitio/DESIGN.md](sitio/DESIGN.md) al sistema visual agnóstico y estructuradas las intenciones conceptuales en [TAREAS.md](TAREAS.md).
 - [x] **Refinamiento de la especificación para la web real:** Actualizados [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md) y [sitio/DECISIONES.md](sitio/DECISIONES.md) orientados a la web de producción: portada adaptativa al volumen (hero dominante, filtros latentes), monografía modular con mínimo 6 fotos reales e inspección lightbox, encuadre `object-contain`, popovers contextuales con diccionario canónico inicial, navegación secuencial al pie y prototipo local maquetado de `como-colaborar.html`.

@@ -12,4 +12,4 @@ Actualizado: 2026-09-14.
 - Ninguno ([sitio/DECISIONES.md](sitio/DECISIONES.md) § Abierto).
 
 ## Último hito
-- Guía web de colaboradoras ampliada con una vista previa visual del formulario Tally y adaptación específica para móvil, sin alterar su salida impresa ([guía](marca/activos/guia-fotografica-colaboradores.html)).
+- Creada y validada la página institucional [sitio/sobre-el-par.html](sitio/sobre-el-par.html) unificando la mirada al calzado y el método fotográfico de la comunidad, integrada la tríada de navegación y consolidado el ADR-06 ([sitio/DECISIONES.md](sitio/DECISIONES.md)).
