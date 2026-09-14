@@ -647,6 +647,86 @@
       font-size: 7.8pt;
     }
 
+    /* Vista previa del formulario: extensión web de la guía, excluida del PDF */
+    .form-preview {
+      width: 210mm;
+      max-width: 100%;
+      margin-inline: auto;
+      padding: 16mm 18mm 18mm;
+      background: var(--paper);
+    }
+
+    .form-preview-header {
+      margin-bottom: 7mm;
+    }
+
+    .form-preview h2 {
+      max-width: 125mm;
+      margin: 2mm 0 2.5mm;
+    }
+
+    .form-preview-intro {
+      max-width: 130mm;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 10pt;
+      line-height: 1.55;
+      text-wrap: pretty;
+    }
+
+    .form-preview-hit:focus-visible,
+    .form-btn-mock:focus-visible {
+      outline: 3px solid var(--cognac-dark);
+      outline-offset: 3px;
+    }
+
+    .form-preview-frame {
+      position: relative;
+      height: 49rem;
+      overflow: hidden;
+      border: 1px solid var(--hairline-dark);
+      background: var(--specimen);
+      transition: border-color .15s ease;
+    }
+
+    .form-preview-frame:hover {
+      border-color: var(--cognac);
+    }
+
+    .form-preview-frame::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset-block: 0;
+      inset-inline-end: 0;
+      width: .8rem;
+      background: var(--specimen);
+      pointer-events: none;
+    }
+
+    .form-preview-frame iframe {
+      display: block;
+      width: 100%;
+      min-height: 49rem;
+      border: 0;
+      background: var(--specimen);
+      pointer-events: none;
+    }
+
+    .form-preview-hit {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    .form-preview-note {
+      margin: 3.5mm 0 0;
+      color: var(--graphite);
+      font-size: 8.5pt;
+      line-height: 1.5;
+    }
+
     @media screen and (min-width: 769px) {
       body {
         padding: 12mm 0;
@@ -884,6 +964,40 @@
         margin-top: 8px !important;
       }
 
+      .form-preview {
+        width: 100%;
+        margin: 0 auto 16px;
+        padding: 24px 18px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-preview-header {
+        margin-bottom: 20px;
+      }
+
+      .form-preview h2 {
+        max-width: none;
+        margin: 8px 0 10px;
+        font-size: 23px;
+        line-height: 1.15;
+      }
+
+      .form-preview-intro,
+      .form-preview-note {
+        max-width: none;
+        font-size: 14.5px;
+        line-height: 1.58;
+      }
+
+      .form-preview-frame {
+        height: 50rem;
+        margin-inline: -6px;
+      }
+
+      .form-preview-frame iframe {
+        min-height: 50rem;
+      }
+
       .folio {
         position: static !important;
         margin-top: 20px !important;
@@ -928,6 +1042,10 @@
 
       .page:last-child {
         page-break-after: auto !important;
+      }
+
+      .form-preview {
+        display: none !important;
       }
     }
   </style>
@@ -1109,18 +1227,18 @@
       </div>
       <div class="send-steps-grid">
         <div class="send-step">
-          <strong>1. Vía de envío</strong>
-          <p>Puedes enviárnoslas por mensaje directo en Instagram o a través de nuestro formulario:</p>
-          <a href="https://tally.so/r/Npj2bl" target="_blank" rel="noopener" class="form-btn-mock">
-            Formulario de recepción
+          <strong>1. Por dónde enviarlas</strong>
+          <p>Por Instagram o rellenando el formulario:</p>
+          <a href="#form-preview" class="form-btn-mock">
+            Ver formulario
           </a>
         </div>
         <div class="send-step">
-          <strong>2. Información que nos puedes contar</strong>
+          <strong>2. Qué contarnos del par</strong>
           <p>Todo es voluntario. Si te apetece, puedes acompañar las imágenes con:</p>
           <ul>
             <li>Marca y modelo (si los conoces).</li>
-            <li>Anécdota, memoria o reflexión sobre qué es lo que más te gusta del par.</li>
+            <li>Algún recuerdo o qué es lo que más te gusta de ellos.</li>
             <li>Cómo prefieres que te acreditemos (nombre, alias o anónimo).</li>
           </ul>
         </div>
@@ -1128,6 +1246,23 @@
     </div>
 
     <div class="folio"><span>Tus zapatos en cámara · El Par</span><b>· 04</b></div>
+  </section>
+
+  <section id="form-preview" class="form-preview" aria-labelledby="form-preview-title">
+    <div class="form-preview-header">
+      <p class="eyebrow">El siguiente paso</p>
+      <h2 id="form-preview-title" class="serif">Compartir un par</h2>
+      <p class="form-preview-intro">Primero te pedimos tu nombre y un correo de contacto. A partir de ahí añades cada
+        par con sus fotos y, si te apetece, nos cuentas qué tienen de especial.</p>
+    </div>
+
+    <div class="form-preview-frame">
+      <a class="form-preview-hit" href="https://tally.so/r/Npj2bl" target="_blank" rel="noopener"
+        aria-label="Abrir el formulario completo de recepción"></a>
+      <iframe src="https://tally.so/embed/Npj2bl?alignLeft=1&amp;hideTitle=0&amp;transparentBackground=1"
+        title="Vista previa del formulario para compartir un par" loading="lazy" tabindex="-1" aria-hidden="true"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
   </section>
 </body>
 
