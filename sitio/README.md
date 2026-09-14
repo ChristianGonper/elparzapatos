@@ -1,14 +1,23 @@
 # Sitio
 
-Espacio de diseño, especificación y prototipado web de **El Par — Zapatos en detalle**.
+Espacio de especificación viva, sistema visual y prototipos de **El Par — Zapatos en detalle**.
 
-## Documentación
+## Sistema de Gobierno Web
 
-- [DESIGN.md](DESIGN.md): sistema de diseño semántico (paleta, tipografía, estilo litográfico).
-- [ESPECIFICACION.md](ESPECIFICACION.md): especificación funcional y de componentes.
-- [DECISIONES.md](DECISIONES.md): lo resuelto (aceptado, descartado, pospuesto) y lo que bloquea ahora. El trabajo está en [TAREAS.md](../TAREAS.md).
+- [ESPECIFICACION.md](ESPECIFICACION.md): marco general de arquitectura, alcance v1, reglas transversales e índice de superficies.
+- [DESIGN.md](DESIGN.md): sistema visual semántico agnóstico de pantallas (atmósfera, paleta, tipografía y patrones UI transversales).
+- [DECISIONES.md](DECISIONES.md): registro de decisiones arquitectónicas consolidadas (ADR) e ideas descartadas definitivamente.
+
+## Especificaciones de Superficie (`specs/`)
+
+Cada superficie del sitio cuenta con su propia spec viva, su plan de arquitectura y sus tareas de trabajo:
+
+- [specs/portada/](specs/portada/spec.md): rige [index.html](index.html).
+- [specs/monografia/](specs/monografia/spec.md): rige las entregas en [entradas/](entradas/).
+- [specs/como-colaborar/](specs/como-colaborar/spec.md): rige [como-colaborar.html](como-colaborar.html).
 
 ## Prototipos
 
-- [index.html](index.html): portada local.
-- [entradas/salon-aguja.html](entradas/salon-aguja.html): monografía local (Lección 01).
+- [index.html](index.html): portada local maquetada.
+- [como-colaborar.html](como-colaborar.html): página puente de colaboración maquetada.
+- [entradas/salon-aguja.html](entradas/salon-aguja.html): monografía inaugural maquetada (Lección 01).
