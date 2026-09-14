@@ -16,7 +16,7 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 ## 2. Decisiones Arquitectónicas y de Producto Consolidadas
 
 ### ADR-01: Tratamiento fotográfico íntegro vs. silueteado artificial
-- **Contexto:** Presentación visual de calzado en un archivo monográfico de arte y diseño.
+- **Contexto:** Presentación visual de calzado en una colección monográfica de arte y diseño.
 - **Decisión:** Encuadre íntegro sin recortes dentro de marcos con fondo blanco neutro, preservando la silueta completa y el suelo con su sombra natural de apoyo.
 - **Alternativas descartadas:** Silueteado artificial en software de retoque o recorte por IA.
 - **Consecuencias:** Exige disciplina de luz y fondo neutro en las fotos originales; asegura autenticidad estética y serenidad litográfica.
@@ -31,10 +31,10 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 
 ### ADR-03: Navegación esencial activa vs. enlaces a secciones vacías
 - **Contexto:** Elementos de menú en cabecera para la apertura pública de la web.
-- **Decisión:** Limitar la navegación pública exclusivamente a páginas terminadas y operativas (`Archivo` y `Cómo colaborar`).
-- **Alternativas descartadas:** Incluir accesos con carteles de «En construcción» (`Armarios`, `Sobre El Par`) o enlaces a perfiles sociales aún no inaugurados.
+- **Decisión:** Limitar la navegación pública exclusivamente a páginas terminadas y operativas (tríada activa: `Colección`, `Sobre El Par` y `Cómo colaborar`, según amplía ADR-06).
+- **Alternativas descartadas:** Incluir accesos con carteles de «En construcción» (`Armarios`) o enlaces a perfiles sociales aún no inaugurados.
 - **Consecuencias:** Garantiza un sitio sobrio, navegable al 100% y sin sensación de abandono o promesa incumplida.
-- **Spec que rige:** [sitio/specs/portada/spec.md](specs/portada/spec.md) §2.1.
+- **Spec que rige:** [sitio/specs/portada/spec.md](specs/portada/spec.md) §2.1 y [sitio/DECISIONES.md](DECISIONES.md) ADR-06.
 
 ### ADR-04: Formulario externo Tally provisional vs. formulario web propio
 - **Contexto:** Mecanismo de recepción de material de colaboradoras para la fase piloto.
@@ -51,8 +51,8 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 - **Spec que rige:** [sitio/specs/monografia/spec.md](specs/monografia/spec.md) §2.2.
 
 ### ADR-06: Página unificada «Sobre El Par» vs. dos páginas independientes
-- **Contexto:** Comunicación institucional del manifiesto editorial, criterios formales de selección y explicación de cómo se construye el archivo a partir de fotos domésticas.
-- **Decisión:** Unificar en una única página (`sitio/sobre-el-par.html`) la mirada al calzado y el método fotográfico de la comunidad, incorporándola como el tercer pilar visible en la navegación de cabecera y pie (`Archivo`, `Sobre El Par` y `Cómo colaborar`).
+- **Contexto:** Comunicación institucional del manifiesto editorial, criterios formales de selección y explicación de cómo se construye la colección a partir de fotos domésticas.
+- **Decisión:** Unificar en una única página ([sitio/sobre-el-par.html](sobre-el-par.html)) la mirada al calzado y el método fotográfico de la comunidad, incorporándola como el tercer pilar visible en la navegación de cabecera y pie (`Colección`, `Sobre El Par` y `Cómo colaborar`).
 - **Alternativas descartadas:** Mantener dos páginas separadas (`sobre-el-par.html` y `como-se-construye.html`), lo cual fragmentaba el relato y generaba páginas excesivamente breves en v1.
 - **Consecuencias:** Ofrece a cualquier visitante o colaboradora una explicación clara, completa y serena de un solo vistazo, evitando duplicar introducciones de principios.
 - **Spec que rige:** [sitio/specs/sobre-el-par/spec.md](specs/sobre-el-par/spec.md) y [sitio/ESPECIFICACION.md](ESPECIFICACION.md) §1.

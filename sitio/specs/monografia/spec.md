@@ -14,7 +14,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 ## 2. Estructura y Conducta de la Monografía
 
 ### 2.1. Bloque de Apertura y Cabecera
-- **Retorno al Archivo:** Enlace superior discreto en tipografía mono: `← Volver al Archivo`.
+- **Retorno a la Colección:** Enlace superior discreto en tipografía mono: `← Volver a la Colección` con enlace a [sitio/index.html#coleccion](../../index.html#coleccion).
 - **Título de Observación:** En tipografía Newsreader serif a gran escala. Expresa una constatación visual honesta del par demostrable en las fotografías (ej. *«Dos extremos, una silueta»*).
 - **Subtítulo Descriptivo:** Bajo el título, en sans-serif neutra (*Plus Jakarta Sans* / *Inter*): `[Familia] con [Escote / Sujeción] en [Material] y [Tipo de tacón / Altura]`. Ejemplo: *Salón clásico con escote asimétrico en piel vacuno y tacón aguja de 90 mm*.
 - **Atribución de Procedencia:** Situada junto al subtítulo: *«Armario de: [Nombre o alias acordado]»*. Si la colaboradora autorizó acreditar su cuenta en el formulario, se incluye la mención o enlace discreto a su `@Instagram`. El enlace a una página de armario dedicada se activará cuando dicha vista se incorpore al sitio público.
@@ -97,7 +97,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 ### 2.8. Navegación Secuencial al Pie
 - Al término de la monografía (tras la cédula técnica y antes del bloque de cierre):
   - Enlaces secuenciales discretos: `← [Título]` y `[Título] →`.
-  - Permite navegar el catálogo ordenado de forma correlativa sin regresar forzosamente al índice. El módulo de sugeridos queda reservado para cuando el archivo tenga mayor volumen.
+  - Permite navegar el catálogo ordenado de forma correlativa sin regresar forzosamente al índice. El módulo de sugeridos queda reservado para cuando la colección tenga mayor volumen.
 
 ### 2.9. Cierre de Colaboración Contextual
 - En el remate de la monografía:

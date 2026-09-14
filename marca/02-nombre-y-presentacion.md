@@ -23,7 +23,7 @@ Ficha de identidad de marca para canales públicos y materiales editoriales.
 | **Manifiesto web (Cabecera / Acerca de)** | Tus zapatos vistos de cerca. Miramos cada par para aprender a leer el calzado a través de sus formas, proporciones y las piezas que construyen cada silueta. |
 | **Guía para colaboradoras** | *Tus zapatos en cámara* ([GitHub Pages](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html)) |
 | **Formulario de recepción (provisional)** | [Tally (tally.so/r/Npj2bl)](https://tally.so/r/Npj2bl) |
-| **Pie de pieza web (Cierre de reportaje)** | Archivo El Par — Zapatos en detalle |
+| **Pie de pieza web (Cierre de reportaje)** | Colección El Par — Zapatos en detalle |
 | **Mención de pertenencia del calzado** | Armario de [Nombre / @usuario] |
 | **Correo oficial del proyecto** | `elparzapatos@proton.me` |
 

@@ -7,7 +7,7 @@
 
 ## 1. Cierre de Build v1
 
-- [x] Maquetar bloque de apertura: retorno al archivo, título observacional en serif, subtítulo anatómico y crédito de procedencia.
+- [x] Maquetar bloque de apertura: retorno a la colección, título observacional en serif, subtítulo anatómico y crédito de procedencia.
 - [x] Construir módulos fotográficos adaptables (7:5, 5:7, 6:6 y dípticos) en `object-contain`.
 - [x] Implementar lightbox minimalista para inspección a pantalla completa.
 - [x] Integrar popovers contextuales de glosario y tabla canónica de 24 términos.

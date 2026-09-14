@@ -8,9 +8,9 @@
 ## 1. Cierre de Build v1
 
 - [x] Maquetar cabecera serena con logotipo en serif y descriptor.
-- [x] Implementar navegación activa exclusiva (`Archivo`, `Cómo colaborar`).
+- [x] Implementar tríada de navegación activa (`Colección`, `Sobre El Par`, `Cómo colaborar`).
 - [x] Construir bloque Hero de pieza destacada con marco fotográfico en `object-contain`.
-- [x] Maquetar cuadrícula del archivo con enlace en tarjeta completa.
+- [x] Maquetar cuadrícula de la colección con enlace en tarjeta completa.
 - [x] Implementar bloque de pie con cierre `Comparte un par` y enlace a `como-colaborar.html`.
 
 ---

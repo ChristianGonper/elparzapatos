@@ -6,8 +6,8 @@ Manual operativo de producción de contenidos para web y redes sociales.
 
 ## 1. Ecosistema de Canales
 
-- **La Web (El Archivo Central):** Publica la pieza completa por cada par analizado. Incluye galería fotográfica en alta resolución, texto narrativo estructurado, hipervínculos al glosario interactivo y conexiones temáticas (misma puntera, misma familia de tacón, mismo tipo de cierre).
-- **Instagram (`@elparzapatos`):** Descubrimiento visual, divulgación cercana y canal de captación de colaboradoras. No resume la pieza entera: extrae ángulos específicos y dinamiza el archivo.
+- **La Web (La Colección Central):** Publica la pieza completa por cada par analizado. Incluye galería fotográfica en alta resolución, texto narrativo estructurado, hipervínculos al glosario interactivo y conexiones temáticas (misma puntera, misma familia de tacón, mismo tipo de cierre).
+- **Instagram (`@elparzapatos`):** Descubrimiento visual, divulgación cercana y canal de captación de colaboradoras. No resume la pieza entera: extrae ángulos específicos y dinamiza la colección.
 - **El Formulario de Colaboración:** Punto de entrada privado para la recepción de fotografías, metadatos del calzado, preferencias de crédito y consentimiento formal de uso.
 
 ---
@@ -34,14 +34,14 @@ Para evitar convertir el perfil en un catálogo frío o en una clase académica 
   3. *Pantalla 3 (Llamada a la acción / Enlace):* Si pertenece a un par publicado, enlace directo a la pieza en la web.
 
 ### B. Carrusel de Concepto («De la foto al nombre»)
-- **Objetivo:** Explicar una parte o detalle del calzado comparando distintos pares del archivo.
+- **Objetivo:** Explicar una parte o detalle del calzado comparando distintos pares de la colección.
 - **Estructura (5 a 7 diapositivas):**
   - Diapositiva de apertura: Portada limpia con el rasgo o duda a explorar (ej. *«Cinco formas de rematar una puntera»* o *«Por qué este tacón no es un kitten»*).
   - Diapositivas centrales: Un par por lámina, mostrando las diferencias de forma con una indicación discreta.
   - Cierre: Breve conclusión y pregunta de conversación («¿Qué silueta predomina en tu armario?»).
 
 ### C. Presentación de Par Publicado
-- **Objetivo:** Anunciar la llegada de una nueva pieza al archivo.
+- **Objetivo:** Anunciar la llegada de una nueva pieza a la colección.
 - **Estructura:**
   - Selección de las 2 o 3 mejores perspectivas (tres cuartos delantero + perfil exterior + detalle clave).
   - Copy centrado en el rasgo más sorprendente o distintivo del diseño.

@@ -8,13 +8,13 @@ Une los principios de identidad editorial de [marca](../marca/README.md) con el 
 
 ## 1. Arquitectura y Árbol de Vistas del Sitio
 
-El sitio se estructura como un archivo monográfico digital de ritmo pausado y lectura reposada.
+El sitio se estructura como una colección monográfica digital de ritmo pausado y lectura reposada.
 
 ### Vistas v1 (Activas en Producción)
 
 ```
 sitio/
-├── index.html                  # Portada: Pieza destacada, archivo adaptable y cierre colaborativo
+├── index.html                  # Portada: Pieza destacada, colección adaptable y cierre colaborativo
 ├── sobre-el-par.html           # Página institucional: manifiesto, mirada al calzado y cómo se construye
 ├── como-colaborar.html         # Página puente: acogida, dudas, guía fotográfica y acceso a Tally
 └── entradas/
@@ -29,13 +29,13 @@ sitio/
 ## 2. Alcance v1 y Delimitación de Versión
 
 ### Dentro de v1
-- Portada adaptable al volumen de archivo (foco en pieza destacada inaugural).
+- Portada adaptable al volumen de la colección (foco en pieza destacada inaugural).
 - Monografías completas con mínimo 6 fotografías reales por modelo.
 - Inspección fotográfica a pantalla completa.
 - Glosario contextual con popovers y diccionario canónico de términos iniciales.
 - Ficha continua «Datos del par».
 - Navegación secuencial al pie entre entregas publicadas.
-- Página institucional «Sobre El Par» con manifiesto editorial, criterios de selección y método de archivo.
+- Página institucional «Sobre El Par» con manifiesto editorial, criterios de selección y método de la colección.
 - Página puente «Cómo colaborar» con resolución de dudas y embudo guiado.
 - Formulario de recepción provisional mediante enlace externo a Tally.
 

@@ -7,17 +7,17 @@
 
 ## 1. Enfoque Aplicado
 
-- **Estructura editorial de aterrizaje:** Página HTML5 estática con encabezado hospitalario, pasos secuenciados y módulo de preguntas frecuentes.
-- **Jerarquía tipográfica y estética:** Aplicación estricta de tokens de [sitio/DESIGN.md](../../DESIGN.md) (paleta `paper`, `linen`, `charcoal`, tipografías Newsreader e Inter).
-- **Embudo guiado:** Enlace directo a la guía fotográfica en GitHub Pages / local y botón al formulario externo de Tally.
+- **Estructura editorial de aterrizaje:** Página HTML5 estática con encabezado hospitalario, pasos secuenciados y módulo de dudas y garantías éticas.
+- **Jerarquía tipográfica y estética:** Aplicación estricta de tokens de [sitio/DESIGN.md](../../DESIGN.md) (paleta `paper`, `specimen`, `ink`, `cognac`, tipografías Newsreader, Plus Jakarta Sans y JetBrains Mono).
+- **Embudo guiado:** Portada interactiva clickable de la guía fotográfica *Tus zapatos en cámara* que conduce directamente al documento completo (donde reside el formulario de recepción integrado), eliminando el botón directo de envío en la página puente.
 
 ---
 
 ## 2. Validación Realizada
 
-- Verificada la legibilidad de los bloques y el tono sereno sin lenguaje agresivo ni formularios invasivos.
-- Comprobada la correcta resolución de los enlaces a la guía fotográfica, formulario Tally y correo oficial.
-- Verificado el comportamiento responsivo en dispositivos móviles.
+- Verificada la legibilidad de los bloques, el trato en tuteo natural y el uso consistente de «Colección» y «El Par» sin términos institucionales ni burocráticos.
+- Comprobada la tarjeta interactiva de la portada de la guía con enlace a GitHub Pages y soporte visual en móvil y escritorio.
+- Verificada la correcta resolución del correo oficial y el canal de Instagram (`@elparzapatos`).
 
 ---
 

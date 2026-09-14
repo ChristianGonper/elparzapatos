@@ -28,7 +28,7 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 5. **Conversación y participación (Sugerencias y colaboración):** Rótulo `CONVERSACIÓN`. Espacio abierto para compartir recomendaciones o dudas, con buzón dual (correo institucional y mensaje directo en Instagram), rematando con un módulo de llamada hacia [sitio/como-colaborar.html](../../como-colaborar.html).
 
 ### 2.3. Acompañamiento Visual
-- Inserción de un marco sobrio con fotografías de archivo en fondo neutro blanco y proporción íntegra (reglas transversales de [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md) §3), enseñando las líneas de un tacón y una bailarina en formato WebP optimizado.
+- Inserción de un marco sobrio con fotografías de la colección en fondo neutro blanco y proporción íntegra (reglas transversales de [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md) §3), enseñando las líneas de un tacón y una bailarina en formato WebP optimizado.
 
 ---
 
@@ -37,4 +37,4 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 - **Correo oficial:** `elparzapatos@proton.me` (enlace directo `mailto:`).
 - **Instagram oficial:** `@elparzapatos` ([instagram.com/elparzapatos](https://instagram.com/elparzapatos)).
 - **Puente de colaboración:** Enlace directo a [sitio/como-colaborar.html](../../como-colaborar.html).
-- **Navegación general:** Retorno directo al [sitio/index.html](../../index.html) y colección.
+- **Navegación general:** Retorno directo a la colección en [sitio/index.html#coleccion](../../index.html#coleccion).
