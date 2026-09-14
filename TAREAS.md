@@ -1,56 +1,107 @@
 # Tareas
 
-Trabajo por hacer. Lo cerrado, descartado o pospuesto está en [sitio/DECISIONES.md](sitio/DECISIONES.md). Criterio editorial en [marca/01](marca/01-identidad-editorial.md)–[04](marca/04-flujo-de-colaboracion.md).
-
-Marca `[x]` y mueve a **Hecho**.
-
----
-
-## Ahora — Trabajo prioritario
-
-### 1. Preparación Web y Criterio Editorial (Primera Pieza)
-
-- [ ] Maquetar y publicar la primera monografía real en cuanto entre el material de una colaboradora.
-
+Trabajo por hacer, catálogo de intenciones futuras y operativa interna.
+- Decisiones arquitectónicas y descartes definitivos: [sitio/DECISIONES.md](sitio/DECISIONES.md).
+- Criterio editorial: [marca/01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md).
+- Especificaciones web de superficie: [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md).
 
 ---
 
-## Diferido — Operativa interna (cuando haya volumen)
+## 1. Ahora — Trabajo prioritario
+
+### Primera Pieza Monográfica Real
+- [ ] Maquetar y publicar la primera monografía real en cuanto entre el material fotográfico de una colaboradora.
+
+---
+
+## 2. Intenciones — Catálogo conceptual a futuro
+
+Deseos conceptuales y partes del sistema proyectadas para versiones posteriores. No cuentan con spec viva ni build abierto hasta que se activen.
+
+### 2.1. Vista «Armarios» (Directorio por colaboradora)
+- **Qué:** Índice público que agrupa y exhibe todas las piezas aportadas por una misma persona (`armarios.html` y vistas individuales).
+- **Para qué:** Reconocer la generosidad de las colaboradoras recurrentes y permitir al lector explorar el estilo de un armario particular.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No es un perfil de red social, ni un muro personal, ni un escaparate de venta de segunda mano.
+- **Spec:** Ninguna (fuera de v1).
+
+### 2.2. Página «Sobre El Par» / «Nuestra mirada»
+- **Qué:** Página institucional breve que condensa el manifiesto editorial del proyecto.
+- **Para qué:** Explicar el origen de la publicación, la devoción por el calzado real y la distancia con el consumismo de temporada.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No es una página corporativa de empresa ni un currículum personal.
+- **Spec:** Ninguna (fuera de v1).
+
+### 2.3. Sistema de Cotas conmutables sobre la imagen
+- **Qué:** Capa vectorial interactiva superpuesta sobre la fotografía con líneas de cota milimétricas y etiquetas anatómicas, conmutable mediante botón.
+- **Para qué:** Proporcionar lectura técnica rigurosa de proporciones sin ensuciar la imagen por defecto.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No contiene placas fijas.
+- **Spec:** Ninguna (diseño preliminar en archivo; fuera de v1).
+
+### 2.4. Formulario propio integrado en la web
+- **Qué:** Formulario nativo alojado directamente en `como-colaborar.html` sustituyendo el iframe o enlace externo a Tally.
+- **Para qué:** Ofrecer una experiencia de subida completamente fluida e integrada en la estética del sitio.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No sustituye el almacenamiento seguro en Drive ni el registro en Google Sheets.
+- **Spec:** Ninguna (Tally cubre la fase piloto actual).
+
+### 2.5. Fichas ampliadas del glosario
+- **Qué:** Páginas independientes dedicadas a cada concepto técnico o constructivo del calzado (`/glosario/[termino].html`).
+- **Para qué:** Desarrollar en profundidad la evolución histórica, variantes biomecánicas y ejemplos cruzados de cada parte.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No sustituye los popovers flotantes rápidos de la monografía (que siguen siendo la vía inmediata).
+- **Spec:** Ninguna (en v1 rige el diccionario canónico en [sitio/specs/monografia/spec.md](sitio/specs/monografia/spec.md)).
+
+### 2.6. Lanzamiento público del canal de Instagram
+- **Qué:** Apertura y publicación activa del perfil de Instagram de El Par.
+- **Para qué:** Canal de descubrimiento visual, captación de colaboradoras y difusión.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No condiciona el lanzamiento de la primera entrega monográfica en la web (se desacoplan).
+- **Spec:** [marca/03-sistema-editorial-y-contenidos.md](marca/03-sistema-editorial-y-contenidos.md) §3 (criterio definido; activación pospuesta).
+
+### 2.7. Método para opiniones y testimonios
+- **Qué:** Mecanismo discreto para recoger y compartir impresiones de las colaboradoras sobre la experiencia de ver sus zapatos analizados.
+- **Para qué:** Transmitir tranquilidad y hospitalidad a futuras participantes indecisas.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No son reseñas de producto ni puntuaciones con estrellas.
+- **Spec:** Ninguna.
+
+### 2.8. Protocolo de recomendación boca a boca
+- **Qué:** Mensaje de cortesía post-publicación invitando a la colaboradora satisfecha a sugerir el proyecto a una amiga con zapatos singulares.
+- **Para qué:** Crecimiento orgánico selectivo entre personas amantes del calzado.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No es un programa de referidos comercial ni una campaña masiva.
+- **Spec:** Ninguna.
+
+### 2.9. Manifiesto técnico «Cómo se construye» (`como-se-construye.html`)
+- **Qué:** Ensayo divulgativo sobre la técnica fotográfica, iluminación y fidelidad anatómica empleadas en El Par.
+- **Para qué:** Demostrar transparencia artesanal y rigor documental frente al estándar publicitario.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No es un manual de usuario de software.
+- **Spec:** Ninguna.
+
+### 2.10. Mecanismos de monetización y afiliados (evaluación futura)
+- **Qué:** Estudio de vías sostenibles de financiación editorial (enlaces a firmas artesanales, edición en papel o mecenazgo).
+- **Para qué:** Garantizar la sostenibilidad a largo plazo sin comprometer la independencia curatorial.
+- **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
+- **Qué no es:** No incluye banners programáticos, cookies invasivas ni reseñas pagadas.
+- **Spec:** Ninguna.
+
+---
+
+## 3. Diferido — Operativa interna (cuando haya volumen)
 
 - [ ] Definir el procedimiento de volcado desde `Notas_inbox` hacia la ficha o formulario.
 - [ ] Configurar la tarea de ChatGPT con ejecución manual mediante `Run` para procesar `Notas_inbox`.
-- [ ] Decidir activación de disparadores temporales del Apps Script (actualmente se ejecuta manual con `Procesar nuevos envíos`).
+- [ ] Decidir activación de disparadores temporales del Apps Script (actualmente manual con `Procesar nuevos envíos`).
 - [ ] Refinar en [marca/04-flujo-de-colaboracion.md](marca/04-flujo-de-colaboracion.md) la sección «Registro y Estados de Seguimiento».
 - [ ] Refinar «Formatos Tácticos para Instagram» en [marca/03-sistema-editorial-y-contenidos.md](marca/03-sistema-editorial-y-contenidos.md).
-- [ ] Diseñar skill/directriz para redacción documental ágil.
-- [ ] Revisar en [sitio/DECISIONES.md](sitio/DECISIONES.md) la decisión pospuesta sobre «Categorías exhaustivas y ritmo final de publicación».
 
 ---
 
-## Pospuesto / Tras la primera pieza
+## 4. Hecho
 
-- [ ] Implementación de las fichas ampliadas del glosario (páginas independientes por concepto; en v1 los términos se resuelven mediante popover contextual).
-
-- [ ] Método para opiniones / testimonios (versiones posteriores de la web).
-- [ ] Página «Sobre El Par».
-- [ ] Vista «Armarios».
-- [ ] Boca a boca (solo si el envío le resultó fácil a la colaboradora).
-- [ ] Ampliar P1 / P2 / P3.
-- [ ] Formulario propio integrado en la web (sustituyendo el enlace de Tally provisional).
-
----
-
-## Hecho
-
-- [x] **Refinamiento de la especificación para la web real:** Actualizados [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md) y [sitio/DECISIONES.md](sitio/DECISIONES.md) tras sesión de definición detallada: portada adaptativa al volumen (hero dominante, cuadrícula sin duplicar, filtros latentes), monografía modular con mínimo 6 fotos reales e inspección lightbox, encuadre `object-contain` preservando suelo y sombra natural, popovers contextuales con diccionario canónico inicial, navegación secuencial al pie (`← Anterior` / `Siguiente →`) e inclusión de la página puente `como-colaborar.html` en el lanzamiento inicial.
-- [x] **Captación de calzado y flujos de onboarding (Tarea 1):** Definidas y redactadas las 4 vías de toma de contacto en [marca/activos/Contactos-previos.md](marca/activos/Contactos-previos.md) (proactiva previa, respuesta a stories de embajadoras con mini-argumentario de dudas, inbound DM tras publicaciones y asistencia web). Diseñado el flyer digital interactivo para Stories (9:16) en [marca/activos/flyer-embajadora.html](marca/activos/flyer-embajadora.html) con foco en dedicar una publicación a sus zapatos favoritos e invitación a escribir por mensaje/DM directo.
-- [x] **Prototipo local de página puente «Cómo colaborar» (`como-colaborar.html`):** Maquetado en [sitio/como-colaborar.html](sitio/como-colaborar.html) como prototipo local siguiendo [sitio/ESPECIFICACION.md#4](sitio/ESPECIFICACION.md#4) (propósito editorial, proceso en 3 pasos, resolución de dudas rápidas, embudo hacia guía fotográfica y formulario Tally, y canal de dudas).
-
-- [x] **Infraestructura de colaboraciones (Drive, Sheets y Apps Script v3):** Pestañas canónicas creadas, importación depurada, clave por correo normalizado con Instagram opcional, IDs correlativos legibles (`COL`, `ENV`, `PAR`), enlace público único de Tally, y Apps Script v3 verificado e idempotente sin duplicados.
-- [x] **Identidad visual y prototipos locales:** Tipografía, paleta y sistema semántico consolidados en [sitio/DESIGN.md](sitio/DESIGN.md). Prototipos de portada y monografía.
-- [x] **Guía y criterios fotográficos:** Guía colaborativa *Tus zapatos en cámara* publicada. Criterio de calidad fotográfica, umbral para tomas adicionales y límites éticos de edición acordados en [marca/04-flujo-de-colaboracion.md](marca/04-flujo-de-colaboracion.md).
-- [x] **Canal oficial de contacto:** Correo del proyecto establecido como `elparzapatos@proton.me` y registrado en [marca/02-nombre-y-presentacion.md](marca/02-nombre-y-presentacion.md) y [marca/04-flujo-de-colaboracion.md](marca/04-flujo-de-colaboracion.md).
-- [x] **Saneamiento documental y Single Source of Truth:** Desacopladas las duplicidades entre [marca/01](marca/01-identidad-editorial.md), [marca/02](marca/02-nombre-y-presentacion.md), [marca/03](marca/03-sistema-editorial-y-contenidos.md), [marca/04](marca/04-flujo-de-colaboracion.md), [Contactos-previos.md](marca/activos/Contactos-previos.md) y [sitio/DECISIONES.md](sitio/DECISIONES.md); retiradas las instrucciones de Stitch; añadida fórmula de follow-up D; enlaces navegables con headings hacia cada documento canónico.
-- [x] **Formulario de colaboración y política de consentimiento:** Tally publicado, [tally-formulario-colaboracion.md](marca/activos/tally-formulario-colaboracion.md) y [formulario-colaboracion.html](marca/activos/formulario-colaboracion.html) sincronizados con el estado real: Instagram condicionado y obligatorio según acreditación, autorización con edición ligera sin IA, casilla opcional de actualizaciones por correo y procedimiento de retirada claro con `elparzapatos@proton.me` e Instagram.
-- [x] **Criterio editorial de monografía y especificación web:** Definida la jerarquía en [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md): fotos limpias sin pies forzados, supratítulos de zona anatómica, títulos H2 descriptivos directos, términos universales para popovers (ES/EN) vs notas intercaladas en flujo, ficha técnica de 5 campos y cierre `Comparte un par` con flujo hacia la página puente `como-colaborar.html`.
-- [x] **Revisión de frases y prototipos web:** Actualizados [sitio/entradas/salon-aguja.html](sitio/entradas/salon-aguja.html) e [sitio/index.html](sitio/index.html) suprimiendo pies de foto redundantes, aplicando supratítulos anatómicos, título H2 descriptivo, nota editorial intercalada, cédula de 5 campos y cierre contextual `Comparte un par` con enlace a `como-colaborar.html`.
+- [x] **Aplicación del modelo documental SDD adaptado:** Actualizada la constitución en [AGENTS.md](AGENTS.md), transformado [ESTADO.md](ESTADO.md) en tablero ejecutivo de 10-12 líneas, creadas las especificaciones modulares en `sitio/specs/` (`portada`, `monografia`, `como-colaborar`) con sus archivos de trabajo en reposo (`plan.md` y `tasks.md`), depurado [sitio/DECISIONES.md](sitio/DECISIONES.md) en formato ADR sin duplicar specs, delimitado [sitio/DESIGN.md](sitio/DESIGN.md) al sistema visual agnóstico y estructuradas las intenciones conceptuales en [TAREAS.md](TAREAS.md).
+- [x] **Refinamiento de la especificación para la web real:** Actualizados [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md) y [sitio/DECISIONES.md](sitio/DECISIONES.md) orientados a la web de producción: portada adaptativa al volumen (hero dominante, filtros latentes), monografía modular con mínimo 6 fotos reales e inspección lightbox, encuadre `object-contain`, popovers contextuales con diccionario canónico inicial, navegación secuencial al pie y prototipo local maquetado de `como-colaborar.html`.
+- [x] **Captación de calzado y flujos de onboarding:** Definidas las 4 vías de toma de contacto en [marca/activos/Contactos-previos.md](marca/activos/Contactos-previos.md), diseñado el flyer digital interactivo para Stories en [marca/activos/flyer-embajadora.html](marca/activos/flyer-embajadora.html) y verificado el sistema técnico Apps Script v3 en Google Sheets con clave unificada de correo.
