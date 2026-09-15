@@ -17,7 +17,11 @@
 - [x] Integrar enlace a «Sobre El Par» en la navegación de `sitio/index.html`, `sitio/como-colaborar.html` y `sitio/entradas/salon-aguja.html`.
 - [x] Verificar maquetación responsive, contraste y enlaces locales.
 
+- [x] Revisar el copy y actualizar su contrato en la spec y los criterios de Marca (2026-09-15).
+
 ---
+
+- [x] Adaptar cabecera, pie y zonas táctiles a móvil; comprobar las tres páginas del flujo a distintos anchos.
 
 ## 2. Deuda Técnica y Mantenimiento
 

@@ -14,7 +14,11 @@
 - [x] Retirar botón de acceso directo secundario a Tally para canalizar adecuadamente a las nuevas colaboradoras.
 - [x] Actualizar canal de contacto directo a `@elparzapatos` y correo oficial.
 
+- [x] Revisar el copy y actualizar su contrato en la spec y los criterios de Marca (2026-09-15).
+
 ---
+
+- [x] Adaptar cabecera, pie y zonas táctiles a móvil; comprobar las tres páginas del flujo a distintos anchos.
 
 ## 2. Deuda Técnica y Mantenimiento
 

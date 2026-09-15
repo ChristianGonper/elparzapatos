@@ -14,25 +14,27 @@ Página de acogida pública integrada en la web real. Su objetivo es recibir a c
 ## 2. Estructura y Conducta
 
 ### 2.1. Encabezado y Tono Editorial
-- **Tono:** Cálido, de confianza, hospitalario y en tuteo natural, libre de tecnicismos médicos, clínicos o burocráticos. Sin expresiones solemnes ni uso de «el archivo» (sustituido transversalmente por «la colección», «la publicación» o «El Par»).
+- **Tono:** Cercano y en tuteo, con explicaciones prácticas adaptadas al momento de participar. Aplica [la identidad editorial](../../../marca/01-identidad-editorial.md) y la [skill de redacción](../../../.agents/skills/redaccion-editorial/SKILL.md).
 - **Eyebrow:** `Colaborar en El Par`.
-- **Mensaje central:** *«No buscamos calzado de pasarela: nos centramos en los tacones, salones y bailarinas que tienes en casa.»*
+- **Mensaje central:** Invitar a compartir fotografías de tacones y bailarinas para dedicarles una publicación; presentar el interés por sus formas y detalles. El copy literal vive en el HTML.
 
 ### 2.2. Flujo en Tres Pasos
-1. **Selección del calzado:** Invitación a proponer uno o varios pares con siluetas singulares, un tacón especial o detalles decorativos apreciables que encajen en El Par.
-2. **Fotografía accesible con móvil:** Tomas naturales con buena luz indirecta sobre fondo neutro, guiadas por las perspectivas de la guía visual.
-3. **Envío y acreditación:** Subida mediante el formulario de recepción indicando la modalidad de crédito deseada (nombre real, cuenta de Instagram o anonimato).
+1. **Selección del calzado:** Invitación a proponer uno o varios pares por sus formas y detalles y a contribuir a la colección, sin garantizar de antemano su selección.
+2. **Fotografía accesible con móvil:** Buena iluminación natural o artificial y fondo sencillo sin elementos que distraigan. La guía muestra ángulos de referencia sin imponer movimientos ni preparar un entorno.
+3. **Envío y acreditación:** Subida mediante el formulario de recepción indicando la modalidad de crédito deseada (nombre, cuenta de Instagram o anonimato).
 
 ### 2.3. Compromisos Éticos y Resolución de Dudas (Temas Obligatorios)
 - **Cero exigencia comercial:** No importa la marca, el precio ni el estatus; importa el diseño del calzado.
 - **Privacidad estricta:** Foco exclusivo en el zapato. Nunca aparecen rostros ni cuerpos.
 - **Edición respetuosa:** Corrección limpia de iluminación y encuadre; prohibida la manipulación artificial con IA generativa o alteración de la forma real.
-- **Control y retirada garantizada:** Protocolo oficial de retirada en un plazo máximo de 48 horas mediante solicitud a `elparzapatos@proton.me` o mensaje directo de Instagram.
+- **Control y retirada garantizada:** Protocolo de [Marca](../../../marca/04-flujo-de-colaboracion.md#4-política-y-protocolo-de-retirada): eliminación de la web y redes propias en un máximo de 48 horas, por correo oficial o canal directo previo.
+
+- **Esfuerzo de participación:** Explicar las seis vistas propuestas y los detalles opcionales, sin prometer una duración fija.
 
 ### 2.4. Embudo Guiado hacia la Guía Fotográfica
 Para asegurar que los envíos contengan las perspectivas necesarias y facilitar la curaduría:
 - **Puerta de entrada interactiva:** Portada editorial de la [Guía fotográfica *Tus zapatos en cámara*](../../../marca/activos/guia-fotografica-colaboradores.html). Toda la tarjeta funciona como medio interactivo sobre el que hacer clic para abrir la guía directamente, sin botones explícitos adicionales ni texto accesorio.
-- **Vista previa de Tally en el flujo natural:** No se incluye un acceso directo a Tally en la página puente. Al final de la guía aparece una vista previa no interactiva de Tally; al pulsarla, el formulario externo se abre en una pestaña nueva.
+- **Vista previa de Tally en el flujo natural:** No se incluye un acceso directo a Tally en la página puente. Al final de la guía aparece una vista previa no interactiva de Tally; al pulsarla, el formulario externo se abre en una pestaña nueva. La guía añade un enlace visible junto a esa vista previa para abrir el formulario aunque el contenido incrustado no haya cargado.
 - **Canal de dudas previo:** Acceso directo al correo oficial (`elparzapatos@proton.me`), manteniendo `@elparzapatos` visible como identificador reservado sin enlace activo hasta su lanzamiento.
 
 ---
@@ -42,3 +44,9 @@ Para asegurar que los envíos contengan las perspectivas necesarias y facilitar 
 - **Garantías obligatorias de acogida:** Cobertura de los 4 compromisos éticos (propósito no comercial, sin rostros ni cuerpos, edición respetuosa sin IA y retirada garantizada en 48 horas).
 - **Embudo guiado:** Paso imprescindible por la guía fotográfica interactiva, con una vista previa de Tally al final que conduce al formulario externo y sus modalidades de acreditación (nombre, Instagram o anonimato).
 - **Canales oficiales:** [marca/02-nombre-y-presentacion.md](../../../marca/02-nombre-y-presentacion.md) y [marca/04-flujo-de-colaboracion.md](../../../marca/04-flujo-de-colaboracion.md).
+
+## Adaptación móvil
+
+Por debajo de 768 px, la marca y la navegación ocupan filas separadas. Los enlaces permanecen visibles, permiten salto de línea entre destinos y ofrecen al menos 44 px de altura táctil. El pie distribuye sus enlaces en varias líneas según el espacio disponible, sin desplazamiento horizontal.
+
+Los párrafos de explicación mantienen un mínimo de 15 px en móvil; los canales de contacto pueden repartirse en varias líneas.

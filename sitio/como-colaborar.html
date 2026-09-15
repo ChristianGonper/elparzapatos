@@ -47,13 +47,60 @@
       background-color: #F3EFEA;
       color: #1C1A18;
     }
+
+    /* Navegación legible y zonas táctiles en pantallas estrechas. */
+    @media (max-width: 767px) {
+      .site-header > div {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding-block: .5rem;
+      }
+      .site-header > div > div { flex-shrink: 0; }
+      .site-header nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 1rem;
+        width: 100%;
+      }
+      .site-header nav > * { margin: 0; }
+      .site-header a, .site-footer a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+      .site-header nav a { white-space: nowrap; font-size: .6875rem; letter-spacing: .04em; }
+      .site-footer > div { align-items: flex-start; }
+      .site-footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .25rem 1rem;
+        max-width: 100%;
+      }
+      .site-footer nav > * { margin: 0; }
+      .site-footer a[href^="mailto:"] { overflow-wrap: anywhere; }
+      main p a[href^="mailto:"], main .contact-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      main a[href="como-colaborar.html"] { min-height: 44px; }
+    }
+    @media (max-width: 767px) {
+      main p.font-sans, .site-footer p.font-sans { font-size: .9375rem; line-height: 1.6; }
+      main .contact-links { gap: .25rem 1rem; }
+    }
   </style>
 </head>
 
 <body class="min-h-screen flex flex-col font-sans selection:bg-paper-muted selection:text-ink">
 
   <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
-  <header class="border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
+  <header class="site-header border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
       <div class="flex items-baseline space-x-3">
         <a href="index.html"
@@ -64,7 +111,7 @@
           / Zapatos en detalle
         </span>
       </div>
-      <nav class="flex items-center space-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
+      <nav class="flex items-center gap-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
         <a href="index.html#coleccion" class="hover:text-ink transition-colors">Colección</a>
         <a href="sobre-el-par.html" class="hover:text-ink transition-colors">Sobre El Par</a>
         <a href="como-colaborar.html" class="text-ink font-medium border-b border-ink pb-0.5">Cómo colaborar</a>
@@ -85,10 +132,10 @@
         Tu calzado en El Par
       </h1>
       <p class="font-serif text-xl sm:text-2xl text-graphite leading-relaxed max-w-2xl font-normal">
-        No buscamos calzado de pasarela: nos centramos en los tacones y bailarinas que tienes en casa.
+        Comparte fotografías de tus tacones o bailarinas para que les dediquemos una publicación.
       </p>
       <p class="font-sans text-sm sm:text-base text-graphite leading-relaxed max-w-2xl">
-        Miramos cada par de cerca para entender su silueta, línea de calce y detalles visuales.
+        Nos interesa observar su diseño y los detalles que distinguen cada par.
       </p>
     </section>
 
@@ -108,8 +155,7 @@
           <span class="font-mono text-xs text-cognac font-medium block">01 / Selección</span>
           <h3 class="font-serif text-xl text-ink font-normal">Elige tu calzado</h3>
           <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
-            Puedes proponer varios pares a la vez. Cualquier tacón o bailarina con una silueta peculiar o un
-            detalle especial encaja perfectamente en El Par.
+            Puedes proponer varios pares a la vez. Nos interesan sus formas y detalles: compartiéndolos, ayudas a ampliar la colección de El Par.
           </p>
         </div>
 
@@ -118,17 +164,16 @@
           <span class="font-mono text-xs text-cognac font-medium block">02 / Fotografía</span>
           <h3 class="font-serif text-xl text-ink font-normal">Con tu móvil</h3>
           <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
-            Con total naturalidad y sin fotos de estudio. Un fondo neutro y buena luz.
+            Basta la cámara de tu móvil, buena iluminación y un fondo sencillo. La guía te muestra cómo fotografiarlos desde distintos ángulos.
           </p>
         </div>
 
         <!-- PASO 3 -->
         <div class="border border-hairline bg-specimen p-6 sm:p-8 flex flex-col justify-start space-y-3">
           <span class="font-mono text-xs text-cognac font-medium block">03 / Recepción</span>
-          <h3 class="font-serif text-xl text-ink font-normal">Envío y acreditación</h3>
+          <h3 class="font-serif text-xl text-ink font-normal">Envía tus fotos</h3>
           <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
-            Subes las fotos a través del formulario de recepción. Tú decides cómo figurar en los créditos:
-            con tu nombre, tu usuario de Instagram o de forma anónima.
+            Sube las fotos a través del formulario. Tú decides cómo figurar en los créditos: con tu nombre, tu usuario de Instagram o de forma anónima.
           </p>
         </div>
 
@@ -170,9 +215,8 @@
             ¿Tengo control sobre mis fotos y mi privacidad?
           </h3>
           <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
-            Total. Tú eliges cómo aparecer: nombre, mención en Instagram o anónimo. Si en cualquier momento
-            deseas retirar la pieza, nos escribes a <a href="mailto:elparzapatos@proton.me"
-              class="text-ink underline hover:text-cognac">elparzapatos@proton.me</a> y se retira en menos de 48 horas.
+            Tú eliges cómo aparecer en los créditos. Si quieres retirar una publicación, escríbenos a <a href="mailto:elparzapatos@proton.me"
+              class="text-ink underline hover:text-cognac">elparzapatos@proton.me</a> y la eliminaremos de la web y de nuestras redes en un plazo máximo de 48 horas.
           </p>
         </div>
 
@@ -181,7 +225,14 @@
             ¿Cuánto tiempo me llevará hacer las fotos?
           </h3>
           <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
-            Menos de diez minutos. Es sacar unas fotos con el móvil desde las posiciones que indicamos en la guía.
+            Son seis fotos con el móvil desde los ángulos que muestra la guía, más los detalles que quieras añadir.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h3 class="font-serif text-lg text-ink font-normal">¿Retocáis las fotos?</h3>
+          <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+            Podemos ajustar la luz, nivelar la imagen o recortar ligeramente el encuadre. Conservamos las formas y las marcas de uso del zapato y no utilizamos IA generativa para alterar las imágenes.
           </p>
         </div>
 
@@ -243,7 +294,7 @@
         <p>
           ¿Prefieres consultarnos antes si un par encaja o tienes dudas?
         </p>
-        <div class="flex items-center gap-4 font-mono text-xs uppercase tracking-wider">
+        <div class="contact-links flex flex-wrap items-center gap-4 font-mono text-xs uppercase tracking-wider">
           <a href="mailto:elparzapatos@proton.me"
             class="text-ink hover:text-cognac transition-colors underline">elparzapatos@proton.me</a>
           <span>·</span>
@@ -257,7 +308,7 @@
   </main>
 
   <!-- 6. FOOTER EDITORIAL -->
-  <footer class="bg-paper-muted border-t border-hairline w-full py-16 text-graphite mt-16">
+  <footer class="site-footer bg-paper-muted border-t border-hairline w-full py-16 text-graphite mt-16">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row justify-between items-start gap-10">
       <div class="max-w-sm">
         <p class="font-serif text-2xl text-ink font-normal tracking-tight mb-2">El Par</p>

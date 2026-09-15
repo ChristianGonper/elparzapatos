@@ -47,13 +47,56 @@
       background-color: #F3EFEA;
       color: #1C1A18;
     }
+
+    /* Navegación legible y zonas táctiles en pantallas estrechas. */
+    @media (max-width: 767px) {
+      .site-header > div {
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding-block: .5rem;
+      }
+      .site-header > div > div { flex-shrink: 0; }
+      .site-header nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 1rem;
+        width: 100%;
+      }
+      .site-header nav > * { margin: 0; }
+      .site-header a, .site-footer a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+      }
+      .site-header nav a { white-space: nowrap; font-size: .6875rem; letter-spacing: .04em; }
+      .site-footer > div { align-items: flex-start; }
+      .site-footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: .25rem 1rem;
+        max-width: 100%;
+      }
+      .site-footer nav > * { margin: 0; }
+      .site-footer a[href^="mailto:"] { overflow-wrap: anywhere; }
+      main p a[href^="mailto:"], main .contact-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+      }
+      main a[href="como-colaborar.html"] { min-height: 44px; }
+    }
   </style>
 </head>
 
 <body class="min-h-screen flex flex-col font-sans selection:bg-paper-muted selection:text-ink">
 
   <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
-  <header class="border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
+  <header class="site-header border-b border-hairline sticky top-0 bg-paper/95 backdrop-blur-sm z-40">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
       <div class="flex items-baseline space-x-3">
         <a href="index.html"
@@ -64,7 +107,7 @@
           / Zapatos en detalle
         </span>
       </div>
-      <nav class="flex items-center space-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
+      <nav class="flex items-center gap-x-8 text-xs font-mono uppercase tracking-wider text-graphite">
         <a href="index.html#coleccion" class="hover:text-ink transition-colors">Colección</a>
         <a href="sobre-el-par.html" class="text-ink font-medium border-b border-ink pb-0.5">Sobre El Par</a>
         <a href="como-colaborar.html" class="hover:text-ink transition-colors">Cómo colaborar</a>
@@ -86,8 +129,7 @@
         El calzado visto de cerca
       </h1>
       <p class="font-serif text-xl sm:text-2xl text-graphite leading-relaxed font-normal">
-        Una publicación dedicada a fijarse en el diseño de los zapatos que tenemos en casa, sus
-        formas y las piezas que construyen cada silueta.
+        Una publicación editorial independiente sobre el diseño de los zapatos que tenemos en casa: sus formas, proporciones y construcción.
       </p>
     </header>
 
@@ -101,14 +143,10 @@
       </h2>
       <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
         <p>
-          Habitualmente, los zapatos suelen tratarse como un simple añadido al conjunto. La atención suele irse a
-          la ropa y el calzado queda en un segundo plano.
+          A menudo hablamos de los zapatos por cómo combinan con la ropa. En El Par nos detenemos en su diseño.
         </p>
         <p>
-          En El Par le damos la vuelta a esa prioridad: miramos el zapato como una pieza de diseño con proporciones,
-          equilibrios y decisiones de patronaje propias. Nos interesa entender cómo se dibuja una puntera, la curva del
-          escote o la inclinación y la caída de un tacón. Fijarse en los detalles permite apreciar el calzado por lo que
-          es.
+          Nos interesa cómo se dibuja una puntera, la curva de un escote o la inclinación de un tacón, y cómo esas decisiones dan forma al conjunto.
         </p>
       </div>
     </section>
@@ -119,17 +157,14 @@
         Criterio
       </span>
       <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
-        Zapatos con carácter propio, lejos de la última tendencia
+        Zapatos con carácter propio
       </h2>
       <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
         <p>
-          No buscamos piezas de pasarela, colecciones intocables ni la constante rotación de la última tendencia de
-          temporada.
+          Elegimos los pares por su diseño, con independencia de su marca, precio o antigüedad.
         </p>
         <p>
-          Nos interesan los pares que guardamos en los armarios: modelos que destacan por su silueta, un corte singular
-          o un detalle especial que merece verse de cerca. El interés de un zapato está en sus formas, en sus líneas y
-          en sus proporciones, no en la marca ni en la etiqueta.
+          Nos interesa una silueta, un corte o un detalle que merezca observarse de cerca. La colección crece con esos hallazgos, sin seguir el calendario de las temporadas.
         </p>
       </div>
     </section>
@@ -145,17 +180,13 @@
         </h2>
         <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
           <p>
-            Abrimos la colección centrándonos en zapatos de salón, tacones y bailarinas por la variedad de sus formas:
-            es donde se concentran más detalles y donde más matices encontramos.
+            Empezamos por tacones y bailarinas por la variedad de sus siluetas y las posibilidades que ofrecen para observar el diseño.
           </p>
           <p>
-            En una bailarina, un cambio de dos milímetros en la altura de la pala o el recorte de los laterales altera
-            por completo el dibujo del empeine. En un tacón, la curva del arco, la inclinación y el grosor del propio
-            tacón transforman por completo su estética.
+            En una bailarina, la altura de la pala y el recorte de los laterales cambian cuánto queda a la vista del empeine. En un zapato de tacón, la curva del arco y la inclinación o el grosor del tacón modifican el perfil.
           </p>
           <p>
-            El Par no se detiene aquí, la colección irá incorporando otras siluetas y tipologías a medida que la
-            publicación crezca.
+            La colección irá incorporando otras siluetas a medida que la publicación crezca.
           </p>
         </div>
       </div>
@@ -197,12 +228,10 @@
         </h2>
         <div class="space-y-4 text-base sm:text-lg text-graphite leading-relaxed">
           <p>
-            Todo el material visual de El Par proviene directamente de las personas que deciden compartir sus zapatos con
-            la publicación.
+            Las fotografías las aportan las personas que comparten sus zapatos con El Par.
           </p>
           <p>
-            No trabajamos con imágenes de catálogo. Son fotografías tomadas con el móvil, igual que si le
-            estuvieses enseñando tus zapatos a unas amigas para que vean cómo son.
+            Están tomadas con el móvil y nos permiten apreciar cada par en su entorno cotidiano.
           </p>
         </div>
       </div>
@@ -284,8 +313,7 @@
           ¿Te gustaría ver aquí un par tuyo?
         </h3>
         <p class="text-sm sm:text-base text-paper-muted/80 leading-relaxed max-w-xl">
-          Si tienes en el armario unos tacones o bailarinas con características peculiares y te apetece que los
-          analicemos en la publicación, el proceso lleva menos de diez minutos.
+          Si tienes un par que te gustaría compartir, puedes enviarnos sus fotografías y contarnos qué te gusta de él.
         </p>
         <div class="pt-2">
           <a href="como-colaborar.html"
@@ -300,7 +328,7 @@
   </main>
 
   <!-- 3. PIE DE PÁGINA -->
-  <footer class="border-t border-hairline mt-20 bg-paper py-12">
+  <footer class="site-footer border-t border-hairline mt-20 bg-paper py-12">
     <div class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center space-x-3">
         <a href="index.html" class="font-serif text-xl text-ink font-normal">
@@ -310,12 +338,12 @@
           · Zapatos en detalle
         </span>
       </div>
-      <div class="flex items-center space-x-6 text-xs font-mono uppercase tracking-wider text-graphite">
+      <nav aria-label="Navegación al pie" class="flex flex-wrap items-center gap-x-6 text-xs font-mono uppercase tracking-wider text-graphite">
         <a href="index.html#coleccion" class="hover:text-ink transition-colors">Colección</a>
         <a href="sobre-el-par.html" class="text-ink font-medium">Sobre El Par</a>
         <a href="como-colaborar.html" class="hover:text-ink transition-colors">Cómo colaborar</a>
         <a href="mailto:elparzapatos@proton.me" class="hover:text-cognac transition-colors">elparzapatos@proton.me</a>
-      </div>
+      </nav>
     </div>
   </footer>
 
