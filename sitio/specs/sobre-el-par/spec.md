@@ -28,7 +28,8 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 5. **Conversación y participación (Sugerencias y colaboración):** Rótulo `CONVERSACIÓN`. Espacio abierto para compartir recomendaciones o dudas, con buzón directo (correo institucional y canal reservado para redes), rematando con un módulo de llamada hacia [sitio/como-colaborar.html](../../como-colaborar.html).
 
 ### 2.3. Acompañamiento Visual
-- Inserción de un marco sobrio con fotografías de la colección en fondo neutro blanco y proporción íntegra (reglas transversales de [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md) §3), enseñando las líneas de un tacón y una bailarina en formato WebP optimizado.
+- **Módulo comparativo (Formas y detalles):** Inserción de un marco sobrio con fotografías de la colección en fondo neutro y proporción íntegra (reglas transversales de [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md) §3), enseñando las líneas de un salón y una bailarina en formato WebP optimizado.
+- **Muestra doméstica real (El método):** Composición editorial asimétrica con 3 fotografías tomadas con móvil en entorno cotidiano. Funcionan como ejemplo puro de naturalidad visual.
 
 ---
 
