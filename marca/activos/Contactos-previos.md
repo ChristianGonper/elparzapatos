@@ -91,7 +91,7 @@ Una vez validado el interés de la colaboradora en cualquiera de las cuatro vía
 > «Si dudas entre varios, mándame una foto rápida con el móvil de los que tengas en mente y elegimos el primero juntas.»
 
 ### B. Envío de la guía y formulario (cuando el par está definido)
-> «¡Ese par tiene muchísimo juego por [rasgo o detalle concreto]! Te dejo por aquí la guía fotográfica para que veas las tomas base: [guía *Tus zapatos en cámara*](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html).  
+> «¡Ese par tiene muchísimo juego por [rasgo o detalle concreto]! Te dejo por aquí la guía fotográfica para que veas las posiciones: [guía *Tus zapatos en cámara*](https://christiangonper.github.io/elparzapatos/marca/activos/guia-fotografica-colaboradores.html).  
 > Cuando tengas un ratito libre, le sacas las fotos y me las subes por este [formulario de recepción](https://tally.so/r/Npj2bl). En el mismo envío puedes añadir hasta siete pares si te animas. No te preocupes si no quedan perfectas, la naturalidad forma parte de la publicación.»
 
 ### C. Follow-up si no hay envío (sin tono de encargo ni presión)
