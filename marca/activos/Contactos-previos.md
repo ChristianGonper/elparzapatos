@@ -27,7 +27,7 @@ Pautas, fórmulas y guiones de apoyo para el diálogo con las dueñas de los zap
 
 #### Si muestra curiosidad («¿En qué consiste exactamente?»)
 > «Cada par se convierte en una publicación en la web con fotos desde varios ángulos y un texto breve que explica los detalles que hacen único su diseño.  
-> Ni fotos de estudio ni salir tú en imagen: solo los zapatos con buena luz natural y el móvil. Si te apetece, mándame una foto rápida de los que tengas en mente y elegimos.»
+> Ni fotos de estudio ni salir tú en imagen: solo los zapatos con buena iluminación y el móvil. Si te apetece, mándame una foto rápida de los que tengas en mente y elegimos.»
 
 ---
 
@@ -37,7 +37,7 @@ Pautas, fórmulas y guiones de apoyo para el diálogo con las dueñas de los zap
 
 #### Respuesta si escribe tras ver la Story o publicación de una amiga
 > «¡Hola, [Nombre]! Qué alegría que me escribas. Te cuento súper rápido: en **El Par** nos dedicamos a mirar zapatos de cerca; vemos las líneas, las curvas del tacón y los detalles que hacen especial a cada diseño.  
-> Nos encanta publicar calzado de gente cercana. Para participar no hace falta que sean zapatos caros ni nuevos, solo que a ti te gusten o tengan una silueta o detalle que te llame la atención. Y no sales tú en ninguna foto, solo los zapatos con buena luz natural y el móvil. ¿Tienes algún par favorito que te gustaría ver publicado?»
+> Nos encanta publicar calzado de gente cercana. Para participar no hace falta que sean zapatos caros ni nuevos, solo que a ti te gusten o tengan una silueta o detalle que te llame la atención. Y no sales tú en ninguna foto, solo los zapatos con buena iluminación y el móvil. ¿Tienes algún par favorito que te gustaría ver publicado?»
 
 #### Mini-argumentario de dudas rápidas (para resolver de inmediato)
 - **«¿Tienen que ser zapatos caros o de marcas conocidas?»**  
@@ -69,7 +69,7 @@ Pautas, fórmulas y guiones de apoyo para el diálogo con las dueñas de los zap
 #### Respuesta cálida y resolutiva por DM
 > «¡Hola, [Nombre]! Muchísimas gracias por escribirnos y por seguir lo que hacemos.  
 > Sí, ¡por supuesto! El archivo de **El Par** se construye con zapatos que nos envía la gente: nos centramos en tacones, salones y bailarinas con formas interesantes o detalles que llamen la atención.  
-> El proceso es muy sencillo: le sacas unas fotos con el móvil a tu par favorito con buena luz natural y nosotras nos encargamos del texto y la maquetación.  
+> El proceso es muy sencillo: le sacas unas fotos con el móvil a tu par favorito con buena iluminación y nosotras nos encargamos del texto y la maquetación.
 > ¿Qué zapatos tienes en mente? Si quieres, pásame una foto rápida por aquí para verlos y elegimos.»
 
 ---
@@ -79,7 +79,7 @@ Pautas, fórmulas y guiones de apoyo para el diálogo con las dueñas de los zap
 *Para personas que entran por el sitio web, leen un estudio o navegan la portada y pulsan en `Comparte un par` hacia la página puente [como-colaborar.html](../../sitio/como-colaborar.html).*
 
 - Si la persona escribe al correo oficial ([`elparzapatos@proton.me`](mailto:elparzapatos@proton.me)) preguntando dudas sobre el formulario o si sus zapatos encajan:
-  > «Hola, [Nombre]. Gracias por acercarte a **El Par** a través de la web. Nos centramos en tacones, salones y bailarinas con formas interesantes o detalles singulares. No te preocupes por la perfección de las fotos: buena luz natural y un fondo liso son suficientes. Si dudas entre dos pares, puedes adjuntarnos fotos de ambos o responder a este correo y lo vemos contigo.»
+  > «Hola, [Nombre]. Gracias por acercarte a **El Par** a través de la web. Nos centramos en tacones, salones y bailarinas con formas interesantes o detalles singulares. No te preocupes por la perfección de las fotos: buena iluminación y un fondo liso son suficientes. Si dudas entre dos pares, puedes adjuntarnos fotos de ambos o responder a este correo y lo vemos contigo.»
 
 ---
 

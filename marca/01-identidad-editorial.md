@@ -23,7 +23,7 @@ La nomenclatura oficial, los lemas vigentes hacia el exterior, la biografía de 
    - **En redes y difusión:** Seleccionamos de 1 a 3 rasgos diferenciales para captar el interés sin abrumar.
 4. **Rigor visual y honestidad:** Solo afirmamos lo que la fotografía demuestra o lo que está documentado. Las piezas estructurales ocultas (como el cambrillón o contrafuertes) se mencionan de forma concisa únicamente cuando explican la razón de ser de una forma observable (ej. la curvatura del arco o el aplomo del tacón), sin extenderse en teorías que la imagen no enseña.
 5. **Claridad pedagógica:** Empleamos la terminología precisa del calzado (pala, garganta, enfranque, fuste) explicándola en contexto o vinculándola al glosario interactivo, haciéndola accesible a cualquier persona interesada en moda.
-6. **Fotografía honesta y natural:** Luz natural, fondos neutros y zapato completo. Las imágenes domésticas bien iluminadas son parte de la identidad documental de la publicación; no se persigue la artificialidad de un estudio publicitario.
+6. **Fotografía honesta y natural:** Buena iluminación, natural o artificial, fondo sencillo sin elementos que distraigan y zapato completo. Las imágenes domésticas bien iluminadas son parte de la identidad documental de la publicación; no se persigue la artificialidad de un estudio publicitario.
 7. **Respeto a la colaboradora:** La persona que aporta el par decide su grado de visibilidad (nombre, handle de Instagram o anonimato) y mantiene en todo momento el derecho a solicitar la retirada de las imágenes.
 
 ---

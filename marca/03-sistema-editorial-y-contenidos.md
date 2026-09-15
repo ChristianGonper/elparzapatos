@@ -51,12 +51,12 @@ Para evitar convertir el perfil en un catálogo frío o en una clase académica 
 
 ## 4. Estándar Fotográfico
 
-- **Luz:** Luz natural indirecta, sin sombras duras de flash ni sol abrasivo.
-- **Fondo y composición:** Entorno neutro y tranquilo (pared lisa, suelo despejado, madera, tela neutra). Se motiva que la colaboradora no solo gire el zapato sobre su eje, sino que ella misma se mueva ligeramente de posición respecto a la toma para aportar mayor realismo, frescura y ángulos espontáneos.
+- **Luz:** Iluminación suficiente, natural o artificial, que permita distinguir colores y detalles. Evitar reflejos o sombras que oculten el calzado; no exigir buscar luz natural ni equipo adicional.
+- **Fondo y composición:** Fondo sencillo sin elementos que distraigan del zapato, encuadre íntegro y un pequeño margen alrededor. La persona elige el lugar y cómo obtener cada ángulo; no se pide preparar una escena ni variar el fondo.
 
 ### Perspectivas base
 
-Seis tomas indispensables y detalles opcionales. Cada una enseña algo que las otras no cubren del todo:
+La guía propone seis vistas y detalles opcionales. Cada vista aporta información complementaria; la revisión del material y cualquier petición adicional se rigen por [el flujo de colaboración](04-flujo-de-colaboracion.md#fase-4-curaduría-chequeo-y-redacción):
 
 1. **Tres cuartos delantero** — La más útil como imagen principal. Enseña a la vez puntera, pala, abertura/escote, volumen y parte del lateral.
 2. **Perfil exterior** — Silueta general, tacón/cuña/plataforma y curva lateral.
