@@ -1026,6 +1026,23 @@
       }
     }
 
+    @media screen and (max-width: 768px) {
+      .cover-brand { flex-wrap: wrap; }
+      .form-btn-mock { min-height: 44px; }
+      .privacy-col a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        color: var(--cognac-dark);
+      }
+      .contact-sheet, .detail-image { aspect-ratio: auto !important; }
+      .contact-sheet img, .detail-image img { height: auto; object-fit: contain; }
+    }
+
+    .form-preview-header .form-btn-mock { margin-top: 1rem; min-height: 44px; }
+
     @media print {
       body {
         padding: 0 !important;
@@ -1054,6 +1071,7 @@
 </head>
 
 <body>
+  <!-- Rige marca/04-flujo-de-colaboracion.md (contrato de copy y retirada) y marca/03-sistema-editorial-y-contenidos.md (estándar fotográfico). -->
   <!-- ==========================================
        PÁGINA 1: PORTADA
        ========================================== -->
@@ -1087,17 +1105,17 @@
       <article class="principle">
         <div class="n">· 01</div>
         <h3>Iluminación</h3>
-        <p>Busca luz natural. El flash del móvil suele crear destellos y falsear los tonos.</p>
+        <p>Busca una buena iluminación que permita ver los colores y detalles. Evita los reflejos que oculten partes del zapato.</p>
       </article>
       <article class="principle">
         <div class="n">· 02</div>
         <h3>Fondo</h3>
-        <p>El suelo de madera, una alfombra lisa o una pared clara. Un fondo sencillo para que el zapato destaque.</p>
+        <p>Elige un fondo sencillo, sin objetos o estampados que distraigan del zapato.</p>
       </article>
       <article class="principle">
         <div class="n">· 03</div>
         <h3>Composición</h3>
-        <p>Encuadra el zapato entero, dejando un poco de aire alrededor sin cortar ninguna parte.</p>
+        <p>Encuadra el zapato entero y deja un pequeño margen alrededor.</p>
       </article>
     </div>
 
@@ -1112,8 +1130,7 @@
         </div>
         <div class="privacy-col">
           <strong>Retirada</strong>
-          <p>Si más adelante cambias de opinión, solo tienes que avisarnos por Instagram o por el canal habitual.
-            Retiraremos el par de la web y archivaremos las publicaciones de inmediato.</p>
+          <p>Escríbenos a <a href="mailto:elparzapatos@proton.me">elparzapatos@proton.me</a> o por nuestro canal habitual. Eliminaremos la publicación de la web y de nuestras redes en un máximo de 48 horas. Te preguntaremos si quieres borrar los originales y te confirmaremos la retirada.</p>
         </div>
       </div>
     </div>
@@ -1128,12 +1145,10 @@
     <header>
       <div>
         <p class="eyebrow">Las posiciones</p>
-        <h2 class="serif">Seis fotos para verlo entero</h2>
+        <h2 class="serif">Seis vistas del zapato</h2>
       </div>
       <div class="header-note">
-        Muévete alrededor del calzado en vez de girar solo el zapato: variar ligeramente el fondo le da más vida a la
-        foto.
-        Puedes fotografiar los dos zapatos juntos o solo uno si luce mejor.
+        Estas vistas nos ayudan a apreciar el zapato desde distintos ángulos. Puedes fotografiar los dos juntos o uno solo.
       </div>
     </header>
 
@@ -1242,9 +1257,9 @@
           <strong>2. Qué contarnos del par</strong>
           <p>Puedes acompañar las imágenes con:</p>
           <ul>
-            <li>Marca y modelo (si los sabes o conservas la caja).</li>
-            <li>Alguna anécdota, qué recuerdo te traen o qué es lo que más te gusta al ponértelos.</li>
-            <li>Cómo quieres que te acreditemos (nombre, cuenta de Instagram o anónimo).</li>
+            <li>Marca y modelo, si los sabes.</li>
+            <li>Alguna historia del par o qué es lo que más te gusta de él.</li>
+
           </ul>
         </div>
       </div>
@@ -1259,6 +1274,8 @@
       <h2 id="form-preview-title" class="serif">Compartir un par</h2>
       <p class="form-preview-intro">Primero te pedimos tu nombre y un correo de contacto. A partir de ahí añades cada
         par con sus fotos y, si te apetece, nos cuentas qué tienen de especial.</p>
+      <a class="form-btn-mock" href="https://tally.so/r/Npj2bl" target="_blank" rel="noopener"
+        aria-label="Abrir formulario en una pestaña nueva">Abrir formulario <span aria-hidden="true">↗</span></a>
     </div>
 
     <div class="form-preview-frame">
