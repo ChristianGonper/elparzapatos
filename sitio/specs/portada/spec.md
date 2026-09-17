@@ -39,6 +39,8 @@ La interfaz se adapta a la cantidad real de entregas catalogadas:
   - Subtítulo descriptivo en una sola línea en sans-serif neutra.
   - Enlace sobrio: fórmula fija `Ver estudio →`.
 - **Silencio editorial:** Se eliminan párrafos descriptivos secundarios para priorizar la presencia visual del objeto y el espacio negativo.
+- **Composición aprobada:** En escritorio, fotografía a la izquierda y bloque editorial a la derecha. En móvil, la fotografía aparece primero para que título, procedencia y descripción se lean inmediatamente asociados a ella.
+- **Inspección:** La fotografía abre la ampliación. En dispositivos con puntero, el marco cambia sutilmente de color y brillo al pasar el ratón; no se amplía ni desplaza la imagen. El mismo estado se ofrece mediante foco de teclado.
 
 ### 2.4. Cuadrícula de la Colección
 - **Tarjetas:** Delimitadas por filete sutil `Hairline Dust Border` y fondo `Specimen White` en el marco de la imagen.

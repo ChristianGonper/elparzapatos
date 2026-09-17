@@ -85,6 +85,13 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 - **Consecuencias:** Aumenta la continuidad de lectura sin perder el tratamiento de las fotografías como piezas enmarcadas.
 - **Spec que rige:** [sitio/DESIGN.md](DESIGN.md), [sitio/specs/portada/spec.md](specs/portada/spec.md) y [sitio/specs/monografia/spec.md](specs/monografia/spec.md).
 
+### ADR-11: Portada inaugural directa vs. introducción y catálogo repetido
+- **Contexto:** En el lanzamiento habrá una sola publicación. Un texto introductorio general y una tarjeta de colección con la misma pieza duplicarían información y alargarían innecesariamente la portada.
+- **Decisión:** Abrir directamente con una composición en dos columnas —fotografía a la izquierda y texto a la derecha— y pasar de la pieza destacada al cierre colaborativo. En móvil se muestra primero la imagen. La cuadrícula aparece únicamente desde la segunda publicación.
+- **Alternativas descartadas:** Hero tipográfico previo, fotografía apilada sobre el texto en escritorio y repetición de la única pieza como tarjeta de colección.
+- **Consecuencias:** La fotografía inaugura la experiencia y la portada inicial resulta más corta, inequívoca y editorial.
+- **Spec que rige:** [sitio/specs/portada/spec.md](specs/portada/spec.md).
+
 ---
 
 ## 3. Abierto (bloquea ahora)
