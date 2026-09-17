@@ -9,6 +9,12 @@ Trabajo por hacer, catálogo de intenciones futuras y operativa interna.
 
 ## 1. Ahora — Trabajo prioritario
 
+### Migración mantenible del sitio
+- [ ] Inventariar y aprobar los componentes visuales compartidos mediante el laboratorio temporal.
+- [ ] Crear la base Astro + TypeScript y las colecciones de contenido.
+- [ ] Migrar portada, monografía, Sobre El Par y Cómo colaborar conservando sus specs vivas.
+- [ ] Configurar despliegue en Cloudflare Pages y Web Analytics tras validar la compilación final.
+
 ### Primera Pieza Monográfica Real
 - [ ] Maquetar y publicar la primera monografía real en cuanto entre el material fotográfico de una colaboradora.
 
@@ -37,7 +43,7 @@ Deseos conceptuales y partes del sistema proyectadas para versiones posteriores.
 - **Para qué:** Ofrecer una experiencia de subida completamente fluida e integrada en la estética del sitio.
 - **Por qué te interesa:** *[A completar por Christian según criterio personal]*.
 - **Qué no es:** No sustituye el almacenamiento seguro en Drive ni el registro en Google Sheets.
-- **Spec:** Ninguna (Tally cubre la fase piloto actual).
+- **Spec:** Ninguna (Tally cubre la primera versión; el formulario propio se estudiará en una segunda etapa).
 
 ### 2.5. Fichas ampliadas del glosario
 - **Qué:** Páginas independientes dedicadas a cada concepto técnico o constructivo del calzado (`/glosario/[termino].html`).

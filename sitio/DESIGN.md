@@ -79,7 +79,7 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 
 ## 5. Layout Principles & Grid System
 
-- **Container Constraints:** Main layout constrained to max-width (`1280px` or `1360px` centered) with generous horizontal page padding.
+- **Container Constraints:** Main layout constrained to max-width (`1280px` or `1360px` centered) with sufficient horizontal page padding. The rhythm is editorial but moderately compact: section spacing must distinguish chapters without turning each block into a near-full-screen interval.
 - **Multi-Column Column Distributions (12-Column Flexible Grid):**
   - **Key Distinction (Web Column Ratios vs. Photographic Native Aspect Ratios):**
     - The editorial ratios `7:5`, `5:7`, and `6:6` define **grid column distributions** across the 12-column web layout (relative width of prose container vs. image container).
@@ -90,6 +90,7 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
     - `6:6` (6 text columns, 6 image columns): Symmetrical equilibrium between prose analysis and specimen image.
     - `Diptychs` (Two paired images sharing a single unified text block): Enables side-by-side comparative observation under one cohesive analytical narrative.
   - **Whitespace Integrity:** If a description concludes in three lines, the container does not force artificial filler text; whitespace breathes naturally.
+  - **Compactness Boundary:** Reduce repeated vertical gaps before reducing image scale or line height. Compactness must shorten the journey without collapsing the folio-like hierarchy.
   - **Marginal Foliation:** Subtle typographic numerals in the outer margin (`· 01`, `· 02`, `· 03`) orient reader progression without cluttering the photograph.
 
 ---

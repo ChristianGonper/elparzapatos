@@ -57,6 +57,34 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 - **Consecuencias:** Ofrece a cualquier visitante o colaboradora una explicación clara, completa y serena de un solo vistazo, evitando duplicar introducciones de principios.
 - **Spec que rige:** [sitio/specs/sobre-el-par/spec.md](specs/sobre-el-par/spec.md) y [sitio/ESPECIFICACION.md](ESPECIFICACION.md) §1.
 
+### ADR-07: Astro estático y edición local vs. CMS o aplicación cliente completa
+- **Contexto:** Los prototipos HTML duplican estructura y estilos, y cada nueva monografía debe poder publicarse sin mantener páginas completas a mano.
+- **Decisión:** Migrar el sitio a Astro con TypeScript, componentes compartidos y contenido versionado en Git. La edición se realiza localmente; únicamente los cambios aprobados llegan al despliegue desde `main`.
+- **Alternativas descartadas para la etapa inicial:** CMS visual y aplicación completa basada en React/Next con renderizado cliente generalizado.
+- **Consecuencias:** El sitio se genera estáticamente, mantiene poco JavaScript y permite reutilizar plantillas sin incorporar un panel de administración.
+- **Spec que rige:** [sitio/ESPECIFICACION.md](ESPECIFICACION.md).
+
+### ADR-08: Cloudflare Pages y activos WebP versionados vs. almacenamiento externo inicial
+- **Contexto:** La primera colección necesita una URL temporal reconocible, dominio propio posterior y entrega eficiente de fotografías públicas.
+- **Decisión:** Desplegar la primera versión en Cloudflare Pages. Las copias fotográficas aprobadas, saneadas y preparadas para publicación se guardan como WebP en `src/assets`; el material privado y de trabajo permanece en Drive. R2 queda reservado para cuando el volumen justifique separar los activos del repositorio.
+- **Alternativas descartadas para la etapa inicial:** Servir imágenes públicas directamente desde Drive o introducir desde el comienzo un almacén de objetos independiente.
+- **Consecuencias:** Código, contenido y activos públicos se despliegan juntos; los originales privados no entran en Git.
+- **Spec que rige:** [sitio/ESPECIFICACION.md](ESPECIFICACION.md) §3.
+
+### ADR-09: Analítica esencial de Cloudflare vs. seguimiento conductual exhaustivo
+- **Contexto:** Se necesita conocer audiencia, páginas consultadas, procedencia y rendimiento sin convertir el sitio en una superficie publicitaria.
+- **Decisión:** Activar Cloudflare Web Analytics para métricas agregadas esenciales y Core Web Vitals. No se implementa en v1 un sistema propio de eventos ni seguimiento exhaustivo de clics.
+- **Alternativas descartadas para la etapa inicial:** Google Analytics y herramientas de grabación de sesiones o perfilado individual.
+- **Consecuencias:** La evaluación inicial se concentra en visitas, páginas, referencias y rendimiento, con una carga técnica y de privacidad reducida.
+- **Spec que rige:** [sitio/ESPECIFICACION.md](ESPECIFICACION.md).
+
+### ADR-10: Ritmo editorial compacto y cabecera de flujo vs. navegación fija
+- **Contexto:** Los prototipos originales conservan la atmósfera editorial, pero exigen demasiado desplazamiento. La lectura de las monografías es continua y el pie repite las rutas esenciales.
+- **Decisión:** Mantener la dirección visual y las tres familias tipográficas ya documentadas, reducir moderadamente los espacios verticales y conservar marcos fotográficos discretos. La cabecera participa en el flujo normal: aparece al inicio y sale de la vista al desplazarse, sin posición fija o pegajosa.
+- **Alternativas descartadas:** Densidad excesivamente aireada y cabecera persistente durante toda la lectura.
+- **Consecuencias:** Aumenta la continuidad de lectura sin perder el tratamiento de las fotografías como piezas enmarcadas.
+- **Spec que rige:** [sitio/DESIGN.md](DESIGN.md), [sitio/specs/portada/spec.md](specs/portada/spec.md) y [sitio/specs/monografia/spec.md](specs/monografia/spec.md).
+
 ---
 
 ## 3. Abierto (bloquea ahora)

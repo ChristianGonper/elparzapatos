@@ -57,6 +57,9 @@ Estas reglas aplican a cualquier superficie, plantilla o componente maquetado:
 2. **Prohibición de silueteado artificial:** Queda estrictamente prohibido recortar los fondos, recortar sombras o aplicar silueteados automáticos mediante software de retoque o inteligencia artificial.
 3. **Silencio visual:** Prohibida la superposición de insignias, etiquetas numéricas visibles de inventario (`par * 0001`, `Lámina 03`) o llamadas comerciales flotantes sobre las fotografías.
 4. **Respeto a la proporción nativa:** Las fotografías se capturan y presentan en ratios nativos de cámara (predominantemente 3:4 vertical y 4:3 horizontal). Los ratios de columna (`7:5`, `5:7`, `6:6`) regulan la distribución de la retícula web.
+5. **Arquitectura de publicación:** El sitio se genera estáticamente con Astro y TypeScript desde contenido y activos públicos versionados en Git. La edición ocurre localmente y el despliegue aprobado sale de `main` hacia Cloudflare Pages.
+6. **Frontera fotográfica:** Drive conserva el material privado y de trabajo. El repositorio recibe únicamente WebP saneados, aprobados y preparados para publicación; Astro genera las variantes de entrega necesarias.
+7. **Analítica esencial:** Cloudflare Web Analytics mide tráfico agregado y rendimiento. La v1 no incorpora grabación de sesiones ni seguimiento conductual exhaustivo.
 
 ---
 
@@ -82,4 +85,3 @@ Cada superficie del sitio cuenta con su propia especificación viva, su plan de 
    - *En reposo:* se simplifican a un cierre técnico sobrio (enfoque aplicado, validación realizada y deuda técnica pendiente).
    - *Cambios posteriores:* un cambio menor actualiza directamente `spec.md`; un cambio amplio o refactor vuelve a desarrollar `plan.md` y `tasks.md` en esa misma carpeta, simplificándose de nuevo al concluir sin acumular tickets obsoletos.
 4. **Prevalencia canónica:** Rige `marca → spec de superficie → implementación`. Cuando una spec web amplía un criterio de Marca, Marca prevalece y la spec no puede rebajarlo ni contradecirlo.
-

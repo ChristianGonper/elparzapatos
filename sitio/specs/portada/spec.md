@@ -21,6 +21,7 @@ La portada es la antesala y el índice vivo de la colección monográfica de **E
   - `Cómo colaborar`: Acceso a la página puente [sitio/como-colaborar.html](../../como-colaborar.html).
   - Canal oficial de Instagram `@elparzapatos` accesible en pantallas medianas y grandes.
 - **Límites de navegación:** Se reserva el directorio de `Armarios` para una versión posterior del sitio cuando exista volumen representativo de colaboradoras recurrentes.
+- **Comportamiento al desplazarse:** La cabecera forma parte del flujo normal del documento. No permanece fija ni reaparece de forma automática; el pie repite las rutas esenciales al final de la lectura.
 
 ### 2.2. Arquitectura Adaptativa al Volumen
 La interfaz se adapta a la cantidad real de entregas catalogadas:
