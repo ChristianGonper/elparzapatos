@@ -12,4 +12,4 @@ Actualizado: 2026-09-17.
 - Ninguno ([sitio/DECISIONES.md](sitio/DECISIONES.md) § Abierto).
 
 ## Último hito
-- Aceptadas la arquitectura Astro + Cloudflare Pages, las imágenes WebP públicas versionadas, la analítica esencial y una dirección visual más compacta con cabecera no persistente.
+- Cerrado el relevo de arquitectura y revisión visual: decisiones consolidadas, laboratorio privado publicado y continuidad documentada en [sitio/RELEVO-MIGRACION-ASTRO.md](sitio/RELEVO-MIGRACION-ASTRO.md).
