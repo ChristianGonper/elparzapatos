@@ -80,7 +80,7 @@ Este documento recoge el **porqué** de las elecciones técnicas y de producto r
 
 ### ADR-10: Ritmo editorial compacto y cabecera de flujo vs. navegación fija
 - **Contexto:** Los prototipos originales conservan la atmósfera editorial, pero exigen demasiado desplazamiento. La lectura de las monografías es continua y el pie repite las rutas esenciales.
-- **Decisión:** Mantener la dirección visual y las tres familias tipográficas ya documentadas, reducir moderadamente los espacios verticales y conservar marcos fotográficos discretos. La cabecera participa en el flujo normal: aparece al inicio y sale de la vista al desplazarse, sin posición fija o pegajosa.
+- **Decisión:** Mantener la dirección visual y las tres familias tipográficas ya documentadas, adoptar como base el ritmo más compacto y conservar marcos fotográficos estrechos con contraste térmico discreto. Los títulos reducen antes su escala en móvil. La cabecera participa en el flujo normal: aparece al inicio y sale de la vista al desplazarse, sin posición fija o pegajosa.
 - **Alternativas descartadas:** Densidad excesivamente aireada y cabecera persistente durante toda la lectura.
 - **Consecuencias:** Aumenta la continuidad de lectura sin perder el tratamiento de las fotografías como piezas enmarcadas.
 - **Spec que rige:** [sitio/DESIGN.md](DESIGN.md), [sitio/specs/portada/spec.md](specs/portada/spec.md) y [sitio/specs/monografia/spec.md](specs/monografia/spec.md).

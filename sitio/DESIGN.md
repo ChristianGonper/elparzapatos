@@ -54,14 +54,15 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 ## 4. Transversal UI Patterns
 
 ### 4.1. Framed Specimen Mat
-- **Visual Pattern:** Pure `#FFFFFF` background enclosure delimited by a crisp 1px `#E8E3DC` hairline border, set upon the warmer `#FAF8F5` canvas.
+- **Visual Pattern:** Narrow warm mat around the pure `#FFFFFF` photographic field, delimited by a crisp 1px hairline. The slight temperature contrast makes white-background photographs legible as framed specimens without exaggerating the picture-frame effect.
 - **Image Stance:** Uncropped presentation using `object-contain` that preserves natural ground and shadow. Zero rounded corners (`rounded-none`).
+- **Frame Proportion:** Internal mat spacing remains deliberately slimmer than in the first static prototypes. If a source image contains excessive white margin, the publication crop is corrected locally before release rather than compensated through CSS.
 - **Surface Purity:** Zero overlaid corner badges, tags, or floating labels over the photography.
 
 ### 4.2. Contextual Popover Card
 - **Trigger Element:** Subtle dotted underline in Cognac Leather (`#9E6B55`).
 - **Floating Panel:** Detached surface on `#FAF8F5` with a crisp 1px `#E8E3DC` hairline border and soft lithographic shadow (`0 4px 12px rgba(28, 26, 24, 0.04)`).
-- **Typography:** Monospace versalitas for term header; sans-serif for definition. Closes gracefully on exit without modalizing the background.
+- **Typography:** Monospace versalitas for term header; sans-serif for definition. No close icon: the panel closes by clicking or tapping outside it, or with `Esc`, without modalizing the background.
 
 ### 4.3. Inset Tinted Note Panel
 - **Visual Pattern:** Quiet inset box rendered in soft Muted Linen Surface (`#F3EFEA`) with a 1px `#E8E3DC` border.
@@ -90,7 +91,7 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
     - `6:6` (6 text columns, 6 image columns): Symmetrical equilibrium between prose analysis and specimen image.
     - `Diptychs` (Two paired images sharing a single unified text block): Enables side-by-side comparative observation under one cohesive analytical narrative.
   - **Whitespace Integrity:** If a description concludes in three lines, the container does not force artificial filler text; whitespace breathes naturally.
-  - **Compactness Boundary:** Reduce repeated vertical gaps before reducing image scale or line height. Compactness must shorten the journey without collapsing the folio-like hierarchy.
+  - **Compactness Boundary:** The compact rhythm is the default. Reduce repeated vertical gaps before reducing image scale or body line height; mobile display headings step down earlier so they do not dominate the viewport. Compactness must shorten the journey without collapsing the folio-like hierarchy.
   - **Marginal Foliation:** Subtle typographic numerals in the outer margin (`· 01`, `· 02`, `· 03`) orient reader progression without cluttering the photograph.
 
 ---
