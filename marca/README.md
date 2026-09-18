@@ -19,6 +19,9 @@ Snapshot: [ESTADO](../ESTADO.md).
 | `guia-fotografica-assets/` | Imágenes de la guía |
 | [plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md) | Plantilla de trabajo para análisis de pares |
 | [Contactos-previos.md](activos/Contactos-previos.md) | Fórmulas de mensaje y seguimiento para el diálogo con colaboradoras |
+| [flyer-embajadora.html](activos/flyer-embajadora.html) | Flyer digital de invitación y captación para embajadoras |
+| [story-captacion.html](activos/story-captacion.html) | Story interactiva para captación en redes sociales |
+| `story-assets-natural/` | Recursos fotográficos y visuales para stories |
 | [formulario-colaboracion.html](activos/formulario-colaboracion.html) | Prototipo visual local del formulario |
 | [tally-formulario-colaboracion.md](activos/tally-formulario-colaboracion.md) | Fuente Markdown original importada en Tally |
 | [tally-recepcion.md](activos/tally-recepcion.md) | Manual técnico del buzón Tally (límites y carga a Sheets) |

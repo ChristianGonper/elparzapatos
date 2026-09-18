@@ -16,7 +16,7 @@ Manual operativo de producción de contenidos para web y redes sociales.
 
 Cada entrada documenta un único par bajo el principio rector: **observar todo, publicar solo lo esencial y demostrarlo visualmente**.
 
-La especificación completa de la interfaz vive de forma canónica en [sitio/ESPECIFICACION.md#2-especificación-de-la-entrada-monográfica](../sitio/ESPECIFICACION.md#2-especificación-de-la-entrada-monográfica).
+La especificación completa de la interfaz vive de forma canónica en [sitio/specs/monografia/spec.md](../sitio/specs/monografia/spec.md). Las decisiones globales del sitio se recogen en [sitio/ESPECIFICACION.md](../sitio/ESPECIFICACION.md).
 
 Para la plantilla ágil de redacción previa al maquetado, véase [marca/activos/plantilla-entrada-calzado.md](activos/plantilla-entrada-calzado.md).
 
