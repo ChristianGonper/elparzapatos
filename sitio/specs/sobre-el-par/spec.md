@@ -43,3 +43,28 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 ## Adaptación móvil
 
 Por debajo de 768 px, la marca y la navegación ocupan filas separadas. Los enlaces permanecen visibles, permiten salto de línea entre destinos y ofrecen al menos 44 px de altura táctil. El pie distribuye sus enlaces en varias líneas según el espacio disponible, sin desplazamiento horizontal.
+
+---
+
+## 4. Decisiones y Alternativas Descartadas
+
+- **ADR-SOB-01: Página unificada «Sobre El Par» vs. dos páginas independientes:**
+  - *Contexto:* Comunicación institucional del manifiesto editorial, criterios formales de selección y explicación de cómo se construye la colección a partir de fotos domésticas.
+  - *Decisión:* Unificar en una única página ([sitio/sobre-el-par.html](../../sobre-el-par.html)) la mirada al calzado y el método fotográfico de la comunidad, incorporándola como el tercer pilar visible en la navegación de cabecera y pie (`Colección`, `Sobre El Par` y `Cómo colaborar`).
+  - *Descarte:* Mantener dos páginas separadas (`sobre-el-par.html` y `como-se-construye.html`), lo cual fragmentaba el relato y generaba páginas excesivamente breves en v1.
+  - *Consecuencias:* Ofrece una explicación integral y serena de un solo vistazo, evitando duplicar introducciones de principios.
+
+---
+
+## 5. Alcance y Delimitación
+
+### Dentro de v1
+- Página única institucional que unifica el manifiesto editorial (la mirada al calzado y criterios formales de selección) con el método fotográfico de la comunidad.
+- Integración en la navegación pública principal de cabecera y pie.
+- Espacio de contacto para sugerencias y acceso directo hacia el flujo de colaboración.
+
+### Fuera de v1 (Pospuesto a Versiones Posteriores)
+- Ninguna funcionalidad adicional proyectada en esta superficie para v1.
+
+
+

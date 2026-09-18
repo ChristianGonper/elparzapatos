@@ -114,3 +114,39 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 - `<title>`: `El Par — [Título de Observación] | [Familia]` (ej. *El Par — «Dos extremos, una silueta» | Salón clásico*).
 - `<meta name="description">`: Resumen de 1–2 frases indicando identificación anatómica y procedencia.
 - Metadatos OpenGraph y Twitter Cards (`summary_large_image`) con la imagen Hero en tres cuartos exterior.
+
+---
+
+## 3. Decisiones y Alternativas Descartadas
+
+- **ADR-MON-01: Publicación v1 con fotografía limpia vs. cotas conmutables iniciales:**
+  - *Contexto:* Demostración de rigor técnico en el lanzamiento y las primeras publicaciones.
+  - *Decisión:* Publicar la v1 exclusivamente con fotografía limpia. El sistema de cotas vectoriales conmutables queda diseñado pero pospuesto para futuras versiones.
+  - *Descarte:* Forzar el lanzamiento de la primera pieza con capa SVG de cotas activa obligatoria.
+  - *Consecuencias:* Permite publicar de inmediato sin introducir sobrecarga de interactividad en el primer hito.
+- **ADR-MON-02: Retícula fluida modular vs. ratio fijo 7:5:**
+  - *Contexto:* Maquetación de los bloques analíticos de la monografía.
+  - *Decisión:* Alternar ratios de columnas (`7:5`, `5:7`, `6:6` y dípticos) según el tipo de fotografía y la densidad del apunte.
+  - *Descarte:* Imponer una cuadrícula fija 7:5 inmutable en toda la monografía.
+  - *Consecuencias:* Elimina la necesidad de escribir párrafos de relleno para igualar alturas y otorga protagonismo a tomas verticales o detalles.
+- **Lámina técnica de detalle integrado (despiece mecánico):** Descartada definitivamente por generar sobrecarga visual y ruido estético; convertía el folio editorial en un manual de taller con etiquetas fijas ("placa técnica", lupas flotantes) que ensuciaban la fotografía.
+- **Tarjeta biográfica independiente de la dueña:** Descartada definitivamente porque desviaba el protagonismo del zapato hacia la persona, asemejando la publicación a un blog social. El calzado se sostiene como objeto de estudio; la aportación de la dueña se reconoce mediante la procedencia («Armario de...») y citas textuales orgánicas.
+
+---
+
+## 4. Alcance y Delimitación
+
+### Dentro de v1
+- Monografías completas con mínimo 6 perspectivas canónicas reales por modelo.
+- Inspección fotográfica limpia a pantalla completa.
+- Glosario contextual con popovers y diccionario canónico inicial de términos.
+- Cédula técnica continua «Datos del par».
+- Navegación secuencial al pie entre entregas publicadas.
+
+### Fuera de v1 (Pospuesto a Versiones Posteriores)
+- Sistema de capas y cotas vectoriales conmutables (ADR-MON-01).
+- Módulo de piezas recomendadas o sugeridas al pie (requiere catálogo con volumen).
+- Fichas monográficas dedicadas y ampliadas para cada término del glosario.
+
+
+

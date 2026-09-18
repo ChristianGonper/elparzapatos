@@ -63,3 +63,29 @@ La interfaz se adapta a la cantidad real de entregas catalogadas:
 
 - **Fórmulas fijas de interfaz:** `Colección`, `Pieza Destacada`, `Armario de [Nombre]`, `Ver estudio →`, `Comparte un par`, `Cómo colaborar →`.
 - **Canales oficiales:** [marca/02-nombre-y-presentacion.md](../../../marca/02-nombre-y-presentacion.md).
+
+---
+
+## 4. Decisiones y Alternativas Descartadas
+
+- **ADR-POR-01: Portada inaugural directa vs. introducción y catálogo repetido:**
+  - *Contexto:* En el lanzamiento habrá una sola publicación. Un texto introductorio general y una tarjeta de colección con la misma pieza duplicarían información y alargarían innecesariamente la portada.
+  - *Decisión:* Abrir directamente con una composición en dos columnas —fotografía a la izquierda y texto a la derecha— y pasar de la pieza destacada al cierre colaborativo. En móvil se muestra primero la imagen. La cuadrícula de colección aparece únicamente desde la segunda publicación.
+  - *Descarte:* Hero tipográfico previo, fotografía apilada sobre el texto en escritorio y repetición de la única pieza como tarjeta de colección.
+- **Barra o botón comercial en la cabecera («Aporta tu par»):** Descartado definitivamente por percibirse como un reclamo agresivo de captación. Rompe la serenidad editorial; el acceso a colaborar se mantiene sereno al pie de página y en la navegación esencial.
+
+---
+
+## 5. Alcance y Delimitación
+
+### Dentro de v1
+- Portada con pieza destacada dominante adaptada al volumen del catálogo (apertura directa con la primera monografía, cuadrícula completa a partir de múltiples entregas).
+- Enlace en tarjeta completa hacia cada monografía.
+- Cierre colaborativo inferior con llamada sobria a la participación.
+
+### Fuera de v1 (Pospuesto a Versiones Posteriores)
+- Directorio de armarios particulares (`armarios.html`).
+- Filtros taxonómicos por tipología de calzado (salones, bailarinas, merceditas; requieren volumen suficiente).
+
+
+

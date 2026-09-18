@@ -50,3 +50,28 @@ Para asegurar que los envíos contengan las perspectivas necesarias y facilitar 
 Por debajo de 768 px, la marca y la navegación ocupan filas separadas. Los enlaces permanecen visibles, permiten salto de línea entre destinos y ofrecen al menos 44 px de altura táctil. El pie distribuye sus enlaces en varias líneas según el espacio disponible, sin desplazamiento horizontal.
 
 Los párrafos de explicación mantienen un mínimo de 15 px en móvil; los canales de contacto pueden repartirse en varias líneas.
+
+---
+
+## 4. Decisiones y Alternativas Descartadas
+
+- **ADR-COL-01: Formulario externo Tally provisional vs. formulario web propio:**
+  - *Contexto:* Mecanismo de recepción de fotografías y datos de colaboradoras para la fase inicial.
+  - *Decisión:* Emplear un formulario Tally conectado mediante Apps Script v3 a Google Sheets con clave unificada de correo, enlazado serenamente al final de la guía fotográfica.
+  - *Descarte:* Desarrollar un backend o formulario propio integrado en la web antes de validar el volumen de participación.
+  - *Consecuencias:* Permite operar de forma inmediata y segura sin añadir complejidad de servidor en v1. Rige conjuntamente con [marca/04-flujo-de-colaboracion.md](../../../marca/04-flujo-de-colaboracion.md).
+
+---
+
+## 5. Alcance y Delimitación
+
+### Dentro de v1
+- Página puente con resolución de dudas, compromisos éticos y presentación del proyecto.
+- Embudo guiado hacia la guía fotográfica interactiva.
+- Recepción provisional mediante formulario Tally enlazado y conectado a Google Sheets.
+
+### Fuera de v1 (Pospuesto a Versiones Posteriores)
+- Formulario web nativo con subida directa de archivos integrado en la página (ADR-COL-01).
+
+
+

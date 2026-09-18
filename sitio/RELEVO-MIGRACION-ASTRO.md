@@ -4,7 +4,7 @@
 **Ámbito:** decisiones y trabajo realizados durante la preparación de la migración del sitio de El Par.  
 **Estado del repositorio antes de este relevo:** `main` en `2db622b9830759c97d80cec5d3dfe27cb2905a1a`.
 
-> Este archivo es una síntesis de continuidad, no una quinta fuente de verdad. Si discrepa con una fuente gobernante, prevalecen [AGENTS.md](../AGENTS.md), [DECISIONES.md](DECISIONES.md), [DESIGN.md](DESIGN.md), [ESPECIFICACION.md](ESPECIFICACION.md), las specs de superficie y [TAREAS.md](../TAREAS.md).
+> Este archivo es una síntesis de continuidad, no una quinta fuente de verdad. Si discrepa con una fuente gobernante, prevalecen [AGENTS.md](../AGENTS.md), [DESIGN.md](DESIGN.md), [ESPECIFICACION.md](ESPECIFICACION.md), las specs de superficie y [TAREAS.md](../TAREAS.md).
 
 ## 1. Objetivo del trabajo
 
@@ -21,7 +21,7 @@ Christian editará el proyecto localmente. La web desplegada no tendrá un panel
 - **Edición:** siempre local. `main` representa el estado aprobado que puede desplegarse.
 - **Formulario:** Tally continúa en la primera versión. Un formulario propio queda para una segunda etapa y no debe incorporarse ahora.
 
-La decisión y su justificación están consolidadas en [DECISIONES.md](DECISIONES.md), ADR-07 a ADR-09.
+La decisión y su justificación están consolidadas en [ESPECIFICACION.md](ESPECIFICACION.md) §3 (ADR-GLO-03 a ADR-GLO-05).
 
 ## 3. Despliegue previsto
 
@@ -102,7 +102,7 @@ El efecto de marco está implementado en la versión actual del laboratorio. Deb
 - La cuadrícula de colección aparece desde la segunda publicación y no duplica la pieza destacada.
 - El copy introductorio que no aporta información al visitante debe eliminarse.
 
-La decisión está registrada en [DECISIONES.md](DECISIONES.md), ADR-11, y en [specs/portada/spec.md](specs/portada/spec.md).
+La decisión está registrada en [specs/portada/spec.md](specs/portada/spec.md) §4 (ADR-POR-01).
 
 ## 9. Qué se ha implementado
 

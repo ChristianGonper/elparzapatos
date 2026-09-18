@@ -1,8 +1,8 @@
-# Especificación Web: Marco General e Índice de Superficies
+# Especificación Global del Sitio: Marco General y Decisiones Transversales
 
-Este documento define el marco de arquitectura general, las reglas transversales y el índice de especificaciones vivas para el sitio web de **El Par — Zapatos en detalle**.
+Este documento define el marco de arquitectura general, las reglas transversales, las decisiones arquitectónicas globales y el índice de especificaciones vivas para el sitio web de **El Par — Zapatos en detalle**.
 
-Une los principios de identidad editorial de [marca](../marca/README.md) con el sistema visual de [sitio](DESIGN.md).
+Conecta los principios de identidad editorial de [marca](../marca/README.md) con el sistema visual de [DESIGN.md](DESIGN.md).
 
 ---
 
@@ -26,40 +26,63 @@ sitio/
 
 ---
 
-## 2. Alcance v1 y Delimitación de Versión
+## 2. Alcance Global del Sitio (v1)
 
-### Dentro de v1
-- Portada adaptable al volumen de la colección (foco en pieza destacada inaugural).
-- Monografías completas con mínimo 6 fotografías reales por modelo.
-- Inspección fotográfica a pantalla completa.
-- Glosario contextual con popovers y diccionario canónico de términos iniciales.
-- Ficha continua «Datos del par».
-- Navegación secuencial al pie entre entregas publicadas.
-- Página institucional «Sobre El Par» con manifiesto editorial, criterios de selección y método de la colección.
-- Página puente «Cómo colaborar» con resolución de dudas y embudo guiado.
-- Formulario de recepción provisional mediante enlace externo a Tally.
+### Dentro del Sistema v1
+- Arquitectura de publicación estática en Astro con TypeScript y edición exclusivamente local (ADR-GLO-03).
+- Despliegue estático automatizado en Cloudflare Pages desde la rama `main` (ADR-GLO-04).
+- Tratamiento fotográfico canónico e íntegro sin silueteado en todas las superficies (ADR-GLO-01).
+- Navegación pública esencial y operativa, sin enlaces a páginas o secciones en construcción (ADR-GLO-02).
+- Analítica web agregada y respetuosa con la privacidad mediante Cloudflare Web Analytics (ADR-GLO-05).
 
-### Fuera de v1 (Pospuesto a Versiones Posteriores)
-- Sistema de capas con cotas o anotaciones vectoriales sobre la foto (la v1 publica fotografía limpia).
-- Módulo de piezas recomendadas o sugeridas al pie (requiere catálogo con volumen).
-- Directorio y vistas individuales por armario particular.
-- Formulario de subida propio integrado en la web.
-- Fichas ampliadas dedicadas para cada término del glosario.
-- Canal público de Instagram.
+### Fuera del Sistema v1 (Pospuesto a Fases Posteriores)
+- Panel de administración o CMS en servidor (el contenido se versiona localmente en Git).
+- Almacenamiento externo desacoplado (Cloudflare R2 se evaluará cuando el volumen de activos lo exija).
+- Redes sociales activas o canales integrados con widgets dinámicos en la web.
+- Sistemas de analítica conductual invasiva o herramientas de registro de sesiones.
+
 
 ---
 
-## 3. Reglas Transversales del Sitio
+## 3. Reglas Transversales y Decisiones Arquitectónicas Globales
 
-Estas reglas aplican a cualquier superficie, plantilla o componente maquetado:
+Estas reglas y decisiones aplican a cualquier superficie, plantilla o componente del sitio:
 
-1. **Tratamiento fotográfico íntegro:** Las imágenes se exhiben íntegras sin recortes ni reencuadres artificiales en marcos con fondo blanco neutro. Se preserva siempre la silueta completa y el suelo con su sombra natural de apoyo.
-2. **Prohibición de silueteado artificial:** Queda estrictamente prohibido recortar los fondos, recortar sombras o aplicar silueteados automáticos mediante software de retoque o inteligencia artificial.
-3. **Silencio visual:** Prohibida la superposición de insignias, etiquetas numéricas visibles de inventario (`par * 0001`, `Lámina 03`) o llamadas comerciales flotantes sobre las fotografías.
-4. **Respeto a la proporción nativa:** Las fotografías se capturan y presentan en ratios nativos de cámara (predominantemente 3:4 vertical y 4:3 horizontal). Los ratios de columna (`7:5`, `5:7`, `6:6`) regulan la distribución de la retícula web.
-5. **Arquitectura de publicación:** El sitio se genera estáticamente con Astro y TypeScript desde contenido y activos públicos versionados en Git. La edición ocurre localmente y el despliegue aprobado sale de `main` hacia Cloudflare Pages.
-6. **Frontera fotográfica:** Drive conserva el material privado y de trabajo. El repositorio recibe únicamente WebP saneados, aprobados y preparados para publicación; Astro genera las variantes de entrega necesarias.
-7. **Analítica esencial:** Cloudflare Web Analytics mide tráfico agregado y rendimiento. La v1 no incorpora grabación de sesiones ni seguimiento conductual exhaustivo.
+### 3.1. Tratamiento fotográfico íntegro vs. silueteado artificial (ADR-GLO-01)
+- **Decisión:** Encuadre íntegro sin recortes ni reencuadres artificiales en marcos con fondo blanco neutro, preservando la silueta completa y el suelo con su sombra natural de apoyo.
+- **Descarte definitivo:** Silueteado artificial en software de retoque o recorte por inteligencia artificial.
+- **Consecuencias:** Exige disciplina de luz y fondo neutro en las fotos originales; asegura autenticidad estética y serenidad litográfica.
+
+### 3.2. Navegación esencial activa vs. enlaces a secciones vacías (ADR-GLO-02)
+- **Decisión:** Limitar la navegación pública en cabecera y pie a páginas terminadas y plenamente operativas.
+- **Descarte definitivo:** Incluir accesos a secciones en construcción o enlaces a destinos que aún no están listos.
+- **Consecuencias:** Garantiza un sitio sobrio, completamente navegable y sin promesas incumplidas.
+
+### 3.3. Arquitectura de publicación estática con Astro y TypeScript (ADR-GLO-03)
+- **Decisión:** Migrar el sitio a Astro con TypeScript, componentes compartidos y contenido versionado en Git. La edición se realiza siempre localmente; únicamente los cambios revisados y aprobados llegan al despliegue desde `main`.
+- **Descarte definitivo:** CMS visual con panel de administración o aplicación completa SPA (React/Next) con renderizado cliente generalizado.
+- **Consecuencias:** Generación puramente estática, mínima presencia de JavaScript (limitada a interacciones como ampliación de imagen o glosario) y código fácilmente versionable sin base de datos en servidor.
+
+### 3.4. Despliegue en Cloudflare Pages y pipeline de activos WebP (ADR-GLO-04)
+- **Decisión:** Desplegar en Cloudflare Pages. Las fotografías aprobadas, saneadas y preparadas para publicación se versionan como WebP bajo `src/assets/`; el material privado y de trabajo permanece en Drive. Cloudflare R2 queda reservado para cuando el volumen justifique separar los activos del repositorio.
+- **Descarte definitivo:** Servir imágenes públicas directamente desde Drive o introducir un almacén de objetos independiente desde la fase inicial.
+- **Consecuencias:** Despliegue unificado de código y activos públicos; los originales privados quedan fuera de Git.
+
+### 3.5. Analítica esencial y privacidad (ADR-GLO-05)
+- **Decisión:** Emplear Cloudflare Web Analytics para métricas agregadas esenciales (páginas vistas, procedencia y Core Web Vitals) sin requerir banners de cookies ni almacenar datos personales.
+- **Descarte definitivo:** Google Analytics, herramientas de grabación de sesiones o perfilado conductual individual.
+- **Consecuencias:** Información suficiente de tráfico y rendimiento con carga técnica mínima y respeto estricto a la privacidad.
+
+### 3.6. Ritmo editorial compacto y cabecera en el flujo (ADR-GLO-06)
+- **Decisión:** Ritmo editorial más compacto evitando desplazamientos verticales innecesarios, con marcos fotográficos estrechos y contraste térmico discreto. La cabecera forma parte del flujo normal: aparece arriba y sale de la vista al desplazarse; el pie repite las rutas esenciales.
+- **Descarte definitivo:** Densidad excesivamente aireada y cabecera fija/pegajosa (*sticky*) durante toda la lectura.
+- **Consecuencias:** Mayor fluidez de lectura sin perder el carácter de pliego editorial.
+
+
+### 3.7. Silencio visual y descartes transversales adicionales
+- **Prohibición de numeración de catálogo visible:** Queda estrictamente prohibido superponer etiquetas de inventario (`par * 0001`, `Lámina 03`) sobre las imágenes o maquetas.
+- **Sin capitulares sistemáticas:** Se descartan capitulares (*drop caps*) mecánicas por recargar la lectura y competir con la tipografía Newsreader serif.
+- **Proporción nativa de cámara:** Fotografías capturadas y presentadas en ratios nativos (predominantemente 3:4 vertical y 4:3 horizontal). Los ratios de columna (`7:5`, `5:7`, `6:6`) regulan la retícula web.
 
 ---
 
@@ -74,14 +97,3 @@ Cada superficie del sitio cuenta con su propia especificación viva, su plan de 
 | **Sobre El Par** | [sitio/sobre-el-par.html](sobre-el-par.html) | [sitio/specs/sobre-el-par/spec.md](specs/sobre-el-par/spec.md) · [Plan](specs/sobre-el-par/plan.md) · [Tareas](specs/sobre-el-par/tasks.md) |
 | **Cómo colaborar** | [sitio/como-colaborar.html](como-colaborar.html) | [sitio/specs/como-colaborar/spec.md](specs/como-colaborar/spec.md) · [Plan](specs/como-colaborar/plan.md) · [Tareas](specs/como-colaborar/tasks.md) |
 
----
-
-## 5. Dinámica de Trabajo con las Especificaciones
-
-1. **La spec viva gobierna la superficie:** Cada parte grande del sitio (`portada`, `monografia`, `como-colaborar`) cuenta con su archivo `spec.md`, que define estructura, conducta, fórmulas nombradas y contrato funcional.
-2. **Copy sin duplicar:** La spec viva no almacena el texto descriptivo público literal ni las respuestas redactadas, cuyo hogar exclusivo es el archivo HTML correspondiente. La spec fija el contrato: función del bloque, tono, fórmulas canónicas y cobertura obligatoria de temas.
-3. **Archivos de trabajo permanentes (`plan.md` y `tasks.md`):**
-   - *Durante build activo:* `plan.md` desglosa el enfoque técnico y `tasks.md` contiene la lista secuenciada de tareas con criterio observable (`Hecho cuando`).
-   - *En reposo:* se simplifican a un cierre técnico sobrio (enfoque aplicado, validación realizada y deuda técnica pendiente).
-   - *Cambios posteriores:* un cambio menor actualiza directamente `spec.md`; un cambio amplio o refactor vuelve a desarrollar `plan.md` y `tasks.md` en esa misma carpeta, simplificándose de nuevo al concluir sin acumular tickets obsoletos.
-4. **Prevalencia canónica:** Rige `marca → spec de superficie → implementación`. Cuando una spec web amplía un criterio de Marca, Marca prevalece y la spec no puede rebajarlo ni contradecirlo.
