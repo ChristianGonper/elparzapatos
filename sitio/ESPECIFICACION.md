@@ -92,6 +92,7 @@ Cada superficie del sitio cuenta con su propia especificación viva, su plan de 
 
 | Superficie | Archivos que rige | Documentación gobernante |
 | --- | --- | --- |
+| **Plataforma Astro** | Todo `sitio/` (migración integral) | [sitio/specs/migracion-astro/spec.md](specs/migracion-astro/spec.md) |
 | **Portada** | [sitio/index.html](index.html) | [sitio/specs/portada/spec.md](specs/portada/spec.md) · [Plan](specs/portada/plan.md) · [Tareas](specs/portada/tasks.md) |
 | **Monografía** | [sitio/entradas/*.html](entradas/) | [sitio/specs/monografia/spec.md](specs/monografia/spec.md) · [Plan](specs/monografia/plan.md) · [Tareas](specs/monografia/tasks.md) |
 | **Sobre El Par** | [sitio/sobre-el-par.html](sobre-el-par.html) | [sitio/specs/sobre-el-par/spec.md](specs/sobre-el-par/spec.md) · [Plan](specs/sobre-el-par/plan.md) · [Tareas](specs/sobre-el-par/tasks.md) |

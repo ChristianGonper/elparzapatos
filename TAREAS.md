@@ -11,8 +11,9 @@ Trabajo por hacer, catálogo de intenciones futuras y operativa interna.
 
 ### Migración del sitio a Astro
 - [x] Validar y cerrar las decisiones de diseño y estructura de la monografía en mock comparativo ([sitio/mock-comparativas-visuales.html](sitio/mock-comparativas-visuales.html)).
+- [x] Redactar la tríada completa de migración a Astro: especificación viva ([sitio/specs/migracion-astro/spec.md](sitio/specs/migracion-astro/spec.md)), plan técnico ([sitio/specs/migracion-astro/plan.md](sitio/specs/migracion-astro/plan.md)) y tareas ([sitio/specs/migracion-astro/tasks.md](sitio/specs/migracion-astro/tasks.md)).
 - [ ] Crear la estructura inicial del proyecto Astro en `sitio/` y configurar la biblioteca base de componentes.
-- [ ] Migrar portada y monografía clásica validando en móvil y escritorio.
+- [ ] Migrar las cuatro superficies v1 (Portada, Monografía, Sobre El Par, Cómo colaborar) y validar despliegue en Cloudflare Pages.
 
 ### Primera Pieza Monográfica Real
 - [ ] Recibir y seleccionar el material fotográfico de colaboradoras para maquetar la primera monografía real.
