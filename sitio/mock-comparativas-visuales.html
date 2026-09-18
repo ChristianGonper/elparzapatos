@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>El Par — Comparativas Visuales de Diseño de la Monografía</title>
+  
+  <!-- Google Fonts: Newsreader (Display Serif), Plus Jakarta Sans (Sans), JetBrains Mono (Monospace) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAF8F5',
+            'paper-muted': '#F3EFEA',
+            ink: '#1C1A18',
+            graphite: '#6B6661',
+            cognac: '#9E6B55',
+            'cognac-dark': '#7A4D38',
+            hairline: '#E8E3DC',
+            specimen: '#FFFFFF',
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Invariantes de estilo según DESIGN.md */
+    * {
+      border-radius: 0; /* Aristas vivas por defecto para el sistema editorial */
+    }
+    body {
+      background-color: #FAF8F5;
+      color: #1C1A18;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection {
+      background-color: #F3EFEA;
+      color: #1C1A18;
+    }
+
+    /* Marco fotográfico de espécimen e inspección (Lámina editorial con filete interior suavemente redondeado) */
+    .specimen-frame {
+      position: relative;
+      background-color: #FFFFFF;
+      border: 1px solid #E8E3DC;
+      border-radius: 6px !important;
+      transition: border-color 0.25s ease, box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+      outline: none;
+    }
+    .specimen-frame:hover,
+    .specimen-frame:focus-within,
+    .specimen-frame:focus {
+      border-color: #9E6B55;
+      box-shadow: inset 0 0 0 8px #FAF8F5;
+    }
+    /* Filete interior troquelado en hover/focus con acabado suavemente redondeado (4px) */
+    .specimen-frame::after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      right: 7px;
+      bottom: 7px;
+      border: 1px solid transparent;
+      border-radius: 4px !important;
+      pointer-events: none;
+      transition: border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+    }
+    .specimen-frame:hover::after,
+    .specimen-frame:focus-within::after,
+    .specimen-frame:focus::after {
+      border-color: #9E6B55;
+    }
+    .specimen-frame img {
+      object-fit: contain;
+      transform: none !important;
+      transition: none !important;
+    }
+    /* Ventanas fotográficas interiores con esquinas suaves de revista */
+    .specimen-frame .overflow-hidden {
+      border-radius: 4px !important;
+    }
+
+    /* Popovers anatómicos contextuales */
+    .popover-term {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-decoration-color: #9E6B55;
+      text-underline-offset: 4px;
+      cursor: pointer;
+      position: relative;
+      font-weight: 500;
+      color: #1C1A18;
+      transition: color 0.15s ease;
+    }
+    .popover-term:hover {
+      color: #9E6B55;
+    }
+    .popover-card {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 280px;
+      padding: 14px 16px;
+      background-color: #FAF8F5;
+      border: 1px solid #E8E3DC;
+      box-shadow: 0 4px 12px rgba(28, 26, 24, 0.05);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+      z-index: 50;
+      text-align: left;
+    }
+    .popover-card.is-visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(-2px);
+    }
+    .popover-card::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 5px;
+      border-style: solid;
+      border-color: #FAF8F5 transparent transparent transparent;
+    }
+
+    /* Pestañas de alternancia interactiva */
+    .btn-toggle-active {
+      background-color: #1C1A18 !important;
+      color: #FAF8F5 !important;
+      border-color: #1C1A18 !important;
+    }
+    .btn-toggle-idle {
+      background-color: #FAF8F5;
+      color: #6B6661;
+      border-color: #E8E3DC;
+    }
+    .btn-toggle-idle:hover {
+      color: #1C1A18;
+      border-color: #9E6B55;
+    }
+
+    /* Resaltado visual en demostración de citas testimoniales */
+    .quote-highlight {
+      background-color: rgba(158, 107, 85, 0.04);
+      outline: 1px dashed #9E6B55;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col font-sans selection:bg-paper-muted selection:text-ink">
+
+  <!-- ================================================================= -->
+  <!-- BARRA DE CONTROL Y NAVEGACIÓN DE COMPARATIVAS                     -->
+  <!-- ================================================================= -->
+  <header class="w-full border-b border-hairline bg-paper/95 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-8 py-3 flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+      
+      <!-- Identidad del Banco de Pruebas -->
+      <div class="flex items-center gap-3">
+        <span class="font-serif text-xl tracking-tight leading-none text-ink">
+          El Par
+        </span>
+        <span class="text-hairline font-mono text-xs">|</span>
+        <span class="font-mono text-xs uppercase tracking-wider text-graphite">
+          Mesa de Decisiones Visuales · Monografía
+        </span>
+        <span class="hidden sm:inline-block bg-paper-muted px-2 py-0.5 border border-hairline font-mono text-[10px] text-cognac uppercase tracking-wider">
+          Prototipo Interactivo
+        </span>
+      </div>
+
+      <!-- Navegación directa por comparativas -->
+      <nav class="flex flex-wrap items-center gap-2 text-xs font-mono">
+        <a href="#comparativa-1" class="px-2.5 py-1.5 border border-hairline bg-paper hover:border-cognac text-graphite hover:text-ink transition-colors uppercase tracking-wider flex items-center gap-1.5">
+          <span class="text-cognac font-semibold">01.</span> Abstract de Apertura
+        </a>
+        <a href="#comparativa-2" class="px-2.5 py-1.5 border border-hairline bg-paper hover:border-cognac text-graphite hover:text-ink transition-colors uppercase tracking-wider flex items-center gap-1.5">
+          <span class="text-cognac font-semibold">02.</span> Ritmo Modular & Inspección
+        </a>
+        <a href="#comparativa-3" class="px-2.5 py-1.5 border border-hairline bg-paper hover:border-cognac text-graphite hover:text-ink transition-colors uppercase tracking-wider flex items-center gap-1.5">
+          <span class="text-cognac font-semibold">03.</span> Cédula «Datos del Par»
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- ================================================================= -->
+  <!-- INTRODUCCIÓN Y CONTEXTO EDITORIAL                                 -->
+  <!-- ================================================================= -->
+  <section class="border-b border-hairline bg-paper-muted/50 py-10">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div class="max-w-4xl">
+        <div class="flex items-center gap-2 mb-3 font-mono text-[11px] uppercase tracking-[0.16em] text-cognac">
+          <span>Banco de Verificación en Entorno Local</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-4xl text-ink font-normal tracking-tight mb-4">
+          Comparativa Visual de Decisiones Pendientes de la Monografía
+        </h1>
+        <p class="font-sans text-base text-graphite leading-relaxed mb-4">
+          Este pliego reúne en una única superficie navegable las opciones formales en evaluación para la especificación canónica de la Monografía (<code class="font-mono text-xs bg-paper px-1.5 py-0.5 border border-hairline text-ink">sitio/specs/monografia/spec.md</code>). Cada variante está maquetada con las fotografías WebP reales del <em>Salón de aguja</em> (<code class="font-mono text-xs bg-paper px-1.5 py-0.5 border border-hairline text-ink">assets/salon-aguja/</code>) y aplica con rigor las directrices de <code class="font-mono text-xs bg-paper px-1.5 py-0.5 border border-hairline text-ink">sitio/DESIGN.md</code>.
+        </p>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 pt-3 border-t border-hairline font-mono text-xs text-graphite">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 bg-paper border border-hairline inline-block"></span> Base: #FAF8F5
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 bg-paper-muted border border-hairline inline-block"></span> Muted: #F3EFEA
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 bg-cognac inline-block"></span> Accent: #9E6B55
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 bg-ink inline-block"></span> Ink: #1C1A18
+          </span>
+          <span class="text-cognac">Aristas vivas (rounded-none) · Sin sombras difusas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="flex-grow space-y-24 py-16">
+
+    <!-- ================================================================= -->
+    <!-- COMPARATIVA 1: ABSTRACT DE APERTURA                               -->
+    <!-- ================================================================= -->
+    <section id="comparativa-1" class="max-w-[1400px] mx-auto px-6 md:px-12 scroll-mt-20">
+      
+      <!-- Encabezado de la Comparativa 1 -->
+      <div class="border-b border-hairline pb-6 mb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-cognac font-medium mb-2">
+              <span>Comparativa 01</span>
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl text-ink font-normal tracking-tight">
+              Abstract de Apertura: Pliego a 2 Columnas vs. Columna Única (65ch)
+            </h2>
+            <p class="font-sans text-sm sm:text-base text-graphite mt-2 max-w-3xl">
+              Evaluación del comportamiento de lectura inicial tras el titular de observación y la atribución. La elección determina si la apertura se lee como un díptico tipográfico de catálogo de arte o como una prosa lineal pausada de libro de autor.
+            </p>
+          </div>
+
+          <!-- Selector de Modo de Visualización -->
+          <div class="flex items-center gap-1 font-mono text-xs border border-hairline bg-paper p-1 self-start md:self-auto">
+            <button type="button" id="btn-c1-both" class="px-3 py-1.5 btn-toggle-active transition-all" onclick="setC1View('both')">
+              Lado a lado
+            </button>
+            <button type="button" id="btn-c1-a" class="px-3 py-1.5 btn-toggle-idle transition-all" onclick="setC1View('a')">
+              Variante 1A (2 cols)
+            </button>
+            <button type="button" id="btn-c1-b" class="px-3 py-1.5 btn-toggle-idle transition-all" onclick="setC1View('b')">
+              Variante 1B (65ch)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cabecera de artículo común simulada -->
+      <div class="bg-paper border border-hairline p-8 md:p-12 mb-10 text-center">
+        <div class="inline-flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-[0.15em] text-cognac font-medium">
+          <span>Armario de Carmen</span>
+        </div>
+        <h3 class="font-serif text-4xl sm:text-5xl md:text-6xl text-ink font-normal tracking-tight leading-[1.12] mb-4">
+          «Dos extremos, una silueta»
+        </h3>
+        <p class="font-sans text-base sm:text-lg text-graphite max-w-2xl mx-auto mb-2">
+          Salón clásico de escote asimétrico en piel vacuno y tacón aguja de 90 mm.
+        </p>
+        <span class="font-mono text-xs text-graphite tracking-wider uppercase">
+          Christian Louboutin · Modelo So Kate · Piel charol brillante
+        </span>
+      </div>
+
+      <!-- Contenedor dinámico de variantes -->
+      <div id="c1-container" class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+        <!-- VARIANTE 1A (DECISIÓN APROBADA) -->
+        <article id="c1-card-a" class="border-2 border-cognac/80 bg-paper p-8 sm:p-10 flex flex-col justify-between relative shadow-sm">
+          <div class="absolute -top-3 right-6">
+            <span class="bg-cognac text-paper px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest font-semibold inline-flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 bg-paper rounded-none inline-block"></span> [ Decisión Aprobada ]
+            </span>
+          </div>
+          <div>
+            <div class="flex items-center justify-between border-b border-hairline pb-4 mb-6">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-cognac inline-block"></span>
+                <span class="font-mono text-xs uppercase tracking-wider text-ink font-semibold">Variante 1A</span>
+              </div>
+              <span class="font-mono text-[11px] text-cognac uppercase tracking-wider bg-cognac/10 px-2 py-0.5 border border-cognac/30 font-medium">
+                Pliego editorial (2 columnas de lectura paralela)
+              </span>
+            </div>
+
+            <!-- Demostración visual de la Variante 1A -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 font-sans text-base text-graphite leading-relaxed pt-2">
+              <p>
+                La radicalidad del salón de aguja no reside en el artificio, sino en la supresión. Al prescindir de todo tipo de sujeción auxiliar, la superficie de la <span class="popover-term">pala<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Pala (Vamp)</strong>Pieza delantera del corte que cubre el empeine y los dedos, soportando el empuje natural al caminar.</span></span> soporta la totalidad del empuje longitudinal al dar el paso.
+              </p>
+              <p>
+                Construido sobre la verticalidad implacable de un tacón de noventa milímetros, la tensión afilada a lo largo del arco del <span class="popover-term">enfranque<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Enfranque (Waist)</strong>Zona curvada de la suela bajo el arco plantar que aloja el cambrillón para mantener la altura.</span></span> y el trazo asimétrico de su garganta reducen la anatomía del calzado a una sola línea ininterrumpida de fuerza.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ficha de evaluación editorial -->
+          <div class="mt-8 pt-6 border-t border-hairline bg-paper-muted/80 p-4 font-mono text-xs text-graphite space-y-2 border-l-2 border-cognac">
+            <div class="flex items-center justify-between">
+              <p class="text-ink font-semibold uppercase tracking-wider text-[11px]">Criterio editorial:</p>
+              <span class="text-cognac font-medium text-[10px] uppercase tracking-wider">Aprobado para la especificación</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-[11px]">
+              <li>Distribución que evoca los pliegos abiertos de catálogo de arte y monografías de museo.</li>
+              <li>Aprovecha el plano horizontal antes de la primera fotografía de gran formato (Hero).</li>
+              <li>En pantallas pequeñas colapsa de forma natural a una sola columna apilada.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- VARIANTE 1B -->
+        <article id="c1-card-b" class="border border-hairline bg-paper p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-hairline pb-4 mb-6">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-cognac inline-block"></span>
+                <span class="font-mono text-xs uppercase tracking-wider text-ink font-medium">Variante 1B</span>
+              </div>
+              <span class="font-mono text-[11px] text-graphite uppercase tracking-wider bg-paper-muted px-2 py-0.5 border border-hairline">
+                Columna única fluida (max-w-[65ch] centrada)
+              </span>
+            </div>
+
+            <!-- Demostración visual de la Variante 1B -->
+            <div class="max-w-[65ch] mx-auto space-y-5 font-sans text-base sm:text-lg text-graphite leading-[1.8] pt-2 text-left">
+              <p>
+                La radicalidad del salón de aguja no reside en el artificio, sino en la supresión. Al prescindir de todo tipo de sujeción auxiliar, la superficie de la <span class="popover-term">pala<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Pala (Vamp)</strong>Pieza delantera del corte que cubre el empeine y los dedos, soportando el empuje natural al caminar.</span></span> soporta la totalidad del empuje longitudinal al dar el paso.
+              </p>
+              <p>
+                Construido sobre la verticalidad implacable de un tacón de noventa milímetros, la tensión afilada a lo largo del arco del <span class="popover-term">enfranque<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Enfranque (Waist)</strong>Zona curvada de la suela bajo el arco plantar que aloja el cambrillón para mantener la altura.</span></span> y el trazo asimétrico de su garganta reducen la anatomía del calzado a una sola línea ininterrumpida de fuerza.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ficha de evaluación editorial -->
+          <div class="mt-8 pt-6 border-t border-hairline bg-paper-muted/60 p-4 font-mono text-xs text-graphite space-y-1.5">
+            <p class="text-ink font-medium">Criterio editorial:</p>
+            <ul class="list-disc list-inside space-y-1 text-[11px]">
+              <li>Cadencia ininterrumpida de ensayo literario: ritmo de lectura sosegado y pausado.</li>
+              <li>Ancho tipográfico estricto a 65 caracteres, ideal para evitar fatiga ocular.</li>
+              <li>Crea un corredor de lectura vertical continuo que anticipa la fotografía.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- COMPARATIVA 2: RITMO MODULAR Y TRATAMIENTO FOTOGRÁFICO            -->
+    <!-- ================================================================= -->
+    <section id="comparativa-2" class="max-w-[1400px] mx-auto px-6 md:px-12 scroll-mt-20">
+      
+      <!-- Encabezado de la Comparativa 2 -->
+      <div class="border-b border-hairline pb-6 mb-12">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-cognac font-medium mb-2">
+              <span>Comparativa 02</span>
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl text-ink font-normal tracking-tight">
+              Ritmo Modular Compacto & Tratamiento Fotográfico de Inspección
+            </h2>
+            <p class="font-sans text-sm sm:text-base text-graphite mt-2 max-w-3xl">
+              Demostración de los 4 módulos canónicos de la retícula editorial (7:5, 5:7, 6:6 y Díptico), el comportamiento acordado de inspección de espécimen (halo cuero <code class="text-cognac">#9E6B55</code> sin escalado ni movimiento) y la ubicación de la Cita Testimonial de Carmen (Ejemplo A vs. Ejemplo B).
+            </p>
+          </div>
+
+          <!-- Selector de Visualización para la Cita Testimonial -->
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 font-mono text-xs border border-hairline bg-paper p-2">
+            <span class="text-graphite uppercase tracking-wider text-[11px]">Ubicación Cita:</span>
+            <div class="flex items-center gap-1">
+              <button type="button" id="btn-quote-both" class="px-2.5 py-1 btn-toggle-active transition-all" onclick="setQuoteView('both')">
+                Ver Ejemplos A y B
+              </button>
+              <button type="button" id="btn-quote-a" class="px-2.5 py-1 btn-toggle-idle transition-all" onclick="setQuoteView('a')">
+                Sólo Ej. A (Tras Apertura)
+              </button>
+              <button type="button" id="btn-quote-b" class="px-2.5 py-1 btn-toggle-idle transition-all" onclick="setQuoteView('b')">
+                Sólo Ej. B (Junto a Módulo)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BANNER EXPLICATIVO DEL TRATAMIENTO DE INSPECCIÓN -->
+      <div class="border border-cognac/40 bg-paper-muted/70 p-5 mb-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3">
+          <span class="font-mono text-lg text-cognac leading-none">↗</span>
+          <div>
+            <h4 class="font-mono text-xs uppercase tracking-wider text-ink font-semibold">
+              Regla de Inspección Activa: Paspartú Editorial de Revista (Efecto Inset Hacia Adentro)
+            </h4>
+            <p class="font-sans text-xs sm:text-sm text-graphite mt-1">
+              Al pasar el cursor o situar el foco sobre cualquier marco, se proyecta hacia adentro un paspartú generoso en papel tintado (<code class="font-mono text-xs text-ink bg-paper px-1 border border-hairline">#FAF8F5</code>) rematado por un filete interior de 1px en cuero <strong class="text-cognac">#9E6B55</strong> con acabado suavemente redondeado de 4px (pliego de arte / revista de moda). La fotografía permanece en <code class="font-mono text-xs text-ink bg-paper px-1 border border-hairline">object-contain</code>, <strong>sin escalar, sin desplazarse y sin filtros</strong>, preservando íntegra su silueta y su sombra natural de contacto sobre blanco neutro.
+            </p>
+          </div>
+        </div>
+        <span class="font-mono text-[10px] uppercase tracking-widest text-cognac border border-cognac/50 px-2 py-1 bg-paper shrink-0">
+          Comportamiento Verificable
+        </span>
+      </div>
+
+      <!-- DEMOSTRACIÓN DE CITA TESTIMONIAL · EJEMPLO A (TRAS APERTURA) -->
+      <div id="quote-block-a" class="mb-14 transition-all duration-300">
+        <div class="flex items-center gap-2 mb-2 font-mono text-[11px] uppercase tracking-wider text-cognac">
+          <span>[ Demostración de Cita · Ejemplo A: Tras la Apertura ]</span>
+          <span class="text-graphite font-normal">— Ubicada entre la apertura y el paseo modular</span>
+        </div>
+        <div class="border-l-2 border-cognac bg-paper-muted/80 p-6 md:p-8 pl-6 md:pl-10 space-y-2">
+          <p class="font-serif text-xl md:text-2xl text-ink italic leading-relaxed font-normal">
+            «Al principio impresiona la altura, pero el verdadero reto es el enfranque: si el arco no encaja al milímetro con tu pie, a los veinte minutos estás perdida. Con estos sientes que caminas sobre una estructura rígida pero que te acompaña.»
+          </p>
+          <div class="flex items-center gap-2 font-mono text-xs text-graphite uppercase tracking-wider pt-2">
+            <span class="text-cognac font-medium">Carmen</span>
+            <span>·</span>
+            <span>Dueña del par</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOTOGRAFÍA HERO (ESCALA REPOSADA Y EQUILIBRADA) -->
+      <div class="mb-20 max-w-4xl mx-auto">
+        <div class="flex items-center justify-between font-mono text-[11px] text-graphite uppercase tracking-wider mb-2">
+          <span class="text-cognac font-medium">Hero Specimen · Escala Equilibrada (Término Medio)</span>
+          <span>assets/salon-aguja/02-tres-cuartos.webp</span>
+        </div>
+        <div tabindex="0" class="specimen-frame p-4 md:p-6 cursor-crosshair">
+          <div class="relative overflow-hidden aspect-[16/10] max-h-[480px] bg-paper-muted/20 flex items-center justify-center">
+            <img 
+              src="assets/salon-aguja/02-tres-cuartos.webp"
+              alt="Perspectiva tres cuartos del salón aguja sobre fondo neutro" 
+              class="w-full h-full max-h-[440px] object-contain"
+            />
+          </div>
+          <div class="mt-3 flex justify-between font-mono text-[10px] tracking-widest uppercase text-graphite">
+            <span>Perspectiva tres cuartos</span>
+            <span>Lámina de apertura · Escala moderada</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================================================= -->
+      <!-- SECUENCIA DE LOS 4 MÓDULOS CON RITMO COMPACTO                -->
+      <!-- ============================================================= -->
+      <div class="space-y-20 md:space-y-24">
+
+        <!-- 1. MÓDULO 7:5 (7 Texto / 5 Imagen) -->
+        <article class="border-t border-hairline pt-12">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3 font-mono text-xs tracking-wider uppercase text-cognac font-medium">
+              <span>Módulo 01 · Proporción 7:5</span>
+              <span class="text-hairline">|</span>
+              <span class="text-graphite font-normal">[ La pala y el escote ]</span>
+            </div>
+            <span class="font-mono text-[10px] text-graphite uppercase bg-paper-muted px-2 py-0.5 border border-hairline">
+              7 cols texto analítico : 5 cols fotografía
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Columna Texto: 7 cols -->
+            <div class="lg:col-span-7 space-y-4">
+              <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-ink font-normal leading-tight">
+                Escote asimétrico y memoria de tensión
+              </h3>
+              
+              <p class="font-sans text-base text-graphite leading-relaxed">
+                Al prescindir de todo tipo de sujeción auxiliar, la superficie de la <span class="popover-term">pala<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Pala (Vamp)</strong>Pieza delantera que cubre el empeine y los dedos, soportando el empuje natural al caminar.</span></span> soporta la totalidad del apoyo al dar el paso. En este modelo, el trazo adopta un escote levemente asimétrico que se abre hacia el lateral interno con una curva suave, acompañando el empeine sin apretar.
+              </p>
+              <p class="font-sans text-base text-graphite leading-relaxed">
+                El juego de proporciones de la puntera afilada no responde únicamente a un dictado visual: proyecta una prolongación óptica que aligera el volumen del calzado en el plano horizontal, mientras que el cuero vacuno tratado al cromo mantiene la memoria de tensión sin ceder en los flancos laterales.
+              </p>
+
+              <!-- Nota editorial intercalada (caja en flujo con Muted Linen) -->
+              <div class="bg-paper-muted border border-hairline p-4 sm:p-5 mt-4 space-y-1.5">
+                <span class="font-mono text-[10px] uppercase tracking-wider text-cognac block font-medium">Nota editorial · La línea del escote</span>
+                <p class="font-sans text-xs sm:text-sm text-graphite leading-relaxed">
+                  El salón <em>So Kate</em> prolonga el escote hacia el nacimiento de los dedos para elongar visualmente el empeine. Este rasgo constructivo traslada el esfuerzo de retención hacia los laterales de la pala.
+                </p>
+              </div>
+            </div>
+
+            <!-- Columna Imagen: 5 cols -->
+            <div class="lg:col-span-5">
+              <div tabindex="0" class="specimen-frame p-3 md:p-6 cursor-crosshair">
+                <div class="relative overflow-hidden aspect-[4/3] bg-paper-muted/20 flex items-center justify-center">
+                  <img 
+                    src="assets/salon-aguja/01-perfil.webp"
+                    alt="Vista lateral del salón de aguja" 
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div class="mt-2.5 flex justify-between font-mono text-[10px] tracking-widest uppercase text-graphite">
+                  <span>Perfil longitudinal</span>
+                  <span>Escote y puntera</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- 2. MÓDULO 5:7 (5 Texto / 7 Imagen Dominante) CON CITA TESTIMONIAL EJEMPLO B INTEGRADA -->
+        <article class="border-t border-hairline pt-12">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3 font-mono text-xs tracking-wider uppercase text-cognac font-medium">
+              <span>Módulo 02 · Proporción 5:7</span>
+              <span class="text-hairline">|</span>
+              <span class="text-graphite font-normal">[ El fuste y el aplomo ]</span>
+            </div>
+            <span class="font-mono text-[10px] text-graphite uppercase bg-paper-muted px-2 py-0.5 border border-hairline">
+              5 cols texto conciso : 7 cols foto amplia dominante (Retícula completa)
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Columna Texto: 5 cols (Conciso, sin relleno forzado) -->
+            <div class="lg:col-span-5 space-y-4">
+              <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-ink font-normal leading-tight">
+                Fuste vertical de 90 mm y apoyo dorsal
+              </h3>
+
+              <p class="font-sans text-base text-graphite leading-relaxed">
+                La costura dorsal sella la verticalidad del <span class="popover-term">contrafuerte<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Contrafuerte (Counter)</strong>Refuerzo rígido oculto en el talón que abraza el calcáneo para fijar el pie.</span></span>, asegurando el talón sin hebillas.<br/>
+                El <span class="popover-term">fuste<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Fuste (Stem)</strong>Cuerpo o caña vertical del tacón que canaliza el peso corporal hacia la microtapa.</span></span> canaliza noventa milímetros de carga perpendicular hacia una microtapa reforzada.
+              </p>
+
+              <div class="py-2 border-y border-hairline">
+                <span class="font-mono text-xs text-graphite">
+                  Altura neta: 90 mm · Inclinación dorsal: 87° · Pecho recto
+                </span>
+              </div>
+
+              <!-- DEMOSTRACIÓN DE CITA TESTIMONIAL · EJEMPLO B (INTEGRADA JUNTO AL MÓDULO) -->
+              <div id="quote-block-b" class="pt-2 transition-all duration-300">
+                <div class="border-l-2 border-cognac bg-paper-muted/80 p-4 pl-5 space-y-1.5">
+                  <span class="font-mono text-[10px] uppercase tracking-wider text-cognac block font-medium">
+                    [ Demostración de Cita · Ejemplo B: Junto a este módulo ]
+                  </span>
+                  <p class="font-serif text-sm sm:text-base text-ink italic leading-relaxed font-normal">
+                    «Al principio impresiona la altura, pero el verdadero reto es el enfranque: si el arco no encaja al milímetro con tu pie, a los veinte minutos estás perdida.»
+                  </p>
+                  <span class="font-mono text-[11px] text-graphite uppercase tracking-wider block">
+                    — Carmen, sobre el aplomo y la altura
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Imagen: 7 cols (Foto amplia y dominante en retícula completa) -->
+            <div class="lg:col-span-7">
+              <div tabindex="0" class="specimen-frame p-3 md:p-6 cursor-crosshair w-full">
+                <div class="relative overflow-hidden aspect-[4/3] bg-paper-muted/20 flex items-center justify-center">
+                  <img 
+                    src="assets/salon-aguja/04-talon.webp"
+                    alt="Vista posterior del talón y aplomo del tacón aguja" 
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div class="mt-2.5 flex justify-between font-mono text-[10px] tracking-widest uppercase text-graphite">
+                  <span>Aplomo posterior</span>
+                  <span>Costura dorsal y tacón</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- 3. MÓDULO 6:6 (6 Texto / 6 Imagen Simétrico) -->
+        <article class="border-t border-hairline pt-12">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3 font-mono text-xs tracking-wider uppercase text-cognac font-medium">
+              <span>Módulo 03 · Proporción 6:6</span>
+              <span class="text-hairline">|</span>
+              <span class="text-graphite font-normal">[ El enfranque y el puente ]</span>
+            </div>
+            <span class="font-mono text-[10px] text-graphite uppercase bg-paper-muted px-2 py-0.5 border border-hairline">
+              6 cols texto : 6 cols fotografía (Equilibrio simétrico)
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Columna Imagen: 6 cols -->
+            <div class="lg:col-span-6 order-2 lg:order-1">
+              <div tabindex="0" class="specimen-frame p-3 sm:p-6 cursor-crosshair">
+                <div class="relative overflow-hidden aspect-[4/3] bg-paper-muted/20 flex items-center justify-center">
+                  <img 
+                    src="assets/salon-aguja/01-perfil.webp"
+                    alt="Perfil del enfranque y curvatura del arco" 
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div class="mt-2.5 flex justify-between font-mono text-[10px] tracking-widest uppercase text-graphite">
+                  <span>Enfranque</span>
+                  <span>Curvatura del arco plantar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Columna Texto: 6 cols -->
+            <div class="lg:col-span-6 space-y-4 order-1 lg:order-2">
+              <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-ink font-normal leading-tight">
+                El arco del enfranque y la curvatura del puente
+              </h3>
+
+              <p class="font-sans text-base text-graphite leading-relaxed">
+                Bajo la concavidad del arco plantar, el <span class="popover-term">enfranque<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Enfranque (Waist)</strong>Zona estrechada de la suela bajo el arco que soporta el peso suspendido del pie.</span></span> experimenta la máxima compresión estructural. Es el puente invisible del calzado: debe sostener el arco natural sin ceder, transfiriendo de forma progresiva el impulso hacia la almohadilla delantera.
+              </p>
+              <p class="font-sans text-base text-graphite leading-relaxed">
+                La garganta describe una inflexión que expone limpiamente la silueta del empeine y exige una rigidez milimétrica en el <span class="popover-term">cambrillón<span class="popover-card"><strong class="font-mono text-[11px] uppercase tracking-wider text-cognac block mb-1">Cambrillón (Shank)</strong>Pletina metálica oculta en el enfranque que impide la flexión excesiva o rotura del arco.</span></span> para asegurar la firmeza de la pisada.
+              </p>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- 4. DÍPTICO (2 Fotografías Contiguas en Unidad Indisoluble) -->
+        <article class="border-t border-hairline pt-12">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3 font-mono text-xs tracking-wider uppercase text-cognac font-medium">
+              <span>Módulo 04 · Díptico</span>
+              <span class="text-hairline">|</span>
+              <span class="text-graphite font-normal">[ Geometría de puntera y planta ]</span>
+            </div>
+            <span class="font-mono text-[10px] text-graphite uppercase bg-paper-muted px-2 py-0.5 border border-hairline">
+              Lámina continua unificada · Correspondencia 1:1
+            </span>
+          </div>
+
+          <!-- Texto analítico unificado superior centrado -->
+          <div class="max-w-2xl mx-auto text-center mb-10 space-y-3">
+            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl text-ink font-normal leading-tight">
+              Geometría de la puntera y el plano de contacto
+            </h3>
+            <p class="font-sans text-base text-graphite leading-relaxed">
+              La vista frontal y la planta revelan la convergencia extrema del diseño: un área de pisada reducida al mínimo indispensable y una agudeza triangular que modela el volumen de la puntera en relación directa con el suelo.
+            </p>
+          </div>
+
+          <!-- Díptico Unificado: Marco de espécimen único y continuo (una sola pieza fotográfica indisoluble) -->
+          <div tabindex="0" class="specimen-frame max-w-5xl mx-auto p-4 sm:p-6 md:p-8 cursor-crosshair">
+            
+            <!-- Encabezado sutil del díptico integrado -->
+            <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-graphite mb-5 pb-2.5 border-b border-hairline">
+              <span class="text-cognac font-medium flex items-center gap-2">
+                <span class="w-1.5 h-1.5 bg-cognac inline-block"></span>
+                Díptico Morfológico · Observación Simultánea Frontal / Huella
+              </span>
+              <span class="hidden sm:inline-block">Unidad Fotográfica Indisoluble · Correspondencia 1:1</span>
+            </div>
+
+            <!-- Pliego fotográfico continuo a dos caras con discreta separación de 1px -->
+            <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-hairline bg-paper-muted/20 border border-hairline overflow-hidden">
+              
+              <!-- Vista 1: Frontal y Cenital (Pala y Puntera) -->
+              <div class="p-4 sm:p-6 flex flex-col justify-between">
+                <div class="relative overflow-hidden aspect-[4/3] flex items-center justify-center">
+                  <img 
+                    src="assets/salon-aguja/03-frente.webp"
+                    alt="Vista frontal y cenital de la puntera afilada" 
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div class="mt-4 flex justify-between font-mono text-[10px] tracking-widest uppercase text-graphite pt-2 border-t border-hairline/60">
+                  <span class="text-ink font-medium">01. Frontal</span>
+                  <span>Puntera afilada</span>
+                </div>
+              </div>
+
+              <!-- Vista 2: Planta Inferior (Suela y Huella) -->
+              <div class="p-4 sm:p-6 flex flex-col justify-between">
+                <div class="relative overflow-hidden aspect-[4/3] flex items-center justify-center">
+                  <img 
+                    src="assets/salon-aguja/05-planta.webp"
+                    alt="Vista inferior de la suela y plano de apoyo" 
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                <div class="mt-4 flex justify-between font-mono text-[10px] tracking-widest uppercase text-graphite pt-2 border-t border-hairline/60">
+                  <span class="text-ink font-medium">02. Planta</span>
+                  <span>Suela y huella</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Pie técnico de la composición unificada -->
+            <div class="mt-4 pt-3 border-t border-hairline flex flex-col sm:flex-row items-center justify-between text-center sm:text-left gap-2 font-mono text-[10px] text-graphite tracking-wider uppercase">
+              <span>Eje morfológico: Convergencia de puntera cónica (frontal) y área de contacto mínima (planta)</span>
+              <span class="text-cognac font-medium">Pliego de correspondencia dual</span>
+            </div>
+
+          </div>
+
+          <!-- Cierre sintético del díptico centrado -->
+          <div class="max-w-2xl mx-auto mt-8 px-4 text-center">
+            <p class="font-sans text-sm text-graphite leading-relaxed italic border-t border-hairline pt-6">
+              El encuentro entre el perfil afilado de la puntera y la distribución de contacto de la suela comprime el área de apoyo a menos de 28 cm² en el antepié, articulando una precisión geométrica percutiva sobre el pavimento.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- COMPARATIVA 3: CÉDULA TÉCNICA «DATOS DEL PAR»                     -->
+    <!-- ================================================================= -->
+    <section id="comparativa-3" class="max-w-[1400px] mx-auto px-6 md:px-12 scroll-mt-20">
+      
+      <!-- Encabezado de la Comparativa 3 -->
+      <div class="border-b border-hairline pb-6 mb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.15em] text-cognac font-medium mb-2">
+              <span>Comparativa 03</span>
+            </div>
+            <h2 class="font-serif text-3xl sm:text-4xl text-ink font-normal tracking-tight">
+              Cédula Técnica «Datos del Par» (5 Campos Canónicos)
+            </h2>
+            <p class="font-sans text-sm sm:text-base text-graphite mt-2 max-w-3xl">
+              Comparación de tratamiento tipográfico para el cierre técnico del estudio. Ambas variantes recogen rigurosamente los 5 campos canónicos: <em>1. Silueta / Tipo</em>, <em>2. Marca y Modelo</em>, <em>3. Material y Acabado</em>, <em>4. Geometría del tacón</em> y <em>5. Procedencia</em>.
+            </p>
+          </div>
+
+          <!-- Selector de Modo de Visualización -->
+          <div class="flex items-center gap-1 font-mono text-xs border border-hairline bg-paper p-1 self-start md:self-auto">
+            <button type="button" id="btn-c3-both" class="px-3 py-1.5 btn-toggle-active transition-all" onclick="setC3View('both')">
+              Lado a lado
+            </button>
+            <button type="button" id="btn-c3-a" class="px-3 py-1.5 btn-toggle-idle transition-all" onclick="setC3View('a')">
+              Variante 3A (Continua Museo)
+            </button>
+            <button type="button" id="btn-c3-b" class="px-3 py-1.5 btn-toggle-idle transition-all" onclick="setC3View('b')">
+              Variante 3B (Lista Estructurada)
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenedor dinámico de variantes -->
+      <div id="c3-container" class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+
+        <!-- VARIANTE 3A (DECISIÓN APROBADA) -->
+        <article id="c3-card-a" class="border-2 border-cognac/80 bg-paper p-8 sm:p-10 flex flex-col justify-between relative shadow-sm">
+          <div class="absolute -top-3 right-6">
+            <span class="bg-cognac text-paper px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest font-semibold inline-flex items-center gap-1.5 shadow-sm">
+              <span class="w-1.5 h-1.5 bg-paper rounded-none inline-block"></span> [ Decisión Aprobada ]
+            </span>
+          </div>
+          <div>
+            <div class="flex items-center justify-between border-b border-hairline pb-4 mb-8">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-cognac inline-block"></span>
+                <span class="font-mono text-xs uppercase tracking-wider text-ink font-semibold">Variante 3A</span>
+              </div>
+              <span class="font-mono text-[11px] text-cognac uppercase tracking-wider bg-cognac/10 px-2 py-0.5 border border-cognac/30 font-medium">
+                Composición continua literaria (Cartela de sala de museo)
+              </span>
+            </div>
+
+            <!-- Demostración visual de la Variante 3A -->
+            <div class="border-y border-hairline py-10 px-4 text-center space-y-4 bg-paper-muted/30">
+              <span class="font-mono text-[10px] uppercase tracking-[0.25em] text-cognac font-medium block">
+                Cédula del espécimen
+              </span>
+              
+              <!-- Campo 1 & 2: Silueta + Marca / Modelo -->
+              <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-tight">
+                Salón clásico · Christian Louboutin <em>So Kate</em>
+              </h3>
+
+              <!-- Campo 3: Material y Acabado -->
+              <p class="font-sans text-xs sm:text-sm uppercase tracking-widest text-graphite font-medium">
+                Piel vacuna natural · Charol brillante · Negro profundo
+              </p>
+
+              <!-- Separador tipográfico de punto mediano -->
+              <div class="flex items-center justify-center gap-2 text-hairline">
+                <span>—</span>
+                <span class="w-1 h-1 bg-cognac rounded-full inline-block"></span>
+                <span>—</span>
+              </div>
+
+              <!-- Campo 4 & 5: Geometría del tacón + Procedencia -->
+              <p class="font-mono text-xs tracking-wider text-ink leading-relaxed">
+                <span class="text-cognac uppercase font-medium">Tacón aguja 90 mm · Pecho recto</span>
+                <span class="text-hairline mx-2">|</span>
+                <span class="text-graphite">Armario de Carmen (@carmen.armario)</span>
+              </p>
+            </div>
+          </div>
+
+          <!-- Ficha de evaluación editorial -->
+          <div class="mt-8 pt-6 border-t border-hairline bg-paper-muted/80 p-4 font-mono text-xs text-graphite space-y-2 border-l-2 border-cognac">
+            <div class="flex items-center justify-between">
+              <p class="text-ink font-semibold uppercase tracking-wider text-[11px]">Criterio editorial:</p>
+              <span class="text-cognac font-medium text-[10px] uppercase tracking-wider">Aprobado para la especificación</span>
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-[11px]">
+              <li>Sensación de cartela litográfica de sala de exposición con alta solvencia estética.</li>
+              <li>Lectura visual literaria y continua, evitando la fragmentación clínica de una tabla de base de datos.</li>
+              <li>Excelente remate armónico centrado sobre el folio al concluir el recorrido monográfico.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- VARIANTE 3B -->
+        <article id="c3-card-b" class="border border-hairline bg-paper p-8 sm:p-10 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-hairline pb-4 mb-8">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-cognac inline-block"></span>
+                <span class="font-mono text-xs uppercase tracking-wider text-ink font-medium">Variante 3B</span>
+              </div>
+              <span class="font-mono text-[11px] text-graphite uppercase tracking-wider bg-paper-muted px-2 py-0.5 border border-hairline">
+                Lista estructurada con filetes de 1px (Ficha de archivo)
+              </span>
+            </div>
+
+            <!-- Demostración visual de la Variante 3B -->
+            <div class="border-t border-hairline divide-y divide-hairline">
+              
+              <!-- Campo 1: Silueta / Tipo -->
+              <div class="py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <span class="font-mono text-xs uppercase tracking-wider text-graphite font-medium">
+                  01. Silueta / Tipo
+                </span>
+                <span class="font-serif text-base text-ink">
+                  Salón clásico (<span class="italic font-normal">pump</span> de escote asimétrico)
+                </span>
+              </div>
+
+              <!-- Campo 2: Marca y Modelo -->
+              <div class="py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <span class="font-mono text-xs uppercase tracking-wider text-graphite font-medium">
+                  02. Marca y Modelo
+                </span>
+                <span class="font-sans text-sm font-medium text-ink">
+                  Christian Louboutin &mdash; <span class="font-serif italic font-normal">So Kate</span>
+                </span>
+              </div>
+
+              <!-- Campo 3: Material y Acabado -->
+              <div class="py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <span class="font-mono text-xs uppercase tracking-wider text-graphite font-medium">
+                  03. Material y Acabado
+                </span>
+                <span class="font-sans text-sm text-graphite">
+                  Piel vacuna tratada al cromo con charol brillante negro
+                </span>
+              </div>
+
+              <!-- Campo 4: Geometría del Tacón -->
+              <div class="py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <span class="font-mono text-xs uppercase tracking-wider text-graphite font-medium">
+                  04. Geometría del Tacón
+                </span>
+                <span class="font-mono text-xs text-cognac font-medium">
+                  Aguja &middot; Altura 90 mm &middot; Pecho recto &middot; Aplomo 87&deg;
+                </span>
+              </div>
+
+              <!-- Campo 5: Procedencia -->
+              <div class="py-3.5 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <span class="font-mono text-xs uppercase tracking-wider text-graphite font-medium">
+                  05. Procedencia
+                </span>
+                <span class="font-mono text-xs text-ink">
+                  Armario de Carmen <span class="text-graphite">(@carmen.armario)</span>
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Ficha de evaluación editorial -->
+          <div class="mt-8 pt-6 border-t border-hairline bg-paper-muted/60 p-4 font-mono text-xs text-graphite space-y-1.5">
+            <p class="text-ink font-medium">Criterio editorial:</p>
+            <ul class="list-disc list-inside space-y-1 text-[11px]">
+              <li>Rigor taxonómico impecable: permite escaneo rápido y comparación sistemática entre pares.</li>
+              <li>Alineación clara con la estética de inventario de archivo físico y catálogo razonado.</li>
+              <li>Filetes de 1px (#E8E3DC) mantienen la ligereza sin recargar la superficie.</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <!-- REMATE EDITORIAL: RESUMEN DE DECISIONES CONSOLIDADAS               -->
+    <!-- ================================================================= -->
+    <section class="max-w-4xl mx-auto px-6 md:px-12 pt-8">
+      <div class="bg-paper-muted border border-hairline p-8 sm:p-10 space-y-5">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cognac font-medium">
+            <span class="w-2 h-2 bg-cognac inline-block"></span>
+            <span>Consolidación de Criterios Acordados</span>
+          </div>
+          <span class="bg-cognac text-paper px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider font-semibold">
+            Listo para Especificación
+          </span>
+        </div>
+        <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug">
+          Decisiones editoriales listas para el volcado definitivo
+        </h3>
+        <p class="font-sans text-sm sm:text-base text-graphite leading-relaxed">
+          Las preferencias consensuadas quedan reflejadas y listas para su inscripción canónica en <code class="font-mono text-xs bg-paper px-1.5 py-0.5 border border-hairline text-ink">sitio/specs/monografia/spec.md</code> y registro como ADR:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 font-mono text-xs text-graphite">
+          <div class="bg-paper border border-hairline p-3.5 space-y-1">
+            <span class="text-cognac font-semibold uppercase block text-[10px]">01. Abstract de Apertura</span>
+            <p class="text-ink font-medium font-sans text-sm">Variante 1A aprobada</p>
+            <p class="text-[11px] text-graphite">Pliego editorial abierto a dos columnas de lectura paralela.</p>
+          </div>
+          <div class="bg-paper border border-hairline p-3.5 space-y-1">
+            <span class="text-cognac font-semibold uppercase block text-[10px]">02. Cédula «Datos del Par»</span>
+            <p class="text-ink font-medium font-sans text-sm">Variante 3A aprobada</p>
+            <p class="text-[11px] text-graphite">Cartela litográfica continua con carácter literario de museo.</p>
+          </div>
+          <div class="bg-paper border border-hairline p-3.5 space-y-1">
+            <span class="text-cognac font-semibold uppercase block text-[10px]">03. Escala del Hero</span>
+            <p class="text-ink font-medium font-sans text-sm">Escala moderada y reposada</p>
+            <p class="text-[11px] text-graphite">Acotado a max-w-4xl y altura equilibrada sin sobrecargar el pliego.</p>
+          </div>
+          <div class="bg-paper border border-hairline p-3.5 space-y-1">
+            <span class="text-cognac font-semibold uppercase block text-[10px]">04. Díptico &amp; Inspección</span>
+            <p class="text-ink font-medium font-sans text-sm">Lámina unificada + Filete redondeado</p>
+            <p class="text-[11px] text-graphite">Marco continuo indisoluble con separación limpia de 1px (sin ampersand ni nexos flotantes) y paspartú suavemente redondeado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================================================================= -->
+  <!-- PIE DE PÁGINA DEL BANCO DE PRUEBAS                                -->
+  <!-- ================================================================= -->
+  <footer class="w-full bg-paper border-t border-hairline py-8 text-graphite mt-16">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+      <div>
+        <span class="text-ink font-medium">El Par</span> — Banco de Comparativas Visuales de Monografía
+      </div>
+      <div class="flex items-center gap-4 text-graphite">
+        <a href="#comparativa-1" class="hover:text-ink transition-colors">↑ Subir al inicio</a>
+        <span>·</span>
+        <span>Revisión de Especificación v1</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- CONTROLADORES INTERACTIVOS JAVASCRIPT                             -->
+  <!-- ================================================================= -->
+  <script>
+    // --- 1. Alternancia de vistas para Comparativa 1 (Abstract) ---
+    function setC1View(mode) {
+      const cardA = document.getElementById('c1-card-a');
+      const cardB = document.getElementById('c1-card-b');
+      const container = document.getElementById('c1-container');
+      const btnBoth = document.getElementById('btn-c1-both');
+      const btnA = document.getElementById('btn-c1-a');
+      const btnB = document.getElementById('btn-c1-b');
+
+      [btnBoth, btnA, btnB].forEach(btn => {
+        btn.classList.remove('btn-toggle-active');
+        btn.classList.add('btn-toggle-idle');
+      });
+
+      if (mode === 'both') {
+        cardA.classList.remove('hidden');
+        cardB.classList.remove('hidden');
+        container.className = 'grid grid-cols-1 lg:grid-cols-2 gap-10';
+        btnBoth.classList.add('btn-toggle-active');
+        btnBoth.classList.remove('btn-toggle-idle');
+      } else if (mode === 'a') {
+        cardA.classList.remove('hidden');
+        cardB.classList.add('hidden');
+        container.className = 'grid grid-cols-1 gap-10 max-w-4xl mx-auto';
+        btnA.classList.add('btn-toggle-active');
+        btnA.classList.remove('btn-toggle-idle');
+      } else if (mode === 'b') {
+        cardA.classList.add('hidden');
+        cardB.classList.remove('hidden');
+        container.className = 'grid grid-cols-1 gap-10 max-w-4xl mx-auto';
+        btnB.classList.add('btn-toggle-active');
+        btnB.classList.remove('btn-toggle-idle');
+      }
+    }
+
+    // --- 2. Alternancia para Demostración de Cita Testimonial ---
+    function setQuoteView(mode) {
+      const quoteA = document.getElementById('quote-block-a');
+      const quoteB = document.getElementById('quote-block-b');
+      const btnBoth = document.getElementById('btn-quote-both');
+      const btnA = document.getElementById('btn-quote-a');
+      const btnB = document.getElementById('btn-quote-b');
+
+      [btnBoth, btnA, btnB].forEach(btn => {
+        btn.classList.remove('btn-toggle-active');
+        btn.classList.add('btn-toggle-idle');
+      });
+
+      if (mode === 'both') {
+        quoteA.classList.remove('hidden');
+        quoteB.classList.remove('hidden');
+        quoteA.classList.add('quote-highlight');
+        quoteB.classList.add('quote-highlight');
+        btnBoth.classList.add('btn-toggle-active');
+        btnBoth.classList.remove('btn-toggle-idle');
+      } else if (mode === 'a') {
+        quoteA.classList.remove('hidden');
+        quoteB.classList.add('hidden');
+        quoteA.classList.remove('quote-highlight');
+        btnA.classList.add('btn-toggle-active');
+        btnA.classList.remove('btn-toggle-idle');
+      } else if (mode === 'b') {
+        quoteA.classList.add('hidden');
+        quoteB.classList.remove('hidden');
+        quoteB.classList.remove('quote-highlight');
+        btnB.classList.add('btn-toggle-active');
+        btnB.classList.remove('btn-toggle-idle');
+      }
+    }
+
+    // --- 3. Alternancia de vistas para Comparativa 3 (Cédula Técnica) ---
+    function setC3View(mode) {
+      const cardA = document.getElementById('c3-card-a');
+      const cardB = document.getElementById('c3-card-b');
+      const container = document.getElementById('c3-container');
+      const btnBoth = document.getElementById('btn-c3-both');
+      const btnA = document.getElementById('btn-c3-a');
+      const btnB = document.getElementById('btn-c3-b');
+
+      [btnBoth, btnA, btnB].forEach(btn => {
+        btn.classList.remove('btn-toggle-active');
+        btn.classList.add('btn-toggle-idle');
+      });
+
+      if (mode === 'both') {
+        cardA.classList.remove('hidden');
+        cardB.classList.remove('hidden');
+        container.className = 'grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch';
+        btnBoth.classList.add('btn-toggle-active');
+        btnBoth.classList.remove('btn-toggle-idle');
+      } else if (mode === 'a') {
+        cardA.classList.remove('hidden');
+        cardB.classList.add('hidden');
+        container.className = 'grid grid-cols-1 gap-10 max-w-3xl mx-auto items-stretch';
+        btnA.classList.add('btn-toggle-active');
+        btnA.classList.remove('btn-toggle-idle');
+      } else if (mode === 'b') {
+        cardA.classList.add('hidden');
+        cardB.classList.remove('hidden');
+        container.className = 'grid grid-cols-1 gap-10 max-w-3xl mx-auto items-stretch';
+        btnB.classList.add('btn-toggle-active');
+        btnB.classList.remove('btn-toggle-idle');
+      }
+    }
+
+    // --- 4. Popovers contextuales interactivos (Hover + Click) ---
+    document.addEventListener('DOMContentLoaded', () => {
+      const popoverTerms = document.querySelectorAll('.popover-term');
+
+      function hideAllPopovers() {
+        document.querySelectorAll('.popover-card').forEach(card => {
+          card.classList.remove('is-visible');
+        });
+      }
+
+      popoverTerms.forEach(term => {
+        const card = term.querySelector('.popover-card');
+        if (!card) return;
+
+        term.addEventListener('mouseenter', () => {
+          hideAllPopovers();
+          card.classList.add('is-visible');
+        });
+
+        term.addEventListener('mouseleave', () => {
+          card.classList.remove('is-visible');
+        });
+
+        term.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isVisible = card.classList.contains('is-visible');
+          hideAllPopovers();
+          if (!isVisible) card.classList.add('is-visible');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        hideAllPopovers();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') hideAllPopovers();
+      });
+    });
+  </script>
+</body>
+</html>

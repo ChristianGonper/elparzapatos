@@ -6,9 +6,12 @@
 ---
 
 ## 1. Propósito y Filosofía
-
-La monografía es el núcleo de **El Par**: examina cada zapato como una obra autónoma de diseño y artesanía en miniatura, completamente desvinculada del estilo de vida, la venta o el estilismo de influencers.
-
+ 
+La monografía es el núcleo de **El Par**: examina cada zapato como una obra autónoma de diseño y artesanía en miniatura, completamente desvinculada del estilo de vida comercial, la venta o el estilismo de influencers.
+ 
+- **Rigor conceptual con cercanía pedagógica:** La precisión técnica sirve para que cualquier lectora aprenda a leer el calzado de forma intuitiva y placentera, desterrando cualquier frialdad de manual de despiece mecánico o catálogo industrial.
+- **Tensión dialéctica esencial:** El valor del proyecto reside en el contraste armónico entre la **fotografía honesta, natural y doméstica** aportada generosamente por las colaboradoras y una **dirección de arte, tipografía y maquetación** de revista de alta exigencia editorial.
+ 
 ---
 
 ## 2. Estructura y Conducta de la Monografía
@@ -19,19 +22,20 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 - **Título de Observación:** En tipografía Newsreader serif a gran escala. Expresa una constatación visual honesta del par demostrable en las fotografías (ej. *«Dos extremos, una silueta»*).
 - **Subtítulo Descriptivo:** Bajo el título, en sans-serif neutra (*Plus Jakarta Sans* / *Inter*): `[Familia] con [Escote / Sujeción] en [Material] y [Tipo de tacón / Altura]`. Ejemplo: *Salón clásico con escote asimétrico en piel vacuno y tacón aguja de 90 mm*.
 - **Atribución de Procedencia:** Situada junto al subtítulo: *«Armario de: [Nombre o alias acordado]»*. Si la colaboradora autorizó acreditar su cuenta en el formulario, se incluye la mención o enlace discreto a su `@Instagram`. El enlace a una página de armario dedicada se activará cuando dicha vista se incorpore al sitio público.
-- **Entradilla / Abstract:** 2 párrafos sintéticos estructurados a dos columnas (estilo pliego editorial de arte) que sitúan la pieza agrupando sus rasgos de diseño dominantes.
-- **Reflexión Testimonial de la Dueña:** Bloque puramente condicional. Si la colaboradora aporta una anécdota de uso, memoria sensorial o reflexión sobre el par, se formatea como cita destacada con filete fino a la izquierda. Si no existe, el espacio no se fuerza.
+- **Entradilla / Abstract:** 2 párrafos sintéticos estructurados a **dos columnas** (estilo pliego editorial de revista de arte) que sitúan la pieza agrupando sus rasgos de diseño dominantes.
+- **Reflexión Testimonial de la Dueña:** Bloque flexible y condicional. Si la colaboradora aporta una anécdota de uso, memoria o reflexión sobre el par, se formatea como cita destacada en cursiva con filete fino en color cuero (`#9E6B55`) a la izquierda. Su **ubicación es libre** según el contenido: puede situarse tras el abstract, acompañar a un módulo de detalle concreto o figurar como antesala a la cédula técnica. Si no existe testimonio, no se fuerza el espacio.
 
 ### 2.2. Paseo Visual Modular y Ritmo Flexible
 - **Volumen Fotográfico:** Cada monografía cuenta con un mínimo de 6 fotografías reales (las 6 perspectivas canónicas establecidas en [marca/03-sistema-editorial-y-contenidos.md](../../../marca/03-sistema-editorial-y-contenidos.md)), más las tomas macro o de detalle constructivo que justifiquen su inclusión.
-- **Hero Specimen:** Fotografía de apertura en formato dominante (perspectiva tres cuartos exterior), mostrando el calzado en su actitud completa.
-- **Tratamiento Fotográfico (`object-contain`):** Las fotografías se presentan íntegras sin recortes dentro de marcos de proporción normalizada sobre fondo `Specimen White` con filete perimetral `Hairline Dust Border`. Se conserva siempre la silueta completa y el suelo con su sombra natural de apoyo. Se prohíbe el silueteado o la extracción artificial de fondos.
+- **Hero Specimen (Escala reposada):** Fotografía de apertura en formato equilibrado y sereno (perspectiva tres cuartos exterior), mostrando el calzado en su actitud completa en un término medio armónico que no devora la vertical del pliego.
+- **Tratamiento Fotográfico e Inspección (`object-contain`):** Las fotografías se presentan íntegras sin recortes dentro de marcos de proporción normalizada sobre fondo `Specimen White` con filete perimetral `Hairline Dust Border`. Se conserva siempre la silueta completa y el suelo con su sombra natural de apoyo. Se prohíbe el silueteado o la extracción artificial de fondos.
+  - *Señal de inspección interactiva (Efecto revista):* Al posar el cursor (*hover*) o enfocar con teclado, el marco proyecta hacia adentro un paspartú de papel tintado con esquinas interiores suavemente redondeadas, rematado por un filete nítido en color cuero `Cognac Leather` (`#9E6B55`) que evoca una lámina de revista troquelada, manteniendo la fotografía inmóvil (sin escalado, desplazamiento ni filtros).
 - **Módulos de Análisis Flexibles:** Secuencia adaptada a las particularidades de cada par.
 - **Ratios de Retícula Alterna (Distribución de Columnas Web):**
   - `7:5`: Explicación amplia complementada con toma longitudinal o general.
   - `5:7`: Toma vertical (ej. trasera de tacón aguja o caña) con texto sintético.
   - `6:6`: Equilibrio estándar entre texto e imagen.
-  - `Dípticos`: Dos fotografías contiguas (ej. lateral exterior + lateral interior, o frontal + cenital) vinculadas a un único bloque de texto explicativo conjunto.
+  - `Dípticos`: Dos fotografías contiguas (ej. frontal + cenital, o lateral exterior + lateral interior) agrupadas en un contenedor unificado con conexión visual física entre ambas tomas (marco común y filete conector) y texto analítico centrado, compartiendo una lectura comparativa indisoluble.
 - **Pies de Fotografía Limpios:** Las imágenes respiran solas sin textos de relleno. Únicamente se admite pie tipográfico breve en casos indispensables de diferenciación entre tomas contiguas (ej. dípticos: *«Lateral exterior»* / *«Lateral interior»*).
 - **Titulación de Sección:**
   - **Supratítulo (mono versalitas tenue):** Parte del zapato examinada: `[ La pala y el escote ]`, `[ El fuste y el aplomo ]`, `[ El enfranque ]`.
@@ -88,7 +92,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
   - Uso: particularidades históricas del diseño, notas breves o comparaciones directas.
 
 ### 2.7. Ficha «Datos del Par» (Cédula de Museo)
-- Bloque editorial sobrio al cierre del análisis, redactado como cédula de museo con 5 campos obligatorios:
+- Bloque editorial sobrio al cierre del análisis, formalizado en **composición tipográfica continua** (estilo cartela litográfica de sala de museo en texto fluido con separadores sutiles, descartando tablas o listas fragmentadas), con 5 campos obligatorios:
   1. *Silueta / Tipo:* Salón clásico (*pump*), merceditas (*mary jane*), bailarina...
   2. *Marca y Modelo:* Firma y modelo si se conocen (o raya `---` si no se conocen).
   3. *Material y Acabado:* Tipo de piel o tejido y acabado observable (ej. *Piel vacuna grabada con acabado brillante*).

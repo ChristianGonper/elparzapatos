@@ -4,13 +4,11 @@
 **Ámbito:** decisiones y trabajo realizados durante la preparación de la migración del sitio de El Par.  
 **Estado del repositorio antes de este relevo:** `main` en `2db622b9830759c97d80cec5d3dfe27cb2905a1a`.
 
-> Este archivo es una síntesis de continuidad, no una quinta fuente de verdad. Si discrepa con una fuente gobernante, prevalecen [AGENTS.md](../AGENTS.md), [DESIGN.md](DESIGN.md), [ESPECIFICACION.md](ESPECIFICACION.md), las specs de superficie y [TAREAS.md](../TAREAS.md).
-
 ## 1. Objetivo del trabajo
 
 Transformar los prototipos HTML y CSS actuales en un sitio mantenible para publicar decenas de monografías sin copiar páginas completas ni repetir cabecera, pie, estilos y comportamiento.
 
-Christian editará el proyecto localmente. La web desplegada no tendrá un panel de administración: únicamente se publica lo que haya sido revisado, aceptado y enviado a `main`.
+E proyecto se editará localmente. La web desplegada no tendrá un panel de administración: únicamente se publica lo que haya sido revisado, aceptado y enviado a `main`.
 
 ## 2. Arquitectura aceptada
 
@@ -34,15 +32,6 @@ La decisión y su justificación están consolidadas en [ESPECIFICACION.md](ESPE
 - **Automatización:** cada cambio aprobado en `main` podrá activar el build y despliegue de Astro.
 
 Cloudflare Pages todavía **no está configurado** para el sitio real. La infraestructura web continúa documentada, pero no operativa.
-
-### Laboratorio visual temporal
-
-Se creó un Site privado separado para revisar decisiones visuales sin confundirlo con la futura producción:
-
-- URL: <https://elpar-laboratorio-visual.christian-reprice.chatgpt.site>
-- Estado: **publicado de forma privada** y accesible para Christian.
-- Función: comparar portada y monografía, ritmo vertical, retícula, marcos, lightbox y glosario.
-- No es el sitio real, no sustituye Astro y no debe convertirse en la fuente del producto.
 
 ## 4. Fotografías y almacenamiento
 
@@ -86,11 +75,9 @@ Se conserva la dirección editorial existente:
 ### Ampliación fotográfica
 
 - Las imágenes abren un lightbox limpio a pantalla completa.
-- No se escala ni desplaza la fotografía al pasar el ratón.
-- En escritorio, el paspartú, el filete y un halo muy ligero cambian hacia el color cuero para comunicar que la imagen es interactiva.
-- El mismo estado debe existir con foco de teclado y la apertura debe funcionar con `Enter` y espacio.
+- En escritorio, al posar el cursor o enfocar con teclado, el marco despliega hacia adentro un paspartú generoso con filete nítido en tono cuero (`#9E6B55`) tipo revista de moda, sin mover ni escalar la fotografía.
+- El mismo estado existe con foco de teclado y la apertura debe funcionar con `Enter` y espacio.
 
-El efecto de marco está implementado en la versión actual del laboratorio. Debe revisarse visualmente durante el relevo antes de trasladarlo literalmente al sitio Astro; el principio de no escalar la imagen sí está confirmado.
 
 ## 8. Portada inaugural aceptada
 
@@ -104,7 +91,19 @@ El efecto de marco está implementado en la versión actual del laboratorio. Deb
 
 La decisión está registrada en [specs/portada/spec.md](specs/portada/spec.md) §4 (ADR-POR-01).
 
-## 9. Qué se ha implementado
+## 9. Estructura de la monografía aceptada
+
+- **Propósito y tono:** Rigor técnico con cercanía pedagógica para que cualquier lectora entienda la anatomía del calzado. Fusión entre la fotografía natural y honesta de colaboradoras y una maquetación de revista de alta exigencia editorial.
+- **Abstract de apertura:** Pliego editorial a **dos columnas** (estilo doble página de catálogo de arte).
+- **Hero de espécimen:** Escala equilibrada y reposada en término medio, sin devorar la vertical de la pantalla.
+- **Dípticos:** Las dos imágenes contiguas cuentan con un marco conector físico que las vincula visualmente y su texto explicativo va **centrado**.
+- **Cédula técnica («Datos del par»):** Composición tipográfica **continua de museo** (5 campos canónicos en prosa corrida con separadores sutiles), descartando definitivamente el formato de tabla o lista rígida.
+- **Voz de la colaboradora:** Cita testimonial con **posición libre** (en la apertura, junto a un detalle específico de calce o al cierre técnico, según lo que aporte el testimonio).
+- **Flujo de trabajo editorial:** Christian elabora el borrador en Markdown; el agente de código ensambla los componentes en local; Christian revisa y valida visualmente en su navegador antes de consolidar.
+
+La decisión está registrada en [specs/monografia/spec.md](specs/monografia/spec.md).
+
+## 10. Qué se ha implementado
 
 ### Documentado y subido a GitHub
 
@@ -114,7 +113,8 @@ La decisión está registrada en [specs/portada/spec.md](specs/portada/spec.md) 
 - Analítica esencial de Cloudflare.
 - Ritmo compacto, marco fotográfico, escala móvil y cabecera no persistente.
 - Portada inaugural directa y adaptable al número de piezas.
-- Comportamiento del glosario y señal de inspección fotográfica.
+- Comportamiento del glosario y señal de inspección fotográfica (marco interior tipo revista).
+- Estructura editorial de la monografía (abstract a 2 columnas, hero equilibrado, díptico conectado, cédula continua y cita libre).
 
 Commits de esta fase:
 
@@ -136,34 +136,23 @@ Commits de esta fase:
 
 ### Todavía no implementado en el producto real
 
-- Proyecto Astro y estructura de carpetas definitiva.
+- Proyecto Astro en `sitio/` y estructura de carpetas definitiva.
 - Colecciones y esquema de datos para cada par.
-- Migración de los cuatro HTML existentes.
+- Migración de los cuatro HTML existentes (archivados en `sitio/prototipos-html/`).
 - Build de producción en Cloudflare Pages.
 - Dominio temporal `pages.dev` y dominio propio.
 - Web Analytics activa.
 - Formulario propio.
 
-## 10. Autorización de trabajo confirmada
-
-Christian autorizó que, al terminar cada fase que él haya aceptado:
-
-1. se actualicen los documentos canónicos pertinentes;
-2. se creen commits pequeños conforme a las reglas del repositorio;
-3. se haga `push` a `main`.
-
-Esta autorización no permite convertir propuestas abiertas en decisiones, introducir funciones no solicitadas ni omitir su aprobación para criterios visuales nuevos.
-
 ## 11. Cómo continuar
 
 1. Leer [AGENTS.md](../AGENTS.md), [ESTADO.md](../ESTADO.md) y este relevo.
-2. Verificar el `HEAD` de `main`; no asumir que el SHA de este documento sigue siendo el último.
-3. Abrir el laboratorio y comprobar el efecto de inspección fotográfica actual.
-4. Continuar la revisión visual por bloques, planteando a Christian las decisiones antes de consolidarlas, incluso cuando ya aparezcan en los HTML antiguos.
-5. Próximo bloque recomendado: estructura de la monografía —apertura, abstract, alternancia 7:5/5:7/6:6, orden móvil, dípticos, glosario, cédula y navegación final—.
-6. Cuando la estructura de componentes esté aprobada, crear el proyecto Astro y la primera colección de contenido.
-7. Migrar primero portada y una monografía completa; después `Sobre El Par` y `Cómo colaborar`.
-8. Validar móvil, teclado, lightbox, popovers, metadatos y construcción estática antes de configurar Cloudflare Pages.
+2. Crear la estructura inicial del proyecto Astro en `sitio/` con sus dependencias limpias.
+3. Trasladar los 4 prototipos HTML actuales a `sitio/archivo-prototipos/` como referencia inerte.
+4. Construir la biblioteca base de componentes de maquetación Astro (`Header`, `Footer`, `SpecimenFrame`, `Abstract`, `ModuloEditorial`, `Diptico`, `CedulaMuseo`, `CitaColaboradora`, `GlossaryPopover`, `Lightbox`).
+5. Migrar primero la Portada y la Monografía del salón clásico; validar localmente en móvil y escritorio.
+6. Migrar `Sobre El Par` y `Cómo colaborar`.
+7. Validar build estático antes de configurar Cloudflare Pages.
 
 ## 12. Regla fundamental para el relevo
 

@@ -9,9 +9,10 @@ Trabajo por hacer, catálogo de intenciones futuras y operativa interna.
 
 ## 1. Ahora — Trabajo prioritario del usuario
 
-### Revisión y decisiones de la migración
-- [ ] Revisar y aprobar los componentes visuales mediante el [laboratorio temporal](https://elpar-laboratorio-visual.christian-reprice.chatgpt.site).
-- [ ] Validar la estructura base de componentes Astro antes de migrar las páginas.
+### Migración del sitio a Astro
+- [x] Validar y cerrar las decisiones de diseño y estructura de la monografía en mock comparativo ([sitio/mock-comparativas-visuales.html](sitio/mock-comparativas-visuales.html)).
+- [ ] Crear la estructura inicial del proyecto Astro en `sitio/` y configurar la biblioteca base de componentes.
+- [ ] Migrar portada y monografía clásica validando en móvil y escritorio.
 
 ### Primera Pieza Monográfica Real
 - [ ] Recibir y seleccionar el material fotográfico de colaboradoras para maquetar la primera monografía real.

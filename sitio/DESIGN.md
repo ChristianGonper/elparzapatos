@@ -57,7 +57,7 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 - **Visual Pattern:** Narrow warm mat around the pure `#FFFFFF` photographic field, delimited by a crisp 1px hairline. The slight temperature contrast makes white-background photographs legible as framed specimens without exaggerating the picture-frame effect.
 - **Image Stance:** Uncropped presentation using `object-contain` that preserves natural ground and shadow. Zero rounded corners (`rounded-none`).
 - **Frame Proportion:** Internal mat spacing remains deliberately slimmer than in the first static prototypes. If a source image contains excessive white margin, the publication crop is corrected locally before release rather than compensated through CSS.
-- **Inspection Cue:** On desktop hover and keyboard focus, only the surrounding mat, hairline and a restrained leather-tinted halo change. The photograph itself never scales, shifts or receives a color filter.
+- **Inspection Cue (Magazine Inset Passepartout):** On desktop hover and keyboard focus, the frame reveals a generous inward-projecting mat with softly rounded interior corners, evoking the tactile die-cut passepartout of a luxury fashion magazine. The photograph itself never scales, shifts, or receives a color filter; its natural contact shadow on pure white remains pristine.
 - **Surface Purity:** Zero overlaid corner badges, tags, or floating labels over the photography.
 
 ### 4.2. Contextual Popover Card

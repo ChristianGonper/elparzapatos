@@ -6,11 +6,10 @@ Actualizado: 2026-09-18.
 **El Par — Zapatos en detalle**: publicación editorial independiente y colección monográfica digital de calzado.
 
 ## Foco actual
-- Migración de los prototipos a Astro y definición visual verificable antes de maquetar la primera monografía real ([TAREAS.md](TAREAS.md)).
+- Inicio de la migración del sitio a Astro en `sitio/` a partir del relevo consolidado ([TAREAS.md](TAREAS.md)).
 
 ## Bloqueos
 - Ninguno ([TAREAS.md](TAREAS.md) § Ahora).
 
-
 ## Último hito
-- Cerrado el relevo de arquitectura y revisión visual: decisiones consolidadas, laboratorio privado publicado y continuidad documentada en [sitio/RELEVO-MIGRACION-ASTRO.md](sitio/RELEVO-MIGRACION-ASTRO.md).
+- Cerrada y validada en mock la definición visual y editorial de la monografía; relevo de continuidad listo para implementación en [sitio/RELEVO-MIGRACION-ASTRO.md](sitio/RELEVO-MIGRACION-ASTRO.md).
