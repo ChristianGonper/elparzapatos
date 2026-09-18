@@ -19,7 +19,7 @@
 Every color conveys physical printing and bookmaking materiality:
 
 - **Paper Canvas (`#FAF8F5`):** Warm alabaster parchment base applied across the viewport canvas. Sets the calm, paper-like foundation.
-- **Muted Linen Surface (`#F3EFEA`):** Warm tint elevation used for quiet inset panels, concise anatomical notes, and the closing collaboration block.
+- **Muted Linen Surface (`#F3EFEA`):** Warm tint elevation used for quiet inset panels, concise anatomical notes, and collaborative closing callout surfaces.
 - **Specimen White (`#FFFFFF`):** Pure archival mat white reserved exclusively for photography mats and specimen frame containers.
 - **Primary Ink Charcoal (`#1C1A18`):** Deep lithographic charcoal ink replacing harsh pure black (`#000000`). Used for display headlines, body narrative, and structural boundary lines.
 - **Graphite Note (`#6B6661`):** Warm neutral graphite for secondary metadata, taxonomic labels, and quiet captions.
@@ -42,38 +42,54 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
   - Used for specimen titles, editorial observations (`«Dos extremos, una silueta»`), and section mastheads.
   - Subtle italics used selectively for emotional cadence and literary quotes.
   - Tracking: slightly tight (`-0.01em` to `-0.02em`) to maintain headline cohesion.
+  - Fluid scale: responsive sizing governed by `clamp()` formulas to maintain literary authority across viewports without rigid pixel breaks.
 - **Body Prose (`Plus Jakarta Sans` / `Inter`, Sans-Serif):**
   - Clean, spacious, highly legible humanistic grotesque sans-serif dedicated to long-form reading.
   - Line length strictly capped at `65ch` for effortless eye tracking.
   - Relaxed leading (`line-height: 1.75`). Fluid, responsive sizing via `clamp()` without rigid pixel locks.
 - **Technical Annotations & Metrics (`JetBrains Mono`, Monospace):**
   - Monospaced precision reserved for taxonomic indicators, dimensions (e.g., `90 mm`), marginal folio numbering (`· 01`, `· 02`), provenance metadata (`Armario de [Nombre]`), and anatomical data tables.
+  - Tracking & Leading: slightly tracked (`0.04em` to `0.08em`) uppercase for section and taxonomic tags; tabular numbers and regular tracking for measurements. Tight, controlled leading (`line-height: 1.4` to `1.5`).
 
 ---
 
-## 4. Transversal UI Patterns
+## 4. Component Stylings & Transversal UI Patterns
 
-### 4.1. Framed Specimen Mat
+### 4.1. Core Component Foundations
+- **Geometry & Edge Stance:** Strictly sharp, squared-off edges (`rounded-none`) across all cards, containers, buttons, specimen frames, and inputs. Pill-shaped elements (`rounded-full`) and rounded corners (`rounded-lg`, `rounded-md`) are completely banned, enforcing architectural discipline and editorial folio rigor.
+- **Buttons & Interactive Actions:**
+  - *Shape & Border:* Sharp, squared-off edges (`rounded-none`).
+  - *Color Assignment:* Primary text actions in lithographic Primary Ink Charcoal (`#1C1A18`) with directional arrow cue (`→`), or discrete bordered buttons on Paper Canvas (`#FAF8F5`) with crisp 1px Hairline Dust Border (`#E8E3DC`). Navigation and active selection states marked with a subtle baseline stroke or Cognac Leather (`#9E6B55`) tint.
+  - *Behavior & Motion:* Serene hover transition (subtle opacity change or shift to `#9E6B55`); zero playful bouncing, scale zooms, or heavy 3D bevels. Minimum `44px` tap target area for touch accessibility.
+- **Cards & Containers:**
+  - *Shape & Border:* Sharp, squared-off edges (`rounded-none`) delimited by crisp 1px Hairline Dust Border (`#E8E3DC`).
+  - *Background:* Specimen White (`#FFFFFF`) for specimen photography, Muted Linen Surface (`#F3EFEA`) for secondary panels, or Paper Canvas (`#FAF8F5`) for primary canvases.
+  - *Depth:* Flat lithographic depth; zero heavy or fuzzy drop shadows.
+- **Inputs & Form Controls:**
+  - *Shape & Stroke:* Sharp, squared-off edges (`rounded-none`) with a crisp 1px Hairline Dust Border (`#E8E3DC`). On focus, transitions to a subtle 1px border in Cognac Leather (`#9E6B55`); zero glowing neon halos or harsh blue outlines.
+  - *Background & Typography:* Neutral Paper Canvas (`#FAF8F5`) or Specimen White (`#FFFFFF`). Monospace or clean sans-serif typography in Primary Ink Charcoal (`#1C1A18`) with Graphite Note (`#6B6661`) placeholder text.
+
+### 4.2. Framed Specimen Mat
 - **Visual Pattern:** Narrow warm mat around the pure `#FFFFFF` photographic field, delimited by a crisp 1px hairline. The slight temperature contrast makes white-background photographs legible as framed specimens without exaggerating the picture-frame effect.
 - **Image Stance:** Uncropped presentation using `object-contain` that preserves natural ground and shadow. Zero rounded corners (`rounded-none`).
 - **Frame Proportion:** Internal mat spacing remains deliberately slimmer than in the first static prototypes. If a source image contains excessive white margin, the publication crop is corrected locally before release rather than compensated through CSS.
 - **Inspection Cue (Magazine Inset Passepartout):** On desktop hover and keyboard focus, the frame reveals a generous inward-projecting mat with softly rounded interior corners, evoking the tactile die-cut passepartout of a luxury fashion magazine. The photograph itself never scales, shifts, or receives a color filter; its natural contact shadow on pure white remains pristine.
 - **Surface Purity:** Zero overlaid corner badges, tags, or floating labels over the photography.
 
-### 4.2. Contextual Popover Card
+### 4.3. Contextual Popover Card
 - **Trigger Element:** Subtle dotted underline in Cognac Leather (`#9E6B55`).
 - **Floating Panel:** Detached surface on `#FAF8F5` with a crisp 1px `#E8E3DC` hairline border and soft lithographic shadow (`0 4px 12px rgba(28, 26, 24, 0.04)`).
 - **Typography:** Monospace versalitas for term header; sans-serif for definition. No close icon: the panel closes by clicking or tapping outside it, or with `Esc`, without modalizing the background.
 
-### 4.3. Inset Tinted Note Panel
+### 4.4. Inset Tinted Note Panel
 - **Visual Pattern:** Quiet inset box rendered in soft Muted Linen Surface (`#F3EFEA`) with a 1px `#E8E3DC` border.
 - **Typography:** Compact sans-serif or monospace typography for concise historical, technical, or comparative annotations.
 
-### 4.4. Continuous Typographic Folio List
+### 4.5. Continuous Typographic Folio List
 - **Visual Pattern:** Fluid, uninterrupted typographic credits layout replacing rigid tabular forms.
 - **Styling:** Key-value pairs separated by subtle baseline dividers or discrete spacing, pairing monospace descriptors with literary serif or clean sans-serif values.
 
-### 4.5. Minimalist Inspection Lightbox
+### 4.6. Minimalist Inspection Lightbox
 - **Visual Pattern:** Full-viewport specimen inspection over clean neutral alabaster (`#FAF8F5`) or pure white.
 - **Restraint:** Absence of heavy toolbars, zoom carousels, or icon clusters. Effortless dismiss via ambient click or `Esc`.
 
