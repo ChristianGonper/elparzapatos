@@ -15,13 +15,10 @@
 - [x] Maquetar Bloque 4: *El método* (fotografías cercanas y naturales como las que mandarías a tus amigas).
 - [x] Maquetar Bloque 5: *Conversación* (espacio abierto para sugerencias/dudas y llamada a la acción hacia colaboración).
 - [x] Integrar enlace a «Sobre El Par» en la navegación de `sitio/index.html`, `sitio/como-colaborar.html` y `sitio/entradas/salon-aguja.html`.
-- [x] Verificar maquetación responsive, contraste y enlaces locales.
-
-- [x] Revisar el copy y actualizar su contrato en la spec y los criterios de Marca (2026-09-15).
+- [x] Adaptar cabecera, pie y zonas táctiles a móvil (mínimo 44 px) y verificar navegación cruzada sin desbordamiento horizontal.
+- [x] Verificar maquetación responsive, contraste cromático, coherencia con Marca y resolución de enlaces locales.
 
 ---
-
-- [x] Adaptar cabecera, pie y zonas táctiles a móvil; comprobar las tres páginas del flujo a distintos anchos.
 
 ## 2. Deuda Técnica y Mantenimiento
 

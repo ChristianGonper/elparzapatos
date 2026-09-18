@@ -15,22 +15,15 @@
 
 ## 2. Validación Realizada
 
-- Verificada la legibilidad de los bloques, el trato en tuteo natural y el uso consistente de «Colección» y «El Par» sin términos institucionales ni burocráticos.
-- Comprobada la tarjeta interactiva de la portada de la guía con una ruta relativa válida tanto en local como en GitHub Pages, y soporte visual en móvil y escritorio.
-- Verificada la correcta resolución del correo oficial y el canal de Instagram (`@elparzapatos`).
+- Verificada la legibilidad de los bloques, el trato en tuteo natural, el contrato de copy alineado con Marca y el uso consistente de «Colección» y «El Par» sin términos burocráticos.
+- Comprobada la adaptabilidad responsive en escritorio (1280 px) y emulación táctil móvil en múltiples resoluciones (320, 360, 390, 430, 640 y 768 px) sin desbordamiento horizontal.
+- Verificada la usabilidad móvil con cabecera en dos filas, pie con salto de línea flexible y enlaces con altura táctil mínima de 44 px.
+- Comprobada la tarjeta interactiva de la portada de la guía (*Tus zapatos en cámara*) con ruta relativa válida en local y GitHub Pages, conservando la proporción de sus láminas y sus cuatro hojas sin recortes en pantalla ni impresión.
+- Verificado el recorrido completo por pulsación hasta la vista previa no interactiva de Tally y apertura del formulario externo, así como la resolución del correo oficial y perfil de Instagram (`@elparzapatos`).
 
 ---
 
 ## 3. Deuda Técnica y Pendientes Menores
 
 - Sustituir el enlace externo de Tally por el formulario propio integrado en la web cuando se desarrolle dicha funcionalidad (registrada como Intención en [TAREAS.md](../../../TAREAS.md)).
-
-## Revisión de copy · 2026-09-15
-
-Aplicados los ajustes editoriales y sincronizado el contrato de copy con Marca. Conservadas la navegación, las imágenes y la estructura existente; ampliadas las preguntas frecuentes de colaboración con el tratamiento de las fotos. Validación de contenido, diferencias y enlaces locales.
-
-Comprobación en Edge a 390 y 1280 px sin desbordamiento horizontal. La guía enlazada conserva sus cuatro hojas sin recorte de contenido en pantalla e impresión.
-
-Cabecera móvil en dos filas, contacto flexible, enlaces de 44 px y párrafos de al menos 15 px. La guía incluye acceso visible al formulario externo y conserva la proporción original de sus láminas en móvil.
-
-Validación móvil en Edge con emulación táctil a 320, 360, 390, 430, 640 y 768 px, y control de escritorio a 1280 px: sin desbordamiento horizontal; enlaces visibles de al menos 44 px por debajo de 768 px. Revisadas capturas y recorrido por pulsación desde la página institucional hasta Tally, sin enviar datos. La guía mantiene cuatro hojas sin recortes en impresión.
+- Evaluar la respuesta de las primeras colaboradoras para detectar si alguna duda habitual requiere ampliación en las preguntas frecuentes.

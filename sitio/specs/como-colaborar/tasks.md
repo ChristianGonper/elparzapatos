@@ -5,7 +5,7 @@
 
 ---
 
-## 1. Cierre de Build
+## 1. Cierre de Build v1
 
 - [x] Maquetar bloque de apertura con mensaje de acogida sin tecnicismos clínicos ni términos burocráticos.
 - [x] Estructurar el proceso de colaboración en 3 pasos legibles con terminología de «Colección» y «El Par».
@@ -13,12 +13,9 @@
 - [x] Diseñar e integrar la portada interactiva de la guía fotográfica *Tus zapatos en cámara* como embudo prioritario hacia la vista previa no interactiva de Tally y el formulario externo.
 - [x] Retirar botón de acceso directo secundario a Tally para canalizar adecuadamente a las nuevas colaboradoras.
 - [x] Actualizar canal de contacto directo a `@elparzapatos` y correo oficial.
-
-- [x] Revisar el copy y actualizar su contrato en la spec y los criterios de Marca (2026-09-15).
+- [x] Adaptar cabecera, pie y zonas táctiles a móvil (mínimo 44 px) y verificar las páginas del flujo a distintos anchos.
 
 ---
-
-- [x] Adaptar cabecera, pie y zonas táctiles a móvil; comprobar las tres páginas del flujo a distintos anchos.
 
 ## 2. Deuda Técnica y Mantenimiento
 
