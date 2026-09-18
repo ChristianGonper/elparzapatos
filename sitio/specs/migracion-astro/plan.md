@@ -43,10 +43,10 @@ INSTRUCCIÓN PARA LA IA:
       "check": "astro check"
     },
     "dependencies": {
-      "astro": "^4.15.0"
+      "astro": "^7.3.3"
     },
     "devDependencies": {
-      "@astrojs/check": "^0.9.0",
+      "@astrojs/check": "^0.9.10",
       "typescript": "^5.5.0"
     }
   }

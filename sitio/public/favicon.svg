@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#FAF8F5"/>
+  <rect x="0.5" y="0.5" width="31" height="31" fill="none" stroke="#E8E3DC" stroke-width="1"/>
+  <!-- Monograma editorial "P" en tinta carbón (#1C1A18) con acento en cuero cognac (#9E6B55) -->
+  <path d="M7 8h6.5c3.8 0 6.5 1.8 6.5 4.8 0 3.2-2.8 4.9-6.8 4.9H11v4.8h2.5v1.5H7v-1.5H9.5V9.5H7V8zm4 1.5v6.7h2.2c2.8 0 4.5-1.2 4.5-3.4 0-2-1.6-3.3-4.2-3.3H11z" fill="#1C1A18"/>
+  <circle cx="24" cy="23.2" r="1.8" fill="#9E6B55"/>
+</svg>

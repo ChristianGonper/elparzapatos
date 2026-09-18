@@ -26,15 +26,15 @@ INSTRUCCIÓN PARA LA IA:
 
 ### Fase 1: Inicialización del Entorno y Archivo Histórico
 
-- [ ] **T01. Configuración de dependencias y scripts en `sitio/`**
-  - Acción: Crear [sitio/package.json](../../package.json), [sitio/astro.config.mjs](../../astro.config.mjs) y [sitio/tsconfig.json](../../tsconfig.json) configurados con `pnpm`, Astro `^4.15.0`, TypeScript estricto y scripts (`dev`, `build`, `preview`, `check`).
+- [x] **T01. Configuración de dependencias y scripts en `sitio/`**
+  - Acción: Crear [sitio/package.json](../../package.json), [sitio/astro.config.mjs](../../astro.config.mjs) y [sitio/tsconfig.json](../../tsconfig.json) configurados con `pnpm`, Astro `^7.3.3`, TypeScript estricto y scripts (`dev`, `build`, `preview`, `check`).
   - *Hecho cuando:* La ejecución de `pnpm install` en [sitio/](../../) descarga las dependencias limpias y `pnpm run check` corre sin errores de configuración.
 
-- [ ] **T02. Archivo inerte de los prototipos HTML existentes**
+- [x] **T02. Archivo inerte de los prototipos HTML existentes**
   - Acción: Crear el directorio [sitio/archivo-prototipos/](../../archivo-prototipos/) y trasladar en él los archivos [sitio/index.html](../../index.html), [sitio/sobre-el-par.html](../../sobre-el-par.html), [sitio/como-colaborar.html](../../como-colaborar.html), [sitio/mock-comparativas-visuales.html](../../mock-comparativas-visuales.html) y [sitio/entradas/salon-aguja.html](../../entradas/salon-aguja.html), dejando la raíz de [sitio/](../../) despejada para la estructura de Astro.
   - *Hecho cuando:* Los prototipos residen inertes en [sitio/archivo-prototipos/](../../archivo-prototipos/) como referencia histórica y no interfieren con el enrutamiento de Astro.
 
-- [ ] **T03. Estructuración del árbol de directorios y activos fotográficos**
+- [x] **T03. Estructuración del árbol de directorios y activos fotográficos**
   - Acción: Crear las carpetas de `src/` (`assets/pares/salon-aguja/`, `assets/marca/`, `components/`, `content/pares/`, `layouts/`, `pages/entradas/`, `styles/`) y la carpeta [sitio/public/](../../public/) con `robots.txt` y favicon. Trasladar las imágenes WebP del salón aguja y recursos visuales de marca a `src/assets/`.
   - *Hecho cuando:* Las imágenes del salón clásico y de «Sobre El Par» están ubicadas en sus rutas canónicas dentro de `src/assets/`.
 
