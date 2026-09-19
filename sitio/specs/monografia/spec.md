@@ -35,7 +35,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
   - `7:5`: Explicación amplia complementada con toma longitudinal o general.
   - `5:7`: Toma vertical (ej. trasera de tacón aguja o caña) con texto sintético.
   - `6:6`: Equilibrio estándar entre texto e imagen.
-  - `Dípticos`: Dos fotografías contiguas (ej. frontal + cenital, o lateral exterior + lateral interior) agrupadas en un contenedor unificado con conexión visual física entre ambas tomas (marco común y filete conector) y texto analítico centrado, compartiendo una lectura comparativa indisoluble.
+  - `Dípticos`: Dos fotografías contiguas (ej. frontal + planta, cenital, o lateral exterior + lateral interior) agrupadas en un contenedor unificado con conexión visual física entre ambas tomas (marco continuo y filete conector) y texto analítico centrado, compartiendo una lectura comparativa indisoluble. Admiten proporciones fotográficas flexibles (`4:3`, `1:1`, `3:4`, `16:10` o natural) para adaptarse con holgura a tomas verticales, cuadradas o apaisadas sin forzar un recorte artificial.
 - **Pies de Fotografía Limpios:** Las imágenes respiran solas sin textos de relleno. Únicamente se admite pie tipográfico breve en casos indispensables de diferenciación entre tomas contiguas (ej. dípticos: *«Lateral exterior»* / *«Lateral interior»*).
 - **Titulación de Sección:**
   - **Supratítulo (mono versalitas tenue):** Parte del zapato examinada: `[ La pala y el escote ]`, `[ El fuste y el aplomo ]`, `[ El enfranque ]`.

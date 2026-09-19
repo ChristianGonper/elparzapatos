@@ -32,15 +32,19 @@ La interfaz se adapta a la cantidad real de entregas catalogadas:
 - **Filtros por tipología (*Salones*, *Merceditas*, *Bailarinas*, etc.):** Permanecen latentes e invisibles hasta que existan al menos dos tipologías distintas catalogadas con volumen representativo.
 
 ### 2.3. Pieza Destacada (*Hero Piece*)
-- **Marco fotográfico:** Contenedor con paspartú amplio y limpio sobre Specimen White, aplicando `object-contain` íntegro.
-- **Metadatos y tipografía:**
+- **Estructura y Radios Semánticos:** Contenedor general en dos columnas con bordes redondeados (`--radius-lg: 8px`), delimitado por filete sutil `Hairline Dust Border` y sombra leve `var(--shadow-subtle)`.
+- **Marco fotográfico de espécimen (Columna izquierda):**
+  - Contenedor con paspartú amplio y limpio sobre Specimen White, con esquinas redondeadas (`--radius-md: 6px`) y `object-contain` íntegro.
+  - **Inspección interactiva de arte:** Al posar el cursor (*hover*) o enfocar con teclado, el filete interior `::after` proyecta un marco troquelado redondeado (`--radius-md`) con borde en cuero cognac (`#9E6B55`) y paspartú tintado con sombra interior de papel (`inset 0 0 0 8px #FAF8F5`). La fotografía permanece inmóvil y sin deformación. Al pulsar, abre la ampliación (*Lightbox*).
+- **Ficha editorial interactiva (Columna derecha):**
+  - Toda la columna derecha está articulada como una tarjeta-botón accesible hacia el estudio monográfico en `/entradas/[slug]`.
   - Metadatos superiores: `Pieza Destacada` y `Armario de [Nombre]` en mono tenue.
   - Título observacional en Newsreader serif (ej. *«Dos extremos, una silueta»*).
   - Subtítulo descriptivo en una sola línea en sans-serif neutra.
-  - Enlace sobrio: fórmula fija `Ver estudio →`.
+  - Llamada a la acción sobria: fórmula fija `Ver estudio →`.
+  - **Interacción al posar el cursor (*hover*):** El cursor adopta estado `pointer`, el fondo recibe un sutil enriquecimiento de iluminación en papel, el título adquiere el tono cognac (`#9E6B55`) y la flecha `&rarr;` avanza suavemente 6px hacia la derecha con transición serena.
 - **Silencio editorial:** Se eliminan párrafos descriptivos secundarios para priorizar la presencia visual del objeto y el espacio negativo.
 - **Composición aprobada:** En escritorio, fotografía a la izquierda y bloque editorial a la derecha. En móvil, la fotografía aparece primero para que título, procedencia y descripción se lean inmediatamente asociados a ella.
-- **Inspección:** La fotografía abre la ampliación. En dispositivos con puntero, el marco cambia sutilmente de color y brillo al pasar el ratón; no se amplía ni desplaza la imagen. El mismo estado se ofrece mediante foco de teclado.
 
 ### 2.4. Cuadrícula de la Colección
 - **Tarjetas:** Delimitadas por filete sutil `Hairline Dust Border` y fondo `Specimen White` en el marco de la imagen.

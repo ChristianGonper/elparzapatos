@@ -1,0 +1,1297 @@
+---
+/**
+ * Guía fotográfica interactiva para colaboradoras: Tus zapatos en cámara
+ * Fuente de verdad: marca/activos/guia-fotografica-colaboradores.html
+ */
+---
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tus zapatos en cámara · Guía para colaboradoras | El Par — Zapatos en detalle</title>
+
+  <!-- Google Fonts: Newsreader, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style is:inline>
+    :root {
+      --paper: #FAF8F5;
+      --paper-muted: #F3EFEA;
+      --specimen: #FFFFFF;
+      --ink: #1C1A18;
+      --graphite: #6B6661;
+      --cognac: #9E6B55;
+      --cognac-dark: #7A4D38;
+      --hairline: #E8E3DC;
+      --hairline-dark: #D4CDC3;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
+      background: #E8E3DC;
+      color: var(--ink);
+    }
+
+    body {
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .page {
+      position: relative;
+      width: 210mm;
+      max-width: 100%;
+      height: 297mm;
+      overflow: hidden;
+      page-break-after: always;
+      background: var(--paper);
+    }
+
+    .page:last-child {
+      page-break-after: auto;
+    }
+
+    .serif {
+      font-family: "Newsreader", "Bitstream Charter", "Nimbus Roman", Georgia, serif;
+      font-weight: 400;
+    }
+
+    .mono {
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--cognac);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 3mm;
+      font-size: 36pt;
+      line-height: 1.02;
+      font-weight: 400;
+      letter-spacing: -.02em;
+    }
+
+    h2 {
+      margin-bottom: 3mm;
+      font-size: 25pt;
+      line-height: 1.06;
+      font-weight: 400;
+      letter-spacing: -.02em;
+    }
+
+    .rule {
+      width: 18mm;
+      height: 1.5px;
+      margin: 3.5mm 0 5mm;
+      background: var(--cognac);
+    }
+
+    .folio {
+      position: absolute;
+      right: 16mm;
+      bottom: 10mm;
+      display: flex;
+      align-items: center;
+      gap: 3mm;
+      color: var(--graphite);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 7.5pt;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .folio span {
+      opacity: 0.85;
+    }
+
+    .folio b {
+      color: var(--cognac);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       PÁGINA 1: PORTADA
+       ========================================================================== */
+    .cover {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .cover-copy {
+      position: relative;
+      z-index: 3;
+      padding: 22mm 18mm 0;
+    }
+
+    .cover-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 3mm;
+      margin-bottom: 8mm;
+    }
+
+    .cover-brand .brand-name {
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 20pt;
+      color: var(--paper);
+      letter-spacing: -.01em;
+    }
+
+    .cover-brand .brand-descriptor {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8pt;
+      color: var(--hairline-dark);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .cover .eyebrow {
+      color: #C89F8F;
+      font-size: 8pt;
+      letter-spacing: .18em;
+      margin-bottom: 2.5mm;
+    }
+
+    .cover h1 {
+      margin-top: 2mm;
+      margin-bottom: 0;
+      font-size: 38pt;
+      color: #FFFFFF;
+      line-height: 1.0;
+    }
+
+    .cover .tagline {
+      width: 135mm;
+      margin-top: 6mm;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #E6DFD6;
+    }
+
+    .cover-visual {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 165mm;
+      overflow: hidden;
+    }
+
+    .cover-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 48%;
+      filter: saturate(.88);
+    }
+
+    .cover-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, var(--ink) 0%, rgba(28, 26, 24, 0.65) 15mm, transparent 38mm, transparent 100%);
+    }
+
+    .cover-mark {
+      position: absolute;
+      z-index: 4;
+      right: 18mm;
+      bottom: 12mm;
+      padding: 2.5mm 4mm;
+      border: 1px solid rgba(255, 255, 255, .35);
+      background: rgba(28, 26, 24, .75);
+      backdrop-filter: blur(4px);
+      color: var(--paper);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 7pt;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================================================
+       PÁGINA 2: ANTES DE EMPEZAR / FOTOS SENCILLAS Y CON BUENA LUZ
+       ========================================================================== */
+    .intro {
+      padding: 17mm 18mm 13mm;
+    }
+
+    .intro h2 {
+      width: 140mm;
+      margin-top: 3mm;
+      font-size: 26pt;
+    }
+
+    .intro .lead {
+      width: 150mm;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 14pt;
+      line-height: 1.45;
+      color: var(--graphite);
+    }
+
+    .principles {
+      margin-top: 5mm;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4.5mm;
+    }
+
+    .principle {
+      min-height: 52mm;
+      padding: 5mm 5mm;
+      border: 1px solid var(--hairline);
+      border-top: 2px solid var(--cognac);
+      background: var(--paper-muted);
+    }
+
+    .principle .n {
+      color: var(--cognac);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12.5pt;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: .05em;
+    }
+
+    .principle h3 {
+      margin: 3.5mm 0 2mm;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 14.5pt;
+      font-weight: 400;
+      color: var(--ink);
+    }
+
+    .principle p {
+      margin: 0;
+      font-size: 9.2pt;
+      line-height: 1.48;
+      color: var(--graphite);
+    }
+
+    .privacy-card {
+      margin-top: 6mm;
+      padding: 5.5mm 6.5mm;
+      border: 1px solid var(--hairline);
+      background: var(--specimen);
+    }
+
+    .privacy-card .card-head {
+      margin-bottom: 3mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .privacy-card .card-head h4 {
+      margin: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 13.5pt;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+    }
+
+    .privacy-col strong {
+      display: block;
+      margin-bottom: 1.2mm;
+      font-size: 9.6pt;
+      color: var(--ink);
+    }
+
+    .privacy-col p {
+      margin: 0;
+      font-size: 9.1pt;
+      line-height: 1.48;
+      color: var(--graphite);
+    }
+
+    /* ==========================================================================
+       PÁGINA 3: LAS POSICIONES (SEIS FOTOS PARA VERLO ENTERO)
+       ========================================================================== */
+    .views {
+      padding: 12mm 16mm 9mm;
+    }
+
+    .views header {
+      display: grid;
+      grid-template-columns: 1fr 96mm;
+      gap: 5mm;
+      align-items: flex-end;
+      margin: 0 1mm 3.5mm;
+    }
+
+    .views h2 {
+      margin: 1mm 0 0;
+      font-size: 23pt;
+    }
+
+    .views .header-note {
+      padding: 2.5mm 3.5mm;
+      border-left: 2px solid var(--cognac);
+      background: var(--paper-muted);
+      color: var(--graphite);
+      font-size: 8.6pt;
+      line-height: 1.42;
+    }
+
+    .sheets-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5mm;
+      margin-top: 1mm;
+    }
+
+    .contact-sheet {
+      position: relative;
+      width: 178mm;
+      height: 102mm;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+      background: var(--specimen);
+    }
+
+    .contact-sheet img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .pin {
+      position: absolute;
+      width: 6.5mm;
+      height: 6.5mm;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cognac);
+      color: var(--specimen);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 7pt;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, .6);
+    }
+
+    .p1 {
+      left: 2.5mm;
+      top: 2.5mm;
+    }
+
+    .p2 {
+      left: calc(33.33% + 2.5mm);
+      top: 2.5mm;
+    }
+
+    .p3 {
+      left: calc(66.66% + 2.5mm);
+      top: 2.5mm;
+    }
+
+    .p4 {
+      left: 2.5mm;
+      top: calc(50% + 2.5mm);
+    }
+
+    .p5 {
+      left: calc(33.33% + 2.5mm);
+      top: calc(50% + 2.5mm);
+    }
+
+    .p6 {
+      left: calc(66.66% + 2.5mm);
+      top: calc(50% + 2.5mm);
+    }
+
+    .view-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 6mm;
+      row-gap: 2mm;
+      margin-top: 3.5mm;
+      padding: 2.5mm 1mm;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .view-item {
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      padding: 0.5mm 0;
+    }
+
+    .view-item .num {
+      color: var(--cognac);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 10pt;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .view-item .name {
+      font-size: 9.3pt;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    /* ==========================================================================
+       PÁGINA 4: DETALLES Y PASO PRÁCTICO DE ENVÍO
+       ========================================================================== */
+    .details {
+      padding: 14mm 16mm 11mm;
+    }
+
+    .details header {
+      display: grid;
+      grid-template-columns: 1fr 90mm;
+      gap: 5mm;
+      align-items: flex-end;
+      margin: 0 1mm 4.5mm;
+    }
+
+    .details h2 {
+      margin: 1mm 0 0;
+      font-size: 24pt;
+    }
+
+    .details .detail-intro {
+      padding: 2.5mm 3.5mm;
+      border-left: 2px solid var(--cognac);
+      background: var(--paper-muted);
+      color: var(--graphite);
+      font-size: 8.6pt;
+      line-height: 1.42;
+    }
+
+    .detail-image {
+      position: relative;
+      width: 178mm;
+      height: 78mm;
+      overflow: hidden;
+      border: 1px solid var(--hairline);
+      background: var(--specimen);
+    }
+
+    .detail-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .detail-labels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3.5mm;
+      margin-top: 3.5mm;
+    }
+
+    .detail-label {
+      padding: 3.5mm 4mm 4mm;
+      border: 1px solid var(--hairline);
+      border-top: 2px solid var(--cognac);
+      background: var(--paper-muted);
+    }
+
+    .detail-label small {
+      display: block;
+      margin-bottom: 1mm;
+      color: var(--cognac);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 7pt;
+      letter-spacing: .14em;
+    }
+
+    .detail-label strong {
+      display: block;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 12.5pt;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .detail-label p {
+      margin: 1mm 0 0;
+      color: var(--graphite);
+      font-size: 9.1pt;
+      line-height: 1.42;
+    }
+
+    .collab-footer-card {
+      margin-top: 4.5mm;
+      padding: 5mm 6mm;
+      border: 1px solid var(--hairline);
+      background: var(--specimen);
+    }
+
+    .collab-footer-card .cf-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 2.5mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    .collab-footer-card h4 {
+      margin: 0;
+      font-family: "Newsreader", Georgia, serif;
+      font-size: 13.5pt;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .collab-footer-card .channel {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 7.5pt;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cognac);
+    }
+
+    .send-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+    }
+
+    .send-step strong {
+      display: block;
+      margin-bottom: 1.5mm;
+      font-size: 9.8pt;
+      color: var(--ink);
+    }
+
+    .send-step p {
+      margin: 0 0 2mm;
+      font-size: 9.1pt;
+      line-height: 1.45;
+      color: var(--graphite);
+    }
+
+    .send-step ul {
+      margin: 0;
+      padding-left: 3.8mm;
+      font-size: 9pt;
+      line-height: 1.44;
+      color: var(--graphite);
+    }
+
+    .send-step li {
+      margin-bottom: 1mm;
+    }
+
+    .form-btn-mock {
+      display: inline-flex;
+      align-items: center;
+      gap: 2mm;
+      padding: 2.5mm 4mm;
+      background: var(--cognac);
+      color: var(--paper);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8.5pt;
+      letter-spacing: .05em;
+      text-decoration: none;
+      border: 1px solid var(--cognac);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .form-btn-mock:hover {
+      background: var(--cognac-dark);
+      border-color: var(--cognac-dark);
+    }
+
+    .form-btn-mock span {
+      color: #F3EFEA;
+      font-size: 7.8pt;
+    }
+
+    /* Vista previa del formulario: extensión web de la guía, excluida del PDF */
+    .form-preview {
+      width: 210mm;
+      max-width: 100%;
+      margin-inline: auto;
+      padding: 16mm 18mm 18mm;
+      background: var(--paper);
+    }
+
+    .form-preview-header {
+      margin-bottom: 7mm;
+    }
+
+    .form-preview h2 {
+      max-width: 125mm;
+      margin: 2mm 0 2.5mm;
+    }
+
+    .form-preview-intro {
+      max-width: 130mm;
+      margin: 0;
+      color: var(--graphite);
+      font-size: 10pt;
+      line-height: 1.55;
+      text-wrap: pretty;
+    }
+
+    .form-preview-hit:focus-visible,
+    .form-btn-mock:focus-visible {
+      outline: 3px solid var(--cognac-dark);
+      outline-offset: 3px;
+    }
+
+    .form-preview-frame {
+      position: relative;
+      height: 49rem;
+      overflow: hidden;
+      border: 1px solid var(--hairline-dark);
+      background: var(--specimen);
+      transition: border-color .15s ease;
+    }
+
+    .form-preview-frame:hover {
+      border-color: var(--cognac);
+    }
+
+    .form-preview-frame::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset-block: 0;
+      inset-inline-end: 0;
+      width: .8rem;
+      background: var(--specimen);
+      pointer-events: none;
+    }
+
+    .form-preview-frame iframe {
+      display: block;
+      width: 100%;
+      min-height: 49rem;
+      border: 0;
+      background: var(--specimen);
+      pointer-events: none;
+    }
+
+    .form-preview-hit {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      cursor: pointer;
+    }
+
+    .form-preview-note {
+      margin: 3.5mm 0 0;
+      color: var(--graphite);
+      font-size: 8.5pt;
+      line-height: 1.5;
+    }
+
+    @media screen and (min-width: 769px) {
+      body {
+        padding: 12mm 0;
+      }
+
+      .page {
+        margin: 0 auto 10mm;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+      }
+    }
+
+    /* Adaptación para pantallas de móvil / tablet: vista de páginas como hojas de documento / PDF */
+    @media screen and (max-width: 768px) {
+      body {
+        padding: 12px 10px !important;
+        background: #E8E3DC !important;
+        overflow-x: hidden;
+      }
+
+      .page {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        margin: 0 auto 16px !important;
+        padding: 24px 18px 24px !important;
+        background: var(--paper);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08) !important;
+        border-radius: 2px;
+        border-bottom: none !important;
+        page-break-after: auto;
+        box-sizing: border-box !important;
+        overflow: hidden;
+      }
+
+      /* Portada (Página 1) */
+      .cover {
+        background: var(--ink) !important;
+        min-height: auto !important;
+        padding: 0 !important;
+      }
+
+      .cover-copy {
+        padding: 24px 18px 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      .cover-brand {
+        margin-bottom: 6mm !important;
+      }
+
+      .cover h1 {
+        font-size: 28px !important;
+        line-height: 1.08 !important;
+        word-break: normal;
+      }
+
+      .cover .tagline {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 14.5px !important;
+        line-height: 1.45 !important;
+        margin-top: 14px !important;
+      }
+
+      .cover-visual {
+        position: relative !important;
+        width: 100% !important;
+        height: 240px !important;
+        margin-top: 18px !important;
+        bottom: auto !important;
+      }
+
+      .cover-mark {
+        position: absolute !important;
+        right: 14px !important;
+        bottom: 12px !important;
+      }
+
+      /* Página 2: Intro */
+      .intro {
+        padding: 24px 18px 24px !important;
+      }
+
+      .intro h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 23px !important;
+        line-height: 1.15 !important;
+      }
+
+      .intro .lead {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 15px !important;
+        line-height: 1.45 !important;
+      }
+
+      .privacy-card {
+        margin-top: 16px !important;
+        padding: 16px 14px !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Páginas 3 y 4 */
+      .views,
+      .details {
+        padding: 24px 18px 24px !important;
+      }
+
+      .views header,
+      .details header {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+        margin: 0 0 14px 0 !important;
+        width: 100% !important;
+      }
+
+      .views header>div,
+      .details header>div {
+        width: 100% !important;
+      }
+
+      .views h2,
+      .details h2 {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 22px !important;
+        line-height: 1.15 !important;
+      }
+
+      .views .header-note,
+      .details .detail-intro {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .sheets-stack {
+        gap: 14px !important;
+        width: 100% !important;
+      }
+
+      .contact-sheet,
+      .detail-image {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 10 !important;
+        box-sizing: border-box !important;
+      }
+
+      .pin {
+        width: 20px !important;
+        height: 20px !important;
+        font-size: 10.5px !important;
+      }
+
+      .p1 {
+        left: 6px !important;
+        top: 6px !important;
+      }
+
+      .p2 {
+        left: calc(33.33% + 6px) !important;
+        top: 6px !important;
+      }
+
+      .p3 {
+        left: calc(66.66% + 6px) !important;
+        top: 6px !important;
+      }
+
+      .p4 {
+        left: 6px !important;
+        top: calc(50% + 6px) !important;
+      }
+
+      .p5 {
+        left: calc(33.33% + 6px) !important;
+        top: calc(50% + 6px) !important;
+      }
+
+      .p6 {
+        left: calc(66.66% + 6px) !important;
+        top: calc(50% + 6px) !important;
+      }
+
+      .view-list {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+        margin-top: 16px !important;
+      }
+
+      .view-item .name {
+        font-size: 15px !important;
+      }
+
+      .principles,
+      .detail-labels,
+      .privacy-grid,
+      .send-steps-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .principle {
+        min-height: auto !important;
+      }
+
+      .collab-footer-card {
+        margin-top: 16px !important;
+        padding: 16px 14px !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+      }
+
+      .collab-footer-card .cf-top {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+      }
+
+      .form-btn-mock {
+        display: flex !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        justify-content: center !important;
+        text-align: center !important;
+        padding: 10px 14px !important;
+        font-size: 13px !important;
+        margin-top: 8px !important;
+      }
+
+      .form-preview {
+        width: 100%;
+        margin: 0 auto 16px;
+        padding: 24px 18px;
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      .form-preview-header {
+        margin-bottom: 20px;
+      }
+
+      .form-preview h2 {
+        max-width: none;
+        margin: 8px 0 10px;
+        font-size: 23px;
+        line-height: 1.15;
+      }
+
+      .form-preview-intro,
+      .form-preview-note {
+        max-width: none;
+        font-size: 14.5px;
+        line-height: 1.58;
+      }
+
+      .form-preview-frame {
+        height: 50rem;
+        margin-inline: -6px;
+      }
+
+      .form-preview-frame iframe {
+        min-height: 50rem;
+      }
+
+      .folio {
+        position: static !important;
+        margin-top: 20px !important;
+        justify-content: flex-end;
+      }
+
+      p,
+      li,
+      .detail-label p,
+      .send-step p,
+      .send-step ul {
+        font-size: 14.5px !important;
+        line-height: 1.58 !important;
+      }
+
+      .views .header-note,
+      .details .detail-intro {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+      }
+
+      .send-step strong,
+      .privacy-col strong {
+        font-size: 15.5px !important;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .cover-brand { flex-wrap: wrap; }
+      .form-btn-mock { min-height: 44px; }
+      .privacy-col a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        color: var(--cognac-dark);
+      }
+      .contact-sheet, .detail-image { aspect-ratio: auto !important; }
+      .contact-sheet img, .detail-image img { height: auto; object-fit: contain; }
+    }
+
+    .form-preview-header .form-btn-mock { margin-top: 1rem; min-height: 44px; }
+
+    @media print {
+      body {
+        padding: 0 !important;
+        background: transparent !important;
+      }
+
+      .page {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: initial;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        overflow: hidden !important;
+      }
+
+      .page:last-child {
+        page-break-after: auto !important;
+      }
+
+      .form-preview {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Rige marca/04-flujo-de-colaboracion.md (contrato de copy y retirada) y marca/03-sistema-editorial-y-contenidos.md (estándar fotográfico). -->
+  <!-- ==========================================
+       PÁGINA 1: PORTADA
+       ========================================== -->
+  <section class="page cover">
+    <div class="cover-copy">
+      <div class="cover-brand">
+        <span class="brand-name">El Par</span>
+        <span class="brand-descriptor">/ Zapatos en detalle</span>
+      </div>
+      <p class="eyebrow">Guía para colaboradoras</p>
+      <h1 class="serif">Tus zapatos en cámara</h1>
+      <p class="tagline">Cómo fotografiarlos para apreciar su silueta, sus líneas y cada detalle.</p>
+    </div>
+    <div class="cover-visual">
+      <img src="/guia-fotografica-assets/perspectivas-tacones.webp" alt="Perspectivas anatómicas de un zapato de tacón">
+    </div>
+    <div class="cover-mark">@elparzapatos</div>
+  </section>
+
+  <!-- ==========================================
+       PÁGINA 2: ANTES DE EMPEZAR / FOTOS SENCILLAS Y CON BUENA LUZ
+       ========================================== -->
+  <section class="page intro">
+    <p class="eyebrow">Antes de empezar</p>
+    <h2 class="serif">Fotos sencillas y con buena luz</h2>
+    <div class="rule"></div>
+    <p class="lead">Basta la cámara de tu móvil. Buscamos fotos caseras para enseñar tus zapatos tal como son.
+    </p>
+
+    <div class="principles">
+      <article class="principle">
+        <div class="n">· 01</div>
+        <h3>Iluminación</h3>
+        <p>Busca una buena iluminación que permita ver los colores y detalles. Evita los reflejos que oculten partes del zapato.</p>
+      </article>
+      <article class="principle">
+        <div class="n">· 02</div>
+        <h3>Fondo</h3>
+        <p>Elige un fondo sencillo, sin objetos o estampados que distraigan del zapato.</p>
+      </article>
+      <article class="principle">
+        <div class="n">· 03</div>
+        <h3>Composición</h3>
+        <p>Encuadra el zapato entero y deja un pequeño margen alrededor.</p>
+      </article>
+    </div>
+
+    <div class="privacy-card">
+      <div class="card-head">
+        <h4>Privacidad y autoría</h4>
+      </div>
+      <div class="privacy-grid">
+        <div class="privacy-col">
+          <strong>Cómo prefieres aparecer</strong>
+          <p>Tú eliges si quieres aparecer con tu nombre, tu cuenta de Instagram o de forma anónima.</p>
+        </div>
+        <div class="privacy-col">
+          <strong>Retirada</strong>
+          <p>Escríbenos a <a href="mailto:elparzapatos@proton.me">elparzapatos@proton.me</a> o por nuestro canal habitual. Eliminaremos la publicación de la web y de nuestras redes en un máximo de 48 horas. Te preguntaremos si quieres borrar los originales y te confirmaremos la retirada.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="folio"><span>Tus zapatos en cámara · El Par</span><b>· 02</b></div>
+  </section>
+
+  <!-- ==========================================
+       PÁGINA 3: LAS POSICIONES (SEIS FOTOS PARA VERLO ENTERO)
+       ========================================== -->
+  <section class="page views">
+    <header>
+      <div>
+        <p class="eyebrow">Las posiciones</p>
+        <h2 class="serif">Seis vistas del zapato</h2>
+      </div>
+      <div class="header-note">
+        Estas vistas nos ayudan a apreciar el zapato desde distintos ángulos. Puedes fotografiar los dos juntos o uno solo.
+      </div>
+    </header>
+
+    <div class="sheets-stack">
+      <div class="contact-sheet">
+        <img src="/guia-fotografica-assets/perspectivas-tacones.webp" alt="Seis perspectivas fotográficas de tacones">
+        <span class="pin p1">1</span>
+        <span class="pin p2">2</span>
+        <span class="pin p3">3</span>
+        <span class="pin p4">4</span>
+        <span class="pin p5">5</span>
+        <span class="pin p6">6</span>
+      </div>
+      <div class="contact-sheet">
+        <img src="/guia-fotografica-assets/perspectivas-bailarinas.webp"
+          alt="Seis perspectivas fotográficas de bailarinas">
+        <span class="pin p1">1</span>
+        <span class="pin p2">2</span>
+        <span class="pin p3">3</span>
+        <span class="pin p4">4</span>
+        <span class="pin p5">5</span>
+        <span class="pin p6">6</span>
+      </div>
+    </div>
+
+    <div class="view-list">
+      <article class="view-item">
+        <span class="num">01</span>
+        <span class="name">En diagonal (tres cuartos)</span>
+      </article>
+      <article class="view-item">
+        <span class="num">02</span>
+        <span class="name">Perfil</span>
+      </article>
+      <article class="view-item">
+        <span class="num">03</span>
+        <span class="name">Frontal</span>
+      </article>
+      <article class="view-item">
+        <span class="num">04</span>
+        <span class="name">Desde arriba</span>
+      </article>
+      <article class="view-item">
+        <span class="num">05</span>
+        <span class="name">En diagonal desde atrás</span>
+      </article>
+      <article class="view-item">
+        <span class="num">06</span>
+        <span class="name">Suela</span>
+      </article>
+    </div>
+
+    <div class="folio"><span>Tus zapatos en cámara · El Par</span><b>· 03</b></div>
+  </section>
+
+  <!-- ==========================================
+       PÁGINA 4: DETALLES Y PASO PRÁCTICO DE ENVÍO
+       ========================================== -->
+  <section class="page details">
+    <header>
+      <div>
+        <p class="eyebrow">Primeros planos</p>
+        <h2 class="serif">Acércate al detalle</h2>
+      </div>
+      <div class="detail-intro">
+        Si tiene algún detalle especial, sácale una foto de cerca.
+      </div>
+    </header>
+
+    <div class="detail-image">
+      <img src="/guia-fotografica-assets/detalles.webp" alt="Primeros planos de hebillas, adornos y tiras traseras">
+    </div>
+
+    <div class="detail-labels">
+      <article class="detail-label">
+        <small>· 01</small>
+        <strong>Hebillas y cierres</strong>
+        <p>Hebillas metálicas, cordones, cremalleras o lazadas.</p>
+      </article>
+      <article class="detail-label">
+        <small>· 02</small>
+        <strong>Apliques y adornos</strong>
+        <p>Lazos, tachuelas, broches, pompones o combinación de materiales.</p>
+      </article>
+      <article class="detail-label">
+        <small>· 03</small>
+        <strong>Talones y tiras</strong>
+        <p>Talones abiertos (slingbacks), elásticos o tiras finas.</p>
+      </article>
+    </div>
+
+    <div class="collab-footer-card">
+      <div class="cf-top">
+        <h4>Cómo enviarnos las fotos y qué incluir</h4>
+        <span class="channel">@elparzapatos</span>
+      </div>
+      <div class="send-steps-grid">
+        <div class="send-step">
+          <strong>1. Por dónde enviarlas</strong>
+          <p>Rellenando el formulario:</p>
+          <a href="#form-preview" class="form-btn-mock">
+            Ver formulario
+          </a>
+        </div>
+        <div class="send-step">
+          <strong>2. Qué contarnos del par</strong>
+          <p>Puedes acompañar las imágenes con:</p>
+          <ul>
+            <li>Marca y modelo, si los sabes.</li>
+            <li>Alguna historia del par o qué es lo que más te gusta de él.</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="folio"><span>Tus zapatos en cámara · El Par</span><b>· 04</b></div>
+  </section>
+
+  <section id="form-preview" class="form-preview" aria-labelledby="form-preview-title">
+    <div class="form-preview-header">
+      <p class="eyebrow">El siguiente paso</p>
+      <h2 id="form-preview-title" class="serif">Compartir un par</h2>
+      <p class="form-preview-intro">Primero te pedimos tu nombre y un correo de contacto. A partir de ahí añades cada
+        par con sus fotos y, si te apetece, nos cuentas qué tienen de especial.</p>
+      <a class="form-btn-mock" href="https://tally.so/r/Npj2bl" target="_blank" rel="noopener"
+        aria-label="Abrir formulario en una pestaña nueva">Abrir formulario <span aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="form-preview-frame">
+      <a class="form-preview-hit" href="https://tally.so/r/Npj2bl" target="_blank" rel="noopener"
+        aria-label="Abrir el formulario completo de recepción"></a>
+      <iframe src="https://tally.so/embed/Npj2bl?alignLeft=1&amp;hideTitle=0&amp;transparentBackground=1"
+        title="Vista previa del formulario para compartir un par" loading="lazy" tabindex="-1" aria-hidden="true"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+  </section>
+</body>
+
+</html>

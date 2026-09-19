@@ -1,0 +1,710 @@
+---
+/**
+ * como-colaborar.astro — Página Puente «Cómo colaborar»
+ * Superficie que rige: sitio/specs/como-colaborar/spec.md
+ * Prototipo de referencia: sitio/archivo-prototipos/como-colaborar.html
+ * Sistema visual y tokens: sitio/DESIGN.md y sitio/src/styles/tokens.css
+ */
+
+import LayoutBase from '../layouts/LayoutBase.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+
+// Importación de imagen de portada optimizada para la guía fotográfica
+import coverPerspectivas from '../assets/marca/perspectivas-tacones.webp';
+---
+
+<LayoutBase
+  title="Cómo Colaborar — El Par · Zapatos en detalle"
+  currentPath="/como-colaborar"
+>
+  <Header currentPath="/como-colaborar" />
+
+  <main class="colaborar-main">
+    <!-- 1. ENCABEZADO Y PROPÓSITO EDITORIAL -->
+    <header class="colaborar-header">
+      <span class="kicker-eyebrow">Colaborar en El Par</span>
+      <h1 class="header-title">Tu calzado en El Par</h1>
+      <p class="header-lead">
+        Comparte fotografías de tus tacones o bailarinas para que les dediquemos una publicación.
+      </p>
+      <p class="header-sub">
+        Nos interesa observar su diseño y los detalles que distinguen cada par.
+      </p>
+    </header>
+
+    <!-- 2. EL PROCESO EN 3 PASOS -->
+    <section class="process-section" aria-labelledby="process-heading">
+      <div class="section-intro">
+        <span class="section-label">Flujo de colaboración</span>
+        <h2 id="process-heading" class="section-title">Cómo funciona</h2>
+      </div>
+
+      <div class="steps-grid">
+        <!-- Paso 1 -->
+        <article class="step-card">
+          <span class="step-num">01 / Selección</span>
+          <h3 class="step-title">Elige tu calzado</h3>
+          <p class="step-desc">
+            Puedes proponer varios pares a la vez. Nos interesan sus formas y detalles: compartiéndolos, ayudas a ampliar la colección de El Par.
+          </p>
+        </article>
+
+        <!-- Paso 2 -->
+        <article class="step-card">
+          <span class="step-num">02 / Fotografía</span>
+          <h3 class="step-title">Con tu móvil</h3>
+          <p class="step-desc">
+            Basta la cámara de tu móvil, buena iluminación y un fondo sencillo. La guía te muestra cómo fotografiarlos desde distintos ángulos.
+          </p>
+        </article>
+
+        <!-- Paso 3 -->
+        <article class="step-card">
+          <span class="step-num">03 / Recepción</span>
+          <h3 class="step-title">Envía tus fotos</h3>
+          <p class="step-desc">
+            Sube las fotos a través del formulario. Tú decides cómo figurar en los créditos: con tu nombre, tu usuario de Instagram o de forma anónima.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. RESOLUCIÓN DE DUDAS Y COMPROMISOS ÉTICOS -->
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="section-intro">
+        <span class="section-label cognac-label">Preguntas frecuentes</span>
+        <h2 id="faq-heading" class="section-title">Dudas antes de participar</h2>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3 class="faq-question">¿Tienen que ser zapatos de marca o caros?</h3>
+          <p class="faq-answer">
+            En absoluto. Nos interesa el diseño, las formas y los detalles.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-question">¿Salgo yo en las fotos o en la publicación?</h3>
+          <p class="faq-answer">
+            No. El calzado es el único protagonista.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-question">¿Tengo control sobre mis fotos y mi privacidad?</h3>
+          <p class="faq-answer">
+            Tú eliges cómo aparecer en los créditos. Si quieres retirar una publicación, escríbenos a{' '}
+            <a href="mailto:elparzapatos@proton.me" class="faq-link">
+              elparzapatos@proton.me
+            </a>{' '}
+            y la eliminaremos de la web y de nuestras redes en un plazo máximo de 48 horas.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-question">¿Cuánto tiempo me llevará hacer las fotos?</h3>
+          <p class="faq-answer">
+            Son seis fotos con el móvil desde los ángulos que muestra la guía, más los detalles que quieras añadir.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3 class="faq-question">¿Retocáis las fotos?</h3>
+          <p class="faq-answer">
+            Podemos ajustar la luz, nivelar la imagen o recortar ligeramente el encuadre. Conservamos las formas y las marcas de uso del zapato y no utilizamos IA generativa para alterar las imágenes.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. EMBUDO GUIADO HACIA LA GUÍA FOTOGRÁFICA -->
+    <section class="guide-funnel-section" aria-labelledby="funnel-heading">
+      <div class="section-intro">
+        <span class="section-label">Comenzar</span>
+        <h2 id="funnel-heading" class="section-title">¿Te animas a compartir un par?</h2>
+        <p class="funnel-desc">
+          En la guía puedes ver las posiciones del calzado y acceder al formulario.
+        </p>
+      </div>
+
+      <!-- Tarjeta editorial interactiva hacia la guía fotográfica autónoma -->
+      <a
+        href="/guia-fotografica/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="guide-card-interactive"
+        aria-label="Abrir guía fotográfica Tus zapatos en cámara en una pestaña nueva"
+      >
+        <div class="guide-card-content">
+          <div class="guide-brand-line">
+            <span class="guide-brand-name">El Par</span>
+            <span class="guide-brand-sub">/ Zapatos en detalle</span>
+          </div>
+
+          <div class="guide-card-titles">
+            <span class="guide-kicker">Guía para colaboradoras</span>
+            <h3 class="guide-heading">Tus zapatos en cámara</h3>
+            <p class="guide-summary">
+              Te enseñamos cómo fotografiarlos para capturar su silueta, proporciones y detalles.
+            </p>
+          </div>
+        </div>
+
+        <div class="guide-visual-frame">
+          <Image
+            src={coverPerspectivas}
+            alt="Perspectivas anatómicas de un zapato de tacón · Guía fotográfica El Par"
+            class="guide-visual-img"
+            widths={[600, 900, 1200]}
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+          <div class="guide-visual-scrim" aria-hidden="true"></div>
+          <div class="guide-inert-tag" aria-hidden="true">@elparzapatos</div>
+        </div>
+      </a>
+
+      <!-- Canal de contacto previo -->
+      <div class="pre-contact-block">
+        <p class="pre-contact-text">
+          ¿Prefieres consultarnos antes si un par encaja o tienes dudas?
+        </p>
+        <div class="pre-contact-channels">
+          <a href="mailto:elparzapatos@proton.me" class="contact-mail">
+            elparzapatos@proton.me
+          </a>
+          <span class="sep" aria-hidden="true">·</span>
+          <span class="contact-inert" aria-hidden="true">@elparzapatos</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer currentPath="/como-colaborar" />
+</LayoutBase>
+
+<style>
+  /* ==========================================================================
+     PÁGINA PUENTE CÓMO COLABORAR
+     ========================================================================== */
+  .colaborar-main {
+    flex-grow: 1;
+    max-width: 56rem; /* ~896px / max-w-4xl */
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-6) var(--space-20);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+
+  @media (min-width: 640px) {
+    .colaborar-main {
+      padding: var(--space-20) var(--space-10) var(--space-24);
+      gap: var(--space-20);
+    }
+  }
+
+  /* ==========================================================================
+     ENCABEZADO EDITORIAL
+     ========================================================================== */
+  .colaborar-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    border-bottom: 1px solid var(--color-hairline);
+    padding-bottom: var(--space-12);
+  }
+
+  .kicker-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-widest);
+    color: var(--color-cognac);
+    font-weight: 500;
+    display: block;
+  }
+
+  .header-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    color: var(--color-ink);
+    font-weight: 400;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-display);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .header-title {
+      font-size: var(--text-5xl);
+    }
+  }
+
+  .header-lead {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    color: var(--color-graphite);
+    line-height: var(--leading-snug);
+    font-weight: 400;
+    margin: 0;
+    max-width: 44rem;
+  }
+
+  @media (min-width: 640px) {
+    .header-lead {
+      font-size: var(--text-2xl);
+    }
+  }
+
+  .header-sub {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: var(--color-graphite);
+    line-height: var(--leading-normal);
+    margin: 0;
+    max-width: 44rem;
+  }
+
+  @media (min-width: 640px) {
+    .header-sub {
+      font-size: var(--text-base);
+    }
+  }
+
+  /* ==========================================================================
+     SECCIONES Y RÓTULOS
+     ========================================================================== */
+  .section-intro {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-wide);
+    color: var(--color-graphite);
+    display: block;
+  }
+
+  .cognac-label {
+    color: var(--color-cognac);
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    color: var(--color-ink);
+    font-weight: 400;
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .section-title {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  /* ==========================================================================
+     PROCESO EN 3 PASOS
+     ========================================================================== */
+  .process-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+    }
+  }
+
+  .step-card {
+    border: 1px solid var(--color-hairline);
+    background-color: var(--color-specimen);
+    border-radius: var(--radius-md);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 640px) {
+    .step-card {
+      padding: var(--space-8);
+    }
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-cognac);
+    font-weight: 500;
+    display: block;
+  }
+
+  .step-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-xl);
+    color: var(--color-ink);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    margin: 0;
+  }
+
+  .step-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-graphite);
+    line-height: var(--leading-prose);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .step-desc {
+      font-size: var(--text-sm);
+    }
+  }
+
+  /* ==========================================================================
+     RESOLUCIÓN DE DUDAS Y COMPROMISOS ÉTICOS
+     ========================================================================== */
+  .faq-section {
+    background-color: var(--color-linen);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .faq-section {
+      padding: var(--space-12);
+    }
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .faq-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-8) var(--space-10);
+    }
+  }
+
+  .faq-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .faq-question {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    font-weight: 400;
+    line-height: var(--leading-snug);
+    margin: 0;
+  }
+
+  .faq-answer {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-graphite);
+    line-height: var(--leading-prose);
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .faq-answer {
+      font-size: var(--text-sm);
+    }
+  }
+
+  .faq-link {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color var(--transition-hover);
+  }
+
+  .faq-link:hover {
+    color: var(--color-cognac);
+  }
+
+  /* ==========================================================================
+     EMBUDO HACIA LA GUÍA FOTOGRÁFICA
+     ========================================================================== */
+  .guide-funnel-section {
+    border-top: 1px solid var(--color-hairline);
+    padding-top: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .funnel-desc {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-graphite);
+    line-height: var(--leading-prose);
+    margin: 0;
+    max-width: 44rem;
+  }
+
+  @media (min-width: 640px) {
+    .funnel-desc {
+      font-size: var(--text-sm);
+    }
+  }
+
+  /* ==========================================================================
+     PORTADA EDITORIAL INTERACTIVA DE LA GUÍA
+     ========================================================================== */
+  .guide-card-interactive {
+    display: block;
+    text-decoration: none;
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    border: 1px solid var(--color-hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: border-color var(--transition-hover), box-shadow var(--transition-hover);
+  }
+
+  .guide-card-interactive:hover {
+    border-color: var(--color-cognac);
+    box-shadow: 0 12px 30px rgba(28, 26, 24, 0.12);
+  }
+
+  .guide-card-interactive:focus {
+    outline: none;
+    border-color: var(--color-cognac);
+    box-shadow: 0 0 0 3px rgba(158, 107, 85, 0.35);
+  }
+
+  .guide-card-content {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 640px) {
+    .guide-card-content {
+      padding: var(--space-8);
+    }
+  }
+
+  .guide-brand-line {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
+  }
+
+  .guide-brand-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-lg);
+    color: var(--color-paper);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .guide-brand-sub {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* ~10px */
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-widest);
+    color: rgba(232, 227, 220, 0.8);
+  }
+
+  .guide-card-titles {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .guide-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* ~11px */
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #C89F8F;
+    font-weight: 500;
+    display: block;
+  }
+
+  .guide-heading {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    color: #FFFFFF;
+    font-weight: 400;
+    letter-spacing: var(--tracking-tight);
+    margin: var(--space-1) 0 0;
+  }
+
+  @media (min-width: 640px) {
+    .guide-heading {
+      font-size: var(--text-3xl);
+    }
+  }
+
+  .guide-summary {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: #E6DFD6;
+    line-height: var(--leading-prose);
+    margin: var(--space-2) 0 0;
+    max-width: 36rem;
+  }
+
+  @media (min-width: 640px) {
+    .guide-summary {
+      font-size: var(--text-sm);
+    }
+  }
+
+  .guide-visual-frame {
+    position: relative;
+    width: 100%;
+    height: 12rem; /* 192px */
+    background-color: var(--color-ink);
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .guide-visual-frame {
+      height: 16rem; /* 256px */
+    }
+  }
+
+  .guide-visual-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 48%;
+    filter: saturate(0.88);
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  .guide-card-interactive:hover .guide-visual-img {
+    transform: scale(1.02);
+  }
+
+  .guide-visual-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, var(--color-ink) 0%, transparent 60%);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .guide-inert-tag {
+    position: absolute;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    padding: var(--space-1) var(--space-3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(28, 26, 24, 0.8);
+    backdrop-filter: blur(4px);
+    color: var(--color-paper);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-widest);
+    pointer-events: none;
+    user-select: none;
+    border-radius: var(--radius-sm);
+  }
+
+  /* ==========================================================================
+     CANAL DE CONTACTO DIRECTO PREVIO
+     ========================================================================== */
+  .pre-contact-block {
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-hairline);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-graphite);
+  }
+
+  @media (min-width: 640px) {
+    .pre-contact-block {
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+  }
+
+  .pre-contact-text {
+    margin: 0;
+    line-height: var(--leading-normal);
+  }
+
+  .pre-contact-channels {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-wide);
+  }
+
+  .contact-mail {
+    color: var(--color-ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    min-height: var(--min-tap-target);
+    display: inline-flex;
+    align-items: center;
+    transition: color var(--transition-hover);
+    overflow-wrap: anywhere;
+  }
+
+  .contact-mail:hover {
+    color: var(--color-cognac);
+  }
+
+  .sep {
+    color: var(--color-hairline);
+    user-select: none;
+  }
+
+  .contact-inert {
+    color: var(--color-graphite);
+    cursor: default;
+    user-select: none;
+    min-height: var(--min-tap-target);
+    display: inline-flex;
+    align-items: center;
+  }
+</style>
