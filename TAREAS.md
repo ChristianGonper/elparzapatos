@@ -9,14 +9,9 @@ Trabajo por hacer, catálogo de intenciones futuras y operativa interna.
 
 ## 1. Ahora — Trabajo prioritario del usuario
 
-### Migración del sitio a Astro
-- [x] Validar y cerrar las decisiones de diseño y estructura de la monografía en mock comparativo ([sitio/mock-comparativas-visuales.html](sitio/mock-comparativas-visuales.html)).
-- [x] Redactar la tríada completa de migración a Astro: especificación viva ([sitio/specs/migracion-astro/spec.md](sitio/specs/migracion-astro/spec.md)), plan técnico ([sitio/specs/migracion-astro/plan.md](sitio/specs/migracion-astro/plan.md)) y tareas ([sitio/specs/migracion-astro/tasks.md](sitio/specs/migracion-astro/tasks.md)).
-- [x] Crear la estructura inicial del proyecto Astro en [sitio/](sitio/) y configurar la biblioteca base de componentes.
-- [x] Migrar las cuatro superficies v1 (Portada, Monografía, Sobre El Par, Cómo colaborar) y validar compilación y auditoría estática.
-
 ### Primera Pieza Monográfica Real
 - [ ] Recibir y seleccionar el material fotográfico de colaboradoras para maquetar la primera monografía real.
+- [ ] Protocolo de procesamiento WebP: acordar y clarificar el funcionamiento técnico concreto de optimización fotográfica.
 
 ---
 
@@ -96,6 +91,6 @@ Deseos conceptuales y partes del sistema proyectadas para versiones posteriores.
 
 <!-- Regla para agentes: mantener únicamente los 2-3 hitos más recientes y condensados. Podar los anteriores para no acumular historial redundante con las especificaciones vivas. -->
 
-- [x] **Página unificada «Sobre El Par» y navegación:** Creada y validada en [sitio/sobre-el-par.html](sitio/sobre-el-par.html) unificando manifiesto y método. Espec viva en [sitio/specs/sobre-el-par/spec.md](sitio/specs/sobre-el-par/spec.md) con tríada de navegación actualizada.
-- [x] **Flujo móvil y copy de colaboración:** Optimizadas áreas táctiles y copy en [Sobre El Par](sitio/sobre-el-par.html), [Cómo colaborar](sitio/como-colaborar.html) y la [guía fotográfica](marca/activos/guia-fotografica-colaboradores.html).
-
+- [x] **Consolidación y saneamiento documental:** Actualizado [sitio/README.md](sitio/README.md), absorbidas directrices de despliegue y flujo editorial en [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md), depuradas referencias `.html` en todas las specs vivas y eliminados archivos transitorios (`RELEVO-MIGRACION-ASTRO.md`, `PROPUESTA-ORGANIZACION.md`).
+- [x] **Migración integral a Astro (SSG):** Plataforma web modular completada y verificada en [sitio/](sitio/) (Astro 7 + TypeScript + pnpm), con 5 superficies estáticas compiladas con cero errores y auditoría visual/accesibilidad superada.
+- [x] **Página unificada «Sobre El Par» y navegación:** Creada y validada en [src/pages/sobre-el-par.astro](sitio/src/pages/sobre-el-par.astro) unificando manifiesto y método, con spec viva en [sitio/specs/sobre-el-par/spec.md](sitio/specs/sobre-el-par/spec.md).

@@ -12,5 +12,5 @@ Actualizado: 2026-09-19.
 - Ninguno ([TAREAS.md](TAREAS.md) § Ahora).
 
 ## Último hito
-- Consolidación y cierre formal de la especificación de migración integral a Astro ([sitio/specs/migracion-astro/spec.md](sitio/specs/migracion-astro/spec.md)) conforme al protocolo SDD: [plan.md](sitio/specs/migracion-astro/plan.md) y [tasks.md](sitio/specs/migracion-astro/tasks.md) consolidados tras superar con 100% de éxito todas las fases (Fases 1 a 6), validación de compilación (`astro check` y `astro build` con cero errores) y auditoría visual, responsiva y de accesibilidad con subagente navegador sobre las 5 superficies estáticas (`/`, `/entradas/salon-aguja/`, `/sobre-el-par/`, `/como-colaborar/`, `/guia-fotografica/`). Entorno web completamente operativo y listo para publicación en producción.
+- Consolidación y saneamiento documental de la plataforma: actualizado [sitio/README.md](sitio/README.md) a Astro, absorbidas directrices de despliegue y flujo editorial en [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md), depuradas referencias `.html` en todas las especificaciones vivas hacia sus rutas canónicas y eliminados los documentos transitorios (`RELEVO-MIGRACION-ASTRO.md` y `PROPUESTA-ORGANIZACION.md`). Plataforma web lista para publicación y recepción de la primera pieza.
 
