@@ -76,7 +76,7 @@ Pautas, fórmulas y guiones de apoyo para el diálogo con las dueñas de los zap
 
 ### Vía 4. Asistencia y soporte al flujo web orgánico
 
-*Para personas que entran por el sitio web, leen un estudio o navegan la portada y pulsan en `Comparte un par` hacia la página puente [como-colaborar.html](../../sitio/como-colaborar.html).*
+*Para personas que entran por el sitio web, leen un estudio o navegan la portada y pulsan en `Comparte un par` hacia la página puente [como-colaborar](../../sitio/src/pages/como-colaborar.astro).*
 
 - Si la persona escribe al correo oficial ([`elparzapatos@proton.me`](mailto:elparzapatos@proton.me)) preguntando dudas sobre el formulario o si sus zapatos encajan:
   > «Hola, [Nombre]. Gracias por acercarte a **El Par** a través de la web. Nos centramos en tacones, salones y bailarinas con formas interesantes o detalles singulares. No te preocupes por la perfección de las fotos: buena iluminación y un fondo liso son suficientes. Si dudas entre dos pares, puedes adjuntarnos fotos de ambos o responder a este correo y lo vemos contigo.»

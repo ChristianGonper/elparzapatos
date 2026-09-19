@@ -31,7 +31,7 @@ Invitar, nunca encargar. El proceso debe ser fluido, agradable y sencillo para l
   1. *Vía 1 (Proactiva pre-lanzamiento):* Invitación cercana a personas de confianza para construir el fondo inicial de calzado.
   2. *Vía 2 (Stories / Embajadoras):* Invitación a través de compañeras que comparten el [flyer digital](activos/flyer-embajadora.html) para dedicar una publicación a sus zapatos favoritos.
   3. *Vía 3 (Inbound DM en redes):* Respuesta directa a quienes preguntan por mensaje en Instagram tras ver piezas publicadas.
-  4. *Vía 4 (Web orgánica):* Flujo desde el cierre `Comparte un par` en el sitio hacia el prototipo de la página puente [como-colaborar.html](../sitio/como-colaborar.html).
+  4. *Vía 4 (Web orgánica):* Flujo desde el cierre `Comparte un par` en el sitio hacia la página puente de colaboración [como-colaborar](../sitio/src/pages/como-colaborar.astro).
 - **Criterio rector:** Fomentar la conversación directa y cercana para resolver dudas antes de remitir a guías o enlaces técnicos. Fórmulas de saludo, guiones específicos para embajadoras y mini-argumentario centralizados en [activos/Contactos-previos.md](activos/Contactos-previos.md).
 - **Qué NO hacer:** No enviar la guía fotográfica ni enlaces de formularios de forma fría en el primer mensaje. No dar instrucciones técnicas sin haber validado previamente el interés y el par.
 
