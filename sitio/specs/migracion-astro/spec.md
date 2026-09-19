@@ -1,6 +1,6 @@
 # Spec: Migración Integral de la Plataforma Web a Astro
 
-> **Última actualización:** 2026-09-19 · **Estado:** Activa  
+> **Última actualización:** 2026-09-19 · **Estado:** Cerrada y verificada  
 > **Superficie que gobierna:** Todo el entorno web bajo [sitio/](../../)  
 > **Sistema visual de referencia:** [sitio/DESIGN.md](../../DESIGN.md)  
 > **Marco global gobernante:** [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md)  
@@ -146,20 +146,21 @@ sitio/
 
 #### 1. `Header.astro`
 - **Ubicación y conducta:** En el flujo normal superior; aparece al inicio y sale con el desplazamiento hacia abajo (no es fija).
-- **Logotipo:** Enlace de retorno con nombre `El Par` en Newsreader serif (`text-2xl sm:text-3xl font-normal tracking-tight text-ink`) y descriptor `/ Zapatos en detalle` en JetBrains Mono versalitas tenues en color cuero cognac (`text-xs uppercase tracking-widest text-cognac font-medium` / `#9E6B55`). En la portada (`/`), el logo se marca con `aria-current="page"` y es inerte (no recarga).
+- **Cromo de interfaz y selección:** Toda la cabecera aplica `user-select: none` de manera homogénea para actuar como barra limpia de interfaz, impidiendo selecciones accidentales por arrastre en el logotipo o los enlaces.
+- **Logotipo:** Enlace de retorno con nombre `El Par` en Newsreader serif (`text-2xl sm:text-3xl font-normal tracking-tight text-ink`) y descriptor `/ Zapatos en detalle` en JetBrains Mono versalitas tenues en color cuero cognac (`text-xs uppercase tracking-widest text-cognac font-medium` / `#9E6B55`). En la portada (`/`), el logo se marca con `aria-current="page"` y es inerte (`pointer-events-none`, no recarga).
 - **Navegación horizontal ("en grande y en recto"):** Muestra en línea `Colección` (`/#coleccion`), `Sobre El Par` (`/sobre-el-par`) y `Cómo colaborar` (`/como-colaborar`), más el canal reservado `@elparzapatos` en texto inerte.
 - **Página activa:** La página en la que se encuentra el usuario recibe `aria-current="page"`, se muestra con subrayado sólido (`border-b border-ink font-medium text-ink`) y es inerte (clic desactivado con `pointer-events-none`).
 - **Móvil (`< 768px`):** Las opciones ocupan fila independiente con al menos 44 px de altura táctil por destino.
 
 #### 2. `Footer.astro`
 - **Ubicación y conducta:** Al pie de cada página, permitiendo recuperar la navegación tras la lectura.
-- **Logotipo:** Idéntica presencia gráfica que en la cabecera: nombre `El Par` en Newsreader serif (`text-ink`) y descriptor `/ Zapatos en detalle` en JetBrains Mono versalitas en color cuero cognac (`text-cognac` `#9E6B55`), enlazando a la portada (`/`) salvo cuando ya se está en ella.
-- **Navegación vertical:** Distribución en lista vertical estructurada (`flex flex-col space-y-2.5`), tipográfica y serena.
-- **Regla de página activa:** El enlace a la página actual en la lista vertical aparece como texto tenue inerte no clickeable.
+- **Logotipo:** Idéntica presencia gráfica que en la cabecera: nombre `El Par` en Newsreader serif (`text-ink`) y descriptor `/ Zapatos en detalle` en JetBrains Mono versalitas en color cuero cognac (`text-cognac` `#9E6B55`), con `user-select: none;` y enlazando a la portada (`/`) salvo cuando ya se está en ella (donde es inerte con `aria-current="page"` y `pointer-events-none`).
+- **Navegación vertical como actuador:** Distribución en lista vertical estructurada (`flex flex-col space-y-2.5`), tipográfica y serena. Los enlaces de navegación aplican `user-select: none;` comportándose como actuadores/botones táctiles sin selección accidental de texto.
+- **Regla de página activa y pointer-events:** El enlace a la página actual en la lista vertical aparece como texto tenue inerte con `pointer-events-none` y `aria-current="page"`, homologado con la conducta del header.
 - **Regla anti-duplicidad contextual:**
   - En páginas con cierre editorial previo hacia un destino (ej. el bloque `Comparte un par` en Portada y Monografía que enlaza prominentemente a `Cómo colaborar`), el enlace `Cómo colaborar` **se omite de la lista vertical del pie**.
   - En la página `/como-colaborar`, el enlace a sí misma no aparece en la navegación del pie.
-- **Canales oficiales:** Correo institucional `elparzapatos@proton.me` e identificador inerte `@elparzapatos`.
+- **Canales oficiales y seleccionabilidad:** Correo institucional `elparzapatos@proton.me` e identificador inerte `@elparzapatos`. El texto del copyright institucional, el correo oficial y el identificador `@elparzapatos` permanecen plenamente seleccionables para copia y referencia.
 
 #### 3. `CedulaMuseo.astro` (Variante 3A Aprobada)
 - **Propósito:** Cierre técnico formal del estudio monográfico, configurado como cartela continua de sala de exposición.
@@ -194,7 +195,9 @@ sitio/
 - **Comportamiento:** Al pulsar o posar el cursor, despliega una tarjeta flotante adyacente con el término en español/inglés y su función biomecánica. Se cierra al mover el cursor, hacer clic fuera o pulsar la tecla `Esc`, sin oscurecer la pantalla.
 
 #### 10. `Lightbox.astro`
-- **Visor modal minimalista:** Ampliación fotográfica a pantalla completa sobre fondo neutro cálido sin barras de herramientas invasivas. Cierre mediante clic exterior o tecla `Esc`.
+- **Visor modal minimalista:** Ampliación fotográfica a pantalla completa sobre fondo neutro cálido sin barras de herramientas invasivas.
+- **Interacción y cierre indirecto:** El lienzo exterior proyecta cursor semántico `zoom-out` indicando de forma natural que pulsar en cualquier zona fuera de la fotografía cierra el visor. La imagen fotográfica permanece protegida con `cursor: default` para contemplarla sin cierres accidentales.
+- **Botón tipográfico de cierre accesible:** Rótulo tipográfico desnudo `CERRAR` en la esquina superior en JetBrains Mono versalitas sin recuadros ni cruces toscas, con un área táctil generosa (mínimo 48px × 64px) para garantizar una pulsación comodísima en móvil y escritorio, y soporte accesible para la tecla `Esc`.
 
 ---
 

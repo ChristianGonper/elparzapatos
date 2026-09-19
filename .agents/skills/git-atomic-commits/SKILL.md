@@ -27,17 +27,21 @@ Esta skill define el procedimiento para auditar, desagregar, empaquetar y redact
    - **Capa 4: Pruebas y verificación:** Suites de pruebas (unitarias, integración, e2e) o scripts de verificación (si aplican exclusivamente a una capa anterior, pueden integrarse en ella; si son transversales, conforman su propio hito).
    - **Capa 5: Gobernanza y documentación:** Especificaciones técnicas, guías, bitácoras o planes de seguimiento (si un documento gobierna de forma exclusiva a una capa previa, se incluye en ella; si documenta el cierre global de una etapa, se confirma en su propio commit).
 
-3. **Gobernanza y trazabilidad asociadas**:
+3. **Tratamiento de activos y recursos estáticos pesados**:
+   - Cuando se incorporen o modifiquen recursos no textuales o binarios (imágenes, iconos, tipografías, clips multimedia, datasets o activos gráficos auxiliares), es preferible empaquetarlos en un commit específico de activos.
+   - Aislar los activos binarios del código fuente evita inflar los diffs de programación, simplifica la revisión técnica y preserva la ligereza y claridad del historial.
+
+4. **Gobernanza y trazabilidad asociadas**:
    - Si una actualización en la documentación o especificación pertenece de forma directa y exclusiva a un módulo o capa concreta, se incluye en el mismo commit para mantener unidas la intención y su realización.
    - Las actualizaciones transversales o de cierre general se aíslan en su respectivo commit de gobernanza.
 
-4. **Estilo canónico de los mensajes**:
+5. **Estilo canónico de los mensajes**:
    - **Idioma:** Siempre en español.
    - **Tiempo y modo verbal:** Tercera persona del presente de indicativo (por ejemplo: *«Añade»*, *«Configura»*, *«Actualiza»*, *«Refactoriza»*, *«Implementa»*, *«Corrige»*, *«Elimina»*).
    - **Sin prefijos artificiales:** Prohibido usar `feat:`, `fix:`, `chore:` o emojis.
    - **Claridad y concisión:** Línea principal de menos de 72 caracteres, específica, sin punto final, expresando con exactitud la responsabilidad resuelta.
 
-5. **Staging explícito y selectivo**:
+6. **Staging explícito y selectivo**:
    - Preparar deliberadamente las rutas exactas de cada unidad lógica mediante `git add <ruta1> <ruta2> ...`.
    - Prohibido usar comandos indiscriminados (`git add -A`, `git add .`) cuando coexistan múltiples responsabilidades en el área de trabajo.
 
