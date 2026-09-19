@@ -1,0 +1,298 @@
+---
+/**
+ * Footer.astro — Pie de Página Editorial y Canales Oficiales de El Par
+ * Fuente de verdad: sitio/specs/migracion-astro/spec.md (§3.3)
+ * Tokens y sistema visual: sitio/DESIGN.md y sitio/src/styles/tokens.css
+ */
+
+export interface Props {
+  currentPath?: string;
+  hideColaborarLink?: boolean;
+}
+
+const {
+  currentPath = Astro.url.pathname,
+  hideColaborarLink = false,
+} = Astro.props;
+
+// Normalización de ruta: elimina trailing slashes respetando la raíz "/"
+const cleanPath = (currentPath || '').replace(/\/+$/, '') || '/';
+const isHome = cleanPath === '/';
+const isSobreElPar = cleanPath === '/sobre-el-par';
+const isComoColaborar = cleanPath === '/como-colaborar';
+const isColeccion = cleanPath === '/#coleccion';
+
+// Regla anti-duplicidad contextual:
+// Si hideColaborarLink === true O currentPath === '/como-colaborar',
+// el enlace a "Cómo colaborar" se omite por completo del DOM de la lista vertical.
+const showColaborarLink = !hideColaborarLink && !isComoColaborar;
+---
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <!-- Bloque 1: Identidad gráfica unificada y cierre institucional -->
+    <div class="footer-brand-block">
+      <div class="brand-wrapper">
+        {isHome ? (
+          <span class="brand-link is-active" aria-current="page">
+            <span class="brand-name">El Par</span>
+            <span class="brand-descriptor">/ Zapatos en detalle</span>
+          </span>
+        ) : (
+          <a href="/" class="brand-link" title="Ir a la portada de El Par">
+            <span class="brand-name">El Par</span>
+            <span class="brand-descriptor">/ Zapatos en detalle</span>
+          </a>
+        )}
+      </div>
+
+      <p class="footer-institutional">
+        &copy; El Par. Zapatos en detalle. Publicación editorial independiente dedicada al diseño y las formas del calzado.
+      </p>
+    </div>
+
+    <!-- Bloque 2: Navegación vertical estructurada y Canales oficiales -->
+    <div class="footer-nav-group">
+      <!-- Navegación vertical -->
+      <nav class="footer-nav" aria-label="Navegación del pie">
+        <ul class="nav-vertical-list">
+          <li>
+            {isColeccion ? (
+              <span class="footer-link is-active" aria-current="page">Colección</span>
+            ) : (
+              <a href="/#coleccion" class="footer-link">Colección</a>
+            )}
+          </li>
+          <li>
+            {isSobreElPar ? (
+              <span class="footer-link is-active" aria-current="page">Sobre El Par</span>
+            ) : (
+              <a href="/sobre-el-par" class="footer-link">Sobre El Par</a>
+            )}
+          </li>
+          {showColaborarLink && (
+            <li>
+              <a href="/como-colaborar" class="footer-link">Cómo colaborar</a>
+            </li>
+          )}
+        </ul>
+      </nav>
+
+      <!-- Canales oficiales -->
+      <div class="footer-channels">
+        <ul class="channels-vertical-list">
+          <li>
+            <a
+              href="mailto:elparzapatos@proton.me"
+              class="footer-link mail-link"
+              title="Escribir al correo institucional de El Par"
+            >
+              elparzapatos@proton.me
+            </a>
+          </li>
+          <li>
+            <span class="footer-channel-inert" aria-hidden="true">@elparzapatos</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* ==========================================================================
+     PIE DE PÁGINA EDITORIAL
+     Fondo Muted Linen (var(--color-linen)), filete superior hairline
+     y tipografía litográfica pura.
+     ========================================================================== */
+  .site-footer {
+    width: 100%;
+    background-color: var(--color-linen);
+    border-top: 1px solid var(--color-hairline);
+    padding: var(--space-16) 0;
+    color: var(--color-graphite);
+  }
+
+  .footer-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-10);
+  }
+
+  @media (min-width: 768px) {
+    .footer-container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-12);
+    }
+  }
+
+  /* ==========================================================================
+     IDENTIDAD GRÁFICA UNIFICADA
+     Presencia idéntica a la cabecera: Newsreader + JetBrains Mono en cognac (#9E6B55).
+     ========================================================================== */
+  .footer-brand-block {
+    max-width: 26rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .brand-wrapper {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    text-decoration: none;
+    user-select: none;
+    transition: opacity var(--transition-hover);
+  }
+
+  .brand-link:hover:not(.is-active) {
+    opacity: 0.85;
+  }
+
+  .brand-link.is-active {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .brand-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ink);
+    line-height: var(--leading-none);
+  }
+
+  .brand-descriptor {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-widest);
+    color: var(--color-cognac);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .footer-institutional {
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    color: var(--color-graphite);
+    line-height: var(--leading-prose);
+    margin: 0;
+  }
+
+  /* ==========================================================================
+     NAVEGACIÓN VERTICAL Y CANALES OFICIALES
+     Lista vertical estructurada, serena y tipográfica.
+     ========================================================================== */
+  .footer-nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  @media (min-width: 640px) {
+    .footer-nav-group {
+      flex-direction: row;
+      gap: var(--space-12);
+      align-items: flex-start;
+    }
+  }
+
+  .nav-vertical-list,
+  .channels-vertical-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-wide);
+  }
+
+  .footer-link {
+    min-height: var(--min-tap-target);
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-graphite);
+    text-decoration: none;
+    transition: color var(--transition-hover);
+    white-space: nowrap;
+  }
+
+  /* Los enlaces de navegación vertical actúan como botones/actuadores táctiles */
+  .nav-vertical-list .footer-link {
+    user-select: none;
+  }
+
+  .footer-link:hover {
+    color: var(--color-ink);
+  }
+
+  .footer-link.mail-link:hover {
+    color: var(--color-cognac);
+  }
+
+  /* Regla de página activa en el pie: texto tenue inerte no clickeable */
+  .footer-link.is-active {
+    color: var(--color-graphite);
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Identificador de red / canal inerte plenamente seleccionable */
+  .footer-channel-inert {
+    min-height: var(--min-tap-target);
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-graphite);
+    opacity: 0.75;
+    cursor: default;
+    white-space: nowrap;
+  }
+
+  /* ==========================================================================
+     RESPONSIVE MÓVIL (< 768px)
+     ========================================================================== */
+  @media (max-width: 767px) {
+    .site-footer {
+      padding: var(--space-12) 0;
+    }
+
+    .footer-container {
+      padding: 0 var(--space-4);
+      gap: var(--space-8);
+    }
+
+    .brand-link {
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+
+    .brand-descriptor {
+      font-size: 0.7rem;
+      letter-spacing: var(--tracking-mono-wide);
+    }
+  }
+
+  @media (max-width: 360px) {
+    .brand-descriptor {
+      display: none;
+    }
+  }
+</style>

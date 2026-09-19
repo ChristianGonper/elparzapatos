@@ -1,0 +1,297 @@
+---
+/**
+ * ModuloEditorial.astro — Contenedor Analítico Flexible de Pliego Editorial
+ * Retícula fluida de 12 columnas (7:5, 5:7, 6:6) para análisis observacional y fotográfico.
+ * Fuente de verdad: sitio/DESIGN.md (§3, §4.4, §5, §7), sitio/specs/migracion-astro/spec.md (§3.3.6)
+ * Referencia visual: sitio/archivo-prototipos/entradas/salon-aguja.html (líneas 175-336)
+ */
+
+export interface NotaEditorial {
+  titulo?: string;
+  texto: string;
+}
+
+export interface Props {
+  grid?: '7:5' | '5:7' | '6:6';
+  moduloNumero?: string;
+  supratitulo: string;
+  titulo: string;
+  invertir?: boolean;
+  notaEditorial?: NotaEditorial;
+  cotaMetrica?: string;
+  class?: string;
+}
+
+export type ModuloEditorialProps = Props;
+
+const {
+  grid = '7:5',
+  moduloNumero,
+  supratitulo,
+  titulo,
+  invertir = false,
+  notaEditorial,
+  cotaMetrica,
+  class: className = '',
+} = Astro.props;
+
+// Clase de mapeo de retícula para CSS
+const gridClass = `grid-${grid.replace(':', '-')}`;
+---
+
+<article class:list={['modulo-editorial', className]}>
+  <div class:list={['modulo-grid', gridClass, { 'is-inverted': invertir }]}>
+    
+    <!-- Columna de Texto Editorial -->
+    <div class="modulo-texto">
+      <!-- Encabezado sutil: Número de módulo (opcional) + Supratítulo en mono versalitas -->
+      <div class="modulo-header">
+        {moduloNumero && (
+          <span class="modulo-numero">
+            {moduloNumero.startsWith('·') ? moduloNumero : `· ${moduloNumero}`}
+          </span>
+        )}
+        {moduloNumero && <span class="modulo-divisor" aria-hidden="true">|</span>}
+        <span class="modulo-supratitulo">{supratitulo}</span>
+      </div>
+
+      <!-- Titular H2 en Newsreader serif -->
+      <h2 class="modulo-titulo">
+        {titulo}
+      </h2>
+
+      <!-- Prosa editorial analítica (Slot de texto) -->
+      <div class="modulo-prosa">
+        <slot name="texto">
+          <slot />
+        </slot>
+      </div>
+
+      <!-- Nota editorial intercalada en Muted Linen (opcional) -->
+      {notaEditorial && (
+        <div class="modulo-nota">
+          <span class="modulo-nota-titulo">
+            {notaEditorial.titulo || 'Nota editorial'}
+          </span>
+          <p class="modulo-nota-texto">
+            {notaEditorial.texto}
+          </p>
+        </div>
+      )}
+
+      <!-- Cota métrica o apunte técnico en pie mono (opcional) -->
+      {cotaMetrica && (
+        <div class="modulo-cota">
+          <span class="modulo-cota-texto">
+            {cotaMetrica}
+          </span>
+        </div>
+      )}
+    </div>
+
+    <!-- Columna Multimedia / Fotografía -->
+    <div class="modulo-media">
+      <slot name="media">
+        <slot name="imagen" />
+      </slot>
+    </div>
+
+  </div>
+</article>
+
+<style>
+  /* ==========================================================================
+     MÓDULO EDITORIAL ANALÍTICO (Retícula Flexible de 12 Columnas)
+     ========================================================================== */
+
+  .modulo-editorial {
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Retícula de columnas: móvil apilado suave, desktop 12 columnas */
+  .modulo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  /* Colapso móvil (< 1024px): Apilado con imagen primero y luego texto */
+  @media (max-width: 1023px) {
+    .modulo-media {
+      order: 1;
+    }
+    .modulo-texto {
+      order: 2;
+    }
+  }
+
+  /* Distribución en pantallas medianas y grandes (Desktop >= 1024px) */
+  @media (min-width: 1024px) {
+    .modulo-grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 3.5rem; /* gap-14 */
+    }
+
+    /* Retícula 7:5 (7 cols texto, 5 cols imagen) */
+    .modulo-grid.grid-7-5 .modulo-texto {
+      grid-column: span 7;
+    }
+    .modulo-grid.grid-7-5 .modulo-media {
+      grid-column: span 5;
+    }
+
+    /* Retícula 5:7 (5 cols texto, 7 cols imagen) */
+    .modulo-grid.grid-5-7 .modulo-texto {
+      grid-column: span 5;
+    }
+    .modulo-grid.grid-5-7 .modulo-media {
+      grid-column: span 7;
+    }
+
+    /* Retícula 6:6 (6 cols texto, 6 cols imagen) */
+    .modulo-grid.grid-6-6 .modulo-texto {
+      grid-column: span 6;
+    }
+    .modulo-grid.grid-6-6 .modulo-media {
+      grid-column: span 6;
+    }
+
+    /* Dirección estándar: texto a la izquierda, imagen a la derecha */
+    .modulo-grid:not(.is-inverted) .modulo-texto {
+      order: 1;
+    }
+    .modulo-grid:not(.is-inverted) .modulo-media {
+      order: 2;
+    }
+
+    /* Invertir: imagen a la izquierda, texto a la derecha */
+    .modulo-grid.is-inverted .modulo-media {
+      order: 1;
+    }
+    .modulo-grid.is-inverted .modulo-texto {
+      order: 2;
+    }
+  }
+
+  /* Contenedor de Texto: respiración natural sin alturas forzadas */
+  .modulo-texto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  /* Encabezado del módulo: Mono versalitas con color cognac */
+  .modulo-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem; /* 11px */
+    letter-spacing: var(--tracking-mono-wide, 0.12em);
+    text-transform: uppercase;
+    color: var(--color-cognac);
+    font-weight: 500;
+  }
+
+  .modulo-numero {
+    color: var(--color-graphite);
+    font-weight: normal;
+  }
+
+  .modulo-divisor {
+    color: var(--color-hairline);
+    user-select: none;
+  }
+
+  .modulo-supratitulo {
+    color: var(--color-cognac);
+  }
+
+  /* Titular H2 en Newsreader serif */
+  .modulo-titulo {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-3xl);
+    font-weight: normal;
+    line-height: var(--leading-tight, 1.15);
+    color: var(--color-ink);
+  }
+
+  @media (min-width: 768px) {
+    .modulo-titulo {
+      font-size: var(--text-4xl);
+    }
+  }
+
+  /* Prosa editorial en sans-serif */
+  .modulo-prosa {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-prose, 1.75);
+    color: var(--color-graphite);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .modulo-prosa :global(p) {
+    margin: 0;
+  }
+
+  /* Nota editorial intercalada: Muted Linen con filete de 1px */
+  .modulo-nota {
+    background-color: var(--color-linen);
+    border: 1px solid var(--color-hairline);
+    padding: var(--space-4) var(--space-5);
+    margin-top: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .modulo-nota-titulo {
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-tag, 0.06em);
+    color: var(--color-cognac);
+    font-weight: 500;
+    display: block;
+  }
+
+  .modulo-nota-texto {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    line-height: var(--leading-normal, 1.5);
+    color: var(--color-graphite);
+  }
+
+  @media (min-width: 640px) {
+    .modulo-nota-texto {
+      font-size: var(--text-sm);
+    }
+  }
+
+  /* Cota métrica o apunte técnico al pie */
+  .modulo-cota {
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-hairline);
+  }
+
+  .modulo-cota-texto {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-graphite);
+    line-height: var(--leading-normal);
+  }
+
+  /* Columna Multimedia */
+  .modulo-media {
+    width: 100%;
+  }
+</style>

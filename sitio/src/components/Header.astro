@@ -1,0 +1,254 @@
+---
+/**
+ * Header.astro — Cabecera Editorial Principal de El Par
+ * Fuente de verdad: sitio/specs/migracion-astro/spec.md (§3.3)
+ * Sistema visual y tokens: sitio/DESIGN.md y sitio/src/styles/tokens.css
+ */
+
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = Astro.url.pathname } = Astro.props;
+
+// Normalización de ruta: elimina trailing slashes respetando la raíz "/"
+const cleanPath = (currentPath || '').replace(/\/+$/, '') || '/';
+const isHome = cleanPath === '/';
+const isSobreElPar = cleanPath === '/sobre-el-par';
+const isComoColaborar = cleanPath === '/como-colaborar';
+const isColeccion = cleanPath === '/#coleccion';
+---
+
+<header class="site-header">
+  <div class="header-container">
+    <!-- Logotipo de Marca -->
+    <div class="brand-wrapper">
+      {isHome ? (
+        <span class="brand-link is-active" aria-current="page">
+          <span class="brand-name">El Par</span>
+          <span class="brand-descriptor">/ Zapatos en detalle</span>
+        </span>
+      ) : (
+        <a href="/" class="brand-link" title="Ir a la portada de El Par">
+          <span class="brand-name">El Par</span>
+          <span class="brand-descriptor">/ Zapatos en detalle</span>
+        </a>
+      )}
+    </div>
+
+    <!-- Navegación horizontal ("en grande y en recto") -->
+    <nav class="header-nav" aria-label="Navegación principal">
+      {isColeccion ? (
+        <span class="nav-link is-active" aria-current="page">Colección</span>
+      ) : (
+        <a href="/#coleccion" class="nav-link">Colección</a>
+      )}
+
+      {isSobreElPar ? (
+        <span class="nav-link is-active" aria-current="page">Sobre El Par</span>
+      ) : (
+        <a href="/sobre-el-par" class="nav-link">Sobre El Par</a>
+      )}
+
+      {isComoColaborar ? (
+        <span class="nav-link is-active" aria-current="page">Cómo colaborar</span>
+      ) : (
+        <a href="/como-colaborar" class="nav-link">Cómo colaborar</a>
+      )}
+
+      <span class="nav-channel-inert" aria-hidden="true">@elparzapatos</span>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* ==========================================================================
+     CABECERA EDITORIAL
+     Ubicación en el flujo normal superior (position: static), no fija.
+     Sale naturalmente con el desplazamiento vertical.
+     ========================================================================== */
+  .site-header {
+    position: static;
+    width: 100%;
+    background-color: var(--color-paper);
+    border-bottom: 1px solid var(--color-hairline);
+    user-select: none;
+  }
+
+  .header-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    min-height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-8);
+  }
+
+  /* ==========================================================================
+     LOGOTIPO DE MARCA
+     - Nombre "El Par" en Newsreader serif (carbón litográfico).
+     - Descriptor "/ Zapatos en detalle" en JetBrains Mono versalitas tenues
+       en color cuero cognac (#9E6B55, weight 500).
+     ========================================================================== */
+  .brand-wrapper {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    text-decoration: none;
+    min-height: var(--min-tap-target);
+    transition: opacity var(--transition-hover);
+  }
+
+  .brand-link:hover:not(.is-active) {
+    opacity: 0.85;
+  }
+
+  .brand-link.is-active {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .brand-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: 400;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-ink);
+    line-height: var(--leading-none);
+  }
+
+  .brand-descriptor {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-widest);
+    color: var(--color-cognac);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  /* ==========================================================================
+     NAVEGACIÓN HORIZONTAL ("EN GRANDE Y EN RECTO")
+     ========================================================================== */
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-wide);
+  }
+
+  .nav-link {
+    min-height: var(--min-tap-target);
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-graphite);
+    text-decoration: none;
+    padding: var(--space-1) 0;
+    border-bottom: 1px solid transparent;
+    transition: color var(--transition-hover), border-color var(--transition-hover);
+    white-space: nowrap;
+  }
+
+  .nav-link:hover {
+    color: var(--color-ink);
+  }
+
+  /* Regla de página activa: subrayado sólido, peso destacado, conducta inerte */
+  .nav-link.is-active {
+    color: var(--color-ink);
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-ink);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  /* Canal reservado @elparzapatos en texto inerte */
+  .nav-channel-inert {
+    min-height: var(--min-tap-target);
+    display: inline-flex;
+    align-items: center;
+    color: var(--color-graphite);
+    cursor: default;
+    user-select: none;
+    white-space: nowrap;
+    padding: var(--space-1) 0;
+  }
+
+  /* ==========================================================================
+     ADAPTABILIDAD MÓVIL (< 768px)
+     - Fila independiente para las opciones de navegación.
+     - Áreas táctiles mínimas de 44 px (WCAG).
+     - Sin desbordamiento horizontal.
+     ========================================================================== */
+  @media (max-width: 767px) {
+    .header-container {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      min-height: auto;
+      padding: var(--space-3) var(--space-4) var(--space-2);
+      gap: 0;
+    }
+
+    .brand-wrapper {
+      width: 100%;
+      min-height: var(--min-tap-target);
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--space-1);
+    }
+
+    .brand-link {
+      width: 100%;
+      gap: var(--space-2);
+    }
+
+    .brand-descriptor {
+      font-size: 0.7rem;
+      letter-spacing: var(--tracking-mono-wide);
+    }
+
+    .header-nav {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: var(--space-5);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-top: var(--space-1);
+      border-top: 1px solid var(--color-hairline);
+    }
+
+    .header-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link {
+      padding: 0 var(--space-1);
+    }
+
+    /* Ocultar canal reservado en móvil para mantener el foco en los 3 destinos clave */
+    .nav-channel-inert {
+      display: none;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .brand-descriptor {
+      display: none;
+    }
+  }
+</style>

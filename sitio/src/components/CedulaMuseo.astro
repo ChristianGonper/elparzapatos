@@ -1,0 +1,211 @@
+---
+/**
+ * CedulaMuseo.astro — Ficha Técnica de Sala de Exposición (Variante 3A: Cédula de Museo)
+ * Cierre técnico formal del estudio monográfico en lectura continua reposada.
+ * Fuente de verdad: sitio/DESIGN.md, sitio/specs/migracion-astro/spec.md (§3.3.3)
+ * Referencia visual: sitio/archivo-prototipos/mock-comparativas-visuales.html (líneas 799-827)
+ */
+
+export interface CedulaData {
+  siluetaTipo: string;
+  marca: string;
+  modelo: string;
+  materialAcabado: string;
+  geometriaTacon: string;
+  procedenciaArmario: string;
+  procedenciaInstagram?: string;
+}
+
+export interface Props {
+  cedula: CedulaData;
+}
+
+// Alias de compatibilidad arquitectónica según plan.md (§2.2)
+export type CedulaMuseoProps = Props;
+
+const { cedula } = Astro.props;
+const {
+  siluetaTipo,
+  marca,
+  modelo,
+  materialAcabado,
+  geometriaTacon,
+  procedenciaArmario,
+  procedenciaInstagram,
+} = cedula;
+
+// Normalización de la cuenta de Instagram para asegurar prefijo '@'
+const formattedInstagram = procedenciaInstagram
+  ? (procedenciaInstagram.startsWith('@') ? procedenciaInstagram : `@${procedenciaInstagram}`)
+  : undefined;
+---
+
+<section class="cedula-museo" aria-label="Cédula del espécimen">
+  <div class="cedula-container">
+    <!-- Supratítulo: Cédula del espécimen en mono versalitas -->
+    <span class="cedula-supratitulo">Cédula del espécimen</span>
+
+    <!-- Línea Principal (Campos 1 & 2): Silueta + Marca / Modelo -->
+    <h3 class="cedula-principal">
+      {siluetaTipo} · {marca} <em>{modelo}</em>
+    </h3>
+
+    <!-- Línea Secundaria (Campo 3): Material y Acabado -->
+    <p class="cedula-secundaria">
+      {materialAcabado}
+    </p>
+
+    <!-- Separador tipográfico: Guión fino, punto cuero central y guión fino -->
+    <div class="cedula-separador" aria-hidden="true">
+      <span class="guion">—</span>
+      <span class="punto-cuero"></span>
+      <span class="guion">—</span>
+    </div>
+
+    <!-- Línea Terciaria (Campos 4 & 5): Geometría del tacón + Procedencia del armario -->
+    <p class="cedula-terciaria">
+      <span class="cedula-tacon">{geometriaTacon}</span>
+      <span class="cedula-pleca" aria-hidden="true">|</span>
+      <span class="cedula-procedencia">
+        {procedenciaArmario}{formattedInstagram && <span class="cedula-instagram"> ({formattedInstagram})</span>}
+      </span>
+    </p>
+  </div>
+</section>
+
+<style>
+  /* ==========================================================================
+     CÉDULA DE MUSEO (Variante 3A Aprobada)
+     Cartela continua de sala de exposición con filetes arquitectónicos
+     y fondo cálido suave Muted Linen.
+     ========================================================================== */
+
+  .cedula-museo {
+    width: 100%;
+    border-top: 1px solid var(--color-hairline);
+    border-bottom: 1px solid var(--color-hairline);
+    background-color: var(--color-linen);
+    background-color: color-mix(in srgb, var(--color-linen) 45%, var(--color-paper));
+    padding: var(--space-10) var(--space-4);
+    text-align: center;
+  }
+
+  .cedula-container {
+    max-width: 48rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  /* 1. Supratítulo: Mono versalitas con tracking extremo */
+  .cedula-supratitulo {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-extreme, 0.25em);
+    color: var(--color-cognac);
+    font-weight: 500;
+    line-height: var(--leading-normal);
+  }
+
+  /* 2. Línea Principal (Campos 1 & 2): Newsreader serif carbón */
+  .cedula-principal {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: normal;
+    line-height: var(--leading-tight);
+    color: var(--color-ink);
+  }
+
+  .cedula-principal em {
+    font-style: italic;
+    font-family: inherit;
+  }
+
+  /* 3. Línea Secundaria (Campo 3): Sans versalitas espaciadas */
+  .cedula-secundaria {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-graphite);
+    font-weight: 500;
+    line-height: var(--leading-snug);
+  }
+
+  /* 4. Separador tipográfico: — • — */
+  .cedula-separador {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    color: var(--color-hairline);
+    user-select: none;
+    line-height: 1;
+  }
+
+  .punto-cuero {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-cognac);
+    display: inline-block;
+  }
+
+  .guion {
+    color: var(--color-hairline);
+  }
+
+  /* 5. Línea Terciaria (Campos 4 & 5): JetBrains Mono metadatos */
+  .cedula-terciaria {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-mono-tag);
+    line-height: var(--leading-normal);
+    color: var(--color-ink);
+    text-align: center;
+  }
+
+  .cedula-tacon {
+    color: var(--color-cognac);
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .cedula-pleca {
+    color: var(--color-hairline);
+    margin: 0 var(--space-2);
+    user-select: none;
+  }
+
+  .cedula-procedencia {
+    color: var(--color-graphite);
+  }
+
+  .cedula-instagram {
+    color: var(--color-graphite);
+  }
+
+  /* Ajustes responsivos para pantallas de lectura reducida */
+  @media (max-width: 640px) {
+    .cedula-museo {
+      padding: var(--space-8) var(--space-4);
+    }
+
+    .cedula-terciaria {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .cedula-pleca {
+      display: none;
+    }
+  }
+</style>

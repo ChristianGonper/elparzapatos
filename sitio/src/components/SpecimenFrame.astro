@@ -1,0 +1,218 @@
+---
+/**
+ * SpecimenFrame.astro — Marco Fotográfico Editorial de Espécimen e Inspección
+ * Fuente de verdad: sitio/DESIGN.md (§4.2, §5), sitio/specs/migracion-astro/spec.md (§3.3.4)
+ * Referencia visual: sitio/archivo-prototipos/mock-comparativas-visuales.html (líneas 54-97, 453-472)
+ */
+
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface Props {
+  image: ImageMetadata;
+  alt: string;
+  aspectRatio?: '3:4' | '4:3' | '16:10' | '1:1';
+  caption?: string;
+  subcaption?: string;
+  triggerLightbox?: boolean;
+  class?: string;
+}
+
+export type SpecimenFrameProps = Props;
+
+const {
+  image,
+  alt,
+  aspectRatio = '4:3',
+  caption,
+  subcaption,
+  triggerLightbox = true,
+  class: className = '',
+} = Astro.props;
+
+// Mapeo semántico de proporciones de cámara fotográfica a clases CSS
+const aspectClassMap = {
+  '3:4': 'aspect-3-4',
+  '4:3': 'aspect-4-3',
+  '16:10': 'aspect-16-10',
+  '1:1': 'aspect-1-1',
+};
+
+const selectedAspectClass = aspectClassMap[aspectRatio] || 'aspect-4-3';
+const fullCaption = caption || subcaption || alt;
+---
+
+<figure
+  class:list={[
+    'specimen-frame',
+    { 'is-interactive': triggerLightbox },
+    className,
+  ]}
+  tabindex={triggerLightbox ? 0 : undefined}
+  role={triggerLightbox ? 'button' : undefined}
+  aria-label={triggerLightbox ? `Inspeccionar espécimen: ${alt}` : undefined}
+  data-lightbox-trigger={triggerLightbox ? '' : undefined}
+  data-lightbox-src={triggerLightbox ? image.src : undefined}
+  data-lightbox-alt={triggerLightbox ? alt : undefined}
+  data-lightbox-caption={triggerLightbox ? fullCaption : undefined}
+>
+  <div class:list={['specimen-viewport', selectedAspectClass]}>
+    <Image
+      src={image}
+      alt={alt}
+      class="specimen-img"
+    />
+  </div>
+
+  {(caption || subcaption) && (
+    <figcaption class="specimen-caption">
+      {caption && <span class="caption-main">{caption}</span>}
+      {subcaption && <span class="caption-sub">{subcaption}</span>}
+    </figcaption>
+  )}
+</figure>
+
+<style>
+  /* ==========================================================================
+     MARCO FOTOGRÁFICO DE ESPÉCIMEN E INSPECCIÓN (Lámina Editorial de Revista)
+     Fondo blanco puro de paspartú, borde hairline milimétrico y paspartú
+     interior tintado con filete troquelado en cuero cognac (#9E6B55).
+     ========================================================================== */
+
+  .specimen-frame {
+    position: relative;
+    background-color: var(--color-specimen, #FFFFFF);
+    border: 1px solid var(--color-hairline, #E8E3DC);
+    border-radius: 6px;
+    padding: var(--space-4);
+    margin: 0;
+    transition:
+      border-color var(--transition-serene, 0.25s cubic-bezier(0.16, 1, 0.3, 1)),
+      box-shadow var(--transition-serene, 0.25s cubic-bezier(0.16, 1, 0.3, 1)),
+      background-color var(--transition-hover, 0.25s ease);
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    .specimen-frame {
+      padding: var(--space-6);
+    }
+  }
+
+  /* Filete interior troquelado en papel tintado (Passepartout de revista de arte) */
+  .specimen-frame.is-interactive {
+    cursor: crosshair;
+  }
+
+  .specimen-frame.is-interactive::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    bottom: 7px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    pointer-events: none;
+    transition: border-color var(--transition-serene, 0.25s cubic-bezier(0.16, 1, 0.3, 1));
+    z-index: 10;
+  }
+
+  /* Señal de inspección interactiva accesible en hover, focus directo y focus-within */
+  .specimen-frame.is-interactive:hover,
+  .specimen-frame.is-interactive:focus-within,
+  .specimen-frame.is-interactive:focus {
+    border-color: var(--color-cognac, #9E6B55);
+    box-shadow: inset 0 0 0 8px var(--color-paper, #FAF8F5);
+  }
+
+  .specimen-frame.is-interactive:hover::after,
+  .specimen-frame.is-interactive:focus-within::after,
+  .specimen-frame.is-interactive:focus::after {
+    border-color: var(--color-cognac, #9E6B55);
+  }
+
+  /* ==========================================================================
+     VENTANA INTERIOR Y PROPORCIONES DE CÁMARA
+     Preserva sombra de suelo natural sobre blanco sin deformación ni escalado.
+     ========================================================================== */
+
+  .specimen-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: color-mix(in srgb, var(--color-paper-muted, #F3EFEA) 20%, transparent);
+  }
+
+  .aspect-3-4 {
+    aspect-ratio: 3 / 4;
+  }
+
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
+
+  .aspect-16-10 {
+    aspect-ratio: 16 / 10;
+  }
+
+  .aspect-1-1 {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* La imagen fotográfica nunca escala, ni se desplaza ni recibe filtros */
+  .specimen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: none !important;
+    transition: none !important;
+    filter: none !important;
+  }
+
+  /* ==========================================================================
+     PIE DE IMAGEN TÉCNICO (JetBrains Mono versalitas)
+     ========================================================================== */
+
+  .specimen-caption {
+    margin-top: var(--space-3);
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-hairline, #E8E3DC);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--space-4);
+    font-family: var(--font-mono);
+    font-size: 0.625rem; /* 10px */
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-mono-wide, 0.12em);
+    color: var(--color-graphite, #6B6661);
+    line-height: var(--leading-mono, 1.45);
+  }
+
+  .caption-main {
+    font-weight: 500;
+    color: var(--color-ink, #1C1A18);
+  }
+
+  .caption-sub {
+    color: var(--color-graphite, #6B6661);
+    text-align: right;
+  }
+
+  @media (max-width: 480px) {
+    .specimen-caption {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+    }
+
+    .caption-sub {
+      text-align: left;
+    }
+  }
+</style>
