@@ -1,6 +1,6 @@
 # Spec: Entrada Monográfica
 
-**Superficie que rige:** [sitio/entradas/*.html](../../entradas/)
+**Superficie que rige:** [src/pages/entradas/[slug].astro](../../src/pages/entradas/[slug].astro) y colección `pares` en [src/content/pares/](../../src/content/pares/) (prototipos previos archivados en [archivo-prototipos/entradas/](../../archivo-prototipos/entradas/))  
 **Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
@@ -17,7 +17,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 ## 2. Estructura y Conducta de la Monografía
 
 ### 2.1. Bloque de Apertura y Cabecera
-- **Retorno a la Colección:** Enlace superior discreto en tipografía mono: `← Volver a la Colección` con enlace a [sitio/index.html#coleccion](../../index.html#coleccion).
+- **Retorno a la Colección:** Enlace superior discreto en tipografía mono: `← Volver a la Colección` con enlace a `/#coleccion` ([src/pages/index.astro#coleccion](../../src/pages/index.astro)).
 - **Cabecera no persistente:** La navegación inicial sale de la vista con el desplazamiento. El lector continúa la publicación sin una barra fija y recupera las rutas esenciales en el pie.
 - **Título de Observación:** En tipografía Newsreader serif a gran escala. Expresa una constatación visual honesta del par demostrable en las fotografías (ej. *«Dos extremos, una silueta»*).
 - **Subtítulo Descriptivo:** Bajo el título, en sans-serif neutra (*Plus Jakarta Sans* / *Inter*): `[Familia] con [Escote / Sujeción] en [Material] y [Tipo de tacón / Altura]`. Ejemplo: *Salón clásico con escote asimétrico en piel vacuno y tacón aguja de 90 mm*.
@@ -28,7 +28,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 ### 2.2. Paseo Visual Modular y Ritmo Flexible
 - **Volumen Fotográfico:** Cada monografía cuenta con un mínimo de 6 fotografías reales (las 6 perspectivas canónicas establecidas en [marca/03-sistema-editorial-y-contenidos.md](../../../marca/03-sistema-editorial-y-contenidos.md)), más las tomas macro o de detalle constructivo que justifiquen su inclusión.
 - **Hero Specimen (Escala reposada):** Fotografía de apertura en formato equilibrado y sereno (perspectiva tres cuartos exterior), mostrando el calzado en su actitud completa en un término medio armónico que no devora la vertical del pliego.
-- **Tratamiento Fotográfico e Inspección (`object-contain`):** Las fotografías se presentan íntegras sin recortes dentro de marcos de proporción normalizada sobre fondo `Specimen White` con filete perimetral `Hairline Dust Border`. Se conserva siempre la silueta completa y el suelo con su sombra natural de apoyo. Se prohíbe el silueteado o la extracción artificial de fondos.
+- **Tratamiento Fotográfico e Inspección (`object-contain`):** Las fotografías se presentan íntegras sin recortes dentro de marcos de proporción normalizada sobre fondo `Specimen White` con filete perimetral `Hairline Dust Border`. Se conserva siempre la silueta completa y el suelo con su sombra natural de apoyo. Se prohíbe el silueteado o la extracción artificial de fondos. Si una imagen contiene demasiado margen blanco o encuadre deficiente, se corrige el recorte localmente en la imagen antes de publicarla; el CSS nunca debe compensar un encuadre deficiente.
   - *Señal de inspección interactiva (Efecto revista):* Al posar el cursor (*hover*) o enfocar con teclado, el marco proyecta hacia adentro un paspartú de papel tintado con esquinas interiores suavemente redondeadas, rematado por un filete nítido en color cuero `Cognac Leather` (`#9E6B55`) que evoca una lámina de revista troquelada, manteniendo la fotografía inmóvil (sin escalado, desplazamiento ni filtros).
 - **Módulos de Análisis Flexibles:** Secuencia adaptada a las particularidades de cada par.
 - **Ratios de Retícula Alterna (Distribución de Columnas Web):**
@@ -108,16 +108,21 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 - En el remate de la monografía:
   - **Título:** fórmula fija `Comparte un par`
   - **Texto:** fórmula de reconocimiento hacia la colaboradora y llamada a proponer modelos con siluetas o detalles singulares.
-  - **Botón de acción:** `Cómo colaborar →` (enlace a `../como-colaborar.html`).
+  - **Botón de acción:** `Cómo colaborar →` hacia `/como-colaborar` ([src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro)).
 
 ### 2.10. Nomenclatura de URLs (Slugs)
-- Formato descriptivo: `/entradas/[silueta]-[rasgo]-[material-o-detalle].html` (ej. `entradas/salon-aguja-piel-grabada.html`).
-- Desempate por procedencia si existieran piezas idénticas: `/entradas/[silueta]-[rasgo]-[nombre].html`.
+- Formato descriptivo limpio: `/entradas/[silueta]-[rasgo]-[material-o-detalle]/` (ej. `/entradas/salon-aguja/`).
+- Desempate por procedencia si existieran piezas idénticas: `/entradas/[silueta]-[rasgo]-[nombre]/`.
 
 ### 2.11. Metadatos y SEO Editorial
 - `<title>`: `El Par — [Título de Observación] | [Familia]` (ej. *El Par — «Dos extremos, una silueta» | Salón clásico*).
 - `<meta name="description">`: Resumen de 1–2 frases indicando identificación anatómica y procedencia.
 - Metadatos OpenGraph y Twitter Cards (`summary_large_image`) con la imagen Hero en tres cuartos exterior.
+
+### 2.12. Flujo de Trabajo Editorial
+- Christian elabora el borrador del estudio en Markdown bajo `src/content/pares/[slug].md`.
+- El agente de código o maquetación ensambla los componentes necesarios y valida la estructura en local.
+- Christian revisa y valida visualmente en su navegador antes de consolidar a `main`.
 
 ---
 

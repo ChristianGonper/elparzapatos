@@ -1,6 +1,6 @@
 # Spec: Portada de la Colección
 
-**Superficie que rige:** [sitio/index.html](../../index.html)
+**Superficie que rige:** [src/pages/index.astro](../../src/pages/index.astro) (ruta `/`; prototipo previo archivado en [archivo-prototipos/index.html](../../archivo-prototipos/index.html))  
 **Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
@@ -17,8 +17,8 @@ La portada es la antesala y el índice vivo de la colección monográfica de **E
 - **Identidad:** Logotipo **El Par** en Newsreader serif y descriptor **Zapatos en detalle** en mono tenue.
 - **Tríada de navegación activa:**
   - `Colección`: Enlace o ancla directa a la cuadrícula de la colección (`#coleccion`).
-  - `Sobre El Par`: Acceso a la página institucional [sitio/sobre-el-par.html](../../sobre-el-par.html).
-  - `Cómo colaborar`: Acceso a la página puente [sitio/como-colaborar.html](../../como-colaborar.html).
+  - `Sobre El Par`: Acceso a la página institucional `/sobre-el-par` ([src/pages/sobre-el-par.astro](../../src/pages/sobre-el-par.astro)).
+  - `Cómo colaborar`: Acceso a la página puente `/como-colaborar` ([src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro)).
   - Canal oficial de Instagram `@elparzapatos` accesible en pantallas medianas y grandes.
 - **Límites de navegación:** Se reserva el directorio de `Armarios` para una versión posterior del sitio cuando exista volumen representativo de colaboradoras recurrentes.
 - **Comportamiento al desplazarse:** La cabecera forma parte del flujo normal del documento. No permanece fija ni reaparece de forma automática; el pie repite las rutas esenciales al final de la lectura.
@@ -53,12 +53,12 @@ La interfaz se adapta a la cantidad real de entregas catalogadas:
   - Procedencia: `Armario de [Nombre]` en mono tenue.
   - Título: Observación editorial en serif.
   - Subtítulo: Identificación taxonómica en sans-serif neutra.
-- **Interacción:** La tarjeta completa actúa como enlace orgánico a su respectiva monografía en `entradas/[slug].html`. Se suprimen botones repetitivos tipo `Leer análisis →`.
+- **Interacción:** La tarjeta completa actúa como enlace orgánico a su respectiva monografía en `/entradas/[slug]/`. Se suprimen botones repetitivos tipo `Leer análisis →`.
 
 ### 2.5. Pie y Cierre Colaborativo
 - **Cierre colaborativo:** Bloque en superficie `Muted Linen Surface` invitando a participar:
   - Fórmula nombrada: `Comparte un par`.
-  - Botón de acción: `Cómo colaborar →` hacia [sitio/como-colaborar.html](../../como-colaborar.html).
+  - Botón de acción: `Cómo colaborar →` hacia `/como-colaborar` ([src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro)).
 - **Pie institucional:** Descriptor del proyecto y créditos de cortesía serenos, sin banners ni llamadas comerciales.
 
 ---
@@ -88,7 +88,7 @@ La interfaz se adapta a la cantidad real de entregas catalogadas:
 - Cierre colaborativo inferior con llamada sobria a la participación.
 
 ### Fuera de v1 (Pospuesto a Versiones Posteriores)
-- Directorio de armarios particulares (`armarios.html`).
+- Directorio de armarios particulares (`/armarios`).
 - Filtros taxonómicos por tipología de calzado (salones, bailarinas, merceditas; requieren volumen suficiente).
 
 

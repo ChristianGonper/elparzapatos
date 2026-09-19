@@ -1,7 +1,7 @@
 # Tareas de Trabajo: Página Puente «Cómo colaborar»
 
-**Superficie:** [sitio/como-colaborar.html](../../como-colaborar.html)
-**Estado:** Reposo (cierre de build v1 verificado).
+**Superficie:** [src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro) (ruta `/como-colaborar`)
+**Estado:** Reposo (cierre de build v1 verificado y consolidado en Astro).
 
 ---
 

@@ -1,6 +1,6 @@
 # Spec: Página Institucional y Explicativa «Sobre El Par»
 
-**Superficie que rige:** [sitio/sobre-el-par.html](../../sobre-el-par.html)
+**Superficie que rige:** [src/pages/sobre-el-par.astro](../../src/pages/sobre-el-par.astro) (ruta `/sobre-el-par`; prototipo previo archivado en [archivo-prototipos/sobre-el-par.html](../../archivo-prototipos/sobre-el-par.html))  
 **Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
@@ -25,7 +25,7 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 2. **Criterio (Lejos de la última tendencia):** Rótulo `CRITERIO`. Explica la selección por diseño, independientemente de marca, precio o antigüedad, sin seguir el calendario de tendencias ni excluir piezas por su procedencia. El foco son modelos con siluetas que destacan por sus formas, líneas y proporciones propias, independientemente de su firma o antigüedad.
 3. **Formas y detalles (Punto de partida en tacones y bailarinas):** Rótulo `FORMAS Y DETALLES`. Explica el punto de partida en tacones y bailarinas por su variedad de formas y posibilidades de observación, sin comparaciones de superioridad con otras tipologías ni medidas arbitrarias. Deja explícita la apertura a incorporar otras siluetas en el futuro.
 4. **El método (Fotografías cercanas y naturales):** Rótulo `EL MÉTODO`. Explica el origen comunitario de las imágenes. Fotografías tomadas con el móvil en su entorno cotidiano, con la cercanía de quien enseña sus zapatos a unas amigas. Sin imágenes de catálogo ni escenografías de estudio.
-5. **Conversación y participación (Sugerencias y colaboración):** Rótulo `CONVERSACIÓN`. Espacio abierto para compartir recomendaciones o dudas, con buzón directo (correo institucional y canal reservado para redes), rematando con una invitación a enviar fotografías y comentarios del par, sin promesas de duración, hacia [sitio/como-colaborar.html](../../como-colaborar.html).
+5. **Conversación y participación (Sugerencias y colaboración):** Rótulo `CONVERSACIÓN`. Espacio abierto para compartir recomendaciones o dudas, con buzón directo (correo institucional y canal reservado para redes), rematando con una invitación a enviar fotografías y comentarios del par, sin promesas de duración, hacia `/como-colaborar` ([src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro)).
 
 ### 2.3. Acompañamiento Visual
 - **Módulo comparativo (Formas y detalles):** Inserción de un marco sobrio con fotografías de la colección en fondo neutro y proporción íntegra (reglas transversales de [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md) §3), enseñando las líneas de un salón y una bailarina en formato WebP optimizado.
@@ -37,8 +37,8 @@ Sirve como carta de presentación ante visitantes nuevos, respuesta integral a d
 
 - **Correo oficial:** `elparzapatos@proton.me` (enlace directo `mailto:`).
 - **Instagram oficial:** `@elparzapatos` (identidad de marca visible pero inerte sin enlace externo activo hasta su lanzamiento público).
-- **Puente de colaboración:** Enlace directo a [sitio/como-colaborar.html](../../como-colaborar.html).
-- **Navegación general:** Retorno directo a la colección en [sitio/index.html#coleccion](../../index.html#coleccion).
+- **Puente de colaboración:** Enlace directo a `/como-colaborar` ([src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro)).
+- **Navegación general:** Retorno directo a la colección en `/#coleccion` ([src/pages/index.astro#coleccion](../../src/pages/index.astro)).
 
 ## Adaptación móvil
 
@@ -50,7 +50,7 @@ Por debajo de 768 px, la marca y la navegación ocupan filas separadas. Los enla
 
 - **ADR-SOB-01: Página unificada «Sobre El Par» vs. dos páginas independientes:**
   - *Contexto:* Comunicación institucional del manifiesto editorial, criterios formales de selección y explicación de cómo se construye la colección a partir de fotos domésticas.
-  - *Decisión:* Unificar en una única página ([sitio/sobre-el-par.html](../../sobre-el-par.html)) la mirada al calzado y el método fotográfico de la comunidad, incorporándola como el tercer pilar visible en la navegación de cabecera y pie (`Colección`, `Sobre El Par` y `Cómo colaborar`).
+  - *Decisión:* Unificar en una única página ([src/pages/sobre-el-par.astro](../../src/pages/sobre-el-par.astro)) la mirada al calzado y el método fotográfico de la comunidad, incorporándola como el tercer pilar visible en la navegación de cabecera y pie (`Colección`, `Sobre El Par` y `Cómo colaborar`).
   - *Descarte:* Mantener dos páginas separadas (`sobre-el-par.html` y `como-se-construye.html`), lo cual fragmentaba el relato y generaba páginas excesivamente breves en v1.
   - *Consecuencias:* Ofrece una explicación integral y serena de un solo vistazo, evitando duplicar introducciones de principios.
 

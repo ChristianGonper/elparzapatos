@@ -4,7 +4,6 @@
 > **Superficie que gobierna:** Todo el entorno web bajo [sitio/](../../)  
 > **Sistema visual de referencia:** [sitio/DESIGN.md](../../DESIGN.md)  
 > **Marco global gobernante:** [sitio/ESPECIFICACION.md](../../ESPECIFICACION.md)  
-> **Relevo técnico de continuidad:** [sitio/RELEVO-MIGRACION-ASTRO.md](../../RELEVO-MIGRACION-ASTRO.md)  
 > **Especificaciones vivas de superficie:** [Portada](../portada/spec.md) · [Monografía](../monografia/spec.md) · [Sobre El Par](../sobre-el-par/spec.md) · [Cómo colaborar](../como-colaborar/spec.md)
 
 ---
@@ -36,7 +35,7 @@ La plataforma resuelve la necesidad de publicar decenas de monografías de calza
 
 ### ADR-MIG-03: Colecciones Tipadas con Zod y Cédula Canónica de 5 Campos
 - **Contexto:** Las monografías combinan datos descriptivos estructurados con un análisis fotográfico y anatómico modular.
-- **Decisión adoptada:** Implementar Astro Content Collections (`src/content/config.ts`) con tipado estricto Zod para la colección `pares`. La ficha técnica implementa obligatoriamente la **Variante 3A (Composición continua literaria / Cédula de museo)** validada en [sitio/mock-comparativas-visuales.html](../../mock-comparativas-visuales.html), conteniendo los 5 campos canónicos: *1. Silueta / Tipo*, *2. Marca y Modelo*, *3. Material y Acabado*, *4. Geometría del tacón* y *5. Procedencia*.
+- **Decisión adoptada:** Implementar Astro Content Collections (`src/content/config.ts`) con tipado estricto Zod para la colección `pares`. La ficha técnica implementa obligatoriamente la **Variante 3A (Composición continua literaria / Cédula de museo)** validada en [archivo-prototipos/mock-comparativas-visuales.html](../../archivo-prototipos/mock-comparativas-visuales.html), conteniendo los 5 campos canónicos: *1. Silueta / Tipo*, *2. Marca y Modelo*, *3. Material y Acabado*, *4. Geometría del tacón* y *5. Procedencia*.
 - **Alternativa descartada:** Fichas en formato de tabla o lista rígida de archivo (Variante 3B descartada por fragmentar clínicamente la lectura); y bases de datos relacionales externas.
 - **Criterio de revisión:** Mantener el esquema salvo que el crecimiento de la colección requiera nuevos campos anatómicos normalizados.
 

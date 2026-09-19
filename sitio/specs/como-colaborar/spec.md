@@ -1,6 +1,6 @@
 # Spec: Página Puente «Cómo colaborar»
 
-**Superficie que rige:** [sitio/como-colaborar.html](../../como-colaborar.html)
+**Superficie que rige:** [src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro) (ruta `/como-colaborar`; prototipo previo archivado en [archivo-prototipos/como-colaborar.html](../../archivo-prototipos/como-colaborar.html))  
 **Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
@@ -33,7 +33,7 @@ Página de acogida pública integrada en la web real. Su objetivo es recibir a c
 
 ### 2.4. Embudo Guiado hacia la Guía Fotográfica
 Para asegurar que los envíos contengan las perspectivas necesarias y facilitar la curaduría:
-- **Puerta de entrada interactiva:** Portada editorial de la [Guía fotográfica *Tus zapatos en cámara*](../../../marca/activos/guia-fotografica-colaboradores.html). Toda la tarjeta funciona como medio interactivo sobre el que hacer clic para abrir la guía directamente, sin botones explícitos adicionales ni texto accesorio.
+- **Puerta de entrada interactiva:** Portada editorial de la [Guía fotográfica *Tus zapatos en cámara*](../../src/pages/guia-fotografica/index.astro) (ruta canónica `/guia-fotografica/`; activo fuente en [marca/activos/guia-fotografica-colaboradores.html](../../../marca/activos/guia-fotografica-colaboradores.html)). Toda la tarjeta funciona como medio interactivo sobre el que hacer clic para abrir la guía directamente, sin botones explícitos adicionales ni texto accesorio.
 - **Vista previa de Tally en el flujo natural:** No se incluye un acceso directo a Tally en la página puente. Al final de la guía aparece una vista previa no interactiva de Tally; al pulsarla, el formulario externo se abre en una pestaña nueva. La guía añade un enlace visible junto a esa vista previa para abrir el formulario aunque el contenido incrustado no haya cargado.
 - **Canal de dudas previo:** Acceso directo al correo oficial (`elparzapatos@proton.me`), manteniendo `@elparzapatos` visible como identificador reservado sin enlace activo hasta su lanzamiento.
 

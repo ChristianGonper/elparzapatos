@@ -1,7 +1,7 @@
 # Tareas de Trabajo: Entrada Monográfica
 
-**Superficie:** [sitio/entradas/*.html](../../entradas/)
-**Estado:** Reposo (plantilla técnica v1 verificada en prototipo).
+**Superficie:** [src/pages/entradas/[slug].astro](../../src/pages/entradas/[slug].astro) y `src/content/pares/`
+**Estado:** Reposo (plantilla técnica v1 verificada y consolidada en Astro).
 
 ---
 

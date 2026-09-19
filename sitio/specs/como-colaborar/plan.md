@@ -1,7 +1,7 @@
 # Plan de Arquitectura: Página Puente «Cómo colaborar»
 
-**Superficie:** [sitio/como-colaborar.html](../../como-colaborar.html)
-**Estado:** Reposo (prototipo v1 maquetado y verificado).
+**Superficie:** [src/pages/como-colaborar.astro](../../src/pages/como-colaborar.astro) (ruta `/como-colaborar`)
+**Estado:** Reposo (página puente v1 migrada a Astro y validada).
 
 ---
 

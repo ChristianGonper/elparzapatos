@@ -1,6 +1,6 @@
 # Tareas de Trabajo: Portada
 
-**Superficie:** [sitio/index.html](../../index.html)
+**Superficie:** [src/pages/index.astro](../../src/pages/index.astro) (ruta `/`)
 **Estado:** Reposo (cierre de build v1 verificado).
 
 ---
@@ -11,7 +11,7 @@
 - [x] Implementar tríada de navegación activa (`Colección`, `Sobre El Par`, `Cómo colaborar`).
 - [x] Construir bloque Hero de pieza destacada con marco fotográfico en `object-contain`.
 - [x] Maquetar cuadrícula de la colección con enlace en tarjeta completa.
-- [x] Implementar bloque de pie con cierre `Comparte un par` y enlace a `como-colaborar.html`.
+- [x] Implementar bloque de pie con cierre `Comparte un par` y enlace a `/como-colaborar`.
 
 ---
 
