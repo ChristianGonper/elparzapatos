@@ -23,7 +23,7 @@ Every color conveys physical printing and bookmaking materiality:
 - **Specimen White (`#FFFFFF`):** Pure archival mat white reserved exclusively for photography mats and specimen frame containers.
 - **Primary Ink Charcoal (`#1C1A18`):** Deep lithographic charcoal ink replacing harsh pure black (`#000000`). Used for display headlines, body narrative, and structural boundary lines.
 - **Graphite Note (`#6B6661`):** Warm neutral graphite for secondary metadata, taxonomic labels, and quiet captions.
-- **Cognac Leather Accent (`#9E6B55`):** Vegetable-tanned warm leather accent. Reserved strictly for subtle dotted underlines on technical terms and active selection states.
+- **Cognac Leather Accent (`#9E6B55`):** Vegetable-tanned warm leather accent. Reserved strictly for subtle dotted underlines on technical terms and active selection states (`::selection` renders background in `#9E6B55` and text in Paper Canvas `#FAF8F5`, ensuring high-contrast visibility across white, paper and muted linen surfaces).
 - **Hairline Dust Border (`#E8E3DC`):** Crisp, 1px architectural dividers, frame outlines, and quiet baseline strokes.
 
 **Color Constraints:**
@@ -61,6 +61,7 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
   - *Shape & Border:* Sharp, squared-off edges (`rounded-none`).
   - *Color Assignment:* Primary text actions in lithographic Primary Ink Charcoal (`#1C1A18`) with directional arrow cue (`→`), or discrete bordered buttons on Paper Canvas (`#FAF8F5`) with crisp 1px Hairline Dust Border (`#E8E3DC`). Navigation and active selection states marked with a subtle baseline stroke or Cognac Leather (`#9E6B55`) tint.
   - *Behavior & Motion:* Serene hover transition (subtle opacity change or shift to `#9E6B55`); zero playful bouncing, scale zooms, or heavy 3D bevels. Minimum `44px` tap target area for touch accessibility.
+  - *Selection Behavior:* Interactive action buttons (`Ver estudio →`, `Cómo colaborar →`), navigation menus, and brand marks apply `user-select: none;` to behave as solid tactile controls, preventing accidental text drag-highlighting. All reading prose, metadata, contact channels, and credits remain 100% selectable.
 - **Cards & Containers:**
   - *Shape & Border:* Sharp, squared-off edges (`rounded-none`) delimited by crisp 1px Hairline Dust Border (`#E8E3DC`).
   - *Background:* Specimen White (`#FFFFFF`) for specimen photography, Muted Linen Surface (`#F3EFEA`) for secondary panels, or Paper Canvas (`#FAF8F5`) for primary canvases.
@@ -113,9 +114,16 @@ Hierarchical balance pairing a commanding literary serif with a pristine modern 
 
 ---
 
-## 6. Elevation & Depth
+## 6. Elevation, Radii & Depth
 
 - **Lithographic Flat Depth:** Strictly flat, print-like elevation achieved through paper shade contrasts (`#FAF8F5` base vs. `#F3EFEA` insets vs. `#FFFFFF` image mats) and crisp 1px hairline boundaries (`#E8E3DC`).
+- **Semantic Radii System:** Estandarización de curvatura de aristas para dotar de calidez y consistencia editorial sin perder rigor formal:
+  - `--radius-sm: 4px;`: Paspartús interiores troquelados, leyendas técnicas y micro-marcos.
+  - `--radius-md: 6px;`: Tarjetas secundarias de colección, marcos de espécimen y cartelas de museo.
+  - `--radius-lg: 8px;`: Contenedor principal Hero, dípticos morfológicos y paneles envolventes.
+- **Hero Card Dual Interaction Architecture:**
+  - *Columna izquierda (Marco de espécimen):* Rol de inspección con cursor de precisión (`crosshair`). Al posar el cursor (*hover*) o enfocar, el paspartú interior proyecta un marco troquelado redondeado (`--radius-md`) con filete en cuero cognac (`#9E6B55`) y sombreado interior de papel (`inset 0 0 0 8px #FAF8F5`), manteniendo la imagen fotográfica íntegra e inmóvil. Al hacer clic, abre el visor *Lightbox*.
+  - *Columna derecha (Ficha editorial interactiva):* Toda la columna derecha funciona como una tarjeta-botón accesible hacia el estudio monográfico. Al posar el cursor (*hover*), adopta cursor `pointer`, tinte sutil de iluminación en papel, el titular serif vira hacia el color cognac (`#9E6B55`) y la flecha `&rarr;` se desliza 6px hacia la derecha con movimiento sereno, ofreciendo una puerta de entrada orgánica e inequívoca al estudio.
 - **Zero Fuzzy Drop Shadows:** Heavy blur drop shadows, dark glows, and floating card elevations are banned.
 - **Popovers Elevation:** Floating cards use a crisp 1px stroke with a whisper-soft micro-shadow (`0 4px 12px rgba(28, 26, 24, 0.04)`) to subtly detach from underlying prose.
 
