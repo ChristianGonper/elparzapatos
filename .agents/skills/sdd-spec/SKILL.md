@@ -22,7 +22,7 @@ Una especificación define siempre una **intención orientada a producir un resu
 * **Tipo A — Solo Spec (Conceptual, Identidad o Editorial):**
   - Aplica cuando el encargo busca definir el propósito, la narrativa, el índice o las decisiones de un entregable sin requerir desarrollo de software.
   - **Artefactos:** Se redacta únicamente la especificación usando [`plantillas/plantilla-spec.md`](plantillas/plantilla-spec.md).
-  - **Ubicación:** Como archivo autónomo `specs/[nombre].md` o carpeta `specs/[nombre]/spec.md`.
+  - **Ubicación:** Carpeta `specs/[nombre]/spec.md`.
   - **Cierre:** Tras la aprobación del usuario, rige directamente la redacción de contenido o el diseño final.
 
 * **Tipo B — Spec con Desarrollo Técnico (Software, Web o Infraestructura):**

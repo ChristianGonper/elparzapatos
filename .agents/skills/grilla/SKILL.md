@@ -29,13 +29,13 @@ Mdula su foco según la naturaleza del encargo.
 Antes de formular la primera pregunta:
 1. Inspecciona los archivos y documentos existentes en el repositorio relacionados con el encargo.
 2. Identifica qué decisiones, restricciones o criterios ya están documentados.
-3. **Regla estricta:** Prohibido preguntar aspectos que ya estén resueltos o explícitos en el proyecto. Solo se interroga sobre lo ambiguo, lo implícito o lo no verbalizado.
+3. **Regla estricta:** No preguntar aspectos que ya estén resueltos o explícitos en el proyecto.  Se interroga sobre lo ambiguo, lo implícito o lo no verbalizado.
 
 ---
 
 ## 3. Dinámica del Interrogatorio
 
-Aplica estrictamente estas 4 reglas durante toda la sesión:
+Aplica estas 4 reglas durante toda la sesión:
 
 ### Regla 1. Micro-Lotes (Máximo 1 a 3 preguntas por turno)
 * No envíes cuestionarios extensos ni abrumadores.
@@ -72,7 +72,7 @@ Cualquier duda residual menor se resuelve directamente durante la redacción del
 
 ## 5. Entregable Tangible: Culminación Obligatoria en un Escrito
 
-La entrevista nunca concluye como un intercambio efímero en el chat ni preguntando *«¿y ahora qué hacemos?»*. **Desemboca obligatoriamente en la creación o actualización de un escrito de texto**:
+La entrevista  **desemboca en la creación o actualización de un escrito de texto**:
 
 1. **Flujo SDD (Desarrollo guiado por especificaciones):**
    * Redacta o actualiza la especificación viva (`spec.md` / PRD).
