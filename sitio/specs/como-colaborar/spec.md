@@ -19,17 +19,16 @@ Página de acogida pública integrada en la web real. Su objetivo es recibir a c
 - **Mensaje central:** Invitar a compartir fotografías de tacones y bailarinas para dedicarles una publicación; presentar el interés por sus formas y detalles. El copy literal vive en el HTML.
 
 ### 2.2. Flujo en Tres Pasos
-1. **Selección del calzado:** Invitación a proponer uno o varios pares por sus formas y detalles y a contribuir a la colección, sin garantizar de antemano su selección.
-2. **Fotografía accesible con móvil:** Buena iluminación natural o artificial y fondo sencillo sin elementos que distraigan. La guía muestra ángulos de referencia sin imponer movimientos ni preparar un entorno.
+1. **Selección del calzado:** Invitación a proponer uno o varios pares por sus formas y detalles y a contribuir a la colección.
+2. **Fotografía accesible con móvil:** Buena iluminación natural o artificial y fondo sencillo sin elementos que distraigan. La guía muestra ángulos de referencia.
 3. **Envío y acreditación:** Subida mediante el formulario de recepción indicando la modalidad de crédito deseada (nombre, cuenta de Instagram o anonimato).
 
 ### 2.3. Compromisos Éticos y Resolución de Dudas (Temas Obligatorios)
 - **Cero exigencia comercial:** No importa la marca, el precio ni el estatus; importa el diseño del calzado.
-- **Privacidad estricta:** Foco exclusivo en el zapato. Nunca aparecen rostros ni cuerpos.
+- **Privacidad:** Foco en el zapato. Nunca aparecen rostros ni cuerpos.
 - **Edición respetuosa:** Corrección limpia de iluminación y encuadre; prohibida la manipulación artificial con IA generativa o alteración de la forma real.
 - **Control y retirada garantizada:** Protocolo de [Marca](../../../marca/04-flujo-de-colaboracion.md#4-política-y-protocolo-de-retirada): eliminación de la web y redes propias en un máximo de 48 horas, por correo oficial o canal directo previo.
-
-- **Esfuerzo de participación:** Explicar las seis vistas propuestas y los detalles opcionales, sin prometer una duración fija.
+- **Esfuerzo de participación:** Explicar las seis vistas propuestas y los detalles opcionales.
 
 ### 2.4. Embudo Guiado hacia la Guía Fotográfica
 Para asegurar que los envíos contengan las perspectivas necesarias y facilitar la curaduría:

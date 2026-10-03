@@ -7,7 +7,7 @@
 
 ## 1. Propósito y Función
 
-La portada es la antesala y el índice vivo de la colección monográfica de **El Par**. Recibe al lector con una pieza destacada dominante y organiza el catálogo de calzado sin recursos comerciales ni reclamos agresivos.
+La portada es la antesala y el índice vivo de la colección monográfica de **El Par**. Recibe al lector con una pieza destacada dominante y organiza el catálogo de calzado.
 
 ---
 

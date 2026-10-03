@@ -26,7 +26,7 @@ sitio/src/pages/
 - **Colección de datos:** Los estudios monográficos residen como documentos estructurados en `sitio/src/content/pares/` validados estrictamente mediante esquema Zod en `src/content.config.ts`.
 - **Archivo histórico:** Los prototipos previos HTML/CSS se conservan inertes como respaldo en [sitio/archivo-prototipos/](archivo-prototipos/).
 
-### Vistas Futuras (Registradas como Intenciones en TAREAS.md)
+### Vistas Futuras
 - `armarios`: Directorio de colaboradoras y armarios particulares.
 
 ---
@@ -34,7 +34,7 @@ sitio/src/pages/
 ## 2. Alcance Global del Sitio (v1)
 
 ### Dentro del Sistema v1
-- Arquitectura de publicación estática en Astro con TypeScript y edición exclusivamente local (ADR-GLO-03).
+- Arquitectura de publicación estática en Astro con TypeScript y edición local (ADR-GLO-03).
 - Despliegue estático automatizado en Cloudflare Pages desde la rama `main` (ADR-GLO-04).
 - Tratamiento fotográfico canónico e íntegro sin silueteado en todas las superficies (ADR-GLO-01).
 - Navegación pública esencial y operativa, sin enlaces a páginas o secciones en construcción (ADR-GLO-02).
@@ -63,7 +63,7 @@ Estas reglas y decisiones aplican a cualquier superficie, plantilla o componente
 - **Consecuencias:** Garantiza un sitio sobrio, completamente navegable y sin promesas incumplidas.
 
 ### 3.3. Arquitectura de publicación estática con Astro y TypeScript (ADR-GLO-03)
-- **Decisión:** Desarrollar el sitio en Astro con TypeScript, componentes compartidos y contenido versionado en Git. La edición se realiza siempre localmente; únicamente los cambios revisados y aprobados llegan al despliegue desde `main`.
+- **Decisión:** Desarrollar el sitio en Astro con TypeScript, componentes compartidos y contenido versionado en Git. La edición se realiza  localmente; únicamente los cambios revisados y aprobados llegan al despliegue desde `main`.
 - **Descarte definitivo:** CMS visual con panel de administración o aplicación completa SPA (React/Next) con renderizado cliente generalizado.
 - **Consecuencias:** Generación puramente estática, mínima presencia de JavaScript (limitada a interacciones como ampliación de imagen o glosario) y código fácilmente versionable sin base de datos en servidor.
 
@@ -84,7 +84,7 @@ Estas reglas y decisiones aplican a cualquier superficie, plantilla o componente
 - **Consecuencias:** Mayor fluidez de lectura sin perder el carácter de pliego editorial.
 
 ### 3.7. Silencio visual y descartes transversales adicionales
-- **Prohibición de numeración de catálogo visible:** Queda estrictamente prohibido superponer etiquetas de inventario (`par * 0001`, `Lámina 03`) sobre las imágenes o maquetas.
+- **Prohibición de numeración de catálogo visible:** No superponer etiquetas de inventario (`par * 0001`, `Lámina 03`) sobre las imágenes o maquetas.
 - **Sin capitulares sistemáticas:** Se descartan capitulares (*drop caps*) mecánicas por recargar la lectura y competir con la tipografía Newsreader serif.
 - **Proporción nativa de cámara:** Fotografías capturadas y presentadas en ratios nativos (predominantemente 3:4 vertical y 4:3 horizontal). Los ratios de columna (`7:5`, `5:7`, `6:6`) regulan la retícula web.
 

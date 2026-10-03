@@ -1,6 +1,6 @@
 # Spec: Entrada Monográfica
 
-**Superficie que rige:** [src/pages/entradas/[slug].astro](../../src/pages/entradas/[slug].astro) y colección `pares` en [src/content/pares/](../../src/content/pares/) (prototipos previos archivados en [archivo-prototipos/entradas/](../../archivo-prototipos/entradas/))  
+**Superficie que rige:** [src/pages/entradas/[slug].astro](../../src/pages/entradas/[slug].astro) y colección `pares` en [src/content/pares/](../../src/content/pares/) 
 **Sistema visual:** [sitio/DESIGN.md](../../DESIGN.md)
 
 ---
@@ -138,7 +138,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
   - *Decisión:* Alternar ratios de columnas (`7:5`, `5:7`, `6:6` y dípticos) según el tipo de fotografía y la densidad del apunte.
   - *Descarte:* Imponer una cuadrícula fija 7:5 inmutable en toda la monografía.
   - *Consecuencias:* Elimina la necesidad de escribir párrafos de relleno para igualar alturas y otorga protagonismo a tomas verticales o detalles.
-- **Lámina técnica de detalle integrado (despiece mecánico):** Descartada definitivamente por generar sobrecarga visual y ruido estético; convertía el folio editorial en un manual de taller con etiquetas fijas ("placa técnica", lupas flotantes) que ensuciaban la fotografía.
+- **Lámina técnica de detalle integrado:** Descartada definitivamente por generar sobrecarga visual y ruido estético; convertía el folio editorial en un manual de taller con etiquetas fijas ("placa técnica", lupas flotantes) que ensuciaban la fotografía.
 - **Tarjeta biográfica independiente de la dueña:** Descartada definitivamente porque desviaba el protagonismo del zapato hacia la persona, asemejando la publicación a un blog social. El calzado se sostiene como objeto de estudio; la aportación de la dueña se reconoce mediante la procedencia («Armario de...») y citas textuales orgánicas.
 
 ---
@@ -146,7 +146,7 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 ## 4. Alcance y Delimitación
 
 ### Dentro de v1
-- Monografías completas con mínimo 6 perspectivas canónicas reales por modelo.
+- Monografías completas con mínimo 6 perspectivas por modelo.
 - Inspección fotográfica limpia a pantalla completa.
 - Glosario contextual con popovers y diccionario canónico inicial de términos.
 - Cédula técnica continua «Datos del par».
@@ -156,6 +156,3 @@ La monografía es el núcleo de **El Par**: examina cada zapato como una obra au
 - Sistema de capas y cotas vectoriales conmutables (ADR-MON-01).
 - Módulo de piezas recomendadas o sugeridas al pie (requiere catálogo con volumen).
 - Fichas monográficas dedicadas y ampliadas para cada término del glosario.
-
-
-
