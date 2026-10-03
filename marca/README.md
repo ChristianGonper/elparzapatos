@@ -1,6 +1,6 @@
 # Marca — El Par
 
-Documentación viva de **El Par — Zapatos en detalle**. Se actualiza al hablar; pueden aparecer archivos nuevos.
+Documentación viva de **El Par — Zapatos en detalle**. 
 
 Snapshot: [ESTADO](../ESTADO.md).
 

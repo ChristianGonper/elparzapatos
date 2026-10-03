@@ -32,5 +32,5 @@ Ficha de identidad de marca para canales públicos y materiales editoriales.
 ## 3. Criterios de Uso
 
 1. **Acompañamiento obligatorio del descriptor:** Dado el carácter sintético del nombre *El Par*, en todas las cabeceras, firmas y materiales de presentación inicial debe figurar junto al descriptor: *Zapatos en detalle*.
-2. **Identificador en redes:** `@elparzapatos` es el handle oficial consolidado. No se emplean guiones bajos ni números añadidos.
+2. **Identificador en redes:** `@elparzapatos` es el handle.
 3. **Actualización:** Cualquier variación de denominación o identificadores debe registrarse de inmediato en este archivo y en [ESTADO.md](../ESTADO.md).
