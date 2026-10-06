@@ -31,7 +31,7 @@ La salida estática se genera en `sitio/dist/`. El sitio no necesita servidor ni
 
 [Diseño](docs/DISENO.md) · [Lanzamiento](docs/LANZAMIENTO.md) · [Revisión visual y pruebas](docs/REVISION.md)
 
-Los pares son entradas independientes validadas por Astro Content Collections. Los armarios se generan por colaboradora, sin listas manuales ni páginas personalizadas. [Cómo añadir contenido](docs/CONTENIDO.md#añadir-contenido).
+Los análisis se redactan en MDX con bloques editoriales ordenables y metadatos validados por Astro Content Collections. Los armarios se generan por colaboradora, sin listas manuales ni páginas personalizadas. [Cómo añadir contenido](docs/CONTENIDO.md#añadir-contenido).
 
 ## Dónde modificar cada cosa
 

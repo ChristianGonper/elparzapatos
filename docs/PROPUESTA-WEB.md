@@ -61,6 +61,8 @@ Primero se explica la palabra en su frase. Además, los términos relevantes ten
 
 Astro generará HTML estático. Componentes comunes para cabecera, pie, imágenes, invitación a colaborar y ayudas de vocabulario. CSS propio con variables de color, tamaño y separación. TypeScript para los datos y las interacciones pequeñas. El contenido público estará separado de las fuentes privadas de trabajo.
 
+Los análisis se redactan en MDX para permitir revisión local y orden editorial libre de citas, fotos y detalles. Los metadatos validados alimentan catálogo y armarios; `status: draft` permite revisar antes de autorizar la publicación. El CSS está separado por responsabilidad; se mantiene CSS propio después de la auditoría independiente.
+
 Para la vista de trabajo se preparan WebP de varios tamaños, con dimensiones declaradas y carga diferida salvo la foto principal. El alojamiento y los formatos definitivos siguen pendientes; las opciones están en [Imágenes publicadas](IMAGENES-PENDIENTES.md). Fuentes locales, sin Tailwind por CDN ni servicios de analítica. No habrá una conexión del navegador a Drive ni datos privados en el repositorio.
 
 Los commits seguirán git-atomic-commits: español, presente, menos de 72 caracteres, sin prefijos, una unidad lógica completa por commit y documentación junto a cada cambio. Rama: `reconstruccion/el-par-desde-par-astro`, creada desde `origin/par-astro` en el commit `67b5951`.

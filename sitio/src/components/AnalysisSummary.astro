@@ -1,0 +1,33 @@
+---
+import { currentAnalysis } from '../data/analysis';
+const pair = currentAnalysis(Astro.locals);
+---
+
+<div class="wrap">
+  <section class="at-a-glance" aria-labelledby="glance-heading">
+    <div>
+      <span class="eyebrow">Después de mirar los detalles</span>
+      <h2 id="glance-heading">De un vistazo</h2>
+    </div>
+    <dl>
+      <div>
+        <dt>Tipo</dt>
+        <dd>{pair.type}</dd>
+      </div>
+      {pair.brand && (
+        <div>
+          <dt>Marca</dt>
+          <dd>{pair.brand}, según su envío</dd>
+        </div>
+      )}
+      <div>
+        <dt>Fotos y colaboración</dt>
+        <dd>{pair.credit}</dd>
+      </div>
+      <div>
+        <dt>Lo que miramos</dt>
+        <dd>{pair.focus}</dd>
+      </div>
+    </dl>
+  </section>
+</div>

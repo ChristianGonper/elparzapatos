@@ -18,7 +18,7 @@ No conectar automáticamente esta rama a un despliegue público antes de revisar
 En local o en la vista de trabajo no hace falta configurar ninguna.
 
 - `PUBLIC_SITE_URL`: origen HTTPS del dominio definitivo, sin ruta. Activa URLs canónicas e imágenes para compartir.
-- `PUBLIC_LAUNCH_READY=true`: solo después de revisar los análisis con las colaboradoras y completar los textos legales. Activa indexación y sitemap.
+- `PUBLIC_LAUNCH_READY=true`: solo después de revisar los análisis con las colaboradoras y completar los textos legales. Activa indexación y sitemap y excluye las entradas con `status: draft`. Cada análisis autorizado debe indicar `status: published`.
 - `PUBLIC_INSTAGRAM_READY=true`: solo cuando la cuenta ya se haya renombrado a @elparzapatos. Activa el enlace en el pie.
 
 La vista de trabajo incluye noindex y robots de exclusión. Eso evita indexación; no sustituye un control de acceso. No publicar borradores sensibles en una URL accesible por internet.

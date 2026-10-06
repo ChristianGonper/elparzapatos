@@ -21,36 +21,25 @@ const colaboradoras = defineCollection({
 
 const pares = defineCollection({
   loader: glob({
-    pattern: '*.json',
+    pattern: '*.mdx',
     base: './src/content/pares',
-    generateId: ({ entry }) => entry.replace(/\.json$/, ''),
+    generateId: ({ entry }) => entry.replace(/\.mdx$/, ''),
   }),
   schema: z.object({
     id: z.string().regex(/^PAR-\d{4,}$/),
     slug,
     collaborator: reference('colaboradoras').optional(),
+    status: z.enum(['draft', 'published']).default('draft'),
     order: z.number().int().nonnegative(),
     imageSet: slug,
     photoAlt: text,
     focus: text,
     title: text,
     teaser: text,
-    intro: text,
+    intro: text.optional(),
     type: text,
     brand: text.optional(),
     hero: image,
-    quote: text.optional(),
-    sections: z
-      .array(
-        z.object({
-          title: text,
-          paragraphs: z.array(text).min(1),
-          image,
-          caption: text,
-          detail: z.boolean().optional(),
-        }),
-      )
-      .min(1),
   }),
 });
 

@@ -1,0 +1,36 @@
+---
+import Photo from './Photo.astro';
+import { currentAnalysis } from '../data/analysis';
+import { pairImage } from '../data/images';
+interface Props {
+  title: string;
+  image: number;
+  caption: string;
+  imageSide?: 'left' | 'right';
+  id?: string;
+}
+const pair = currentAnalysis(Astro.locals);
+const { title, image, caption, imageSide = 'right', id } = Astro.props;
+const headingId =
+  id ??
+  `detalle-${image}-${title
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')}`;
+---
+
+<section
+  class:list={['wrap', 'article-section', { 'image-first': imageSide === 'left' }]}
+  aria-labelledby={headingId}
+>
+  <div class="article-text">
+    <span class="eyebrow">De cerca</span>
+    <h2 id={headingId}>{title}</h2>
+    <slot />
+  </div>
+  <figure>
+    <Photo base={pairImage(pair, image)} alt={caption} zoom sizes="(max-width: 800px) 92vw, 45vw" />
+    <figcaption>{caption}</figcaption>
+  </figure>
+</section>

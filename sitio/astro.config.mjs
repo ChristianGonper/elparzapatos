@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 
 const site = process.env.PUBLIC_SITE_URL;
 if (site && !/^https:\/\/[^/]+\/?$/.test(site)) {
@@ -6,6 +7,7 @@ if (site && !/^https:\/\/[^/]+\/?$/.test(site)) {
 }
 export default defineConfig({
   site,
+  integrations: [mdx()],
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },

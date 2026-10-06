@@ -1,0 +1,23 @@
+---
+import Photo from './Photo.astro';
+import { currentAnalysis } from '../data/analysis';
+import { pairImage } from '../data/images';
+interface Props {
+  caption?: string;
+}
+const pair = currentAnalysis(Astro.locals);
+const {
+  caption = 'La forma completa antes de acercarnos a los detalles. Puedes ampliar todas las fotos.',
+} = Astro.props;
+---
+
+<figure class="article-hero wrap">
+  <Photo
+    base={pairImage(pair, pair.hero)}
+    alt={pair.photoAlt}
+    priority
+    zoom
+    sizes="(max-width: 1120px) 92vw, 1050px"
+  />
+  <figcaption>{caption}</figcaption>
+</figure>

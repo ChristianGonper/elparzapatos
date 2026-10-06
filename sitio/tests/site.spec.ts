@@ -1,3 +1,4 @@
+import { parse } from 'yaml';
 import { test, expect } from '@playwright/test';
 import { createRequire } from 'node:module';
 import { readdirSync, readFileSync } from 'node:fs';
@@ -6,10 +7,12 @@ const require = createRequire(import.meta.url);
 const axePath = require.resolve('axe-core/axe.min.js');
 const readEntries = (folder: string) =>
   readdirSync(folder)
-    .filter((file) => file.endsWith('.json'))
+    .filter((file) => /\.(json|mdx)$/.test(file))
     .map((file) => ({
-      id: file.replace(/\.json$/, ''),
-      data: JSON.parse(readFileSync(join(folder, file), 'utf8')),
+      id: file.replace(/\.(json|mdx)$/, ''),
+      data: file.endsWith('.json')
+        ? JSON.parse(readFileSync(join(folder, file), 'utf8'))
+        : parse(readFileSync(join(folder, file), 'utf8').split('---')[1]),
     }));
 const pairSources = readEntries('src/content/pares');
 const expectedWardrobes = readEntries('src/content/colaboradoras')

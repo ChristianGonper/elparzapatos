@@ -33,11 +33,7 @@ import { pairs, pairPath } from '../data/pairs';
         <section id={term.slug} aria-labelledby={`heading-${term.slug}`}>
           <h2 id={`heading-${term.slug}`}>{term.name}</h2>
           <p>{term.definition}</p>
-          {pairs.some((pair) =>
-            pair.sections.some((section) =>
-              section.paragraphs.some((text) => text.includes(`[[${term.slug}`)),
-            ),
-          ) && (
+          {pairs.some((pair) => pair.terms.includes(term.slug)) && (
             <a class="text-link" href={pairPath(pairs[0])}>
               Verlo en las bailarinas de María <Arrow />
             </a>

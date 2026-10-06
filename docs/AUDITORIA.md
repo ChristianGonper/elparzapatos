@@ -4,7 +4,7 @@ Revisión del 6 de octubre de 2026. Referencia inicial: commit `f4d25ac`, rama `
 
 La implementación cumple la dirección principal del encargo: una web centrada en mirar los zapatos y animarse a compartir fotos, con participación directa, análisis visuales y armarios generados a partir del contenido. La estructura del catálogo ya sirve para decenas de pares. Encontré casos de contenido y de impresión que deben corregirse, y una mejora de organización del CSS aconsejable para mantener el proyecto. No encontré motivo para sustituir Astro ni introducir un backend.
 
-Este es el informe independiente sobre `f4d25ac`, no la especificación del código vigente. Las cinco correcciones se incorporaron en `82f0408`. Después se modularizó el CSS, se separó el visor de fotos de Base y se aisló la resolución de imágenes del catálogo. La comparación de 33 vistas no encontró diferencias de dimensiones ni estilos calculados; las 15 pruebas de navegador pasaron. [Diseño](DISENO.md) y [contenido](CONTENIDO.md) documentan la organización vigente.
+Este es el informe independiente sobre `f4d25ac`, no la especificación del código vigente. Posteriormente, a petición del usuario, el cuerpo de los análisis pasó de JSON a MDX para permitir redacción y orden editorial libres; las identidades públicas siguen en JSON. Las cinco correcciones se incorporaron en `82f0408`. Después se modularizó el CSS, se separó el visor de fotos de Base y se aisló la resolución de imágenes del catálogo. La comparación de 33 vistas no encontró diferencias de dimensiones ni estilos calculados; las 15 pruebas de navegador pasaron. [Diseño](DISENO.md) y [contenido](CONTENIDO.md) documentan la organización vigente.
 
 ## Qué se contrastó
 

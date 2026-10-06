@@ -3,9 +3,9 @@ import { glossary } from '../data/glossary';
 interface Props {
   slug: string;
   label?: string;
-  id: string;
+  id?: string;
 }
-const { slug, label, id } = Astro.props;
+const { slug, label, id = `term-${crypto.randomUUID()}` } = Astro.props;
 const term = glossary.find((t) => t.slug === slug);
 if (!term) throw new Error(`Término desconocido: ${slug}`);
 ---
@@ -13,8 +13,8 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
 <button class="term" popovertarget={id} aria-expanded="false" aria-controls={id}>
   {label ?? term.name.toLocaleLowerCase('es')}
 </button>
-<aside class="term-popover" popover id={id} aria-label={`Definición de ${term.name}`}>
-  <div class="popover-heading">
+<span class="term-popover" popover id={id} role="dialog" aria-label={`Definición de ${term.name}`}>
+  <span class="popover-heading">
     <span class="eyebrow">Un detalle, un nombre</span>
     <button
       class="close-button"
@@ -24,13 +24,13 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
     >
       ×
     </button>
-  </div>
-  <h2>{term.name}</h2>
-  <p>{term.definition}</p>
+  </span>
+  <strong class="term-title">{term.name}</strong>
+  <span class="term-definition">{term.definition}</span>
   <a class="text-link" href={`/glosario/#${term.slug}`}>
     Ver en el glosario <span aria-hidden="true">↗</span>
   </a>
-</aside>
+</span>
 
 <script>
   document.querySelectorAll<HTMLElement>('.term-popover').forEach((popover) => {
