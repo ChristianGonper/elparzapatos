@@ -8,3 +8,5 @@ sitio/.astro/
 .DS_Store
 __pycache__/
 work/
+sitio/test-results/
+sitio/playwright-report/

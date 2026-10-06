@@ -1,0 +1,41 @@
+name: Verifica la web
+
+on:
+  push:
+    branches: [reconstruccion/el-par-desde-par-astro, par-astro]
+  pull_request:
+    branches: [par-astro]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verifica:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: sitio
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: sitio/package-lock.json
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run verify
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        with:
+          name: el-par-web
+          path: sitio/dist
+          retention-days: 7
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: pruebas-navegador
+          path: sitio/test-results
+          retention-days: 7
