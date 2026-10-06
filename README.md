@@ -1,15 +1,9 @@
-# El Par
+# El Par · Zapatos en detalle
 
-**El Par — Zapatos en detalle.** Publicación editorial independiente y archivo monográfico digital de calzado.
+Vuelve a mirar tus zapatos.
 
-## Organización del proyecto
+Reconstrucción completa desde la rama `par-astro`. La marca y el contenido se consultan en Google Drive → Moda-Zapatos. Este repositorio contiene únicamente la web nueva y su documentación de desarrollo.
 
-| Área | Qué contiene | Documentos clave |
-| --- | --- | --- |
-| [marca/](marca/README.md) | Identidad, contenidos, guía fotográfica y flujo con colaboradoras | [01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md) y [activos/](marca/activos/) |
-| [sitio/](sitio/README.md) | Especificación global, sistema visual, especificaciones modulares y prototipos web | [ESPECIFICACION.md](sitio/ESPECIFICACION.md), [DESIGN.md](sitio/DESIGN.md) y [specs/](sitio/specs/) |
+[Propuesta de la web](docs/PROPUESTA-WEB.md) · [Reglas de trabajo](AGENTS.md)
 
-- **Constitución y gobierno:** [AGENTS.md](AGENTS.md)
-- **Tablero ejecutivo del día:** [ESTADO.md](ESTADO.md)
-- **Agenda de trabajo e intenciones:** [TAREAS.md](TAREAS.md)
-
+La implementación vive en `sitio/`. El trabajo anterior se conserva en el historial de Git, no en carpetas de prototipos ni en documentación que pueda confundirse con el producto vigente.

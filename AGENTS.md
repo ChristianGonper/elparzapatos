@@ -1,27 +1,21 @@
-# Cómo trabajar aquí
+# Trabajo en El Par
 
-Responde en español.
+Responde en español. Prioridad: instrucción actual del usuario → Google Drive vigente → repositorio.
 
-Al empezar, lee [ESTADO.md](ESTADO.md). Si el chat y un archivo chocan, gana el archivo. Si el criterio cambia, se actualiza el archivo en el mismo turno.
+## Fuentes
 
-Enlaces locales siempre `[texto](ruta/al/archivo.md)`.
+El README de la carpeta Moda-Zapatos de Google Drive es el índice de marca, contenido, colaboración y skills. Lee los documentos aplicables antes de escribir. Usa las skills de Drive el-par-docs, el-par-textos y el-par-analisis según la tarea. No usar Archivo como fuente vigente.
 
-## Mapa del repositorio
+No incorporar correos de colaboradoras ni respuestas de Tally al repositorio. Mantener las fuentes privadas y las copias de trabajo fuera de Git. No escribir, mover ni renombrar nada de 01_Colaboraciones. Las fotos de colaboradoras nunca se crean ni editan con IA.
 
-| Área | Qué contiene | Documentos de gobierno |
-| --- | --- | --- |
-| [marca/](marca/README.md) | Identidad editorial, contenidos, canales y flujo de colaboración | [01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md) y [activos/](marca/activos/) |
-| [sitio/](sitio/README.md) | Especificación global, sistema visual, especificaciones modulares y prototipos | [ESPECIFICACION.md](sitio/ESPECIFICACION.md), [DESIGN.md](sitio/DESIGN.md) y `sitio/specs/` |
-| [TAREAS.md](TAREAS.md) | Agenda de trabajo del usuario e intenciones futuras | — |
-| [ESTADO.md](ESTADO.md) | Tablero ejecutivo del día (foco, bloqueos e hito reciente) | — |
+## Proyecto nuevo
 
-## Jerarquía y reglas de prevalencia
+Reconstrucción completa autorizada el 6 de octubre de 2026, incluida la documentación y las skills del repositorio. Rama de partida: par-astro. Los antecedentes están en Git; no condicionan la estructura, la paleta, el logo ni la maquetación.
 
-1. **Prevalencia de Marca:** Rige la jerarquía canónica `marca → especificación (global / de superficie) → código`. Cuando una spec web amplía un criterio de Marca, Marca prevalece. La spec de superficie puede concretarlo, pero no rebajarlo ni contradecirlo.
-2. **Sistema visual agnóstico:** [sitio/DESIGN.md](sitio/DESIGN.md) gobierna la atmósfera, los tokens semánticos y los patrones visuales transversales. La estructura, maquetación y conducta particular de cada pantalla residen en su respectiva especificación de superficie.
-3. **Copy sin espejo:** El texto descriptivo literal vive en los archivos de marcado (HTML/Astro). La especificación viva guarda el contrato de copy (función, tono, fórmulas fijas, destino de enlaces y temas obligatorios). Los elementos de identidad centralizados en Marca (como lemas o canales oficiales) prevalecen sobre el código.
-4. **Frontera de Trabajo y Decisiones:**
-   - Trabajo del usuario e intenciones futuras: [TAREAS.md](TAREAS.md).
-   - Decisiones arquitectónicas y alternativas descartadas: en la especificación que las gobierna (globales en [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md); locales en su respectiva especificación viva bajo `sitio/specs/`).
+[La propuesta](docs/PROPUESTA-WEB.md) explica el producto. [El README](README.md) explica cómo ejecutar y verificar el sitio. Documentar decisiones técnicas solo cuando aporten al mantenimiento. No recrear un tablero ESTADO ni una lista paralela de tareas: el backlog de producto está en Drive.
 
+## Cambios
 
+Commits según [.agents/skills/git-atomic-commits/SKILL.md](.agents/skills/git-atomic-commits/SKILL.md): español, presente, propósito concreto y staging explícito. Implementación, recursos y documentación del mismo cambio van juntos. Subir cada bloque completo a la rama de reconstrucción en GitHub.
+
+Conservar el Tally existente. Verificar compilación, tipos, enlaces, imágenes e interacciones; revisar móvil, escritorio y teclado. No publicar el sitio ni dar un borrador editorial por aprobado sin resolver las condiciones de lanzamiento.
