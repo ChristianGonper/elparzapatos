@@ -26,6 +26,7 @@ Referencias revisadas el 6/10, como orientación y sin copiar diseños ni imáge
 | --- | --- |
 | Inicio | Presentar la idea con el lema aprobado, destacar un par y dar acceso inmediato al envío de fotos. |
 | Pares | Reunir los análisis disponibles. Sin tarjetas inventadas para llenar el diseño. |
+| Armarios | Reunir los pares de cada colaboradora, a partir de dos análisis, con una página que pueda compartir. |
 | Cada par | Contar todo lo relevante, con cada explicación junto a la foto que la demuestra. |
 | Cómo colaborar | Invitar, mostrar ejemplos, explicar las fotos y las condiciones, y abrir Tally directamente. |
 | Guía de fotos | Una guía visual que se puede guardar y consultar mientras se fotografía. También se podrá imprimir. |
@@ -34,7 +35,7 @@ Referencias revisadas el 6/10, como orientación y sin copiar diseños ni imáge
 | Tus fotos y tus datos | Explicar con claridad los usos autorizados, el crédito, la revisión y la retirada. No simula una política legal definitiva. |
 | Página no encontrada | Recuperar el camino hacia los pares o el inicio. |
 
-No añado una newsletter, tienda, perfiles vacíos ni testimonios inventados. Los armarios se podrán incorporar cuando haya al menos dos análisis preparados de una misma persona. No se diseñará la automatización de datos que Drive mantiene pendiente.
+No añado una newsletter, tienda, perfiles vacíos ni testimonios inventados. Armarios tendrá su índice y páginas por colaboradora. Se mostrarán únicamente cuando haya al menos dos análisis preparados de una misma persona. No se diseñará la automatización de datos que Drive mantiene pendiente.
 
 ## Participar sin dar vueltas
 
@@ -60,13 +61,13 @@ Primero se explica la palabra en su frase. Además, los términos relevantes ten
 
 Astro generará HTML estático. Componentes comunes para cabecera, pie, imágenes, invitación a colaborar y ayudas de vocabulario. CSS propio con variables de color, tamaño y separación. TypeScript para los datos y las interacciones pequeñas. El contenido público estará separado de las fuentes privadas de trabajo.
 
-Las imágenes se convertirán a WebP y varios tamaños, con dimensiones declaradas y carga diferida salvo la foto principal. Fuentes locales, sin Tailwind por CDN ni servicios de analítica. No habrá una conexión del navegador a Drive ni datos privados en el repositorio.
+Para la vista de trabajo se preparan WebP de varios tamaños, con dimensiones declaradas y carga diferida salvo la foto principal. El alojamiento y los formatos definitivos siguen pendientes; las opciones están en [Imágenes publicadas](IMAGENES-PENDIENTES.md). Fuentes locales, sin Tailwind por CDN ni servicios de analítica. No habrá una conexión del navegador a Drive ni datos privados en el repositorio.
 
 Los commits seguirán git-atomic-commits: español, presente, menos de 72 caracteres, sin prefijos, una unidad lógica completa por commit y documentación junto a cada cambio. Rama: `reconstruccion/el-par-desde-par-astro`, creada desde `origin/par-astro` en el commit `67b5951`.
 
 ## Despliegue
 
-[Cloudflare Pages sigue admitiendo Astro estático](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/). Para esta web, sin backend propio y con Tally externo, sigue siendo adecuado. Prepararé `npm run build`, salida `dist`, redirecciones de las rutas antiguas y cabeceras de seguridad. No necesita un adaptador de servidor.
+[Cloudflare Pages sigue admitiendo Astro estático](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/). Para esta web, sin backend propio y con Tally externo, sigue siendo adecuado. Prepararé `npm run build`, salida `dist`, rutas nuevas y cabeceras de seguridad. No necesita un adaptador de servidor.
 
 Cloudflare recomienda Workers para aplicaciones nuevas con funciones de servidor. Eso no obliga a incorporar un servidor aquí; el resultado estático también permite migrar a Workers Static Assets en el futuro. La decisión final de dominio y cuenta puede esperar sin rehacer la web.
 
@@ -82,4 +83,5 @@ Se puede completar la web sin resolverlas ahora:
 - Revisión del análisis de PAR-0003 por María antes de hacerlo público.
 - Confirmar el cambio a @elparzapatos antes de activar ese enlace como canal disponible.
 - Completar los datos del responsable y revisar los textos legales antes del lanzamiento. El sitio no inventará esos datos.
+- Elegir dónde se guardan las imágenes publicadas y su formato definitivo.
 - Valorar un símbolo de marca definitivo después de ver la web; la marca tipográfica funciona desde el primer día.

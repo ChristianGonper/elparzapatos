@@ -9,6 +9,8 @@ Las fuentes originales se conservan en Drive. El sitio incluye únicamente las c
 | Ejemplos de Sonia | Variedad en inicio y participación | Uso expresamente autorizado en el encargo de esta reconstrucción. No se presentan como análisis publicados. |
 | Tacones ilustrados | Apoyo desplegable de la guía | Imagen generada con IA del material anterior, conservada por instrucción del usuario y etiquetada como ilustración. |
 
+Las copias son de trabajo para terminar y revisar el sitio. [El alojamiento y los formatos definitivos siguen pendientes](IMAGENES-PENDIENTES.md).
+
 ## Conversión
 
 Las copias para la web se generan con orientación correcta y sin metadatos EXIF, a WebP de 480, 960 y 1600 píxeles para María; 480 y 960 para los ejemplos. No se aplican retoques generativos, cambios de forma, eliminación de marcas ni sustitución de fondos. El color se mantiene.
