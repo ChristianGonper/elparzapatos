@@ -35,6 +35,7 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 - 14 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, acceso directo a Tally, menú por teclado, definiciones, ampliación, guía e impresión, armarios, recuperación del 404 y lectura sin JavaScript.
 - Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
 - Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
+- Variables de lanzamiento comprobadas con un dominio de prueba: canónicas, sitemap de 12 rutas, robots e Instagram. Después se restauró la compilación de trabajo sin indexación ni enlace a la cuenta.
 
 GitHub Actions repite formato, compilación, verificación y pruebas en cada cambio. Conserva el resultado como artefacto de revisión, sin desplegarlo.
 

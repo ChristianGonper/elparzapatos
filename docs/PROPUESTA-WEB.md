@@ -80,7 +80,7 @@ Compilación y tipos; todos los enlaces internos y las imágenes; recorrido dire
 Se puede completar la web sin resolverlas ahora:
 
 - Dominio y acceso a la cuenta de Cloudflare para publicar.
-- Revisión del análisis de PAR-0003 por María antes de hacerlo público.
+- Revisión de los análisis de PAR-0002, PAR-0003 y PAR-0004 por María antes de hacerlos públicos.
 - Confirmar el cambio a @elparzapatos antes de activar ese enlace como canal disponible.
 - Completar los datos del responsable y revisar los textos legales antes del lanzamiento. El sitio no inventará esos datos.
 - Elegir dónde se guardan las imágenes publicadas y su formato definitivo.
