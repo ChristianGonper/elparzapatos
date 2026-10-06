@@ -4,7 +4,7 @@ import Photo from '../components/Photo.astro';
 import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import { site } from '../data/site';
-import { mariaImage } from '../data/pairs';
+import { guideImage } from '../data/images';
 const views = [
   {
     n: '01',
@@ -104,7 +104,7 @@ const views = [
       {views.map((view) => (
         <figure class="guide-card">
           <Photo
-            base={mariaImage(view.image)}
+            base={guideImage(view.image)}
             alt={`${view.title}: bailarinas de María`}
             zoom
             class={view.detail ? 'detail-photo' : undefined}

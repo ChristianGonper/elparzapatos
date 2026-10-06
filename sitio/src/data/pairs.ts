@@ -28,8 +28,3 @@ for (const [label, values] of [
 }
 
 export const pairPath = (pair: Pair) => `/pares/${pair.slug}/`;
-// El set concreto de la guía fue elegido por el usuario; no determina el catálogo ni los armarios.
-export const mariaImage = (view: number) =>
-  `/imagenes/maria/vista-${String(view).padStart(2, '0')}`;
-export const pairImage = (pair: Pair, view: number) =>
-  `/imagenes/${pair.imageSet}/vista-${String(view).padStart(2, '0')}`;

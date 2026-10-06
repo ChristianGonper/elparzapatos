@@ -1,0 +1,108 @@
+.pair-card {
+  display: block;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+.card-image {
+  overflow: hidden;
+  background: var(--surface);
+}
+.card-image img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.pair-card:hover .card-image img {
+  transform: scale(1.025);
+}
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 1.2rem 0 0.7rem;
+  font-size: 0.69rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pair-card h2 {
+  font-size: clamp(2rem, 3.8vw, 3.4rem);
+}
+.pair-card p {
+  max-width: 44ch;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+.card-read {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.7rem;
+  color: var(--wine);
+  font-size: 0.84rem;
+}
+.wardrobe-card {
+  display: block;
+  max-width: 1050px;
+}
+.wardrobe-pictures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+  overflow: hidden;
+}
+.wardrobe-pictures img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.wardrobe-card:hover .wardrobe-pictures img {
+  transform: scale(1.02);
+}
+.wardrobe-card-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-end;
+  padding-block: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.wardrobe-card-title .eyebrow {
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+}
+.wardrobe-card-title h2 {
+  font-size: clamp(2rem, 4.5vw, 3.7rem);
+}
+.wardrobe-open {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--wine);
+  font-size: 0.86rem;
+  min-height: 44px;
+  flex-shrink: 0;
+}
+@media (max-width: 800px) {
+  .wardrobe-card-title {
+    align-items: flex-start;
+  }
+  .wardrobe-card-title h2 {
+    font-size: 2.8rem;
+  }
+}
+@media (max-width: 540px) {
+  .wardrobe-pictures {
+    gap: 0.75rem;
+  }
+  .wardrobe-card-title {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .wardrobe-card-title h2 {
+    font-size: 2.65rem;
+  }
+}

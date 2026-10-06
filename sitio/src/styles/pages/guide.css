@@ -1,0 +1,171 @@
+.guide-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.guide-tools .small-note {
+  flex-basis: 100%;
+}
+.guide-lead {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  border-block: 1px solid var(--line);
+  padding-block: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+.guide-lead h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.guide-lead p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.guide-lead ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.guide-lead li + li {
+  margin-top: 0.5rem;
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem 2rem;
+  margin-top: 2.5rem;
+}
+.guide-grid .guide-card:last-child {
+  grid-column: 1/-1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.guide-card .photo-zoom img {
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.guide-card .detail-photo img {
+  object-fit: cover;
+  object-position: 50% 65%;
+  transform: scale(1.8);
+}
+.guide-card .detail-photo {
+  aspect-ratio: 4/3;
+}
+.guide-card figcaption {
+  margin-top: 1.2rem;
+}
+.guide-card h3 {
+  font-size: 1.8rem;
+  margin: 0.4rem 0 0.7rem;
+}
+.guide-card p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  max-width: 48ch;
+}
+.guide-number {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--wine);
+}
+.tacon-guide {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--line);
+}
+.tacon-guide summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  list-style: none;
+  min-height: 70px;
+}
+.tacon-guide summary h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+.tacon-guide summary:after {
+  content: '+';
+  font-size: 2rem;
+  color: var(--wine);
+}
+.tacon-guide[open] summary:after {
+  content: '−';
+}
+.tacon-guide img {
+  margin-block: 1.5rem;
+  width: 100%;
+  max-width: 1000px;
+}
+.tacon-guide p {
+  max-width: 65ch;
+  color: var(--muted);
+}
+.guide-checklist {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  background: var(--surface);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+.guide-checklist h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.guide-checklist ul {
+  padding-left: 1.2rem;
+  margin: 0;
+  color: var(--muted);
+}
+.guide-checklist li + li {
+  margin-top: 0.7rem;
+}
+.guide-checklist .button {
+  margin-top: 1.5rem;
+}
+@media (max-width: 800px) {
+  .guide-lead {
+    gap: 2rem;
+  }
+  .guide-grid {
+    gap: 2rem 1.3rem;
+  }
+  .guide-checklist {
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+}
+@media (max-width: 540px) {
+  .guide-lead,
+  .guide-grid,
+  .guide-checklist {
+    grid-template-columns: 1fr;
+  }
+  .guide-grid .guide-card:last-child {
+    grid-column: auto;
+    display: block;
+  }
+  .guide-tools {
+    gap: 0.8rem;
+  }
+  .guide-tools .button {
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .guide-checklist {
+    padding: 1.6rem;
+  }
+  .guide-tools .text-link {
+    font-size: 0.82rem;
+  }
+}

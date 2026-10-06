@@ -4,7 +4,7 @@ import Photo from '../components/Photo.astro';
 import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import { site } from '../data/site';
-import { mariaImage } from '../data/pairs';
+import { guideImage } from '../data/images';
 ---
 
 <Base title="Qué es El Par" description={site.presentation}>
@@ -25,7 +25,7 @@ import { mariaImage } from '../data/pairs';
     </div>
     <figure>
       <Photo
-        base={mariaImage(2)}
+        base={guideImage(2)}
         alt="El dibujo de flores y las zonas abiertas de las bailarinas de María, vistas de perfil"
         priority
         sizes="(max-width: 800px) 90vw, 45vw"

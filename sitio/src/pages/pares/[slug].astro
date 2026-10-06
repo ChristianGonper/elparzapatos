@@ -4,7 +4,8 @@ import Photo from '../../components/Photo.astro';
 import RichText from '../../components/RichText.astro';
 import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
-import { pairs, pairImage, type Pair } from '../../data/pairs';
+import { pairs, type Pair } from '../../data/pairs';
+import { pairImage } from '../../data/images';
 import { wardrobeForPair, wardrobePath } from '../../data/wardrobes';
 export function getStaticPaths() {
   return pairs.map((pair) => ({ params: { slug: pair.slug }, props: { pair } }));

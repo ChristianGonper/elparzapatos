@@ -31,3 +31,14 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
     Ver en el glosario <span aria-hidden="true">↗</span>
   </a>
 </aside>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.term-popover').forEach((popover) => {
+    popover.addEventListener('toggle', (event: Event) => {
+      const toggle = event as ToggleEvent;
+      document
+        .querySelector(`[aria-controls="${popover.id}"]`)
+        ?.setAttribute('aria-expanded', String(toggle.newState === 'open'));
+    });
+  });
+</script>

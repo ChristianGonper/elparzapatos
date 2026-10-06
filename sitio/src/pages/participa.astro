@@ -4,10 +4,10 @@ import Photo from '../components/Photo.astro';
 import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import { site } from '../data/site';
-import { mariaImage } from '../data/pairs';
+import { guideImage } from '../data/images';
 const examples = [
   {
-    base: mariaImage(5),
+    base: guideImage(5),
     max: 1600,
     name: 'Bailarinas',
     text: 'Un tejido abierto, una punta o un pequeño adorno.',
@@ -82,7 +82,7 @@ const faqs = [
     </div>
     <figure class="hero-image">
       <Photo
-        base={mariaImage(5)}
+        base={guideImage(5)}
         alt="El par de bailarinas de rejilla que María ha compartido con El Par"
         priority
         sizes="(max-width: 800px) 90vw, 45vw"
@@ -179,7 +179,7 @@ const faqs = [
   <section class="wrap section photo-guide-summary">
     <figure class="guide-preview">
       <Photo
-        base={mariaImage(2)}
+        base={guideImage(2)}
         alt="Vista lateral de las bailarinas de María como ejemplo de la guía"
         sizes="(max-width: 800px) 90vw, 45vw"
       />

@@ -17,3 +17,13 @@ Newsreader para titulares; DM Sans para cuerpo, navegación y etiquetas. Ambas s
 La marca tipográfica funciona sin esperar a un símbolo definitivo. Los botones principales abren el Tally existente. Una sola escala de espaciado, tamaños fluidos, lectura de unas 45–60 letras por línea y fotos ampliables. Las transiciones son breves y se desactivan con la preferencia de reducir movimiento.
 
 Menú móvil nativo; desplegables de dudas y guía con details; definiciones con popover; ampliación con dialog y devolución de foco al cerrar. No hay carruseles automáticos ni contenido que necesite JavaScript para leerse.
+
+## CSS y responsabilidades
+
+Se mantiene CSS propio. Esta interfaz tiene composiciones editoriales, recortes de fotografía, popovers e impresión que necesitan reglas específicas. Tailwind aportaría utilidades y una escala común, pero exigiría reescribir el marcado sin resolver por sí mismo la propiedad de cada estilo. La escala ya está definida mediante variables compartidas; modularizar aporta aquí más que cambiar de framework.
+
+`src/styles/index.css` declara el orden de las hojas. `global.css` contiene variables, normalización, tipografía y utilidades comunes; `components/` contiene cabecera, pie, invitación, tarjetas y ayudas/ampliación; `pages/` contiene las familias de portada, catálogo/armarios, análisis, colaboración, guía e información. Cada familia conserva sus reglas responsive junto a sus reglas base. `print.css` reúne las excepciones de impresión y se importa al final.
+
+Las clases de componentes y páginas usan nombres propios. El alcance permanece explícito por nombres, para que los contenedores editoriales puedan componer Photo y otros componentes sin depender de atributos internos de Astro. No se añaden resets ni estilos genéricos en hojas de página. Las reglas compartidas se cambian en su propietario, no copiándolas en otra página.
+
+Las hojas se agregan en una entrada común para mantener una cascada controlada. No se afirma que se estén cargando solo los estilos de cada ruta. Se comparan estilos calculados y vistas de móvil/escritorio al cambiar esta organización.

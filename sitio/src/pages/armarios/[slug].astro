@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PairCard from '../../components/PairCard.astro';
 import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
-import { pairImage } from '../../data/pairs';
+import { pairImage } from '../../data/images';
 import { wardrobes, type Wardrobe } from '../../data/wardrobes';
 export function getStaticPaths() {
   return wardrobes.map((wardrobe) => ({ params: { slug: wardrobe.slug }, props: { wardrobe } }));
