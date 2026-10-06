@@ -1,0 +1,47 @@
+---
+import Base from '../../layouts/Base.astro';
+import PairCard from '../../components/PairCard.astro';
+import Arrow from '../../components/Arrow.astro';
+import Invitation from '../../components/Invitation.astro';
+import { wardrobes, type Wardrobe } from '../../data/wardrobes';
+export function getStaticPaths() {
+  return wardrobes.map((wardrobe) => ({ params: { slug: wardrobe.slug }, props: { wardrobe } }));
+}
+interface Props {
+  wardrobe: Wardrobe;
+}
+const { wardrobe } = Astro.props;
+---
+
+<Base
+  title={`Armario de ${wardrobe.name}`}
+  description={`Los ${wardrobe.pairs.length} pares que ${wardrobe.name} comparte con El Par. Descubre lo que cambia al mirarlos de cerca.`}
+>
+  <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
+    <a href="/armarios/">Armarios</a>
+    <span aria-hidden="true">/</span>
+    <span>{wardrobe.name}</span>
+  </nav>
+  <section class="wrap page-heading">
+    <span class="eyebrow">{wardrobe.pairs.length} pares · Compartidos con El Par</span>
+    <h1>
+      Armario de
+      <br />
+      <em>{wardrobe.name}.</em>
+    </h1>
+    <p class="lead">
+      Los pares que {wardrobe.name} nos ha enseñado. Cada uno tiene algo distinto que mirar.
+    </p>
+  </section>
+  <div class="wrap pair-index">
+    {wardrobe.pairs.map((pair) => (
+      <PairCard {pair} />
+    ))}
+  </div>
+  <div class="wrap wardrobe-back">
+    <a class="text-link" href="/armarios/">
+      <Arrow direction="left" /> Volver a Armarios
+    </a>
+  </div>
+  <Invitation compact />
+</Base>

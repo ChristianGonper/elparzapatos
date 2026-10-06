@@ -1,0 +1,114 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import RichText from '../../components/RichText.astro';
+import Arrow from '../../components/Arrow.astro';
+import Invitation from '../../components/Invitation.astro';
+import { pairs, pairImage, type Pair } from '../../data/pairs';
+import { wardrobeForPair, wardrobePath } from '../../data/wardrobes';
+export function getStaticPaths() {
+  return pairs.map((pair) => ({ params: { slug: pair.slug }, props: { pair } }));
+}
+interface Props {
+  pair: Pair;
+}
+const { pair } = Astro.props;
+const wardrobe = wardrobeForPair(pair);
+---
+
+<Base title={pair.title} description={pair.teaser}>
+  <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
+    <a href="/pares/">Pares</a>
+    <span aria-hidden="true">/</span>
+    <span>{pair.type}</span>
+  </nav>
+  <article>
+    <header class="wrap article-heading">
+      <span class="eyebrow">{pair.type} · Para mirar de cerca</span>
+      <h1>{pair.title}</h1>
+      <p class="lead">{pair.intro}</p>
+      <p class="article-credit">
+        Fotos y par compartidos por {pair.credit}
+        {wardrobe && (
+          <>
+            <span aria-hidden="true"> · </span>
+            <a href={wardrobePath(wardrobe)}>Armario de {wardrobe.name}</a>
+          </>
+        )}
+      </p>
+    </header>
+    <figure class="article-hero wrap">
+      <Photo
+        base={pairImage(pair, pair.hero)}
+        alt={pair.photoAlt}
+        priority
+        zoom
+        sizes="(max-width: 1120px) 92vw, 1050px"
+      />
+      <figcaption>
+        La forma completa antes de acercarnos a los detalles. Puedes ampliar todas las fotos.
+      </figcaption>
+    </figure>
+    <div class="wrap article-body">
+      {pair.sections.map((section, i) => (
+        <section class="article-section" aria-labelledby={`section-${i}`}>
+          <div class="article-text">
+            <span class="eyebrow">0{i + 1} / De cerca</span>
+            <h2 id={`section-${i}`}>{section.title}</h2>
+            {section.paragraphs.map((text, j) => (
+              <RichText {text} id={`term-${pair.id}-${i}-${j}`} />
+            ))}
+          </div>
+          <figure>
+            <Photo
+              base={pairImage(pair, section.image)}
+              alt={section.caption}
+              zoom
+              sizes="(max-width: 800px) 92vw, 45vw"
+            />
+            <figcaption>{section.caption}</figcaption>
+          </figure>
+        </section>
+      ))}
+      <section class="quote-block" aria-label="Lo que cuenta María">
+        <span class="eyebrow">Lo que le gusta a María</span>
+        <blockquote>«{pair.quote}»</blockquote>
+        <cite>María, sobre sus bailarinas</cite>
+      </section>
+      <section class="at-a-glance" aria-labelledby="glance-heading">
+        <div>
+          <span class="eyebrow">Después de mirar los detalles</span>
+          <h2 id="glance-heading">De un vistazo</h2>
+        </div>
+        <dl>
+          <div>
+            <dt>Tipo</dt>
+            <dd>{pair.type}</dd>
+          </div>
+          <div>
+            <dt>Marca</dt>
+            <dd>{pair.brand}, según María</dd>
+          </div>
+          <div>
+            <dt>Fotos y colaboración</dt>
+            <dd>{pair.credit}</dd>
+          </div>
+          <div>
+            <dt>Lo que miramos</dt>
+            <dd>
+              {pair.id === 'PAR-0003'
+                ? 'Rejilla, flores y puntos de brillo'
+                : 'Manchas, textura y abertura lateral'}
+            </dd>
+          </div>
+        </dl>
+      </section>
+      <div class="article-end">
+        <a class="text-link" href="/pares/">
+          <Arrow direction="left" /> Volver a Pares
+        </a>
+      </div>
+    </div>
+  </article>
+  <Invitation compact />
+</Base>

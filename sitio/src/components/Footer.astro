@@ -1,0 +1,41 @@
+---
+import { site, instagramReady } from '../data/site';
+import Arrow from './Arrow.astro';
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-top">
+    <div>
+      <a class="footer-brand" href="/">
+        El Par.
+      </a>
+      <p>
+        {site.descriptor}
+        <br />
+        {site.motto}
+      </p>
+    </div>
+    <nav aria-label="Más de El Par">
+      <a href="/pares/">Pares</a>
+      <a href="/armarios/">Armarios</a>
+      <a href="/el-par/">Qué es El Par</a>
+      <a href="/glosario/">Glosario</a>
+    </nav>
+    <nav aria-label="Participación y contacto">
+      <a href="/participa/">Cómo colaborar</a>
+      <a href="/guia-de-fotos/">Guía de fotos</a>
+      <a href={`mailto:${site.email}`}>
+        Escríbenos <Arrow />
+      </a>
+      {instagramReady && (
+        <a href="https://www.instagram.com/elparzapatos/">
+          Instagram <Arrow />
+        </a>
+      )}
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>Hecho para mirar de cerca.</span>
+    <a href="/tus-fotos-y-tus-datos/">Tus fotos y tus datos</a>
+  </div>
+</footer>

@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base
+  title="Tus fotos y tus datos"
+  description="Qué hacemos con tus fotos en El Par, cómo eliges tu crédito y cómo pedir cambios o la retirada de tu par."
+>
+  <section class="wrap page-heading">
+    <span class="eyebrow">Colaborar con tranquilidad</span>
+    <h1>
+      Tus fotos.
+      <br />
+      <em>Tú decides cómo aparecer.</em>
+    </h1>
+    <p class="lead">
+      Antes de enviar un par, puedes conocer qué hacemos con las fotos y qué puedes pedirnos
+      después.
+    </p>
+  </section>
+  <div class="wrap prose-page">
+    <section>
+      <h2>Qué nos envías</h2>
+      <p>
+        Fotos de tus zapatos y, si quieres, la marca y algo que te apetezca contar sobre el par. El
+        formulario de Tally recoge también el contacto necesario para hablar contigo y tus
+        preferencias de crédito.
+      </p>
+      <p>
+        Los zapatos se quedan contigo. Solo salen ellos en las fotos; nunca tu cara ni tu cuerpo.
+      </p>
+    </section>
+    <section>
+      <h2>Para qué usamos las fotos</h2>
+      <p>
+        Para preparar el análisis de tu par y contarlo en la web, Instagram y una futura newsletter
+        de El Par. Siempre para contar tus zapatos, según el permiso que das en el formulario.
+      </p>
+      <p>
+        Podemos recortar, enderezar y ajustar luz y color para que se vean como en persona, o añadir
+        una anotación sencilla que señale un detalle. Nunca cambiamos la forma, borramos marcas de
+        uso, inventamos fondos ni creamos o editamos imágenes con IA generativa a partir de tus
+        fotos.
+      </p>
+    </section>
+    <section>
+      <h2>Cómo apareces</h2>
+      <p>
+        En Tally eliges si apareces con tu nombre, con tu @ de Instagram o de forma anónima. Si
+        eliges el anonimato, usamos un nombre genérico que nos permite reunir tus pares sin
+        identificarte.
+      </p>
+      <p>
+        Tu correo no se publica. Solo se muestran las fotos y la información que hayas aceptado
+        compartir.
+      </p>
+    </section>
+    <section>
+      <h2>Lo revisas antes de publicarlo</h2>
+      <p>
+        Te mandamos el análisis y tienes 48 horas para pedir cambios. Si no contestas, se publica.
+        Te avisamos cuando esté en la web.
+      </p>
+    </section>
+    <section>
+      <h2>Puedes pedir que lo retiremos</h2>
+      <p>
+        Si prefieres que se quite tu par, nos escribes a{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a> y lo retiramos. Puedes pedirlo cuando
+        quieras.
+      </p>
+    </section>
+    <section>
+      <h2>Dónde se guarda el envío</h2>
+      <p>
+        El formulario se aloja en Tally. Las fotos y los datos de colaboración se guardan en el
+        proyecto, en Google Drive y su hoja de seguimiento. El navegador de esta web no accede a
+        esos archivos privados.
+      </p>
+      <p>
+        La web no carga el formulario hasta que tú abres su enlace. Puedes consultar las condiciones
+        de Tally en el propio servicio.
+      </p>
+    </section>
+    <section>
+      <h2>Al visitar esta web</h2>
+      <p>
+        El sitio no incorpora publicidad, analítica ni formularios propios. Las fuentes y las
+        imágenes se sirven desde la web. Al abrir Tally sales a ese servicio para enviar tus fotos.
+      </p>
+    </section>
+    <section>
+      <h2>¿Tienes alguna duda?</h2>
+      <p>
+        Escríbenos a <a href={`mailto:${site.email}`}>{site.email}</a> antes de enviar o en
+        cualquier momento después.
+      </p>
+    </section>
+  </div>
+</Base>

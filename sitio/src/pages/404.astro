@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+---
+
+<Base
+  title="Página no encontrada"
+  description="Esta página no está disponible. Vuelve a los pares de El Par."
+  noindex
+>
+  <section class="wrap error-page">
+    <span class="eyebrow">404 / Página no encontrada</span>
+    <h1>
+      Por aquí no era.
+      <br />
+      <em>Volvemos a los zapatos.</em>
+    </h1>
+    <p>Puede que el enlace haya cambiado. Los pares y sus detalles te esperan aquí.</p>
+    <a class="button" href="/pares/">
+      Ir a Pares <Arrow />
+    </a>
+  </section>
+</Base>

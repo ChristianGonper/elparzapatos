@@ -1,0 +1,67 @@
+---
+import Arrow from './Arrow.astro';
+import { site } from '../data/site';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/pares/', label: 'Pares' },
+  { href: '/armarios/', label: 'Armarios' },
+  { href: '/el-par/', label: 'Qué es El Par' },
+  { href: '/participa/', label: 'Cómo colaborar' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner wrap">
+    <a class="brand" href="/" aria-label="El Par · Zapatos en detalle · Inicio">
+      <span class="brand-name">
+        El Par<span class="brand-dot">.</span>
+      </span>
+      <span class="brand-descriptor">{site.descriptor}</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      {links.map((link) => (
+        <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+    <a class="button header-cta" href={site.tally}>
+      Enviar mis fotos <Arrow />
+    </a>
+    <details class="mobile-menu">
+      <summary aria-label="Abrir menú">
+        <span>Menú</span>
+        <span class="menu-lines" aria-hidden="true"></span>
+      </summary>
+      <nav aria-label="Navegación móvil">
+        {links.map((link) => (
+          <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined}>
+            {link.label}
+            <Arrow />
+          </a>
+        ))}
+        <a href="/glosario/">
+          Glosario
+          <Arrow />
+        </a>
+        <a class="button" href={site.tally}>
+          Enviar mis fotos
+          <Arrow />
+        </a>
+      </nav>
+    </details>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  menu?.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      menu.open = false;
+      menu.querySelector('summary')?.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (menu?.open && event.target instanceof Node && !menu.contains(event.target))
+      menu.open = false;
+  });
+</script>
