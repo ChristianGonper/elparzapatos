@@ -45,7 +45,7 @@ Para incorporar un nuevo par:
 
 1. Preparar su análisis e imágenes a partir de Drive y los permisos autorizados.
 2. Crear su JSON independiente, con identificador, slug, orden editorial, textos, imágenes y referencia `collaborator` a la identidad pública correspondiente. No añadir nombres ni correos a una plantilla.
-3. Si es una nueva colaboradora identificada, crear una vez su archivo en `src/content/colaboradoras/`: nombre público, slug y autorización de armario. Sin listas de pares. Si no lleva referencia de colaboradora se muestra «Colaboración anónima» y no se agrupa con otras personas anónimas.
+3. Si es una nueva colaboradora, crear una vez su archivo en `src/content/colaboradoras/`: nombre público, slug y autorización de armario. También puede ser una identidad anónima estable, por ejemplo «Colaboradora 07», que permite reunir sus pares sin revelar su identidad. La correspondencia privada se conserva fuera del repositorio. No hay listas de pares. Una entrada sin referencia muestra «Colaboración anónima» y no se agrupa con otras personas anónimas cuya relación se desconoce.
 4. Comprobar y compilar. Catálogo, página del par, contador, enlaces al armario, índice de armarios y sitemap se actualizan automáticamente. No se edita la página del armario.
 
 Los identificadores de colección son los nombres de archivo. Una ruta o identificador de par duplicados y una referencia a una colaboradora inexistente detienen la compilación, evitando sobrescribir entradas. `npm run test:content` compila una copia temporal con 60 pares adicionales, comprueba las agrupaciones y rechaza datos inválidos. Los ejemplos nunca se incorporan a la web real.

@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PairCard from '../../components/PairCard.astro';
 import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
+import { pairImage } from '../../data/pairs';
 import { wardrobes, type Wardrobe } from '../../data/wardrobes';
 export function getStaticPaths() {
   return wardrobes.map((wardrobe) => ({ params: { slug: wardrobe.slug }, props: { wardrobe } }));
@@ -16,6 +17,7 @@ const { wardrobe } = Astro.props;
 <Base
   title={`Armario de ${wardrobe.name}`}
   description={`Los ${wardrobe.pairs.length} pares que ${wardrobe.name} comparte con El Par. Descubre lo que cambia al mirarlos de cerca.`}
+  image={`${pairImage(wardrobe.pairs[0], wardrobe.pairs[0].hero)}-1600.webp`}
 >
   <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
     <a href="/armarios/">Armarios</a>

@@ -81,6 +81,7 @@ const views = [
       </a>
       <p class="small-note">En la ventana de impresión puedes elegir «Guardar como PDF».</p>
     </div>
+    <p id="print-status" class="small-note" role="status"></p>
   </section>
   <div class="wrap section" style="padding-top:0">
     <section class="guide-lead" aria-labelledby="light-title">
@@ -163,5 +164,26 @@ const views = [
   <Invitation compact />
 </Base>
 <script>
-  document.querySelector('#print-guide')?.addEventListener('click', () => window.print());
+  const printButton = document.querySelector<HTMLButtonElement>('#print-guide');
+  printButton?.addEventListener('click', async () => {
+    printButton.disabled = true;
+    try {
+      await document.fonts.ready;
+      const photos = [
+        ...document.querySelectorAll<HTMLImageElement>('.guide-card img, .tacon-guide img'),
+      ];
+      photos.forEach((photo) => {
+        photo.loading = 'eager';
+      });
+      await Promise.all(photos.map((photo) => photo.decode()));
+      window.print();
+    } catch {
+      const status = document.querySelector('#print-status');
+      if (status)
+        status.textContent =
+          'Falta cargar alguna foto. Comprueba tu conexión y vuelve a intentarlo.';
+    } finally {
+      printButton.disabled = false;
+    }
+  });
 </script>

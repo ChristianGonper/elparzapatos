@@ -16,6 +16,8 @@ Originales y permisos: en Drive, en sus carpetas actuales. No se mueve ni modifi
 
 Recomendación provisional: mantener el sitio preparado para recibir URLs de imágenes y decidir entre archivos del despliegue y R2 antes de publicar. No usar enlaces privados de Drive como URLs de la web. No abrir las carpetas de originales para que el navegador lea de ellas.
 
+La resolución actual produce rutas locales y la política CSP solo permite imágenes del mismo origen. Elegir un servicio externo exige adaptar esa resolución y autorizar su origen en `_headers`; la migración todavía no está configurada.
+
 ## Formatos
 
 WebP es una opción razonable para las copias públicas: sirve estas fotografías con menos peso que sus originales y tiene soporte amplio. AVIF puede reducir más algunas imágenes, a costa de procesado y posibles diferencias de calidad; se puede añadir con picture y fallback. Los originales se guardan tal como llegaron, incluidos JPEG y HEIC.

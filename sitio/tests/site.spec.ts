@@ -143,6 +143,23 @@ test('La guía contiene el set completo y conserva la impresión', async ({ page
   await expect(page.locator('.guide-card').first()).toBeVisible();
 });
 
+test('La guía carga todas sus fotos antes de imprimir sin recorrer la página', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 600 });
+  await page.addInitScript(() => {
+    window.print = () => {
+      document.body.dataset.printReady = String(
+        [...document.querySelectorAll<HTMLImageElement>('.guide-card img, .tacon-guide img')].every(
+          (image) => image.complete && image.naturalWidth > 0,
+        ),
+      );
+    };
+  });
+  await page.goto('/guia-de-fotos/');
+  await page.getByRole('button', { name: 'Guardar o imprimir la guía' }).click();
+  await expect(page.locator('body')).toHaveAttribute('data-print-ready', 'true');
+  await expect(page.locator('#print-guide')).toBeEnabled();
+});
+
 test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page }) => {
   for (const wardrobe of expectedWardrobes) {
     await page.goto('/armarios/');

@@ -31,7 +31,7 @@ try {
   await mkdir(join(content, 'colaboradoras'), { recursive: true });
   await json(join(content, 'colaboradoras/prueba.json'), {
     slug: 'prueba',
-    name: 'Colaboradora de prueba',
+    name: 'Colaboradora 07',
     wardrobe: true,
   });
   await json(join(content, 'colaboradoras/un-par.json'), {
@@ -62,6 +62,8 @@ try {
       slug: `par-de-prueba-${i}`,
       title: `Par de prueba ${i}`,
       collaborator,
+      quote: collaborator ? example.quote : undefined,
+      brand: collaborator ? example.brand : undefined,
       order: 100 + i,
     });
   }
@@ -71,9 +73,12 @@ try {
   assert.equal(cards(await page('pares')), 63);
   assert.equal(cards(await page('armarios/maria')), 23);
   assert.equal(cards(await page('armarios/prueba')), 20);
+  assert.match(await page('armarios/prueba'), /Colaboradora 07/);
+  assert.match(await page('pares/par-de-prueba-20'), /Colaboradora 07/);
   await assert.rejects(page('armarios/un-par'), { code: 'ENOENT' });
   await assert.rejects(page('armarios/sin-armario'), { code: 'ENOENT' });
   assert.match(await page('pares/par-de-prueba-59'), /Colaboración anónima/);
+  assert.doesNotMatch(await page('pares/par-de-prueba-59'), /class="quote-block"|<dt>Marca<\/dt>/);
   for (let i = 0; i < 60; i++) assert.match(await page(`pares/par-de-prueba-${i}`), /<h1>/);
 
   const invalidPath = join(content, 'pares/error.json');
@@ -90,6 +95,12 @@ try {
   await assert.rejects(build(), (error) =>
     /Duplicado: ruta de par/.test(error.stdout + error.stderr),
   );
+  await rm(join(content, 'pares'), { recursive: true });
+  await mkdir(join(content, 'pares'));
+  await build();
+  assert.equal(cards(await page('pares')), 0);
+  assert.doesNotMatch(await page(''), /class="home-feature"/);
+  assert.match(await page('armarios'), /están por llegar/);
   console.log(
     'Crecimiento verificado: 63 pares, armarios automáticos, anonimato y datos inválidos rechazados.',
   );

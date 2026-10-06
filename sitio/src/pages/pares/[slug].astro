@@ -16,7 +16,11 @@ const { pair } = Astro.props;
 const wardrobe = wardrobeForPair(pair);
 ---
 
-<Base title={pair.title} description={pair.teaser}>
+<Base
+  title={pair.title}
+  description={pair.teaser}
+  image={`${pairImage(pair, pair.hero)}-1600.webp`}
+>
   <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
     <a href="/pares/">Pares</a>
     <span aria-hidden="true">/</span>
@@ -70,11 +74,13 @@ const wardrobe = wardrobeForPair(pair);
           </figure>
         </section>
       ))}
-      <section class="quote-block" aria-label={`Lo que cuenta ${pair.credit}`}>
-        <span class="eyebrow">Lo que cuenta {pair.credit}</span>
-        <blockquote>«{pair.quote}»</blockquote>
-        <cite>{pair.credit}, sobre este par</cite>
-      </section>
+      {pair.quote && (
+        <section class="quote-block" aria-label={`Lo que cuenta ${pair.credit}`}>
+          <span class="eyebrow">Lo que cuenta {pair.credit}</span>
+          <blockquote>«{pair.quote}»</blockquote>
+          <cite>{pair.credit}, sobre este par</cite>
+        </section>
+      )}
       <section class="at-a-glance" aria-labelledby="glance-heading">
         <div>
           <span class="eyebrow">Después de mirar los detalles</span>
@@ -85,10 +91,12 @@ const wardrobe = wardrobeForPair(pair);
             <dt>Tipo</dt>
             <dd>{pair.type}</dd>
           </div>
-          <div>
-            <dt>Marca</dt>
-            <dd>{pair.brand}, según su envío</dd>
-          </div>
+          {pair.brand && (
+            <div>
+              <dt>Marca</dt>
+              <dd>{pair.brand}, según su envío</dd>
+            </div>
+          )}
           <div>
             <dt>Fotos y colaboración</dt>
             <dd>{pair.credit}</dd>

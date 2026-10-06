@@ -75,7 +75,8 @@ for (const [file, html] of documents) {
     errors.push(`${file}: expresión editorial descartada`);
 }
 
-if (pages.length < 10) errors.push('Faltan páginas de la web completa');
+for (const page of ['index.html', 'pares/index.html', 'armarios/index.html'])
+  if (!documents.has(join(root, page))) errors.push(`Falta la página ${page}`);
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;

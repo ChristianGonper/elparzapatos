@@ -37,9 +37,9 @@ const pares = defineCollection({
     teaser: text,
     intro: text,
     type: text,
-    brand: text,
+    brand: text.optional(),
     hero: image,
-    quote: text,
+    quote: text.optional(),
     sections: z
       .array(
         z.object({

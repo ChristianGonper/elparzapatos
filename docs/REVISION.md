@@ -32,11 +32,11 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 
 - Tipos y compilación de Astro: 0 errores, advertencias o sugerencias.
 - 13 documentos HTML: enlaces locales, anclas, identificadores, estructura, imágenes y anchos reales de cada srcset verificados.
-- 14 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, acceso directo a Tally, menú por teclado, definiciones, ampliación, guía e impresión, armarios, recuperación del 404 y lectura sin JavaScript.
+- 15 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, acceso directo a Tally, menú por teclado, definiciones, ampliación, guía e impresión desde una visita sin recorrer la página, armarios, recuperación del 404 y lectura sin JavaScript.
 - Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
 - Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
 - Variables de lanzamiento comprobadas con un dominio de prueba: canónicas, sitemap de 12 rutas, robots e Instagram. Después se restauró la compilación de trabajo sin indexación ni enlace a la cuenta.
-- Prueba de crecimiento en una copia temporal con 63 pares: nuevas páginas, incorporación automática al armario existente y creación de otro; exclusión de armarios sin autorización o con un único par; entradas anónimas y rechazo de referencias inexistentes y rutas duplicadas.
+- Prueba de crecimiento en una copia temporal con 63 pares: nuevas páginas, incorporación automática al armario existente y creación de otro; exclusión de armarios sin autorización o con un único par; anonimato con identidad pública estable, entradas sin marca/cita y rechazo de referencias inexistentes y rutas duplicadas. También compila correctamente un catálogo vacío.
 
 GitHub Actions repite formato, compilación, verificación y pruebas en cada cambio. Conserva el resultado como artefacto de revisión, sin desplegarlo.
 
