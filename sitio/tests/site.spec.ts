@@ -88,6 +88,14 @@ test('Inicio y participación abren el mismo Tally directamente', async ({ page 
   }
 });
 
+test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByText('Fotos de ejemplo · Siempre hay algo que mirar')).toBeVisible();
+  await expect(page.locator('.look-row').getByRole('link')).toHaveCount(0);
+  await page.goto('/pares/');
+  await expect(page.locator('.pair-card')).toHaveCount(pairSources.length);
+});
+
 test('El menú móvil abre por teclado y se cierra con Escape', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');

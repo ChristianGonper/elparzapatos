@@ -94,7 +94,7 @@ const looks = [
   <section class="wrap section">
     <div class="editorial-intro">
       <div>
-        <span class="eyebrow">Siempre hay algo que mirar</span>
+        <span class="eyebrow">Fotos de ejemplo · Siempre hay algo que mirar</span>
         <h2>
           Lo que te gusta.
           <br />
@@ -113,7 +113,7 @@ const looks = [
     </div>
     <div class="look-row">
       {looks.map((look) => (
-        <article class="look-card">
+        <figure class="look-card">
           <Photo
             base={look.base}
             alt={look.title}
@@ -122,17 +122,18 @@ const looks = [
             height={1280}
             sizes="(max-width: 540px) 45vw, 30vw"
           />
-          <div>
+          <figcaption>
             <span class="eyebrow">{look.label}</span>
             <h3>{look.title}</h3>
             <p>{look.text}</p>
-          </div>
-        </article>
+          </figcaption>
+        </figure>
       ))}
     </div>
     <p class="look-note">
-      Algunos ejemplos de lo que podemos mirar juntos. La marca y el precio no deciden qué tiene un
-      zapato que contar.
+      Estas fotos son ejemplos de detalles que podemos mirar juntos. Encontrarás las entradas
+      completas en <a href="/pares/">Pares</a>. La marca y el precio no deciden qué tiene un zapato
+      que contar.
     </p>
   </section>
   {wardrobes[0] && (

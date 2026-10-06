@@ -28,11 +28,15 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 
 ![Guía con las seis vistas de PAR-0003 y su detalle ampliado](vistas/guia-de-fotos.webp)
 
+## Análisis con bloques MDX
+
+![Análisis de PAR-0003, con fotos junto a cada detalle y la cita de María](vistas/analisis.webp)
+
 ## Verificaciones
 
 - Tipos y compilación de Astro: 0 errores, advertencias o sugerencias.
 - 13 documentos HTML: enlaces locales, anclas, identificadores, estructura, imágenes y anchos reales de cada srcset verificados.
-- 15 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, acceso directo a Tally, menú por teclado, definiciones, ampliación, guía e impresión desde una visita sin recorrer la página, armarios, recuperación del 404 y lectura sin JavaScript.
+- 16 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, acceso directo a Tally, distinción entre fotos de ejemplo y catálogo, menú por teclado, definiciones, ampliación, guía e impresión desde una visita sin recorrer la página, armarios, recuperación del 404 y lectura sin JavaScript.
 - Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
 - Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
 - Servidor de desarrollo comprobado en una copia temporal: al guardar cambios de título y posición de la cita en MDX, la entrada local se actualiza sin editar una plantilla.

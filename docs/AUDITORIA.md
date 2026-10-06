@@ -118,3 +118,11 @@ El procesamiento de nuevas fotografías sigue descrito como procedimiento, no co
 - Teclado, ampliación con devolución de foco, navegación móvil, reducción de movimiento y pruebas automatizadas aportan una base de accesibilidad útil. Las pruebas automatizadas no equivalen a certificación completa.
 
 No hay un incumplimiento de dirección que exija rehacer de nuevo el producto. Antes de cerrar, corregir los casos encontrados, reorganizar el CSS y repetir únicamente las pruebas y vistas afectadas.
+
+## Segunda revisión del resultado
+
+El mismo revisor examinó las correcciones y el paso a MDX. No encontró nuevos bloqueos de implementación. Verificó en Chromium la carga completa antes de imprimir y un PDF con las vistas que antes faltaban; también comprobó los bloques de análisis, la cita, la definición interactiva y las tres tarjetas del armario.
+
+La modularidad resulta adecuada para este alcance: contenido por entrada, bloques editoriales reutilizables, contexto tipado por ruta, identidades públicas pequeñas y armarios automáticos. La cita puede moverse sin cambiar plantillas. Los estilos tienen responsables, adaptaciones locales y una cascada explícita; se recomienda mantener CSS propio. La documentación explica redacción local, borradores, publicación y mantenimiento.
+
+La aprobación editorial y las decisiones reconocidas de imágenes y lanzamiento siguen pendientes. Esta revisión técnica no las sustituye.
