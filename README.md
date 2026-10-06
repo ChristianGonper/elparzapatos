@@ -1,15 +1,14 @@
-# El Par
+# El Par · Zapatos en detalle
 
-**El Par — Zapatos en detalle.** Publicación editorial independiente y archivo monográfico digital de calzado.
+Vuelve a mirar tus zapatos.
 
-## Organización del proyecto
+La web se reconstruye desde cero. Marca y contenido se consultan en los documentos vigentes de Google Drive, carpeta Moda-Zapatos. El código vive en este repositorio.
 
-| Área | Qué contiene | Documentos clave |
-| --- | --- | --- |
-| [marca/](marca/README.md) | Identidad, contenidos, guía fotográfica y flujo con colaboradoras | [01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md) y [activos/](marca/activos/) |
-| [sitio/](sitio/README.md) | Especificación global, sistema visual, especificaciones modulares y prototipos web | [ESPECIFICACION.md](sitio/ESPECIFICACION.md), [DESIGN.md](sitio/DESIGN.md) y [specs/](sitio/specs/) |
+- [Propuesta de la nueva web](docs/PROPUESTA-WEB.md)
+- [Desarrollo y ejecución](sitio/README.md)
+- [Especificación técnica](sitio/ESPECIFICACION.md)
+- [Diseño](sitio/DESIGN.md)
+- [Estado](ESTADO.md)
+- [Reglas de trabajo](AGENTS.md)
 
-- **Constitución y gobierno:** [AGENTS.md](AGENTS.md)
-- **Tablero ejecutivo del día:** [ESTADO.md](ESTADO.md)
-- **Agenda de trabajo e intenciones:** [TAREAS.md](TAREAS.md)
-
+Los documentos y prototipos de septiembre se conservan como antecedentes. No gobiernan esta reconstrucción. La lista de tareas de producto vigente está en Drive.

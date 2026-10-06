@@ -1,27 +1,25 @@
 # Cómo trabajar aquí
 
-Responde en español.
+Responde en español. Lee [ESTADO.md](ESTADO.md) al empezar.
 
-Al empezar, lee [ESTADO.md](ESTADO.md). El trabajo abierto está en [TAREAS.md](TAREAS.md). Si el chat y un archivo chocan, gana el archivo. Si el criterio cambia, se actualiza el archivo en el mismo turno.
+## Prioridad
 
-Enlaces locales siempre `[texto](ruta/al/archivo.md)`, nunca backticks aislados ni rutas en texto plano.
+1. Instrucción actual del usuario.
+2. Documentos y skills vigentes de Google Drive, carpeta Moda-Zapatos.
+3. Este repositorio.
 
-## Mapa del repositorio
+Actualizado el 6 de octubre de 2026 por el encargo de reconstrucción completa. El código se trabaja aquí; las instrucciones de agentes de Drive que excluyen programación no limitan este encargo. No se heredan la maquetación, el logo ni las decisiones provisionales de los prototipos.
 
-| Área | Qué contiene | Documentos de gobierno |
-| --- | --- | --- |
-| [marca/](marca/README.md) | Identidad editorial, contenidos, canales y flujo de colaboración | [01](marca/01-identidad-editorial.md) a [04](marca/04-flujo-de-colaboracion.md) y [activos/](marca/activos/) |
-| [sitio/](sitio/README.md) | Especificación global, sistema visual, especificaciones modulares y prototipos | [ESPECIFICACION.md](sitio/ESPECIFICACION.md), [DESIGN.md](sitio/DESIGN.md) y `sitio/specs/` |
-| [TAREAS.md](TAREAS.md) | Agenda de trabajo del usuario e intenciones futuras | — |
-| [ESTADO.md](ESTADO.md) | Tablero ejecutivo del día (foco, bloqueos e hito reciente) | — |
+## Fuentes y documentación
 
-## Jerarquía y reglas de prevalencia
+Drive gobierna marca, copy, permisos y colaboración. Su README es el índice. Archivo no es fuente vigente. Las copias privadas se mantienen fuera del repositorio. Nunca incorporar correos de colaboradoras, respuestas completas de Tally o datos privados a Git.
 
-1. **Prevalencia de Marca:** Rige la jerarquía canónica `marca → especificación (global / de superficie) → código/HTML`. Cuando una spec web amplía un criterio de Marca, Marca prevalece. La spec de superficie puede concretarlo, pero no rebajarlo ni contradecirlo.
-2. **Sistema visual agnóstico:** [sitio/DESIGN.md](sitio/DESIGN.md) gobierna la atmósfera, los tokens semánticos y los patrones visuales transversales. La estructura, maquetación y conducta particular de cada pantalla residen en su respectiva especificación de superficie.
-3. **Copy sin espejo:** El texto descriptivo literal vive en los archivos de marcado (HTML/Astro). La especificación viva guarda el contrato de copy (función, tono, fórmulas fijas, destino de enlaces y temas obligatorios). Los elementos de identidad centralizados en Marca (como lemas o canales oficiales) prevalecen sobre el código.
-4. **Frontera de Trabajo y Decisiones:**
-   - Trabajo del usuario e intenciones futuras: [TAREAS.md](TAREAS.md).
-   - Decisiones arquitectónicas y alternativas descartadas: en la especificación que las gobierna (globales en [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md); locales en su respectiva especificación viva bajo `sitio/specs/`).
+Las skills vigentes de Drive son el-par-docs, el-par-textos y el-par-analisis para las tareas correspondientes. Se leen desde Drive. Las fotos de colaboradoras nunca se generan ni editan con IA. No escribir, mover ni renombrar nada de 01_Colaboraciones.
 
+[docs/PROPUESTA-WEB.md](docs/PROPUESTA-WEB.md) explica el producto; [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md) explica la implementación y [sitio/DESIGN.md](sitio/DESIGN.md) el sistema visual. Los prototipos de septiembre son antecedentes, no contratos del nuevo sitio.
 
+## Desarrollo
+
+El proyecto activo vive en sitio. Commits según [.agents/skills/git-atomic-commits/SKILL.md](.agents/skills/git-atomic-commits/SKILL.md), con staging explícito. La implementación y su documentación forman la misma unidad lógica. Trabajar en ramas de reconstrucción y mantener Tally sin cambios.
+
+Verificación: compilación, tipos y comprobaciones funcionales relevantes. Revisar móvil, escritorio, teclado, enlaces e imágenes antes de dar una página por terminada.

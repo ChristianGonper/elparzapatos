@@ -1,15 +1,15 @@
 # Estado
 
-Actualizado: 2026-09-18.
+Actualizado: 2026-10-06.
 
-## Qué es
-**El Par — Zapatos en detalle**: publicación editorial independiente y colección monográfica digital de calzado.
+## Foco
 
-## Foco actual
-- Inicio de la migración del sitio a Astro en `sitio/` a partir del relevo consolidado ([TAREAS.md](TAREAS.md)).
+Reconstrucción completa de la web de El Par en la rama `reconstruccion/web-desde-cero`. Fuente de marca: Drive vigente. Propuesta: [docs/PROPUESTA-WEB.md](docs/PROPUESTA-WEB.md).
 
-## Bloqueos
-- Ninguno ([TAREAS.md](TAREAS.md) § Ahora).
+## Situación
 
-## Último hito
-- Cerrada y validada en mock la definición visual y editorial de la monografía; relevo de continuidad listo para implementación en [sitio/RELEVO-MIGRACION-ASTRO.md](sitio/RELEVO-MIGRACION-ASTRO.md).
+Revisados los documentos de marca, tareas, skills, colaboración y fotografías de PAR-0003 y Sonia. Definida la propuesta antes de implementar. Tally se conserva.
+
+## Para el lanzamiento
+
+Dominio y cuenta de Cloudflare; revisión de PAR-0003 por María; textos legales y momento del cambio de Instagram. No bloquean la construcción local.
