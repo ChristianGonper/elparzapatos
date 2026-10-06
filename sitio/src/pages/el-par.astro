@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Arrow from '../components/Arrow.astro';
+import Invitation from '../components/Invitation.astro';
+import { site } from '../data/site';
+import { guideImage } from '../data/images';
+---
+
+<Base title="Qué es El Par" description={site.presentation}>
+  <section class="wrap about-hero">
+    <div>
+      <span class="eyebrow">El Par · Zapatos en detalle</span>
+      <h1>
+        Una forma de mirar.
+        <br />
+        <em>Y de compartir.</em>
+      </h1>
+      <div class="about-copy">
+        <p>{site.presentation}</p>
+        <a class="text-link" href="/pares/">
+          Empieza por un par <Arrow />
+        </a>
+      </div>
+    </div>
+    <figure>
+      <Photo
+        base={guideImage(2)}
+        alt="El dibujo de flores y las zonas abiertas de las bailarinas de María, vistas de perfil"
+        priority
+        sizes="(max-width: 800px) 90vw, 45vw"
+      />
+      <figcaption>El lateral del par de María. Un punto de partida para acercarnos.</figcaption>
+    </figure>
+  </section>
+  <section class="wrap section about-principles">
+    <div>
+      <span class="eyebrow">Cómo nos acercamos</span>
+      <h2>
+        Primero lo que ves.
+        <br />
+        <em>Después, su nombre.</em>
+      </h2>
+    </div>
+    <div>
+      <section class="principle">
+        <h3>Miramos un par concreto</h3>
+        <p>
+          La forma de la punta, el borde alrededor del pie, el tacón, las tiras o un pequeño
+          detalle. Cada explicación va junto a la foto que la demuestra.
+        </p>
+      </section>
+      <section class="principle">
+        <h3>Te lo contamos sin dar nada por sabido</h3>
+        <p>
+          Si una palabra ayuda a entender el zapato, la explicamos dentro del texto. Puedes abrir
+          también su definición o consultar el{' '}
+          <a class="text-link" href="/glosario/">
+            glosario <Arrow />
+          </a>
+          .
+        </p>
+      </section>
+      <section class="principle">
+        <h3>Lo que te gusta también cuenta</h3>
+        <p>
+          Las fotos y las palabras de las colaboradoras abren la mirada. Lo que te llamó la atención
+          en un par puede ser el detalle que otra persona aún no había visto.
+        </p>
+      </section>
+      <section class="principle">
+        <h3>Los zapatos, tal como los enseñas</h3>
+        <p>
+          No cambiamos su forma ni borramos las marcas de uso. Solo hacemos ajustes ligeros de luz,
+          nivelado o encuadre si ayudan a verlos. Nunca usamos IA generativa con fotos de
+          colaboradoras.
+        </p>
+      </section>
+    </div>
+  </section>
+  <section class="contact-section">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">¿Hablamos?</span>
+        <h2>Hay un correo al otro lado.</h2>
+        <p>Si dudas con un par, tienes una pregunta o quieres contarnos algo, escríbenos.</p>
+      </div>
+      <a class="text-link" href={`mailto:${site.email}`}>
+        {site.email} <Arrow />
+      </a>
+    </div>
+  </section>
+  <Invitation />
+</Base>

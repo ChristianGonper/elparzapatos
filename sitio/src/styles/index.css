@@ -1,0 +1,13 @@
+@import './global.css';
+@import './components/header.css';
+@import './pages/home.css';
+@import './components/invitation.css';
+@import './components/footer.css';
+@import './pages/catalog.css';
+@import './components/pair-cards.css';
+@import './pages/analysis.css';
+@import './components/overlays.css';
+@import './pages/participation.css';
+@import './pages/guide.css';
+@import './pages/information.css';
+@import './print.css';

@@ -1,0 +1,235 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Arrow from '../components/Arrow.astro';
+import Invitation from '../components/Invitation.astro';
+import { site } from '../data/site';
+import { guideImage } from '../data/images';
+const examples = [
+  {
+    base: guideImage(5),
+    max: 1600,
+    name: 'Bailarinas',
+    text: 'Un tejido abierto, una punta o un pequeño adorno.',
+  },
+  {
+    base: '/imagenes/ejemplos/marrones_2',
+    max: 960,
+    name: 'Tacones y tiras',
+    text: 'La forma del tacón y el recorrido de las tiras.',
+  },
+  {
+    base: '/imagenes/ejemplos/alpargata_tacon_1',
+    max: 960,
+    name: 'Cuñas y alpargatas',
+    text: 'La base también cambia el conjunto.',
+  },
+  {
+    base: '/imagenes/ejemplos/dorados_1',
+    max: 960,
+    name: 'Plataformas',
+    text: 'El brillo, las curvas y una suela que gana altura.',
+  },
+];
+const faqs = [
+  {
+    q: '¿Tiene que ser un par especial o de marca?',
+    a: 'No importa la marca, el precio ni si es conocido. Una puntera, unas tiras, un tacón o un tejido pueden dar mucho que mirar. De momento nos centramos en bailarinas, salones, sandalias de tacón, cuñas, plataformas y alpargatas. Las botas y las sandalias planas quedan fuera por ahora.',
+  },
+  {
+    q: '¿Tengo que enviar los zapatos?',
+    a: 'Solo nos envías las fotos. No tienes que mandar ni prestar los zapatos. Se quedan contigo.',
+  },
+  {
+    q: '¿Salgo yo en las fotos o en la web?',
+    a: 'Solo salen los zapatos. Nunca tu cara ni tu cuerpo. En el formulario eliges si apareces con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, usamos un nombre genérico para poder reunir tus pares.',
+  },
+  {
+    q: '¿Qué pasa después de enviarlos?',
+    a: 'Revisamos las fotos y, si falta una vista importante, te la pedimos. Después preparamos el análisis y te lo mandamos antes de publicarlo. Tienes 48 horas para pedir cambios. Si no contestas, se publica. Te avisamos cuando esté en la web.',
+  },
+  {
+    q: '¿Dónde se usan las fotos?',
+    a: 'En la web, Instagram y una futura newsletter de El Par, siempre para contar tus zapatos. Podemos ajustar la luz, enderezar y encuadrar una foto, o señalar un detalle. Nunca cambiamos la forma del zapato, borramos marcas de uso ni usamos IA generativa con tus fotos.',
+  },
+  {
+    q: '¿Puedo pedir que se retire mi par?',
+    a: 'Sí. Si prefieres que se quite, nos escribes y lo retiramos. Puedes decidirlo cuando quieras.',
+  },
+];
+---
+
+<Base
+  title="Cómo colaborar"
+  description="Enséñanos tus zapatos con fotos hechas con el móvil. Te contamos cómo participar, qué vistas enviar y qué hacemos con tus fotos."
+>
+  <section class="wrap collaboration-hero">
+    <div>
+      <span class="eyebrow">Un armario creado entre todas</span>
+      <h1>
+        Ese par que te encanta.
+        <br />
+        <em>Nos gustaría verlo.</em>
+      </h1>
+      <p class="lead">
+        Elige unos zapatos tuyos, hazles unas fotos con el móvil y nos acercamos a sus detalles. No
+        necesitas saber de fotografía ni de zapatos.
+      </p>
+      <a class="button" href={site.tally}>
+        Enviar mis fotos <Arrow />
+      </a>
+      <p class="small-note">Solo envías fotos. Tus zapatos se quedan contigo.</p>
+    </div>
+    <figure class="hero-image">
+      <Photo
+        base={guideImage(5)}
+        alt="El par de bailarinas de rejilla que María ha compartido con El Par"
+        priority
+        sizes="(max-width: 800px) 90vw, 45vw"
+      />
+      <figcaption>
+        <span>María ya nos ha enseñado las suyas.</span>
+        <Arrow />
+      </figcaption>
+    </figure>
+  </section>
+  <div class="wrap reassurance-strip">
+    <span>Con el móvil, en casa</span>
+    <span>Tú eliges cómo aparecer</span>
+    <span>Revisas el análisis antes</span>
+  </div>
+  <section class="wrap section steps-intro">
+    <div>
+      <span class="eyebrow">Así de sencillo</span>
+      <h2>
+        Tú nos los enseñas.
+        <br />
+        <em>Nosotros nos acercamos.</em>
+      </h2>
+    </div>
+    <ol class="steps">
+      <li>
+        <h3>Elige un par que te guste</h3>
+        <p>
+          No tiene que ser caro ni raro. Piensa en lo que te llamó la atención: la punta, una
+          hebilla, un brillo, unas tiras.
+        </p>
+      </li>
+      <li>
+        <h3>Hazle unas fotos</h3>
+        <p>
+          Con el móvil y un fondo sencillo. Que se vea bien por delante, de lado, por arriba, por
+          detrás y por debajo. Acércate también al detalle que te gusta.
+        </p>
+        <a class="text-link" href="/guia-de-fotos/">
+          Ver la guía con ejemplos <Arrow />
+        </a>
+      </li>
+      <li>
+        <h3>Cuéntanos lo que quieras</h3>
+        <p>
+          Sube las fotos al formulario. Si te apetece, añade la marca y lo que te gusta del par.
+          Después te mandamos el análisis para que lo revises antes de publicarlo.
+        </p>
+      </li>
+    </ol>
+  </section>
+  <section class="examples-section section">
+    <div class="wrap">
+      <div class="section-heading-row">
+        <div>
+          <span class="eyebrow">¿Encajan los tuyos?</span>
+          <h2>
+            Hay mucho que mirar
+            <br />
+            <em>en muchos zapatos.</em>
+          </h2>
+        </div>
+        <p>
+          Estos son algunos ejemplos. Lo que buscamos son detalles que podamos enseñarte y explicar.
+        </p>
+      </div>
+      <div class="example-grid">
+        {examples.map((example) => (
+          <figure>
+            <Photo
+              base={example.base}
+              max={example.max}
+              alt={example.name}
+              width={960}
+              height={1280}
+              sizes="(max-width: 800px) 45vw, 22vw"
+            />
+            <figcaption>
+              <h3>{example.name}</h3>
+              <p>{example.text}</p>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <p class="look-note">
+        De momento dejamos fuera las botas y las sandalias planas. Si dudas con un par,{' '}
+        <a class="text-link" href={`mailto:${site.email}`}>
+          escríbenos <Arrow />
+        </a>
+        .
+      </p>
+    </div>
+  </section>
+  <section class="wrap section photo-guide-summary">
+    <figure class="guide-preview">
+      <Photo
+        base={guideImage(2)}
+        alt="Vista lateral de las bailarinas de María como ejemplo de la guía"
+        sizes="(max-width: 800px) 90vw, 45vw"
+      />
+      <figcaption>Una vista de perfil del set de María.</figcaption>
+    </figure>
+    <div>
+      <span class="eyebrow">Sin fotos profesionales</span>
+      <h2>
+        Un fondo sencillo.
+        <br />
+        <em>Y un poco de luz.</em>
+      </h2>
+      <p class="lead">
+        Las fotos que harías para enseñarle tus zapatos a una amiga. En la guía tienes todas las
+        vistas, con un par fotografiado en casa.
+      </p>
+      <a class="text-link" href="/guia-de-fotos/">
+        Abrir la guía de fotos <Arrow />
+      </a>
+    </div>
+  </section>
+  <section class="wrap section faq-section" style="padding-top:0">
+    <div>
+      <span class="eyebrow">Antes de enviarlos</span>
+      <h2>
+        Lo que quizá
+        <br />
+        <em>te estás preguntando.</em>
+      </h2>
+    </div>
+    <div class="faq-list">
+      {faqs.map((faq) => (
+        <details>
+          <summary>{faq.q}</summary>
+          <div>
+            <p>{faq.a}</p>
+          </div>
+        </details>
+      ))}
+      <details>
+        <summary>¿Cómo puedo contactar con El Par?</summary>
+        <div>
+          <p>
+            Escríbenos a <a href={`mailto:${site.email}`}>{site.email}</a>. Si quieres saber cómo
+            cuidamos las fotos y los datos, tienes{' '}
+            <a href="/tus-fotos-y-tus-datos/">todos los detalles aquí</a>.
+          </p>
+        </div>
+      </details>
+    </div>
+  </section>
+  <Invitation compact />
+</Base>

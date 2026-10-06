@@ -1,42 +1,46 @@
-import { defineCollection } from 'astro:content';
+import { defineCollection, reference } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
-export const paresCollection = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.md', base: './src/content/pares' }),
-  schema: ({ image }) =>
-    z.object({
-      titulo: z.string(),
-      subtitulo: z.string(),
-      fechaPublicacion: z.coerce.date(),
-      destacadoEnPortada: z.boolean().default(false),
+const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+const text = z.string().min(1);
+const image = z.number().int().positive();
 
-      // Fotografía principal procesada y optimizada por astro:assets
-      heroImagen: image(),
-      heroAlt: z.string(),
-
-      // Cédula técnica canónica de 5 campos (Variante 3A: Cédula de Museo)
-      cedula: z.object({
-        siluetaTipo: z.string(), // Campo 1: ej. "Salón clásico"
-        marca: z.string(), // Campo 2: ej. "Christian Louboutin"
-        modelo: z.string(), // Campo 2: ej. "So Kate"
-        materialAcabado: z.string(), // Campo 3: ej. "Piel vacuna natural · Charol brillante · Negro profundo"
-        geometriaTacon: z.string(), // Campo 4: ej. "Tacón aguja 90 mm · Pecho recto"
-        procedenciaArmario: z.string(), // Campo 5: ej. "Armario de Carmen"
-        procedenciaInstagram: z.string().optional(), // Campo 5 opcional: ej. "carmen.armario"
-      }),
-
-      // Cita testimonial opcional de colaboradora
-      testimonio: z
-        .object({
-          texto: z.string(),
-          autora: z.string(),
-          posicion: z.enum(['apertura', 'detalle', 'cierre']).default('cierre'),
-        })
-        .optional(),
-    }),
+const colaboradoras = defineCollection({
+  loader: glob({
+    pattern: '*.json',
+    base: './src/content/colaboradoras',
+    generateId: ({ entry }) => entry.replace(/\.json$/, ''),
+  }),
+  schema: z.object({
+    slug,
+    name: text,
+    wardrobe: z.boolean().default(false),
+  }),
 });
 
-export const collections = {
-  pares: paresCollection,
-};
+const pares = defineCollection({
+  loader: glob({
+    pattern: '*.mdx',
+    base: './src/content/pares',
+    generateId: ({ entry }) => entry.replace(/\.mdx$/, ''),
+  }),
+  schema: z.object({
+    id: z.string().regex(/^PAR-\d{4,}$/),
+    slug,
+    collaborator: reference('colaboradoras').optional(),
+    status: z.enum(['draft', 'published']).default('draft'),
+    order: z.number().int().nonnegative(),
+    imageSet: slug,
+    photoAlt: text,
+    focus: text,
+    title: text,
+    teaser: text,
+    intro: text.optional(),
+    type: text,
+    brand: text.optional(),
+    hero: image,
+  }),
+});
+
+export const collections = { pares, colaboradoras };

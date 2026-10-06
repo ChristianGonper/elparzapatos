@@ -1,0 +1,14 @@
+---
+import { currentAnalysis } from '../data/analysis';
+const pair = currentAnalysis(Astro.locals);
+---
+
+<div class="wrap">
+  <section class="quote-block" aria-label={`Lo que cuenta ${pair.credit}`}>
+    <span class="eyebrow">Lo que cuenta {pair.credit}</span>
+    <blockquote>
+      <slot />
+    </blockquote>
+    <cite>{pair.credit}, sobre este par</cite>
+  </section>
+</div>

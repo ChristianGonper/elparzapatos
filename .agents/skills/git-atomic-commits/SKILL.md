@@ -5,85 +5,59 @@ description: >
   Use when the user asks to commit, guardar cambios en git, o pide commits pequeños/atómicos.
 ---
 
-# Git Atomic Commits
+# Git Atomic Commits — El Par
 
-Esta skill define el procedimiento para auditar, desagregar, empaquetar y redactar commits, garantizando un historial limpio, atómico y legible fundamentado en la **separación de responsabilidades**.
-
----
+Esta skill define el procedimiento para estructurar, empaquetar y redactar commits en el repositorio, garantizando un historial limpio, atómico y legible.
 
 ## 1. Principios fundamentales
 
-1. **Separación de responsabilidades**:
-   - Aunque un conjunto amplio de modificaciones provenga de una misma sesión de trabajo o requerimiento transversal, **no deben colapsarse en un único commit masivo** si abarcan capas arquitectónicas, módulos o intenciones desacopladas.
-   - Cada commit representa una **unidad lógica mínima completa**: un cambio autocontenido que resuelve una responsabilidad técnica o funcional concreta y deja el repositorio en un estado íntegro, coherente y funcional.
-   - La cantidad de commits no está prefijada: surge de evaluar cuántas responsabilidades independientes conviven en el árbol de cambios.
+1. **Unidad lógica de sentido (atomicidad real)**:
+   - Un commit atómico representa la **unidad lógica mínima completa** que tiene sentido por sí misma y deja el repositorio en un estado íntegro, coherente y funcional.
+   - La atomicidad la define el **propósito del cambio**, no el número de archivos.
+   - Si un cambio requiere conjuntamente su implementación (HTML, estilos, scripts), sus activos asociados y la actualización de su especificación viva, todo ese bloque conforma una sola unidad lógica y se empaqueta en el mismo commit.
+   - Si una misma intervención coherente se despliega de forma transversal sobre varios archivos vinculados a un único objetivo, se agrupan en un único commit que describa esa intención común.
 
-2. **Taxonomía universal de capas lógicas**:
-   Al evaluar un árbol con múltiples cambios acumulados, los commits se ordenan secuencialmente de menor a mayor dependencia arquitectónica:
-   - **Capa 0: Cimientos, configuración y entorno:** Dependencias del proyecto, herramientas de compilación/ejecución, variables de entorno tipadas, linters o configuraciones base.
-   - **Capa 1: Dominio, contratos y datos:** Definición de esquemas, tipos, interfaces, modelos de datos, migraciones o entidades nucleares.
-   - **Capa 2: Lógica de negocio y servicios:** Algoritmos, librerías internas, servicios, casos de uso o utilidades de soporte.
-   - **Capa 3: Superficies, interfaces y presentación:** Endpoints de API, controladores, vistas, componentes visuales o rutas de usuario, junto a sus activos directamente asociados.
-   - **Capa 4: Pruebas y verificación:** Suites de pruebas (unitarias, integración, e2e) o scripts de verificación (si aplican exclusivamente a una capa anterior, pueden integrarse en ella; si son transversales, conforman su propio hito).
-   - **Capa 5: Gobernanza y documentación:** Especificaciones técnicas, guías, bitácoras o planes de seguimiento (si un documento gobierna de forma exclusiva a una capa previa, se incluye en ella; si documenta el cierre global de una etapa, se confirma en su propio commit).
+2. **Gobernanza y trazabilidad integradas**:
+   - La documentación que acompaña o refleja el trabajo (`spec.md`, `plan.md`, `tasks.md`, o el apunte correspondiente en `TAREAS.md` / `ESTADO.md`) se integra dentro del propio commit del cambio que resuelve.
+   - Mantener la gobernanza unida a su implementación garantiza correspondencia directa en el historial y evita dispersar el registro en commits aislados de mero seguimiento.
 
-3. **Tratamiento de activos y recursos estáticos pesados**:
-   - Cuando se incorporen o modifiquen recursos no textuales o binarios (imágenes, iconos, tipografías, clips multimedia, datasets o activos gráficos auxiliares), es preferible empaquetarlos en un commit específico de activos.
-   - Aislar los activos binarios del código fuente evita inflar los diffs de programación, simplifica la revisión técnica y preserva la ligereza y claridad del historial.
+3. **Delimitación de responsabilidades**:
+   - Se dividen en commits independientes aquellos cambios que obedecen a motivos o áreas de trabajo desacopladas.
 
-4. **Gobernanza y trazabilidad asociadas**:
-   - Si una actualización en la documentación o especificación pertenece de forma directa y exclusiva a un módulo o capa concreta, se incluye en el mismo commit para mantener unidas la intención y su realización.
-   - Las actualizaciones transversales o de cierre general se aíslan en su respectivo commit de gobernanza.
-
-5. **Estilo canónico de los mensajes**:
+4. **Estilo de mensajes**:
    - **Idioma:** Siempre en español.
-   - **Tiempo y modo verbal:** Tercera persona del presente de indicativo (por ejemplo: *«Añade»*, *«Configura»*, *«Actualiza»*, *«Refactoriza»*, *«Implementa»*, *«Corrige»*, *«Elimina»*).
-   - **Sin prefijos artificiales:** Prohibido usar `feat:`, `fix:`, `chore:` o emojis.
-   - **Claridad y concisión:** Línea principal de menos de 72 caracteres, específica, sin punto final, expresando con exactitud la responsabilidad resuelta.
+   - **Tono y tiempo verbal:** Tercera persona del presente de indicativo (por ejemplo: *«Actualiza»*, *«Añade»*, *«Conecta»*, *«Refina»*, *«Depura»*, *«Consolida»*, *«Corrige»*, *«Retira»*).
+   - **Sin prefijos artificiales:** No usar `feat:`, `fix:`, `chore:`, ni emojis.
+   - **Claridad y concisión:** Línea principal de menos de 72 caracteres, sin punto final, específica y descriptiva del propósito del cambio.
 
-6. **Staging explícito y selectivo**:
-   - Preparar deliberadamente las rutas exactas de cada unidad lógica mediante `git add <ruta1> <ruta2> ...`.
-   - Prohibido usar comandos indiscriminados (`git add -A`, `git add .`) cuando coexistan múltiples responsabilidades en el área de trabajo.
-
----
+5. **Staging explícito**:
+   - Preparar deliberadamente las rutas exactas de cada paquete temático mediante `git add <ruta1> <ruta2> ...` para garantizar que solo entre lo que forma parte de la unidad lógica prevista.
 
 ## 2. Protocolo de ejecución paso a paso
 
-### Paso 1: Auditoría del árbol y desarme preventivo
-1. Inspeccionar el estado de los archivos:
-   ```bash
-   git status -u
-   ```
-2. **Desarme de preparación masiva**: Si existen archivos previamente agregados al área de preparación (`Changes to be committed`) que mezclan varias intenciones, devolverlos al área de trabajo sin perder los cambios:
-   ```bash
-   git restore --staged .
-   ```
-   Asegurar que el área de preparación queda vacía antes de clasificar los cambios.
+### Paso 1: Auditoría del árbol de trabajo
+Ejecutar `git status -u` para revisar:
+- Archivos modificados y nuevos en el espacio de trabajo.
+- Archivos o notas temporales que deban permanecer fuera del commit.
 
-### Paso 2: Triaje y mapeo de responsabilidades
-1. Revisar los archivos modificados y nuevos listados en `git status` y examinar el contenido de los cambios con `git diff`.
-2. Identificar las responsabilidades independientes presentes en el árbol de trabajo.
-3. Clasificarlas según la taxonomía de capas lógicas y definir el orden secuencial de confirmación (de cimientos a superficies y gobernanza).
+### Paso 2: Identificación de unidades lógicas
+Inspeccionar las diferencias con `git diff` y agrupar los cambios por propósito:
+- Reunir en un mismo paquete la implementación, sus recursos y la gobernanza directamente vinculada.
+- Distinguir si conviven intenciones de trabajo independientes que deban confirmarse en pasos separados.
 
-### Paso 3: Empaquetado y confirmación secuencial
-Por cada responsabilidad identificada, ejecutar ordenadamente:
-1. **Preparación selectiva**:
-   ```bash
-   git add <ruta-1> <ruta-2> ...
-   ```
-2. **Validación del área de preparación**:
-   Confirmar con `git status` que únicamente están listos los archivos que forman parte de esa unidad lógica concreta.
-3. **Confirmación del commit atómico**:
-   ```bash
-   git commit -m "Describe la responsabilidad resuelta en presente de indicativo"
-   ```
+### Paso 3: Staging explícito (`git add`)
+Añadir las rutas que componen la unidad lógica:
+```bash
+git add <ruta/archivo-1> <ruta/archivo-2> ...
+```
+Confirmar con `git status` que el área de preparación refleja exactamente el alcance buscado.
 
-Repetir este ciclo por cada grupo hasta que todo el trabajo pendiente quede registrado.
+### Paso 4: Creación del commit
+Redactar el mensaje en presente de indicativo expresando la intención completa:
+```bash
+git commit -m "Describe la unidad lógica resuelta"
+```
+Repetir para las demás unidades identificadas, si las hubiera.
 
-### Paso 4: Verificación final del historial
-Una vez limpio el árbol de trabajo (`working tree clean`):
-1. Inspeccionar la secuencia de commits generada:
-   ```bash
-   git log -n 10 --oneline
-   ```
-2. Comprobar que cada hito refleja un avance técnico autocontenido, comprensible e independiente.
+### Paso 5: Verificación final
+Revisar con `git status` y `git log -n 5 --oneline` para comprobar que el árbol queda limpio y el historial refleja hitos de trabajo coherentes y legibles.

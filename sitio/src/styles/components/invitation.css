@@ -1,0 +1,44 @@
+.invitation {
+  background: var(--blush);
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+.invitation-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.invitation .eyebrow {
+  color: var(--wine);
+  margin-bottom: 1.5rem;
+}
+.invitation h2 {
+  font-size: clamp(3rem, 6vw, 5.7rem);
+}
+.invitation-copy {
+  max-width: 39ch;
+  justify-self: end;
+}
+.invitation-copy > p:first-child {
+  font-size: 1.08rem;
+  margin-bottom: 1.6rem;
+}
+.invitation .small-note {
+  margin-top: 0.8rem;
+}
+.invitation .text-link {
+  margin-top: 1.4rem;
+}
+.invitation.compact h2 {
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+}
+@media (max-width: 800px) {
+  .invitation-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .invitation-copy {
+    justify-self: start;
+    max-width: 47ch;
+  }
+}

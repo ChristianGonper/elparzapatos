@@ -1,0 +1,68 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Arrow from '../../components/Arrow.astro';
+import Invitation from '../../components/Invitation.astro';
+import { wardrobes, wardrobePath } from '../../data/wardrobes';
+import { pairImage } from '../../data/images';
+---
+
+<Base
+  title="Armarios"
+  description="Los zapatos que cada colaboradora comparte con El Par, reunidos en su armario. Dos pares o más, muchas formas de mirar."
+>
+  <section class="wrap page-heading">
+    <span class="eyebrow">Un armario creado entre todas</span>
+    <h1>
+      Los pares.
+      <br />
+      <em>Y quien los comparte.</em>
+    </h1>
+    <p class="lead">
+      Cuando una colaboradora nos enseña dos pares o más, los reunimos aquí. Otra forma de descubrir
+      sus detalles, juntos.
+    </p>
+  </section>
+  <div class="wrap wardrobe-index">
+    {wardrobes.length ? (
+      wardrobes.map((wardrobe) => (
+        <a class="wardrobe-card" href={wardrobePath(wardrobe)}>
+          <div class="wardrobe-pictures">
+            {wardrobe.pairs.slice(0, 2).map((pair) => (
+              <Photo
+                base={pairImage(pair, pair.hero)}
+                alt={pair.photoAlt}
+                sizes="(max-width: 700px) 45vw, 30vw"
+              />
+            ))}
+          </div>
+          <div class="wardrobe-card-title">
+            <div>
+              <span class="eyebrow">{wardrobe.pairs.length} pares compartidos</span>
+              <h2>Armario de {wardrobe.name}</h2>
+            </div>
+            <span class="wardrobe-open">
+              Ver el armario <Arrow />
+            </span>
+          </div>
+        </a>
+      ))
+    ) : (
+      <div class="wardrobe-empty">
+        <h2>
+          Los primeros armarios
+          <br />
+          <em>están por llegar.</em>
+        </h2>
+        <p>
+          Un par ya tiene su sitio en Pares. Cuando haya dos o más de una misma colaboradora, los
+          reuniremos también aquí.
+        </p>
+        <a class="text-link" href="/pares/">
+          Descubrir los pares <Arrow />
+        </a>
+      </div>
+    )}
+  </div>
+  <Invitation compact />
+</Base>

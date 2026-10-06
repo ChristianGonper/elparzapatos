@@ -1,0 +1,28 @@
+---
+import Photo from './Photo.astro';
+import Arrow from './Arrow.astro';
+import { pairPath, pairs, type Pair } from '../data/pairs';
+import { pairImage } from '../data/images';
+interface Props {
+  pair: Pair;
+  sizes?: string;
+}
+const { pair, sizes = '(max-width: 700px) 90vw, 50vw' } = Astro.props;
+---
+
+<a class="pair-card" href={pairPath(pair)}>
+  <div class="card-image">
+    <Photo base={pairImage(pair, pair.hero)} alt={pair.photoAlt} {sizes} />
+  </div>
+  <div class="card-meta">
+    <span>
+      {pair.type} · {pair.credit}
+    </span>
+    <span>{String(pairs.indexOf(pair) + 1).padStart(2, '0')}</span>
+  </div>
+  <h2>{pair.title}</h2>
+  <p>{pair.teaser}</p>
+  <span class="card-read">
+    Leer a fondo <Arrow />
+  </span>
+</a>

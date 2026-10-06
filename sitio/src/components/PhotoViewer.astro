@@ -1,0 +1,36 @@
+<dialog class="image-dialog" aria-label="Fotografía ampliada">
+  <div class="image-dialog-inner">
+    <button class="close-button image-dialog-close" aria-label="Cerrar fotografía">
+      ×
+    </button>
+    <img width="1600" height="1200" alt="" />
+    <p class="image-dialog-caption"></p>
+  </div>
+</dialog>
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('.image-dialog');
+  let opener: HTMLButtonElement | null = null;
+  document.querySelectorAll<HTMLButtonElement>('[data-image-zoom]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!dialog) return;
+      const img = dialog.querySelector('img');
+      const caption = dialog.querySelector('.image-dialog-caption');
+      if (img) {
+        img.src = button.dataset.imageZoom ?? '';
+        img.alt = button.dataset.imageCaption ?? '';
+      }
+      if (caption) caption.textContent = button.dataset.imageCaption ?? '';
+      opener = button;
+      dialog.showModal();
+      document.body.classList.add('dialog-open');
+    });
+  });
+  dialog?.querySelector('button')?.addEventListener('click', () => dialog.close());
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+  dialog?.addEventListener('close', () => {
+    document.body.classList.remove('dialog-open');
+    opener?.focus();
+  });
+</script>
