@@ -1,15 +1,30 @@
 import { test, expect } from '@playwright/test';
 import { createRequire } from 'node:module';
+import { readdirSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
 const require = createRequire(import.meta.url);
 const axePath = require.resolve('axe-core/axe.min.js');
+const readEntries = (folder: string) =>
+  readdirSync(folder)
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => ({
+      id: file.replace(/\.json$/, ''),
+      data: JSON.parse(readFileSync(join(folder, file), 'utf8')),
+    }));
+const pairSources = readEntries('src/content/pares');
+const expectedWardrobes = readEntries('src/content/colaboradoras')
+  .filter((entry) => entry.data.wardrobe)
+  .map((entry) => ({
+    ...entry.data,
+    pairs: pairSources.filter((pair) => pair.data.collaborator === entry.id),
+  }))
+  .filter((entry) => entry.pairs.length >= 2);
 const routes = [
   '/',
   '/pares/',
   '/armarios/',
-  '/armarios/maria/',
-  '/pares/bailarinas-rejilla-flores/',
-  '/pares/bailarinas-manchas-leopardo/',
-  '/pares/slippers-burdeos-borde-rosa/',
+  ...expectedWardrobes.map((wardrobe) => `/armarios/${wardrobe.slug}/`),
+  ...pairSources.map((pair) => `/pares/${pair.data.slug}/`),
   '/participa/',
   '/guia-de-fotos/',
   '/el-par/',
@@ -128,13 +143,19 @@ test('La guía contiene el set completo y conserva la impresión', async ({ page
   await expect(page.locator('.guide-card').first()).toBeVisible();
 });
 
-test('Armario de María reúne tres pares y conecta con los análisis', async ({ page }) => {
-  await page.goto('/armarios/');
-  await page.getByRole('link', { name: /Armario de María/ }).click();
-  await expect(page).toHaveURL('/armarios/maria/');
-  await expect(page.locator('.pair-card')).toHaveCount(3);
-  await page.locator('.pair-card').first().click();
-  await expect(page.getByRole('link', { name: 'Armario de María', exact: true })).toBeVisible();
+test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page }) => {
+  for (const wardrobe of expectedWardrobes) {
+    await page.goto('/armarios/');
+    await page.getByRole('link', { name: new RegExp(`Armario de ${wardrobe.name}`) }).click();
+    await expect(page).toHaveURL(`/armarios/${wardrobe.slug}/`);
+    await expect(page.locator('.pair-card')).toHaveCount(wardrobe.pairs.length);
+    for (const pair of wardrobe.pairs)
+      await expect(page.locator(`.pair-card[href="/pares/${pair.data.slug}/"]`)).toBeVisible();
+    await page.locator('.pair-card').first().click();
+    await expect(
+      page.getByRole('link', { name: `Armario de ${wardrobe.name}`, exact: true }),
+    ).toBeVisible();
+  }
 });
 
 test('Las páginas pasan las reglas de accesibilidad automatizadas', async ({ page }) => {

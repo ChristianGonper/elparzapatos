@@ -36,6 +36,7 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 - Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
 - Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
 - Variables de lanzamiento comprobadas con un dominio de prueba: canónicas, sitemap de 12 rutas, robots e Instagram. Después se restauró la compilación de trabajo sin indexación ni enlace a la cuenta.
+- Prueba de crecimiento en una copia temporal con 63 pares: nuevas páginas, incorporación automática al armario existente y creación de otro; exclusión de armarios sin autorización o con un único par; entradas anónimas y rechazo de referencias inexistentes y rutas duplicadas.
 
 GitHub Actions repite formato, compilación, verificación y pruebas en cada cambio. Conserva el resultado como artefacto de revisión, sin desplegarlo.
 

@@ -29,13 +29,10 @@ const { wardrobe } = Astro.props;
       <br />
       <em>{wardrobe.name}.</em>
     </h1>
-    <p class="lead">
-      Los pares que {wardrobe.name} nos ha enseñado. Cada uno tiene algo distinto que mirar.
-    </p>
   </section>
-  <div class="wrap pair-index">
+  <div class="wrap pair-index wardrobe-pairs">
     {wardrobe.pairs.map((pair) => (
-      <PairCard {pair} />
+      <PairCard {pair} sizes="(max-width: 700px) 90vw, (max-width: 999px) 45vw, 30vw" />
     ))}
   </div>
   <div class="wrap wardrobe-back">

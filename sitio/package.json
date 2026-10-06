@@ -14,7 +14,8 @@
     "verify": "npm run check && npm run build && node scripts/verify-build.mjs",
     "format": "prettier --write src astro.config.mjs scripts tests playwright.config.ts",
     "format:check": "prettier --check src astro.config.mjs scripts tests playwright.config.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:content": "node scripts/verify-growth.mjs"
   },
   "dependencies": {
     "@fontsource-variable/dm-sans": "5.3.0",

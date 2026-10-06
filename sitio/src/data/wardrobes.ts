@@ -1,26 +1,31 @@
-import { pairs, type Pair } from './pairs';
+import { pairs, contributors, type Pair } from './pairs';
 
-interface WardrobeSource {
-  slug: string;
-  name: string;
-  pairIds: string[];
-}
 export interface Wardrobe {
   slug: string;
   name: string;
+  contributorId: string;
   pairs: Pair[];
 }
-// Solo identidad pública elegida y pares preparados. Sin correo, @ privado ni importación de hojas.
-const sources: WardrobeSource[] = [
-  { slug: 'maria', name: 'María', pairIds: ['PAR-0003', 'PAR-0004', 'PAR-0002'] },
-];
-export const wardrobes: Wardrobe[] = sources
-  .map((source) => ({
-    slug: source.slug,
-    name: source.name,
-    pairs: pairs.filter((pair) => source.pairIds.includes(pair.id)),
+
+const grouped = new Map<string, Pair[]>();
+for (const pair of pairs) {
+  const id = pair.collaborator?.id;
+  if (!id) continue;
+  const group = grouped.get(id) ?? [];
+  group.push(pair);
+  grouped.set(id, group);
+}
+
+export const wardrobes: Wardrobe[] = contributors
+  .filter((contributor) => contributor.wardrobe && (grouped.get(contributor.id)?.length ?? 0) >= 2)
+  .map((contributor) => ({
+    slug: contributor.slug,
+    name: contributor.name,
+    contributorId: contributor.id,
+    pairs: grouped.get(contributor.id)!,
   }))
-  .filter((wardrobe) => wardrobe.pairs.length >= 2);
+  .sort((a, b) => a.name.localeCompare(b.name, 'es'));
+
 export const wardrobePath = (wardrobe: Wardrobe) => `/armarios/${wardrobe.slug}/`;
 export const wardrobeForPair = (pair: Pair) =>
-  wardrobes.find((wardrobe) => wardrobe.pairs.some((item) => item.id === pair.id));
+  wardrobes.find((wardrobe) => wardrobe.contributorId === pair.collaborator?.id);

@@ -21,6 +21,7 @@ npm run dev
 ```sh
 npm run verify
 npm run format:check
+npm run test:content
 npx playwright install chromium
 npm run test:e2e
 npm run preview
@@ -29,6 +30,8 @@ npm run preview
 La salida estática se genera en `sitio/dist/`. El sitio no necesita servidor ni acceso a Drive para funcionar. Las fuentes están alojadas localmente y las imágenes se incluyen en la compilación.
 
 [Diseño](docs/DISENO.md) · [Lanzamiento](docs/LANZAMIENTO.md) · [Revisión visual y pruebas](docs/REVISION.md)
+
+Los pares son entradas independientes validadas por Astro Content Collections. Los armarios se generan por colaboradora, sin listas manuales ni páginas personalizadas. [Cómo añadir contenido](docs/CONTENIDO.md#añadir-contenido).
 
 Las pruebas de navegador comprueban móvil, escritorio, teclado, accesibilidad, imágenes, enlaces y el acceso directo a Tally. En un entorno con Chromium instalado puede indicarse su ruta mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE`. GitHub Actions ejecuta las comprobaciones en cada cambio y conserva la compilación como artefacto; no despliega el sitio.
 

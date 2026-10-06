@@ -70,10 +70,10 @@ const wardrobe = wardrobeForPair(pair);
           </figure>
         </section>
       ))}
-      <section class="quote-block" aria-label="Lo que cuenta María">
-        <span class="eyebrow">Lo que le gusta a María</span>
+      <section class="quote-block" aria-label={`Lo que cuenta ${pair.credit}`}>
+        <span class="eyebrow">Lo que cuenta {pair.credit}</span>
         <blockquote>«{pair.quote}»</blockquote>
-        <cite>María, sobre sus bailarinas</cite>
+        <cite>{pair.credit}, sobre este par</cite>
       </section>
       <section class="at-a-glance" aria-labelledby="glance-heading">
         <div>
@@ -87,7 +87,7 @@ const wardrobe = wardrobeForPair(pair);
           </div>
           <div>
             <dt>Marca</dt>
-            <dd>{pair.brand}, según María</dd>
+            <dd>{pair.brand}, según su envío</dd>
           </div>
           <div>
             <dt>Fotos y colaboración</dt>

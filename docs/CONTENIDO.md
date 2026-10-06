@@ -16,7 +16,7 @@ Los rasgos se describen desde las fotos. No se infiere composición, fabricació
 
 ## Armarios
 
-El índice y las páginas individuales forman parte de esta entrega. Armario de María reúne los tres análisis preparados. El criterio de entrada se aplica en los datos: menos de dos pares no produce página de armario. El crédito y el slug público se seleccionan manualmente según el permiso; nunca se deducen de una hoja privada.
+El índice y las páginas individuales se generan agrupando las entradas por su referencia a una colaboradora. Armario de María reúne ahora los tres análisis preparados y crece automáticamente al añadir otro. No contiene una biografía ni un texto personalizado que deba reescribirse: muestra nombre, número de pares y tarjetas enlazadas a los análisis. Menos de dos pares no produce página de armario. El crédito, slug y autorización de armario se definen una sola vez en la identidad pública de la colaboradora; nunca se deducen de una hoja privada.
 
 No hay perfil social, foto personal ni dato de contacto. Las personas anónimas podrán tener una etiqueta pública genérica y estable cuando haya un caso autorizado, sin inventar identidades de muestra.
 
@@ -39,6 +39,15 @@ No hay aliases ni nombres de ruta heredados. El Tally sigue siendo `https://tall
 
 ## Añadir contenido
 
-Se prepara el análisis con las fotos y las preferencias autorizadas. Se añade una entrada en los datos de pares y, si corresponde, su relación con un armario. La página de cada par y los índices se generan desde esos datos. Los términos remiten al glosario compartido.
+Cada análisis vive en un archivo independiente de `sitio/src/content/pares/`. Astro Content Collections valida su esquema en `src/content.config.ts`. `pairs.ts` carga la colección y ofrece funciones de consulta; no contiene los textos de los pares. Los términos remiten al glosario compartido.
+
+Para incorporar un nuevo par:
+
+1. Preparar su análisis e imágenes a partir de Drive y los permisos autorizados.
+2. Crear su JSON independiente, con identificador, slug, orden editorial, textos, imágenes y referencia `collaborator` a la identidad pública correspondiente. No añadir nombres ni correos a una plantilla.
+3. Si es una nueva colaboradora identificada, crear una vez su archivo en `src/content/colaboradoras/`: nombre público, slug y autorización de armario. Sin listas de pares. Si no lleva referencia de colaboradora se muestra «Colaboración anónima» y no se agrupa con otras personas anónimas.
+4. Comprobar y compilar. Catálogo, página del par, contador, enlaces al armario, índice de armarios y sitemap se actualizan automáticamente. No se edita la página del armario.
+
+Los identificadores de colección son los nombres de archivo. Una ruta o identificador de par duplicados y una referencia a una colaboradora inexistente detienen la compilación, evitando sobrescribir entradas. `npm run test:content` compila una copia temporal con 60 pares adicionales, comprueba las agrupaciones y rechaza datos inválidos. Los ejemplos nunca se incorporan a la web real.
 
 El paso automático de la hoja a la web permanece pendiente, como indica Drive. No se ha construido una importación ni un backend.

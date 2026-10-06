@@ -4,17 +4,14 @@ import Arrow from './Arrow.astro';
 import { pairPath, pairImage, pairs, type Pair } from '../data/pairs';
 interface Props {
   pair: Pair;
+  sizes?: string;
 }
-const { pair } = Astro.props;
+const { pair, sizes = '(max-width: 700px) 90vw, 50vw' } = Astro.props;
 ---
 
 <a class="pair-card" href={pairPath(pair)}>
   <div class="card-image">
-    <Photo
-      base={pairImage(pair, pair.hero)}
-      alt={pair.photoAlt}
-      sizes="(max-width: 700px) 90vw, 50vw"
-    />
+    <Photo base={pairImage(pair, pair.hero)} alt={pair.photoAlt} {sizes} />
   </div>
   <div class="card-meta">
     <span>
