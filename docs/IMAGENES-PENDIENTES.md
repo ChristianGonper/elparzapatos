@@ -31,3 +31,5 @@ Antes de decidir, comparar peso y aspecto en varias fotos del proyecto, especial
 - Cómo se retiran todas las copias de un par cuando se pide su retirada.
 
 Esto no define la importación de colaboraciones desde la hoja, que sigue pendiente en Drive. Es una decisión separada sobre los archivos que sí se hayan aprobado para publicar.
+
+Fuentes consultadas el 6/10/2026: [R2 y dominios públicos](https://developers.cloudflare.com/r2/buckets/public-buckets/), [transformaciones de Cloudflare Images](https://developers.cloudflare.com/images/optimization/features/) y [formatos de imagen en MDN](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types).

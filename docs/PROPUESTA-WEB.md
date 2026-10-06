@@ -51,7 +51,7 @@ La guía de bailarinas usará ese set completo. El séptimo ejemplo, el detalle,
 
 El primer análisis tendrá una entradilla breve, secciones por rasgos visibles, la frase exacta de María atribuida y «De un vistazo» al final. No habrá medidas, inferencias de fabricación o afirmaciones sobre comodidad. El orden de secciones es una propuesta aplicada a este par, no una plantilla obligatoria.
 
-El análisis se prepara como borrador para revisión de María antes del lanzamiento. La web se termina y se comprueba en local; esto no envía mensajes ni publica nada en internet.
+También se preparan desde cero PAR-0004 y PAR-0002, los otros dos pares de María. Armario de María reúne los tres. Los análisis se preparan como borradores para revisión de María antes del lanzamiento. La web se termina y se comprueba en local; esto no envía mensajes ni publica nada en internet.
 
 ## Definiciones
 

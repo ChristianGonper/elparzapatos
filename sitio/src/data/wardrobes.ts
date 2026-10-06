@@ -12,7 +12,7 @@ export interface Wardrobe {
 }
 // Solo identidad pública elegida y pares preparados. Sin correo, @ privado ni importación de hojas.
 const sources: WardrobeSource[] = [
-  { slug: 'maria', name: 'María', pairIds: ['PAR-0003', 'PAR-0004'] },
+  { slug: 'maria', name: 'María', pairIds: ['PAR-0003', 'PAR-0004', 'PAR-0002'] },
 ];
 export const wardrobes: Wardrobe[] = sources
   .map((source) => ({

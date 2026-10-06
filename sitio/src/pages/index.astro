@@ -136,15 +136,16 @@ const looks = [
   {wardrobes[0] && (
     <section class="wrap section home-wardrobe">
       <div>
-        <span class="eyebrow">Dos pares, otra forma de descubrir</span>
+        <span class="eyebrow">Tres pares, otra forma de descubrir</span>
         <h2>
           El armario
           <br />
           <em>empieza contigo.</em>
         </h2>
         <p class="lead">
-          María nos ha enseñado dos bailarinas. Una deja ver a través de sus flores; la otra lleva
-          manchas por toda la superficie. Las reunimos en su armario.
+          María nos ha enseñado tres pares. Uno deja ver a través de sus flores; otro lleva manchas
+          por toda la superficie, y en el tercero el rosa recorre el burdeos. Los reunimos en su
+          armario.
         </p>
         <a class="text-link" href={wardrobePath(wardrobes[0])}>
           Entrar en el Armario de María <Arrow />
@@ -153,9 +154,9 @@ const looks = [
       <a
         class="wardrobe-pictures"
         href={wardrobePath(wardrobes[0])}
-        aria-label="Ver los dos pares del Armario de María"
+        aria-label="Ver los pares del Armario de María"
       >
-        {wardrobes[0].pairs.map((pair) => (
+        {wardrobes[0].pairs.slice(0, 2).map((pair) => (
           <Photo
             base={pairImage(pair, pair.hero)}
             alt={pair.photoAlt}

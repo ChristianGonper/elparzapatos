@@ -4,16 +4,19 @@ Drive → Moda-Zapatos es la fuente de marca y copy. Fuentes vigentes consultada
 
 ## Análisis preparados
 
+No existían entradas redactadas de estos pares. Los tres textos se escriben desde las fotos y los envíos, como borradores de esta reconstrucción.
+
 - PAR-0003: bailarinas de rejilla de María. Seis fotos del envío ENV-0003; marca Zara y frase del mismo envío.
+- PAR-0002: slippers burdeos de Flabelus, con borde rosa. Seis fotos HEIC del envío ENV-0002, 16/09/2026. Crédito elegido: nombre. La cita es un extracto literal de sus palabras.
 - PAR-0004: bailarinas de dibujo de leopardo de María. Seis fotos del mismo envío, marca y frase del segundo bloque.
 
-Solo se publica en el código el contenido seleccionado para la web. Crédito elegido: María. Sin @, correos ni datos privados. Los dos análisis están preparados como borradores para revisión antes del lanzamiento; no se ha contactado con María ni se ha publicado el sitio.
+Solo se publica en el código el contenido seleccionado para la web. Crédito elegido: María. Sin @, correos ni datos privados. Los tres análisis están preparados como borradores para revisión antes del lanzamiento; no se ha contactado con María ni se ha publicado el sitio.
 
 Los rasgos se describen desde las fotos. No se infiere composición, fabricación interior, comodidad ni calidad. En PAR-0004 se describe el pelo corto visible sin atribuirle un material concreto. Cada sección tiene una imagen de apoyo y los títulos se adaptan al rasgo.
 
 ## Armarios
 
-El índice y las páginas individuales forman parte de esta entrega. Armario de María reúne los dos análisis preparados. El criterio de entrada se aplica en los datos: menos de dos pares no produce página de armario. El crédito y el slug público se seleccionan manualmente según el permiso; nunca se deducen de una hoja privada.
+El índice y las páginas individuales forman parte de esta entrega. Armario de María reúne los tres análisis preparados. El criterio de entrada se aplica en los datos: menos de dos pares no produce página de armario. El crédito y el slug público se seleccionan manualmente según el permiso; nunca se deducen de una hoja privada.
 
 No hay perfil social, foto personal ni dato de contacto. Las personas anónimas podrán tener una etiqueta pública genérica y estable cuando haya un caso autorizado, sin inventar identidades de muestra.
 

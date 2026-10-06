@@ -10,6 +10,7 @@ export interface Pair {
   id: string;
   imageSet: string;
   photoAlt: string;
+  focus: string;
   title: string;
   teaser: string;
   intro: string;
@@ -26,6 +27,7 @@ export const pairs: Pair[] = [
     slug: 'bailarinas-rejilla-flores',
     id: 'PAR-0003',
     imageSet: 'maria',
+    focus: 'Rejilla, flores y puntos de brillo',
     photoAlt: 'Bailarinas de María, con rejilla oscura, flores y puntos de brillo',
     title: 'Flores sobre una rejilla',
     teaser:
@@ -91,6 +93,7 @@ export const pairs: Pair[] = [
     slug: 'bailarinas-manchas-leopardo',
     id: 'PAR-0004',
     imageSet: 'maria-leopardo',
+    focus: 'Manchas, textura y abertura lateral',
     photoAlt: 'Las bailarinas de María con manchas oscuras sobre una superficie de pelo corto',
     title: 'Manchas que siguen la forma',
     teaser:
@@ -148,6 +151,72 @@ export const pairs: Pair[] = [
         paragraphs: [
           'La suela es oscura y deja de lado el dibujo del exterior. Se distingue una zona amplia bajo la parte delantera y otra bajo el talón, unidas por un tramo más estrecho.',
           'En el contorno todavía se ve una franja del dibujo de manchas. El contraste entre ese borde y la base resume lo que aparece en las demás vistas: una forma baja y sencilla con una superficie que se lleva la mirada.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'slippers-burdeos-borde-rosa',
+    id: 'PAR-0002',
+    imageSet: 'maria-burdeos',
+    focus: 'Contraste de color, abertura y textura',
+    photoAlt: 'Las slippers burdeos de María, con borde rosa alrededor de la abertura y la base',
+    title: 'Un borde rosa alrededor del burdeos',
+    teaser:
+      'La superficie oscura y una línea rosa que vuelve a aparecer junto al suelo. Dos colores para seguir toda la forma.',
+    intro:
+      'María ha compartido estas slippers de Flabelus, unos zapatos bajos que cubren más la parte delantera del pie que sus otras bailarinas. Sobre el burdeos de aspecto aterciopelado, el rosa sigue la abertura y vuelve a aparecer alrededor de la base.',
+    credit: 'María',
+    type: 'Slippers',
+    brand: 'Flabelus',
+    hero: 5,
+    quote: 'Me encanta la originalidad de flabelus',
+    sections: [
+      {
+        title: 'La abertura tiene su propio dibujo',
+        image: 1,
+        caption:
+          'Desde arriba se ve el borde rosa y el recorte del extremo delantero de la abertura.',
+        paragraphs: [
+          'El borde rosa permite seguir la abertura completa de un vistazo. Recorre el talón y los lados, pero por delante no termina en una curva continua: baja un poco en el centro y cambia de dirección a cada lado.',
+          'Ese recorte marca la [[garganta]], el borde delantero donde el zapato deja de cubrir el pie. Delante queda una zona amplia de burdeos, sin tiras, lazos ni adornos añadidos.',
+        ],
+      },
+      {
+        title: 'El color baja hasta la base',
+        image: 6,
+        caption: 'En el perfil, el rosa aparece tanto en la abertura como en el contorno inferior.',
+        paragraphs: [
+          'De lado se ven dos líneas rosas separadas por la superficie burdeos. Una rodea la abertura. La otra sigue la base, desde la punta hasta el talón.',
+          'No tienen el mismo aspecto. La de arriba es lisa y estrecha; la inferior muestra una textura más irregular, con pequeños trazos que se repiten. En este ángulo también se aprecia lo baja que queda la base.',
+        ],
+      },
+      {
+        title: 'Una punta sin un adorno por encima',
+        image: 4,
+        caption: 'La vista de frente muestra la curva de las puntas y el borde rosa bajo ellas.',
+        paragraphs: [
+          'Por delante, la [[puntera]] termina en una curva amplia. La superficie burdeos ocupa toda la zona y cambia de tono donde la luz incide de otra manera.',
+          'El aspecto aterciopelado se reconoce en esas variaciones: unas franjas se ven más oscuras y otras más claras. No hace falta atribuirle una composición concreta para apreciar lo que cambia en la foto.',
+        ],
+      },
+      {
+        title: 'La línea sigue por detrás',
+        image: 3,
+        caption:
+          'Vista de tres cuartos por detrás: el contraste rosa continúa alrededor del talón.',
+        paragraphs: [
+          'El talón queda cerrado. El borde rosa pasa por su parte superior y vuelve hacia la abertura, mientras que otra franja del mismo color continúa por debajo.',
+          'Desde atrás se ve también cuánto cubre la zona delantera. La [[pala]], la parte sobre los dedos, se alarga hacia el empeine más que en los otros dos pares de María.',
+        ],
+      },
+      {
+        title: 'Por debajo cambia la trama',
+        image: 2,
+        caption: 'La suela oscura tiene un dibujo que ocupa casi toda su superficie.',
+        paragraphs: [
+          'La suela no es lisa. Tiene una trama de trazos cortos que recorren la superficie oscura y siguen direcciones diferentes. El dibujo de la base contrasta con las zonas amplias de burdeos del exterior.',
+          'Alrededor aún asoma el rosa. Es el color que conecta las vistas de este par: señala la abertura cuando lo miras desde arriba y delimita la base cuando lo giras.',
         ],
       },
     ],
