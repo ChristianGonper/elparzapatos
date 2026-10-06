@@ -6,4 +6,25 @@ Reconstrucción completa desde la rama `par-astro`. La marca y el contenido se c
 
 [Propuesta de la web](docs/PROPUESTA-WEB.md) · [Reglas de trabajo](AGENTS.md)
 
+## Ejecutar
+
+Node 22.12 o superior, npm y dependencias fijadas en el lockfile.
+
+```sh
+cd sitio
+npm ci
+npm run dev
+```
+
+## Comprobar y compilar
+
+```sh
+npm run verify
+npm run preview
+```
+
+La salida estática se genera en `sitio/dist/`. El sitio no necesita servidor ni acceso a Drive para funcionar. Las fuentes están alojadas localmente y las imágenes se incluyen en la compilación.
+
+[Diseño](docs/DISENO.md) · [Lanzamiento](docs/LANZAMIENTO.md)
+
 La implementación vive en `sitio/`. El trabajo anterior se conserva en el historial de Git, no en carpetas de prototipos ni en documentación que pueda confundirse con el producto vigente.
