@@ -83,13 +83,10 @@ const faqs = [
         Elige unos zapatos tuyos, hazles unas fotos con el móvil y nos acercamos a sus detalles. No
         necesitas saber de fotografía ni de zapatos.
       </p>
-      <a class="button" href={site.tally}>
-        Enviar mis fotos <Arrow />
+      <a class="button" href="/guia-de-fotos/">
+        Qué fotos hacer <Arrow />
       </a>
       <p class="small-note">Solo envías fotos. Tus zapatos se quedan contigo.</p>
-      <a class="text-link" href="#fotos">
-        Qué fotos preparar <Arrow />
-      </a>
       <p class="small-note participation-note">
         Puedes empezar con un par. Desde el segundo publicado tendrás también tu armario.
       </p>
@@ -278,5 +275,5 @@ const faqs = [
       </details>
     </div>
   </section>
-  <Invitation compact />
+  <Invitation compact next="guia" />
 </Base>

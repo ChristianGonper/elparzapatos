@@ -25,7 +25,7 @@ Referencias revisadas el 6/10, como orientación y sin copiar diseños ni imáge
 | Pares | Reunir los análisis disponibles. Sin tarjetas inventadas para llenar el diseño. |
 | Armarios | Reunir los pares de cada colaboradora, a partir de dos análisis, con una página que pueda compartir. |
 | Cada par | Contar todo lo relevante, con cada explicación junto a la foto que la demuestra. |
-| Cómo colaborar | Invitar, mostrar ejemplos, explicar las fotos y las condiciones, y abrir Tally directamente. |
+| Cómo colaborar | Invitar, mostrar ejemplos, explicar las fotos y las condiciones, y llevar a la guía de fotos. |
 | Guía de fotos | Una guía visual que se puede guardar y consultar mientras se fotografía. También se podrá imprimir. |
 | Qué es El Par | La presentación aprobada, cómo se mira un par y contacto. |
 | Glosario | Definiciones breves que apoyan los análisis; un único contenido compartido con las ayudas contextuales. |
@@ -35,9 +35,9 @@ Referencias revisadas el 6/10, como orientación y sin copiar diseños ni imáge
 Armarios tendrá su índice y páginas por colaboradora. Se mostrarán únicamente cuando haya al menos dos análisis preparados de una misma persona.
 ## Participar sin dar vueltas
 
-La cabecera y la portada tendrán «Enviar mis fotos», que abre el mismo Tally actual. Junto al botón se dirá lo esencial: haces las fotos con el móvil; no envías los zapatos. Quien quiera orientarse tendrá «Cómo colaborar». Las instrucciones no serán pantallas obligatorias antes del formulario.
+La cabecera, la portada y el resto de páginas tendrán «Manda tu par», que lleva a Cómo colaborar. Junto al botón se dirá lo esencial: haces las fotos con el móvil; no envías los zapatos. Cómo colaborar lleva a la guía con «Qué fotos hacer», y el final de la guía abre el mismo Tally actual con «Enviar mis fotos».
 
-La página de colaboración reunirá lo que ahora está disperso. Primero explica qué se envía y qué se prepara con ello. Después muestra ejemplos, una guía corta y respuestas a las dudas: crédito a elección, solo zapatos, revisión de 48 horas y posibilidad de retirada. El acceso al formulario estará también al principio y al final.
+La página de colaboración reunirá lo que ahora está disperso. Primero explica qué se envía y qué se prepara con ello. Después muestra ejemplos, una guía corta y respuestas a las dudas: crédito a elección, solo zapatos, revisión de 48 horas y posibilidad de retirada. Al final, quien ya haya hecho las fotos de la guía puede abrir el formulario directamente.
 
 ## Fotografías y primer análisis
 

@@ -77,15 +77,35 @@ for (const width of [320, 360, 390, 430, 768, 1024, 1440]) {
   });
 }
 
-test('Inicio y participación abren el mismo Tally directamente', async ({ page }) => {
-  for (const route of ['/', '/participa/']) {
+test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y por último a Tally', async ({
+  page,
+}) => {
+  const tally = 'a[href^="https://tally.so/"]';
+  for (const route of routes) {
     await page.goto(route);
-    const actions = page.getByRole('link', { name: 'Enviar mis fotos', exact: false });
-    expect(await actions.count()).toBeGreaterThanOrEqual(1);
-    for (const link of await actions.all())
-      await expect(link).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
+    await expect(page.locator('.header-cta')).toHaveAttribute('href', '/participa/');
     await expect(page.locator('iframe')).toHaveCount(0);
+    if (route === '/guia-de-fotos/') {
+      await expect(page.locator(tally)).toHaveCount(1);
+      await expect(page.locator(`#enviar ${tally}`)).toHaveAttribute(
+        'href',
+        'https://tally.so/r/Npj2bl',
+      );
+    } else if (route === '/participa/') {
+      await expect(page.locator(tally)).toHaveCount(1);
+      await expect(page.locator(`.invitation-done ${tally}`)).toHaveCount(1);
+    } else await expect(page.locator(tally), route).toHaveCount(0);
   }
+  await page.goto('/');
+  await page.locator('.invitation').getByRole('link', { name: 'Manda tu par' }).click();
+  await expect(page).toHaveURL('/participa/');
+  await page.locator('.collaboration-hero').getByRole('link', { name: 'Qué fotos hacer' }).click();
+  await expect(page).toHaveURL('/guia-de-fotos/');
+  await page.getByRole('link', { name: 'Ya tengo mis fotos' }).click();
+  await expect(page).toHaveURL('/guia-de-fotos/#enviar');
+  await expect(
+    page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' }),
+  ).toBeInViewport();
 });
 
 test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {
@@ -218,9 +238,8 @@ test('Participación muestra las siete vistas, el resultado y las condiciones vi
   page,
 }) => {
   await page.goto('/participa/');
-  await page.getByRole('link', { name: 'Qué fotos preparar' }).click();
-  await expect(page).toHaveURL('/participa/#fotos');
   await expect(page.locator('.photo-checklist li')).toHaveCount(7);
+  await expect(page.locator('#fotos')).toContainText('tienes 48 horas');
   await expect(page.locator('#fotos')).toContainText('máximo de 48 horas');
   await expect(page.locator('#fotos')).toContainText('el formulario pide');
   await expect(page.locator('.participation-note')).toContainText('segundo publicado');
@@ -369,7 +388,11 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   await expect(
     page
       .getByRole('navigation', { name: 'Navegación móvil' })
-      .getByRole('link', { name: 'Enviar mis fotos' }),
+      .getByRole('link', { name: 'Manda tu par' }),
+  ).toHaveAttribute('href', '/participa/');
+  await page.goto('http://localhost:4322/guia-de-fotos/');
+  await expect(
+    page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' }),
   ).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
   await context.close();
 });
