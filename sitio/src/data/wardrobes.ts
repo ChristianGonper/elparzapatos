@@ -9,8 +9,7 @@ export interface Wardrobe {
 
 const grouped = new Map<string, Pair[]>();
 for (const pair of pairs) {
-  const id = pair.collaborator?.id;
-  if (!id) continue;
+  const id = pair.collaborator.id;
   const group = grouped.get(id) ?? [];
   group.push(pair);
   grouped.set(id, group);
@@ -28,4 +27,4 @@ export const wardrobes: Wardrobe[] = contributors
 
 export const wardrobePath = (wardrobe: Wardrobe) => `/armarios/${wardrobe.slug}/`;
 export const wardrobeForPair = (pair: Pair) =>
-  wardrobes.find((wardrobe) => wardrobe.contributorId === pair.collaborator?.id);
+  wardrobes.find((wardrobe) => wardrobe.contributorId === pair.collaborator.id);

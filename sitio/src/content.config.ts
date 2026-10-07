@@ -1,6 +1,7 @@
 import { defineCollection, reference } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
+import { anonymousCredit } from './data/participation';
 
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
 const text = z.string().min(1);
@@ -12,11 +13,22 @@ const colaboradoras = defineCollection({
     base: './src/content/colaboradoras',
     generateId: ({ entry }) => entry.replace(/\.json$/, ''),
   }),
-  schema: z.object({
-    slug,
-    name: text,
-    wardrobe: z.boolean().default(false),
-  }),
+  // Con nombre público o anónima con un número estable que se muestra como «Colaboradora 07».
+  schema: z
+    .object({
+      slug,
+      name: text.optional(),
+      anonymous: z.number().int().min(1).max(99).optional(),
+      wardrobe: z.boolean().default(false),
+    })
+    .refine((entry) => (entry.name === undefined) !== (entry.anonymous === undefined), {
+      message: 'Indica name o anonymous (número de colaboradora anónima), no ambos.',
+    })
+    .transform(({ name, anonymous, ...entry }) => ({
+      ...entry,
+      anonymous,
+      name: name ?? anonymousCredit(anonymous!),
+    })),
 });
 
 const pares = defineCollection({
@@ -29,7 +41,7 @@ const pares = defineCollection({
     .object({
       id: z.string().regex(/^PAR-\d{4,}$/),
       slug,
-      collaborator: reference('colaboradoras').optional(),
+      collaborator: reference('colaboradoras'),
       status: z.enum(['draft', 'published']).default('draft'),
       publishedAt: z.preprocess(
         (value) => (value instanceof Date ? value.toISOString().slice(0, 10) : value),

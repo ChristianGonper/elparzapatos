@@ -5,7 +5,7 @@ Drive → Moda-Zapatos es la fuente de marca y copy. Fuentes vigentes consultada
 
 El índice y las páginas individuales se generan agrupando las entradas por su referencia a una colaboradora. Armario de María reúne ahora los tres análisis preparados y crece automáticamente al añadir otro. Muestra nombre, número de pares y tarjetas enlazadas a los análisis. Menos de dos pares no produce página de armario. El crédito, slug y autorización de armario se definen una sola vez en la identidad pública de la colaboradora; nunca se deducen de una hoja privada.
 
-Las personas anónimas podrán tener una etiqueta pública genérica y estable cuando haya un caso autorizado, sin inventar identidades de muestra.
+Las personas anónimas se acreditan como «Colaboradora NN», con un número estable de dos dígitos (por ejemplo, «Colaboradora 07»), sin inventar identidades de muestra. El formato sale de `anonymousCredit` en `sitio/src/data/participation.ts`; el número, del campo `anonymous` de su identidad pública.
 
 ## Nombres y rutas
 
@@ -63,7 +63,7 @@ El orden de los bloques en el archivo es el orden de lectura. Título, entradill
 
 1. Preparar su análisis e imágenes a partir de Drive y los permisos autorizados.
 2. Crear un MDX independiente con identificador, slug, orden de catálogo, vistas y referencia `collaborator`. Escribir el cuerpo con los bloques que necesite ese par. El orden del catálogo es independiente del orden del texto.
-3. Si es una nueva colaboradora, crear una vez su archivo en `src/content/colaboradoras/`: nombre público, slug y autorización de armario. También puede ser una identidad anónima estable, por ejemplo «Colaboradora 07», que permite reunir sus pares sin revelar su identidad. Una entrada sin referencia muestra «Colaboración anónima» y no se agrupa con otras personas anónimas cuya relación se desconoce.
+3. Si es una nueva colaboradora, crear una vez su archivo en `src/content/colaboradoras/`: slug, autorización de armario y `name` (nombre público) o `anonymous` (número de colaboradora anónima, sin nombre). Con `"anonymous": 7` aparece como «Colaboradora 07» y sus pares se reúnen sin revelar su identidad. Todo par necesita su referencia `collaborator`; sin ella la compilación se detiene.
 4. Mantener `status: draft` mientras se redacta y revisa. Cambiarlo a `status: published` cuando se autorice la publicación e indicar `publishedAt: 'AAAA-MM-DD'`, con la fecha real. El último publicado abre la portada; el catálogo ordena por fecha descendente y usa `order` para desempatar. En revisión, si todavía no hay ninguno publicado, se muestra el primer borrador por `order` como ejemplo.
 5. Comprobar y compilar. Catálogo, página del par, contador, enlaces al armario, índice de armarios y sitemap se actualizan automáticamente. No se edita la página del armario.
 

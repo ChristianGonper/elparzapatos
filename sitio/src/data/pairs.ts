@@ -16,13 +16,13 @@ const byContributor = new Map(contributors.map((contributor) => [contributor.id,
 
 const allPairs: Pair[] = (await getCollection('pares'))
   .map(({ id, data, body }) => {
-    const contributor = data.collaborator && byContributor.get(data.collaborator.id);
-    if (data.collaborator && !contributor)
+    const contributor = byContributor.get(data.collaborator.id);
+    if (!contributor)
       throw new Error(`${data.id}: colaboradora inexistente ${data.collaborator.id}`);
     const terms = [
       ...new Set([...(body ?? '').matchAll(/\bslug=["']([^"']+)["']/g)].map((match) => match[1])),
     ];
-    return { ...data, entryId: id, credit: contributor?.name ?? 'Colaboración anónima', terms };
+    return { ...data, entryId: id, credit: contributor.name, terms };
   })
   .sort(
     (a, b) =>
