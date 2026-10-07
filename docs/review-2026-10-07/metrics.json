@@ -1,0 +1,834 @@
+[
+  {
+    "route": "/",
+    "width": 320,
+    "height": 4391,
+    "overflow": false,
+    "firstImageY": 611.4375,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/",
+    "width": 320,
+    "height": 3544,
+    "overflow": false,
+    "firstImageY": 418.5,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/",
+    "width": 320,
+    "height": 2001,
+    "overflow": false,
+    "firstImageY": 539.4375,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/maria/",
+    "width": 320,
+    "height": 3181,
+    "overflow": false,
+    "firstImageY": 430.90625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-rejilla-flores/",
+    "width": 320,
+    "height": 7303,
+    "overflow": false,
+    "firstImageY": 705.0625,
+    "sections": [
+      {
+        "title": "El dibujo también deja huecos",
+        "textY": 1016.484375,
+        "imageY": 1653.03125
+      },
+      {
+        "title": "La punta reúne el dibujo",
+        "textY": 1971.421875,
+        "imageY": 2458.890625
+      },
+      {
+        "title": "Un borde liso entre tantas líneas",
+        "textY": 2777.28125,
+        "imageY": 3309.265625
+      },
+      {
+        "title": "El talón cierra la forma",
+        "textY": 3627.65625,
+        "imageY": 4113.125
+      },
+      {
+        "title": "Por debajo, otra superficie",
+        "textY": 4431.515625,
+        "imageY": 4916.984375
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-manchas-leopardo/",
+    "width": 320,
+    "height": 7279,
+    "overflow": false,
+    "firstImageY": 793.828125,
+    "sections": [
+      {
+        "title": "El dibujo no repite dos puntas iguales",
+        "textY": 1105.25,
+        "imageY": 1662.625
+      },
+      {
+        "title": "Un lateral que baja y vuelve a subir",
+        "textY": 1981.015625,
+        "imageY": 2538.390625
+      },
+      {
+        "title": "Una superficie que se ve de cerca",
+        "textY": 2856.78125,
+        "imageY": 3414.15625
+      },
+      {
+        "title": "Por detrás, el dibujo continúa",
+        "textY": 3732.546875,
+        "imageY": 4138.84375
+      },
+      {
+        "title": "Una base sin dibujo",
+        "textY": 4457.234375,
+        "imageY": 4942.703125
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/slippers-burdeos-borde-rosa/",
+    "width": 320,
+    "height": 7156,
+    "overflow": false,
+    "firstImageY": 855.140625,
+    "sections": [
+      {
+        "title": "La abertura tiene su propio dibujo",
+        "textY": 1166.5625,
+        "imageY": 1697.546875
+      },
+      {
+        "title": "El color baja hasta la base",
+        "textY": 2015.9375,
+        "imageY": 2475.015625
+      },
+      {
+        "title": "Una punta sin un adorno por encima",
+        "textY": 2793.40625,
+        "imageY": 3324.390625
+      },
+      {
+        "title": "La línea sigue por detrás",
+        "textY": 3642.78125,
+        "imageY": 4102.859375
+      },
+      {
+        "title": "Por debajo cambia la trama",
+        "textY": 4421.25,
+        "imageY": 4906.71875
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/participa/",
+    "width": 320,
+    "height": 6222,
+    "overflow": false,
+    "firstImageY": 761.217041015625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/guia-de-fotos/",
+    "width": 320,
+    "height": 6609,
+    "overflow": false,
+    "firstImageY": 1546.15625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/el-par/",
+    "width": 320,
+    "height": 3891,
+    "overflow": false,
+    "firstImageY": 788.046875,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/glosario/",
+    "width": 320,
+    "height": 4319,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/tus-fotos-y-tus-datos/",
+    "width": 320,
+    "height": 3947,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "height": 4306,
+    "overflow": false,
+    "firstImageY": 526.71875,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/",
+    "width": 390,
+    "height": 3488,
+    "overflow": false,
+    "firstImageY": 389.484375,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/",
+    "width": 390,
+    "height": 1904,
+    "overflow": false,
+    "firstImageY": 510.421875,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/maria/",
+    "width": 390,
+    "height": 3265,
+    "overflow": false,
+    "firstImageY": 430.90625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-rejilla-flores/",
+    "width": 390,
+    "height": 7023,
+    "overflow": false,
+    "firstImageY": 657.296875,
+    "sections": [
+      {
+        "title": "El dibujo también deja huecos",
+        "textY": 1021.21875,
+        "imageY": 1534.078125
+      },
+      {
+        "title": "La punta reúne el dibujo",
+        "textY": 1885.171875,
+        "imageY": 2319.859375
+      },
+      {
+        "title": "Un borde liso entre tantas líneas",
+        "textY": 2690.75,
+        "imageY": 3125.4375
+      },
+      {
+        "title": "El talón cierra la forma",
+        "textY": 3496.328125,
+        "imageY": 3929.015625
+      },
+      {
+        "title": "Por debajo, otra superficie",
+        "textY": 4299.90625,
+        "imageY": 4732.59375
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-manchas-leopardo/",
+    "width": 390,
+    "height": 6830,
+    "overflow": false,
+    "firstImageY": 684.75,
+    "sections": [
+      {
+        "title": "El dibujo no repite dos puntas iguales",
+        "textY": 1048.671875,
+        "imageY": 1508.75
+      },
+      {
+        "title": "Un lateral que baja y vuelve a subir",
+        "textY": 1859.84375,
+        "imageY": 2319.921875
+      },
+      {
+        "title": "Una superficie que se ve de cerca",
+        "textY": 2690.8125,
+        "imageY": 3150.890625
+      },
+      {
+        "title": "Por detrás, el dibujo continúa",
+        "textY": 3521.78125,
+        "imageY": 3875.296875
+      },
+      {
+        "title": "Una base sin dibujo",
+        "textY": 4246.1875,
+        "imageY": 4634.359375
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/slippers-burdeos-borde-rosa/",
+    "width": 390,
+    "height": 6847,
+    "overflow": false,
+    "firstImageY": 718.609375,
+    "sections": [
+      {
+        "title": "La abertura tiene su propio dibujo",
+        "textY": 1082.53125,
+        "imageY": 1516.21875
+      },
+      {
+        "title": "El color baja hasta la base",
+        "textY": 1887.109375,
+        "imageY": 2319.796875
+      },
+      {
+        "title": "Una punta sin un adorno por encima",
+        "textY": 2690.6875,
+        "imageY": 3124.375
+      },
+      {
+        "title": "La línea sigue por detrás",
+        "textY": 3495.265625,
+        "imageY": 3902.5625
+      },
+      {
+        "title": "Por debajo cambia la trama",
+        "textY": 4273.453125,
+        "imageY": 4706.140625
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/participa/",
+    "width": 390,
+    "height": 5830,
+    "overflow": false,
+    "firstImageY": 711.24658203125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/guia-de-fotos/",
+    "width": 390,
+    "height": 6594,
+    "overflow": false,
+    "firstImageY": 1406.515625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/el-par/",
+    "width": 390,
+    "height": 3579,
+    "overflow": false,
+    "firstImageY": 699.6875,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/glosario/",
+    "width": 390,
+    "height": 4030,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/tus-fotos-y-tus-datos/",
+    "width": 390,
+    "height": 3404,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/",
+    "width": 430,
+    "height": 4315,
+    "overflow": false,
+    "firstImageY": 526.71875,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/",
+    "width": 430,
+    "height": 3520,
+    "overflow": false,
+    "firstImageY": 389.484375,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/",
+    "width": 430,
+    "height": 1919,
+    "overflow": false,
+    "firstImageY": 510.421875,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/maria/",
+    "width": 430,
+    "height": 3297,
+    "overflow": false,
+    "firstImageY": 430.90625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-rejilla-flores/",
+    "width": 430,
+    "height": 6798,
+    "overflow": false,
+    "firstImageY": 629.84375,
+    "sections": [
+      {
+        "title": "El dibujo también deja huecos",
+        "textY": 1023.765625,
+        "imageY": 1483.84375
+      },
+      {
+        "title": "La punta reúne el dibujo",
+        "textY": 1864.9375,
+        "imageY": 2273.234375
+      },
+      {
+        "title": "Un borde liso entre tantas líneas",
+        "textY": 2654.328125,
+        "imageY": 3062.625
+      },
+      {
+        "title": "El talón cierra la forma",
+        "textY": 3443.71875,
+        "imageY": 3779.109375
+      },
+      {
+        "title": "Por debajo, otra superficie",
+        "textY": 4180,
+        "imageY": 4559.90625
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-manchas-leopardo/",
+    "width": 430,
+    "height": 6795,
+    "overflow": false,
+    "firstImageY": 657.296875,
+    "sections": [
+      {
+        "title": "El dibujo no repite dos puntas iguales",
+        "textY": 1051.21875,
+        "imageY": 1458.515625
+      },
+      {
+        "title": "Un lateral que baja y vuelve a subir",
+        "textY": 1839.609375,
+        "imageY": 2273.296875
+      },
+      {
+        "title": "Una superficie que se ve de cerca",
+        "textY": 2674.1875,
+        "imageY": 3107.875
+      },
+      {
+        "title": "Por detrás, el dibujo continúa",
+        "textY": 3488.96875,
+        "imageY": 3842.484375
+      },
+      {
+        "title": "Una base sin dibujo",
+        "textY": 4243.375,
+        "imageY": 4631.546875
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/slippers-burdeos-borde-rosa/",
+    "width": 430,
+    "height": 6874,
+    "overflow": false,
+    "firstImageY": 691.15625,
+    "sections": [
+      {
+        "title": "La abertura tiene su propio dibujo",
+        "textY": 1085.078125,
+        "imageY": 1518.765625
+      },
+      {
+        "title": "El color baja hasta la base",
+        "textY": 1919.65625,
+        "imageY": 2325.953125
+      },
+      {
+        "title": "Una punta sin un adorno por encima",
+        "textY": 2726.84375,
+        "imageY": 3107.75
+      },
+      {
+        "title": "La línea sigue por detrás",
+        "textY": 3508.640625,
+        "imageY": 3889.546875
+      },
+      {
+        "title": "Por debajo cambia la trama",
+        "textY": 4290.4375,
+        "imageY": 4723.125
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/participa/",
+    "width": 430,
+    "height": 5710,
+    "overflow": false,
+    "firstImageY": 623.1563110351562,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/guia-de-fotos/",
+    "width": 430,
+    "height": 6624,
+    "overflow": false,
+    "firstImageY": 1325.578125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/el-par/",
+    "width": 430,
+    "height": 3509,
+    "overflow": false,
+    "firstImageY": 670.125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/glosario/",
+    "width": 430,
+    "height": 3875,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/tus-fotos-y-tus-datos/",
+    "width": 430,
+    "height": 3272,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "height": 3922,
+    "overflow": false,
+    "firstImageY": 513.78125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/",
+    "width": 1440,
+    "height": 2903,
+    "overflow": false,
+    "firstImageY": 485.84375,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/",
+    "width": 1440,
+    "height": 1996,
+    "overflow": false,
+    "firstImageY": 594.703125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/armarios/maria/",
+    "width": 1440,
+    "height": 2243,
+    "overflow": false,
+    "firstImageY": 594.078125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-rejilla-flores/",
+    "width": 1440,
+    "height": 6295,
+    "overflow": false,
+    "firstImageY": 718.609375,
+    "sections": [
+      {
+        "title": "El dibujo también deja huecos",
+        "textY": 1627.75,
+        "imageY": 1583.0625
+      },
+      {
+        "title": "La punta reúne el dibujo",
+        "textY": 2275.15625,
+        "imageY": 2190.921875
+      },
+      {
+        "title": "Un borde liso entre tantas líneas",
+        "textY": 2856.5625,
+        "imageY": 2798.78125
+      },
+      {
+        "title": "El talón cierra la forma",
+        "textY": 3501.78125,
+        "imageY": 3406.640625
+      },
+      {
+        "title": "Por debajo, otra superficie",
+        "textY": 4093.078125,
+        "imageY": 4034.296875
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/bailarinas-manchas-leopardo/",
+    "width": 1440,
+    "height": 6273,
+    "overflow": false,
+    "firstImageY": 752.921875,
+    "sections": [
+      {
+        "title": "El dibujo no repite dos puntas iguales",
+        "textY": 1662.0625,
+        "imageY": 1617.375
+      },
+      {
+        "title": "Un lateral que baja y vuelve a subir",
+        "textY": 2293.40625,
+        "imageY": 2225.234375
+      },
+      {
+        "title": "Una superficie que se ve de cerca",
+        "textY": 2910.84375,
+        "imageY": 2852.890625
+      },
+      {
+        "title": "Por detrás, el dibujo continúa",
+        "textY": 3532.484375,
+        "imageY": 3460.109375
+      },
+      {
+        "title": "Una base sin dibujo",
+        "textY": 4153.203125,
+        "imageY": 4067.96875
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/pares/slippers-burdeos-borde-rosa/",
+    "width": 1440,
+    "height": 6292,
+    "overflow": false,
+    "firstImageY": 827.46875,
+    "sections": [
+      {
+        "title": "La abertura tiene su propio dibujo",
+        "textY": 1760.09375,
+        "imageY": 1691.921875
+      },
+      {
+        "title": "El color baja hasta la base",
+        "textY": 2404.8125,
+        "imageY": 2319.578125
+      },
+      {
+        "title": "Una punta sin un adorno por encima",
+        "textY": 2985.71875,
+        "imageY": 2927.4375
+      },
+      {
+        "title": "La línea sigue por detrás",
+        "textY": 3633.625,
+        "imageY": 3535.296875
+      },
+      {
+        "title": "Por debajo cambia la trama",
+        "textY": 4215.53125,
+        "imageY": 4143.15625
+      }
+    ],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/participa/",
+    "width": 1440,
+    "height": 4776,
+    "overflow": false,
+    "firstImageY": 242.61691284179688,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/guia-de-fotos/",
+    "width": 1440,
+    "height": 5165,
+    "overflow": false,
+    "firstImageY": 1229.703125,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/el-par/",
+    "width": 1440,
+    "height": 2932,
+    "overflow": false,
+    "firstImageY": 189.390625,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/glosario/",
+    "width": 1440,
+    "height": 3434,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  },
+  {
+    "route": "/tus-fotos-y-tus-datos/",
+    "width": 1440,
+    "height": 2791,
+    "overflow": false,
+    "sections": [],
+    "broken": [
+      ""
+    ]
+  }
+]
