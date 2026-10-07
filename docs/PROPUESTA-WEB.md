@@ -5,9 +5,6 @@
 ## Qué tiene que conseguir
 
 Que alguien llegue por una foto, descubra algo que no había visto en un zapato y piense en un par suyo. La web debe dar ganas de leer, de volver y de participar. Quien colabora debe poder compartir la página de sus zapatos con orgullo.
-
-La prioridad es tu encargo, después los documentos vigentes de Moda-Zapatos y después el repositorio. Se parte de una hoja en blanco también en el repositorio: se retiran prototipos, skills de Stitch, especificaciones y documentos de seguimiento antiguos. El historial de Git conserva el trabajo anterior. Las decisiones de septiembre sobre columnas, fichas técnicas, logo y recorrido dejan de condicionar la nueva web. El formulario y la automatización de Tally se conservan.
-
 ## Cómo se verá
 
 Una web editorial con fotos grandes y espacio para mirarlas. Fondo crema, texto oscuro, burdeos para acciones y bloques destacados, y rosa suave para invitar a participar. El color no teñirá las fotos. Newsreader para titulares y DM Sans para lectura y navegación, alojadas en la propia web. Una marca tipográfica «El Par» sustituye al logo provisional sin cerrar el diseño de un futuro símbolo.
@@ -35,8 +32,7 @@ Referencias revisadas el 6/10, como orientación y sin copiar diseños ni imáge
 | Tus fotos y tus datos | Explicar con claridad los usos autorizados, el crédito, la revisión y la retirada. No simula una política legal definitiva. |
 | Página no encontrada | Recuperar el camino hacia los pares o el inicio. |
 
-No añado una newsletter, tienda, perfiles vacíos ni testimonios inventados. Armarios tendrá su índice y páginas por colaboradora. Se mostrarán únicamente cuando haya al menos dos análisis preparados de una misma persona. No se diseñará la automatización de datos que Drive mantiene pendiente.
-
+Armarios tendrá su índice y páginas por colaboradora. Se mostrarán únicamente cuando haya al menos dos análisis preparados de una misma persona.
 ## Participar sin dar vueltas
 
 La cabecera y la portada tendrán «Enviar mis fotos», que abre el mismo Tally actual. Junto al botón se dirá lo esencial: haces las fotos con el móvil; no envías los zapatos. Quien quiera orientarse tendrá «Cómo colaborar». Las instrucciones no serán pantallas obligatorias antes del formulario.
@@ -45,7 +41,7 @@ La página de colaboración reunirá lo que ahora está disperso. Primero explic
 
 ## Fotografías y primer análisis
 
-PAR-0003 será el primer análisis de muestra: las bailarinas de rejilla de María, marca Zara según su envío. Su crédito autorizado es «María», sin Instagram. Se utilizarán las seis fotos, sin edición generativa ni eliminación de marcas de uso. Las conversiones para la web solo reducirán tamaño y eliminarán metadatos personales.
+PAR-0003 será el primer análisis de muestra: las bailarinas de rejilla de María, marca Zara según su envío. Su crédito autorizado es «María», sin Instagram. Se utilizarán las seis fotos.
 
 La guía de bailarinas usará ese set completo. El séptimo ejemplo, el detalle, será una ampliación claramente indicada de una de esas fotos, no una toma inexistente. Las ilustraciones de tacones que ya hay se conservarán en la guía, identificadas como generadas con IA. Las fotos de Sonia mostrarán la variedad de zapatos que pueden encajar, sin presentarlas como análisis ya publicados ni dar por aprobados sus créditos.
 
@@ -63,27 +59,9 @@ Astro generará HTML estático. Componentes comunes para cabecera, pie, imágene
 
 Los análisis se redactan en MDX para permitir revisión local y orden editorial libre de citas, fotos y detalles. Los metadatos validados alimentan catálogo y armarios; `status: draft` permite revisar antes de autorizar la publicación. El CSS está separado por responsabilidad; se mantiene CSS propio después de la auditoría independiente.
 
-Para la vista de trabajo se preparan WebP de varios tamaños, con dimensiones declaradas y carga diferida salvo la foto principal. El alojamiento y los formatos definitivos siguen pendientes; las opciones están en [Imágenes publicadas](IMAGENES-PENDIENTES.md). Fuentes locales, sin Tailwind por CDN ni servicios de analítica. No habrá una conexión del navegador a Drive ni datos privados en el repositorio.
-
-Los commits seguirán git-atomic-commits: español, presente, menos de 72 caracteres, sin prefijos, una unidad lógica completa por commit y documentación junto a cada cambio. Rama: `reconstruccion/el-par-desde-par-astro`, creada desde `origin/par-astro` en el commit `67b5951`.
-
+Para la vista de trabajo se preparan WebP de varios tamaños, con dimensiones declaradas y carga diferida salvo la foto principal. El alojamiento y los formatos definitivos siguen pendientes; las opciones están en [Imágenes publicadas](IMAGENES-PENDIENTES.md). Fuentes locales, sin Tailwind por CDN. No habrá una conexión del navegador a Drive ni datos privados en el repositorio.
 ## Despliegue
 
 [Cloudflare Pages sigue admitiendo Astro estático](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/). Para esta web, sin backend propio y con Tally externo, sigue siendo adecuado. Prepararé `npm run build`, salida `dist`, rutas nuevas y cabeceras de seguridad. No necesita un adaptador de servidor.
 
 Cloudflare recomienda Workers para aplicaciones nuevas con funciones de servidor. Eso no obliga a incorporar un servidor aquí; el resultado estático también permite migrar a Workers Static Assets en el futuro. La decisión final de dominio y cuenta puede esperar sin rehacer la web.
-
-## Qué se comprobará
-
-Compilación y tipos; todos los enlaces internos y las imágenes; recorrido directo a Tally; menú móvil; ayudas de términos; ampliación de fotos; guía imprimible; lectura con teclado; contraste; vistas de 360, 390, 768 y 1440 píxeles; ausencia de desbordamientos y de datos privados. Se revisarán capturas de las páginas, no solo el código.
-
-## Decisiones para el lanzamiento, acumuladas
-
-Se puede completar la web sin resolverlas ahora:
-
-- Dominio y acceso a la cuenta de Cloudflare para publicar.
-- Revisión de los análisis de PAR-0002, PAR-0003 y PAR-0004 por María antes de hacerlos públicos.
-- Confirmar el cambio a @elparzapatos antes de activar ese enlace como canal disponible.
-- Completar los datos del responsable y revisar los textos legales antes del lanzamiento. El sitio no inventará esos datos.
-- Elegir dónde se guardan las imágenes publicadas y su formato definitivo.
-- Valorar un símbolo de marca definitivo después de ver la web; la marca tipográfica funciona desde el primer día.
