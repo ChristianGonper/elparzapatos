@@ -18,7 +18,12 @@ const build = (overrides = {}) =>
       ...Object.fromEntries(
         Object.entries(process.env).filter(
           ([key]) =>
-            !['PUBLIC_SITE_URL', 'PUBLIC_LAUNCH_READY', 'PUBLIC_INSTAGRAM_READY'].includes(key),
+            ![
+              'PUBLIC_SITE_URL',
+              'PUBLIC_LAUNCH_READY',
+              'PUBLIC_INSTAGRAM_READY',
+              'PUBLIC_INCLUDE_DRAFTS',
+            ].includes(key),
         ),
       ),
       ...overrides,
@@ -29,13 +34,20 @@ const build = (overrides = {}) =>
 try {
   for (const path of ['src', 'public', 'astro.config.mjs', 'package.json'])
     await cp(join(source, path), join(temp, path), { recursive: true });
-  await symlink(join(source, 'node_modules'), join(temp, 'node_modules'), 'dir');
+  await symlink(
+    join(source, 'node_modules'),
+    join(temp, 'node_modules'),
+    process.platform === 'win32' ? 'junction' : 'dir',
+  );
   const content = join(temp, 'src/content');
-  const raw = await readFile(join(content, 'pares/par-0003.mdx'), 'utf8');
+  const raw = (await readFile(join(content, 'pares/par-0003.mdx'), 'utf8')).replace(/\r\n?/g, '\n');
   const [, frontmatter, body] = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   const example = parse(frontmatter);
   const article = (path, data, text = body) =>
-    writeFile(path, '---\n' + stringify(data) + '---\n\n' + text);
+    writeFile(
+      path,
+      '---\n' + stringify(data, { defaultStringType: 'QUOTE_SINGLE' }) + '---\n\n' + text,
+    );
   await mkdir(join(content, 'colaboradoras'), { recursive: true });
   await json(join(content, 'colaboradoras/prueba.json'), {
     slug: 'prueba',
@@ -76,6 +88,9 @@ try {
         brand: collaborator ? example.brand : undefined,
         order: 100 + i,
         status: [0, 1, 20].includes(i) ? 'published' : 'draft',
+        publishedAt:
+          i === 0 ? '2026-10-01' : i === 1 ? '2026-10-02' : i === 20 ? '2026-10-03' : undefined,
+        model: i === 20 ? 'Modelo de prueba' : undefined,
       },
       collaborator ? body : body.replace(/<Cita>[\s\S]*?<\/Cita>\s*/g, ''),
     );
@@ -93,12 +108,13 @@ try {
           collaborator: 'maria',
           order: 100,
           status: 'published',
+          publishedAt: '2026-10-01',
         },
         reordered,
       );
     }
   }
-  await build();
+  await build({ PUBLIC_INCLUDE_DRAFTS: 'true' });
   const page = (path) => readFile(join(temp, 'dist', path, 'index.html'), 'utf8');
   const cards = (html) => (html.match(/class="pair-card"/g) ?? []).length;
   assert.equal(cards(await page('pares')), 63);
@@ -106,6 +122,7 @@ try {
   assert.equal(cards(await page('armarios/prueba')), 20);
   assert.match(await page('armarios/prueba'), /Colaboradora 07/);
   assert.match(await page('pares/par-de-prueba-20'), /Colaboradora 07/);
+  assert.match(await page('pares/par-de-prueba-20'), /<dt>Modelo<\/dt><dd>Modelo de prueba/);
   await assert.rejects(page('armarios/un-par'), { code: 'ENOENT' });
   await assert.rejects(page('armarios/sin-armario'), { code: 'ENOENT' });
   assert.match(await page('pares/par-de-prueba-59'), /Colaboración anónima/);
@@ -117,6 +134,12 @@ try {
     reorderedPage.indexOf('class="quote-block"') <
       reorderedPage.indexOf('class="article-hero wrap"'),
   );
+  // La compilación por defecto excluye borradores aunque la indexación no esté activada.
+  await build();
+  assert.equal(cards(await page('pares')), 3);
+  await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
+  assert.match(await page(''), /noindex, nofollow/);
+  assert.match(await page(''), /home-feature-photo[^>]+par-de-prueba-20/);
   await build({ PUBLIC_SITE_URL: 'https://example.com', PUBLIC_LAUNCH_READY: 'true' });
   assert.equal(cards(await page('pares')), 3);
   assert.equal(cards(await page('armarios/maria')), 2);
@@ -126,7 +149,28 @@ try {
   );
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   await assert.rejects(page('armarios/prueba'), { code: 'ENOENT' });
+  await assert.rejects(
+    build({ PUBLIC_LAUNCH_READY: 'true', PUBLIC_INCLUDE_DRAFTS: 'true' }),
+    (error) => /no puede incluir borradores/.test(error.stdout + error.stderr),
+  );
   const invalidPath = join(content, 'pares/error.mdx');
+  await article(invalidPath, {
+    ...example,
+    id: 'PAR-9999',
+    slug: 'sin-fecha',
+    status: 'published',
+  });
+  await assert.rejects(build(), (error) => /publishedAt/.test(error.stdout + error.stderr));
+  await article(invalidPath, {
+    ...example,
+    id: 'PAR-9999',
+    slug: 'fecha-invalida',
+    status: 'published',
+    publishedAt: '2026-02-30',
+  });
+  await assert.rejects(build(), (error) =>
+    /fecha de publicación debe ser válida/.test(error.stdout + error.stderr),
+  );
   await article(invalidPath, {
     ...example,
     id: 'PAR-9999',

@@ -1,0 +1,65 @@
+---
+import { siteUrl } from '../data/site';
+interface Props {
+  title: string;
+  kind: 'par' | 'armario';
+}
+const { title, kind } = Astro.props;
+const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
+---
+
+<div class="share-tools" data-share-title={title} data-share-url={url}>
+  <div class="share-actions" hidden>
+    <button class="share-button native-share" type="button" hidden>
+      Compartir este {kind} <span aria-hidden="true">↗</span>
+    </button>
+    <button class="share-button copy-link" type="button">
+      Copiar enlace <span aria-hidden="true">⧉</span>
+    </button>
+  </div>
+  <p class="share-status small-note" role="status"></p>
+  <label class="share-manual small-note" hidden>
+    Enlace para copiar
+    <input type="url" readonly aria-label={`Enlace de este ${kind}`} />
+  </label>
+  <noscript>
+    <p class="small-note">Puedes compartir este {kind} copiando la dirección de esta página.</p>
+  </noscript>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('.share-tools').forEach((root) => {
+    const actions = root.querySelector<HTMLElement>('.share-actions');
+    const share = root.querySelector<HTMLButtonElement>('.native-share');
+    const copy = root.querySelector<HTMLButtonElement>('.copy-link');
+    const manual = root.querySelector<HTMLLabelElement>('.share-manual');
+    const input = root.querySelector<HTMLInputElement>('input');
+    const status = root.querySelector<HTMLElement>('.share-status');
+    const url = root.dataset.shareUrl ?? new URL(location.pathname, location.origin).href;
+    if (!actions || !copy || !share || !input || !manual || !status) return;
+    actions.hidden = false;
+    input.value = url;
+    share.hidden = typeof navigator.share !== 'function';
+    const copyUrl = async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+        manual.hidden = true;
+        status.textContent = 'Enlace copiado.';
+      } catch {
+        manual.hidden = false;
+        input.focus();
+        input.select();
+        status.textContent = 'Selecciona y copia el enlace.';
+      }
+    };
+    copy.addEventListener('click', copyUrl);
+    share.addEventListener('click', async () => {
+      try {
+        await navigator.share({ title: root.dataset.shareTitle, url });
+        status.textContent = 'Compartido.';
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return;
+        await copyUrl();
+      }
+    });
+  });
+</script>

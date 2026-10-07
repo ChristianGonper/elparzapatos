@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { launchReady } from './site';
+import { includeDrafts } from './site';
 
 export type Contributor = CollectionEntry<'colaboradoras'>['data'] & { id: string };
 export type Pair = CollectionEntry<'pares'>['data'] & {
@@ -14,8 +14,7 @@ export const contributors: Contributor[] = (await getCollection('colaboradoras')
 }));
 const byContributor = new Map(contributors.map((contributor) => [contributor.id, contributor]));
 
-export const pairs: Pair[] = (await getCollection('pares'))
-  .filter((entry) => !launchReady || entry.data.status === 'published')
+const allPairs: Pair[] = (await getCollection('pares'))
   .map(({ id, data, body }) => {
     const contributor = data.collaborator && byContributor.get(data.collaborator.id);
     if (data.collaborator && !contributor)
@@ -25,14 +24,22 @@ export const pairs: Pair[] = (await getCollection('pares'))
     ];
     return { ...data, entryId: id, credit: contributor?.name ?? 'Colaboración anónima', terms };
   })
-  .sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
+  .sort(
+    (a, b) =>
+      (b.publishedAt ?? '').localeCompare(a.publishedAt ?? '') ||
+      a.order - b.order ||
+      a.id.localeCompare(b.id),
+  );
 
 for (const [label, values] of [
-  ['identificador de par', pairs.map((pair) => pair.id)],
-  ['ruta de par', pairs.map((pair) => pair.slug)],
+  ['identificador de par', allPairs.map((pair) => pair.id)],
+  ['ruta de par', allPairs.map((pair) => pair.slug)],
   ['ruta de colaboradora', contributors.map((contributor) => contributor.slug)],
 ] as const) {
   if (new Set(values).size !== values.length) throw new Error(`Duplicado: ${label}.`);
 }
+
+export const pairs = allPairs.filter((pair) => includeDrafts || pair.status === 'published');
+export const featuredPair = pairs.find((pair) => pair.status === 'published') ?? pairs[0];
 
 export const pairPath = (pair: Pair) => `/pares/${pair.slug}/`;

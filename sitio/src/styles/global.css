@@ -16,6 +16,9 @@
 * {
   box-sizing: border-box;
 }
+[hidden] {
+  display: none !important;
+}
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
@@ -182,6 +185,13 @@ svg {
 }
 main:focus {
   outline: none;
+}
+.review-notice {
+  padding: 0.45rem var(--gutter);
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.72rem;
 }
 .skip-link {
   position: fixed;

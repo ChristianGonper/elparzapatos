@@ -20,6 +20,12 @@ const pair = currentAnalysis(Astro.locals);
           <dd>{pair.brand}, según su envío</dd>
         </div>
       )}
+      {pair.model && (
+        <div>
+          <dt>Modelo</dt>
+          <dd>{pair.model}, según su envío</dd>
+        </div>
+      )}
       <div>
         <dt>Fotos y colaboración</dt>
         <dd>{pair.credit}</dd>

@@ -1,36 +1,150 @@
 <dialog class="image-dialog" aria-label="Fotografía ampliada">
   <div class="image-dialog-inner">
-    <button class="close-button image-dialog-close" aria-label="Cerrar fotografía">
-      ×
-    </button>
-    <img width="1600" height="1200" alt="" />
+    <div class="image-toolbar">
+      <div class="image-zoom-tools">
+        <button class="viewer-control image-detail" type="button" aria-pressed="false" disabled>
+          Acercar <span aria-hidden="true">+</span>
+        </button>
+        <button class="viewer-control image-fit" type="button" disabled>
+          Ver completa
+        </button>
+      </div>
+      <button class="close-button image-dialog-close" type="button" aria-label="Cerrar fotografía">
+        ×
+      </button>
+    </div>
+    <div
+      class="image-viewport"
+      tabindex="0"
+      role="region"
+      aria-label="Fotografía. Al acercarla puedes desplazarte por ella."
+      aria-busy="false"
+    >
+      <div class="image-canvas">
+        <img width="1600" height="1200" alt="" draggable="false" />
+      </div>
+    </div>
     <p class="image-dialog-caption"></p>
+    <p class="image-viewer-status small-note" role="status"></p>
   </div>
 </dialog>
 <script>
   const dialog = document.querySelector<HTMLDialogElement>('.image-dialog');
-  let opener: HTMLButtonElement | null = null;
-  document.querySelectorAll<HTMLButtonElement>('[data-image-zoom]').forEach((button) => {
-    button.addEventListener('click', () => {
-      if (!dialog) return;
-      const img = dialog.querySelector('img');
-      const caption = dialog.querySelector('.image-dialog-caption');
-      if (img) {
-        img.src = button.dataset.imageZoom ?? '';
-        img.alt = button.dataset.imageCaption ?? '';
-      }
-      if (caption) caption.textContent = button.dataset.imageCaption ?? '';
-      opener = button;
-      dialog.showModal();
-      document.body.classList.add('dialog-open');
+  const viewport = dialog?.querySelector<HTMLDivElement>('.image-viewport');
+  const canvas = dialog?.querySelector<HTMLDivElement>('.image-canvas');
+  const image = dialog?.querySelector<HTMLImageElement>('img');
+  const caption = dialog?.querySelector<HTMLElement>('.image-dialog-caption');
+  const status = dialog?.querySelector<HTMLElement>('.image-viewer-status');
+  const detail = dialog?.querySelector<HTMLButtonElement>('.image-detail');
+  const fit = dialog?.querySelector<HTMLButtonElement>('.image-fit');
+  if (dialog && viewport && canvas && image && caption && status && detail && fit) {
+    let opener: HTMLButtonElement | null = null;
+    let enlarged = false;
+    let ready = false;
+    let request = 0;
+    let fitWidth = 0;
+    let fitHeight = 0;
+    const renderSize = () => {
+      if (!ready) return;
+      const ratio = Math.min(
+        viewport.clientWidth / image.naturalWidth,
+        viewport.clientHeight / image.naturalHeight,
+        1,
+      );
+      fitWidth = image.naturalWidth * ratio;
+      fitHeight = image.naturalHeight * ratio;
+      const scale = enlarged ? Math.min(2.5, image.naturalWidth / fitWidth) : 1;
+      const width = fitWidth * scale;
+      const height = fitHeight * scale;
+      image.style.width = width + 'px';
+      image.style.height = height + 'px';
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      canvas.hidden = false;
+      viewport.classList.toggle('is-enlarged', enlarged);
+      viewport.scrollLeft = Math.max(0, (width - viewport.clientWidth) / 2);
+      viewport.scrollTop = Math.max(0, (height - viewport.clientHeight) / 2);
+      detail.disabled = enlarged || fitWidth >= image.naturalWidth;
+      detail.setAttribute('aria-pressed', String(enlarged));
+      fit.disabled = !enlarged;
+      status.textContent = enlarged ? 'Desliza o desplázate para ver el detalle.' : '';
+    };
+    document.querySelectorAll<HTMLButtonElement>('[data-image-zoom]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const current = ++request;
+        opener = button;
+        ready = false;
+        enlarged = false;
+        detail.disabled = true;
+        fit.disabled = true;
+        detail.setAttribute('aria-pressed', 'false');
+        canvas.hidden = true;
+        viewport.setAttribute('aria-busy', 'true');
+        status.textContent = 'Cargando foto…';
+        image.src = button.dataset.imageZoom ?? '';
+        image.alt = button.dataset.imageCaption ?? '';
+        caption.textContent = image.alt;
+        dialog.showModal();
+        document.body.classList.add('dialog-open');
+        try {
+          await image.decode();
+          if (current !== request || !dialog.open) return;
+          ready = true;
+          renderSize();
+        } catch {
+          if (current === request && dialog.open)
+            status.textContent = 'No se ha podido cargar la foto. Cierra y vuelve a intentarlo.';
+        } finally {
+          if (current === request) viewport.setAttribute('aria-busy', 'false');
+        }
+      });
     });
-  });
-  dialog?.querySelector('button')?.addEventListener('click', () => dialog.close());
-  dialog?.addEventListener('click', (event) => {
-    if (event.target === dialog) dialog.close();
-  });
-  dialog?.addEventListener('close', () => {
-    document.body.classList.remove('dialog-open');
-    opener?.focus();
-  });
+    detail.addEventListener('click', () => {
+      enlarged = true;
+      renderSize();
+    });
+    fit.addEventListener('click', () => {
+      enlarged = false;
+      renderSize();
+    });
+    dialog.querySelector('.image-dialog-close')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', () => {
+      request++;
+      ready = false;
+      document.body.classList.remove('dialog-open');
+      opener?.focus();
+    });
+    window.addEventListener('resize', () => {
+      if (dialog.open) renderSize();
+    });
+    // En táctil se usa el desplazamiento nativo. Con ratón se puede arrastrar.
+    let drag: { x: number; y: number; left: number; top: number } | null = null;
+    viewport.addEventListener('pointerdown', (event) => {
+      if (!enlarged || event.pointerType !== 'mouse' || event.button !== 0) return;
+      drag = {
+        x: event.clientX,
+        y: event.clientY,
+        left: viewport.scrollLeft,
+        top: viewport.scrollTop,
+      };
+      viewport.setPointerCapture(event.pointerId);
+      viewport.classList.add('is-dragging');
+      event.preventDefault();
+    });
+    viewport.addEventListener('pointermove', (event) => {
+      if (!drag) return;
+      viewport.scrollLeft = drag.left - (event.clientX - drag.x);
+      viewport.scrollTop = drag.top - (event.clientY - drag.y);
+    });
+    const endDrag = () => {
+      drag = null;
+      viewport.classList.remove('is-dragging');
+    };
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+    viewport.addEventListener('lostpointercapture', endDrag);
+  }
 </script>

@@ -20,6 +20,7 @@ npm run dev
 
 ```sh
 npm run verify
+npm run verify:review
 npm run format:check
 npm run test:content
 npx playwright install chromium
@@ -27,7 +28,9 @@ npm run test:e2e
 npm run preview
 ```
 
-La salida estática se genera en `sitio/dist/`. El sitio no necesita servidor ni acceso a Drive para funcionar. Las fuentes están alojadas localmente y las imágenes se incluyen en la compilación.
+La salida estática se genera en `sitio/dist/`. `build` y `verify` incluyen solo pares publicados. `build:review` y `verify:review` incluyen borradores para revisar en local; `dev` también los muestra. La vista de revisión está identificada y no permite indexación. El sitio no necesita servidor ni acceso a Drive para funcionar.
+
+[Experimentos del 7 de octubre](docs/EXPERIMENTOS-2026-10-07.md) · [Informe previo](docs/REVIEW-TRANSVERSAL-2026-10-07.html)
 
 [Diseño](docs/DISENO.md) · [Lanzamiento](docs/LANZAMIENTO.md) · [Revisión visual y pruebas](docs/REVISION.md)
 

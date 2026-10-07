@@ -5,6 +5,9 @@ import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import { site } from '../data/site';
 import { guideImage } from '../data/images';
+import { pairs, pairPath } from '../data/pairs';
+import PhotoChecklist from '../components/PhotoChecklist.astro';
+const examplePair = pairs.find((pair) => pair.entryId === 'par-0003');
 const examples = [
   {
     base: guideImage(5),
@@ -54,7 +57,11 @@ const faqs = [
   },
   {
     q: '¿Puedo pedir que se retire mi par?',
-    a: 'Sí. Si prefieres que se quite, nos escribes y lo retiramos. Puedes decidirlo cuando quieras.',
+    a: 'Sí. Puedes pedirlo cuando quieras por correo o por el canal por el que hablamos contigo. Retiramos la publicación de la web y de nuestras redes en un máximo de 48 horas. Te preguntaremos si quieres que borremos también las fotos originales y te confirmaremos la retirada.',
+  },
+  {
+    q: '¿Necesito enviar dos pares para participar?',
+    a: 'No. Puedes empezar con uno: tendrá su análisis en Pares. Cuando publiques un segundo par con nosotros, reuniremos los dos también en tu Armario. Si eliges aparecer de forma anónima, usaremos un nombre genérico estable, como Colaboradora 07.',
   },
 ];
 ---
@@ -79,25 +86,63 @@ const faqs = [
         Enviar mis fotos <Arrow />
       </a>
       <p class="small-note">Solo envías fotos. Tus zapatos se quedan contigo.</p>
+      <a class="text-link" href="#fotos">
+        Qué fotos preparar <Arrow />
+      </a>
+      <p class="small-note participation-note">
+        Puedes empezar con un par. Desde el segundo publicado tendrás también tu armario.
+      </p>
     </div>
-    <figure class="hero-image">
-      <Photo
-        base={guideImage(5)}
-        alt="El par de bailarinas de rejilla que María ha compartido con El Par"
-        priority
-        sizes="(max-width: 800px) 90vw, 45vw"
-      />
-      <figcaption>
-        <span>María ya nos ha enseñado las suyas.</span>
-        <Arrow />
-      </figcaption>
-    </figure>
+    <div class="hero-image">
+      {examplePair ? (
+        <a
+          href={pairPath(examplePair)}
+          aria-label={`Leer el análisis del par de María: ${examplePair.title}`}
+        >
+          <figure>
+            <Photo
+              base={guideImage(5)}
+              alt="El par de bailarinas de rejilla que María ha compartido con El Par"
+              priority
+              sizes="(max-width: 800px) 90vw, 45vw"
+            />
+            <figcaption>
+              <span>María ya nos ha enseñado las suyas.</span>
+              <Arrow />
+            </figcaption>
+          </figure>
+        </a>
+      ) : (
+        <figure>
+          <Photo
+            base={guideImage(5)}
+            alt="Las bailarinas de María como ejemplo de las fotos"
+            priority
+            sizes="(max-width: 800px) 90vw, 45vw"
+          />
+          <figcaption>Fotos de María para la guía.</figcaption>
+        </figure>
+      )}
+    </div>
   </section>
   <div class="wrap reassurance-strip">
     <span>Con el móvil, en casa</span>
     <span>Tú eliges cómo aparecer</span>
     <span>Revisas el análisis antes</span>
   </div>
+  <section class="wrap participation-photos" id="fotos" aria-labelledby="photos-title">
+    <h2 id="photos-title">Las fotos que necesitamos</h2>
+    <p>Con el móvil, sin llevar los zapatos puestos. Pulsa en una vista para ver cómo hacerla.</p>
+    <PhotoChecklist local={false} />
+    <p class="small-note">
+      Además de las fotos, el formulario pide que nos cuentes qué te gusta del par. La marca y el
+      modelo son opcionales.
+    </p>
+    <p class="small-note">
+      Tú eliges cómo aparecer y revisas el análisis antes de publicarlo. Si después pides retirarlo,
+      lo quitamos de la web y de nuestras redes en un máximo de 48 horas.
+    </p>
+  </section>
   <section class="wrap section steps-intro">
     <div>
       <span class="eyebrow">Así de sencillo</span>
@@ -126,10 +171,10 @@ const faqs = [
         </a>
       </li>
       <li>
-        <h3>Cuéntanos lo que quieras</h3>
+        <h3>Cuéntanos qué te gusta del par</h3>
         <p>
-          Sube las fotos al formulario. Si te apetece, añade la marca y lo que te gusta del par.
-          Después te mandamos el análisis para que lo revises antes de publicarlo.
+          Sube las fotos al formulario y cuéntanos qué te gusta del par. Añade la marca y el modelo
+          si los recuerdas. Después te mandamos el análisis para que lo revises antes de publicarlo.
         </p>
       </li>
     </ol>

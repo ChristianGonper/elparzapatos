@@ -33,7 +33,7 @@ npm ci
 npm run dev
 ```
 
-Abrir la dirección local que muestra Astro. Al guardar el MDX se actualiza la página. No se publica ni se envía a Tally. Los borradores también aparecen en el catálogo y armarios locales para revisar el recorrido completo.
+Abrir la dirección local que muestra Astro. Al guardar el MDX se actualiza la página. No se publica ni se envía a Tally. Los borradores aparecen en el catálogo y armarios del servidor de desarrollo. Para revisar una compilación local con borradores, usar `npm run verify:review` y `npm run preview`. La compilación normal (`build` o `verify`) los excluye, independientemente de la indexación.
 
 [PAR-0003](../sitio/src/content/pares/par-0003.mdx) es un ejemplo completo. Su cuerpo importa los bloques una vez; después se pueden escribir párrafos de Markdown y mover los bloques completos:
 
@@ -64,9 +64,11 @@ El orden de los bloques en el archivo es el orden de lectura. Título, entradill
 1. Preparar su análisis e imágenes a partir de Drive y los permisos autorizados.
 2. Crear un MDX independiente con identificador, slug, orden de catálogo, vistas y referencia `collaborator`. Escribir el cuerpo con los bloques que necesite ese par. El orden del catálogo es independiente del orden del texto.
 3. Si es una nueva colaboradora, crear una vez su archivo en `src/content/colaboradoras/`: nombre público, slug y autorización de armario. También puede ser una identidad anónima estable, por ejemplo «Colaboradora 07», que permite reunir sus pares sin revelar su identidad. Una entrada sin referencia muestra «Colaboración anónima» y no se agrupa con otras personas anónimas cuya relación se desconoce.
-4. Mantener `status: draft` mientras se redacta y revisa. Cambiarlo a `status: published` cuando se autorice la publicación. En una compilación de lanzamiento (`PUBLIC_LAUNCH_READY=true`) se excluyen los borradores de páginas, catálogo, armarios y sitemap.
+4. Mantener `status: draft` mientras se redacta y revisa. Cambiarlo a `status: published` cuando se autorice la publicación e indicar `publishedAt: 'AAAA-MM-DD'`, con la fecha real. El último publicado abre la portada; el catálogo ordena por fecha descendente y usa `order` para desempatar. En revisión, si todavía no hay ninguno publicado, se muestra el primer borrador por `order` como ejemplo.
 5. Comprobar y compilar. Catálogo, página del par, contador, enlaces al armario, índice de armarios y sitemap se actualizan automáticamente. No se edita la página del armario.
 
 Los identificadores de colección son los nombres de archivo. Una ruta o identificador de par duplicados y una referencia a una colaboradora inexistente detienen la compilación, evitando sobrescribir entradas. Los términos deben usar un slug literal del glosario para que también se generen sus enlaces de consulta.
+
+`model` es opcional y aparece en «De un vistazo» solo si se conoce. No se completan datos por deducción. La decisión del 7/10 exige que quien envía un par cuente qué le gusta, pero no convierte una cita pública en obligatoria: solo se incorpora si está autorizada.
 
 `npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.

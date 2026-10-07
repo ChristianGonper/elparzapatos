@@ -3,11 +3,10 @@ import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
-import { pairs, pairPath } from '../data/pairs';
+import { featuredPair, pairPath } from '../data/pairs';
 import { wardrobes, wardrobePath } from '../data/wardrobes';
 import { pairImage } from '../data/images';
-import { site } from '../data/site';
-const featured = pairs[0];
+const featured = featuredPair;
 const looks = [
   {
     base: '/imagenes/ejemplos/marrones_2',
@@ -34,26 +33,6 @@ const looks = [
   title="El Par"
   description="Vuelve a mirar tus zapatos. Descubre los detalles de cada par y participa con fotos de los tuyos."
 >
-  <section class="home-intro wrap">
-    <div>
-      <span class="eyebrow">Zapatos en detalle</span>
-      <h1>
-        Vuelve a mirar
-        <br />
-        <em>tus zapatos.</em>
-      </h1>
-    </div>
-    <div class="intro-copy">
-      <p>
-        Una puntera, una tira, un pequeño brillo. Hay detalles que cambian un zapato entero. En El
-        Par nos acercamos para enseñártelos.
-      </p>
-      <a class="button" href={site.tally}>
-        Enviar mis fotos <Arrow />
-      </a>
-      <p class="small-note">Nos envías fotos, no los zapatos.</p>
-    </div>
-  </section>
   {featured && (
     <>
       <section class="home-feature" aria-labelledby="feature-title">
@@ -72,11 +51,14 @@ const looks = [
         <div class="home-feature-copy">
           <div class="feature-meta">
             <span>Bajo lupa</span>
-            <span>01 / {featured.type}</span>
+            <span>
+              {featured.status === 'published' ? 'Último publicado' : 'En revisión'} ·{' '}
+              {featured.type}
+            </span>
           </div>
-          <h2 id="feature-title">
+          <h1 id="feature-title">
             <em>{featured.title}</em>
-          </h2>
+          </h1>
           <p>{featured.teaser}</p>
           <a class="text-link" href={pairPath(featured)}>
             Leer a fondo <Arrow />
@@ -91,24 +73,41 @@ const looks = [
       </div>
     </>
   )}
+  <section class="home-intro wrap">
+    <div>
+      {featured ? (
+        <h2>
+          Vuelve a mirar <em>tus zapatos.</em>
+        </h2>
+      ) : (
+        <h1>
+          Vuelve a mirar <em>tus zapatos.</em>
+        </h1>
+      )}
+    </div>
+    <div class="intro-copy">
+      <p>
+        Nos enseñas un par tuyo y lo miramos en detalle. Revisas el análisis antes de publicarlo y
+        recibes su enlace para compartirlo.
+      </p>
+      <a class="text-link" href="/participa/">
+        Cómo colaborar <Arrow />
+      </a>
+    </div>
+  </section>
   <section class="wrap section">
     <div class="editorial-intro">
       <div>
         <span class="eyebrow">Fotos de ejemplo · Siempre hay algo que mirar</span>
         <h2>
-          Lo que te gusta.
-          <br />
-          <em>Y lo que aún no has visto.</em>
+          Hay mucho <em>que mirar.</em>
         </h2>
       </div>
       <div class="copy">
         <p class="lead">
-          No hace falta saber de zapatos para fijarte en ellos. Miramos la forma, seguimos una línea
-          y nos acercamos a ese detalle que te hizo elegirlos.
+          Una forma, una tira, un adorno. El precio y la marca no deciden qué tiene un zapato que
+          contar.
         </p>
-        <a class="text-link" href="/el-par/">
-          Qué es El Par <Arrow />
-        </a>
       </div>
     </div>
     <div class="look-row">
@@ -146,8 +145,8 @@ const looks = [
           <em>empieza contigo.</em>
         </h2>
         <p class="lead">
-          Cada colaboradora tiene un lugar donde reunir sus pares y descubrir sus análisis. El
-          armario crece con cada nuevo par que comparte.
+          Con un par tienes su análisis en Pares. Desde el segundo, los reunimos también en tu
+          armario, que crece con cada nuevo par que compartes.
         </p>
         <a class="text-link" href={wardrobePath(wardrobes[0])}>
           Entrar en el Armario de {wardrobes[0].name} <Arrow />

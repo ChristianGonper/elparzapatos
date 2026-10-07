@@ -6,7 +6,7 @@ import '../styles/index.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PhotoViewer from '../components/PhotoViewer.astro';
-import { site, siteUrl, launchReady } from '../data/site';
+import { site, siteUrl, launchReady, includeDrafts } from '../data/site';
 interface Props {
   title: string;
   description: string;
@@ -52,6 +52,7 @@ const allowIndex = !!siteUrl && launchReady && !noindex;
       Ir al contenido
     </a>
     <Header />
+    {includeDrafts && <div class="review-notice">Vista de revisión · incluye borradores</div>}
     <main id="contenido" tabindex="-1">
       <slot />
     </main>

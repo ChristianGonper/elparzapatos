@@ -66,7 +66,11 @@ for (const [file, html] of documents) {
     }
   }
   for (const tag of html.matchAll(/<img\b[^>]*>/g)) {
-    if (!/\balt="/.test(tag[0]) || !/\bwidth="/.test(tag[0]) || !/\bheight="/.test(tag[0]))
+    if (
+      !/\salt(?:=|(?=\s|\/?>))/.test(tag[0]) ||
+      !/\bwidth="/.test(tag[0]) ||
+      !/\bheight="/.test(tag[0])
+    )
       errors.push(`${file}: imagen sin texto alternativo o dimensiones`);
   }
   if (html.includes('https://tally.so/embed') || html.includes('<iframe'))

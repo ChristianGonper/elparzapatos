@@ -35,7 +35,7 @@ const routes = [
   '/tus-fotos-y-tus-datos/',
 ];
 
-for (const width of [360, 390, 768, 1024, 1440]) {
+for (const width of [320, 360, 390, 430, 768, 1024, 1440]) {
   test(`Todas las páginas funcionan sin desbordamientos a ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     const pageErrors: string[] = [];
@@ -81,7 +81,7 @@ test('Inicio y participación abren el mismo Tally directamente', async ({ page 
   for (const route of ['/', '/participa/']) {
     await page.goto(route);
     const actions = page.getByRole('link', { name: 'Enviar mis fotos', exact: false });
-    expect(await actions.count()).toBeGreaterThanOrEqual(2);
+    expect(await actions.count()).toBeGreaterThanOrEqual(1);
     for (const link of await actions.all())
       await expect(link).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
     await expect(page.locator('iframe')).toHaveCount(0);
@@ -94,6 +94,142 @@ test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async (
   await expect(page.locator('.look-row').getByRole('link')).toHaveCount(0);
   await page.goto('/pares/');
   await expect(page.locator('.pair-card')).toHaveCount(pairSources.length);
+});
+
+test('En móvil el destacado abre la portada y el lema viene después', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const photo = await page.locator('.home-feature-photo').boundingBox();
+  const motto = await page.locator('.home-intro').boundingBox();
+  expect(photo!.y).toBeLessThan(200);
+  expect(motto!.y).toBeGreaterThan(photo!.y + photo!.height);
+  await expect(
+    page.locator('.home-intro').getByRole('link', { name: 'Enviar mis fotos' }),
+  ).toHaveCount(0);
+});
+
+test('Los detalles se leen como título, foto y cuerpo en móvil', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/pares/bailarinas-rejilla-flores/');
+  for (const section of await page.locator('.article-section').all()) {
+    const heading = await section.locator('h2').boundingBox();
+    const photo = await section.locator('figure').boundingBox();
+    const body = await section.locator('.article-text').boundingBox();
+    expect(heading!.y + heading!.height).toBeLessThanOrEqual(photo!.y);
+    expect(photo!.y + photo!.height).toBeLessThanOrEqual(body!.y);
+  }
+});
+
+test('El visor acerca de verdad, permite desplazarse y vuelve a la foto completa', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/pares/bailarinas-rejilla-flores/');
+  const opener = page.locator('.article-hero button');
+  await opener.click();
+  const dialog = page.getByRole('dialog', { name: 'Fotografía ampliada' });
+  const detail = dialog.getByRole('button', { name: 'Acercar' });
+  await expect(detail).toBeEnabled();
+  const completeWidth = (await dialog.locator('img').boundingBox())!.width;
+  await detail.click();
+  await expect(detail).toHaveAttribute('aria-pressed', 'true');
+  expect((await dialog.locator('img').boundingBox())!.width).toBeGreaterThan(completeWidth * 2);
+  const viewport = dialog.locator('.image-viewport');
+  expect(await viewport.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(
+    true,
+  );
+  await viewport.focus();
+  const previousScroll = await viewport.evaluate((element) => element.scrollLeft);
+  await page.keyboard.press('ArrowRight');
+  await expect
+    .poll(() => viewport.evaluate((element) => element.scrollLeft))
+    .toBeGreaterThan(previousScroll);
+  await dialog.getByRole('button', { name: 'Ver completa' }).click();
+  expect((await dialog.locator('img').boundingBox())!.width).toBeCloseTo(completeWidth, 0);
+  await page.keyboard.press('Escape');
+  await expect(opener).toBeFocused();
+  await opener.click();
+  await expect(detail).toHaveAttribute('aria-pressed', 'false');
+});
+
+test('Compartir pares y armarios permite copiar o usar el menú del dispositivo', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async (url: string) => {
+          document.body.dataset.copiedUrl = url;
+        },
+      },
+    });
+    Object.defineProperty(navigator, 'share', {
+      configurable: true,
+      value: async (data: { title: string; url: string }) => {
+        document.body.dataset.sharedUrl = data.url;
+        document.body.dataset.sharedTitle = data.title;
+      },
+    });
+  });
+  for (const [route, kind] of [
+    ['/pares/bailarinas-rejilla-flores/', 'par'],
+    ['/armarios/maria/', 'armario'],
+  ]) {
+    await page.goto(route);
+    await page.getByRole('button', { name: 'Copiar enlace', exact: true }).click();
+    await expect(page.locator('body')).toHaveAttribute(
+      'data-copied-url',
+      `http://localhost:4322${route}`,
+    );
+    await page.getByRole('button', { name: `Compartir este ${kind}`, exact: false }).click();
+    await expect(page.locator('body')).toHaveAttribute(
+      'data-shared-url',
+      `http://localhost:4322${route}`,
+    );
+    await expect(page.locator('.share-status')).toHaveText('Compartido.');
+  }
+});
+
+test('Si el portapapeles no está disponible se puede copiar el enlace manualmente', async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async () => {
+          throw new Error('No disponible');
+        },
+      },
+    });
+    Object.defineProperty(navigator, 'share', { configurable: true, value: undefined });
+  });
+  await page.goto('/armarios/maria/');
+  await expect(page.getByRole('button', { name: 'Compartir este armario' })).not.toBeVisible();
+  await page.getByRole('button', { name: 'Copiar enlace' }).click();
+  await expect(page.getByRole('textbox', { name: 'Enlace de este armario' })).toHaveValue(
+    'http://localhost:4322/armarios/maria/',
+  );
+  await expect(page.getByRole('textbox', { name: 'Enlace de este armario' })).toBeFocused();
+});
+
+test('Participación muestra las siete vistas, el resultado y las condiciones vigentes', async ({
+  page,
+}) => {
+  await page.goto('/participa/');
+  await page.getByRole('link', { name: 'Qué fotos preparar' }).click();
+  await expect(page).toHaveURL('/participa/#fotos');
+  await expect(page.locator('.photo-checklist li')).toHaveCount(7);
+  await expect(page.locator('#fotos')).toContainText('máximo de 48 horas');
+  await expect(page.locator('#fotos')).toContainText('el formulario pide');
+  await expect(page.locator('.participation-note')).toContainText('segundo publicado');
+  await page.locator('.photo-checklist li').last().getByRole('link').click();
+  await expect(page).toHaveURL('/guia-de-fotos/#vista-07');
+  await expect(page.locator('#vista-07')).toBeInViewport();
+  await page.goto('/participa/');
+  await page.locator('.hero-image').getByRole('link').click();
+  await expect(page).toHaveURL('/pares/bailarinas-rejilla-flores/');
 });
 
 test('El menú móvil abre por teclado y se cierra con Escape', async ({ page }) => {
@@ -228,7 +364,7 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   });
   const page = await context.newPage();
   await page.goto('http://localhost:4322/');
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Vuelve a mirar');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Flores sobre una rejilla');
   await page.locator('.mobile-menu summary').click();
   await expect(
     page

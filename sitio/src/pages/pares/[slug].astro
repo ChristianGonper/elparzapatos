@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import { getEntry, render } from 'astro:content';
 import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
+import ShareLink from '../../components/ShareLink.astro';
 import { pairs, type Pair } from '../../data/pairs';
 import { pairImage } from '../../data/images';
 import { wardrobeForPair, wardrobePath } from '../../data/wardrobes';
@@ -44,6 +45,7 @@ const { Content } = await render(entry);
           </>
         )}
       </p>
+      <ShareLink title={`${pair.title} · El Par`} kind="par" />
     </header>
     <div class="analysis-content">
       <Content />

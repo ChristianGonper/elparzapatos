@@ -7,6 +7,8 @@
 @import './components/pair-cards.css';
 @import './pages/analysis.css';
 @import './components/overlays.css';
+@import './components/photo-checklist.css';
+@import './components/share.css';
 @import './pages/participation.css';
 @import './pages/guide.css';
 @import './pages/information.css';

@@ -15,9 +15,9 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: {
-    command: 'npm run preview -- --port 4322 --ignore-lock',
+    command: 'npm run build:review && npm run preview -- --port 4322 --ignore-lock',
     url: 'http://localhost:4322',
-    reuseExistingServer: !process.env.CI,
-    timeout: 30_000,
+    reuseExistingServer: false,
+    timeout: 60_000,
   },
 });

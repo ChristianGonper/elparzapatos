@@ -37,27 +37,34 @@
 }
 .article-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 6vw, 6rem);
-  align-items: center;
+  grid-template-columns: 1.15fr 1fr;
+  grid-template-areas: 'heading photo' 'copy photo';
+  column-gap: clamp(2rem, 5vw, 5rem);
+  row-gap: 1.5rem;
+  align-items: start;
   margin-bottom: clamp(3.5rem, 8vw, 8rem);
 }
-.article-section.image-first .article-text {
-  order: 2;
+.article-section.image-first {
+  grid-template-areas: 'photo heading' 'photo copy';
 }
-.article-section.image-first figure {
-  order: 1;
+.article-section-heading {
+  grid-area: heading;
+  align-self: end;
+}
+.article-section figure {
+  grid-area: photo;
 }
 .article-text {
+  grid-area: copy;
   max-width: 46ch;
 }
-.article-text .eyebrow {
+.article-section-heading .eyebrow {
   color: var(--wine);
   margin-bottom: 1.2rem;
 }
-.article-text h2 {
+.article-section-heading h2 {
   font-size: clamp(2.2rem, 3.5vw, 3.4rem);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 .article-text p {
   color: var(--muted);
@@ -129,13 +136,11 @@
 @media (max-width: 800px) {
   .article-section {
     grid-template-columns: 1fr;
+    grid-template-areas: 'heading' 'photo' 'copy';
     gap: 1.7rem;
   }
-  .article-section.image-first .article-text {
-    order: initial;
-  }
-  .article-section.image-first figure {
-    order: initial;
+  .article-section.image-first {
+    grid-template-areas: 'heading' 'photo' 'copy';
   }
   .article-text {
     max-width: 65ch;
@@ -161,7 +166,7 @@
   .article-text p {
     font-size: 1rem;
   }
-  .article-text h2 {
+  .article-section-heading h2 {
     font-size: 2.65rem;
   }
   /* Mantiene la composición móvil de las definiciones dentro del análisis. */

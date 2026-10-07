@@ -25,22 +25,39 @@ const pares = defineCollection({
     base: './src/content/pares',
     generateId: ({ entry }) => entry.replace(/\.mdx$/, ''),
   }),
-  schema: z.object({
-    id: z.string().regex(/^PAR-\d{4,}$/),
-    slug,
-    collaborator: reference('colaboradoras').optional(),
-    status: z.enum(['draft', 'published']).default('draft'),
-    order: z.number().int().nonnegative(),
-    imageSet: slug,
-    photoAlt: text,
-    focus: text,
-    title: text,
-    teaser: text,
-    intro: text.optional(),
-    type: text,
-    brand: text.optional(),
-    hero: image,
-  }),
+  schema: z
+    .object({
+      id: z.string().regex(/^PAR-\d{4,}$/),
+      slug,
+      collaborator: reference('colaboradoras').optional(),
+      status: z.enum(['draft', 'published']).default('draft'),
+      publishedAt: z.preprocess(
+        (value) => (value instanceof Date ? value.toISOString().slice(0, 10) : value),
+        z
+          .string()
+          .regex(/^\d{4}-\d{2}-\d{2}$/)
+          .refine((value) => {
+            const date = new Date(`${value}T00:00:00Z`);
+            return !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+          }, 'La fecha de publicación debe ser válida.')
+          .optional(),
+      ),
+      order: z.number().int().nonnegative(),
+      imageSet: slug,
+      photoAlt: text,
+      focus: text,
+      title: text,
+      teaser: text,
+      intro: text.optional(),
+      type: text,
+      brand: text.optional(),
+      model: text.optional(),
+      hero: image,
+    })
+    .refine((pair) => pair.status !== 'published' || !!pair.publishedAt, {
+      message: 'Un par publicado necesita publishedAt (AAAA-MM-DD).',
+      path: ['publishedAt'],
+    }),
 });
 
 export const collections = { pares, colaboradoras };

@@ -91,8 +91,8 @@
   flex-shrink: 0;
 }
 .image-dialog {
-  max-width: 95vw;
-  width: 1100px;
+  max-width: calc(100vw - 1rem);
+  width: 1200px;
   max-height: 94dvh;
   padding: 1rem;
   background: var(--paper);
@@ -104,18 +104,68 @@
 }
 .image-dialog-inner {
   position: relative;
-  padding-top: 2.5rem;
+}
+.image-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+.image-zoom-tools {
+  display: flex;
+  gap: 1.2rem;
+}
+.viewer-control {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.2rem;
+  background: none;
+  border: 0;
+  color: var(--wine);
+  font-size: 0.85rem;
+}
+.viewer-control:disabled {
+  color: var(--muted);
+  opacity: 0.65;
+  cursor: default;
+}
+.image-viewport {
+  height: min(68dvh, 800px);
+  overflow: auto;
+  background: var(--surface);
+  overscroll-behavior: contain;
+}
+.image-canvas {
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-viewport.is-enlarged {
+  cursor: grab;
+}
+.image-viewport.is-dragging {
+  cursor: grabbing;
+}
+.image-viewer-status {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.image-viewer-status:empty {
+  display: none;
 }
 .image-dialog-close {
-  position: absolute;
-  right: 0;
-  top: 0;
+  flex-shrink: 0;
 }
 .image-dialog img {
-  max-height: 75dvh;
+  max-width: none;
   object-fit: contain;
-  width: 100%;
-  height: auto;
+  flex-shrink: 0;
+  user-select: none;
 }
 .image-dialog-caption {
   font-size: 0.83rem;

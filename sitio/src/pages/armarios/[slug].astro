@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import PairCard from '../../components/PairCard.astro';
 import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
+import ShareLink from '../../components/ShareLink.astro';
 import { pairImage } from '../../data/images';
 import { wardrobes, type Wardrobe } from '../../data/wardrobes';
 export function getStaticPaths() {
@@ -31,6 +32,7 @@ const { wardrobe } = Astro.props;
       <br />
       <em>{wardrobe.name}.</em>
     </h1>
+    <ShareLink title={`Armario de ${wardrobe.name} · El Par`} kind="armario" />
   </section>
   <div class="wrap pair-index wardrobe-pairs">
     {wardrobe.pairs.map((pair) => (

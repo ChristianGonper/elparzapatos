@@ -1,0 +1,55 @@
+.share-tools {
+  margin-top: 1rem;
+}
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.share-button {
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--wine);
+  font-size: 0.82rem;
+}
+.share-button:hover {
+  border-color: var(--wine);
+}
+.share-status:empty {
+  display: none;
+}
+.share-status {
+  margin-top: 0.5rem;
+}
+.share-manual {
+  display: block;
+  margin-top: 0.8rem;
+}
+.share-manual input {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 0.4rem;
+  padding: 0.8rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+.article-heading .share-actions {
+  justify-content: center;
+}
+.article-heading .share-manual input {
+  margin-inline: auto;
+}
+@media (max-width: 540px) {
+  .article-heading .share-actions {
+    justify-content: flex-start;
+  }
+}

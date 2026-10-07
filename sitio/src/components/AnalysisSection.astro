@@ -10,7 +10,7 @@ interface Props {
   id?: string;
 }
 const pair = currentAnalysis(Astro.locals);
-const { title, image, caption, imageSide = 'right', id } = Astro.props;
+const { title, image, caption, imageSide = 'left', id } = Astro.props;
 const headingId =
   id ??
   `detalle-${image}-${title
@@ -24,13 +24,15 @@ const headingId =
   class:list={['wrap', 'article-section', { 'image-first': imageSide === 'left' }]}
   aria-labelledby={headingId}
 >
-  <div class="article-text">
+  <header class="article-section-heading">
     <span class="eyebrow">De cerca</span>
     <h2 id={headingId}>{title}</h2>
-    <slot />
-  </div>
+  </header>
   <figure>
     <Photo base={pairImage(pair, image)} alt={caption} zoom sizes="(max-width: 800px) 92vw, 45vw" />
     <figcaption>{caption}</figcaption>
   </figure>
+  <div class="article-text">
+    <slot />
+  </div>
 </section>

@@ -1,0 +1,34 @@
+---
+import Photo from './Photo.astro';
+import { guideViews } from '../data/photo-guide';
+import { guideImage } from '../data/images';
+interface Props {
+  local?: boolean;
+}
+const { local = true } = Astro.props;
+---
+
+<nav class="photo-checklist" aria-label="Las siete fotos del par">
+  <p class="eyebrow">Siete vistas · Todas son necesarias</p>
+  <ol>
+    {guideViews.map((view) => (
+      <li>
+        <a href={`${local ? '' : '/guia-de-fotos/'}#vista-${view.n}`}>
+          <div class:list={['photo-checklist-image', { 'is-detail': view.detail }]}>
+            <Photo
+              base={guideImage(view.image)}
+              alt=""
+              max={480}
+              width={480}
+              height={360}
+              sizes="(max-width: 540px) 28vw, 12vw"
+            />
+          </div>
+          <span>
+            <b>{view.n}</b> {view.title}
+          </span>
+        </a>
+      </li>
+    ))}
+  </ol>
+</nav>

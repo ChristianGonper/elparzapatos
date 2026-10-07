@@ -1,0 +1,79 @@
+.photo-checklist {
+  margin-top: 1.8rem;
+}
+.photo-checklist .eyebrow {
+  margin-bottom: 0.8rem;
+  color: var(--wine);
+}
+.photo-checklist ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+.photo-checklist a {
+  display: block;
+}
+.photo-checklist-image {
+  overflow: hidden;
+  background: var(--surface);
+}
+.photo-checklist img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+.photo-checklist .is-detail img {
+  transform: scale(1.8);
+}
+.photo-checklist span {
+  display: block;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin-top: 0.55rem;
+}
+.photo-checklist b {
+  color: var(--wine);
+  font-size: 0.65rem;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.photo-checklist a:hover span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.participation-photos {
+  padding-block: 2rem 3rem;
+  border-bottom: 1px solid var(--line);
+}
+.participation-photos h2 {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  margin-bottom: 1rem;
+}
+.participation-photos > p {
+  color: var(--muted);
+  max-width: 85ch;
+}
+.participation-photos .small-note {
+  margin-top: 1.2rem;
+}
+.collaboration-hero .participation-note {
+  margin-top: 0.8rem;
+  max-width: 46ch;
+}
+@media (max-width: 800px) {
+  .photo-checklist ol {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 540px) {
+  .photo-checklist ol {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 0.7rem;
+  }
+  .photo-checklist span {
+    font-size: 0.74rem;
+  }
+}
