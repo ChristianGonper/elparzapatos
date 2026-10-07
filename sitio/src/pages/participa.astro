@@ -7,6 +7,7 @@ import { site } from '../data/site';
 import { guideImage } from '../data/images';
 import { pairs, pairPath } from '../data/pairs';
 import PhotoChecklist from '../components/PhotoChecklist.astro';
+import { anonymousCreditExample, removalHours, reviewHours } from '../data/participation';
 const examplePair = pairs.find((pair) => pair.entryId === 'par-0003');
 const examples = [
   {
@@ -45,11 +46,11 @@ const faqs = [
   },
   {
     q: '¿Salgo yo en las fotos o en la web?',
-    a: 'Solo salen los zapatos. Nunca tu cara ni tu cuerpo. En el formulario eliges si apareces con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, usamos un nombre genérico para poder reunir tus pares.',
+    a: `Solo salen los zapatos. Nunca tu cara ni tu cuerpo. En el formulario eliges si apareces con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, te acreditamos con un número estable, como «${anonymousCreditExample}», para poder reunir tus pares.`,
   },
   {
     q: '¿Qué pasa después de enviarlos?',
-    a: 'Revisamos las fotos y, si falta una vista importante, te la pedimos. Después preparamos el análisis y te lo mandamos antes de publicarlo. Tienes 48 horas para pedir cambios. Si no contestas, se publica. Te avisamos cuando esté en la web.',
+    a: `Revisamos las fotos y, si falta una vista importante, te la pedimos. Después preparamos el análisis y te lo mandamos antes de publicarlo. Tienes ${reviewHours} horas para pedir cambios. Si no contestas, se publica. Si prefieres que no salga, lo quitamos. Te avisamos cuando esté en la web.`,
   },
   {
     q: '¿Dónde se usan las fotos?',
@@ -57,11 +58,11 @@ const faqs = [
   },
   {
     q: '¿Puedo pedir que se retire mi par?',
-    a: 'Sí. Puedes pedirlo cuando quieras por correo o por el canal por el que hablamos contigo. Retiramos la publicación de la web y de nuestras redes en un máximo de 48 horas. Te preguntaremos si quieres que borremos también las fotos originales y te confirmaremos la retirada.',
+    a: `Sí. Puedes pedirlo cuando quieras por correo o por el canal por el que hablamos contigo. Retiramos la publicación de la web y de nuestras redes en un máximo de ${removalHours} horas. Te preguntaremos si quieres que borremos también las fotos originales y te confirmaremos la retirada.`,
   },
   {
     q: '¿Necesito enviar dos pares para participar?',
-    a: 'No. Puedes empezar con uno: tendrá su análisis en Pares. Cuando publiques un segundo par con nosotros, reuniremos los dos también en tu Armario. Si eliges aparecer de forma anónima, usaremos un nombre genérico estable, como Colaboradora 07.',
+    a: `No. Puedes empezar con uno: tendrá su análisis en Pares. Cuando publiques un segundo par con nosotros, reuniremos los dos también en tu Armario. Si eliges aparecer de forma anónima, los reunimos bajo tu número, como «${anonymousCreditExample}».`,
   },
 ];
 ---
@@ -139,8 +140,9 @@ const faqs = [
       modelo son opcionales.
     </p>
     <p class="small-note">
-      Tú eliges cómo aparecer y revisas el análisis antes de publicarlo. Si después pides retirarlo,
-      lo quitamos de la web y de nuestras redes en un máximo de 48 horas.
+      Tú eliges cómo aparecer y revisas el análisis antes de publicarlo: tienes {reviewHours} horas
+      para pedir cambios. Si después pides retirarlo, lo quitamos de la web y de nuestras redes en
+      un máximo de {removalHours} horas.
     </p>
   </section>
   <section class="wrap section steps-intro">
