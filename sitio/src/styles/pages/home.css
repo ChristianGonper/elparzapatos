@@ -164,7 +164,7 @@
 .home-wardrobe .wardrobe-pictures {
   gap: 0.9rem;
 }
-.home-wardrobe .wardrobe-pictures img:first-child {
+.home-wardrobe .wardrobe-pictures picture:first-child img {
   margin-top: 2rem;
 }
 .home-wardrobe .wardrobe-pictures img {

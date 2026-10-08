@@ -21,11 +21,7 @@ if (!entry) throw new Error(`Entrada inexistente: ${pair.entryId}`);
 const { Content } = await render(entry);
 ---
 
-<Base
-  title={pair.title}
-  description={pair.teaser}
-  image={`${pairImage(pair, pair.hero)}-1600.webp`}
->
+<Base title={pair.title} description={pair.teaser} image={pairImage(pair, pair.hero)}>
   <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
     <a href="/pares/">Pares</a>
     <span aria-hidden="true">/</span>

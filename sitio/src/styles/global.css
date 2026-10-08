@@ -61,6 +61,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+/* Las fotos llegan envueltas en <picture> (AVIF con WebP de reserva); la caja la pone la imagen. */
+picture {
+  display: contents;
+}
+picture > source {
+  display: none;
+}
 figure {
   margin: 0;
 }

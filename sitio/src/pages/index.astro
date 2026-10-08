@@ -5,23 +5,23 @@ import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import { featuredPair, pairPath } from '../data/pairs';
 import { wardrobes, wardrobePath } from '../data/wardrobes';
-import { pairImage } from '../data/images';
+import { exampleImage, pairImage } from '../data/images';
 const featured = featuredPair;
 const looks = [
   {
-    base: '/imagenes/ejemplos/marrones_2',
+    image: exampleImage('marrones_2'),
     title: 'Un tacón que cambia la silueta',
     text: 'De frente mandan las tiras. De lado, la forma del tacón.',
     label: 'La forma',
   },
   {
-    base: '/imagenes/ejemplos/negras_1',
+    image: exampleImage('negras_1'),
     title: 'El detalle que se lleva la mirada',
     text: 'Tres círculos sobre las tiras, con relieves que se ven al acercarse.',
     label: 'El detalle',
   },
   {
-    base: '/imagenes/ejemplos/alpargata_tacon_1',
+    image: exampleImage('alpargata_tacon_1'),
     title: 'Más que una puntera cerrada',
     text: 'La base, el talón abierto y una tira alrededor del tobillo.',
     label: 'El conjunto',
@@ -42,7 +42,7 @@ const looks = [
           aria-label={`Leer a fondo: ${featured.title}`}
         >
           <Photo
-            base={pairImage(featured, featured.hero)}
+            src={pairImage(featured, featured.hero)}
             alt={featured.photoAlt}
             priority
             sizes="(max-width: 800px) 92vw, 60vw"
@@ -107,14 +107,7 @@ const looks = [
     <div class="look-row">
       {looks.map((look) => (
         <figure class="look-card">
-          <Photo
-            base={look.base}
-            alt={look.title}
-            max={960}
-            width={960}
-            height={1280}
-            sizes="(max-width: 540px) 45vw, 30vw"
-          />
+          <Photo src={look.image} alt={look.title} sizes="(max-width: 540px) 45vw, 30vw" />
           <figcaption>
             <span class="eyebrow">{look.label}</span>
             <h3>{look.title}</h3>
@@ -151,7 +144,7 @@ const looks = [
       >
         {wardrobes[0].pairs.slice(0, 2).map((pair) => (
           <Photo
-            base={pairImage(pair, pair.hero)}
+            src={pairImage(pair, pair.hero)}
             alt={pair.photoAlt}
             sizes="(max-width: 800px) 45vw, 25vw"
           />

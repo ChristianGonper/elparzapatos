@@ -5,6 +5,7 @@ import Invitation from '../components/Invitation.astro';
 import QuickSend from '../components/QuickSend.astro';
 import { guideImage } from '../data/images';
 import { guideViews as views } from '../data/photo-guide';
+import heelViews from '../assets/guia/perspectivas-tacones.webp';
 ---
 
 <Base
@@ -52,7 +53,7 @@ import { guideViews as views } from '../data/photo-guide';
       {views.map((view) => (
         <figure class="guide-card" id={`vista-${view.n}`}>
           <Photo
-            base={guideImage(view.image)}
+            src={guideImage(view.image)}
             alt={`${view.title}: bailarinas de María`}
             zoom
             class={view.detail ? 'detail-photo' : undefined}
@@ -74,12 +75,10 @@ import { guideViews as views } from '../data/photo-guide';
         Son las mismas vistas. De perfil, que se vea el tacón entero; por detrás, su forma bajo el
         talón. De frente, baja un poco el móvil para que no quede escondido.
       </p>
-      <img
-        src="/imagenes/guia/perspectivas-tacones.webp"
+      <Photo
+        src={heelViews}
         alt="Ilustración de las vistas de un zapato de tacón: perspectiva, perfil, frente, arriba, trasera y suela"
-        width="1536"
-        height="1024"
-        loading="lazy"
+        sizes="(max-width: 1040px) 92vw, 1000px"
       />
       <p class="small-note">
         Ilustración hecha con IA, hasta que tengamos fotos de un par de tacón. No es el par de una

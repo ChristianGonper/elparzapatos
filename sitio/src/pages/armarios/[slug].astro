@@ -20,7 +20,7 @@ const sharedBy = wardrobe.anonymous ? 'han compartido' : `${wardrobe.name} ha co
 <Base
   title={`Armario de ${wardrobe.name}`}
   description={`Los ${wardrobe.pairs.length} pares que ${sharedBy} con El Par, juntos y mirados de cerca.`}
-  image={`${pairImage(wardrobe.pairs[0], wardrobe.pairs[0].hero)}-1600.webp`}
+  image={pairImage(wardrobe.pairs[0], wardrobe.pairs[0].hero)}
 >
   <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
     <a href="/armarios/">Armarios</a>

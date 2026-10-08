@@ -29,7 +29,7 @@ import { pairImage } from '../../data/images';
           <div class="wardrobe-pictures">
             {wardrobe.pairs.slice(0, 2).map((pair) => (
               <Photo
-                base={pairImage(pair, pair.hero)}
+                src={pairImage(pair, pair.hero)}
                 alt={pair.photoAlt}
                 sizes="(max-width: 700px) 45vw, 30vw"
               />
