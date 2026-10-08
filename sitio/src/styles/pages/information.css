@@ -28,9 +28,6 @@
   color: var(--muted);
   max-width: 46ch;
 }
-.about-copy .text-link {
-  margin-top: 1.7rem;
-}
 .about-principles {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
