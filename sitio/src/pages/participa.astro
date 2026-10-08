@@ -14,7 +14,7 @@ const examples = [
     base: guideImage(5),
     max: 1600,
     name: 'Bailarinas',
-    text: 'Un tejido abierto, una punta o un pequeño adorno.',
+    text: 'La forma de la puntera, la abertura o un pequeño adorno.',
   },
   {
     base: '/imagenes/ejemplos/marrones_2',
@@ -26,50 +26,47 @@ const examples = [
     base: '/imagenes/ejemplos/alpargata_tacon_1',
     max: 960,
     name: 'Cuñas y alpargatas',
-    text: 'La base también cambia el conjunto.',
+    text: 'La base cambia toda la silueta.',
   },
   {
     base: '/imagenes/ejemplos/dorados_1',
     max: 960,
     name: 'Plataformas',
-    text: 'El brillo, las curvas y una suela que gana altura.',
+    text: 'Una suela que gana altura y cambia las proporciones.',
   },
 ];
 const faqs = [
   {
-    q: '¿Tiene que ser un par especial o de marca?',
-    a: 'No importa la marca, el precio ni si es conocido. Una puntera, unas tiras, un tacón o un tejido pueden dar mucho que mirar. De momento nos centramos en bailarinas, salones, sandalias de tacón, cuñas, plataformas y alpargatas. Las botas y las sandalias planas quedan fuera por ahora.',
+    q: '¿Qué pares sirven?',
+    a: 'Cualquiera con dos o tres detalles que se puedan señalar en una foto. No importa la marca ni el precio. Ahora miramos bailarinas, salones, sandalias de tacón, cuñas, plataformas y alpargatas; las botas y las sandalias planas, de momento, no.',
   },
   {
-    q: '¿Tengo que enviar los zapatos?',
-    a: 'Solo nos envías las fotos. No tienes que mandar ni prestar los zapatos. Se quedan contigo.',
+    q: '¿Qué se publica?',
+    a: 'El análisis con tus fotos, en la web, en Instagram y en una futura newsletter de El Par. Solo salen los zapatos, nunca tú. Retocamos lo justo (luz, encuadre, enderezar) y nunca usamos IA generativa con tus fotos.',
   },
   {
-    q: '¿Salgo yo en las fotos o en la web?',
-    a: `Solo salen los zapatos. Nunca tu cara ni tu cuerpo. En el formulario eliges si apareces con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, te acreditamos con un número estable, como «${anonymousCreditExample}», para poder reunir tus pares.`,
+    q: '¿Cómo aparezco?',
+    a: `Como prefieras: con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, sales como «Colaboradora» con tu número de dos cifras, siempre el mismo (por ejemplo, «${anonymousCreditExample}»).`,
   },
   {
-    q: '¿Qué pasa después de enviarlos?',
-    a: `Revisamos las fotos y, si falta una vista importante, te la pedimos. Después preparamos el análisis y te lo mandamos antes de publicarlo. Tienes ${reviewHours} horas para pedir cambios. Si no contestas, se publica. Si prefieres que no salga, lo quitamos. Te avisamos cuando esté en la web.`,
+    q: '¿Qué pasa después de enviarlo?',
+    a: `Miramos las fotos y, si falta alguna vista, te la pedimos. Preparamos el análisis y te lo mandamos: tienes ${reviewHours} horas para pedir cambios. Si no contestas, se publica, y te avisamos cuando esté en la web.`,
   },
   {
-    q: '¿Dónde se usan las fotos?',
-    a: 'En la web, Instagram y una futura newsletter de El Par, siempre para contar tus zapatos. Podemos ajustar la luz, enderezar y encuadrar una foto, o señalar un detalle. Nunca cambiamos la forma del zapato, borramos marcas de uso ni usamos IA generativa con tus fotos.',
+    q: '¿Puedo pedir que lo quitéis?',
+    a: `Sí, cuando quieras. Escríbenos o dínoslo por donde hablamos contigo y lo quitamos de la web y de nuestras redes en un máximo de ${removalHours} horas. Te preguntamos también si quieres que borremos las fotos originales.`,
   },
   {
-    q: '¿Puedo pedir que se retire mi par?',
-    a: `Sí. Puedes pedirlo cuando quieras por correo o por el canal por el que hablamos contigo. Retiramos la publicación de la web y de nuestras redes en un máximo de ${removalHours} horas. Te preguntaremos si quieres que borremos también las fotos originales y te confirmaremos la retirada.`,
-  },
-  {
-    q: '¿Necesito enviar dos pares para participar?',
-    a: `No. Puedes empezar con uno: tendrá su análisis en Pares. Cuando publiques un segundo par con nosotros, reuniremos los dos también en tu Armario. Si eliges aparecer de forma anónima, los reunimos bajo tu número, como «${anonymousCreditExample}».`,
+    q: '¿Puedo mandar más de un par?',
+    a: 'Sí, todos los que quieras: varios en el mismo envío o en envíos distintos, cuando te apetezca. Cada par tiene su análisis en Pares y, desde el segundo publicado, los reunimos también en tu armario.',
   },
 ];
 ---
 
+---
 <Base
   title="Cómo colaborar"
-  description="Enséñanos tus zapatos con fotos hechas con el móvil. Te contamos cómo participar, qué vistas enviar y qué hacemos con tus fotos."
+  description="Hazle unas fotos con el móvil a ese par que te encanta y envíanoslas. Qué pares encajan, cómo apareces y qué pasa después."
 >
   <section class="wrap collaboration-hero">
     <div>
@@ -79,15 +76,8 @@ const faqs = [
         <br />
         <em>Nos gustaría verlo.</em>
       </h1>
-      <p class="lead">
-        Elige unos zapatos tuyos, hazles unas fotos con el móvil y nos acercamos a sus detalles. No
-        necesitas saber de fotografía ni de zapatos.
-      </p>
+      <p class="lead">Le haces unas fotos con el móvil, nos las envías y lo miramos de cerca.</p>
       <QuickSend />
-      <p class="small-note">Solo envías fotos. Tus zapatos se quedan contigo.</p>
-      <p class="small-note participation-note">
-        Puedes empezar con un par. Desde el segundo publicado tendrás también tu armario.
-      </p>
     </div>
     <div class="hero-image">
       {examplePair ? (
@@ -123,16 +113,16 @@ const faqs = [
   </section>
   <div class="wrap reassurance-strip">
     <span>Con el móvil, en casa</span>
-    <span>Tú eliges cómo aparecer</span>
-    <span>Revisas el análisis antes</span>
+    <span>Tú eliges cómo apareces</span>
+    <span>Lo lees antes de publicarlo</span>
   </div>
   <section class="wrap section steps-intro">
     <div>
       <span class="eyebrow">Así de sencillo</span>
       <h2>
-        Tú nos los enseñas.
+        Tú haces las fotos.
         <br />
-        <em>Nosotros nos acercamos.</em>
+        <em>Nosotros miramos cada detalle.</em>
       </h2>
     </div>
     <div>
@@ -147,45 +137,36 @@ const faqs = [
         <li>
           <h3>Hazle unas fotos</h3>
           <p>
-            Con el móvil y un fondo sencillo. Que se vea bien por delante, de lado, por arriba, por
-            detrás y por debajo. Acércate también al detalle que te gusta.
+            Con el móvil y un fondo sencillo: seis vistas y los detalles que más te gusten. En la
+            guía te enseñamos cada vista.
           </p>
         </li>
         <li>
-          <h3>Cuéntanos qué te gusta del par</h3>
+          <h3>Envíanoslas</h3>
           <p>
-            Sube las fotos al formulario y cuéntanos qué te gusta del par. Añade la marca y el
-            modelo si los recuerdas. Después te mandamos el análisis para que lo revises antes de
-            publicarlo.
+            Subes las fotos al formulario, nos cuentas qué te gusta del par y eliges cómo quieres
+            aparecer. La marca y el modelo, si los recuerdas.
+          </p>
+        </li>
+        <li>
+          <h3>Lo lees antes que nadie</h3>
+          <p>
+            {`Te mandamos el análisis y tienes ${reviewHours} horas para pedir cambios. Cuando se publica, te avisamos.`}
           </p>
         </li>
       </ol>
-      <div class="steps-notes">
-        <p class="small-note">
-          Además de las fotos, el formulario pide que nos cuentes qué te gusta del par. La marca y
-          el modelo son opcionales.
-        </p>
-        <p class="small-note">
-          Tú eliges cómo aparecer y revisas el análisis antes de publicarlo: tienes {reviewHours}{' '}
-          horas para pedir cambios. Si después pides retirarlo, lo quitamos de la web y de nuestras
-          redes en un máximo de {removalHours} horas.
-        </p>
-      </div>
     </div>
   </section>
   <section class="examples-section section">
     <div class="wrap">
       <div class="section-heading-row">
         <div>
-          <span class="eyebrow">¿Encajan los tuyos?</span>
-          <h2>
-            Hay mucho que mirar
-            <br />
-            <em>en muchos zapatos.</em>
-          </h2>
+          <span class="eyebrow">Qué pares buscamos</span>
+          <h2>¿Encajan los tuyos?</h2>
         </div>
         <p>
-          Estos son algunos ejemplos. Lo que buscamos son detalles que podamos enseñarte y explicar.
+          Zapatos con dos o tres detalles que se puedan señalar en una foto: una puntera con forma
+          propia, un tacón, unas tiras, una suela que cambia la silueta.
         </p>
       </div>
       <div class="example-grid">
@@ -222,7 +203,7 @@ const faqs = [
         alt="Vista lateral de las bailarinas de María como ejemplo de la guía"
         sizes="(max-width: 800px) 90vw, 45vw"
       />
-      <figcaption>Una vista de perfil del set de María.</figcaption>
+      <figcaption>Las bailarinas de María, de perfil.</figcaption>
     </figure>
     <div>
       <span class="eyebrow">Sin fotos profesionales</span>
@@ -232,8 +213,8 @@ const faqs = [
         <em>Y un poco de luz.</em>
       </h2>
       <p class="lead">
-        Las fotos que harías para enseñarle tus zapatos a una amiga. En la guía tienes todas las
-        vistas, con un par fotografiado en casa.
+        Las fotos que harías para enseñarle tus zapatos a una amiga. En la guía tienes las seis
+        vistas, con las bailarinas de María como ejemplo.
       </p>
     </div>
   </section>
@@ -256,12 +237,11 @@ const faqs = [
         </details>
       ))}
       <details>
-        <summary>¿Cómo puedo contactar con El Par?</summary>
+        <summary>¿Cómo os escribo?</summary>
         <div>
           <p>
-            Escríbenos a <a href={`mailto:${site.email}`}>{site.email}</a>. Si quieres saber cómo
-            cuidamos las fotos y los datos, tienes{' '}
-            <a href="/tus-fotos-y-tus-datos/">todos los detalles aquí</a>.
+            A <a href={`mailto:${site.email}`}>{site.email}</a>. Y todo sobre tus fotos y tus datos,{' '}
+            <a href="/tus-fotos-y-tus-datos/">aquí</a>.
           </p>
         </div>
       </details>
