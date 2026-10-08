@@ -62,6 +62,10 @@
 .header-cta {
   min-height: 46px;
 }
+/* Conserva el hueco del botón para que la navegación no se desplace entre páginas. */
+.header-cta-placeholder {
+  visibility: hidden;
+}
 .mobile-menu {
   display: none;
 }

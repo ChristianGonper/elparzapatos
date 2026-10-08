@@ -83,7 +83,13 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   const tally = 'a[href^="https://tally.so/"]';
   for (const route of routes) {
     await page.goto(route);
-    await expect(page.locator('.header-cta')).toHaveAttribute('href', '/participa/');
+    const inPath = route === '/participa/' || route === '/guia-de-fotos/';
+    await expect(page.locator('a.header-cta'), route).toHaveCount(inPath ? 0 : 1);
+    if (!inPath) await expect(page.locator('a.header-cta')).toHaveAttribute('href', '/participa/');
+    await expect(
+      page.locator('.mobile-menu').getByRole('link', { name: 'Manda tu par', includeHidden: true }),
+      route,
+    ).toHaveCount(inPath ? 0 : 1);
     await expect(page.locator('iframe')).toHaveCount(0);
     if (route === '/guia-de-fotos/') {
       await expect(page.locator(tally)).toHaveCount(1);

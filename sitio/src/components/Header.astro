@@ -2,6 +2,10 @@
 import Arrow from './Arrow.astro';
 import { site } from '../data/site';
 const path = Astro.url.pathname;
+// En Cómo colaborar y en la guía ya se está en el recorrido: su llamado está al final de la página.
+const inCollaborationPath = ['/participa/', '/guia-de-fotos/'].some((route) =>
+  path.startsWith(route),
+);
 const links = [
   { href: '/pares/', label: 'Pares' },
   { href: '/armarios/', label: 'Armarios' },
@@ -25,9 +29,15 @@ const links = [
         </a>
       ))}
     </nav>
-    <a class="button header-cta" href="/participa/">
-      Manda tu par <Arrow />
-    </a>
+    {inCollaborationPath ? (
+      <span class="button header-cta header-cta-placeholder" aria-hidden="true">
+        Manda tu par <Arrow />
+      </span>
+    ) : (
+      <a class="button header-cta" href="/participa/">
+        Manda tu par <Arrow />
+      </a>
+    )}
     <details class="mobile-menu">
       <summary aria-label="Abrir menú">
         <span>Menú</span>
@@ -44,10 +54,12 @@ const links = [
           Glosario
           <Arrow />
         </a>
-        <a class="button" href="/participa/">
-          Manda tu par
-          <Arrow />
-        </a>
+        {!inCollaborationPath && (
+          <a class="button" href="/participa/">
+            Manda tu par
+            <Arrow />
+          </a>
+        )}
       </nav>
     </details>
   </div>
