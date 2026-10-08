@@ -24,6 +24,8 @@ La portada abre con el último par publicado; el lema tiene menor tamaño y se p
 
 El visor es PhotoSwipe 5. Cada foto ampliable es un enlace a su versión grande (WebP de hasta 1600 px): se abre pulsando en cualquier punto de la foto, sin botón aparte, y sin JavaScript el enlace abre la imagen. Arranca con la foto entera sobre fondo oscuro, sin marco, y con su pie; se acerca con un clic o la rueda en escritorio y con los dedos en el móvil, sin superar la resolución del archivo. Se cierra con el gesto, Esc o el botón, y devuelve el foco a la foto. Las fotos de la entrada conservan una anchura legible; no se reducen artificialmente para simular una ampliación.
 
+En Armarios, cada tarjeta enseña dos pares. Si la colaboradora tiene más, hasta dos de ellos asoman detrás del segundo, desplazados arriba a la derecha, con una etiqueta «+1 par» o «+N pares». La etiqueta es visual: el número total ya se lee en «N pares», dentro del enlace.
+
 Pares y armarios permiten compartir con el menú del dispositivo cuando está disponible y copiar el enlace, con alternativa manual si el portapapeles falla. La guía muestra las siete vistas en una sola cuadrícula; cada vista conserva su ancla (`#vista-01` … `#vista-07`) para enlazarla directamente, por ejemplo al pedir una foto que falta. Cómo colaborar y la guía tienen un único llamado principal, al final de la página, y no muestran «Manda tu par» en la cabecera. Arriba, junto a la entradilla, ofrecen un acceso secundario a Tally para quien ya tiene las fotos (`QuickSend`). La ilustración de tacones se conserva como excepción temporal acordada, hasta tener un set adecuado.
 
 ## CSS y responsabilidades

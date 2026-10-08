@@ -423,6 +423,32 @@ test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page 
   }
 });
 
+test('La tarjeta de cada armario indica cuántos pares más tiene', async ({ page }) => {
+  for (const width of [1280, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/armarios/');
+    for (const wardrobe of expectedWardrobes) {
+      const total = wardrobe.pairs.length;
+      const card = page.locator(`.wardrobe-card[href="/armarios/${wardrobe.slug}/"]`);
+      await expect(card).toHaveAccessibleName(new RegExp(`${total} pares`));
+      const more = card.locator('.wardrobe-more');
+      const extra = total - 2;
+      if (extra === 0) {
+        await expect(more).toHaveCount(0);
+        continue;
+      }
+      await expect(more).toBeVisible();
+      await expect(more).toHaveText(`+${extra} ${extra === 1 ? 'par' : 'pares'}`);
+      await expect(card.locator('img.wardrobe-behind')).toHaveCount(Math.min(extra, 2));
+      // Los pares que no caben asoman por arriba y por la derecha del segundo.
+      const top = (await card.locator('.wardrobe-stack img:not(.wardrobe-behind)').boundingBox())!;
+      const behind = (await card.locator('img.wardrobe-behind-1').boundingBox())!;
+      expect(behind.y).toBeLessThan(top.y);
+      expect(behind.x + behind.width).toBeGreaterThan(top.x + top.width);
+    }
+  }
+});
+
 test('Las páginas pasan las reglas de accesibilidad automatizadas', async ({ page }) => {
   for (const route of routes) {
     await page.goto(route);

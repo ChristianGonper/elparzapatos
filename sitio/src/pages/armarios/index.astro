@@ -24,28 +24,53 @@ import { pairImage } from '../../data/images';
   </section>
   <div class="wrap wardrobe-index">
     {wardrobes.length ? (
-      wardrobes.map((wardrobe) => (
-        <a class="wardrobe-card" href={wardrobePath(wardrobe)}>
-          <div class="wardrobe-pictures">
-            {wardrobe.pairs.slice(0, 2).map((pair) => (
+      wardrobes.map((wardrobe) => {
+        // Se ven dos pares; si hay más, asoman detrás del segundo (hasta dos) con un «+N».
+        const [first, second, ...more] = wardrobe.pairs;
+        const behind = more.slice(0, 2);
+        return (
+          <a class="wardrobe-card" href={wardrobePath(wardrobe)}>
+            <div class="wardrobe-pictures">
               <Photo
-                src={pairImage(pair, pair.hero)}
-                alt={pair.photoAlt}
+                src={pairImage(first, first.hero)}
+                alt={first.photoAlt}
                 sizes="(max-width: 700px) 45vw, 30vw"
               />
-            ))}
-          </div>
-          <div class="wardrobe-card-title">
-            <div>
-              <span class="eyebrow">{wardrobe.pairs.length} pares</span>
-              <h2>Armario de {wardrobe.name}</h2>
+              <div class="wardrobe-stack" data-behind={behind.length}>
+                {behind
+                  .map((pair, index) => (
+                    <Photo
+                      src={pairImage(pair, pair.hero)}
+                      alt=""
+                      class={`wardrobe-behind wardrobe-behind-${index + 1}`}
+                      sizes="(max-width: 700px) 45vw, 30vw"
+                    />
+                  ))
+                  .reverse()}
+                <Photo
+                  src={pairImage(second, second.hero)}
+                  alt={second.photoAlt}
+                  sizes="(max-width: 700px) 45vw, 30vw"
+                />
+                {more.length > 0 && (
+                  <span class="wardrobe-more" aria-hidden="true">
+                    +{more.length} {more.length === 1 ? 'par' : 'pares'}
+                  </span>
+                )}
+              </div>
             </div>
-            <span class="wardrobe-open">
-              Ver el armario <Arrow />
-            </span>
-          </div>
-        </a>
-      ))
+            <div class="wardrobe-card-title">
+              <div>
+                <span class="eyebrow">{wardrobe.pairs.length} pares</span>
+                <h2>Armario de {wardrobe.name}</h2>
+              </div>
+              <span class="wardrobe-open">
+                Ver el armario <Arrow />
+              </span>
+            </div>
+          </a>
+        );
+      })
     ) : (
       <div class="wardrobe-empty">
         <h2>
