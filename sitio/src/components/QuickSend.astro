@@ -1,0 +1,12 @@
+---
+import { site } from '../data/site';
+import Arrow from './Arrow.astro';
+// Acceso secundario a Tally para quien ya sabe qué fotos hacer. El llamado principal está al final.
+---
+
+<p class="quick-send">
+  <span>¿Ya tienes las fotos?</span>
+  <a class="text-link" href={site.tally}>
+    Envíalas directamente <Arrow />
+  </a>
+</p>

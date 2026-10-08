@@ -1,0 +1,14 @@
+.quick-send {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.9rem;
+  margin-top: 1.2rem;
+  max-width: 46ch;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.quick-send .text-link {
+  color: var(--wine);
+  font-size: 0.85rem;
+}

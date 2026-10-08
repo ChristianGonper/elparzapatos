@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import Invitation from '../components/Invitation.astro';
+import QuickSend from '../components/QuickSend.astro';
 import { guideImage } from '../data/images';
 import { guideViews as views } from '../data/photo-guide';
 ---
@@ -26,6 +27,7 @@ import { guideViews as views } from '../data/photo-guide';
       Con el móvil, en casa y sin complicarte. Las bailarinas de María nos sirven para enseñarte
       todas las vistas.
     </p>
+    <QuickSend />
     <div class="guide-tools">
       <button class="button outline" id="print-guide">
         Guardar o imprimir la guía <span aria-hidden="true">↗</span>

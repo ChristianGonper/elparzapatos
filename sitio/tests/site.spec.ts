@@ -92,13 +92,15 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
     ).toHaveCount(inPath ? 0 : 1);
     await expect(page.locator('iframe')).toHaveCount(0);
     if (route === '/guia-de-fotos/') {
-      await expect(page.locator(tally)).toHaveCount(1);
+      await expect(page.locator(tally)).toHaveCount(2);
+      await expect(page.locator(`.quick-send ${tally}`)).toHaveCount(1);
       await expect(page.locator(`#enviar ${tally}`)).toHaveAttribute(
         'href',
         'https://tally.so/r/Npj2bl',
       );
     } else if (route === '/participa/') {
-      await expect(page.locator(tally)).toHaveCount(1);
+      await expect(page.locator(tally)).toHaveCount(2);
+      await expect(page.locator(`.quick-send ${tally}`)).toHaveCount(1);
       await expect(page.locator(`.invitation-done ${tally}`)).toHaveCount(1);
     } else await expect(page.locator(tally), route).toHaveCount(0);
   }
@@ -115,6 +117,20 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   await expect(send).toBeInViewport();
   await page.goto('/guia-de-fotos/#enviar');
   await expect(send).toBeInViewport();
+});
+
+test('Quien ya tiene las fotos encuentra arriba el acceso directo a Tally', async ({ page }) => {
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: width < 600 ? 844 : 800 });
+    for (const route of ['/participa/', '/guia-de-fotos/']) {
+      await page.goto(route);
+      const quick = page
+        .locator('.quick-send')
+        .getByRole('link', { name: 'Envíalas directamente' });
+      await expect(quick).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
+      await expect(quick, `${route} a ${width}px`).toBeInViewport();
+    }
+  }
 });
 
 test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {

@@ -13,7 +13,7 @@
   font-size: clamp(3.3rem, 6vw, 5.8rem);
   margin-bottom: 1.5rem;
 }
-.collaboration-hero .lead + .small-note {
+.collaboration-hero .quick-send + .small-note {
   margin-top: 1.8rem;
 }
 .collaboration-hero .participation-note {
