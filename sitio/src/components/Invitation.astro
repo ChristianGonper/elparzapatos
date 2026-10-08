@@ -46,8 +46,8 @@ const titleId =
       {next === 'tally' ? (
         <>
           <p>
-            Se abre el formulario de Tally. Subes las fotos, nos cuentas qué te gusta del par y
-            eliges cómo aparecer.
+            En el formulario subes las fotos, nos cuentas qué te gusta del par y eliges cómo quieres
+            aparecer.
           </p>
           <a class="button" href={site.tally}>
             Enviar mis fotos <Arrow />
@@ -58,10 +58,7 @@ const titleId =
         </>
       ) : (
         <>
-          <p>
-            Ese par que te encanta tiene mucho que mirar. Hazle unas fotos con el móvil y lo
-            contamos en El Par.
-          </p>
+          <p>Hazle unas fotos con el móvil a ese par que te encanta y lo miramos de cerca.</p>
           {next === 'guia' ? (
             <a class="button" href="/guia-de-fotos/">
               Qué fotos hacer <Arrow />
@@ -71,7 +68,6 @@ const titleId =
               Manda tu par <Arrow />
             </a>
           )}
-          <p class="small-note">Solo nos envías fotos. Los zapatos se quedan contigo.</p>
         </>
       )}
     </div>

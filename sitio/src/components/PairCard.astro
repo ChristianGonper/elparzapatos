@@ -1,7 +1,7 @@
 ---
 import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
-import { pairPath, pairs, type Pair } from '../data/pairs';
+import { pairPath, type Pair } from '../data/pairs';
 import { pairImage } from '../data/images';
 interface Props {
   pair: Pair;
@@ -18,7 +18,6 @@ const { pair, sizes = '(max-width: 700px) 90vw, 50vw' } = Astro.props;
     <span>
       {pair.type} · {pair.credit}
     </span>
-    <span>{String(pairs.indexOf(pair) + 1).padStart(2, '0')}</span>
   </div>
   <h2>{pair.title}</h2>
   <p>{pair.teaser}</p>

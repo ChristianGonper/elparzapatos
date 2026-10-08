@@ -13,12 +13,12 @@ const colaboradoras = defineCollection({
     base: './src/content/colaboradoras',
     generateId: ({ entry }) => entry.replace(/\.json$/, ''),
   }),
-  // Con nombre público o anónima con un número estable que se muestra como «Colaboradora 07».
+  // Con nombre público o anónima con un número estable: «Colaboradora 07», «Colaboradora 107».
   schema: z
     .object({
       slug,
       name: text.optional(),
-      anonymous: z.number().int().min(1).max(99).optional(),
+      anonymous: z.number().int().min(1).max(999).optional(),
       wardrobe: z.boolean().default(false),
     })
     .refine((entry) => (entry.name === undefined) !== (entry.anonymous === undefined), {

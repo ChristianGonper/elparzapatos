@@ -6,7 +6,6 @@ const pair = currentAnalysis(Astro.locals);
 <div class="wrap">
   <section class="at-a-glance" aria-labelledby="glance-heading">
     <div>
-      <span class="eyebrow">Después de mirar los detalles</span>
       <h2 id="glance-heading">De un vistazo</h2>
     </div>
     <dl>
@@ -17,17 +16,17 @@ const pair = currentAnalysis(Astro.locals);
       {pair.brand && (
         <div>
           <dt>Marca</dt>
-          <dd>{pair.brand}, según su envío</dd>
+          <dd>{pair.brand}</dd>
         </div>
       )}
       {pair.model && (
         <div>
           <dt>Modelo</dt>
-          <dd>{pair.model}, según su envío</dd>
+          <dd>{pair.model}</dd>
         </div>
       )}
       <div>
-        <dt>Fotos y colaboración</dt>
+        <dt>Fotos</dt>
         <dd>{pair.credit}</dd>
       </div>
       <div>

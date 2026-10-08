@@ -26,7 +26,7 @@ Referencias revisadas el 6/10, como orientación y sin copiar diseños ni imáge
 | Armarios | Reunir los pares de cada colaboradora, a partir de dos análisis, con una página que pueda compartir. |
 | Cada par | Contar todo lo relevante, con cada explicación junto a la foto que la demuestra. |
 | Cómo colaborar | Invitar, mostrar ejemplos, explicar las fotos y las condiciones, y llevar a la guía de fotos. |
-| Guía de fotos | Una guía visual que se puede guardar y consultar mientras se fotografía. También se podrá imprimir. |
+| Guía de fotos | Una guía visual para consultar mientras se fotografía. |
 | Qué es El Par | La presentación aprobada, cómo se mira un par y contacto. |
 | Glosario | Definiciones breves que apoyan los análisis; un único contenido compartido con las ayudas contextuales. |
 | Tus fotos y tus datos | Explicar con claridad los usos autorizados, el crédito, la revisión y la retirada. No simula una política legal definitiva. |

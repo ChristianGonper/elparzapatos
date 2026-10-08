@@ -110,7 +110,8 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   await expect(page.locator('main a[href^="/guia-de-fotos/"]')).toHaveCount(1);
   await page.locator('.invitation').getByRole('link', { name: 'Qué fotos hacer' }).click();
   await expect(page).toHaveURL('/guia-de-fotos/');
-  await expect(page.locator('main a[href^="#"]')).toHaveCount(0);
+  await expect(page.locator('main a[href^="#"]')).toHaveCount(1);
+  await expect(page.locator('main a[href^="#"]')).toHaveAttribute('href', '#tacones');
   await expect(page.locator('.photo-checklist')).toHaveCount(0);
   const send = page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' });
   await send.scrollIntoViewIfNeeded();
@@ -135,7 +136,8 @@ test('Quien ya tiene las fotos encuentra arriba el acceso directo a Tally', asyn
 
 test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByText('Fotos de ejemplo · Siempre hay algo que mirar')).toBeVisible();
+  await expect(page.locator('.editorial-intro .eyebrow')).toHaveText('Fotos de ejemplo');
+  await expect(page.locator('.look-note')).toContainText('Son fotos de ejemplo.');
   await expect(page.locator('.look-row').getByRole('link')).toHaveCount(0);
   await page.goto('/pares/');
   await expect(page.locator('.pair-card')).toHaveCount(pairSources.length);
@@ -263,11 +265,18 @@ test('Participación explica los pasos, el resultado y las condiciones vigentes'
   page,
 }) => {
   await page.goto('/participa/');
-  await expect(page.locator('.steps li')).toHaveCount(3);
-  await expect(page.locator('.steps-notes')).toContainText('tienes 48 horas');
-  await expect(page.locator('.steps-notes')).toContainText('máximo de 48 horas');
-  await expect(page.locator('.steps-notes')).toContainText('el formulario pide');
-  await expect(page.locator('.participation-note')).toContainText('segundo publicado');
+  await expect(page.locator('.steps li')).toHaveCount(4);
+  await expect(page.locator('.steps li').last()).toContainText('tienes 48 horas');
+  await expect(page.locator('.steps-notes, .participation-note')).toHaveCount(0);
+  const faq = page.locator('.faq-list details');
+  await expect(faq).toHaveCount(7);
+  await expect(faq.filter({ hasText: '¿Puedo pedir que lo quitéis?' })).toContainText(
+    'máximo de 48 horas',
+  );
+  await expect(faq.filter({ hasText: '¿Puedo mandar más de un par?' })).toContainText(
+    'segundo publicado',
+  );
+  await expect(faq.filter({ hasText: '¿Cómo aparezco?' })).toContainText('«Colaboradora 07»');
   await expect(page.locator('.collaboration-hero .button')).toHaveCount(0);
   await page.goto('/guia-de-fotos/#vista-07');
   await expect(page.locator('#vista-07')).toBeInViewport();
@@ -302,6 +311,7 @@ test('Las definiciones abren, enlazan al glosario y se cierran', async ({ page }
   const popover = page.locator('.term-popover:popover-open');
   await expect(popover).toBeVisible();
   await expect(popover.getByRole('link')).toHaveAttribute('href', '/glosario/#rejilla');
+  await expect(popover.getByRole('link')).toContainText('Todas las palabras, en el glosario');
   await page.keyboard.press('Escape');
   await expect(button).toHaveAttribute('aria-expanded', 'false');
   await expect(button).toBeFocused();
@@ -318,37 +328,50 @@ test('Una foto se amplía y devuelve el foco al cerrar', async ({ page }) => {
   await expect(photo).toBeFocused();
 });
 
-test('La guía contiene el set completo y conserva la impresión', async ({ page }) => {
+test('La guía contiene el set completo y se puede imprimir desde el navegador', async ({
+  page,
+}) => {
   await page.goto('/guia-de-fotos/');
   await expect(page.locator('.guide-card')).toHaveCount(7);
   const sources = await page
     .locator('.guide-card img')
     .evaluateAll((images) => images.map((img) => img.getAttribute('src')));
   expect(new Set(sources).size).toBe(6);
-  await expect(page.locator('.guide-card').last()).toContainText('Ampliación de una foto');
+  await expect(page.locator('.guide-number')).toHaveCount(1);
+  await expect(page.locator('.guide-card').last()).toContainText('Y además, los detalles');
+  await expect(page.locator('#print-guide')).toHaveCount(0);
   await page.locator('.tacon-guide summary').click();
-  await expect(page.locator('.tacon-guide')).toContainText('generada con IA');
+  await expect(page.locator('.tacon-guide')).toContainText('hecha con IA');
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).not.toBeVisible();
   await expect(page.locator('.site-footer')).not.toBeVisible();
   await expect(page.locator('.guide-card').first()).toBeVisible();
 });
 
-test('La guía carga todas sus fotos antes de imprimir sin recorrer la página', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 600 });
-  await page.addInitScript(() => {
-    window.print = () => {
-      document.body.dataset.printReady = String(
-        [...document.querySelectorAll<HTMLImageElement>('.guide-card img, .tacon-guide img')].every(
-          (image) => image.complete && image.naturalWidth > 0,
-        ),
-      );
-    };
-  });
+test('«¿Son tacones?» baja hasta la sección de tacones y la abre', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/guia-de-fotos/');
-  await page.getByRole('button', { name: 'Guardar o imprimir la guía' }).click();
-  await expect(page.locator('body')).toHaveAttribute('data-print-ready', 'true');
-  await expect(page.locator('#print-guide')).toBeEnabled();
+  const heels = page.locator('#tacones');
+  await expect(heels).not.toHaveAttribute('open', '');
+  await page.getByRole('link', { name: 'Mira lo que cambia.' }).click();
+  await expect(heels).toHaveAttribute('open', '');
+  await expect(heels.locator('summary')).toBeInViewport();
+  await page.goto('/participa/');
+  await page.goto('/guia-de-fotos/#tacones');
+  await expect(page.locator('#tacones')).toHaveAttribute('open', '');
+});
+
+test('Cada palabra del glosario lleva al par en el que aparece', async ({ page }) => {
+  await page.goto('/glosario/');
+  const links = page.locator('.glossary-list section a.text-link');
+  expect(await links.count()).toBeGreaterThan(0);
+  for (const link of await links.all()) {
+    const name = await link.locator('xpath=..').locator('h2').innerText();
+    const href = await link.getAttribute('href');
+    const html = await (await page.request.get(href!)).text();
+    expect(html, `${name} → ${href}`).toContain(`Definición de ${name}`);
+    await expect(link).toContainText('Verlo en ');
+  }
 });
 
 test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page }) => {
@@ -359,10 +382,13 @@ test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page 
     await expect(page.locator('.pair-card')).toHaveCount(wardrobe.pairs.length);
     for (const pair of wardrobe.pairs)
       await expect(page.locator(`.pair-card[href="/pares/${pair.data.slug}/"]`)).toBeVisible();
+    await expect(page.locator('.wardrobe-back a')).toHaveText(/Ver todos los pares/);
+    await expect(page.locator('.wardrobe-back a')).toHaveAttribute('href', '/pares/');
     await page.locator('.pair-card').first().click();
     await expect(
       page.getByRole('link', { name: `Armario de ${wardrobe.name}`, exact: true }),
     ).toBeVisible();
+    await expect(page.locator('.article-credit')).toContainText(`Fotos de ${wardrobe.name}`);
   }
 });
 

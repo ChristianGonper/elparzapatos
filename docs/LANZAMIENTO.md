@@ -29,7 +29,7 @@ El orden del catálogo y el destacado se resuelven por fecha de publicación des
 ## Antes de publicar
 
 1. Revisar los análisis de María y enviarle el borrador siguiendo el plazo de 48 horas de Drive. El agente no envía mensajes.
-2. Confirmar dominio y cuenta de Cloudflare.
+2. Confirmar dominio y cuenta de Cloudflare, y activar su medición de visitas sin cookies: «Tus fotos y tus datos» ya la anuncia.
 3. Completar los datos del responsable y los textos legales. La página «Tus fotos y tus datos» explica la colaboración; no sustituye por sí sola todos los documentos legales.
 4. Comprobar Tally sin modificarlo: enlace y condiciones. No presentar un envío de prueba en nombre de una colaboradora.
 5. Ejecutar la verificación y revisar móvil y escritorio.

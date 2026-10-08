@@ -21,6 +21,9 @@ const {
 } = Astro.props;
 const canonical = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
 const allowIndex = !!siteUrl && launchReady && !noindex;
+// El mismo título en la pestaña y al compartir: «[página] · El Par» o, en la portada, «El Par · Zapatos en detalle».
+const pageTitle =
+  title === site.name ? `${site.name} · ${site.descriptor}` : `${title} · ${site.name}`;
 ---
 
 <!doctype html>
@@ -28,7 +31,7 @@ const allowIndex = !!siteUrl && launchReady && !noindex;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title === site.name ? `${site.name} · ${site.descriptor}` : `${title} · ${site.name}`}</title>
+    <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#FAF7F2" />
     <meta name="robots" content={allowIndex ? 'index, follow' : 'noindex, nofollow'} />
@@ -36,7 +39,7 @@ const allowIndex = !!siteUrl && launchReady && !noindex;
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="El Par" />
-    <meta property="og:title" content={`${title} · Zapatos en detalle`} />
+    <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     {siteUrl && (
       <>

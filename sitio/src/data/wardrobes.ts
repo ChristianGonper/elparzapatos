@@ -3,6 +3,8 @@ import { pairs, contributors, type Pair } from './pairs';
 export interface Wardrobe {
   slug: string;
   name: string;
+  /** La colaboradora aparece como «Colaboradora NN»: su armario no lleva nombre en las frases. */
+  anonymous: boolean;
   contributorId: string;
   pairs: Pair[];
 }
@@ -20,6 +22,7 @@ export const wardrobes: Wardrobe[] = contributors
   .map((contributor) => ({
     slug: contributor.slug,
     name: contributor.name,
+    anonymous: contributor.anonymous !== undefined,
     contributorId: contributor.id,
     pairs: grouped.get(contributor.id)!,
   }))

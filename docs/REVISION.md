@@ -36,7 +36,8 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 
 - Tipos y compilación de Astro: 0 errores, advertencias o sugerencias.
 - 13 documentos HTML: enlaces locales, anclas, identificadores, estructura, imágenes y anchos reales de cada srcset verificados.
-- 16 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, recorrido hasta Tally (final de la guía y acceso directo arriba en Cómo colaborar y en la guía), distinción entre fotos de ejemplo y catálogo, menú por teclado, definiciones, ampliación, guía e impresión desde una visita sin recorrer la página, armarios, recuperación del 404 y lectura sin JavaScript.
+- 26 pruebas de navegador: todas las rutas en siete anchos de 320 a 1440 px, recorrido hasta Tally (final de la guía y acceso directo arriba en Cómo colaborar y en la guía), distinción entre fotos de ejemplo y catálogo, pasos y preguntas de Cómo colaborar, menú por teclado, definiciones, ampliación, guía y su enlace a la sección de tacones, enlaces del glosario a su par, armarios, recuperación del 404 y lectura sin JavaScript.
+- La compilación rechaza expresiones descartadas, también la raya larga, y cualquier correo distinto de elparzapatos@proton.me.
 - Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
 - Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
 - Servidor de desarrollo comprobado en una copia temporal: al guardar cambios de título y posición de la cita en MDX, la entrada local se actualiza sin editar una plantilla.

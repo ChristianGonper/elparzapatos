@@ -57,14 +57,10 @@
 }
 .popover-heading {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
   margin-bottom: 0.8rem;
-}
-.popover-heading .eyebrow {
-  color: var(--wine);
-  font-size: 0.63rem;
 }
 .term-popover .term-title {
   font-size: 2.4rem;
