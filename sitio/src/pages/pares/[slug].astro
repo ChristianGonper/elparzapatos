@@ -33,11 +33,11 @@ const { Content } = await render(entry);
   </nav>
   <article>
     <header class="wrap article-heading">
-      <span class="eyebrow">{pair.type} · Para mirar de cerca</span>
+      <span class="eyebrow">{pair.type}</span>
       <h1>{pair.title}</h1>
       {pair.intro && <p class="lead">{pair.intro}</p>}
       <p class="article-credit">
-        Fotos y par compartidos por {pair.credit}
+        Fotos de {pair.credit}
         {wardrobe && (
           <>
             <span aria-hidden="true"> · </span>

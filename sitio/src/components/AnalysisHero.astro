@@ -6,9 +6,7 @@ interface Props {
   caption?: string;
 }
 const pair = currentAnalysis(Astro.locals);
-const {
-  caption = 'La forma completa antes de acercarnos a los detalles. Puedes ampliar todas las fotos.',
-} = Astro.props;
+const { caption = 'Pulsa cualquier foto para verla en grande.' } = Astro.props;
 ---
 
 <figure class="article-hero wrap">
