@@ -9,7 +9,7 @@ import { guideViews as views } from '../data/photo-guide';
 
 <Base
   title="Guía de fotos"
-  description="Todas las vistas para enseñar tu par a El Par, con las fotos de las bailarinas de María como ejemplo. Con el móvil y en casa."
+  description="Las seis vistas de tu par y los detalles que te gusten, con las bailarinas de María como ejemplo. Con el móvil y en casa."
 >
   <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
     <a href="/participa/">Cómo colaborar</a>
@@ -19,40 +19,35 @@ import { guideViews as views } from '../data/photo-guide';
   <section class="wrap page-heading">
     <span class="eyebrow">El Par · Zapatos en detalle</span>
     <h1>
-      Enséñanos el par.
+      Seis fotos con el móvil.
       <br />
-      <em>Nos fijamos en los detalles.</em>
+      <em>Y los detalles que te gusten.</em>
     </h1>
     <p class="lead">
-      Con el móvil, en casa y sin complicarte. Las bailarinas de María nos sirven para enseñarte
-      todas las vistas.
+      En casa y sin complicarte. Te enseñamos cada vista con las bailarinas de María.
     </p>
     <QuickSend />
-    <div class="guide-tools">
-      <button class="button outline" id="print-guide">
-        Guardar o imprimir la guía <span aria-hidden="true">↗</span>
-      </button>
-      <p class="small-note">En la ventana de impresión puedes elegir «Guardar como PDF».</p>
-    </div>
-    <p id="print-status" class="small-note" role="status"></p>
   </section>
   <div class="wrap section" style="padding-top:0">
     <section class="guide-lead" aria-labelledby="light-title">
       <div>
         <h2 id="light-title">Antes de empezar</h2>
-        <p>
-          Busca luz cerca de una ventana, un fondo sencillo y espacio para rodear el par. No hace
-          falta preparar un decorado.
-        </p>
+        <p>Busca buena luz y un fondo sencillo.</p>
       </div>
       <ul>
         <li>Limpia la lente y evita el flash y los filtros.</li>
-        <li>Deja que se vea el zapato entero en las vistas generales.</li>
-        <li>Haz las fotos sin llevar los zapatos puestos. Solo salen ellos.</li>
-        <li>Revisa que la forma, el color y los detalles se vean con claridad.</li>
+        <li>En las seis vistas, que se vea el zapato entero.</li>
+        <li>Sin llevarlos puestos: solo salen los zapatos.</li>
+        <li>Comprueba que se vean bien la forma, el color y los detalles.</li>
       </ul>
     </section>
-    <span class="eyebrow">Todas las vistas son necesarias</span>
+    <span class="eyebrow">Las seis vistas</span>
+    <p class="heel-note">
+      ¿Son tacones?{' '}
+      <a href="#tacones" data-open-heel>
+        Mira lo que cambia.
+      </a>
+    </p>
     <div class="guide-grid">
       {views.map((view) => (
         <figure class="guide-card" id={`vista-${view.n}`}>
@@ -64,23 +59,20 @@ import { guideViews as views } from '../data/photo-guide';
             sizes="(max-width: 540px) 90vw, 45vw"
           />
           <figcaption>
-            <span class="guide-number">
-              {view.n} / {view.detail ? 'Ampliación de una foto del set' : 'Fotos de María'}
-            </span>
+            {view.detail && <span class="guide-number">Y además, los detalles</span>}
             <h3>{view.title}</h3>
             <p>{view.text}</p>
           </figcaption>
         </figure>
       ))}
     </div>
-    <details class="tacon-guide">
+    <details class="tacon-guide" id="tacones">
       <summary>
         <h2>¿Tu par tiene tacón?</h2>
       </summary>
       <p>
-        Son las mismas vistas. En la foto de perfil deja que se vea el tacón entero; por detrás,
-        fotografía su forma y cómo queda bajo el talón. Por delante, baja el móvil para no esconder
-        la base.
+        Son las mismas vistas. De perfil, que se vea el tacón entero; por detrás, su forma bajo el
+        talón. De frente, baja un poco el móvil para que no quede escondido.
       </p>
       <img
         src="/imagenes/guia/perspectivas-tacones.webp"
@@ -90,52 +82,36 @@ import { guideViews as views } from '../data/photo-guide';
         loading="lazy"
       />
       <p class="small-note">
-        Ilustración generada con IA, conservada como apoyo para esta guía. No es un par de una
+        Ilustración hecha con IA, hasta que tengamos fotos de un par de tacón. No es el par de una
         colaboradora.
       </p>
     </details>
     <section class="guide-checklist">
       <div>
         <h2>¿Lo tienes todo?</h2>
-        <p>
-          Una última mirada antes de enviar. Si al revisar el material falta una vista importante,
-          te la pediremos.
-        </p>
+        <p>Si falta alguna vista, te la pedimos.</p>
       </div>
       <ul>
-        <li>Tres cuartos por delante, perfil exterior y frente.</li>
-        <li>Vista desde arriba y tres cuartos por detrás.</li>
-        <li>La suela y algún detalle que te guste.</li>
-        <li>Cada grupo de fotos corresponde al mismo par.</li>
         <li>
-          Cuéntanos qué te gusta del par. Puedes añadir la marca o el modelo si los recuerdas.
+          Las seis vistas: tres cuartos por delante, de perfil por fuera, de frente, desde arriba,
+          tres cuartos por detrás y la suela.
         </li>
+        <li>Los detalles que te gusten.</li>
+        <li>Si mandas varios pares, las fotos de cada uno en su bloque.</li>
       </ul>
     </section>
   </div>
   <Invitation compact next="tally" />
 </Base>
 <script>
-  const printButton = document.querySelector<HTMLButtonElement>('#print-guide');
-  printButton?.addEventListener('click', async () => {
-    printButton.disabled = true;
-    try {
-      await document.fonts.ready;
-      const photos = [
-        ...document.querySelectorAll<HTMLImageElement>('.guide-card img, .tacon-guide img'),
-      ];
-      photos.forEach((photo) => {
-        photo.loading = 'eager';
-      });
-      await Promise.all(photos.map((photo) => photo.decode()));
-      window.print();
-    } catch {
-      const status = document.querySelector('#print-status');
-      if (status)
-        status.textContent =
-          'Falta cargar alguna foto. Comprueba tu conexión y vuelve a intentarlo.';
-    } finally {
-      printButton.disabled = false;
-    }
+  // «¿Son tacones?» baja hasta la sección plegada y la abre. Sin JavaScript, el enlace solo baja.
+  const heelGuide = document.querySelector<HTMLDetailsElement>('#tacones');
+  const openHeelGuide = () => {
+    if (heelGuide && location.hash === '#tacones') heelGuide.open = true;
+  };
+  document.querySelector('[data-open-heel]')?.addEventListener('click', () => {
+    if (heelGuide) heelGuide.open = true;
   });
+  window.addEventListener('hashchange', openHeelGuide);
+  openHeelGuide();
 </script>

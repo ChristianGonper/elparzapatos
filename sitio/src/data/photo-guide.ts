@@ -9,13 +9,13 @@ export const guideViews = [
     n: '02',
     image: 2,
     title: 'De perfil, por fuera',
-    text: 'Baja el móvil a la altura del zapato y fotografía el lado exterior. Así se ve el recorrido de la forma, desde la punta hasta el talón.',
+    text: 'Baja el móvil a la altura del zapato y fotografía el lado exterior. Así se ve el recorrido de la forma, desde la punta hasta el talón. En los tacones, que se vea el tacón entero.',
   },
   {
     n: '03',
     image: 3,
     title: 'De frente',
-    text: 'Pon las puntas mirando hacia el móvil. En los tacones ayuda a ver cómo queda la base; en las bailarinas aporta menos, pero completa el recorrido.',
+    text: 'Pon las punteras mirando al móvil. Así se ve la silueta de los laterales: dónde se abre el zapato y dónde se estrecha. En los tacones es la vista que mejor la enseña; en los zapatos planos ayuda a ver la forma de la puntera.',
   },
   {
     n: '04',
@@ -33,13 +33,13 @@ export const guideViews = [
     n: '06',
     image: 6,
     title: 'La suela',
-    text: 'Dale la vuelta a uno de los zapatos. No hace falta esconder las marcas de uso: la suela también ayuda a entender su forma.',
+    text: 'Dale la vuelta a uno de los zapatos. La suela también ayuda a entender su forma.',
   },
   {
     n: '07',
     image: 4,
-    title: 'Ese detalle que te gusta',
-    text: 'Acércate a una hebilla, una costura, una textura o un adorno. Aquí ampliamos una de las fotos de María para enseñar el dibujo. Para tu envío, haz una foto cercana del detalle.',
+    title: 'Lo que más te guste',
+    text: 'Acércate con el móvil a todo lo que te llame la atención: una hebilla, una costura, una textura. Manda tantas fotos de detalle como quieras. (En el ejemplo, ampliamos la foto desde arriba.)',
     detail: true,
   },
 ];
