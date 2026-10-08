@@ -24,16 +24,16 @@ export const glossary = [
       'La parte de arriba del pie, entre los dedos y el tobillo. En un zapato importa cuánto empeine deja a la vista y qué lo cruza: una tira, un lazo, el borde de la pala.',
   },
   {
+    slug: 'escote',
+    name: 'Escote',
+    definition:
+      'El borde de la abertura por la que entra el pie, de la garganta al talón. Puede ser bajo o alto, recto o curvo, y no siempre igual por los dos lados.',
+  },
+  {
     slug: 'garganta',
     name: 'Garganta',
     definition:
       'El borde delantero de la abertura, justo donde la pala deja de cubrir el pie. Puede ser recta, redondeada, en pico o con forma de corazón.',
-  },
-  {
-    slug: 'linea-de-calce',
-    name: 'Línea de calce',
-    definition:
-      'Recorrido del borde de la abertura del zapato alrededor del pie. Puede subir, bajar o ser diferente a cada lado.',
   },
   {
     slug: 'pala',
