@@ -3,31 +3,31 @@ export const glossary = [
     slug: 'bailarina',
     name: 'Bailarina',
     definition:
-      'Zapato bajo y cerrado, con una abertura amplia sobre el empeine. Su forma recuerda a las zapatillas de ballet.',
+      'Zapato plano, o casi, que deja al aire buena parte del empeine. Viene de las zapatillas de ballet: puntera redondeada, pala corta y, a veces, un lazo pequeño en el borde.',
   },
   {
     slug: 'cuña',
     name: 'Cuña',
     definition:
-      'Suela que eleva el talón y continúa bajo el pie, en lugar de formar un tacón separado.',
+      'Suela que sube hacia el talón en una sola pieza, sin hueco bajo el arco del pie. Hace de tacón y de suela a la vez.',
   },
   {
     slug: 'destalonado',
     name: 'Destalonado',
     definition:
-      'Zapato que deja el talón descubierto. Puede llevar una tira detrás para sujetarlo.',
+      'Zapato que deja el talón al aire. Suele sujetarse con una tira fina por detrás; si no la lleva, se suele llamar mule.',
   },
   {
     slug: 'empeine',
     name: 'Empeine',
     definition:
-      'Parte superior del pie, entre los dedos y el tobillo. La abertura y las tiras del zapato dejan ver más o menos de esta zona.',
+      'La parte de arriba del pie, entre los dedos y el tobillo. En un zapato importa cuánto empeine deja a la vista y qué lo cruza: una tira, un lazo, el borde de la pala.',
   },
   {
     slug: 'garganta',
     name: 'Garganta',
     definition:
-      'Borde delantero de la abertura por la que entra el pie, donde el zapato deja de cubrir el empeine.',
+      'El borde delantero de la abertura, justo donde la pala deja de cubrir el pie. Puede ser recta, redondeada, en pico o con forma de corazón.',
   },
   {
     slug: 'linea-de-calce',
@@ -39,37 +39,37 @@ export const glossary = [
     slug: 'pala',
     name: 'Pala',
     definition:
-      'Parte delantera del zapato que cubre los dedos y, según la forma, parte del empeine.',
+      'La pieza de delante, la que cubre los dedos y sube hacia el empeine. Si es corta, el zapato enseña más pie; si es larga, cubre casi todo el empeine.',
   },
   {
     slug: 'plataforma',
     name: 'Plataforma',
     definition:
-      'Suela gruesa que eleva la parte delantera del pie. Puede combinarse con un tacón o una cuña.',
+      'Suela gruesa también por delante, bajo los dedos. Eleva todo el pie y, si hay tacón, hace que el pie vaya menos inclinado de lo que haría pensar la altura.',
   },
   {
     slug: 'puntera',
     name: 'Puntera',
     definition:
-      'Extremo delantero del zapato, donde van los dedos. Su forma puede ser redonda, cuadrada o acabar en punta.',
+      'La parte delantera del zapato, la que cubre la punta de los dedos. Según su forma, es redonda, almendrada, cuadrada o en punta.',
   },
   {
     slug: 'rejilla',
     name: 'Rejilla',
     definition:
-      'Tejido abierto que deja huecos entre sus hilos. En un zapato permite ver a través de algunas zonas.',
+      'Tejido de malla, con huecos regulares entre los hilos. En un zapato deja ver lo que hay debajo: el forro, otro color o el propio pie.',
   },
   {
     slug: 'salon',
     name: 'Salón',
     definition:
-      'Zapato cerrado por delante y por detrás, abierto sobre el empeine y normalmente con tacón.',
+      'Zapato cerrado por delante y por detrás, sin cordones ni tiras, con un escote que deja el empeine al aire. Casi siempre lleva tacón.',
   },
   {
     slug: 'tacon-bloque',
     name: 'Tacón bloque',
     definition:
-      'Tacón ancho, con caras que forman un volumen compacto. Visto de lado o por detrás conserva una base amplia.',
+      'Tacón ancho y de caras planas, casi igual de grueso abajo que arriba. Visto de lado parece un bloque, y reparte mejor el apoyo que uno fino.',
   },
 ] as const;
 export type GlossarySlug = (typeof glossary)[number]['slug'];
