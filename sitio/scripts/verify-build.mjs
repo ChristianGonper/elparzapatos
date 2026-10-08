@@ -75,8 +75,14 @@ for (const [file, html] of documents) {
   }
   if (html.includes('https://tally.so/embed') || html.includes('<iframe'))
     errors.push(`${file}: el formulario no debe cargarse antes de abrir Tally`);
-  if (/(zapatos reales|personas reales|dueñas|archivo monográfico|cédula de museo)/i.test(html))
+  if (
+    /(zapatos reales|personas reales|dueñas?\b|de verdad|tono artesanal|zapatos de armario|archivo monográfico|cédula de museo|—)/i.test(
+      html,
+    )
+  )
     errors.push(`${file}: expresión editorial descartada`);
+  for (const email of html.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g) ?? [])
+    if (email !== 'elparzapatos@proton.me') errors.push(`${file}: correo no previsto (${email})`);
 }
 
 for (const page of ['index.html', 'pares/index.html', 'armarios/index.html'])
