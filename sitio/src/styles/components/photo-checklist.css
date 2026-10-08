@@ -44,25 +44,6 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-.participation-photos {
-  padding-block: 2rem 3rem;
-  border-bottom: 1px solid var(--line);
-}
-.participation-photos h2 {
-  font-size: clamp(2rem, 3.4vw, 3rem);
-  margin-bottom: 1rem;
-}
-.participation-photos > p {
-  color: var(--muted);
-  max-width: 85ch;
-}
-.participation-photos .small-note {
-  margin-top: 1.2rem;
-}
-.collaboration-hero .participation-note {
-  margin-top: 0.8rem;
-  max-width: 46ch;
-}
 @media (max-width: 800px) {
   .photo-checklist ol {
     grid-template-columns: repeat(4, minmax(0, 1fr));

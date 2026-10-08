@@ -105,7 +105,8 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   await page.goto('/');
   await page.locator('.invitation').getByRole('link', { name: 'Manda tu par' }).click();
   await expect(page).toHaveURL('/participa/');
-  await page.locator('.collaboration-hero').getByRole('link', { name: 'Qué fotos hacer' }).click();
+  await expect(page.locator('main a[href^="/guia-de-fotos/"]')).toHaveCount(1);
+  await page.locator('.invitation').getByRole('link', { name: 'Qué fotos hacer' }).click();
   await expect(page).toHaveURL('/guia-de-fotos/');
   await page.getByRole('link', { name: 'Ya tengo mis fotos' }).click();
   await expect(page).toHaveURL('/guia-de-fotos/#enviar');
@@ -240,17 +241,17 @@ test('Si el portapapeles no está disponible se puede copiar el enlace manualmen
   await expect(page.getByRole('textbox', { name: 'Enlace de este armario' })).toBeFocused();
 });
 
-test('Participación muestra las siete vistas, el resultado y las condiciones vigentes', async ({
+test('Participación explica los pasos, el resultado y las condiciones vigentes', async ({
   page,
 }) => {
   await page.goto('/participa/');
-  await expect(page.locator('.photo-checklist li')).toHaveCount(7);
-  await expect(page.locator('#fotos')).toContainText('tienes 48 horas');
-  await expect(page.locator('#fotos')).toContainText('máximo de 48 horas');
-  await expect(page.locator('#fotos')).toContainText('el formulario pide');
+  await expect(page.locator('.steps li')).toHaveCount(3);
+  await expect(page.locator('.steps-notes')).toContainText('tienes 48 horas');
+  await expect(page.locator('.steps-notes')).toContainText('máximo de 48 horas');
+  await expect(page.locator('.steps-notes')).toContainText('el formulario pide');
   await expect(page.locator('.participation-note')).toContainText('segundo publicado');
-  await page.locator('.photo-checklist li').last().getByRole('link').click();
-  await expect(page).toHaveURL('/guia-de-fotos/#vista-07');
+  await expect(page.locator('.collaboration-hero .button')).toHaveCount(0);
+  await page.goto('/guia-de-fotos/#vista-07');
   await expect(page.locator('#vista-07')).toBeInViewport();
   await page.goto('/participa/');
   await page.locator('.hero-image').getByRole('link').click();

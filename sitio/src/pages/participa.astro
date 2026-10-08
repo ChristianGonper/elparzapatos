@@ -6,7 +6,6 @@ import Invitation from '../components/Invitation.astro';
 import { site } from '../data/site';
 import { guideImage } from '../data/images';
 import { pairs, pairPath } from '../data/pairs';
-import PhotoChecklist from '../components/PhotoChecklist.astro';
 import { anonymousCreditExample, removalHours, reviewHours } from '../data/participation';
 const examplePair = pairs.find((pair) => pair.entryId === 'par-0003');
 const examples = [
@@ -83,9 +82,6 @@ const faqs = [
         Elige unos zapatos tuyos, hazles unas fotos con el móvil y nos acercamos a sus detalles. No
         necesitas saber de fotografía ni de zapatos.
       </p>
-      <a class="button" href="/guia-de-fotos/">
-        Qué fotos hacer <Arrow />
-      </a>
       <p class="small-note">Solo envías fotos. Tus zapatos se quedan contigo.</p>
       <p class="small-note participation-note">
         Puedes empezar con un par. Desde el segundo publicado tendrás también tu armario.
@@ -128,20 +124,6 @@ const faqs = [
     <span>Tú eliges cómo aparecer</span>
     <span>Revisas el análisis antes</span>
   </div>
-  <section class="wrap participation-photos" id="fotos" aria-labelledby="photos-title">
-    <h2 id="photos-title">Las fotos que necesitamos</h2>
-    <p>Con el móvil, sin llevar los zapatos puestos. Pulsa en una vista para ver cómo hacerla.</p>
-    <PhotoChecklist local={false} />
-    <p class="small-note">
-      Además de las fotos, el formulario pide que nos cuentes qué te gusta del par. La marca y el
-      modelo son opcionales.
-    </p>
-    <p class="small-note">
-      Tú eliges cómo aparecer y revisas el análisis antes de publicarlo: tienes {reviewHours} horas
-      para pedir cambios. Si después pides retirarlo, lo quitamos de la web y de nuestras redes en
-      un máximo de {removalHours} horas.
-    </p>
-  </section>
   <section class="wrap section steps-intro">
     <div>
       <span class="eyebrow">Así de sencillo</span>
@@ -151,32 +133,43 @@ const faqs = [
         <em>Nosotros nos acercamos.</em>
       </h2>
     </div>
-    <ol class="steps">
-      <li>
-        <h3>Elige un par que te guste</h3>
-        <p>
-          No tiene que ser caro ni raro. Piensa en lo que te llamó la atención: la punta, una
-          hebilla, un brillo, unas tiras.
+    <div>
+      <ol class="steps">
+        <li>
+          <h3>Elige un par que te guste</h3>
+          <p>
+            No tiene que ser caro ni raro. Piensa en lo que te llamó la atención: la punta, una
+            hebilla, un brillo, unas tiras.
+          </p>
+        </li>
+        <li>
+          <h3>Hazle unas fotos</h3>
+          <p>
+            Con el móvil y un fondo sencillo. Que se vea bien por delante, de lado, por arriba, por
+            detrás y por debajo. Acércate también al detalle que te gusta.
+          </p>
+        </li>
+        <li>
+          <h3>Cuéntanos qué te gusta del par</h3>
+          <p>
+            Sube las fotos al formulario y cuéntanos qué te gusta del par. Añade la marca y el
+            modelo si los recuerdas. Después te mandamos el análisis para que lo revises antes de
+            publicarlo.
+          </p>
+        </li>
+      </ol>
+      <div class="steps-notes">
+        <p class="small-note">
+          Además de las fotos, el formulario pide que nos cuentes qué te gusta del par. La marca y
+          el modelo son opcionales.
         </p>
-      </li>
-      <li>
-        <h3>Hazle unas fotos</h3>
-        <p>
-          Con el móvil y un fondo sencillo. Que se vea bien por delante, de lado, por arriba, por
-          detrás y por debajo. Acércate también al detalle que te gusta.
+        <p class="small-note">
+          Tú eliges cómo aparecer y revisas el análisis antes de publicarlo: tienes {reviewHours}{' '}
+          horas para pedir cambios. Si después pides retirarlo, lo quitamos de la web y de nuestras
+          redes en un máximo de {removalHours} horas.
         </p>
-        <a class="text-link" href="/guia-de-fotos/">
-          Ver la guía con ejemplos <Arrow />
-        </a>
-      </li>
-      <li>
-        <h3>Cuéntanos qué te gusta del par</h3>
-        <p>
-          Sube las fotos al formulario y cuéntanos qué te gusta del par. Añade la marca y el modelo
-          si los recuerdas. Después te mandamos el análisis para que lo revises antes de publicarlo.
-        </p>
-      </li>
-    </ol>
+      </div>
+    </div>
   </section>
   <section class="examples-section section">
     <div class="wrap">
@@ -240,9 +233,6 @@ const faqs = [
         Las fotos que harías para enseñarle tus zapatos a una amiga. En la guía tienes todas las
         vistas, con un par fotografiado en casa.
       </p>
-      <a class="text-link" href="/guia-de-fotos/">
-        Abrir la guía de fotos <Arrow />
-      </a>
     </div>
   </section>
   <section class="wrap section faq-section" style="padding-top:0">
