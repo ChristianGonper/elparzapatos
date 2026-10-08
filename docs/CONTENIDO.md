@@ -5,7 +5,9 @@ Drive → Moda-Zapatos es la fuente de marca y copy. Fuentes vigentes consultada
 
 El índice y las páginas individuales se generan agrupando las entradas por su referencia a una colaboradora. Armario de María reúne ahora los tres análisis preparados y crece automáticamente al añadir otro. Muestra nombre, número de pares y tarjetas enlazadas a los análisis. Menos de dos pares no produce página de armario. El crédito, slug y autorización de armario se definen una sola vez en la identidad pública de la colaboradora; nunca se deducen de una hoja privada.
 
-Las personas anónimas se acreditan como «Colaboradora NN», con un número estable de dos dígitos (por ejemplo, «Colaboradora 07»), sin inventar identidades de muestra. El formato sale de `anonymousCredit` en `sitio/src/data/participation.ts`; el número, del campo `anonymous` de su identidad pública.
+Las personas anónimas se acreditan como «Colaboradora» y un número estable, siempre el mismo, sin inventar identidades de muestra. El número se escribe con dos cifras, con un cero delante si hace falta («Colaboradora 07», «Colaboradora 12»); a partir de 100 lleva tres («Colaboradora 107»). El formato sale de `anonymousCredit` en `sitio/src/data/participation.ts`; el número, del campo `anonymous` de su identidad pública (de 1 a 999).
+
+El número es el de la colaboradora en nuestra lista. Si allí tiene un identificador como `COL-0107`, se usan sus cifras como número entero, sin el prefijo ni los ceros de delante: `COL-0107` → `"anonymous": 107` → «Colaboradora 107»; `COL-0007` → `"anonymous": 7` → «Colaboradora 07». Se copia a mano al crear su archivo; la web no lee la lista.
 
 ## Nombres y rutas
 

@@ -5,7 +5,10 @@ export const reviewHours = 48;
 /** Horas máximas para retirar una publicación cuando se pide. */
 export const removalHours = 48;
 
-/** Crédito público de una colaboración anónima: «Colaboradora 07». */
+/**
+ * Crédito público de una colaboración anónima: el número con dos cifras como mínimo.
+ * 7 → «Colaboradora 07», 12 → «Colaboradora 12», 107 → «Colaboradora 107».
+ */
 export const anonymousCredit = (number: number) =>
   `Colaboradora ${String(number).padStart(2, '0')}`;
 

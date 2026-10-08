@@ -58,6 +58,10 @@ try {
     slug: 'colaboradora-12',
     anonymous: 12,
   });
+  await json(join(content, 'colaboradoras/centena.json'), {
+    slug: 'colaboradora-107',
+    anonymous: 107,
+  });
   await json(join(content, 'colaboradoras/un-par.json'), {
     slug: 'un-par',
     name: 'Un solo par',
@@ -77,9 +81,11 @@ try {
           ? 'prueba'
           : i === 40
             ? 'un-par'
-            : i < 43
+            : i === 41
               ? 'sin-armario'
-              : 'anonima-sin-armario';
+              : i === 42
+                ? 'centena'
+                : 'anonima-sin-armario';
     const bare = i >= 43;
     await article(
       join(content, `pares/prueba-${i}.mdx`),
@@ -139,6 +145,7 @@ try {
   await assert.rejects(page('armarios/un-par'), { code: 'ENOENT' });
   await assert.rejects(page('armarios/sin-armario'), { code: 'ENOENT' });
   assert.match(await page('pares/par-de-prueba-59'), /Colaboradora 12/);
+  assert.match(await page('pares/par-de-prueba-42'), /Fotos de Colaboradora 107/);
   await assert.rejects(page('armarios/colaboradora-12'), { code: 'ENOENT' });
   assert.doesNotMatch(await page('pares/par-de-prueba-59'), /class="quote-block"|<dt>Marca<\/dt>/);
   for (let i = 0; i < 60; i++) assert.match(await page(`pares/par-de-prueba-${i}`), /<h1>/);
