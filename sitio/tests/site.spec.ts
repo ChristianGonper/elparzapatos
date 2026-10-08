@@ -77,14 +77,59 @@ for (const width of [320, 360, 390, 430, 768, 1024, 1440]) {
   });
 }
 
-test('Inicio y participación abren el mismo Tally directamente', async ({ page }) => {
-  for (const route of ['/', '/participa/']) {
+test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y por último a Tally', async ({
+  page,
+}) => {
+  const tally = 'a[href^="https://tally.so/"]';
+  for (const route of routes) {
     await page.goto(route);
-    const actions = page.getByRole('link', { name: 'Enviar mis fotos', exact: false });
-    expect(await actions.count()).toBeGreaterThanOrEqual(1);
-    for (const link of await actions.all())
-      await expect(link).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
+    const inPath = route === '/participa/' || route === '/guia-de-fotos/';
+    await expect(page.locator('a.header-cta'), route).toHaveCount(inPath ? 0 : 1);
+    if (!inPath) await expect(page.locator('a.header-cta')).toHaveAttribute('href', '/participa/');
+    await expect(
+      page.locator('.mobile-menu').getByRole('link', { name: 'Manda tu par', includeHidden: true }),
+      route,
+    ).toHaveCount(inPath ? 0 : 1);
     await expect(page.locator('iframe')).toHaveCount(0);
+    if (route === '/guia-de-fotos/') {
+      await expect(page.locator(tally)).toHaveCount(2);
+      await expect(page.locator(`.quick-send ${tally}`)).toHaveCount(1);
+      await expect(page.locator(`#enviar ${tally}`)).toHaveAttribute(
+        'href',
+        'https://tally.so/r/Npj2bl',
+      );
+    } else if (route === '/participa/') {
+      await expect(page.locator(tally)).toHaveCount(1);
+      await expect(page.locator(`.quick-send ${tally}`)).toHaveCount(1);
+      await expect(page.locator(`.invitation ${tally}`)).toHaveCount(0);
+    } else await expect(page.locator(tally), route).toHaveCount(0);
+  }
+  await page.goto('/');
+  await page.locator('.invitation').getByRole('link', { name: 'Manda tu par' }).click();
+  await expect(page).toHaveURL('/participa/');
+  await expect(page.locator('main a[href^="/guia-de-fotos/"]')).toHaveCount(1);
+  await page.locator('.invitation').getByRole('link', { name: 'Qué fotos hacer' }).click();
+  await expect(page).toHaveURL('/guia-de-fotos/');
+  await expect(page.locator('main a[href^="#"]')).toHaveCount(0);
+  await expect(page.locator('.photo-checklist')).toHaveCount(0);
+  const send = page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' });
+  await send.scrollIntoViewIfNeeded();
+  await expect(send).toBeInViewport();
+  await page.goto('/guia-de-fotos/#enviar');
+  await expect(send).toBeInViewport();
+});
+
+test('Quien ya tiene las fotos encuentra arriba el acceso directo a Tally', async ({ page }) => {
+  for (const width of [390, 1280]) {
+    await page.setViewportSize({ width, height: width < 600 ? 844 : 800 });
+    for (const route of ['/participa/', '/guia-de-fotos/']) {
+      await page.goto(route);
+      const quick = page
+        .locator('.quick-send')
+        .getByRole('link', { name: 'Envíalas directamente' });
+      await expect(quick).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
+      await expect(quick, `${route} a ${width}px`).toBeInViewport();
+    }
   }
 });
 
@@ -214,18 +259,17 @@ test('Si el portapapeles no está disponible se puede copiar el enlace manualmen
   await expect(page.getByRole('textbox', { name: 'Enlace de este armario' })).toBeFocused();
 });
 
-test('Participación muestra las siete vistas, el resultado y las condiciones vigentes', async ({
+test('Participación explica los pasos, el resultado y las condiciones vigentes', async ({
   page,
 }) => {
   await page.goto('/participa/');
-  await page.getByRole('link', { name: 'Qué fotos preparar' }).click();
-  await expect(page).toHaveURL('/participa/#fotos');
-  await expect(page.locator('.photo-checklist li')).toHaveCount(7);
-  await expect(page.locator('#fotos')).toContainText('máximo de 48 horas');
-  await expect(page.locator('#fotos')).toContainText('el formulario pide');
+  await expect(page.locator('.steps li')).toHaveCount(3);
+  await expect(page.locator('.steps-notes')).toContainText('tienes 48 horas');
+  await expect(page.locator('.steps-notes')).toContainText('máximo de 48 horas');
+  await expect(page.locator('.steps-notes')).toContainText('el formulario pide');
   await expect(page.locator('.participation-note')).toContainText('segundo publicado');
-  await page.locator('.photo-checklist li').last().getByRole('link').click();
-  await expect(page).toHaveURL('/guia-de-fotos/#vista-07');
+  await expect(page.locator('.collaboration-hero .button')).toHaveCount(0);
+  await page.goto('/guia-de-fotos/#vista-07');
   await expect(page.locator('#vista-07')).toBeInViewport();
   await page.goto('/participa/');
   await page.locator('.hero-image').getByRole('link').click();
@@ -369,7 +413,11 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   await expect(
     page
       .getByRole('navigation', { name: 'Navegación móvil' })
-      .getByRole('link', { name: 'Enviar mis fotos' }),
+      .getByRole('link', { name: 'Manda tu par' }),
+  ).toHaveAttribute('href', '/participa/');
+  await page.goto('http://localhost:4322/guia-de-fotos/');
+  await expect(
+    page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' }),
   ).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
   await context.close();
 });

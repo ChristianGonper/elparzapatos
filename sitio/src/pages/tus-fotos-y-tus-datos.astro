@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { site } from '../data/site';
+import { anonymousCreditExample, removalHours, reviewHours } from '../data/participation';
 ---
 
 <Base
@@ -48,8 +49,8 @@ import { site } from '../data/site';
       <h2>Cómo apareces</h2>
       <p>
         En Tally eliges si apareces con tu nombre, con tu @ de Instagram o de forma anónima. Si
-        eliges el anonimato, usamos un nombre genérico estable, como «Colaboradora 07», que nos
-        permite reunir tus pares sin identificarte.
+        eliges el anonimato, te acreditamos con un número estable, como «{anonymousCreditExample}»,
+        que nos permite reunir tus pares sin identificarte.
       </p>
       <p>
         Con un par tendrás su análisis en Pares. Desde el segundo publicado los reunimos también en
@@ -63,8 +64,8 @@ import { site } from '../data/site';
     <section>
       <h2>Lo revisas antes de publicarlo</h2>
       <p>
-        Te mandamos el análisis y tienes 48 horas para pedir cambios. Si no contestas, se publica.
-        Te avisamos cuando esté en la web.
+        Te mandamos el análisis y tienes {reviewHours} horas para pedir cambios. Si no contestas, se
+        publica. Si prefieres que no salga, lo quitamos. Te avisamos cuando esté en la web.
       </p>
     </section>
     <section>
@@ -72,8 +73,8 @@ import { site } from '../data/site';
       <p>
         Si prefieres que se quite tu par, nos escribes a{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a> o por el canal por el que hablamos
-        contigo. Retiramos la publicación de la web y de nuestras redes en un máximo de 48 horas.
-        Puedes pedirlo cuando quieras.
+        contigo. Retiramos la publicación de la web y de nuestras redes en un máximo de{' '}
+        {`${removalHours} horas`}. Puedes pedirlo cuando quieras.
       </p>
       <p>
         Te preguntaremos si quieres que borremos también las fotos originales y te confirmaremos la

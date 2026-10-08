@@ -13,8 +13,12 @@
   font-size: clamp(3.3rem, 6vw, 5.8rem);
   margin-bottom: 1.5rem;
 }
-.collaboration-hero .button {
-  margin-block: 1.8rem 0.7rem;
+.collaboration-hero .quick-send + .small-note {
+  margin-top: 1.8rem;
+}
+.collaboration-hero .participation-note {
+  margin-top: 0.8rem;
+  max-width: 46ch;
 }
 .collaboration-hero .hero-image {
   position: relative;
@@ -89,7 +93,14 @@
   max-width: 46ch;
   font-size: 0.95rem;
 }
-.steps .text-link {
+.steps-notes {
+  border-top: 1px solid var(--line);
+  padding: 1.6rem 0 0 3rem;
+}
+.steps-notes .small-note {
+  max-width: 60ch;
+}
+.steps-notes .small-note + .small-note {
   margin-top: 0.8rem;
 }
 .examples-section {
@@ -144,9 +155,6 @@
 }
 .photo-guide-summary h2 {
   margin-bottom: 1.5rem;
-}
-.photo-guide-summary .text-link {
-  margin-top: 1.7rem;
 }
 .guide-preview {
   position: relative;

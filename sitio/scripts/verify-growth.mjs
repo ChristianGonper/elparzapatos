@@ -51,8 +51,12 @@ try {
   await mkdir(join(content, 'colaboradoras'), { recursive: true });
   await json(join(content, 'colaboradoras/prueba.json'), {
     slug: 'prueba',
-    name: 'Colaboradora 07',
+    anonymous: 7,
     wardrobe: true,
+  });
+  await json(join(content, 'colaboradoras/anonima-sin-armario.json'), {
+    slug: 'colaboradora-12',
+    anonymous: 12,
   });
   await json(join(content, 'colaboradoras/un-par.json'), {
     slug: 'un-par',
@@ -75,7 +79,8 @@ try {
             ? 'un-par'
             : i < 43
               ? 'sin-armario'
-              : undefined;
+              : 'anonima-sin-armario';
+    const bare = i >= 43;
     await article(
       join(content, `pares/prueba-${i}.mdx`),
       {
@@ -85,14 +90,14 @@ try {
         title: `Par de prueba ${i}`,
         imageSet: i === 20 ? 'maria-burdeos' : example.imageSet,
         collaborator,
-        brand: collaborator ? example.brand : undefined,
+        brand: bare ? undefined : example.brand,
         order: 100 + i,
         status: [0, 1, 20].includes(i) ? 'published' : 'draft',
         publishedAt:
           i === 0 ? '2026-10-01' : i === 1 ? '2026-10-02' : i === 20 ? '2026-10-03' : undefined,
         model: i === 20 ? 'Modelo de prueba' : undefined,
       },
-      collaborator ? body : body.replace(/<Cita>[\s\S]*?<\/Cita>\s*/g, ''),
+      bare ? body.replace(/<Cita>[\s\S]*?<\/Cita>\s*/g, '') : body,
     );
     if (i === 0) {
       const quote = body.match(/<Cita>[\s\S]*?<\/Cita>/)[0];
@@ -125,7 +130,8 @@ try {
   assert.match(await page('pares/par-de-prueba-20'), /<dt>Modelo<\/dt><dd>Modelo de prueba/);
   await assert.rejects(page('armarios/un-par'), { code: 'ENOENT' });
   await assert.rejects(page('armarios/sin-armario'), { code: 'ENOENT' });
-  assert.match(await page('pares/par-de-prueba-59'), /Colaboración anónima/);
+  assert.match(await page('pares/par-de-prueba-59'), /Colaboradora 12/);
+  await assert.rejects(page('armarios/colaboradora-12'), { code: 'ENOENT' });
   assert.doesNotMatch(await page('pares/par-de-prueba-59'), /class="quote-block"|<dt>Marca<\/dt>/);
   for (let i = 0; i < 60; i++) assert.match(await page(`pares/par-de-prueba-${i}`), /<h1>/);
 
@@ -180,6 +186,18 @@ try {
   await assert.rejects(build(), (error) =>
     /colaboradora inexistente/.test(error.stdout + error.stderr),
   );
+  await article(invalidPath, {
+    ...example,
+    id: 'PAR-9999',
+    collaborator: undefined,
+    slug: 'sin-colaboradora',
+  });
+  await assert.rejects(build(), (error) => /collaborator/.test(error.stdout + error.stderr));
+  await article(invalidPath, { ...example, id: 'PAR-9998', slug: 'valida-temporal' });
+  const invalidContributor = join(content, 'colaboradoras/doble.json');
+  await json(invalidContributor, { slug: 'doble', name: 'Doble', anonymous: 3 });
+  await assert.rejects(build(), (error) => /no ambos/.test(error.stdout + error.stderr));
+  await rm(invalidContributor);
   await article(invalidPath, { ...example, id: 'PAR-9999' });
   await assert.rejects(build(), (error) =>
     /Duplicado: ruta de par/.test(error.stdout + error.stderr),

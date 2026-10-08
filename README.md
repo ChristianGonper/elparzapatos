@@ -52,6 +52,6 @@ Los análisis se redactan en MDX con bloques editoriales ordenables y metadatos 
 
 [La auditoría independiente](docs/AUDITORIA.md) contrasta las instrucciones, las fuentes de Drive y la versión anterior con esta implementación.
 
-Las pruebas de navegador comprueban móvil, escritorio, teclado, accesibilidad, imágenes, enlaces y el acceso directo a Tally. En un entorno con Chromium instalado puede indicarse su ruta mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE`. GitHub Actions ejecuta las comprobaciones en cada cambio y conserva la compilación como artefacto; no despliega el sitio.
+Las pruebas de navegador comprueban móvil, escritorio, teclado, accesibilidad, imágenes, enlaces y el recorrido hasta Tally (Cómo colaborar → guía de fotos → formulario). En un entorno con Chromium instalado puede indicarse su ruta mediante `PLAYWRIGHT_CHROMIUM_EXECUTABLE`. GitHub Actions ejecuta las comprobaciones en cada cambio y conserva la compilación como artefacto; no despliega el sitio.
 
 La implementación vive en `sitio/`. El trabajo anterior se conserva en el historial de Git, no en carpetas de prototipos ni en documentación que pueda confundirse con el producto vigente.

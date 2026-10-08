@@ -1,37 +1,79 @@
 ---
 import { site } from '../data/site';
+import { reviewHours } from '../data/participation';
 import Arrow from './Arrow.astro';
 interface Props {
   compact?: boolean;
+  /**
+   * Paso al que lleva la invitación en el recorrido hasta enviar un par:
+   * - participa: cualquier página → Cómo colaborar.
+   * - guia: Cómo colaborar → Guía de fotos.
+   * - tally: final de la guía → formulario de Tally.
+   */
+  next?: 'participa' | 'guia' | 'tally';
 }
-const { compact = false } = Astro.props;
+const { compact = false, next = 'participa' } = Astro.props;
+const titleId =
+  next === 'tally' ? 'send-title' : compact ? 'invitation-title-compact' : 'invitation-title';
 ---
 
 <section
   class:list={['invitation', { compact }]}
-  aria-labelledby={compact ? 'invitation-title-compact' : 'invitation-title'}
+  id={next === 'tally' ? 'enviar' : undefined}
+  aria-labelledby={titleId}
 >
   <div class="wrap invitation-inner">
-    <div>
-      <span class="eyebrow">El siguiente puede ser el tuyo</span>
-      <h2 id={compact ? 'invitation-title-compact' : 'invitation-title'}>
-        ¿Nos enseñas
-        <br />
-        <em>tus zapatos?</em>
-      </h2>
-    </div>
+    {next === 'tally' ? (
+      <div>
+        <span class="eyebrow">Último paso</span>
+        <h2 id={titleId}>
+          Ya puedes
+          <br />
+          <em>enviar tus fotos.</em>
+        </h2>
+      </div>
+    ) : (
+      <div>
+        <span class="eyebrow">El siguiente puede ser el tuyo</span>
+        <h2 id={titleId}>
+          ¿Nos enseñas
+          <br />
+          <em>tus zapatos?</em>
+        </h2>
+      </div>
+    )}
     <div class="invitation-copy">
-      <p>
-        Ese par que te encanta tiene mucho que mirar. Hazle unas fotos con el móvil y lo contamos en
-        El Par.
-      </p>
-      <a class="button" href={site.tally}>
-        Enviar mis fotos <Arrow />
-      </a>
-      <p class="small-note">Solo nos envías fotos. Los zapatos se quedan contigo.</p>
-      <a class="text-link" href="/participa/">
-        Así se participa <Arrow />
-      </a>
+      {next === 'tally' ? (
+        <>
+          <p>
+            Se abre el formulario de Tally. Subes las fotos, nos cuentas qué te gusta del par y
+            eliges cómo aparecer.
+          </p>
+          <a class="button" href={site.tally}>
+            Enviar mis fotos <Arrow />
+          </a>
+          <p class="small-note">
+            Antes de publicarlo te mandamos el análisis. Tienes {reviewHours} horas para revisarlo.
+          </p>
+        </>
+      ) : (
+        <>
+          <p>
+            Ese par que te encanta tiene mucho que mirar. Hazle unas fotos con el móvil y lo
+            contamos en El Par.
+          </p>
+          {next === 'guia' ? (
+            <a class="button" href="/guia-de-fotos/">
+              Qué fotos hacer <Arrow />
+            </a>
+          ) : (
+            <a class="button" href="/participa/">
+              Manda tu par <Arrow />
+            </a>
+          )}
+          <p class="small-note">Solo nos envías fotos. Los zapatos se quedan contigo.</p>
+        </>
+      )}
     </div>
   </div>
 </section>

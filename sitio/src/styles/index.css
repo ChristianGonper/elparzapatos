@@ -2,12 +2,12 @@
 @import './components/header.css';
 @import './pages/home.css';
 @import './components/invitation.css';
+@import './components/quick-send.css';
 @import './components/footer.css';
 @import './pages/catalog.css';
 @import './components/pair-cards.css';
 @import './pages/analysis.css';
 @import './components/overlays.css';
-@import './components/photo-checklist.css';
 @import './components/share.css';
 @import './pages/participation.css';
 @import './pages/guide.css';

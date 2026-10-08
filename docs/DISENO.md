@@ -14,7 +14,7 @@ La fotografía abre cada tema; el texto enseña qué mirar. Se combinan superfic
 
 Newsreader para titulares; DM Sans para cuerpo, navegación y etiquetas. Ambas se distribuyen con sus paquetes Fontsource, con licencia abierta y sin petición a Google Fonts desde el navegador.
 
-La marca tipográfica funciona sin esperar a un símbolo definitivo. Los botones principales abren el Tally existente. Una sola escala de espaciado, tamaños fluidos, lectura de unas 45–60 letras por línea y fotos ampliables. Las transiciones son breves y se desactivan con la preferencia de reducir movimiento.
+La marca tipográfica funciona sin esperar a un símbolo definitivo. Los botones principales («Manda tu par») llevan a Cómo colaborar; de ahí, «Qué fotos hacer» lleva a la guía, y solo su final abre el Tally existente con «Enviar mis fotos». Una sola escala de espaciado, tamaños fluidos, lectura de unas 45–60 letras por línea y fotos ampliables. Las transiciones son breves y se desactivan con la preferencia de reducir movimiento.
 
 Menú móvil nativo; desplegables de dudas y guía con details; definiciones con popover; ampliación con dialog y devolución de foco al cerrar. No hay carruseles automáticos ni contenido que necesite JavaScript para leerse.
 
@@ -24,7 +24,7 @@ La portada abre con el último par publicado; el lema tiene menor tamaño y se p
 
 El visor permite ver la foto completa o acercarla hasta 2,5 veces, sin superar la resolución del archivo. Admite desplazamiento táctil nativo, arrastre con ratón, teclado, cierre y recuperación del foco. Las fotos de la entrada conservan una anchura legible; no se reducen artificialmente para simular una ampliación.
 
-Pares y armarios permiten compartir con el menú del dispositivo cuando está disponible y copiar el enlace, con alternativa manual si el portapapeles falla. El resumen de siete vistas enlaza a cada ejemplo de la guía y aparece también al principio de colaboración. La ilustración de tacones se conserva como excepción temporal acordada, hasta tener un set adecuado.
+Pares y armarios permiten compartir con el menú del dispositivo cuando está disponible y copiar el enlace, con alternativa manual si el portapapeles falla. La guía muestra las siete vistas en una sola cuadrícula; cada vista conserva su ancla (`#vista-01` … `#vista-07`) para enlazarla directamente, por ejemplo al pedir una foto que falta. Cómo colaborar y la guía tienen un único llamado principal, al final de la página, y no muestran «Manda tu par» en la cabecera. Arriba, junto a la entradilla, ofrecen un acceso secundario a Tally para quien ya tiene las fotos (`QuickSend`). La ilustración de tacones se conserva como excepción temporal acordada, hasta tener un set adecuado.
 
 ## CSS y responsabilidades
 
