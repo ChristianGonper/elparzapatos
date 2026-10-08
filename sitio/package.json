@@ -14,8 +14,8 @@
     "check": "astro check",
     "verify": "npm run check && npm run build && node scripts/verify-build.mjs",
     "verify:review": "npm run check && npm run build:review && node scripts/verify-build.mjs",
-    "format": "prettier --write src astro.config.mjs scripts tests playwright.config.ts",
-    "format:check": "prettier --check src astro.config.mjs scripts tests playwright.config.ts",
+    "format": "prettier --write src functions astro.config.mjs scripts tests playwright.config.ts",
+    "format:check": "prettier --check src functions astro.config.mjs scripts tests playwright.config.ts",
     "test:e2e": "playwright test",
     "test:content": "node scripts/verify-growth.mjs"
   },

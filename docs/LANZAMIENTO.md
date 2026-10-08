@@ -4,14 +4,26 @@ El sitio genera HTML estático. Cloudflare Pages admite este resultado sin adapt
 
 ## Configuración
 
+Proyecto de Cloudflare Pages `elparzapatos`, conectado por Git a este repositorio.
+
 - Directorio raíz: `sitio`.
 - Instalación: `npm ci`.
-- Compilación: `npm run build`.
+- Compilación: `if [ "$CF_PAGES_BRANCH" = "main" ]; then npm run build; else npm run build:review; fi`. Hoy todas las ramas publican la vista de revisión, con borradores.
 - Directorio de salida: `dist`.
-- Node: 24 LTS, o una versión que cumpla los requisitos del package.json.
-- Rama de desarrollo: `reconstruccion/el-par-desde-par-astro`, basada en par-astro.
+- Node: variable `NODE_VERSION=22.12.0`.
+- Rama de producción: `web-nueva` (https://elparzapatos.pages.dev). Las demás ramas tienen vista previa automática en `<rama>.elparzapatos.pages.dev` (las barras pasan a guiones; por ejemplo `bloque-4-fotos-y-visor.elparzapatos.pages.dev`).
 
-No conectar automáticamente esta rama a un despliegue público antes de revisar el contenido. Se puede usar una rama de producción al preparar el lanzamiento.
+## Acceso con contraseña (hasta publicar)
+
+Mientras la web no esté abierta, producción y vistas previas piden usuario y contraseña (HTTP Basic). Se hace con un middleware de Pages Functions, `sitio/functions/_middleware.js`, que Cloudflare ejecuta antes de servir cualquier ruta, incluidas imágenes, CSS y la página 404. No necesita Cloudflare Access ni tarjeta.
+
+- Usuario: `elpar`. Contraseña: la variable `SITE_PASSWORD`.
+- Dónde se pone: en el proyecto `elparzapatos` de Cloudflare, Settings → Variables and Secrets, como secreto (cifrado) llamado `SITE_PASSWORD`, en los dos entornos: Production y Preview. Al cambiarla hay que volver a desplegar (Deployments → Retry deployment, o un push) para que se aplique.
+- Falla cerrado: si `SITE_PASSWORD` no existe o está vacía, todas las rutas responden 503 sin servir nada.
+- Sin credenciales o con credenciales incorrectas: 401 con `WWW-Authenticate: Basic realm="El Par (privado)", charset="UTF-8"`, `Cache-Control: no-store` y `X-Robots-Tag: noindex`. Las respuestas autorizadas llevan también `X-Robots-Tag: noindex`. La contraseña se compara en tiempo constante.
+- La contraseña no se guarda en el repositorio ni en el código; se comparte con quien tenga que revisar por un canal privado.
+- En local no interviene: `astro dev`, `astro build`, `astro preview` y Playwright no usan Pages Functions.
+- **Bloque 6, al publicar:** borrar `sitio/functions/_middleware.js` (y la carpeta `functions` si queda vacía) y quitar `functions` de los scripts `format` y `format:check`. Después se puede eliminar el secreto `SITE_PASSWORD`. Si se quieren mantener protegidas las vistas previas, hay que decidirlo antes, porque el middleware se aplica a todas las ramas por igual.
 
 ## Variables públicas
 
