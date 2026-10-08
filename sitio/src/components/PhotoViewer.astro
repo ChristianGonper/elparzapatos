@@ -1,150 +1,48 @@
-<dialog class="image-dialog" aria-label="Fotografía ampliada">
-  <div class="image-dialog-inner">
-    <div class="image-toolbar">
-      <div class="image-zoom-tools">
-        <button class="viewer-control image-detail" type="button" aria-pressed="false" disabled>
-          Acercar <span aria-hidden="true">+</span>
-        </button>
-        <button class="viewer-control image-fit" type="button" disabled>
-          Ver completa
-        </button>
-      </div>
-      <button class="close-button image-dialog-close" type="button" aria-label="Cerrar fotografía">
-        ×
-      </button>
-    </div>
-    <div
-      class="image-viewport"
-      tabindex="0"
-      role="region"
-      aria-label="Fotografía. Al acercarla puedes desplazarte por ella."
-      aria-busy="false"
-    >
-      <div class="image-canvas">
-        <img width="1600" height="1200" alt="" draggable="false" />
-      </div>
-    </div>
-    <p class="image-dialog-caption"></p>
-    <p class="image-viewer-status small-note" role="status"></p>
-  </div>
-</dialog>
 <script>
-  const dialog = document.querySelector<HTMLDialogElement>('.image-dialog');
-  const viewport = dialog?.querySelector<HTMLDivElement>('.image-viewport');
-  const canvas = dialog?.querySelector<HTMLDivElement>('.image-canvas');
-  const image = dialog?.querySelector<HTMLImageElement>('img');
-  const caption = dialog?.querySelector<HTMLElement>('.image-dialog-caption');
-  const status = dialog?.querySelector<HTMLElement>('.image-viewer-status');
-  const detail = dialog?.querySelector<HTMLButtonElement>('.image-detail');
-  const fit = dialog?.querySelector<HTMLButtonElement>('.image-fit');
-  if (dialog && viewport && canvas && image && caption && status && detail && fit) {
-    let opener: HTMLButtonElement | null = null;
-    let enlarged = false;
-    let ready = false;
-    let request = 0;
-    let fitWidth = 0;
-    let fitHeight = 0;
-    const renderSize = () => {
-      if (!ready) return;
-      const ratio = Math.min(
-        viewport.clientWidth / image.naturalWidth,
-        viewport.clientHeight / image.naturalHeight,
-        1,
-      );
-      fitWidth = image.naturalWidth * ratio;
-      fitHeight = image.naturalHeight * ratio;
-      const scale = enlarged ? Math.min(2.5, image.naturalWidth / fitWidth) : 1;
-      const width = fitWidth * scale;
-      const height = fitHeight * scale;
-      image.style.width = width + 'px';
-      image.style.height = height + 'px';
-      canvas.style.width = width + 'px';
-      canvas.style.height = height + 'px';
-      canvas.hidden = false;
-      viewport.classList.toggle('is-enlarged', enlarged);
-      viewport.scrollLeft = Math.max(0, (width - viewport.clientWidth) / 2);
-      viewport.scrollTop = Math.max(0, (height - viewport.clientHeight) / 2);
-      detail.disabled = enlarged || fitWidth >= image.naturalWidth;
-      detail.setAttribute('aria-pressed', String(enlarged));
-      fit.disabled = !enlarged;
-      status.textContent = enlarged ? 'Desliza o desplázate para ver el detalle.' : '';
-    };
-    document.querySelectorAll<HTMLButtonElement>('[data-image-zoom]').forEach((button) => {
-      button.addEventListener('click', async () => {
-        const current = ++request;
-        opener = button;
-        ready = false;
-        enlarged = false;
-        detail.disabled = true;
-        fit.disabled = true;
-        detail.setAttribute('aria-pressed', 'false');
-        canvas.hidden = true;
-        viewport.setAttribute('aria-busy', 'true');
-        status.textContent = 'Cargando foto…';
-        image.src = button.dataset.imageZoom ?? '';
-        image.alt = button.dataset.imageCaption ?? '';
-        caption.textContent = image.alt;
-        dialog.showModal();
-        document.body.classList.add('dialog-open');
-        try {
-          await image.decode();
-          if (current !== request || !dialog.open) return;
-          ready = true;
-          renderSize();
-        } catch {
-          if (current === request && dialog.open)
-            status.textContent = 'No se ha podido cargar la foto. Cierra y vuelve a intentarlo.';
-        } finally {
-          if (current === request) viewport.setAttribute('aria-busy', 'false');
-        }
+  // Visor de fotos con PhotoSwipe. Cada foto ampliable es un enlace a su versión grande
+  // (a.photo-zoom); el visor se carga al abrir la primera y agrupa todas las de la página.
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+  import 'photoswipe/style.css';
+  if (document.querySelector('a.photo-zoom')) {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#contenido',
+      children: 'a.photo-zoom',
+      pswpModule: () => import('photoswipe'),
+      mainClass: 'photo-viewer',
+      bgOpacity: 1,
+      showHideAnimationType: 'fade',
+      // Se abre con la foto entera y se acerca con un clic, la rueda o los dedos.
+      initialZoomLevel: 'fit',
+      imageClickAction: 'zoom',
+      wheelToZoom: true,
+      paddingFn: (viewport) =>
+        viewport.x > 700
+          ? { top: 64, bottom: 72, left: 72, right: 72 }
+          : { top: 56, bottom: 64, left: 0, right: 0 },
+      closeTitle: 'Cerrar fotografía',
+      zoomTitle: 'Acercar o alejar',
+      arrowPrevTitle: 'Foto anterior',
+      arrowNextTitle: 'Foto siguiente',
+      errorMsg: 'No se ha podido cargar la foto. Cierra y vuelve a intentarlo.',
+      indexIndicatorSep: ' de ',
+    });
+    lightbox.on('uiRegister', () => {
+      // El pie de cada foto, el mismo texto que la describe en la página.
+      lightbox.pswp?.ui?.registerElement({
+        name: 'caption',
+        className: 'photo-viewer-caption',
+        order: 9,
+        appendTo: 'root',
+        onInit: (element, pswp) => {
+          pswp.on('change', () => {
+            element.textContent = pswp.currSlide?.data.alt ?? '';
+          });
+        },
       });
     });
-    detail.addEventListener('click', () => {
-      enlarged = true;
-      renderSize();
+    lightbox.on('afterInit', () => {
+      lightbox.pswp?.element?.setAttribute('aria-label', 'Fotografía ampliada');
     });
-    fit.addEventListener('click', () => {
-      enlarged = false;
-      renderSize();
-    });
-    dialog.querySelector('.image-dialog-close')?.addEventListener('click', () => dialog.close());
-    dialog.addEventListener('click', (event) => {
-      if (event.target === dialog) dialog.close();
-    });
-    dialog.addEventListener('close', () => {
-      request++;
-      ready = false;
-      document.body.classList.remove('dialog-open');
-      opener?.focus();
-    });
-    window.addEventListener('resize', () => {
-      if (dialog.open) renderSize();
-    });
-    // En táctil se usa el desplazamiento nativo. Con ratón se puede arrastrar.
-    let drag: { x: number; y: number; left: number; top: number } | null = null;
-    viewport.addEventListener('pointerdown', (event) => {
-      if (!enlarged || event.pointerType !== 'mouse' || event.button !== 0) return;
-      drag = {
-        x: event.clientX,
-        y: event.clientY,
-        left: viewport.scrollLeft,
-        top: viewport.scrollTop,
-      };
-      viewport.setPointerCapture(event.pointerId);
-      viewport.classList.add('is-dragging');
-      event.preventDefault();
-    });
-    viewport.addEventListener('pointermove', (event) => {
-      if (!drag) return;
-      viewport.scrollLeft = drag.left - (event.clientX - drag.x);
-      viewport.scrollTop = drag.top - (event.clientY - drag.y);
-    });
-    const endDrag = () => {
-      drag = null;
-      viewport.classList.remove('is-dragging');
-    };
-    viewport.addEventListener('pointerup', endDrag);
-    viewport.addEventListener('pointercancel', endDrag);
-    viewport.addEventListener('lostpointercapture', endDrag);
+    lightbox.init();
   }
 </script>

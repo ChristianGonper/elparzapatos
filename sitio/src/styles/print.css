@@ -10,9 +10,8 @@
   .quick-send,
   .review-notice,
   .share-tools,
-  .zoom-mark,
   .skip-link,
-  .image-dialog,
+  .pswp,
   .tacon-guide summary:after {
     display: none !important;
   }
