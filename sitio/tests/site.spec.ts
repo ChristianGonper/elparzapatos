@@ -347,16 +347,81 @@ test('El menú móvil abre por teclado y se cierra con Escape', async ({ page })
 test('Las definiciones abren, enlazan al glosario y se cierran', async ({ page }) => {
   await page.goto('/pares/bailarinas-rejilla-flores/');
   const button = page.getByRole('button', { name: 'rejilla', exact: true });
-  await button.focus();
+  const popover = page.locator('.term-popover:popover-open');
+  // Al llegar con el teclado se abre; Tab entra en ella y Esc la cierra.
+  await page.locator('.article-hero a.photo-zoom').focus();
+  while (!(await button.evaluate((element) => element === document.activeElement)))
+    await page.keyboard.press('Tab');
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Tab');
+  await expect(popover.getByRole('button', { name: 'Cerrar definición' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(popover).toHaveCount(0);
+  await expect(button).toBeFocused();
+  // Intro la deja fija.
   await page.keyboard.press('Enter');
   await expect(button).toHaveAttribute('aria-expanded', 'true');
-  const popover = page.locator('.term-popover:popover-open');
   await expect(popover).toBeVisible();
   await expect(popover.getByRole('link')).toHaveAttribute('href', '/glosario/#rejilla');
   await expect(popover.getByRole('link')).toContainText('Todas las palabras, en el glosario');
   await page.keyboard.press('Escape');
   await expect(button).toHaveAttribute('aria-expanded', 'false');
   await expect(button).toBeFocused();
+});
+
+test('En escritorio la definición se abre al pasar el ratón, junto a la palabra', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/pares/bailarinas-rejilla-flores/');
+  const button = page.getByRole('button', { name: 'rejilla', exact: true });
+  const popover = page.getByRole('dialog', { name: 'Definición de Rejilla' });
+  await button.hover();
+  await expect(popover).toBeVisible();
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  const word = (await button.boundingBox())!;
+  const box = (await popover.boundingBox())!;
+  expect(
+    Math.min(Math.abs(box.y - (word.y + word.height)), Math.abs(word.y - (box.y + box.height))),
+  ).toBeLessThan(20);
+  // Se puede pasar de la palabra a la definición sin que se cierre.
+  await popover.getByRole('link').hover();
+  await expect(popover).toBeVisible();
+  await page.mouse.move(5, 400);
+  await expect(popover).toBeHidden();
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  // Con un clic se queda abierta aunque el ratón se vaya; un clic fuera la cierra.
+  await button.click();
+  await page.mouse.move(5, 400);
+  await page.waitForTimeout(400);
+  await expect(popover).toBeVisible();
+  await page.mouse.click(5, 400);
+  await expect(popover).toBeHidden();
+});
+
+test('En el móvil la definición se abre con un toque y se cierra con otro o tocando fuera', async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+    isMobile: true,
+  });
+  const page = await context.newPage();
+  await page.goto('http://localhost:4322/pares/bailarinas-rejilla-flores/');
+  const button = page.getByRole('button', { name: 'rejilla', exact: true });
+  const popover = page.getByRole('dialog', { name: 'Definición de Rejilla' });
+  await button.tap();
+  await expect(popover).toBeVisible();
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  await button.tap();
+  await expect(popover).toBeHidden();
+  await button.tap();
+  await expect(popover).toBeVisible();
+  await page.locator('h1').tap();
+  await expect(popover).toBeHidden();
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  await context.close();
 });
 
 test('La guía contiene el set completo y se puede imprimir desde el navegador', async ({

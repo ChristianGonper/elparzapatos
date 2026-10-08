@@ -16,7 +16,7 @@ Newsreader para titulares; DM Sans para cuerpo, navegación y etiquetas. Ambas s
 
 La marca tipográfica funciona sin esperar a un símbolo definitivo. Los botones principales («Manda tu par») llevan a Cómo colaborar; de ahí, «Qué fotos hacer» lleva a la guía, y solo su final abre el Tally existente con «Enviar mis fotos». Una sola escala de espaciado, tamaños fluidos, lectura de unas 45–60 letras por línea y fotos ampliables. Las transiciones son breves y se desactivan con la preferencia de reducir movimiento.
 
-Menú móvil nativo; desplegables de dudas y guía con details; definiciones con popover; ampliación con PhotoSwipe y devolución de foco al cerrar. No hay carruseles automáticos ni contenido que necesite JavaScript para leerse.
+Menú móvil nativo; desplegables de dudas y guía con details; definiciones con popover (en escritorio se abren al pasar el ratón o al llegar con el teclado, junto a la palabra; en el móvil, con un toque, y se cierran con otro toque, tocando fuera o con Esc; sin JavaScript, con el popover nativo); ampliación con PhotoSwipe y devolución de foco al cerrar. No hay carruseles automáticos ni contenido que necesite JavaScript para leerse.
 
 ## Experimento del 7 de octubre
 

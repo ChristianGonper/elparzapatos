@@ -37,6 +37,11 @@
   box-shadow: 0 12px 60px #2925211a;
   z-index: 50;
 }
+/* En escritorio, con JavaScript, la definición se abre junto a la palabra. */
+.term-popover.is-anchored {
+  inset: var(--term-top) auto auto var(--term-left);
+  width: 360px;
+}
 .popover-heading {
   display: flex;
   justify-content: flex-end;
