@@ -379,6 +379,43 @@ test('La guía contiene el set completo y se puede imprimir desde el navegador',
   await expect(page.locator('.guide-card').first()).toBeVisible();
 });
 
+test('En el móvil cada vista de la guía enseña la foto antes que su texto', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/guia-de-fotos/');
+  const cards = await page.locator('.guide-card').all();
+  expect(cards.length).toBe(7);
+  const boxes = await Promise.all(
+    cards.map(async (card) => ({
+      photo: (await card.locator('a.photo-zoom').boundingBox())!,
+      text: (await card.locator('figcaption').boundingBox())!,
+    })),
+  );
+  boxes.forEach(({ photo, text }, index) => {
+    expect(photo.y + photo.height).toBeLessThanOrEqual(text.y);
+    expect(Math.abs(photo.x - text.x)).toBeLessThan(2);
+    const next = boxes[index + 1];
+    // El texto queda más cerca de su foto que de la foto de la vista siguiente.
+    if (next)
+      expect(next.photo.y - (text.y + text.height)).toBeGreaterThan(
+        text.y - (photo.y + photo.height),
+      );
+  });
+});
+
+test('En escritorio la guía enseña tres vistas por fila, con fotos más pequeñas', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/guia-de-fotos/');
+  const photos = page.locator('.guide-card a.photo-zoom');
+  const first = (await photos.nth(0).boundingBox())!;
+  const third = (await photos.nth(2).boundingBox())!;
+  const detail = (await photos.nth(6).boundingBox())!;
+  expect(first.width).toBeLessThan(400);
+  expect(third.y).toBeCloseTo(first.y, 0);
+  expect(detail.width).toBeCloseTo(first.width, 0);
+});
+
 test('«¿Son tacones?» baja hasta la sección de tacones y la abre', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/guia-de-fotos/');
