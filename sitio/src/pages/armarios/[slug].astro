@@ -13,11 +13,13 @@ interface Props {
   wardrobe: Wardrobe;
 }
 const { wardrobe } = Astro.props;
+// Si la colaboradora es anónima, la frase no lleva su número: «Los 3 pares que han compartido…».
+const sharedBy = wardrobe.anonymous ? 'han compartido' : `${wardrobe.name} ha compartido`;
 ---
 
 <Base
   title={`Armario de ${wardrobe.name}`}
-  description={`Los ${wardrobe.pairs.length} pares que ${wardrobe.name} comparte con El Par. Descubre lo que cambia al mirarlos de cerca.`}
+  description={`Los ${wardrobe.pairs.length} pares que ${sharedBy} con El Par, juntos y mirados de cerca.`}
   image={`${pairImage(wardrobe.pairs[0], wardrobe.pairs[0].hero)}-1600.webp`}
 >
   <nav class="wrap breadcrumb" aria-label="Ruta de navegación">
@@ -26,7 +28,7 @@ const { wardrobe } = Astro.props;
     <span>{wardrobe.name}</span>
   </nav>
   <section class="wrap page-heading">
-    <span class="eyebrow">{wardrobe.pairs.length} pares · Compartidos con El Par</span>
+    <span class="eyebrow">{wardrobe.pairs.length} pares</span>
     <h1>
       Armario de
       <br />
@@ -40,8 +42,8 @@ const { wardrobe } = Astro.props;
     ))}
   </div>
   <div class="wrap wardrobe-back">
-    <a class="text-link" href="/armarios/">
-      <Arrow direction="left" /> Volver a Armarios
+    <a class="text-link" href="/pares/">
+      Ver todos los pares <Arrow />
     </a>
   </div>
   <Invitation compact />

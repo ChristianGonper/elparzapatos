@@ -126,6 +126,14 @@ try {
   assert.equal(cards(await page('armarios/maria')), 23);
   assert.equal(cards(await page('armarios/prueba')), 20);
   assert.match(await page('armarios/prueba'), /Colaboradora 07/);
+  assert.match(
+    await page('armarios/prueba'),
+    /content="Los 20 pares que han compartido con El Par, juntos y mirados de cerca\."/,
+  );
+  assert.match(
+    await page('armarios/maria'),
+    /content="Los 23 pares que María ha compartido con El Par/,
+  );
   assert.match(await page('pares/par-de-prueba-20'), /Colaboradora 07/);
   assert.match(await page('pares/par-de-prueba-20'), /<dt>Modelo<\/dt><dd>Modelo de prueba/);
   await assert.rejects(page('armarios/un-par'), { code: 'ENOENT' });
