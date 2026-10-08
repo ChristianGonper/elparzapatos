@@ -37,7 +37,7 @@ Armarios tendrá su índice y páginas por colaboradora. Se mostrarán únicamen
 
 La cabecera, la portada y el resto de páginas tendrán «Manda tu par», que lleva a Cómo colaborar. Junto al botón se dirá lo esencial: haces las fotos con el móvil; no envías los zapatos. Cómo colaborar lleva a la guía con «Qué fotos hacer», y el final de la guía abre el mismo Tally actual con «Enviar mis fotos».
 
-La página de colaboración reunirá lo que ahora está disperso. Primero explica qué se envía y qué se prepara con ello. Después muestra ejemplos, una guía corta y respuestas a las dudas: crédito a elección, solo zapatos, revisión de 48 horas y posibilidad de retirada. Al final, quien ya haya hecho las fotos de la guía puede abrir el formulario directamente.
+La página de colaboración reunirá lo que ahora está disperso. Primero explica qué se envía y qué se prepara con ello. Después muestra ejemplos, una guía corta y respuestas a las dudas: crédito a elección, solo zapatos, revisión de 48 horas y posibilidad de retirada. Quien ya tiene las fotos puede abrir el formulario directamente desde un acceso discreto en la parte de arriba.
 
 ## Fotografías y primer análisis
 

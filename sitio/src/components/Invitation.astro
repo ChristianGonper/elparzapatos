@@ -7,7 +7,7 @@ interface Props {
   /**
    * Paso al que lleva la invitación en el recorrido hasta enviar un par:
    * - participa: cualquier página → Cómo colaborar.
-   * - guia: Cómo colaborar → Guía de fotos (y Tally para quien ya ha seguido la guía).
+   * - guia: Cómo colaborar → Guía de fotos.
    * - tally: final de la guía → formulario de Tally.
    */
   next?: 'participa' | 'guia' | 'tally';
@@ -72,14 +72,6 @@ const titleId =
             </a>
           )}
           <p class="small-note">Solo nos envías fotos. Los zapatos se quedan contigo.</p>
-          {next === 'guia' && (
-            <div class="invitation-done">
-              <p class="small-note">¿Ya has hecho las fotos de la guía?</p>
-              <a class="button outline" href={site.tally}>
-                Enviar mis fotos <Arrow />
-              </a>
-            </div>
-          )}
         </>
       )}
     </div>

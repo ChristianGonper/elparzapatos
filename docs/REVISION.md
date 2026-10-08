@@ -4,7 +4,7 @@ Reconstrucción desde `par-astro`, comprobada el 6 de octubre de 2026. Las captu
 
 ## Resultado
 
-El camino hasta mandar un par es portada o cualquier página → Cómo colaborar → guía de fotos → Tally. Solo el final de la guía abre el formulario; al final de Cómo colaborar hay un segundo acceso para quien ya ha hecho las fotos de la guía. Hay un catálogo de pares, tres análisis, índice de armarios y Armario de María, presentación de El Par, glosario y condiciones de colaboración. Las definiciones también aparecen dentro del análisis y las fotografías pueden ampliarse con teclado.
+El camino hasta mandar un par es portada o cualquier página → Cómo colaborar → guía de fotos → Tally. El final de la guía abre el formulario. Quien ya tiene las fotos encuentra arriba, en Cómo colaborar y en la guía, un acceso directo discreto: «¿Ya tienes las fotos? Envíalas directamente». Hay un catálogo de pares, tres análisis, índice de armarios y Armario de María, presentación de El Par, glosario y condiciones de colaboración. Las definiciones también aparecen dentro del análisis y las fotografías pueden ampliarse con teclado.
 
 Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas de las colaboraciones. Los análisis son borradores nuevos basados en las fotos; no se presentan como textos previamente aprobados. El formulario de Tally permanece intacto.
 
@@ -36,7 +36,7 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 
 - Tipos y compilación de Astro: 0 errores, advertencias o sugerencias.
 - 13 documentos HTML: enlaces locales, anclas, identificadores, estructura, imágenes y anchos reales de cada srcset verificados.
-- 16 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, recorrido hasta Tally solo desde el final de la guía y de Cómo colaborar, distinción entre fotos de ejemplo y catálogo, menú por teclado, definiciones, ampliación, guía e impresión desde una visita sin recorrer la página, armarios, recuperación del 404 y lectura sin JavaScript.
+- 16 pruebas de navegador: todas las rutas en cinco anchos de 360 a 1440 px, recorrido hasta Tally (final de la guía y acceso directo arriba en Cómo colaborar y en la guía), distinción entre fotos de ejemplo y catálogo, menú por teclado, definiciones, ampliación, guía e impresión desde una visita sin recorrer la página, armarios, recuperación del 404 y lectura sin JavaScript.
 - Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
 - Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
 - Servidor de desarrollo comprobado en una copia temporal: al guardar cambios de título y posición de la cita en MDX, la entrada local se actualiza sin editar una plantilla.

@@ -42,11 +42,3 @@
     max-width: 47ch;
   }
 }
-.invitation-done {
-  margin-top: 1.8rem;
-  padding-top: 1.4rem;
-  border-top: 1px solid var(--line);
-}
-.invitation-done .small-note {
-  margin: 0 0 0.8rem;
-}

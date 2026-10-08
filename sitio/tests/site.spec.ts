@@ -99,9 +99,9 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
         'https://tally.so/r/Npj2bl',
       );
     } else if (route === '/participa/') {
-      await expect(page.locator(tally)).toHaveCount(2);
+      await expect(page.locator(tally)).toHaveCount(1);
       await expect(page.locator(`.quick-send ${tally}`)).toHaveCount(1);
-      await expect(page.locator(`.invitation-done ${tally}`)).toHaveCount(1);
+      await expect(page.locator(`.invitation ${tally}`)).toHaveCount(0);
     } else await expect(page.locator(tally), route).toHaveCount(0);
   }
   await page.goto('/');
