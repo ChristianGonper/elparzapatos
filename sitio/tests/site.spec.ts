@@ -108,11 +108,13 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   await expect(page.locator('main a[href^="/guia-de-fotos/"]')).toHaveCount(1);
   await page.locator('.invitation').getByRole('link', { name: 'Qué fotos hacer' }).click();
   await expect(page).toHaveURL('/guia-de-fotos/');
-  await page.getByRole('link', { name: 'Ya tengo mis fotos' }).click();
-  await expect(page).toHaveURL('/guia-de-fotos/#enviar');
-  await expect(
-    page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' }),
-  ).toBeInViewport();
+  await expect(page.locator('main a[href^="#"]')).toHaveCount(0);
+  await expect(page.locator('.photo-checklist')).toHaveCount(0);
+  const send = page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' });
+  await send.scrollIntoViewIfNeeded();
+  await expect(send).toBeInViewport();
+  await page.goto('/guia-de-fotos/#enviar');
+  await expect(send).toBeInViewport();
 });
 
 test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {
