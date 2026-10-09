@@ -28,6 +28,12 @@ En Armarios, cada tarjeta enseña dos pares. Si la colaboradora tiene más, hast
 
 Pares y armarios permiten compartir con el menú del dispositivo cuando está disponible y copiar el enlace, con alternativa manual si el portapapeles falla. La guía muestra las siete vistas en una sola cuadrícula: tres por fila en escritorio, con el detalle en una fila propia, y en el móvil una columna en la que cada vista enseña la foto y después su texto; cada vista conserva su ancla (`#vista-01` … `#vista-07`) para enlazarla directamente, por ejemplo al pedir una foto que falta. Cómo colaborar y la guía tienen un único llamado principal, al final de la página, y no muestran «Manda tu par» en la cabecera. Arriba, junto a la entradilla, ofrecen un acceso secundario a Tally para quien ya tiene las fotos (`QuickSend`). La ilustración de tacones se conserva como excepción temporal acordada, hasta tener un set adecuado.
 
+## Laboratorio de diseño (solo en revisión)
+
+La vista de revisión (`npm run build:review`, las ramas de vista previa y `npm run dev`) incluye un laboratorio: un botón «Lab» abajo a la derecha abre un panel (hoja inferior en el móvil, lateral en escritorio) que cambia la web entera en directo. Cada eje se aplica como atributo `data-lab-*` en `<html>` y variables CSS: paleta (P), fuentes (F), tamaño de texto (T), escala de títulos (H), marca (M), armarios (A) y aire en ordenador (D). La elección se guarda en el navegador y se resume en un código como «P3 · F2 · T3 · H3 · M2 · A1 · D1»; un enlace con `?lab=P3F2T3` la fija.
+
+Todo vive en `src/laboratorio/`. `astro.config.mjs` resuelve `@laboratorio` a `Laboratorio.astro` solo en revisión y a `Vacio.astro` en la compilación normal, así que el panel, sus estilos y sus fuentes no llegan a la web publicada; `npm run test:content` lo comprueba. Los tamaños de los títulos se multiplican por `--hs1`, `--hs2` y `--hs3`, que valen 1 fuera del laboratorio.
+
 ## CSS y responsabilidades
 
 Se mantiene CSS propio. Esta interfaz tiene composiciones editoriales, recortes de fotografía, popovers e impresión que necesitan reglas específicas. Tailwind aportaría utilidades y una escala común, pero exigiría reescribir el marcado sin resolver por sí mismo la propiedad de cada estilo. La escala ya está definida mediante variables compartidas; modularizar aporta aquí más que cambiar de framework.

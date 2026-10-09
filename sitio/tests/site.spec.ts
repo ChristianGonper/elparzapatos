@@ -610,3 +610,34 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   await expect(page).toHaveURL(/\/_astro\/vista-0\d\.[^/]+\.webp$/);
   await context.close();
 });
+
+test('El laboratorio de la vista de revisión cambia la web y recuerda la elección', async ({
+  page,
+}) => {
+  await page.goto('http://localhost:4322/');
+  const html = page.locator('html');
+  const panel = page.locator('#laboratorio');
+  await expect(panel).toBeHidden();
+  await page.getByRole('button', { name: 'Abrir el laboratorio de diseño' }).click();
+  await expect(panel).toBeVisible();
+  await expect(panel.locator('.lab-code')).toHaveText('P1 · F1 · T1 · H1 · M1 · A1 · D1');
+  await panel.locator('input[name="lab-p"][value="2"]').check({ force: true });
+  await expect(html).toHaveAttribute('data-lab-p', '2');
+  await expect(panel.locator('.lab-code')).toHaveText('P2 · F1 · T1 · H1 · M1 · A1 · D1');
+  await page.keyboard.press('Escape');
+  await expect(panel).toBeHidden();
+  await page.goto('http://localhost:4322/pares/');
+  await expect(html).toHaveAttribute('data-lab-p', '2');
+  await page.getByRole('button', { name: 'Abrir el laboratorio de diseño' }).click();
+  await page.getByRole('button', { name: 'Volver a la actual' }).click();
+  await expect(html).not.toHaveAttribute('data-lab-p', /./);
+  await expect(panel.locator('.lab-code')).toHaveText('P1 · F1 · T1 · H1 · M1 · A1 · D1');
+  // Un enlace con ?lab= fija la combinación.
+  await page.goto('http://localhost:4322/?lab=P5F3M6');
+  await expect(html).toHaveAttribute('data-lab-p', '5');
+  await expect(html).toHaveAttribute('data-lab-m', '6');
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
+    'href',
+    '/laboratorio/favicon-m6.svg',
+  );
+});

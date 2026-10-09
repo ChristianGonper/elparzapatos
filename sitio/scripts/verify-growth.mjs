@@ -160,6 +160,8 @@ try {
   assert.equal(cards(await page('pares')), 3);
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   assert.match(await page(''), /noindex, nofollow/);
+  // El laboratorio de diseño solo existe en la vista de revisión.
+  assert.doesNotMatch(await page(''), /laboratorio|lab-toggle|data-lab/);
   assert.match(await page(''), /home-feature-photo[^>]+par-de-prueba-20/);
   await build({ PUBLIC_SITE_URL: 'https://example.com', PUBLIC_LAUNCH_READY: 'true' });
   assert.equal(cards(await page('pares')), 3);

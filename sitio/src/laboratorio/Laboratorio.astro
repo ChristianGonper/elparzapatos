@@ -1,0 +1,165 @@
+---
+// Laboratorio de diseño: solo entra en la vista de revisión (build:review y desarrollo).
+// astro.config.mjs resuelve «@laboratorio» a este archivo o a Vacio.astro, así que ni el panel
+// ni sus estilos ni sus fuentes llegan a la compilación normal.
+import './estilos/panel.css';
+import { ejes, codigoActual } from './opciones';
+interface Props {
+  parte: 'cabeza' | 'panel';
+}
+const { parte } = Astro.props;
+---
+
+{parte === 'cabeza' && <script is:inline src="/laboratorio/aplicar.js" />}
+{parte === 'panel' && (
+  <>
+    <button
+      class="lab-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="laboratorio"
+      aria-label="Abrir el laboratorio de diseño"
+    >
+      Lab
+    </button>
+    <aside id="laboratorio" class="lab-panel" aria-label="Laboratorio de diseño" hidden>
+      <div class="lab-head">
+        <div class="lab-head-row">
+          <p class="lab-title">Laboratorio</p>
+          <button class="lab-close" type="button" aria-label="Cerrar el laboratorio">
+            ×
+          </button>
+        </div>
+        <div class="lab-code-row">
+          <output class="lab-code" aria-label="Combinación">
+            {codigoActual}
+          </output>
+          <button class="lab-copy" type="button">
+            Copiar
+          </button>
+          <button class="lab-reset" type="button">
+            Volver a la actual
+          </button>
+        </div>
+        <p class="lab-status" role="status" />
+      </div>
+      <div class="lab-body">
+        {ejes.map((eje) => (
+          <fieldset class="lab-axis" data-eje={eje.clave}>
+            <legend>
+              {eje.letra} · {eje.nombre}
+            </legend>
+            <div class="lab-options">
+              {eje.opciones.map((opcion, index) => (
+                <label class="lab-option">
+                  <input
+                    type="radio"
+                    name={`lab-${eje.clave}`}
+                    value={index + 1}
+                    checked={index === 0}
+                    data-nota={opcion.nota}
+                  />
+                  <span>
+                    <b>
+                      {eje.letra}
+                      {index + 1}
+                    </b>{' '}
+                    {opcion.nombre}
+                    {opcion.recomendada && <i> · recomendada</i>}
+                  </span>
+                </label>
+              ))}
+            </div>
+            <p class="lab-note">{eje.opciones[0].nota}</p>
+          </fieldset>
+        ))}
+      </div>
+    </aside>
+  </>
+)}
+
+<script>
+  import { ejes } from './opciones';
+  const clave = 'elpar-laboratorio';
+  const raiz = document.documentElement;
+  const panel = document.querySelector<HTMLElement>('#laboratorio');
+  const abrir = document.querySelector<HTMLButtonElement>('.lab-toggle');
+  if (panel && abrir) {
+    const codigo = panel.querySelector<HTMLOutputElement>('.lab-code')!;
+    const aviso = panel.querySelector<HTMLElement>('.lab-status')!;
+    const leer = (): Record<string, number> => {
+      try {
+        return JSON.parse(localStorage.getItem(clave) ?? '{}') ?? {};
+      } catch {
+        return {};
+      }
+    };
+    let estado = leer();
+    const valor = (letra: string) => estado[letra] ?? 1;
+    const texto = () => ejes.map((eje) => `${eje.letra}${valor(eje.clave)}`).join(' · ');
+    const aplicar = () => {
+      for (const eje of ejes) {
+        const actual = valor(eje.clave);
+        if (actual > 1) raiz.setAttribute(`data-lab-${eje.clave}`, String(actual));
+        else raiz.removeAttribute(`data-lab-${eje.clave}`);
+        const grupo = panel.querySelector<HTMLElement>(`[data-eje="${eje.clave}"]`);
+        const elegido = grupo?.querySelector<HTMLInputElement>(`input[value="${actual}"]`);
+        if (elegido) {
+          elegido.checked = true;
+          grupo!.querySelector('.lab-note')!.textContent = elegido.dataset.nota ?? '';
+        }
+      }
+      const marca = valor('m');
+      document
+        .querySelector('link[rel="icon"]')
+        ?.setAttribute('href', marca > 1 ? `/laboratorio/favicon-m${marca}.svg` : '/favicon.svg');
+      codigo.textContent = texto();
+    };
+    const guardar = () => {
+      try {
+        localStorage.setItem(clave, JSON.stringify(estado));
+      } catch {
+        // Sin almacenamiento, la combinación solo dura esta página.
+      }
+    };
+    aplicar();
+    panel.addEventListener('change', (event) => {
+      const input = event.target as HTMLInputElement;
+      if (input.type !== 'radio') return;
+      estado = { ...estado, [input.name.replace('lab-', '')]: Number(input.value) };
+      guardar();
+      aplicar();
+    });
+    const mostrar = (abierto: boolean) => {
+      panel.hidden = !abierto;
+      abrir.hidden = abierto;
+      abrir.setAttribute('aria-expanded', String(abierto));
+      if (abierto) panel.querySelector<HTMLElement>('.lab-close')?.focus();
+      else abrir.focus();
+    };
+    abrir.addEventListener('click', () => mostrar(true));
+    panel.querySelector('.lab-close')?.addEventListener('click', () => mostrar(false));
+    panel.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') mostrar(false);
+    });
+    panel.querySelector('.lab-reset')?.addEventListener('click', () => {
+      estado = {};
+      guardar();
+      aplicar();
+      aviso.textContent = 'Vuelves a la web actual.';
+    });
+    panel.querySelector('.lab-copy')?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(texto());
+        aviso.textContent = 'Código copiado.';
+      } catch {
+        const seleccion = window.getSelection();
+        const rango = document.createRange();
+        rango.selectNodeContents(codigo);
+        seleccion?.removeAllRanges();
+        seleccion?.addRange(rango);
+        aviso.textContent = 'Código seleccionado: cópialo con el menú.';
+      }
+    });
+  }
+</script>
