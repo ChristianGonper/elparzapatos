@@ -1,0 +1,91 @@
+/* T · Tamaño del texto: cambia el tamaño raíz, y con él todo lo que se mide en rem.
+   H · Escala de títulos: multiplica los tamaños de h1, h2 y h3 (ver --hs1 en global.css).
+   Los títulos se dividen por el factor de T para que cada eje se pruebe por separado. */
+html {
+  --lab-tf: 1;
+  --hs1: calc(var(--lab-h1, 1) * var(--lab-hf, 1) / var(--lab-tf));
+  --hs2: calc(var(--lab-h2, 1) * var(--lab-hf, 1) / var(--lab-tf));
+  --hs3: calc(var(--lab-h3, 1) * var(--lab-hf, 1) / var(--lab-tf));
+}
+html[data-lab-t='2'] {
+  --lab-tf: 1.0625;
+  font-size: 106.25%;
+}
+html[data-lab-t='3'] {
+  --lab-tf: 1.125;
+  font-size: 112.5%;
+}
+html[data-lab-t='4'] {
+  --lab-tf: 1.1875;
+  font-size: 118.75%;
+}
+html[data-lab-h='2'] {
+  --lab-h1: 0.78;
+  --lab-h2: 0.8;
+  --lab-h3: 0.9;
+}
+html[data-lab-h='3'] {
+  --lab-h1: 0.9;
+  --lab-h2: 0.9;
+  --lab-h3: 0.95;
+}
+html[data-lab-h='4'] {
+  --lab-h1: 1.14;
+  --lab-h2: 1.12;
+  --lab-h3: 1.06;
+}
+@media (max-width: 540px) {
+  html[data-lab-h='4'] {
+    --lab-h1: 1.05;
+    --lab-h2: 1.05;
+    --lab-h3: 1;
+  }
+}
+
+/* D · Aire en ordenador: menos espacio entre bloques; las fotos mantienen su tamaño. */
+@media (min-width: 1000px) {
+  html[data-lab-d='2'] {
+    --space: clamp(2.8rem, 5.6vw, 5.6rem);
+  }
+  html[data-lab-d='3'] {
+    --space: clamp(2rem, 4vw, 4rem);
+  }
+  html[data-lab-d='2'] .header-inner {
+    min-height: 86px;
+  }
+  html[data-lab-d='3'] .header-inner {
+    min-height: 74px;
+  }
+  html[data-lab-d='2'] .page-heading {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+  html[data-lab-d='3'] .page-heading {
+    padding-top: 2.5rem;
+    padding-bottom: 1.8rem;
+  }
+  html[data-lab-d='2'] .home-intro {
+    padding-block: 3.2rem;
+  }
+  html[data-lab-d='3'] .home-intro {
+    padding-block: 2.2rem;
+  }
+  html[data-lab-d='2'] :is(.look-row, .home-feature) {
+    padding-top: 1.8rem;
+  }
+  html[data-lab-d='3'] :is(.look-row, .home-feature) {
+    padding-top: 1.2rem;
+  }
+  html[data-lab-d='2'] .guide-grid {
+    row-gap: 2.2rem;
+  }
+  html[data-lab-d='3'] .guide-grid {
+    row-gap: 1.6rem;
+  }
+  html[data-lab-d='2'] .page-heading h1 {
+    margin-bottom: 1.1rem;
+  }
+  html[data-lab-d='3'] .page-heading h1 {
+    margin-bottom: 0.8rem;
+  }
+}
