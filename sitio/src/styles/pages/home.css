@@ -52,22 +52,19 @@
   color: var(--paper);
 }
 .feature-footnote {
-  padding-top: 0.8rem;
+  padding-top: 1rem;
   font-size: 0.75rem;
   color: var(--muted);
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
-}
-.feature-footnote a {
-  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 32px;
 }
-.feature-footnote svg {
-  width: 14px;
-  height: 14px;
+/* «Ver todos los pares», como botón: es la salida principal hacia el catálogo. */
+.feature-footnote .button {
+  min-height: 52px;
+  font-size: 0.95rem;
 }
 .home-intro {
   display: grid;
@@ -76,9 +73,10 @@
   align-items: center;
   padding-block: clamp(3rem, 6vw, 5rem);
 }
+/* El lema, al mismo tamaño y nivel que «Hay mucho que mirar». */
 .home-intro :is(h1, h2) {
-  font-size: clamp(2rem, 3.3vw, 3.2rem);
-  max-width: 16ch;
+  font-size: clamp(2.6rem, 4.7vw, 4.6rem);
+  max-width: 15ch;
 }
 .intro-copy {
   max-width: 45ch;
@@ -237,9 +235,6 @@
   }
   .feature-footnote {
     font-size: 0.68rem;
-  }
-  .home-intro :is(h1, h2) {
-    font-size: 2.2rem;
   }
   .look-row {
     grid-template-columns: 1fr 1fr;

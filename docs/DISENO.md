@@ -20,7 +20,7 @@ Menú móvil nativo; desplegables de dudas y guía con details; definiciones con
 
 ## Experimento del 7 de octubre
 
-La portada abre con el último par publicado; el lema tiene menor tamaño y se presenta después. En revisión sin publicaciones se usa el primer borrador como muestra. Los detalles de los artículos tienen fotos a la izquierda en escritorio por defecto, con `imageSide="right"` disponible. En móvil se ordenan como título, foto y texto.
+La portada abre con el último par publicado; el lema se presenta después, al mismo tamaño y nivel que «Hay mucho que mirar». Bajo el destacado, «Ver todos los pares» es un botón. En revisión sin publicaciones se usa el primer borrador como muestra. Los detalles de los artículos tienen fotos a la izquierda en escritorio por defecto, con `imageSide="right"` disponible. En móvil se ordenan como título, foto y texto.
 
 El visor es PhotoSwipe 5. Cada foto ampliable es un enlace a su versión grande (WebP de hasta 1600 px): se abre pulsando en cualquier punto de la foto, sin botón aparte, y sin JavaScript el enlace abre la imagen. Arranca con la foto entera sobre fondo oscuro, sin marco, y con su pie; se acerca con un clic o la rueda en escritorio y con los dedos en el móvil, sin superar la resolución del archivo. Se cierra con el gesto, Esc o el botón, y devuelve el foco a la foto. Las fotos de la entrada conservan una anchura legible; no se reducen artificialmente para simular una ampliación.
 
