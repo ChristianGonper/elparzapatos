@@ -13,7 +13,7 @@
   margin-bottom: 1.5rem;
 }
 .invitation h2 {
-  font-size: clamp(3rem, 6vw, 5.7rem);
+  font-size: calc(clamp(3rem, 6vw, 5.7rem) * var(--hs2, 1));
 }
 .invitation-copy {
   max-width: 39ch;
@@ -30,7 +30,7 @@
   margin-top: 1.4rem;
 }
 .invitation.compact h2 {
-  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  font-size: calc(clamp(2.7rem, 5vw, 4.5rem) * var(--hs2, 1));
 }
 @media (max-width: 800px) {
   .invitation-inner {

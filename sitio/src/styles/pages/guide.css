@@ -7,7 +7,7 @@
   margin-bottom: 3.5rem;
 }
 .guide-lead h2 {
-  font-size: 2.2rem;
+  font-size: calc(2.2rem * var(--hs2, 1));
   margin-bottom: 1rem;
 }
 .guide-lead p {
@@ -76,7 +76,7 @@
   }
 }
 .guide-card h3 {
-  font-size: 1.8rem;
+  font-size: calc(1.8rem * var(--hs3, 1));
   margin: 0.4rem 0 0.7rem;
 }
 .guide-card p {
@@ -104,7 +104,7 @@
   min-height: 70px;
 }
 .tacon-guide summary h2 {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: calc(clamp(2rem, 3vw, 3rem) * var(--hs2, 1));
 }
 .tacon-guide summary:after {
   content: '+';
@@ -132,7 +132,7 @@
   gap: 2rem;
 }
 .guide-checklist h2 {
-  font-size: 2.5rem;
+  font-size: calc(2.5rem * var(--hs2, 1));
   margin-bottom: 1rem;
 }
 .guide-checklist ul {
