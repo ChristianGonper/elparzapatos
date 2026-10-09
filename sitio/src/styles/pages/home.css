@@ -39,7 +39,7 @@
   text-transform: uppercase;
 }
 .home-feature-copy h1 {
-  font-size: clamp(2.6rem, 4.3vw, 4.3rem);
+  font-size: calc(clamp(2.6rem, 4.3vw, 4.3rem) * var(--hs1, 1));
   max-width: 13ch;
 }
 .home-feature-copy p {
@@ -75,7 +75,7 @@
 }
 /* El lema, al mismo tamaño y nivel que «Hay mucho que mirar». */
 .home-intro :is(h1, h2) {
-  font-size: clamp(2.6rem, 4.7vw, 4.6rem);
+  font-size: calc(clamp(2.6rem, 4.7vw, 4.6rem) * var(--hs2, 1));
   max-width: 15ch;
 }
 .intro-copy {
@@ -129,7 +129,7 @@
 }
 .look-card h3 {
   margin-top: 0.45rem;
-  font-size: 1.8rem;
+  font-size: calc(1.8rem * var(--hs3, 1));
 }
 .look-card p {
   margin-top: 0.7rem;
@@ -187,7 +187,7 @@
   }
   .home-feature-copy h1 {
     max-width: 18ch;
-    font-size: 2.7rem;
+    font-size: calc(2.7rem * var(--hs1, 1));
   }
   .home-feature-copy p {
     max-width: 48ch;
@@ -212,7 +212,7 @@
     gap: 1rem;
   }
   .look-card h3 {
-    font-size: 1.5rem;
+    font-size: calc(1.5rem * var(--hs3, 1));
   }
   .home-wardrobe .wardrobe-pictures {
     max-width: 600px;
@@ -223,7 +223,7 @@
     padding: 1.2rem 1.3rem;
   }
   .home-feature-copy h1 {
-    font-size: 2.5rem;
+    font-size: calc(2.5rem * var(--hs1, 1));
   }
   .home-feature-copy p {
     font-size: 0.91rem;
@@ -259,7 +259,7 @@
     font-size: 0.8rem;
   }
   .look-card h3 {
-    font-size: 1.45rem;
+    font-size: calc(1.45rem * var(--hs3, 1));
   }
   .editorial-intro .copy .lead {
     font-size: 1.05rem;

@@ -26,7 +26,7 @@
   color: var(--muted);
 }
 .pair-card h2 {
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: calc(clamp(2rem, 3.8vw, 3.4rem) * var(--hs2, 1));
 }
 .pair-card p {
   max-width: 44ch;
@@ -118,7 +118,7 @@
   color: var(--muted);
 }
 .wardrobe-card-title h2 {
-  font-size: clamp(2rem, 4.5vw, 3.7rem);
+  font-size: calc(clamp(2rem, 4.5vw, 3.7rem) * var(--hs2, 1));
 }
 .wardrobe-open {
   display: flex;
@@ -134,7 +134,7 @@
     align-items: flex-start;
   }
   .wardrobe-card-title h2 {
-    font-size: 2.8rem;
+    font-size: calc(2.8rem * var(--hs2, 1));
   }
 }
 @media (max-width: 540px) {
@@ -155,6 +155,6 @@
     gap: 0.7rem;
   }
   .wardrobe-card-title h2 {
-    font-size: 2.65rem;
+    font-size: calc(2.65rem * var(--hs2, 1));
   }
 }

@@ -10,7 +10,7 @@
   margin-bottom: 1.4rem;
 }
 .collaboration-hero h1 {
-  font-size: clamp(3.3rem, 6vw, 5.8rem);
+  font-size: calc(clamp(3.3rem, 6vw, 5.8rem) * var(--hs1, 1));
   margin-bottom: 1.5rem;
 }
 .collaboration-hero .hero-image {
@@ -78,7 +78,7 @@
   color: var(--wine);
 }
 .steps h3 {
-  font-size: 1.9rem;
+  font-size: calc(1.9rem * var(--hs3, 1));
   margin-bottom: 0.7rem;
 }
 .steps p {
@@ -122,7 +122,7 @@
   margin-top: 1rem;
 }
 .example-grid h3 {
-  font-size: 1.6rem;
+  font-size: calc(1.6rem * var(--hs3, 1));
 }
 .example-grid p {
   font-size: 0.81rem;
@@ -247,13 +247,13 @@
     padding: 1rem;
   }
   .collaboration-hero h1 {
-    font-size: 3.5rem;
+    font-size: calc(3.5rem * var(--hs1, 1));
   }
   .reassurance-strip {
     flex-direction: column;
   }
   .example-grid h3 {
-    font-size: 1.5rem;
+    font-size: calc(1.5rem * var(--hs3, 1));
   }
   .faq-list summary {
     font-size: 0.95rem;
