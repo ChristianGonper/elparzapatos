@@ -1,0 +1,133 @@
+/* M · Marca en la cabecera. El tamaño se divide por el factor de T para que la marca no crezca
+   con el texto. */
+.brand-mark {
+  display: none;
+}
+html[data-lab-t] .brand-name {
+  font-size: calc(2.85rem / var(--lab-tf));
+}
+@media (max-width: 800px) {
+  html[data-lab-t] .brand-name {
+    font-size: calc(2.6rem / var(--lab-tf));
+  }
+}
+
+/* M2 · Versalitas espaciadas. */
+html[data-lab-m='2'] .brand-name {
+  font-size: calc(1.5rem / var(--lab-tf));
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  margin-right: -0.24em;
+}
+html[data-lab-m='2'] .brand-dot {
+  display: none;
+}
+html[data-lab-m='2'] .brand-descriptor {
+  margin-top: 0.5rem;
+  font-size: calc(0.58rem / var(--lab-tf));
+  letter-spacing: 0.24em;
+}
+
+/* M3 · Cursiva, con el lema al lado. */
+html[data-lab-m='3'] .brand {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.9rem;
+}
+html[data-lab-m='3'] .brand-name {
+  font-size: calc(2.7rem / var(--lab-tf));
+  font-style: italic;
+  letter-spacing: -0.035em;
+}
+html[data-lab-m='3'] .brand-descriptor {
+  max-width: 9ch;
+  margin: 0;
+  padding-left: 0.9rem;
+  border-left: 1px solid var(--line);
+  font-size: calc(0.6rem / var(--lab-tf));
+  line-height: 1.5;
+}
+
+/* M4 · minúsculas en sans gruesa. */
+html[data-lab-m='4'] .brand-name {
+  font-family: var(--sans);
+  font-size: calc(2.2rem / var(--lab-tf));
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  text-transform: lowercase;
+}
+html[data-lab-m='4'] .brand-descriptor {
+  margin-top: 0.15rem;
+  font-size: calc(0.6rem / var(--lab-tf));
+}
+
+/* M5 · Apilado: EL sobre PAR, con el lema al lado. */
+html[data-lab-m='5'] .brand {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
+}
+html[data-lab-m='5'] .brand-name {
+  font-size: calc(1.6rem / var(--lab-tf));
+  line-height: 0.86;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+html[data-lab-m='5'] .brand-word {
+  display: block;
+}
+html[data-lab-m='5'] .brand-dot {
+  display: none;
+}
+html[data-lab-m='5'] .brand-descriptor {
+  max-width: 8ch;
+  margin: 0;
+  padding-left: 0.8rem;
+  border-left: 1px solid var(--line);
+  font-size: calc(0.6rem / var(--lab-tf));
+  line-height: 1.5;
+}
+
+/* M6 · Monograma: una P en un círculo de color junto al nombre. */
+html[data-lab-m='6'] .brand-name {
+  display: flex;
+  align-items: center;
+  font-size: calc(1.45rem / var(--lab-tf));
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+html[data-lab-m='6'] .brand-mark {
+  display: inline-grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-right: 0.75rem;
+  border-radius: 50%;
+  background: var(--wine);
+  color: var(--paper);
+  font-size: 1.65rem;
+  font-style: italic;
+  letter-spacing: 0;
+}
+html[data-lab-m='6'] .brand-word + .brand-word {
+  margin-left: 0.3em;
+}
+html[data-lab-m='6'] .brand-dot {
+  display: none;
+}
+html[data-lab-m='6'] .brand-descriptor {
+  margin-top: -0.55rem;
+  padding-left: 3.35rem;
+  font-size: calc(0.58rem / var(--lab-tf));
+}
+
+/* En el móvil, las marcas con el lema al lado o en minúsculas lo esconden. */
+@media (max-width: 540px) {
+  html:is([data-lab-m='3'], [data-lab-m='4'], [data-lab-m='6']) .brand-descriptor {
+    display: none;
+  }
+  html[data-lab-m='6'] .brand-name {
+    font-size: calc(1.3rem / var(--lab-tf));
+  }
+}

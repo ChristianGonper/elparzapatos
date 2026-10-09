@@ -1,6 +1,6 @@
 ---
 import Arrow from './Arrow.astro';
-import { site } from '../data/site';
+import { site, includeDrafts } from '../data/site';
 const path = Astro.url.pathname;
 // En Cómo colaborar y en la guía ya se está en el recorrido: su llamado está al final de la página.
 const inCollaborationPath = ['/participa/', '/guia-de-fotos/'].some((route) =>
@@ -18,7 +18,15 @@ const links = [
   <div class="header-inner wrap">
     <a class="brand" href="/" aria-label="El Par · Zapatos en detalle · Inicio">
       <span class="brand-name">
-        El Par<span class="brand-dot">.</span>
+        {includeDrafts && (
+          <span class="brand-mark" aria-hidden="true">
+            P
+          </span>
+        )}
+        <span class="brand-word">El</span>{' '}
+        <span class="brand-word">
+          Par<span class="brand-dot">.</span>
+        </span>
       </span>
       <span class="brand-descriptor">{site.descriptor}</span>
     </a>
