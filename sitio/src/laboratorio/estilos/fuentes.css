@@ -1,0 +1,49 @@
+/* F · Parejas de fuentes. --lab-hw y --lab-ht ajustan peso y espaciado de los títulos;
+   --lab-hf compensa el tamaño aparente de cada familia. */
+html[data-lab-f='2'] {
+  --serif: 'Bodoni Moda Variable', 'Didot', serif;
+  --sans: 'Jost Variable', sans-serif;
+  --lab-hw: 450;
+  --lab-ht: -0.02em;
+  --lab-hf: 0.96;
+}
+html[data-lab-f='3'] {
+  --serif: 'Instrument Serif', serif;
+  --sans: 'Instrument Sans Variable', sans-serif;
+  --lab-hw: 400;
+  --lab-ht: -0.015em;
+  --lab-hf: 1.1;
+}
+html[data-lab-f='4'] {
+  --serif: 'Archivo Variable', sans-serif;
+  --sans: 'Archivo Variable', sans-serif;
+  --lab-hw: 560;
+  --lab-ht: -0.045em;
+  --lab-hf: 0.88;
+}
+html[data-lab-f='5'] {
+  --serif: 'Cormorant Garamond Variable', 'Garamond', serif;
+  --sans: 'Work Sans Variable', sans-serif;
+  --lab-hw: 500;
+  --lab-ht: -0.015em;
+  --lab-hf: 1.12;
+}
+html[data-lab-f='6'] {
+  --serif: 'Fraunces Variable', serif;
+  --sans: 'Figtree Variable', sans-serif;
+  --lab-hw: 380;
+  --lab-ht: -0.03em;
+  --lab-hf: 0.96;
+}
+html[data-lab-f] :is(h1, h2, h3),
+html[data-lab-f] :is(h1, h2, h3) em {
+  font-weight: var(--lab-hw);
+  letter-spacing: var(--lab-ht);
+}
+/* En la pareja toda sans, la cursiva de los títulos pasa a peso ligero para seguir marcando. */
+html[data-lab-f='4'] :is(h1, h2, h3) em {
+  font-weight: 380;
+}
+html[data-lab-f='4'] body {
+  font-size: 0.97rem;
+}
