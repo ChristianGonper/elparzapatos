@@ -1,0 +1,73 @@
+/* P · Paletas. Todas cumplen contraste AA en texto (tinta y gris sobre papel, superficie y
+   rubor; acento sobre papel y papel sobre acento). */
+html[data-lab-p='2'] {
+  --paper: #f6f5f1;
+  --surface: #eae8e3;
+  --ink: #121212;
+  --muted: #5a5955;
+  --wine: #121212;
+  --wine-hover: #3a3a38;
+  --blush: #e4e2dc;
+  --line: #d3d0c9;
+  --white: #ffffff;
+}
+html[data-lab-p='3'] {
+  --paper: #f5ede3;
+  --surface: #e9d8c4;
+  --ink: #2a1c13;
+  --muted: #6a5243;
+  --wine: #93441f;
+  --wine-hover: #763518;
+  --blush: #efd5c1;
+  --line: #d9c2aa;
+  --white: #fffaf3;
+}
+html[data-lab-p='4'] {
+  --paper: #f3f2ec;
+  --surface: #e1e5da;
+  --ink: #18211c;
+  --muted: #4f5c54;
+  --wine: #1e4636;
+  --wine-hover: #143327;
+  --blush: #d8e3d9;
+  --line: #c9d1c5;
+  --white: #fbfbf7;
+}
+html[data-lab-p='5'] {
+  color-scheme: dark;
+  --paper: #1b1416;
+  --surface: #281e21;
+  --ink: #f2e9e2;
+  --muted: #bcaaa2;
+  --wine: #e6aea2;
+  --wine-hover: #f0c6bc;
+  --blush: #33242a;
+  --line: #46363b;
+  --white: #241b1e;
+}
+html[data-lab-p='6'] {
+  --paper: #f2f4f6;
+  --surface: #e1e6ec;
+  --ink: #19202a;
+  --muted: #525d6b;
+  --wine: #2c4767;
+  --wine-hover: #1f3550;
+  --blush: #dbe3ee;
+  --line: #ccd4de;
+  --white: #fbfcfd;
+}
+html[data-lab-p='7'] {
+  --paper: #f6e9e5;
+  --surface: #eedad3;
+  --ink: #191313;
+  --muted: #624f52;
+  --wine: #191313;
+  --wine-hover: #3d3232;
+  --blush: #f0d3cc;
+  --line: #dfc5be;
+  --white: #fffaf8;
+}
+/* El texto del destacado de la portada va sobre el acento: se mezcla con él en vez del rosa fijo. */
+html[data-lab-p] .home-feature-copy p {
+  color: color-mix(in srgb, var(--paper) 84%, var(--wine));
+}
