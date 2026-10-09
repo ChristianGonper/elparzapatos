@@ -167,36 +167,78 @@ test('Los detalles se leen como título, foto y cuerpo en móvil', async ({ page
   }
 });
 
-test('El visor acerca de verdad, permite desplazarse y vuelve a la foto completa', async ({
+test('La foto se abre en el visor al pulsarla en cualquier punto, entera y sin botón de ampliar', async ({
   page,
 }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/pares/bailarinas-rejilla-flores/');
-  const opener = page.locator('.article-hero button');
-  await opener.click();
-  const dialog = page.getByRole('dialog', { name: 'Fotografía ampliada' });
-  const detail = dialog.getByRole('button', { name: 'Acercar' });
-  await expect(detail).toBeEnabled();
-  const completeWidth = (await dialog.locator('img').boundingBox())!.width;
-  await detail.click();
-  await expect(detail).toHaveAttribute('aria-pressed', 'true');
-  expect((await dialog.locator('img').boundingBox())!.width).toBeGreaterThan(completeWidth * 2);
-  const viewport = dialog.locator('.image-viewport');
-  expect(await viewport.evaluate((element) => element.scrollWidth > element.clientWidth)).toBe(
-    true,
-  );
-  await viewport.focus();
-  const previousScroll = await viewport.evaluate((element) => element.scrollLeft);
-  await page.keyboard.press('ArrowRight');
+  await expect(page.locator('.zoom-mark')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /agrandar|ampliar/i })).toHaveCount(0);
+  const opener = page.locator('.article-hero a.photo-zoom');
+  await expect(opener).toHaveAccessibleName(/^Ver en grande: .*María/);
+  const thumbnail = (await opener.boundingBox())!;
+  await opener.click({ position: { x: thumbnail.width - 12, y: thumbnail.height - 12 } });
+  const viewer = page.getByRole('dialog', { name: 'Fotografía ampliada' });
+  await expect(viewer).toBeVisible();
+  const image = viewer.locator('[aria-hidden="false"] img.pswp__img:not(.pswp__img--placeholder)');
+  await expect(image).toHaveAttribute('alt', /María/);
+  await expect(viewer.locator('.photo-viewer-caption')).toContainText('María');
+  const screen = page.viewportSize()!;
   await expect
-    .poll(() => viewport.evaluate((element) => element.scrollLeft))
-    .toBeGreaterThan(previousScroll);
-  await dialog.getByRole('button', { name: 'Ver completa' }).click();
-  expect((await dialog.locator('img').boundingBox())!.width).toBeCloseTo(completeWidth, 0);
+    .poll(async () => {
+      const box = (await image.boundingBox())!;
+      return (
+        box.x >= 0 &&
+        box.y >= 0 &&
+        box.x + box.width <= screen.width &&
+        box.y + box.height <= screen.height
+      );
+    })
+    .toBe(true);
   await page.keyboard.press('Escape');
+  await expect(viewer).toBeHidden();
   await expect(opener).toBeFocused();
+});
+
+test('El visor acerca con un clic, con la rueda y con su botón, y se cierra con el botón', async ({
+  page,
+}) => {
+  await page.goto('/pares/bailarinas-rejilla-flores/');
+  const opener = page.locator('.article-hero a.photo-zoom');
+  const viewer = page.getByRole('dialog', { name: 'Fotografía ampliada' });
+  const image = viewer.locator('[aria-hidden="false"] img.pswp__img:not(.pswp__img--placeholder)');
+  const width = async () => (await image.boundingBox())!.width;
   await opener.click();
-  await expect(detail).toHaveAttribute('aria-pressed', 'false');
+  await expect(viewer).toHaveClass(/pswp--zoom-allowed/);
+  await expect(viewer.getByRole('button', { name: 'Acercar o alejar' })).toBeVisible();
+  const complete = await width();
+  await image.click();
+  await expect(viewer).toHaveClass(/pswp--zoomed-in/);
+  await expect.poll(width).toBeGreaterThan(complete * 1.3);
+  await viewer.getByRole('button', { name: 'Acercar o alejar' }).click();
+  await expect(viewer).not.toHaveClass(/pswp--zoomed-in/);
+  await expect.poll(width).toBeCloseTo(complete, 0);
+  await page.mouse.move(640, 360);
+  await page.mouse.wheel(0, -400);
+  await expect.poll(width).toBeGreaterThan(complete * 1.1);
+  await viewer.getByRole('button', { name: 'Cerrar fotografía' }).click();
+  await expect(viewer).toBeHidden();
+});
+
+test('En móvil el visor también deja acercar la foto', async ({ browser }) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    deviceScaleFactor: 3,
+    hasTouch: true,
+    isMobile: true,
+  });
+  const page = await context.newPage();
+  await page.goto('http://localhost:4322/pares/bailarinas-rejilla-flores/');
+  await page.locator('.article-section a.photo-zoom').first().tap();
+  const viewer = page.getByRole('dialog', { name: 'Fotografía ampliada' });
+  await expect(viewer).toBeVisible();
+  await expect(viewer).toHaveClass(/pswp--zoom-allowed/);
+  await expect(viewer.getByRole('button', { name: 'Acercar o alejar' })).toBeVisible();
+  await context.close();
 });
 
 test('Compartir pares y armarios permite copiar o usar el menú del dispositivo', async ({
@@ -305,10 +347,20 @@ test('El menú móvil abre por teclado y se cierra con Escape', async ({ page })
 test('Las definiciones abren, enlazan al glosario y se cierran', async ({ page }) => {
   await page.goto('/pares/bailarinas-rejilla-flores/');
   const button = page.getByRole('button', { name: 'rejilla', exact: true });
-  await button.focus();
+  const popover = page.locator('.term-popover:popover-open');
+  // Al llegar con el teclado se abre; Tab entra en ella y Esc la cierra.
+  await page.locator('.article-hero a.photo-zoom').focus();
+  while (!(await button.evaluate((element) => element === document.activeElement)))
+    await page.keyboard.press('Tab');
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Tab');
+  await expect(popover.getByRole('button', { name: 'Cerrar definición' })).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(popover).toHaveCount(0);
+  await expect(button).toBeFocused();
+  // Intro la deja fija.
   await page.keyboard.press('Enter');
   await expect(button).toHaveAttribute('aria-expanded', 'true');
-  const popover = page.locator('.term-popover:popover-open');
   await expect(popover).toBeVisible();
   await expect(popover.getByRole('link')).toHaveAttribute('href', '/glosario/#rejilla');
   await expect(popover.getByRole('link')).toContainText('Todas las palabras, en el glosario');
@@ -317,15 +369,59 @@ test('Las definiciones abren, enlazan al glosario y se cierran', async ({ page }
   await expect(button).toBeFocused();
 });
 
-test('Una foto se amplía y devuelve el foco al cerrar', async ({ page }) => {
+test('En escritorio la definición se abre al pasar el ratón, junto a la palabra', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto('/pares/bailarinas-rejilla-flores/');
-  const photo = page.locator('.article-hero button');
-  await photo.click();
-  await expect(page.getByRole('dialog')).toBeVisible();
-  await expect(page.getByRole('dialog').locator('img')).toHaveAttribute('alt', /María/);
-  await page.keyboard.press('Escape');
-  await expect(page.getByRole('dialog')).not.toBeVisible();
-  await expect(photo).toBeFocused();
+  const button = page.getByRole('button', { name: 'rejilla', exact: true });
+  const popover = page.getByRole('dialog', { name: 'Definición de Rejilla' });
+  await button.hover();
+  await expect(popover).toBeVisible();
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  const word = (await button.boundingBox())!;
+  const box = (await popover.boundingBox())!;
+  expect(
+    Math.min(Math.abs(box.y - (word.y + word.height)), Math.abs(word.y - (box.y + box.height))),
+  ).toBeLessThan(20);
+  // Se puede pasar de la palabra a la definición sin que se cierre.
+  await popover.getByRole('link').hover();
+  await expect(popover).toBeVisible();
+  await page.mouse.move(5, 400);
+  await expect(popover).toBeHidden();
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  // Con un clic se queda abierta aunque el ratón se vaya; un clic fuera la cierra.
+  await button.click();
+  await page.mouse.move(5, 400);
+  await page.waitForTimeout(400);
+  await expect(popover).toBeVisible();
+  await page.mouse.click(5, 400);
+  await expect(popover).toBeHidden();
+});
+
+test('En el móvil la definición se abre con un toque y se cierra con otro o tocando fuera', async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+    isMobile: true,
+  });
+  const page = await context.newPage();
+  await page.goto('http://localhost:4322/pares/bailarinas-rejilla-flores/');
+  const button = page.getByRole('button', { name: 'rejilla', exact: true });
+  const popover = page.getByRole('dialog', { name: 'Definición de Rejilla' });
+  await button.tap();
+  await expect(popover).toBeVisible();
+  await expect(button).toHaveAttribute('aria-expanded', 'true');
+  await button.tap();
+  await expect(popover).toBeHidden();
+  await button.tap();
+  await expect(popover).toBeVisible();
+  await page.locator('h1').tap();
+  await expect(popover).toBeHidden();
+  await expect(button).toHaveAttribute('aria-expanded', 'false');
+  await context.close();
 });
 
 test('La guía contiene el set completo y se puede imprimir desde el navegador', async ({
@@ -346,6 +442,43 @@ test('La guía contiene el set completo y se puede imprimir desde el navegador',
   await expect(page.locator('.site-header')).not.toBeVisible();
   await expect(page.locator('.site-footer')).not.toBeVisible();
   await expect(page.locator('.guide-card').first()).toBeVisible();
+});
+
+test('En el móvil cada vista de la guía enseña la foto antes que su texto', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/guia-de-fotos/');
+  const cards = await page.locator('.guide-card').all();
+  expect(cards.length).toBe(7);
+  const boxes = await Promise.all(
+    cards.map(async (card) => ({
+      photo: (await card.locator('a.photo-zoom').boundingBox())!,
+      text: (await card.locator('figcaption').boundingBox())!,
+    })),
+  );
+  boxes.forEach(({ photo, text }, index) => {
+    expect(photo.y + photo.height).toBeLessThanOrEqual(text.y);
+    expect(Math.abs(photo.x - text.x)).toBeLessThan(2);
+    const next = boxes[index + 1];
+    // El texto queda más cerca de su foto que de la foto de la vista siguiente.
+    if (next)
+      expect(next.photo.y - (text.y + text.height)).toBeGreaterThan(
+        text.y - (photo.y + photo.height),
+      );
+  });
+});
+
+test('En escritorio la guía enseña tres vistas por fila, con fotos más pequeñas', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto('/guia-de-fotos/');
+  const photos = page.locator('.guide-card a.photo-zoom');
+  const first = (await photos.nth(0).boundingBox())!;
+  const third = (await photos.nth(2).boundingBox())!;
+  const detail = (await photos.nth(6).boundingBox())!;
+  expect(first.width).toBeLessThan(400);
+  expect(third.y).toBeCloseTo(first.y, 0);
+  expect(detail.width).toBeCloseTo(first.width, 0);
 });
 
 test('«¿Son tacones?» baja hasta la sección de tacones y la abre', async ({ page }) => {
@@ -389,6 +522,32 @@ test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page 
       page.getByRole('link', { name: `Armario de ${wardrobe.name}`, exact: true }),
     ).toBeVisible();
     await expect(page.locator('.article-credit')).toContainText(`Fotos de ${wardrobe.name}`);
+  }
+});
+
+test('La tarjeta de cada armario indica cuántos pares más tiene', async ({ page }) => {
+  for (const width of [1280, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto('/armarios/');
+    for (const wardrobe of expectedWardrobes) {
+      const total = wardrobe.pairs.length;
+      const card = page.locator(`.wardrobe-card[href="/armarios/${wardrobe.slug}/"]`);
+      await expect(card).toHaveAccessibleName(new RegExp(`${total} pares`));
+      const more = card.locator('.wardrobe-more');
+      const extra = total - 2;
+      if (extra === 0) {
+        await expect(more).toHaveCount(0);
+        continue;
+      }
+      await expect(more).toBeVisible();
+      await expect(more).toHaveText(`+${extra} ${extra === 1 ? 'par' : 'pares'}`);
+      await expect(card.locator('img.wardrobe-behind')).toHaveCount(Math.min(extra, 2));
+      // Los pares que no caben asoman por arriba y por la derecha del segundo.
+      const top = (await card.locator('.wardrobe-stack img:not(.wardrobe-behind)').boundingBox())!;
+      const behind = (await card.locator('img.wardrobe-behind-1').boundingBox())!;
+      expect(behind.y).toBeLessThan(top.y);
+      expect(behind.x + behind.width).toBeGreaterThan(top.x + top.width);
+    }
   }
 });
 
@@ -445,5 +604,9 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   await expect(
     page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' }),
   ).toHaveAttribute('href', 'https://tally.so/r/Npj2bl');
+  // Sin visor, pulsar la foto abre su versión grande.
+  await page.goto('http://localhost:4322/pares/bailarinas-rejilla-flores/');
+  await page.locator('.article-hero a.photo-zoom').click();
+  await expect(page).toHaveURL(/\/_astro\/vista-0\d\.[^/]+\.webp$/);
   await context.close();
 });

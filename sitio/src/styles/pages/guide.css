@@ -60,6 +60,21 @@
 .guide-card figcaption {
   margin-top: 1.2rem;
 }
+/* En escritorio, tres vistas por fila: fotos algo más pequeñas y la guía se recorre antes.
+   El detalle ocupa la fila entera con su foto del mismo ancho que las demás. */
+@media (min-width: 1000px) {
+  .guide-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem 2rem;
+  }
+  .guide-grid .guide-card:last-child {
+    grid-template-columns: subgrid;
+  }
+  .guide-grid .guide-card:last-child figcaption {
+    grid-column: span 2;
+    margin-top: 0;
+  }
+}
 .guide-card h3 {
   font-size: 1.8rem;
   margin: 0.4rem 0 0.7rem;
@@ -152,6 +167,14 @@
   .guide-grid .guide-card:last-child {
     grid-column: auto;
     display: block;
+  }
+  /* En el móvil, cada vista se lee foto y después texto: el texto queda pegado a su foto y
+     separado de la vista siguiente. */
+  .guide-grid {
+    gap: 3rem;
+  }
+  .guide-card figcaption {
+    margin-top: 0.9rem;
   }
   .guide-checklist {
     padding: 1.6rem;

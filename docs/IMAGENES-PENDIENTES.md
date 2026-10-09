@@ -16,11 +16,11 @@ Originales y permisos: en Drive, en sus carpetas actuales. Las versiones de trab
 
 Recomendación provisional: mantener el sitio preparado para recibir URLs de imágenes y decidir entre archivos del despliegue y R2 antes de publicar. No usar enlaces privados de Drive como URLs de la web.
 
-La resolución actual produce rutas locales y la política CSP solo permite imágenes del mismo origen. Elegir un servicio externo exige adaptar esa resolución y autorizar su origen en `_headers`; la migración todavía no está configurada.
+Las fotos de origen están en `sitio/src/assets/` y `astro:assets` genera sus variantes en `/_astro/` durante la compilación; la política CSP solo permite imágenes del mismo origen. Elegir un servicio externo exige adaptar esa resolución y autorizar su origen en `_headers`; la migración todavía no está configurada.
 
 ## Formatos
 
-WebP es una opción razonable para las copias públicas: sirve estas fotografías con menos peso que sus originales y tiene soporte amplio. AVIF puede reducir más algunas imágenes, a costa de procesado y posibles diferencias de calidad; se puede añadir con picture y fallback. Los originales se guardan tal como llegaron, incluidos JPEG y HEIC.
+WebP es una opción razonable para las copias públicas: sirve estas fotografías con menos peso que sus originales y tiene soporte amplio. Desde el bloque 4 la web sirve AVIF con WebP de reserva mediante `<picture>`, generado por Astro a partir de una sola copia de cada foto. Los originales se guardan tal como llegaron, incluidos JPEG y HEIC.
 
 Antes de decidir, comparar peso y aspecto en varias fotos del proyecto, especialmente detalles de rejilla, brillo y pelo corto. No fijar una calidad universal sin ver esos resultados. Mantener proporciones y color; eliminar metadatos personales de las copias públicas.
 

@@ -164,10 +164,24 @@ try {
   await build({ PUBLIC_SITE_URL: 'https://example.com', PUBLIC_LAUNCH_READY: 'true' });
   assert.equal(cards(await page('pares')), 3);
   assert.equal(cards(await page('armarios/maria')), 2);
-  assert.match(
+  // La imagen de compartir sale de la foto principal de ese par: Astro nombra cada variante con
+  // el nombre y la huella de su foto de origen («vista-05.<huella>_…»).
+  const photoOf = (html, pattern) => html.match(pattern)?.[1];
+  const sharedPhoto = photoOf(
     await page('pares/par-de-prueba-20'),
-    /og:image[^>]+maria-burdeos\/vista-05-1600.webp/,
+    /og:image" content="https:\/\/example\.com\/_astro\/(vista-05\.[^_"]+)_[^"]+\.jpeg"/,
   );
+  assert.ok(sharedPhoto);
+  assert.equal(
+    photoOf(await page('pares/par-de-prueba-20'), /class="article-hero[\s\S]*?\/_astro\/([^_"]+)_/),
+    sharedPhoto,
+  );
+  const otherPhoto = photoOf(
+    await page('pares/par-de-prueba-0'),
+    /og:image" content="[^"]*\/_astro\/([^_"]+)_/,
+  );
+  assert.ok(otherPhoto);
+  assert.notEqual(otherPhoto, sharedPhoto);
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   await assert.rejects(page('armarios/prueba'), { code: 'ENOENT' });
   await assert.rejects(

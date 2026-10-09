@@ -32,12 +32,117 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
 </span>
 
 <script>
+  // Sin JavaScript, el botón abre la definición con el popover nativo. Con JavaScript:
+  // en escritorio se abre al pasar el ratón o al llegar con el teclado, junto a la palabra;
+  // en el móvil, el primer toque la abre y un segundo toque o tocar fuera la cierra.
+  // Un clic, un toque o Intro la dejan fija hasta que se vuelve a pulsar, se toca fuera o Esc.
+  type Term = {
+    button: HTMLButtonElement;
+    popover: HTMLElement;
+    pinned: boolean;
+    quiet?: boolean;
+    timer?: number;
+  };
+  const anchored = window.matchMedia('(min-width: 541px)');
+  const terms: Term[] = [];
+  const isOpen = (term: Term) => term.popover.matches(':popover-open');
+  const place = (term: Term) => {
+    const { popover, button } = term;
+    if (!anchored.matches) {
+      popover.classList.remove('is-anchored');
+      return;
+    }
+    popover.classList.add('is-anchored');
+    // La palabra puede partirse en dos líneas: se toma el trozo de la primera.
+    const word = button.getClientRects()[0] ?? button.getBoundingClientRect();
+    const margin = 16;
+    const width = popover.offsetWidth;
+    const height = popover.offsetHeight;
+    const left = Math.min(Math.max(word.left, margin), window.innerWidth - width - margin);
+    const below = word.bottom + 8;
+    const top =
+      below + height <= window.innerHeight - margin || word.top - height - 8 < margin
+        ? below
+        : word.top - height - 8;
+    popover.style.setProperty('--term-left', `${left}px`);
+    popover.style.setProperty('--term-top', `${Math.max(margin, top)}px`);
+  };
+  const show = (term: Term, pinned: boolean) => {
+    window.clearTimeout(term.timer);
+    term.pinned = term.pinned || pinned;
+    for (const other of terms) if (other !== term && isOpen(other)) hide(other);
+    if (!isOpen(term)) term.popover.showPopover();
+    place(term);
+  };
+  const hide = (term: Term) => {
+    window.clearTimeout(term.timer);
+    if (isOpen(term)) term.popover.hidePopover();
+  };
+  // Devuelve el foco a la palabra al cerrar sin que vuelva a abrirse.
+  const returnFocus = (term: Term) => {
+    term.quiet = true;
+    term.button.focus();
+    term.quiet = false;
+  };
+  const hideSoon = (term: Term) => {
+    window.clearTimeout(term.timer);
+    if (!term.pinned) term.timer = window.setTimeout(() => hide(term), 250);
+  };
   document.querySelectorAll<HTMLElement>('.term-popover').forEach((popover) => {
+    const button = document.querySelector<HTMLButtonElement>(`[aria-controls="${popover.id}"]`);
+    if (!button) return;
+    const term: Term = { button, popover, pinned: false };
+    terms.push(term);
+    popover.popover = 'manual';
+    button.removeAttribute('popovertarget');
     popover.addEventListener('toggle', (event: Event) => {
-      const toggle = event as ToggleEvent;
-      document
-        .querySelector(`[aria-controls="${popover.id}"]`)
-        ?.setAttribute('aria-expanded', String(toggle.newState === 'open'));
+      const open = (event as ToggleEvent).newState === 'open';
+      button.setAttribute('aria-expanded', String(open));
+      if (!open) term.pinned = false;
     });
+    button.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      window.clearTimeout(term.timer);
+      if (!isOpen(term)) term.timer = window.setTimeout(() => show(term, false), 120);
+    });
+    button.addEventListener('pointerleave', (event) => {
+      if (event.pointerType === 'mouse') hideSoon(term);
+    });
+    popover.addEventListener('pointerenter', () => window.clearTimeout(term.timer));
+    popover.addEventListener('pointerleave', (event) => {
+      if (event.pointerType === 'mouse') hideSoon(term);
+    });
+    button.addEventListener('click', () => {
+      if (isOpen(term) && term.pinned) hide(term);
+      else show(term, true);
+    });
+    button.addEventListener('focus', () => {
+      if (!term.quiet && button.matches(':focus-visible')) show(term, false);
+    });
+    for (const element of [button, popover])
+      element.addEventListener('focusout', (event) => {
+        const next = event.relatedTarget as Node | null;
+        if (!term.pinned && !(next && (button.contains(next) || popover.contains(next))))
+          hide(term);
+      });
+    popover.querySelector('.close-button')?.addEventListener('click', () => returnFocus(term));
   });
+  document.addEventListener('pointerdown', (event) => {
+    const target = event.target as Node;
+    for (const term of terms)
+      if (isOpen(term) && !term.button.contains(target) && !term.popover.contains(target))
+        hide(term);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    for (const term of terms) {
+      if (!isOpen(term)) continue;
+      const focused = term.popover.contains(document.activeElement);
+      hide(term);
+      if (focused) returnFocus(term);
+    }
+  });
+  const replace = () => terms.filter(isOpen).forEach(place);
+  window.addEventListener('scroll', replace, { passive: true });
+  window.addEventListener('resize', replace);
 </script>

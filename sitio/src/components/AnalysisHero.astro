@@ -11,7 +11,7 @@ const { caption = 'Pulsa cualquier foto para verla en grande.' } = Astro.props;
 
 <figure class="article-hero wrap">
   <Photo
-    base={pairImage(pair, pair.hero)}
+    src={pairImage(pair, pair.hero)}
     alt={pair.photoAlt}
     priority
     zoom

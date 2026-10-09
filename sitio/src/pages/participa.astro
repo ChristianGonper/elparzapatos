@@ -5,32 +5,28 @@ import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import QuickSend from '../components/QuickSend.astro';
 import { site } from '../data/site';
-import { guideImage } from '../data/images';
+import { exampleImage, guideImage } from '../data/images';
 import { pairs, pairPath } from '../data/pairs';
 import { anonymousCreditExample, removalHours, reviewHours } from '../data/participation';
 const examplePair = pairs.find((pair) => pair.entryId === 'par-0003');
 const examples = [
   {
-    base: guideImage(5),
-    max: 1600,
+    image: guideImage(5),
     name: 'Bailarinas',
     text: 'La forma de la puntera, la abertura o un pequeño adorno.',
   },
   {
-    base: '/imagenes/ejemplos/marrones_2',
-    max: 960,
+    image: exampleImage('marrones_2'),
     name: 'Tacones y tiras',
     text: 'La forma del tacón y el recorrido de las tiras.',
   },
   {
-    base: '/imagenes/ejemplos/alpargata_tacon_1',
-    max: 960,
+    image: exampleImage('alpargata_tacon_1'),
     name: 'Cuñas y alpargatas',
     text: 'La base cambia toda la silueta.',
   },
   {
-    base: '/imagenes/ejemplos/dorados_1',
-    max: 960,
+    image: exampleImage('dorados_1'),
     name: 'Plataformas',
     text: 'Una suela que gana altura y cambia las proporciones.',
   },
@@ -87,7 +83,7 @@ const faqs = [
         >
           <figure>
             <Photo
-              base={guideImage(5)}
+              src={guideImage(5)}
               alt="El par de bailarinas de rejilla que María ha compartido con El Par"
               priority
               sizes="(max-width: 800px) 90vw, 45vw"
@@ -101,7 +97,7 @@ const faqs = [
       ) : (
         <figure>
           <Photo
-            base={guideImage(5)}
+            src={guideImage(5)}
             alt="Las bailarinas de María como ejemplo de las fotos"
             priority
             sizes="(max-width: 800px) 90vw, 45vw"
@@ -172,14 +168,7 @@ const faqs = [
       <div class="example-grid">
         {examples.map((example) => (
           <figure>
-            <Photo
-              base={example.base}
-              max={example.max}
-              alt={example.name}
-              width={960}
-              height={1280}
-              sizes="(max-width: 800px) 45vw, 22vw"
-            />
+            <Photo src={example.image} alt={example.name} sizes="(max-width: 800px) 45vw, 22vw" />
             <figcaption>
               <h3>{example.name}</h3>
               <p>{example.text}</p>
@@ -199,7 +188,7 @@ const faqs = [
   <section class="wrap section photo-guide-summary">
     <figure class="guide-preview">
       <Photo
-        base={guideImage(2)}
+        src={guideImage(2)}
         alt="Vista lateral de las bailarinas de María como ejemplo de la guía"
         sizes="(max-width: 800px) 90vw, 45vw"
       />

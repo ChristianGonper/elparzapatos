@@ -63,7 +63,7 @@ El orden de los bloques en el archivo es el orden de lectura. Título, entradill
 
 ## Añadir contenido
 
-1. Preparar su análisis e imágenes a partir de Drive y los permisos autorizados.
+1. Preparar su análisis e imágenes a partir de Drive y los permisos autorizados. Las seis vistas van en `src/assets/pares/<imageSet>/vista-01.webp` … `vista-06.webp`, una copia de 1600 píxeles por vista; Astro genera el resto de tamaños y formatos.
 2. Crear un MDX independiente con identificador, slug, orden de catálogo, vistas y referencia `collaborator`. Escribir el cuerpo con los bloques que necesite ese par. El orden del catálogo es independiente del orden del texto.
 3. Si es una nueva colaboradora, crear una vez su archivo en `src/content/colaboradoras/`: slug, autorización de armario y `name` (nombre público) o `anonymous` (número de colaboradora anónima, sin nombre). Con `"anonymous": 7` aparece como «Colaboradora 07» y sus pares se reúnen sin revelar su identidad. Todo par necesita su referencia `collaborator`; sin ella la compilación se detiene.
 4. Mantener `status: draft` mientras se redacta y revisa. Cambiarlo a `status: published` cuando se autorice la publicación e indicar `publishedAt: 'AAAA-MM-DD'`, con la fecha real. El último publicado abre la portada; el catálogo ordena por fecha descendente y usa `order` para desempatar. En revisión, si todavía no hay ninguno publicado, se muestra el primer borrador por `order` como ejemplo.

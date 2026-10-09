@@ -14,6 +14,6 @@ Las copias son de trabajo para terminar y revisar el sitio. [El alojamiento y lo
 
 ## Conversión
 
-Las copias para la web se generan con orientación correcta y sin metadatos EXIF, a WebP de 480, 960 y 1600 píxeles para María; 480 y 960 para los ejemplos. No se aplican retoques generativos, cambios de forma, eliminación de marcas ni sustitución de fondos. El color se mantiene.
+Cada foto se guarda una sola vez en `sitio/src/assets/` (pares en `pares/<set>/vista-0N.webp`, ejemplos en `ejemplos/`), con orientación correcta y sin metadatos EXIF: 1600 píxeles de ancho para los pares y 960 para los ejemplos. Al compilar, Astro (`astro:assets`) genera las variantes de 480, 960 y 1600 píxeles en AVIF y WebP, la imagen grande del visor y la de compartir. No se aplican retoques generativos, cambios de forma, eliminación de marcas ni sustitución de fondos. El color se mantiene.
 
 La vista de detalle de la guía amplía una foto del set con el encuadre de la interfaz y se indica como ampliación. Al abrirla se puede ver la foto completa.
