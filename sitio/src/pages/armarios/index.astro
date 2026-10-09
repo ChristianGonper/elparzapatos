@@ -5,6 +5,7 @@ import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
 import { wardrobes, wardrobePath } from '../../data/wardrobes';
 import { pairImage } from '../../data/images';
+import { includeDrafts } from '../../data/site';
 ---
 
 <Base
@@ -36,7 +37,11 @@ import { pairImage } from '../../data/images';
                 alt={first.photoAlt}
                 sizes="(max-width: 700px) 45vw, 30vw"
               />
-              <div class="wardrobe-stack" data-behind={behind.length}>
+              <div
+                class="wardrobe-stack"
+                data-behind={behind.length}
+                data-lab-all={includeDrafts && more.length === behind.length ? '' : undefined}
+              >
                 {behind
                   .map((pair, index) => (
                     <Photo
@@ -59,6 +64,16 @@ import { pairImage } from '../../data/images';
                 )}
               </div>
             </div>
+            {includeDrafts && more.length > 0 && (
+              <div class="lab-wardrobe-strip" aria-hidden="true">
+                {more.map((pair) => (
+                  <Photo src={pairImage(pair, pair.hero)} alt="" sizes="80px" />
+                ))}
+                <span>
+                  +{more.length} {more.length === 1 ? 'par' : 'pares'}
+                </span>
+              </div>
+            )}
             <div class="wardrobe-card-title">
               <div>
                 <span class="eyebrow">{wardrobe.pairs.length} pares</span>

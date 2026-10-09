@@ -1,0 +1,127 @@
+/* A · Cómo se nota en la tarjeta de un armario que hay más pares que los dos de la portada.
+   A1 es la pila actual (pair-cards.css). */
+.lab-wardrobe-strip {
+  display: none;
+}
+
+/* A2 · Abanico: los pares de atrás giran y se ven más. */
+html[data-lab-a='2'] .wardrobe-card .wardrobe-pictures {
+  overflow: visible;
+}
+html[data-lab-a='2'] .wardrobe-stack {
+  --step: 0px;
+}
+html[data-lab-a='2'] .wardrobe-stack img {
+  transform-origin: 30% 100%;
+  box-shadow: 0 6px 18px #0000002e;
+  transition: rotate 0.3s;
+}
+html[data-lab-a='2'] .wardrobe-stack img:not(.wardrobe-behind) {
+  width: 84%;
+  height: 84%;
+  rotate: -2deg;
+}
+html[data-lab-a='2'] .wardrobe-stack .wardrobe-behind {
+  width: 84%;
+  height: 84%;
+  filter: none;
+}
+html[data-lab-a='2'] .wardrobe-stack .wardrobe-behind-1 {
+  translate: 12% 0;
+  rotate: 5deg;
+}
+html[data-lab-a='2'] .wardrobe-stack .wardrobe-behind-2 {
+  translate: 18% 0;
+  rotate: 11deg;
+}
+html[data-lab-a='2'] .wardrobe-card:hover .wardrobe-behind-1 {
+  rotate: 8deg;
+}
+html[data-lab-a='2'] .wardrobe-more {
+  top: auto;
+  right: auto;
+  bottom: 0.7rem;
+  left: 0.7rem;
+}
+
+/* A3 y A5 · Sin pila: el segundo par ocupa su hueco entero. */
+html:is([data-lab-a='3'], [data-lab-a='5']) .wardrobe-stack {
+  --step: 0px;
+}
+html:is([data-lab-a='3'], [data-lab-a='5']) .wardrobe-stack .wardrobe-behind {
+  display: none;
+}
+
+/* A3 · Fila de miniaturas con el resto de pares. */
+html[data-lab-a='3'] .wardrobe-stack .wardrobe-more {
+  display: none;
+}
+html[data-lab-a='3'] .lab-wardrobe-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+html[data-lab-a='3'] .lab-wardrobe-strip img {
+  width: 4.2rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* A4 · Mosaico: el primero grande y los demás en columna. */
+html[data-lab-a='4'] .wardrobe-card .wardrobe-pictures {
+  grid-template-columns: 1.7fr 1fr;
+  aspect-ratio: 16/9;
+}
+html[data-lab-a='4'] .wardrobe-card .wardrobe-pictures > picture > img {
+  height: 100%;
+  aspect-ratio: auto;
+}
+html[data-lab-a='4'] .wardrobe-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  aspect-ratio: auto;
+  min-height: 0;
+}
+html[data-lab-a='4'] .wardrobe-stack img {
+  position: static;
+  flex: 1 1 0;
+  width: 100%;
+  min-height: 0;
+  translate: none;
+  filter: none;
+  box-shadow: none;
+}
+html[data-lab-a='4'] .wardrobe-stack img:not(.wardrobe-behind) {
+  order: -1;
+}
+html[data-lab-a='4'] .wardrobe-stack[data-lab-all] .wardrobe-more {
+  display: none;
+}
+html[data-lab-a='4'] .wardrobe-more {
+  top: auto;
+  bottom: 0.6rem;
+  right: 0.6rem;
+}
+@media (max-width: 540px) {
+  html[data-lab-a='4'] .wardrobe-stack {
+    gap: 0.75rem;
+  }
+}
+
+/* A5 · Contador destacado. */
+html[data-lab-a='5'] .wardrobe-more {
+  top: auto;
+  right: 0;
+  bottom: 0;
+  padding: 0.7rem 1rem 0.8rem;
+  background: var(--wine);
+  color: var(--paper);
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
