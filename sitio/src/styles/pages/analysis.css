@@ -5,7 +5,7 @@
   padding-block: 3rem;
 }
 .article-heading .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.2rem;
 }
 .article-heading h1 {
@@ -80,7 +80,7 @@
   text-align: center;
 }
 .quote-block .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 .quote-block blockquote {
@@ -181,7 +181,7 @@
   display: inline-flex;
   min-height: 44px;
   align-items: center;
-  color: var(--wine);
+  color: var(--accent);
 }
 
 .analysis-content > .article-hero + .article-section {

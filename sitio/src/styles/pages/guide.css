@@ -29,7 +29,7 @@
   color: var(--muted);
 }
 .heel-note a {
-  color: var(--wine);
+  color: var(--accent);
   text-underline-offset: 0.2em;
 }
 .guide-grid {
@@ -87,7 +87,7 @@
 .guide-number {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
-  color: var(--wine);
+  color: var(--accent);
 }
 .tacon-guide {
   margin-top: 5rem;
@@ -109,7 +109,7 @@
 .tacon-guide summary:after {
   content: '+';
   font-size: 2rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .tacon-guide[open] summary:after {
   content: '−';

@@ -6,7 +6,7 @@
   padding-block: clamp(3rem, 6vw, 6rem);
 }
 .collaboration-hero .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.4rem;
 }
 .collaboration-hero h1 {
@@ -16,7 +16,7 @@
 .collaboration-hero .hero-image {
   position: relative;
   padding: 1.7rem;
-  background: var(--blush);
+  background: var(--tint);
   transform: rotate(1.5deg);
 }
 .collaboration-hero .hero-image img {
@@ -46,7 +46,7 @@
 }
 .reassurance-strip span:before {
   content: '✓';
-  color: var(--wine);
+  color: var(--accent);
 }
 .steps-intro {
   display: grid;
@@ -54,7 +54,7 @@
   gap: 4rem;
 }
 .steps-intro .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.2rem;
 }
 .steps {
@@ -75,7 +75,7 @@
   top: 1.75rem;
   left: 0;
   font-size: 0.72rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .steps h3 {
   font-size: calc(1.9rem * var(--hs3, 1));
@@ -101,7 +101,7 @@
 }
 .section-heading-row .eyebrow {
   margin-bottom: 1rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .section-heading-row > p {
   max-width: 39ch;
@@ -136,7 +136,7 @@
   align-items: center;
 }
 .photo-guide-summary .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1rem;
 }
 .photo-guide-summary h2 {
@@ -144,7 +144,7 @@
 }
 .guide-preview {
   position: relative;
-  background: var(--blush);
+  background: var(--tint);
   padding: 1.3rem;
 }
 .guide-preview img {
@@ -163,7 +163,7 @@
   gap: 5rem;
 }
 .faq-section .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.2rem;
 }
 .faq-list details {

@@ -1,5 +1,5 @@
 .invitation {
-  background: var(--blush);
+  background: var(--tint);
   padding-block: clamp(3rem, 6vw, 6rem);
 }
 .invitation-inner {
@@ -9,7 +9,7 @@
   align-items: center;
 }
 .invitation .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 .invitation h2 {

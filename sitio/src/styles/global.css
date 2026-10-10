@@ -1,13 +1,14 @@
 :root {
-  --paper: #faf7f2;
-  --surface: #f0e9e0;
-  --ink: #292521;
-  --muted: #6b625c;
-  --wine: #5c2635;
-  --wine-hover: #421c28;
-  --blush: #eedfda;
-  --line: #d8cdc1;
-  --white: #fffdf9;
+  /* Papel y tinta: casi monocromo, para que el color lo pongan las fotos. */
+  --paper: #f6f5f1;
+  --surface: #eae8e3;
+  --ink: #121212;
+  --muted: #5a5955;
+  --accent: #121212;
+  --accent-hover: #3a3a38;
+  --tint: #e4e2dc;
+  --line: #d3d0c9;
+  --white: #ffffff;
   --serif: 'Newsreader Variable', serif;
   --sans: 'DM Sans Variable', sans-serif;
   --gutter: clamp(1.25rem, 4.4vw, 5rem);
@@ -33,8 +34,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: var(--blush);
-  color: var(--wine);
+  background: var(--tint);
+  color: var(--accent);
 }
 a {
   color: inherit;
@@ -139,9 +140,9 @@ svg {
   gap: 1.7rem;
   min-height: 50px;
   padding: 0.85rem 1.35rem;
-  background: var(--wine);
+  background: var(--accent);
   color: var(--paper);
-  border: 1px solid var(--wine);
+  border: 1px solid var(--accent);
   font-size: 0.87rem;
   font-weight: 500;
   line-height: 1.3;
@@ -150,22 +151,22 @@ svg {
     transform 0.2s;
 }
 .button:hover {
-  background: var(--wine-hover);
+  background: var(--accent-hover);
 }
 .button:active {
   transform: translateY(1px);
 }
 .button.light {
   background: var(--paper);
-  color: var(--wine);
+  color: var(--accent);
   border-color: var(--paper);
 }
 .button.light:hover {
-  background: var(--blush);
+  background: var(--tint);
 }
 .button.outline {
   background: transparent;
-  color: var(--wine);
+  color: var(--accent);
 }
 .text-link {
   display: inline-flex;
@@ -189,7 +190,7 @@ svg {
   transform: rotate(180deg);
 }
 :focus-visible {
-  outline: 3px solid var(--wine);
+  outline: 3px solid var(--accent);
   outline-offset: 5px;
 }
 main:focus {
@@ -207,7 +208,7 @@ main:focus {
   top: 0.7rem;
   left: 1rem;
   padding: 1rem;
-  background: var(--wine);
+  background: var(--accent);
   color: var(--paper);
   z-index: 100;
   transform: translateY(-200%);
@@ -221,7 +222,7 @@ main:focus {
   max-width: 1050px;
 }
 .page-heading .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.3rem;
 }
 .page-heading h1 {

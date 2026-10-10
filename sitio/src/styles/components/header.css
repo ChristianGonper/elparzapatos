@@ -23,7 +23,7 @@
   letter-spacing: -0.06em;
 }
 .brand-dot {
-  color: var(--wine);
+  color: var(--accent);
 }
 .brand-descriptor {
   font-size: 0.62rem;
@@ -50,7 +50,7 @@
   right: 0;
   bottom: 4px;
   height: 1px;
-  background: var(--wine);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s;
@@ -120,7 +120,7 @@
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     padding: 1rem var(--gutter) 1.7rem;
-    box-shadow: 0 18px 35px #2925210d;
+    box-shadow: 0 18px 35px #1212120d;
     display: flex;
     flex-direction: column;
   }
@@ -136,6 +136,6 @@
     margin-top: 1.2rem;
     color: var(--paper);
     padding-inline: 1rem;
-    border-color: var(--wine);
+    border-color: var(--accent);
   }
 }

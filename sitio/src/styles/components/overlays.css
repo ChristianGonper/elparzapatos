@@ -14,10 +14,10 @@
   display: inline;
   padding: 0;
   border: 0;
-  border-bottom: 1px dotted var(--wine);
+  border-bottom: 1px dotted var(--accent);
   background: none;
   font: inherit;
-  color: var(--wine);
+  color: var(--accent);
   text-underline-offset: 3px;
   line-height: inherit;
 }
@@ -34,7 +34,7 @@
   padding: 1.5rem 1.8rem;
   background: var(--white);
   color: var(--ink);
-  box-shadow: 0 12px 60px #2925211a;
+  box-shadow: 0 12px 60px #1212121a;
   z-index: 50;
 }
 /* En escritorio, con JavaScript, la definición se abre junto a la palabra. */
@@ -75,11 +75,11 @@
 }
 /* Visor (PhotoSwipe): fondo oscuro de la marca, sin marco alrededor de la foto. */
 .photo-viewer {
-  --pswp-bg: #211719;
+  --pswp-bg: #161616;
   --pswp-icon-color: var(--paper);
-  --pswp-icon-color-secondary: #211719;
-  --pswp-icon-stroke-color: #211719;
-  --pswp-placeholder-bg: #2f2224;
+  --pswp-icon-color-secondary: #161616;
+  --pswp-icon-stroke-color: #161616;
+  --pswp-placeholder-bg: #262626;
   --pswp-error-text-color: var(--paper);
 }
 .photo-viewer .pswp__counter {

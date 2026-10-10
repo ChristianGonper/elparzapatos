@@ -20,7 +20,7 @@
   transform: scale(1.025);
 }
 .home-feature-copy {
-  background: var(--wine);
+  background: var(--accent);
   color: var(--paper);
   padding: clamp(2rem, 4vw, 3.8rem);
   display: flex;
@@ -45,7 +45,7 @@
 .home-feature-copy p {
   margin-block: 1.4rem;
   font-size: 0.97rem;
-  color: #eadbdc;
+  color: color-mix(in srgb, var(--paper) 84%, var(--accent));
   max-width: 33ch;
 }
 .home-feature-copy .text-link {
@@ -100,7 +100,7 @@
 }
 .editorial-intro .eyebrow {
   margin-bottom: 1rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .editorial-intro .copy {
   max-width: 46ch;
@@ -150,7 +150,7 @@
   border-top: 1px solid var(--line);
 }
 .home-wardrobe .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.3rem;
 }
 .home-wardrobe h2 {

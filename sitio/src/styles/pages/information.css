@@ -6,7 +6,7 @@
   align-items: center;
 }
 .about-hero .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 .about-hero h1 {
@@ -76,7 +76,7 @@
 }
 .glossary-nav .eyebrow {
   margin-bottom: 0.9rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .glossary-nav a {
   min-height: 37px;
@@ -86,7 +86,7 @@
   color: var(--muted);
 }
 .glossary-nav a:hover {
-  color: var(--wine);
+  color: var(--accent);
 }
 .glossary-list section {
   border-top: 1px solid var(--line);
@@ -130,7 +130,7 @@
 }
 .prose-page .eyebrow {
   margin-bottom: 1.2rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .error-page {
   padding-block: 6rem;

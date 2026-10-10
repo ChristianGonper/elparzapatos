@@ -1,16 +1,20 @@
 # Diseño de la nueva web
 
-La fotografía abre cada tema; el texto enseña qué mirar. Se combinan superficies crema, burdeos y rosa suave sin alterar el color de las fotos. Los diseños responden al contenido de cada página, sin una proporción de columnas heredada.
+La fotografía abre cada tema; el texto enseña qué mirar. La paleta es papel y tinta: casi monocroma, como una revista impresa, para que el color lo pongan las fotos. Los diseños responden al contenido de cada página, sin una proporción de columnas heredada.
 
-| Color | Uso |
-| --- | --- |
-| #FAF7F2 | Fondo principal |
-| #F0E9E0 | Superficies de apoyo |
-| #292521 | Texto |
-| #6B625C | Texto secundario |
-| #5C2635 | Botones, detalles y bloque destacado |
-| #EEDFda | Invitación a participar |
-| #D8CDC1 | Separadores |
+| Variable | Color | Uso |
+| --- | --- | --- |
+| `--paper` | #F6F5F1 | Fondo principal |
+| `--surface` | #EAE8E3 | Superficies de apoyo y avisos |
+| `--ink` | #121212 | Texto |
+| `--muted` | #5A5955 | Texto secundario |
+| `--accent` | #121212 | Botones, enlaces destacados, foco y bloque destacado |
+| `--accent-hover` | #3A3A38 | Botones al pasar el ratón |
+| `--tint` | #E4E2DC | Invitación a participar y selección |
+| `--line` | #D3D0C9 | Separadores |
+| `--white` | #FFFFFF | Paneles y definiciones |
+
+El texto normal y el secundario cumplen contraste AA sobre todos los fondos (el secundario, como mínimo 5,4:1 sobre `--tint`). El visor de fotos usa un fondo casi negro neutro.
 
 Newsreader para titulares; DM Sans para cuerpo, navegación y etiquetas. Ambas se distribuyen con sus paquetes Fontsource, con licencia abierta y sin petición a Google Fonts desde el navegador.
 
