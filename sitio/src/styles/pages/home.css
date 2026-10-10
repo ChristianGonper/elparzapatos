@@ -147,7 +147,6 @@
   grid-template-columns: 1fr 1.1fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
-  border-top: 1px solid var(--line);
 }
 .home-wardrobe .eyebrow {
   color: var(--accent);

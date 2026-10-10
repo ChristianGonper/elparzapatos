@@ -135,6 +135,10 @@ svg {
   color: var(--muted);
   max-width: 48ch;
 }
+/* Solo en papel: la cabecera no se imprime, y esto firma la hoja. */
+.print-only {
+  display: none;
+}
 .small-note {
   font-size: 0.8rem;
   line-height: 1.6;

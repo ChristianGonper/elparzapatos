@@ -41,3 +41,7 @@ Se mantiene CSS propio. Esta interfaz tiene composiciones editoriales, recortes 
 Las clases de componentes y páginas usan nombres propios. El alcance permanece explícito por nombres, para que los contenedores editoriales puedan componer Photo y otros componentes sin depender de atributos internos de Astro. No se añaden resets ni estilos genéricos en hojas de página. Las reglas compartidas se cambian en su propietario, no copiándolas en otra página.
 
 Las hojas se agregan en una entrada común para mantener una cascada controlada. No se afirma que se estén cargando solo los estilos de cada ruta. Se comparan estilos calculados y vistas de móvil/escritorio al cambiar esta organización.
+
+## Menos ruido (bloque 5)
+
+Se quitaron filetes y etiquetas que repetían lo que ya separaba el espacio: la línea bajo cada tarjeta de par, las dos líneas alrededor de la cita de la colaboradora, las dos que encerraban «Antes de empezar» en la guía y la que abría el bloque de armarios en la portada. La etiqueta «El Par · Zapatos en detalle» de la guía repetía la cabecera; ahora solo sale al imprimir, donde la cabecera no aparece (clase `print-only`). Los filetes que ordenan listas (pasos, dudas, glosario) se mantienen.
