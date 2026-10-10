@@ -11,10 +11,12 @@
   --white: #ffffff;
   --serif: 'Instrument Serif', serif;
   --sans: 'Instrument Sans Variable', sans-serif;
-  /* Instrument Serif es estrecha y de ojo pequeño: los títulos crecen un 10 % para compensar. */
-  --hs1: 1.1;
-  --hs2: 1.1;
-  --hs3: 1.1;
+  /* Escala media de títulos. El texto base es de 18 px (112,5 %) y todo lo medido en rem crece
+     con él; los títulos se quedan algo por debajo de esa subida (90 % para h1 y h2, 95 % para h3).
+     Instrument Serif es estrecha y de ojo pequeño, así que ganan un 10 %: 0,9 × 1,1 / 1,125. */
+  --hs1: 0.88;
+  --hs2: 0.88;
+  --hs3: 0.93;
   --gutter: clamp(1.25rem, 4.4vw, 5rem);
   --space: clamp(4rem, 8vw, 8rem);
 }
@@ -25,6 +27,7 @@
   display: none !important;
 }
 html {
+  font-size: 112.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
 }
