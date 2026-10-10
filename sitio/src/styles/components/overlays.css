@@ -82,6 +82,10 @@
   --pswp-placeholder-bg: #262626;
   --pswp-error-text-color: var(--paper);
 }
+.photo-viewer :focus-visible {
+  outline-color: var(--paper);
+  outline-offset: -3px;
+}
 .photo-viewer .pswp__counter {
   font-family: var(--sans);
   font-size: 0.85rem;
