@@ -298,3 +298,17 @@ main:focus {
     transition: none !important;
   }
 }
+/* Aire en ordenador: menos espacio entre bloques que en el móvil proporcionalmente, para que no
+   sobre pantalla vacía; las fotos no cambian de tamaño. */
+@media (min-width: 1000px) {
+  :root {
+    --space: clamp(2.8rem, 5.6vw, 5.6rem);
+  }
+  .page-heading {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+  .page-heading h1 {
+    margin-bottom: 1.1rem;
+  }
+}

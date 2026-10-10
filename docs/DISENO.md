@@ -45,3 +45,7 @@ Las hojas se agregan en una entrada común para mantener una cascada controlada.
 ## Menos ruido (bloque 5)
 
 Se quitaron filetes y etiquetas que repetían lo que ya separaba el espacio: la línea bajo cada tarjeta de par, las dos líneas alrededor de la cita de la colaboradora, las dos que encerraban «Antes de empezar» en la guía y la que abría el bloque de armarios en la portada. La etiqueta «El Par · Zapatos en detalle» de la guía repetía la cabecera; ahora solo sale al imprimir, donde la cabecera no aparece (clase `print-only`). Los filetes que ordenan listas (pasos, dudas, glosario) se mantienen.
+
+## Aire en ordenador
+
+Desde 1000 px el espacio entre bloques es menor que la proporción del móvil, para que no sobre pantalla vacía en 1280 y 1440; las fotos mantienen su tamaño. `--space` pasa a `clamp(2.8rem, 5.6vw, 5.6rem)` (unos 72 px en 1280 y 81 px en 1440, antes 102 y 115). La cabecera mide 86 px; las entradas de página, la presentación de la portada, la separación entre las fotos de ejemplo y las filas de la guía se acortan; en los análisis, cada detalle queda a `clamp(3.5rem, 5.6vw, 5.6rem)` del siguiente y el título y el comienzo del cuerpo se acercan.

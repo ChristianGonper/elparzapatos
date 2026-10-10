@@ -193,3 +193,17 @@
 .analysis-content > :is(h2, h3) {
   margin-top: 3rem;
 }
+@media (min-width: 1000px) {
+  .article-heading {
+    padding-block: 2.5rem;
+  }
+  .article-body {
+    padding-top: clamp(3rem, 4.5vw, 4.5rem);
+  }
+  .analysis-content > .article-hero + .article-section {
+    margin-top: clamp(3rem, 4.5vw, 4.5rem);
+  }
+  .article-section {
+    margin-bottom: clamp(3.5rem, 5.6vw, 5.6rem);
+  }
+}

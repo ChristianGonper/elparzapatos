@@ -267,3 +267,12 @@
     aspect-ratio: 4/5;
   }
 }
+@media (min-width: 1000px) {
+  .home-intro {
+    padding-block: 3.2rem;
+  }
+  .home-feature,
+  .look-row {
+    padding-top: 1.8rem;
+  }
+}

@@ -179,3 +179,8 @@
     padding: 1.6rem;
   }
 }
+@media (min-width: 1000px) {
+  .guide-grid {
+    row-gap: 2.2rem;
+  }
+}

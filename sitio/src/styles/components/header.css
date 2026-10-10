@@ -137,3 +137,8 @@
     border-color: var(--accent);
   }
 }
+@media (min-width: 1000px) {
+  .header-inner {
+    min-height: 86px;
+  }
+}
