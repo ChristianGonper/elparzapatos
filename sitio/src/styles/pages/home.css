@@ -20,7 +20,7 @@
   transform: scale(1.025);
 }
 .home-feature-copy {
-  background: var(--wine);
+  background: var(--accent);
   color: var(--paper);
   padding: clamp(2rem, 4vw, 3.8rem);
   display: flex;
@@ -39,35 +39,32 @@
   text-transform: uppercase;
 }
 .home-feature-copy h1 {
-  font-size: clamp(2.6rem, 4.3vw, 4.3rem);
+  font-size: calc(clamp(2.6rem, 4.3vw, 4.3rem) * var(--hs1, 1));
   max-width: 13ch;
 }
 .home-feature-copy p {
   margin-block: 1.4rem;
   font-size: 0.97rem;
-  color: #eadbdc;
+  color: color-mix(in srgb, var(--paper) 84%, var(--accent));
   max-width: 33ch;
 }
 .home-feature-copy .text-link {
   color: var(--paper);
 }
 .feature-footnote {
-  padding-top: 0.8rem;
+  padding-top: 1rem;
   font-size: 0.75rem;
   color: var(--muted);
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
-}
-.feature-footnote a {
-  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 32px;
 }
-.feature-footnote svg {
-  width: 14px;
-  height: 14px;
+/* «Ver todos los pares», como botón: es la salida principal hacia el catálogo. */
+.feature-footnote .button {
+  min-height: 52px;
+  font-size: 0.95rem;
 }
 .home-intro {
   display: grid;
@@ -76,9 +73,10 @@
   align-items: center;
   padding-block: clamp(3rem, 6vw, 5rem);
 }
+/* El lema, al mismo tamaño y nivel que «Hay mucho que mirar». */
 .home-intro :is(h1, h2) {
-  font-size: clamp(2rem, 3.3vw, 3.2rem);
-  max-width: 16ch;
+  font-size: calc(clamp(2.6rem, 4.7vw, 4.6rem) * var(--hs2, 1));
+  max-width: 15ch;
 }
 .intro-copy {
   max-width: 45ch;
@@ -102,7 +100,7 @@
 }
 .editorial-intro .eyebrow {
   margin-bottom: 1rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .editorial-intro .copy {
   max-width: 46ch;
@@ -131,7 +129,7 @@
 }
 .look-card h3 {
   margin-top: 0.45rem;
-  font-size: 1.8rem;
+  font-size: calc(1.8rem * var(--hs3, 1));
 }
 .look-card p {
   margin-top: 0.7rem;
@@ -149,10 +147,9 @@
   grid-template-columns: 1fr 1.1fr;
   gap: clamp(2rem, 5vw, 5rem);
   align-items: center;
-  border-top: 1px solid var(--line);
 }
 .home-wardrobe .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.3rem;
 }
 .home-wardrobe h2 {
@@ -189,7 +186,7 @@
   }
   .home-feature-copy h1 {
     max-width: 18ch;
-    font-size: 2.7rem;
+    font-size: calc(2.7rem * var(--hs1, 1));
   }
   .home-feature-copy p {
     max-width: 48ch;
@@ -214,7 +211,7 @@
     gap: 1rem;
   }
   .look-card h3 {
-    font-size: 1.5rem;
+    font-size: calc(1.5rem * var(--hs3, 1));
   }
   .home-wardrobe .wardrobe-pictures {
     max-width: 600px;
@@ -225,7 +222,7 @@
     padding: 1.2rem 1.3rem;
   }
   .home-feature-copy h1 {
-    font-size: 2.5rem;
+    font-size: calc(2.5rem * var(--hs1, 1));
   }
   .home-feature-copy p {
     font-size: 0.91rem;
@@ -237,9 +234,6 @@
   }
   .feature-footnote {
     font-size: 0.68rem;
-  }
-  .home-intro :is(h1, h2) {
-    font-size: 2.2rem;
   }
   .look-row {
     grid-template-columns: 1fr 1fr;
@@ -264,7 +258,7 @@
     font-size: 0.8rem;
   }
   .look-card h3 {
-    font-size: 1.45rem;
+    font-size: calc(1.45rem * var(--hs3, 1));
   }
   .editorial-intro .copy .lead {
     font-size: 1.05rem;
@@ -272,4 +266,17 @@
   .home-wardrobe .wardrobe-pictures img {
     aspect-ratio: 4/5;
   }
+}
+@media (min-width: 1000px) {
+  .home-intro {
+    padding-block: 3.2rem;
+  }
+  .home-feature,
+  .look-row {
+    padding-top: 1.8rem;
+  }
+}
+/* Sobre el bloque oscuro, el foco se dibuja en el color del papel para que se vea. */
+.home-feature-copy :focus-visible {
+  outline-color: var(--paper);
 }

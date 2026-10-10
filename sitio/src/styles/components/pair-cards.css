@@ -1,7 +1,6 @@
 .pair-card {
   display: block;
   padding-bottom: 1.4rem;
-  border-bottom: 1px solid var(--line);
 }
 .card-image {
   overflow: hidden;
@@ -26,7 +25,7 @@
   color: var(--muted);
 }
 .pair-card h2 {
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: calc(clamp(2rem, 3.8vw, 3.4rem) * var(--hs2, 1));
 }
 .pair-card p {
   max-width: 44ch;
@@ -40,7 +39,7 @@
   align-items: center;
   gap: 1rem;
   margin-top: 1.7rem;
-  color: var(--wine);
+  color: var(--accent);
   font-size: 0.84rem;
 }
 .wardrobe-card {
@@ -62,48 +61,56 @@
 .wardrobe-card:hover .wardrobe-pictures img {
   transform: scale(1.02);
 }
-/* Pares que no caben en la tarjeta: asoman detrás del segundo, desplazados arriba a la
-   derecha, y una etiqueta dice cuántos más hay. El número total ya está en «N pares». */
+/* Pares que no caben en la tarjeta: hasta dos asoman en abanico detrás del segundo. No llevan
+   etiqueta; el número total ya se lee en «N pares», dentro del enlace. Cada foto mantiene la
+   proporción 4:3 y el abanico cabe entero en su hueco, sin desbordar la tarjeta. */
 .wardrobe-stack {
-  --step: 0.9rem;
-  --offset: calc(var(--step) * var(--layers, 0));
   position: relative;
   aspect-ratio: 4/3;
 }
-.wardrobe-stack[data-behind='1'] {
-  --layers: 1;
-}
+.wardrobe-stack[data-behind='1'],
 .wardrobe-stack[data-behind='2'] {
-  --layers: 2;
+  --size: 76%;
 }
 .wardrobe-stack img {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: calc(100% - var(--offset));
-  height: calc(100% - var(--offset));
+  width: var(--size, 100%);
+  height: var(--size, 100%);
   aspect-ratio: auto;
-  box-shadow: 0 0 0 2px var(--paper);
 }
-.wardrobe-stack .wardrobe-behind {
-  filter: saturate(0.75) brightness(0.92);
+.wardrobe-stack:not([data-behind='0']) img {
+  box-shadow:
+    0 0 0 2px var(--paper),
+    0 6px 16px #1212122e;
+  transition:
+    rotate 0.4s,
+    translate 0.4s;
+}
+.wardrobe-stack:not([data-behind='0']) img:not(.wardrobe-behind) {
+  left: 2%;
+  bottom: 3%;
+  rotate: -2deg;
 }
 .wardrobe-stack .wardrobe-behind-1 {
-  translate: var(--step) calc(var(--step) * -1);
+  left: 12%;
+  bottom: 12%;
+  rotate: 4deg;
 }
 .wardrobe-stack .wardrobe-behind-2 {
-  translate: calc(var(--step) * 2) calc(var(--step) * -2);
+  left: 18%;
+  bottom: 16%;
+  rotate: 9deg;
 }
-.wardrobe-more {
-  position: absolute;
-  top: calc(var(--offset) + 0.7rem);
-  right: calc(var(--offset) + 0.7rem);
-  padding: 0.3rem 0.65rem;
-  background: var(--paper);
-  color: var(--ink);
-  font-size: 0.78rem;
-  letter-spacing: 0.02em;
-  line-height: 1.3;
+/* Con un solo par detrás, el abanico ocupa también el hueco del segundo. */
+.wardrobe-stack[data-behind='1'] .wardrobe-behind-1 {
+  left: 20%;
+  bottom: 17%;
+  rotate: 7deg;
+}
+.wardrobe-card:hover .wardrobe-stack .wardrobe-behind {
+  translate: 2% -2%;
 }
 .wardrobe-card-title {
   display: flex;
@@ -118,13 +125,13 @@
   color: var(--muted);
 }
 .wardrobe-card-title h2 {
-  font-size: clamp(2rem, 4.5vw, 3.7rem);
+  font-size: calc(clamp(2rem, 4.5vw, 3.7rem) * var(--hs2, 1));
 }
 .wardrobe-open {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: var(--wine);
+  color: var(--accent);
   font-size: 0.86rem;
   min-height: 44px;
   flex-shrink: 0;
@@ -134,27 +141,18 @@
     align-items: flex-start;
   }
   .wardrobe-card-title h2 {
-    font-size: 2.8rem;
+    font-size: calc(2.8rem * var(--hs2, 1));
   }
 }
 @media (max-width: 540px) {
   .wardrobe-pictures {
     gap: 0.75rem;
   }
-  .wardrobe-stack {
-    --step: 0.5rem;
-  }
-  .wardrobe-more {
-    top: calc(var(--offset) + 0.4rem);
-    right: calc(var(--offset) + 0.4rem);
-    padding: 0.2rem 0.45rem;
-    font-size: 0.7rem;
-  }
   .wardrobe-card-title {
     flex-direction: column;
     gap: 0.7rem;
   }
   .wardrobe-card-title h2 {
-    font-size: 2.65rem;
+    font-size: calc(2.65rem * var(--hs2, 1));
   }
 }

@@ -15,6 +15,9 @@
   .tacon-guide summary:after {
     display: none !important;
   }
+  .print-only {
+    display: block !important;
+  }
   .wrap {
     padding: 0;
     max-width: none;

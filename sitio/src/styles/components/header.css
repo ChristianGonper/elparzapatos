@@ -17,19 +17,20 @@
   flex-shrink: 0;
   line-height: 1.1;
 }
+/* Marca en versalitas espaciadas, como una etiqueta. El margen negativo compensa el espacio que
+   deja la última letra para que el nombre y el descriptor queden alineados. */
 .brand-name {
   font-family: var(--serif);
-  font-size: 2.85rem;
-  letter-spacing: -0.06em;
-}
-.brand-dot {
-  color: var(--wine);
+  font-size: 1.35rem;
+  letter-spacing: 0.24em;
+  margin-right: -0.24em;
+  text-transform: uppercase;
 }
 .brand-descriptor {
-  font-size: 0.62rem;
-  letter-spacing: 0.15em;
+  font-size: 0.54rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  margin-top: 0.3rem;
+  margin-top: 0.45rem;
 }
 .desktop-nav {
   display: flex;
@@ -50,7 +51,7 @@
   right: 0;
   bottom: 4px;
   height: 1px;
-  background: var(--wine);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s;
@@ -94,9 +95,6 @@
   .header-inner {
     min-height: 90px;
   }
-  .brand-name {
-    font-size: 2.6rem;
-  }
   .mobile-menu {
     display: block;
   }
@@ -120,7 +118,7 @@
     background: var(--paper);
     border-bottom: 1px solid var(--line);
     padding: 1rem var(--gutter) 1.7rem;
-    box-shadow: 0 18px 35px #2925210d;
+    box-shadow: 0 18px 35px #1212120d;
     display: flex;
     flex-direction: column;
   }
@@ -136,6 +134,11 @@
     margin-top: 1.2rem;
     color: var(--paper);
     padding-inline: 1rem;
-    border-color: var(--wine);
+    border-color: var(--accent);
+  }
+}
+@media (min-width: 1000px) {
+  .header-inner {
+    min-height: 86px;
   }
 }

@@ -15,11 +15,11 @@
   background: none;
   border: 0;
   border-bottom: 1px solid var(--line);
-  color: var(--wine);
+  color: var(--accent);
   font-size: 0.82rem;
 }
 .share-button:hover {
-  border-color: var(--wine);
+  border-color: var(--accent);
 }
 .share-status:empty {
   display: none;

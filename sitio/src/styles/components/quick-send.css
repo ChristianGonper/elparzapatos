@@ -9,6 +9,6 @@
   color: var(--muted);
 }
 .quick-send .text-link {
-  color: var(--wine);
+  color: var(--accent);
   font-size: 0.85rem;
 }
