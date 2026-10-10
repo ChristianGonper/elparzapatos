@@ -16,7 +16,7 @@ La fotografía abre cada tema; el texto enseña qué mirar. La paleta es papel y
 
 El texto normal y el secundario cumplen contraste AA sobre todos los fondos (el secundario, como mínimo 5,4:1 sobre `--tint`). El visor de fotos usa un fondo casi negro neutro.
 
-Newsreader para titulares; DM Sans para cuerpo, navegación y etiquetas. Ambas se distribuyen con sus paquetes Fontsource, con licencia abierta y sin petición a Google Fonts desde el navegador.
+Instrument Serif para titulares y citas; Instrument Sans (variable) para cuerpo, navegación y etiquetas. Instrument Serif solo tiene peso normal y su cursiva, así que los títulos no usan negrita; es estrecha, y su tamaño se compensa con las variables de escala. Ambas se distribuyen con sus paquetes Fontsource, con licencia abierta y sin petición a Google Fonts desde el navegador.
 
 La marca tipográfica funciona sin esperar a un símbolo definitivo. Los botones principales («Manda tu par») llevan a Cómo colaborar; de ahí, «Qué fotos hacer» lleva a la guía, y solo su final abre el Tally existente con «Enviar mis fotos». Una sola escala de espaciado, tamaños fluidos, lectura de unas 45–60 letras por línea y fotos ampliables. Las transiciones son breves y se desactivan con la preferencia de reducir movimiento.
 

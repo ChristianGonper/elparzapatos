@@ -127,7 +127,7 @@
   font-family: var(--serif);
   font-weight: 400;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.015em;
 }
 .term-definition {
   display: block;

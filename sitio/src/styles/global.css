@@ -9,8 +9,12 @@
   --tint: #e4e2dc;
   --line: #d3d0c9;
   --white: #ffffff;
-  --serif: 'Newsreader Variable', serif;
-  --sans: 'DM Sans Variable', sans-serif;
+  --serif: 'Instrument Serif', serif;
+  --sans: 'Instrument Sans Variable', sans-serif;
+  /* Instrument Serif es estrecha y de ojo pequeño: los títulos crecen un 10 % para compensar. */
+  --hs1: 1.1;
+  --hs2: 1.1;
+  --hs3: 1.1;
   --gutter: clamp(1.25rem, 4.4vw, 5rem);
   --space: clamp(4rem, 8vw, 8rem);
 }
@@ -84,10 +88,10 @@ h3 {
   font-family: var(--serif);
   font-weight: 400;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.015em;
 }
-/* Los tamaños de los títulos se multiplican por --hs1, --hs2 y --hs3 (1 si no se definen):
-   el laboratorio de la vista de revisión los usa para probar escalas. */
+/* Todos los tamaños de títulos se multiplican por --hs1 (h1), --hs2 (h2) y --hs3 (h3), definidos
+   arriba: así la escala entera se ajusta en un solo sitio. */
 h1 {
   font-size: calc(clamp(3.2rem, 7.2vw, 7rem) * var(--hs1, 1));
 }
