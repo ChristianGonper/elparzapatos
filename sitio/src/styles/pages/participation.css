@@ -31,22 +31,24 @@
   justify-content: space-between;
   gap: 1rem;
 }
+/* Tres ideas, cada una en su columna y en la letra de los títulos, separadas por un filete. */
 .reassurance-strip {
-  border-block: 1px solid var(--line);
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  padding-block: 1.35rem;
-  font-size: 0.84rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-block: 0;
+  list-style: none;
 }
-.reassurance-strip span {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
+.reassurance-strip li {
+  padding: 0.3rem 2rem;
+  border-left: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
-.reassurance-strip span:before {
-  content: '✓';
-  color: var(--accent);
+.reassurance-strip li:first-child {
+  padding-left: 0;
+  border-left: 0;
 }
 .steps-intro {
   display: grid;
@@ -216,10 +218,8 @@
     max-width: 620px;
     transform: rotate(0.8deg);
   }
-  .reassurance-strip {
-    flex-wrap: wrap;
-    gap: 0.8rem 2rem;
-    font-size: 0.8rem;
+  .reassurance-strip li {
+    padding-inline: 1.2rem;
   }
   .steps-intro,
   .faq-section,
@@ -250,7 +250,16 @@
     font-size: calc(3.5rem * var(--hs1, 1));
   }
   .reassurance-strip {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .reassurance-strip li,
+  .reassurance-strip li:first-child {
+    padding: 0.85rem 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .reassurance-strip li:first-child {
+    border-top: 0;
   }
   .example-grid h3 {
     font-size: calc(1.5rem * var(--hs3, 1));
