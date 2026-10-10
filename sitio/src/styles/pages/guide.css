@@ -2,12 +2,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  border-block: 1px solid var(--line);
-  padding-block: 2.5rem;
+  padding-block: 1.5rem;
   margin-bottom: 3.5rem;
 }
 .guide-lead h2 {
-  font-size: 2.2rem;
+  font-size: calc(2.2rem * var(--hs2, 1));
   margin-bottom: 1rem;
 }
 .guide-lead p {
@@ -29,7 +28,7 @@
   color: var(--muted);
 }
 .heel-note a {
-  color: var(--wine);
+  color: var(--accent);
   text-underline-offset: 0.2em;
 }
 .guide-grid {
@@ -76,7 +75,7 @@
   }
 }
 .guide-card h3 {
-  font-size: 1.8rem;
+  font-size: calc(1.8rem * var(--hs3, 1));
   margin: 0.4rem 0 0.7rem;
 }
 .guide-card p {
@@ -87,7 +86,7 @@
 .guide-number {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
-  color: var(--wine);
+  color: var(--accent);
 }
 .tacon-guide {
   margin-top: 5rem;
@@ -104,12 +103,12 @@
   min-height: 70px;
 }
 .tacon-guide summary h2 {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: calc(clamp(2rem, 3vw, 3rem) * var(--hs2, 1));
 }
 .tacon-guide summary:after {
   content: '+';
   font-size: 2rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .tacon-guide[open] summary:after {
   content: '−';
@@ -132,7 +131,7 @@
   gap: 2rem;
 }
 .guide-checklist h2 {
-  font-size: 2.5rem;
+  font-size: calc(2.5rem * var(--hs2, 1));
   margin-bottom: 1rem;
 }
 .guide-checklist ul {
@@ -178,5 +177,10 @@
   }
   .guide-checklist {
     padding: 1.6rem;
+  }
+}
+@media (min-width: 1000px) {
+  .guide-grid {
+    row-gap: 2.2rem;
   }
 }

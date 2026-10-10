@@ -25,7 +25,7 @@ import { pairImage } from '../../data/images';
   <div class="wrap wardrobe-index">
     {wardrobes.length ? (
       wardrobes.map((wardrobe) => {
-        // Se ven dos pares; si hay más, asoman detrás del segundo (hasta dos) con un «+N».
+        // Se ven dos pares; si hay más, hasta dos asoman en abanico detrás del segundo.
         const [first, second, ...more] = wardrobe.pairs;
         const behind = more.slice(0, 2);
         return (
@@ -52,11 +52,6 @@ import { pairImage } from '../../data/images';
                   alt={second.photoAlt}
                   sizes="(max-width: 700px) 45vw, 30vw"
                 />
-                {more.length > 0 && (
-                  <span class="wardrobe-more" aria-hidden="true">
-                    +{more.length} {more.length === 1 ? 'par' : 'pares'}
-                  </span>
-                )}
               </div>
             </div>
             <div class="wardrobe-card-title">

@@ -6,12 +6,12 @@
   align-items: center;
 }
 .about-hero .eyebrow {
-  color: var(--wine);
+  color: var(--accent);
   margin-bottom: 1.5rem;
 }
 .about-hero h1 {
   margin-bottom: 2rem;
-  font-size: clamp(3.6rem, 6vw, 6rem);
+  font-size: calc(clamp(3.6rem, 6vw, 6rem) * var(--hs1, 1));
 }
 .about-hero img {
   width: 100%;
@@ -53,7 +53,7 @@
   gap: 2rem;
 }
 .contact-section h2 {
-  font-size: 2.8rem;
+  font-size: calc(2.8rem * var(--hs2, 1));
 }
 .contact-section p {
   color: var(--muted);
@@ -76,7 +76,7 @@
 }
 .glossary-nav .eyebrow {
   margin-bottom: 0.9rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .glossary-nav a {
   min-height: 37px;
@@ -86,7 +86,7 @@
   color: var(--muted);
 }
 .glossary-nav a:hover {
-  color: var(--wine);
+  color: var(--accent);
 }
 .glossary-list section {
   border-top: 1px solid var(--line);
@@ -97,7 +97,7 @@
   border-bottom: 1px solid var(--line);
 }
 .glossary-list h2 {
-  font-size: 2.7rem;
+  font-size: calc(2.7rem * var(--hs2, 1));
   margin-bottom: 1rem;
 }
 .glossary-list p {
@@ -118,7 +118,7 @@
   border-top: 1px solid var(--line);
 }
 .prose-page h2 {
-  font-size: 2.2rem;
+  font-size: calc(2.2rem * var(--hs2, 1));
   margin-bottom: 1.2rem;
 }
 .prose-page p,
@@ -130,14 +130,14 @@
 }
 .prose-page .eyebrow {
   margin-bottom: 1.2rem;
-  color: var(--wine);
+  color: var(--accent);
 }
 .error-page {
   padding-block: 6rem;
   min-height: 55vh;
 }
 .error-page h1 {
-  font-size: clamp(3.6rem, 7vw, 6rem);
+  font-size: calc(clamp(3.6rem, 7vw, 6rem) * var(--hs1, 1));
   margin-block: 1.4rem;
 }
 .error-page p {
@@ -190,12 +190,12 @@
 }
 @media (max-width: 540px) {
   .about-hero h1 {
-    font-size: 3.5rem;
+    font-size: calc(3.5rem * var(--hs1, 1));
   }
   .about-hero img {
     aspect-ratio: 4/3;
   }
   .glossary-list h2 {
-    font-size: 2.5rem;
+    font-size: calc(2.5rem * var(--hs2, 1));
   }
 }
