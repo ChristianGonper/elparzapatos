@@ -73,6 +73,10 @@ const pares = defineCollection({
       // Detalle que puede salir en «En qué nos fijamos», en la portada: etiqueta, título, frase y
       // la vista que lo enseña.
       homeDetail: z.object({ label: text, title: text, text, image }).optional(),
+      // Etiquetas para filtros y colecciones futuras; todavía no se muestran. Rasgos que el retrato
+      // señala (mejor con la palabra del glosario) y colores tal como los nombra.
+      traits: z.array(text).optional(),
+      colors: z.array(text).optional(),
     })
     .refine((pair) => pair.status !== 'published' || !!pair.publishedAt, {
       message: 'Un par publicado necesita publishedAt (AAAA-MM-DD).',
