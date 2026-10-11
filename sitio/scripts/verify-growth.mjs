@@ -87,6 +87,8 @@ try {
                 ? 'centena'
                 : 'anonima-sin-armario';
     const bare = i >= 43;
+    // Unos pocos de otros grupos, para contar por tipo en la portada.
+    const type = { 50: 'Salones', 51: 'Salones', 52: 'Sandalias de tacón', 53: 'Cuñas' }[i];
     await article(
       join(content, `pares/prueba-${i}.mdx`),
       {
@@ -102,6 +104,12 @@ try {
         publishedAt:
           i === 0 ? '2026-10-01' : i === 1 ? '2026-10-02' : i === 20 ? '2026-10-03' : undefined,
         model: i === 20 ? 'Modelo de prueba' : undefined,
+        type: type ?? example.type,
+        // Sin invitación propia, el par cierra con la genérica.
+        invitation: bare && i !== 50 ? undefined : example.invitation,
+        homeDetail: [25, 51].includes(i)
+          ? { label: 'Prueba', title: `Detalle de prueba ${i}`, text: 'Una frase.', image: 2 }
+          : undefined,
       },
       bare ? body.replace(/<Cita>[\s\S]*?<\/Cita>\s*/g, '') : body,
     );
@@ -150,6 +158,50 @@ try {
   assert.doesNotMatch(await page('pares/par-de-prueba-59'), /class="quote-block"|<dt>Marca<\/dt>/);
   for (let i = 0; i < 60; i++) assert.match(await page(`pares/par-de-prueba-${i}`), /<h1>/);
 
+  // Portada con muchos pares y dos armarios: todo lo que depende de los datos aparece solo.
+  const home = await page('');
+  const section = (html, name) =>
+    html.match(new RegExp(`class="[^"]*${name}[\\s\\S]*?</section>`))?.[0] ?? '';
+  assert.equal(cards(section(home, 'home-latest')), 4);
+  assert.equal(cards(home), 4);
+  assert.match(section(home, 'home-latest'), /Seguir mirando/);
+  assert.equal((home.match(/class="home-wardrobe-card"/g) ?? []).length, 2);
+  assert.match(section(home, 'home-wardrobes'), /href="\/armarios\/"[^>]*>\s*Ver los armarios/);
+  assert.doesNotMatch(home, /class="wrap section home-wardrobe"/);
+  const kind = (name, text) =>
+    assert.match(home, new RegExp(`<h3>${name}</h3><p>${text}</p>`), name);
+  kind('Bailarinas', '59 pares');
+  kind('Tacones y tiras', '3 pares');
+  kind('Cuñas y alpargatas', '1 par');
+  kind('Plataformas', 'Aún no hay ninguno. ¿Tienes unos\\?');
+  // Detalles: sin repetir grupo ni colaboradora mientras se pueda; sin fotos de ejemplo si sobran.
+  const detailLinks = [
+    ...section(home, 'home-details').matchAll(/<a class="text-link" href="([^"]+)"/g),
+  ].map((match) => match[1]);
+  assert.deepEqual(detailLinks, [
+    '/pares/bailarinas-manchas-leopardo/',
+    '/pares/par-de-prueba-51/',
+    '/pares/slippers-burdeos-borde-rosa/',
+  ]);
+  assert.doesNotMatch(home, /Un tacón que cambia la silueta/);
+  // Con más de un armario, cada armario lleva a los de otras colaboradoras.
+  assert.match(
+    await page('armarios/maria'),
+    /href="\/armarios\/"[^>]*>\s*Ver pares de otras colaboradoras/,
+  );
+  assert.match(await page('armarios/maria'), /Un borde rosa, flores sobre rejilla/);
+  assert.match(
+    await page('armarios/prueba'),
+    /20 pares de Colaboradora 07\. Míralos juntos y fíjate en lo que se repite\./,
+  );
+  // Invitación final: la propia del par, en su género, o la genérica.
+  assert.match(
+    await page('pares/par-de-prueba-5'),
+    /¿Y las tuyas, de cerca\?[\s\S]*Manda las tuyas/,
+  );
+  assert.match(await page('pares/par-de-prueba-50'), /¿Y los tuyos\?[\s\S]*Manda los tuyos/);
+  assert.match(await page('pares/par-de-prueba-59'), /¿Qué tendrán los tuyos\?[\s\S]*Manda tu par/);
+
   const reorderedPage = await page('pares/par-de-prueba-0');
   assert.ok(
     reorderedPage.indexOf('class="quote-block"') <
@@ -161,6 +213,15 @@ try {
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   assert.match(await page(''), /noindex, nofollow/);
   assert.match(await page(''), /home-feature-photo[^>]+par-de-prueba-20/);
+  // Con tres pares y un armario: sin «Lo último», el armario como siempre y ningún detalle
+  // marcado, así que salen las tres fotos de ejemplo, sin enlace.
+  const smallHome = await page('');
+  assert.doesNotMatch(smallHome, /home-latest|home-wardrobe-card/);
+  assert.match(smallHome, /Entrar en el Armario de María/);
+  assert.equal((smallHome.match(/class="look-card"/g) ?? []).length, 3);
+  assert.doesNotMatch(smallHome, /Leer el análisis/);
+  assert.match(smallHome, /<h3>Bailarinas<\/h3><p>3 pares<\/p>/);
+  assert.match(await page('armarios/maria'), /href="\/pares\/"[^>]*>\s*Ver todos los pares/);
   await build({ PUBLIC_SITE_URL: 'https://example.com', PUBLIC_LAUNCH_READY: 'true' });
   assert.equal(cards(await page('pares')), 3);
   assert.equal(cards(await page('armarios/maria')), 2);
@@ -236,6 +297,7 @@ try {
   await build();
   assert.equal(cards(await page('pares')), 0);
   assert.doesNotMatch(await page(''), /class="home-feature"/);
+  assert.equal((await page('')).match(/kind-card empty/g)?.length, 4);
   assert.match(await page('armarios'), /están por llegar/);
   console.log(
     'Crecimiento verificado: 63 pares, armarios automáticos, anonimato y datos inválidos rechazados.',

@@ -93,4 +93,4 @@ Todo sale del contenido; no hay que tocar la portada al publicar. Los umbrales e
 
 `model` es opcional y aparece en «De un vistazo» solo si se conoce. No se completan datos por deducción. La decisión del 7/10 exige que quien envía un par cuente qué le gusta, pero no convierte una cita pública en obligatoria: solo se incorpora si está autorizada.
 
-`npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.
+`npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, los umbrales de la portada (con muchos pares y dos armarios, y con tres pares y uno), los recuentos por grupo de zapato, el texto de cada armario, las invitaciones propias y la genérica, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.
