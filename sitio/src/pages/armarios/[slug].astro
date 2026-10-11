@@ -5,6 +5,7 @@ import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
 import ShareLink from '../../components/ShareLink.astro';
 import { pairImage } from '../../data/images';
+import { wardrobeInvitation } from '../../data/invitations';
 import { wardrobes, type Wardrobe } from '../../data/wardrobes';
 export function getStaticPaths() {
   return wardrobes.map((wardrobe) => ({ params: { slug: wardrobe.slug }, props: { wardrobe } }));
@@ -34,6 +35,7 @@ const sharedBy = wardrobe.anonymous ? 'han compartido' : `${wardrobe.name} ha co
       <br />
       <em>{wardrobe.name}.</em>
     </h1>
+    <p class="lead">{wardrobe.intro}</p>
     <ShareLink title={`Armario de ${wardrobe.name} · El Par`} kind="armario" />
   </section>
   <div class="wrap pair-index wardrobe-pairs">
@@ -42,9 +44,15 @@ const sharedBy = wardrobe.anonymous ? 'han compartido' : `${wardrobe.name} ha co
     ))}
   </div>
   <div class="wrap wardrobe-back">
-    <a class="text-link" href="/pares/">
-      Ver todos los pares <Arrow />
-    </a>
+    {wardrobes.length > 1 ? (
+      <a class="button outline" href="/armarios/">
+        Ver pares de otras colaboradoras <Arrow />
+      </a>
+    ) : (
+      <a class="button outline" href="/pares/">
+        Ver todos los pares <Arrow />
+      </a>
+    )}
   </div>
-  <Invitation compact />
+  <Invitation compact content={wardrobeInvitation} />
 </Base>

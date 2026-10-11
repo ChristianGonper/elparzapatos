@@ -7,7 +7,26 @@ export interface Wardrobe {
   anonymous: boolean;
   contributorId: string;
   pairs: Pair[];
+  /** Línea bajo el título: el texto propio de la colaboradora o la frase común. */
+  intro: string;
 }
+
+// El número de pares va en letra hasta diez: «Tres pares de María».
+const numberWords = [
+  '',
+  'Un',
+  'Dos',
+  'Tres',
+  'Cuatro',
+  'Cinco',
+  'Seis',
+  'Siete',
+  'Ocho',
+  'Nueve',
+  'Diez',
+];
+export const wardrobeLine = (count: number, name: string) =>
+  `${numberWords[count] ?? count} pares de ${name}. Míralos juntos y fíjate en lo que se repite.`;
 
 const grouped = new Map<string, Pair[]>();
 for (const pair of pairs) {
@@ -25,6 +44,9 @@ export const wardrobes: Wardrobe[] = contributors
     anonymous: contributor.anonymous !== undefined,
     contributorId: contributor.id,
     pairs: grouped.get(contributor.id)!,
+    intro:
+      contributor.wardrobeIntro ??
+      wardrobeLine(grouped.get(contributor.id)!.length, contributor.name),
   }))
   .sort((a, b) => a.name.localeCompare(b.name, 'es'));
 

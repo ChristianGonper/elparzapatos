@@ -515,8 +515,16 @@ test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page 
     await expect(page.locator('.pair-card')).toHaveCount(wardrobe.pairs.length);
     for (const pair of wardrobe.pairs)
       await expect(page.locator(`.pair-card[href="/pares/${pair.data.slug}/"]`)).toBeVisible();
-    await expect(page.locator('.wardrobe-back a')).toHaveText(/Ver todos los pares/);
-    await expect(page.locator('.wardrobe-back a')).toHaveAttribute('href', '/pares/');
+    // Con un solo armario, el botón con borde lleva a Pares y queda centrado bajo las tarjetas.
+    const back = page.locator('.wardrobe-back a.button.outline');
+    await expect(back).toHaveText(/Ver todos los pares/);
+    await expect(back).toHaveAttribute('href', '/pares/');
+    const box = (await back.boundingBox())!;
+    const viewport = page.viewportSize()!;
+    expect(Math.abs(box.x + box.width / 2 - viewport.width / 2)).toBeLessThan(20);
+    await expect(page.locator('.page-heading .lead')).toHaveText(
+      wardrobe.wardrobeIntro ?? new RegExp(`pares de ${wardrobe.name}\\.`),
+    );
     await page.locator('.pair-card').first().click();
     await expect(
       page.getByRole('link', { name: `Armario de ${wardrobe.name}`, exact: true }),

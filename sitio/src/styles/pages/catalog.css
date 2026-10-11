@@ -51,8 +51,11 @@
 .wardrobe-empty .text-link {
   margin-top: 1.5rem;
 }
+/* Mientras haya un solo armario lleva a Pares; con más, a los de otras colaboradoras. */
 .wardrobe-back {
-  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  padding-block: 1rem 4rem;
 }
 @media (max-width: 540px) {
   .wardrobe-empty {
