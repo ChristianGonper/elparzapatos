@@ -2,15 +2,35 @@
 import Photo from './Photo.astro';
 import { currentAnalysis } from '../data/analysis';
 import { pairImage } from '../data/images';
+import { includeDrafts } from '../data/site';
 interface Props {
   title: string;
   image: number;
   caption: string;
   imageSide?: 'left' | 'right';
   id?: string;
+  /**
+   * Punto que el texto señala en la foto, en % desde arriba a la izquierda (0 a 100), y su
+   * tamaño opcional en % del ancho de la foto. De momento solo se ve en el laboratorio.
+   */
+  x?: number;
+  y?: number;
+  size?: number;
 }
 const pair = currentAnalysis(Astro.locals);
-const { title, image, caption, imageSide = 'left', id } = Astro.props;
+const { title, image, caption, imageSide = 'left', id, x, y, size = 12 } = Astro.props;
+const hasPoint = x !== undefined || y !== undefined;
+if (hasPoint) {
+  for (const [name, value] of [
+    ['x', x],
+    ['y', y],
+    ['size', size],
+  ] as const)
+    if (value === undefined || !(value >= 0 && value <= 100))
+      throw new Error(`${pair.id} · «${title}»: el punto necesita ${name} entre 0 y 100.`);
+}
+// El punto solo se pinta en la vista de revisión, donde el laboratorio decide cómo se ve.
+const showPoint = hasPoint && includeDrafts;
 const headingId =
   id ??
   `detalle-${image}-${title
@@ -28,7 +48,25 @@ const headingId =
     <h2 id={headingId}>{title}</h2>
   </header>
   <figure>
-    <Photo src={pairImage(pair, image)} alt={caption} zoom sizes="(max-width: 800px) 92vw, 45vw" />
+    {showPoint ? (
+      <div class="detail-photo" style={`--x: ${x}%; --y: ${y}%; --size: ${size}`}>
+        <Photo
+          src={pairImage(pair, image)}
+          alt={caption}
+          zoom
+          sizes="(max-width: 800px) 92vw, 45vw"
+        />
+        <button class="detail-point" type="button" aria-label={`Señalar en la foto: ${title}`} />
+        <span class="detail-lens" aria-hidden="true" />
+      </div>
+    ) : (
+      <Photo
+        src={pairImage(pair, image)}
+        alt={caption}
+        zoom
+        sizes="(max-width: 800px) 92vw, 45vw"
+      />
+    )}
     <figcaption>{caption}</figcaption>
   </figure>
   <div class="article-text">
