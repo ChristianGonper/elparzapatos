@@ -689,3 +689,130 @@ test('Cada retrato termina con «Más retratos»: su armario primero, sin repeti
       expect(sameWardrobe.map((other) => `/pares/${other.data.slug}/`)).toContain(href);
   }
 });
+
+test('Ningún texto visible dice «análisis»', async ({ page }) => {
+  for (const route of [...routes, '/404/']) {
+    await page.goto(route);
+    const text = await page.evaluate(
+      () =>
+        document.body.innerText +
+        document.title +
+        [...document.querySelectorAll('[alt], [aria-label], [title], meta[content]')]
+          .map((element) =>
+            ['alt', 'aria-label', 'title', 'content'].map((name) => element.getAttribute(name)),
+          )
+          .join(' '),
+    );
+    expect(text, route).not.toMatch(/an[aá]lisis/i);
+  }
+});
+
+// Laboratorio de interacción y movimiento (bloque 7). Solo existe en la vista de revisión, que es
+// la que sirven estas pruebas; su ausencia en la compilación normal la comprueba verify-growth.
+const retrato = `/pares/${pairSources.find((pair) => pair.id === 'par-0002')!.data.slug}/`;
+
+test('El laboratorio se abre, aplica ?lab= y lo recuerda al navegar', async ({ page }) => {
+  await page.goto('/pares/?lab=N2E2R3D3V2F2L2');
+  const html = page.locator('html');
+  await expect(html).toHaveAttribute('data-lab-n', '2');
+  await expect(html).toHaveAttribute('data-lab-l', '2');
+  await page.getByRole('button', { name: 'Abrir el laboratorio de interacción' }).click();
+  const panel = page.getByRole('complementary', { name: 'Laboratorio de interacción' });
+  await expect(panel).toBeVisible();
+  await expect(panel.locator('.lab-code')).toHaveText('N2 · E2 · R3 · D3 · V2 · F2 · L2');
+  await expect(panel.locator('fieldset')).toHaveCount(7);
+  await panel.getByLabel(/E3 Cortina/).check();
+  await expect(html).toHaveAttribute('data-lab-e', '3');
+  await page.keyboard.press('Escape');
+  await page.locator(`a.pair-card[href="${retrato}"]`).click();
+  await expect(page).toHaveURL(retrato);
+  await expect(html).toHaveAttribute('data-lab-e', '3');
+  await expect(page.locator('.lab-barra')).toHaveCount(1);
+  // F2: la frase de la colaboradora abre el retrato.
+  await expect(
+    page.locator('.analysis-content > .wrap').first().locator('.quote-block'),
+  ).toHaveCount(1);
+  await page.getByRole('button', { name: 'Abrir el laboratorio de interacción' }).click();
+  await page.getByRole('button', { name: 'Volver a la actual' }).click();
+  await expect(html).not.toHaveAttribute('data-lab-n', /./);
+});
+
+test('Tras navegar con transición, el visor y el glosario siguen funcionando', async ({ page }) => {
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/?lab=N3V2');
+  await page.evaluate(() => ((window as unknown as { marca: number }).marca = 1));
+  await page.locator('a[href="/pares/"]').first().click();
+  await page.locator(`a.pair-card[href="${retrato}"]`).click();
+  await expect(page).toHaveURL(retrato);
+  // Sin recarga: la marca puesta en la portada sigue ahí.
+  expect(await page.evaluate(() => (window as unknown as { marca?: number }).marca)).toBe(1);
+  await expect(page.locator('h1')).toBeVisible();
+  await page.locator('.article-section a.photo-zoom').first().click();
+  await expect(page.locator('.pswp--open')).toBeVisible();
+  await page.waitForTimeout(600);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.pswp')).toHaveCount(0);
+  const term = page.locator('button.term').first();
+  await term.click();
+  await expect(page.locator('.term-popover:popover-open')).toHaveCount(1);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.term-popover:popover-open')).toHaveCount(0);
+  // Y otra vez al volver atrás y entrar en otro retrato desde «Más retratos».
+  await page.locator('.more-portraits a.pair-card').first().click();
+  await expect(page.locator('.article-section a.photo-zoom').first()).toBeVisible();
+  await page.locator('.article-section a.photo-zoom').first().click();
+  await expect(page.locator('.pswp--open')).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test('Con «N1» los enlaces recargan la página, como en la web publicada', async ({ page }) => {
+  await page.goto('/?lab=N1');
+  await page.evaluate(() => ((window as unknown as { marca: number }).marca = 1));
+  await page.locator('a[href="/pares/"]').first().click();
+  await expect(page).toHaveURL('/pares/');
+  expect(
+    await page.evaluate(() => (window as unknown as { marca?: number }).marca),
+  ).toBeUndefined();
+});
+
+test('Con «reducir movimiento» no hay animaciones del laboratorio', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/?lab=N2E2R2V2');
+  await expect(page.locator('.lab-aparece')).toHaveCount(0);
+  await page.locator('a[href="/pares/"]').first().click();
+  // Mientras cambia la página no corre ninguna animación (tampoco la de la transición).
+  const running = await page.evaluate(() => document.getAnimations().length);
+  expect(running).toBe(0);
+  await expect(page).toHaveURL('/pares/');
+  await expect(page.locator('.lab-aparece')).toHaveCount(0);
+  await page.goto(retrato);
+  await page.locator('.article-section a.photo-zoom').first().click();
+  await expect(page.locator('.pswp--open')).toBeVisible();
+  expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
+});
+
+test('Los puntos sobre la foto se encienden al leer y la ayuda copia x/y', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  const page = await context.newPage();
+  await page.goto(`${retrato}?lab=D3`);
+  const section = page.locator('.article-section:has(.detail-point)').first();
+  await section.scrollIntoViewIfNeeded();
+  await section.locator('.article-text').hover();
+  await expect(section.locator('.detail-photo')).toHaveClass(/lab-activo/);
+  await expect(section.locator('.detail-point')).toHaveAttribute(
+    'aria-label',
+    /Señalar en la foto/,
+  );
+  await page.getByRole('button', { name: 'Abrir el laboratorio de interacción' }).click();
+  await page.getByLabel(/Medir puntos/).check();
+  await page.keyboard.press('Escape');
+  const photo = section.locator('a.photo-zoom');
+  const box = (await photo.boundingBox())!;
+  await page.mouse.click(box.x + box.width * 0.25, box.y + box.height * 0.75);
+  await expect(page.locator('.pswp')).toHaveCount(0);
+  await expect(page.locator('.lab-status')).toHaveText('Copiado: x={25} y={75}');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('x={25} y={75}');
+  await context.close();
+});
