@@ -341,8 +341,21 @@ test('Participación explica los pasos, el resultado y las condiciones vigentes'
   await expect(faq.filter({ hasText: '¿Puedo pedir que lo quitéis?' })).toContainText(
     'máximo de 48 horas',
   );
-  await expect(faq.filter({ hasText: '¿Puedo mandar más de un par?' })).toContainText(
-    'segundo publicado',
+  // Que se pueden mandar varios pares se dice pronto: es la segunda pregunta.
+  await expect(faq.nth(1)).toContainText('¿Puedo mandar más de un par?');
+  await expect(faq.nth(1)).toContainText('desde el segundo, tienes tu armario');
+  await expect(page.locator('.reassurance-strip li')).toHaveText([
+    'Con el móvil',
+    'Tantos pares como quieras',
+    'Lo lees antes que nadie',
+  ]);
+  await expect(page.locator('.photo-guide-summary')).toHaveCount(0);
+  const next = page.locator('.invitation.with-image');
+  await expect(next).toContainText('Seis fotos');
+  await expect(next.locator('img')).toBeVisible();
+  await expect(next.getByRole('link', { name: 'Qué fotos hacer' })).toHaveAttribute(
+    'href',
+    '/guia-de-fotos/',
   );
   await expect(faq.filter({ hasText: '¿Cómo aparezco?' })).toContainText('«Colaboradora 07»');
   await expect(page.locator('.collaboration-hero .button')).toHaveCount(0);

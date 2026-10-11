@@ -131,34 +131,6 @@
   color: var(--muted);
   margin-top: 0.45rem;
 }
-.photo-guide-summary {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 5rem;
-  align-items: center;
-}
-.photo-guide-summary .eyebrow {
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-.photo-guide-summary h2 {
-  margin-bottom: 1.5rem;
-}
-.guide-preview {
-  position: relative;
-  background: var(--tint);
-  padding: 1.3rem;
-}
-.guide-preview img {
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  width: 100%;
-}
-.guide-preview figcaption {
-  font-size: 0.72rem;
-  margin-top: 0.8rem;
-  color: var(--muted);
-}
 .faq-section {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -204,7 +176,6 @@
   border-bottom: 1px solid currentColor;
 }
 @media (max-width: 1050px) {
-  .photo-guide-summary,
   .faq-section {
     gap: 3rem;
   }
@@ -222,8 +193,7 @@
     padding-inline: 1.2rem;
   }
   .steps-intro,
-  .faq-section,
-  .photo-guide-summary {
+  .faq-section {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
