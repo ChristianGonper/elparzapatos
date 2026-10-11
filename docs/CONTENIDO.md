@@ -104,6 +104,19 @@ invitation:
   text: 'A veces lo mejor está en la superficie: una trama, un brillo, un borde. Mándanos las tuyas, una o todas, y te contamos lo que tienen.'
 ```
 
+### Puntos sobre la foto
+
+Cada `<Detalle>` puede señalar en su foto el sitio del que habla: `x` e `y` en % desde la esquina de arriba a la izquierda (de 0 a 100) y, si hace falta, `size`, el tamaño del punto en % del ancho de la foto (12 si no se pone). Se escribe en el MDX del par, en la misma etiqueta del detalle:
+
+```mdx
+<Detalle title="La abertura tiene su propio dibujo" image={1} x={60} y={54} caption="…">
+<Detalle title="El color baja hasta la base" image={6} x={47} y={61} size={10} caption="…">
+```
+
+Es opcional: sin `x` e `y`, el detalle no lleva punto. Un valor fuera de 0 a 100 detiene la compilación. Hoy solo los lleva [PAR-0002](../sitio/src/content/pares/par-0002.mdx) (tres detalles, valores provisionales para ajustar) y solo se ven en la vista de revisión, con el laboratorio.
+
+Para verlos y ajustarlos: `npm run dev` (o la rama de revisión), abrir `/pares/slippers-burdeos-borde-rosa/`, pulsar «Lab» y elegir en «D · Detalles en la foto» cualquier opción distinta de D1; al pasar el ratón por el texto de un detalle (o tocarlo en el móvil) se ve el punto. Para medir un punto nuevo, activar en el panel «Medir puntos al pulsar una foto»: al pulsar sobre cualquier foto de un retrato, el panel enseña y copia `x={…} y={…}` de ese sitio, listo para pegar en la etiqueta del detalle. Con el interruptor activado, las fotos no se abren en el visor.
+
 `traits` y `colors` son listas opcionales de etiquetas. Todavía no se muestran: sirven para filtrar Pares por rasgo o color y para montar colecciones («Pares con rejilla», «En burdeos») cuando haya catálogo. `traits` recoge los rasgos que el retrato señala, en minúscula y con la palabra del glosario cuando la hay («rejilla», «garganta recortada»); `colors`, los colores tal como los nombra el retrato («burdeos», «rosa»; «oscuro» o «claro» si el texto no dice más). Se normalizarán a una lista cerrada cuando se haga el filtro. No se deducen: solo lo que el retrato dice.
 
 ```yaml

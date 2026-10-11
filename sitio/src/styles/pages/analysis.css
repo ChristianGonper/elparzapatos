@@ -236,3 +236,13 @@
     gap: 2.5rem;
   }
 }
+
+/* Punto que el texto de un detalle señala en la foto (`x`, `y` y `size` en el MDX). Solo se pinta
+   en la vista de revisión y el laboratorio decide cómo se ve; sin él, no se ve. */
+.detail-photo {
+  position: relative;
+}
+.detail-point,
+.detail-lens {
+  display: none;
+}
