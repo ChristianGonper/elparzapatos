@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import Invitation from '../components/Invitation.astro';
 import QuickSend from '../components/QuickSend.astro';
+import { sendInvitation } from '../data/invitations';
 import { guideImage } from '../data/images';
 import { guideViews as views } from '../data/photo-guide';
 import heelViews from '../assets/guia/perspectivas-tacones.webp';
@@ -100,7 +101,7 @@ import heelViews from '../assets/guia/perspectivas-tacones.webp';
       </ul>
     </section>
   </div>
-  <Invitation compact next="tally" />
+  <Invitation compact content={sendInvitation} id="enviar" />
 </Base>
 <script>
   // «¿Son tacones?» baja hasta la sección plegada y la abre. Sin JavaScript, el enlace solo baja.

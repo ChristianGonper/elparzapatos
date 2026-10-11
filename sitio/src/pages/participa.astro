@@ -4,6 +4,7 @@ import Photo from '../components/Photo.astro';
 import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import QuickSend from '../components/QuickSend.astro';
+import { commonInvitation } from '../data/invitations';
 import { site } from '../data/site';
 import { exampleImage, guideImage } from '../data/images';
 import { pairs, pairPath } from '../data/pairs';
@@ -235,5 +236,8 @@ const faqs = [
       </details>
     </div>
   </section>
-  <Invitation compact next="guia" />
+  <Invitation
+    compact
+    content={{ ...commonInvitation, action: { href: '/guia-de-fotos/', label: 'Qué fotos hacer' } }}
+  />
 </Base>

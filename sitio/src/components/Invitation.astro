@@ -1,75 +1,43 @@
 ---
-import { site } from '../data/site';
-import { reviewHours } from '../data/participation';
+import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
+import { commonInvitation, type InvitationContent } from '../data/invitations';
 interface Props {
+  content?: InvitationContent;
   compact?: boolean;
-  /**
-   * Paso al que lleva la invitación en el recorrido hasta enviar un par:
-   * - participa: cualquier página → Cómo colaborar.
-   * - guia: Cómo colaborar → Guía de fotos.
-   * - tally: final de la guía → formulario de Tally.
-   */
-  next?: 'participa' | 'guia' | 'tally';
+  /** Ancla de la sección, para enlazarla (la guía usa #enviar). */
+  id?: string;
 }
-const { compact = false, next = 'participa' } = Astro.props;
-const titleId =
-  next === 'tally' ? 'send-title' : compact ? 'invitation-title-compact' : 'invitation-title';
+const { content = commonInvitation, compact = false, id } = Astro.props;
+const titleId = `${id ?? 'invitacion'}-titulo`;
+const { label, title, text, action, note, image } = content;
 ---
 
 <section
-  class:list={['invitation', { compact }]}
-  id={next === 'tally' ? 'enviar' : undefined}
+  class:list={['invitation', { compact, 'with-image': image }]}
+  {id}
   aria-labelledby={titleId}
 >
   <div class="wrap invitation-inner">
-    {next === 'tally' ? (
-      <div>
-        <span class="eyebrow">Último paso</span>
-        <h2 id={titleId}>
-          Ya puedes
-          <br />
-          <em>enviar tus fotos.</em>
-        </h2>
-      </div>
-    ) : (
-      <div>
-        <span class="eyebrow">El siguiente puede ser el tuyo</span>
-        <h2 id={titleId}>
-          ¿Nos enseñas
-          <br />
-          <em>tus zapatos?</em>
-        </h2>
-      </div>
+    {image && (
+      <figure class="invitation-image">
+        <Photo src={image.src} alt={image.alt} sizes="(max-width: 800px) 90vw, 40vw" />
+      </figure>
     )}
+    <div class="invitation-heading">
+      <span class="eyebrow">{label}</span>
+      <h2 id={titleId}>
+        {title[0]}
+        <br />
+        <em>{title[1]}</em>
+      </h2>
+    </div>
     <div class="invitation-copy">
-      {next === 'tally' ? (
-        <>
-          <p>
-            En el formulario subes las fotos, nos cuentas qué te gusta del par y eliges cómo quieres
-            aparecer.
-          </p>
-          <a class="button" href={site.tally}>
-            Enviar mis fotos <Arrow />
-          </a>
-          <p class="small-note">
-            Antes de publicarlo te mandamos el análisis. Tienes {reviewHours} horas para revisarlo.
-          </p>
-        </>
-      ) : (
-        <>
-          <p>Hazle unas fotos con el móvil a ese par que te encanta y lo miramos de cerca.</p>
-          {next === 'guia' ? (
-            <a class="button" href="/guia-de-fotos/">
-              Qué fotos hacer <Arrow />
-            </a>
-          ) : (
-            <a class="button" href="/participa/">
-              Manda tu par <Arrow />
-            </a>
-          )}
-        </>
-      )}
+      <p>{text}</p>
+      <a class="button" href={action.href}>
+        {action.label} <Arrow />
+      </a>
+      {note && <p class="small-note">{note}</p>}
     </div>
   </div>
 </section>
