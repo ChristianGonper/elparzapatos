@@ -643,3 +643,30 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   await expect(page).toHaveURL(/\/_astro\/vista-0\d\.[^/]+\.webp$/);
   await context.close();
 });
+
+test('Cada par cierra con su propia invitación y Pares ya no lleva la común', async ({ page }) => {
+  for (const pair of pairSources) {
+    await page.goto(`/pares/${pair.data.slug}/`);
+    const invitation = page.locator('.invitation');
+    await expect(invitation).toHaveCount(1);
+    if (pair.data.invitation) {
+      await expect(invitation.locator('h2')).toContainText(pair.data.invitation.title[1]);
+      await expect(invitation).toContainText(pair.data.invitation.text);
+    } else await expect(invitation).toContainText('¿Qué tendrán los tuyos?');
+    await expect(invitation.locator('a.button')).toHaveAttribute('href', '/participa/');
+  }
+  await page.goto('/pares/');
+  await expect(page.locator('.invitation')).toHaveCount(0);
+  await expect(page.locator('.index-note')).toContainText('los miramos todos');
+});
+
+test('Qué es El Par presenta la marca entera encima del título', async ({ page }) => {
+  await page.goto('/el-par/');
+  const brand = (await page.locator('.about-brand').boundingBox())!;
+  const title = (await page.locator('h1').boundingBox())!;
+  expect(brand.y + brand.height).toBeLessThanOrEqual(title.y);
+  await expect(page.locator('.about-brand')).toContainText('Zapatos en detalle');
+  await expect(page.locator('h1')).toHaveText(/Un zapato,\s*mirado de cerca\./);
+  await expect(page.locator('.about-principles .principle')).toHaveCount(4);
+  await expect(page.locator('.invitation')).toContainText('El siguiente puede ser el tuyo');
+});
