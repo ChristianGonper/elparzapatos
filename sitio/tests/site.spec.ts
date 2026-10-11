@@ -670,3 +670,22 @@ test('Qué es El Par presenta la marca entera encima del título', async ({ page
   await expect(page.locator('.about-principles .principle')).toHaveCount(4);
   await expect(page.locator('.invitation')).toContainText('El siguiente puede ser el tuyo');
 });
+
+test('Cada retrato termina con «Más retratos»: su armario primero, sin repetirse', async ({
+  page,
+}) => {
+  for (const pair of pairSources) {
+    await page.goto(`/pares/${pair.data.slug}/`);
+    const cards = page.locator('.more-portraits .pair-card');
+    await expect(cards).toHaveCount(Math.min(3, pairSources.length - 1));
+    const hrefs = await cards.evaluateAll((links) => links.map((a) => a.getAttribute('href')));
+    expect(hrefs).not.toContain(`/pares/${pair.data.slug}/`);
+    expect(new Set(hrefs).size).toBe(hrefs.length);
+    const sameWardrobe = pairSources.filter(
+      (other) => other !== pair && other.data.collaborator === pair.data.collaborator,
+    );
+    const first = hrefs.slice(0, Math.min(3, sameWardrobe.length));
+    for (const href of first)
+      expect(sameWardrobe.map((other) => `/pares/${other.data.slug}/`)).toContain(href);
+  }
+});

@@ -24,7 +24,7 @@
   text-transform: uppercase;
   color: var(--muted);
 }
-.pair-card h2 {
+.pair-card :is(h2, h3) {
   font-size: calc(clamp(2rem, 3.8vw, 3.4rem) * var(--hs2, 1));
 }
 .pair-card p {

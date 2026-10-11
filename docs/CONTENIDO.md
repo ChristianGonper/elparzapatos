@@ -30,6 +30,8 @@ Desde el 11/10, lo que escribimos de cada par se llama «retrato» en todo texto
 
 El glosario, sus definiciones, la página 404 y los textos de los tres pares no decían «análisis»: no cambian.
 
+Al final de cada retrato, «Más retratos» enseña hasta tres pares (`src/data/related.ts`): primero los otros del mismo armario y, después, los más recientes del catálogo, sin repetir ni incluir el propio. Si no hay otros pares, no sale.
+
 ## Nombres y rutas
 
 Las rutas se han decidido para la web nueva:

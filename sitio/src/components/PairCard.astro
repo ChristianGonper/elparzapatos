@@ -6,8 +6,10 @@ import { pairImage } from '../data/images';
 interface Props {
   pair: Pair;
   sizes?: string;
+  /** Nivel del título: h3 cuando la tarjeta va dentro de una sección con su propio h2. */
+  heading?: 'h2' | 'h3';
 }
-const { pair, sizes = '(max-width: 700px) 90vw, 50vw' } = Astro.props;
+const { pair, sizes = '(max-width: 700px) 90vw, 50vw', heading: Heading = 'h2' } = Astro.props;
 ---
 
 <a class="pair-card" href={pairPath(pair)}>
@@ -19,7 +21,7 @@ const { pair, sizes = '(max-width: 700px) 90vw, 50vw' } = Astro.props;
       {pair.type} · {pair.credit}
     </span>
   </div>
-  <h2>{pair.title}</h2>
+  <Heading>{pair.title}</Heading>
   <p>{pair.teaser}</p>
   <span class="card-read">
     Leer a fondo <Arrow />
