@@ -5,9 +5,25 @@
   padding-block: clamp(3rem, 6vw, 6rem);
   align-items: center;
 }
-.about-hero .eyebrow {
-  color: var(--accent);
-  margin-bottom: 1.5rem;
+/* La marca tal como va en la cabecera, en grande: es la página que la presenta entera. */
+.about-brand {
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 2.2rem;
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  line-height: 1;
+}
+.about-brand-name {
+  font-family: var(--serif);
+  letter-spacing: 0.24em;
+  margin-right: -0.24em;
+  text-transform: uppercase;
+}
+.about-brand-descriptor {
+  font-size: 0.4em;
+  letter-spacing: 0.24em;
+  margin-top: 0.8rem;
+  text-transform: uppercase;
 }
 .about-hero h1 {
   margin-bottom: 2rem;
@@ -28,14 +44,31 @@
   color: var(--muted);
   max-width: 46ch;
 }
-.about-principles {
+.about-block {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   gap: 5rem;
-  border-top: 1px solid var(--line);
 }
-.about-principles h2 {
-  max-width: 13ch;
+.about-block .eyebrow {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.about-block h2 {
+  max-width: 15ch;
+}
+.about-what .lead {
+  max-width: 48ch;
+}
+.about-what {
+  padding-bottom: 0;
+}
+.about-principles .principle .text-link {
+  margin-top: 0.9rem;
+}
+.about-note {
+  color: var(--muted);
+  font-size: 0.9rem;
+  max-width: 52ch;
 }
 .about-principles .principle {
   border-bottom: 1px solid var(--line);
@@ -158,7 +191,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .about-principles {
+  .about-block {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
