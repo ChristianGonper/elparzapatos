@@ -43,7 +43,7 @@ export const guideInvitation: InvitationContent = {
 export const sendInvitation: InvitationContent = {
   label: 'Último paso',
   title: ['Ya puedes', 'enviar tus fotos.'],
-  text: 'En el formulario subes las fotos, nos cuentas qué te gusta del par y eliges cómo quieres aparecer.',
+  text: 'Sube las fotos, cuéntanos qué te gusta de cada par y elige cómo apareces. Si tienes más pares, caben en el mismo envío.',
   action: { href: site.tally, label: 'Enviar mis fotos' },
   note: `Antes de publicarlo te mandamos el análisis. Tienes ${reviewHours} horas para revisarlo.`,
 };

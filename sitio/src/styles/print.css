@@ -11,8 +11,7 @@
   .review-notice,
   .share-tools,
   .skip-link,
-  .pswp,
-  .tacon-guide summary:after {
+  .pswp {
     display: none !important;
   }
   .print-only {
@@ -62,12 +61,6 @@
   }
   .guide-checklist .button {
     display: none;
-  }
-  .tacon-guide {
-    margin-top: 1rem;
-  }
-  .tacon-guide h2 {
-    font-size: 19pt;
   }
   .term {
     border: 0;

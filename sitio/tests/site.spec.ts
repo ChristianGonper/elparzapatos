@@ -110,8 +110,7 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   await expect(page.locator('main a[href^="/guia-de-fotos/"]')).toHaveCount(1);
   await page.locator('.invitation').getByRole('link', { name: 'Qué fotos hacer' }).click();
   await expect(page).toHaveURL('/guia-de-fotos/');
-  await expect(page.locator('main a[href^="#"]')).toHaveCount(1);
-  await expect(page.locator('main a[href^="#"]')).toHaveAttribute('href', '#tacones');
+  await expect(page.locator('main a[href^="#"]')).toHaveCount(0);
   await expect(page.locator('.photo-checklist')).toHaveCount(0);
   const send = page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' });
   await send.scrollIntoViewIfNeeded();
@@ -475,8 +474,8 @@ test('La guía contiene el set completo y se puede imprimir desde el navegador',
   await expect(page.locator('.guide-number')).toHaveCount(1);
   await expect(page.locator('.guide-card').last()).toContainText('Y además, los detalles');
   await expect(page.locator('#print-guide')).toHaveCount(0);
-  await page.locator('.tacon-guide summary').click();
-  await expect(page.locator('.tacon-guide')).toContainText('hecha con IA');
+  // La guía de tacones, con su ilustración, vuelve cuando haya fotos de un par de tacón.
+  await expect(page.locator('.tacon-guide, #tacones, .heel-note')).toHaveCount(0);
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).not.toBeVisible();
   await expect(page.locator('.site-footer')).not.toBeVisible();
@@ -518,19 +517,6 @@ test('En escritorio la guía enseña tres vistas por fila, con fotos más peque�
   expect(first.width).toBeLessThan(400);
   expect(third.y).toBeCloseTo(first.y, 0);
   expect(detail.width).toBeCloseTo(first.width, 0);
-});
-
-test('«¿Son tacones?» baja hasta la sección de tacones y la abre', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/guia-de-fotos/');
-  const heels = page.locator('#tacones');
-  await expect(heels).not.toHaveAttribute('open', '');
-  await page.getByRole('link', { name: 'Mira lo que cambia.' }).click();
-  await expect(heels).toHaveAttribute('open', '');
-  await expect(heels.locator('summary')).toBeInViewport();
-  await page.goto('/participa/');
-  await page.goto('/guia-de-fotos/#tacones');
-  await expect(page.locator('#tacones')).toHaveAttribute('open', '');
 });
 
 test('Cada palabra del glosario lleva al par en el que aparece', async ({ page }) => {

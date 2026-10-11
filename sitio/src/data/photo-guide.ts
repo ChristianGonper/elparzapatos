@@ -15,7 +15,7 @@ export const guideViews = [
     n: '03',
     image: 3,
     title: 'De frente',
-    text: 'Pon las punteras mirando al móvil. Así se ve la silueta de los laterales: dónde se abre el zapato y dónde se estrecha. En los tacones es la vista que mejor la enseña; en los zapatos planos ayuda a ver la forma de la puntera.',
+    text: 'Pon las punteras mirando al móvil. Así se ve la silueta de los laterales: dónde se abre el zapato y dónde se estrecha. En los zapatos planos, también la forma de la puntera. En los tacones, se aprecia su altura y cómo sube el zapato hacia atrás.',
   },
   {
     n: '04',
@@ -39,7 +39,7 @@ export const guideViews = [
     n: '07',
     image: 4,
     title: 'Lo que más te guste',
-    text: 'Acércate con el móvil a todo lo que te llame la atención: una hebilla, una costura, una textura. Manda tantas fotos de detalle como quieras. (En el ejemplo, ampliamos la foto desde arriba.)',
+    text: 'Acércate a todo lo que te llame la atención: una hebilla, una costura, una textura. Manda tantas fotos de detalle como quieras. (En el ejemplo, ampliamos la foto desde arriba.)',
     detail: true,
   },
 ];
