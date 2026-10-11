@@ -160,6 +160,9 @@ try {
 
   // Portada con muchos pares y dos armarios: todo lo que depende de los datos aparece solo.
   const home = await page('');
+  // La vista de revisión lleva el laboratorio y su enrutador.
+  assert.match(home, /lab-toggle/);
+  assert.match(home, /astro-view-transitions-enabled/);
   const section = (html, name) =>
     html.match(new RegExp(`class="[^"]*${name}[\\s\\S]*?</section>`))?.[0] ?? '';
   assert.equal(cards(section(home, 'home-latest')), 4);
@@ -225,6 +228,14 @@ try {
   );
   // La compilación por defecto excluye borradores aunque la indexación no esté activada.
   await build();
+  // El laboratorio, el enrutador de Astro y los puntos sobre la foto solo existen en la vista de
+  // revisión.
+  const firstPair = (await page('pares')).match(/href="\/(pares\/[^"/]+)\/"/)[1];
+  for (const path of ['', firstPair])
+    assert.doesNotMatch(
+      await page(path),
+      /laboratorio|lab-toggle|data-lab|astro-view-transitions|detail-point/,
+    );
   assert.equal(cards(await page('pares')), 3);
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   assert.match(await page(''), /noindex, nofollow/);

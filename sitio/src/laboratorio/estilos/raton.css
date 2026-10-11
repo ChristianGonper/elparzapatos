@@ -1,0 +1,102 @@
+/* R · Al pasar el ratón. Solo con ratón (en el móvil no hay «pasar por encima») y solo en lo que
+   se puede pulsar. Las fotos que se mueven, solo sin «reducir movimiento». */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  /* R2 · Zoom lento en todas las fotos enlazadas. */
+  html[data-lab-r='2'] :is(.look-card, .wardrobe-pictures) picture {
+    display: block;
+    overflow: hidden;
+  }
+  html[data-lab-r='2']
+    :is(
+      .card-image img,
+      .home-feature-photo img,
+      .look-card img,
+      .wardrobe-card .wardrobe-pictures img,
+      .home-wardrobe-card img,
+      a.photo-zoom img
+    ) {
+    transition: transform 1.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  html[data-lab-r='2']
+    :is(
+      .pair-card:hover .card-image img,
+      .home-feature-photo:hover img,
+      .look-card:hover img,
+      .wardrobe-card:hover .wardrobe-pictures img,
+      .home-wardrobe-card:hover img,
+      a.photo-zoom:hover img
+    ) {
+    transform: scale(1.06);
+  }
+
+  /* R3 · Elevación: la tarjeta se levanta y deja una sombra suave; los botones, un poco menos. */
+  html[data-lab-r='3']
+    :is(.pair-card, .look-card, .wardrobe-card, .home-wardrobe-card, .home-feature-photo, .button) {
+    transition:
+      transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.35s;
+  }
+  html[data-lab-r='3'] .pair-card .card-image,
+  html[data-lab-r='3'] .look-card picture {
+    display: block;
+    transition: box-shadow 0.35s;
+  }
+  html[data-lab-r='3'] :is(.pair-card, .look-card, .wardrobe-card, .home-wardrobe-card):hover {
+    transform: translateY(-6px);
+  }
+  html[data-lab-r='3'] :is(.pair-card .card-image, .look-card picture) {
+    box-shadow: 0 0 0 transparent;
+  }
+  html[data-lab-r='3']
+    :is(.pair-card:hover .card-image, .look-card:hover picture, .home-feature-photo:hover) {
+    box-shadow: 0 18px 34px -18px rgb(30 25 20 / 0.45);
+  }
+  html[data-lab-r='3'] .pair-card:hover .card-image img {
+    transform: none;
+  }
+  html[data-lab-r='3'] .button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -12px rgb(30 25 20 / 0.5);
+  }
+}
+
+/* R4 · Subrayado: los enlaces de texto se subrayan de izquierda a derecha. No mueve nada de
+   sitio, así que también vale con «reducir movimiento» (sin la animación). */
+@media (hover: hover) and (pointer: fine) {
+  /* En reposo queda una línea tenue, para que siga pareciendo un enlace; encima se dibuja la
+     línea entera. */
+  html[data-lab-r='4'] .text-link {
+    border-bottom-color: transparent;
+    background:
+      linear-gradient(currentColor, currentColor) left bottom / 0% 1px no-repeat,
+      linear-gradient(
+          color-mix(in srgb, currentColor 30%, transparent),
+          color-mix(in srgb, currentColor 30%, transparent)
+        )
+        left bottom / 100% 1px no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  html[data-lab-r='4'] .text-link:hover,
+  html[data-lab-r='4'] .look-card:hover .text-link {
+    background-size:
+      100% 1px,
+      100% 1px;
+  }
+  html[data-lab-r='4'] .card-read {
+    width: fit-content;
+    margin-left: auto;
+    background: linear-gradient(currentColor, currentColor) right bottom / 0% 1px no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  html[data-lab-r='4'] .pair-card:hover .card-read {
+    background-size: 100% 1px;
+  }
+  html[data-lab-r='4'] :is(.pair-card, .look-card):hover svg {
+    transform: translateX(4px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-lab-r] * {
+    transition-duration: 0s !important;
+  }
+}

@@ -1,0 +1,110 @@
+/* N · Navegación entre páginas (View Transitions de Astro). La cabecera tiene nombre propio y se
+   queda quieta; el resto cambia según la variante. Con «N1» los enlaces recargan (aplicar.js). */
+html[data-lab-n] .site-header {
+  view-transition-name: cabecera;
+}
+::view-transition-group(cabecera) {
+  animation: none;
+}
+::view-transition-old(cabecera),
+::view-transition-new(cabecera) {
+  animation: none;
+}
+
+/* N2 · Fundido. */
+html[data-lab-n='2']::view-transition-old(root) {
+  animation: 220ms ease-out both lab-fuera;
+}
+html[data-lab-n='2']::view-transition-new(root) {
+  animation: 380ms ease-out 60ms both lab-dentro;
+}
+
+/* N3 · Foto que crece: la foto pulsada (nombre puesto al hacer clic) y la foto grande del retrato. */
+html[data-lab-n='3'] .article-hero img {
+  view-transition-name: foto-par;
+}
+html[data-lab-n='3']::view-transition-group(foto-par) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.3, 0.7, 0.1, 1);
+}
+html[data-lab-n='3']::view-transition-old(foto-par),
+html[data-lab-n='3']::view-transition-new(foto-par) {
+  height: 100%;
+  object-fit: cover;
+  animation-duration: 520ms;
+}
+html[data-lab-n='3']::view-transition-old(root) {
+  animation: 200ms ease-out both lab-fuera;
+}
+html[data-lab-n='3']::view-transition-new(root) {
+  animation: 360ms ease-out 140ms both lab-dentro;
+}
+
+/* N4 · Deslizamiento: el contenido sale hacia la izquierda y entra desde la derecha; al volver,
+   al revés. */
+html[data-lab-n='4'] main {
+  view-transition-name: pagina;
+}
+html[data-lab-n='4']::view-transition-old(pagina) {
+  animation: 280ms cubic-bezier(0.4, 0, 1, 1) both lab-sale;
+}
+html[data-lab-n='4']::view-transition-new(pagina) {
+  animation: 420ms cubic-bezier(0, 0, 0.2, 1) 80ms both lab-entra;
+}
+html[data-lab-n='4'][data-astro-transition='back']::view-transition-old(pagina) {
+  animation-name: lab-sale-atras;
+}
+html[data-lab-n='4'][data-astro-transition='back']::view-transition-new(pagina) {
+  animation-name: lab-entra-atras;
+}
+html[data-lab-n='4']::view-transition-old(root),
+html[data-lab-n='4']::view-transition-new(root) {
+  animation: 300ms ease both lab-dentro;
+}
+html[data-lab-n='4']::view-transition-old(root) {
+  animation-name: lab-fuera;
+}
+
+@keyframes lab-fuera {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes lab-dentro {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes lab-sale {
+  to {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+}
+@keyframes lab-entra {
+  from {
+    opacity: 0;
+    transform: translateX(64px);
+  }
+}
+@keyframes lab-sale-atras {
+  to {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+}
+@keyframes lab-entra-atras {
+  from {
+    opacity: 0;
+    transform: translateX(-64px);
+  }
+}
+
+/* Con «reducir movimiento», la página cambia sin animación. */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

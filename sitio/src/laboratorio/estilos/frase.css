@@ -1,0 +1,22 @@
+/* F · Frase de la colaboradora. movimiento.ts mueve el bloque; aquí, el aspecto al margen (F3). */
+html[data-lab-f='2'] .analysis-content > .wrap:first-child .quote-block {
+  padding-top: 0;
+}
+.lab-frase-lateral {
+  max-width: none;
+  margin-top: 2.2rem;
+  padding: 0;
+}
+.lab-frase-lateral .quote-block {
+  max-width: none;
+  margin: 0;
+  padding: 0.2rem 0 0.2rem 1.4rem;
+  border-left: 2px solid var(--accent);
+  text-align: left;
+}
+.lab-frase-lateral .quote-block .eyebrow {
+  margin-bottom: 0.8rem;
+}
+.lab-frase-lateral .quote-block blockquote {
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+}

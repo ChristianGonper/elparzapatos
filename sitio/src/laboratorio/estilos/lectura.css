@@ -1,0 +1,29 @@
+/* L · Barra de lectura (movimiento.ts la crea en los retratos). Fina, arriba, sin tapar nada. */
+.lab-barra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 800;
+  display: flex;
+  gap: 4px;
+  height: 3px;
+  pointer-events: none;
+}
+.lab-barra span {
+  flex: 1;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.lab-barra i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@media print {
+  .lab-barra {
+    display: none;
+  }
+}

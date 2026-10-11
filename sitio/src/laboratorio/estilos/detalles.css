@@ -1,0 +1,184 @@
+/* D · Detalles en la foto. El punto (.detail-point) está en --x/--y de su foto; --size es su
+   tamaño en % del ancho. movimiento.ts pone .lab-activo en la foto y en su detalle. El punto solo
+   se pinta en la vista de revisión; con D1 no se ve. */
+.detail-photo {
+  position: relative;
+}
+.detail-point,
+.detail-lens {
+  display: none;
+}
+html[data-lab-d] .detail-photo {
+  container-type: inline-size;
+  overflow: hidden;
+  line-height: 0;
+}
+html[data-lab-d] .detail-point {
+  display: block;
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: 2;
+  translate: -50% -50%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+html[data-lab-d] .analysis-content {
+  counter-reset: punto;
+}
+html[data-lab-d] .article-section:has(.detail-point) {
+  counter-increment: punto;
+}
+
+/* D2 · Puntos numerados: siempre a la vista, con el mismo número junto al título. Al leer, un
+   anillo marca el tamaño de la zona. */
+html[data-lab-d='2'] .detail-point {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 13px/30px var(--sans);
+  box-shadow: 0 0 0 2px var(--paper);
+}
+html[data-lab-d='2'] .detail-point::after {
+  content: counter(punto);
+}
+html[data-lab-d='2'] .detail-point::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  aspect-ratio: 1;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  translate: -50% -50%;
+  opacity: 0;
+  transition:
+    width 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.3s;
+}
+html[data-lab-d='2'] .detail-photo.lab-activo .detail-point {
+  background: var(--accent);
+}
+html[data-lab-d='2'] .detail-photo.lab-activo .detail-point::before {
+  /* --size va en % del ancho de la foto (cqw: la foto es el contenedor). */
+  width: calc(var(--size) * 1cqw);
+  opacity: 1;
+}
+html[data-lab-d='2'] .article-section:has(.detail-point) h2::before {
+  content: counter(punto);
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font: 600 0.45em/1.5em var(--sans);
+  text-align: center;
+  vertical-align: 0.5em;
+}
+html[data-lab-d='2'] .article-section.lab-activo h2::before {
+  background: var(--accent);
+}
+
+/* D3 · Marco al leer: un círculo del tamaño de la zona y el resto de la foto algo más oscuro. */
+html[data-lab-d='3'] .detail-point {
+  width: calc(var(--size) * 1cqw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 100vmax rgb(20 16 12 / 0.32);
+  opacity: 0;
+  scale: 0.85;
+  transition:
+    opacity 0.35s ease,
+    scale 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html[data-lab-d='3'] .detail-photo.lab-activo .detail-point {
+  opacity: 1;
+  scale: 1;
+}
+
+/* D4 · Lupa: un círculo amplía la zona (movimiento.ts calcula el recorte). */
+html[data-lab-d='4'] .detail-point {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 0 2px var(--ink);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+html[data-lab-d='4'] .detail-lens {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  border: 3px solid var(--paper);
+  box-shadow: 0 12px 30px -10px rgb(20 16 12 / 0.6);
+  background-repeat: no-repeat;
+  background-color: var(--surface);
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.9;
+  transition:
+    opacity 0.3s ease,
+    scale 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+html[data-lab-d='4'] .detail-photo.lab-activo :is(.detail-lens, .detail-point) {
+  opacity: 1;
+  scale: 1;
+}
+
+/* El texto del detalle que se está mirando, apenas marcado. */
+html[data-lab-d] .article-section:has(.detail-point) .article-text {
+  cursor: default;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-lab-d] :is(.detail-point, .detail-point::before, .detail-lens) {
+    transition: none !important;
+  }
+}
+
+/* Medir puntos: cruz sobre las fotos del retrato y una marca con el valor copiado. */
+html[data-lab-medir] .analysis-content a.photo-zoom {
+  position: relative;
+  cursor: crosshair;
+}
+.lab-medida {
+  position: absolute;
+  z-index: 3;
+  width: 10px;
+  height: 10px;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: #ff3b30;
+  box-shadow: 0 0 0 2px #fff;
+  pointer-events: none;
+}
+.lab-medida span {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  translate: -50% 0;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #1d1d1f;
+  color: #fff;
+  font:
+    600 12px/1.2 system-ui,
+    sans-serif;
+  white-space: nowrap;
+}
+html:not([data-lab-medir]) .lab-medida {
+  display: none;
+}
+
+html[data-lab-medir] .detail-point {
+  pointer-events: none;
+}

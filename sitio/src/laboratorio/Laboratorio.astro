@@ -1,0 +1,110 @@
+---
+// Laboratorio de interacción y movimiento: solo entra en la vista de revisión (build:review y
+// desarrollo). astro.config.mjs resuelve «@laboratorio» a este archivo o a Vacio.astro, así que ni
+// el panel ni el enrutador de Astro ni sus estilos llegan a la compilación normal.
+import { ClientRouter } from 'astro:transitions';
+import './estilos/panel.css';
+import './estilos/navegacion.css';
+import './estilos/entrada.css';
+import './estilos/raton.css';
+import './estilos/detalles.css';
+import './estilos/visor.css';
+import './estilos/frase.css';
+import './estilos/lectura.css';
+import { ejes, codigoActual } from './opciones';
+interface Props {
+  parte: 'cabeza' | 'panel';
+}
+const { parte } = Astro.props;
+---
+
+{parte === 'cabeza' && (
+  <>
+    <script is:inline src="/laboratorio/aplicar.js" />
+    <ClientRouter />
+  </>
+)}
+{parte === 'panel' && (
+  <div class="lab-root" transition:persist="laboratorio">
+    <button
+      class="lab-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="laboratorio"
+      aria-label="Abrir el laboratorio de interacción"
+    >
+      Lab
+    </button>
+    <aside id="laboratorio" class="lab-panel" aria-label="Laboratorio de interacción" hidden>
+      <div class="lab-head">
+        <div class="lab-head-row">
+          <p class="lab-title">Laboratorio · movimiento</p>
+          <button class="lab-close" type="button" aria-label="Cerrar el laboratorio">
+            ×
+          </button>
+        </div>
+        <div class="lab-code-row">
+          <output class="lab-code" aria-label="Combinación">
+            {codigoActual}
+          </output>
+          <button class="lab-copy" type="button">
+            Copiar
+          </button>
+          <button class="lab-reset" type="button">
+            Volver a la actual
+          </button>
+        </div>
+        <label class="lab-tool">
+          <input type="checkbox" class="lab-medir" />
+          <span>
+            Medir puntos al pulsar una foto de un retrato
+            <small>Enseña y copia x/y; la foto no se abre en el visor.</small>
+          </span>
+        </label>
+        <p class="lab-status" role="status" />
+      </div>
+      <div class="lab-body">
+        {ejes.map((eje) => (
+          <fieldset class="lab-axis" data-eje={eje.clave}>
+            <legend>
+              {eje.letra} · {eje.nombre}
+            </legend>
+            <div class="lab-options">
+              {eje.opciones.map((opcion, index) => (
+                <label class="lab-option">
+                  <input
+                    type="radio"
+                    name={`lab-${eje.clave}`}
+                    value={index + 1}
+                    checked={index === 0}
+                    data-nota={opcion.nota}
+                  />
+                  <span>
+                    <b>
+                      {eje.letra}
+                      {index + 1}
+                    </b>{' '}
+                    {opcion.nombre}
+                    {opcion.recomendada && <i> · recomendada</i>}
+                  </span>
+                </label>
+              ))}
+            </div>
+            <p class="lab-note">{eje.opciones[0].nota}</p>
+          </fieldset>
+        ))}
+        <p class="lab-foot">
+          Todo respeta «reducir movimiento» del sistema: con él activado no hay animaciones.
+        </p>
+      </div>
+    </aside>
+  </div>
+)}
+
+<script>
+  import { ejes } from './opciones';
+  import { prepararPanel } from './panel';
+  import { prepararMovimiento } from './movimiento';
+  prepararPanel(ejes);
+  prepararMovimiento();
+</script>
