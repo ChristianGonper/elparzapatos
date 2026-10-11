@@ -4,37 +4,26 @@ import Photo from '../components/Photo.astro';
 import Arrow from '../components/Arrow.astro';
 import Invitation from '../components/Invitation.astro';
 import QuickSend from '../components/QuickSend.astro';
+import { guideInvitation } from '../data/invitations';
 import { site } from '../data/site';
-import { exampleImage, guideImage } from '../data/images';
+import { guideImage } from '../data/images';
 import { pairs, pairPath } from '../data/pairs';
+import { shoeKinds } from '../data/shoe-types';
 import { anonymousCreditExample, removalHours, reviewHours } from '../data/participation';
 const examplePair = pairs.find((pair) => pair.entryId === 'par-0003');
-const examples = [
-  {
-    image: guideImage(5),
-    name: 'Bailarinas',
-    text: 'La forma de la puntera, la abertura o un pequeño adorno.',
-  },
-  {
-    image: exampleImage('marrones_2'),
-    name: 'Tacones y tiras',
-    text: 'La forma del tacón y el recorrido de las tiras.',
-  },
-  {
-    image: exampleImage('alpargata_tacon_1'),
-    name: 'Cuñas y alpargatas',
-    text: 'La base cambia toda la silueta.',
-  },
-  {
-    image: exampleImage('dorados_1'),
-    name: 'Plataformas',
-    text: 'Una suela que gana altura y cambia las proporciones.',
-  },
-];
+const examples = shoeKinds.map((kind) => ({
+  image: kind.example,
+  name: kind.name,
+  text: kind.text,
+}));
 const faqs = [
   {
     q: '¿Qué pares sirven?',
     a: 'Cualquiera con dos o tres detalles que se puedan señalar en una foto. No importa la marca ni el precio. Ahora miramos bailarinas, salones, sandalias de tacón, cuñas, plataformas y alpargatas; las botas y las sandalias planas, de momento, no.',
+  },
+  {
+    q: '¿Puedo mandar más de un par?',
+    a: 'Sí, todos los que quieras: en el mismo envío o poco a poco. Cada par tiene su espacio y, desde el segundo, tienes tu armario.',
   },
   {
     q: '¿Qué se publica?',
@@ -42,7 +31,7 @@ const faqs = [
   },
   {
     q: '¿Cómo aparezco?',
-    a: `Como prefieras: con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, sales como «Colaboradora» con tu número de dos cifras, siempre el mismo (por ejemplo, «${anonymousCreditExample}»).`,
+    a: `Como prefieras: con tu nombre, con tu @ de Instagram o de forma anónima. Si eliges el anonimato, sales como «Colaboradora» y un número que es solo tuyo y no cambia, por ejemplo «${anonymousCreditExample}».`,
   },
   {
     q: '¿Qué pasa después de enviarlo?',
@@ -52,16 +41,12 @@ const faqs = [
     q: '¿Puedo pedir que lo quitéis?',
     a: `Sí, cuando quieras. Escríbenos o dínoslo por donde hablamos contigo y lo quitamos de la web y de nuestras redes en un máximo de ${removalHours} horas. Te preguntamos también si quieres que borremos las fotos originales.`,
   },
-  {
-    q: '¿Puedo mandar más de un par?',
-    a: 'Sí, todos los que quieras: varios en el mismo envío o en envíos distintos, cuando te apetezca. Cada par tiene su análisis en Pares y, desde el segundo publicado, los reunimos también en tu armario.',
-  },
 ];
 ---
 
 <Base
   title="Cómo colaborar"
-  description="Hazle unas fotos con el móvil a ese par que te encanta y envíanoslas. Qué pares encajan, cómo apareces y qué pasa después."
+  description="Mándanos fotos de los zapatos que te encantan y te contamos todo lo que tiene cada par. Qué pares encajan, cómo apareces y qué pasa después."
 >
   <section class="wrap collaboration-hero">
     <div>
@@ -71,7 +56,9 @@ const faqs = [
         <br />
         <em>Nos gustaría verlo.</em>
       </h1>
-      <p class="lead">Le haces unas fotos con el móvil, nos las envías y lo miramos de cerca.</p>
+      <p class="lead">
+        Mándanos fotos de ese par, o de todos los que quieras, y te contamos todo lo que tienen.
+      </p>
       <QuickSend />
     </div>
     <div class="hero-image">
@@ -107,9 +94,9 @@ const faqs = [
     </div>
   </section>
   <ul class="wrap reassurance-strip">
-    <li>Con el móvil, en casa</li>
-    <li>Tú eliges cómo apareces</li>
-    <li>Lo lees antes de publicarlo</li>
+    <li>Con el móvil</li>
+    <li>Tantos pares como quieras</li>
+    <li>Lo lees antes que nadie</li>
   </ul>
   <section class="wrap section steps-intro">
     <div>
@@ -123,24 +110,23 @@ const faqs = [
     <div>
       <ol class="steps">
         <li>
-          <h3>Elige un par que te guste</h3>
+          <h3>Elige uno, o varios</h3>
           <p>
-            No tiene que ser caro ni raro. Piensa en lo que te llamó la atención: la punta, una
-            hebilla, un brillo, unas tiras.
+            No tienen que ser caros ni exóticos. Piensa en qué te llamó la atención de cada uno: la
+            forma, la punta, el tacón, una hebilla, un brillo, unas tiras.
           </p>
         </li>
         <li>
-          <h3>Hazle unas fotos</h3>
+          <h3>Hazles fotos</h3>
           <p>
-            Con el móvil y un fondo sencillo: seis vistas y los detalles que más te gusten. En la
-            guía te enseñamos cada vista.
+            Seis vistas de cada par y los detalles que más te gusten. En la guía te enseñamos cómo.
           </p>
         </li>
         <li>
           <h3>Envíanoslas</h3>
           <p>
-            Subes las fotos al formulario, nos cuentas qué te gusta del par y eliges cómo quieres
-            aparecer. La marca y el modelo, si los recuerdas.
+            Subes las fotos, nos cuentas qué te gusta de cada par y eliges cómo apareces: con tu
+            nombre, con tu @ o sin nombre. ¿Tienes más? En el mismo envío o más adelante.
           </p>
         </li>
         <li>
@@ -184,29 +170,7 @@ const faqs = [
       </p>
     </div>
   </section>
-  <section class="wrap section photo-guide-summary">
-    <figure class="guide-preview">
-      <Photo
-        src={guideImage(2)}
-        alt="Vista lateral de las bailarinas de María como ejemplo de la guía"
-        sizes="(max-width: 800px) 90vw, 45vw"
-      />
-      <figcaption>Las bailarinas de María, de perfil.</figcaption>
-    </figure>
-    <div>
-      <span class="eyebrow">Sin fotos profesionales</span>
-      <h2>
-        Un fondo sencillo.
-        <br />
-        <em>Y un poco de luz.</em>
-      </h2>
-      <p class="lead">
-        Las fotos que harías para enseñarle tus zapatos a una amiga. En la guía tienes las seis
-        vistas, con las bailarinas de María como ejemplo.
-      </p>
-    </div>
-  </section>
-  <section class="wrap section faq-section" style="padding-top:0">
+  <section class="wrap section faq-section">
     <div>
       <span class="eyebrow">Antes de enviarlos</span>
       <h2>
@@ -235,5 +199,5 @@ const faqs = [
       </details>
     </div>
   </section>
-  <Invitation compact next="guia" />
+  <Invitation content={guideInvitation} />
 </Base>

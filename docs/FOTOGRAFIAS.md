@@ -8,7 +8,7 @@ Las fuentes originales se conservan en Drive. El sitio incluye únicamente las c
 | María · PAR-0002 | Tercer análisis y Armario de María, seis vistas | Envío ENV-0002, 16/09/2026. Fotos HEIC; crédito con nombre y uso en la web confirmado en el encargo. |
 | María · PAR-0004 | Segundo análisis y preparación de Armario de María, seis vistas | Mismo envío y condiciones de PAR-0003. Los análisis se revisan antes del lanzamiento. |
 | Ejemplos de Sonia | Variedad en inicio y participación | Uso expresamente autorizado en el encargo de esta reconstrucción. No se presentan como análisis publicados. |
-| Tacones ilustrados | Apoyo desplegable de la guía | Imagen generada con IA del material anterior, conservada por instrucción del usuario y etiquetada como ilustración. |
+| Tacones ilustrados | Retirada el 11/10 (bloque 6) | La guía de tacones volverá con fotos de una colaboradora. La web ya no usa imágenes generadas con IA. |
 
 Las copias son de trabajo para terminar y revisar el sitio. [El alojamiento y los formatos definitivos siguen pendientes](IMAGENES-PENDIENTES.md).
 

@@ -42,3 +42,27 @@
     max-width: 47ch;
   }
 }
+/* Con foto (Cómo colaborar): la foto a la izquierda y, a su lado, el título y el texto. */
+.invitation.with-image .invitation-inner {
+  grid-template-columns: minmax(0, 0.9fr) 1fr;
+  grid-template-areas: 'image heading' 'image copy';
+  row-gap: 1.8rem;
+}
+.invitation-image {
+  grid-area: image;
+}
+.invitation.with-image .invitation-heading {
+  grid-area: heading;
+  align-self: end;
+}
+.invitation.with-image .invitation-copy {
+  grid-area: copy;
+  align-self: start;
+  justify-self: start;
+}
+@media (max-width: 800px) {
+  .invitation.with-image .invitation-inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'heading' 'image' 'copy';
+  }
+}

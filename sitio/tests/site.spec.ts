@@ -110,8 +110,7 @@ test('El recorrido lleva de cualquier página a Cómo colaborar, a la guía y po
   await expect(page.locator('main a[href^="/guia-de-fotos/"]')).toHaveCount(1);
   await page.locator('.invitation').getByRole('link', { name: 'Qué fotos hacer' }).click();
   await expect(page).toHaveURL('/guia-de-fotos/');
-  await expect(page.locator('main a[href^="#"]')).toHaveCount(1);
-  await expect(page.locator('main a[href^="#"]')).toHaveAttribute('href', '#tacones');
+  await expect(page.locator('main a[href^="#"]')).toHaveCount(0);
   await expect(page.locator('.photo-checklist')).toHaveCount(0);
   const send = page.locator('#enviar').getByRole('link', { name: 'Enviar mis fotos' });
   await send.scrollIntoViewIfNeeded();
@@ -134,13 +133,39 @@ test('Quien ya tiene las fotos encuentra arriba el acceso directo a Tally', asyn
   }
 });
 
-test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {
+test('La portada saca sus detalles de los análisis y las fotos de ejemplo van sin enlace', async ({
+  page,
+}) => {
   await page.goto('/');
-  await expect(page.locator('.editorial-intro .eyebrow')).toHaveText('Fotos de ejemplo');
-  await expect(page.locator('.look-note')).toContainText('Son fotos de ejemplo.');
-  await expect(page.locator('.look-row').getByRole('link')).toHaveCount(0);
-  await page.goto('/pares/');
-  await expect(page.locator('.pair-card')).toHaveCount(pairSources.length);
+  await expect(page.locator('.feature-footnote')).toHaveCount(0);
+  await expect(page.locator('.home-feature')).not.toContainText('Fotos de');
+  const details = page.locator('.home-details');
+  await expect(details.locator('.editorial-intro .eyebrow')).toHaveText('En qué nos fijamos');
+  await expect(details.locator('.look-card')).toHaveCount(3);
+  await expect(page.locator('.look-note')).toHaveCount(0);
+  await expect(page.locator('main')).not.toContainText('Fotos de ejemplo');
+  const featured = await page.locator('.home-feature-photo').getAttribute('href');
+  const withDetail = pairSources.filter(
+    (pair) => pair.data.homeDetail && `/pares/${pair.data.slug}/` !== featured,
+  );
+  const linked = details.locator('.look-card a');
+  await expect(linked).toHaveCount(Math.min(3, withDetail.length));
+  for (const href of await linked.evaluateAll((links) => links.map((a) => a.getAttribute('href'))))
+    expect(withDetail.map((pair) => `/pares/${pair.data.slug}/`)).toContain(href);
+  await expect(details.getByRole('link', { name: 'Ver todos los pares' })).toHaveAttribute(
+    'href',
+    '/pares/',
+  );
+  // «Lo último que hemos mirado» espera a que haya cinco pares.
+  await expect(page.locator('.home-latest')).toHaveCount(pairSources.length >= 5 ? 1 : 0);
+  const kinds = page.locator('.home-final .kind-card');
+  await expect(kinds).toHaveCount(4);
+  await expect(kinds.first()).toContainText('Bailarinas');
+  await expect(kinds.first()).toContainText(`${pairSources.length} pares`);
+  await expect(page.locator('.home-final .kind-card.empty')).toHaveCount(3);
+  await expect(page.locator('.home-final .kind-card.empty').first()).toContainText(
+    'Aún no hay ninguno. ¿Tienes unos?',
+  );
 });
 
 test('En móvil el destacado abre la portada y el lema viene después', async ({ page }) => {
@@ -315,8 +340,21 @@ test('Participación explica los pasos, el resultado y las condiciones vigentes'
   await expect(faq.filter({ hasText: '¿Puedo pedir que lo quitéis?' })).toContainText(
     'máximo de 48 horas',
   );
-  await expect(faq.filter({ hasText: '¿Puedo mandar más de un par?' })).toContainText(
-    'segundo publicado',
+  // Que se pueden mandar varios pares se dice pronto: es la segunda pregunta.
+  await expect(faq.nth(1)).toContainText('¿Puedo mandar más de un par?');
+  await expect(faq.nth(1)).toContainText('desde el segundo, tienes tu armario');
+  await expect(page.locator('.reassurance-strip li')).toHaveText([
+    'Con el móvil',
+    'Tantos pares como quieras',
+    'Lo lees antes que nadie',
+  ]);
+  await expect(page.locator('.photo-guide-summary')).toHaveCount(0);
+  const next = page.locator('.invitation.with-image');
+  await expect(next).toContainText('Seis fotos');
+  await expect(next.locator('img')).toBeVisible();
+  await expect(next.getByRole('link', { name: 'Qué fotos hacer' })).toHaveAttribute(
+    'href',
+    '/guia-de-fotos/',
   );
   await expect(faq.filter({ hasText: '¿Cómo aparezco?' })).toContainText('«Colaboradora 07»');
   await expect(page.locator('.collaboration-hero .button')).toHaveCount(0);
@@ -436,8 +474,8 @@ test('La guía contiene el set completo y se puede imprimir desde el navegador',
   await expect(page.locator('.guide-number')).toHaveCount(1);
   await expect(page.locator('.guide-card').last()).toContainText('Y además, los detalles');
   await expect(page.locator('#print-guide')).toHaveCount(0);
-  await page.locator('.tacon-guide summary').click();
-  await expect(page.locator('.tacon-guide')).toContainText('hecha con IA');
+  // La guía de tacones, con su ilustración, vuelve cuando haya fotos de un par de tacón.
+  await expect(page.locator('.tacon-guide, #tacones, .heel-note')).toHaveCount(0);
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).not.toBeVisible();
   await expect(page.locator('.site-footer')).not.toBeVisible();
@@ -481,19 +519,6 @@ test('En escritorio la guía enseña tres vistas por fila, con fotos más peque�
   expect(detail.width).toBeCloseTo(first.width, 0);
 });
 
-test('«¿Son tacones?» baja hasta la sección de tacones y la abre', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/guia-de-fotos/');
-  const heels = page.locator('#tacones');
-  await expect(heels).not.toHaveAttribute('open', '');
-  await page.getByRole('link', { name: 'Mira lo que cambia.' }).click();
-  await expect(heels).toHaveAttribute('open', '');
-  await expect(heels.locator('summary')).toBeInViewport();
-  await page.goto('/participa/');
-  await page.goto('/guia-de-fotos/#tacones');
-  await expect(page.locator('#tacones')).toHaveAttribute('open', '');
-});
-
 test('Cada palabra del glosario lleva al par en el que aparece', async ({ page }) => {
   await page.goto('/glosario/');
   const links = page.locator('.glossary-list section a.text-link');
@@ -515,8 +540,16 @@ test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page 
     await expect(page.locator('.pair-card')).toHaveCount(wardrobe.pairs.length);
     for (const pair of wardrobe.pairs)
       await expect(page.locator(`.pair-card[href="/pares/${pair.data.slug}/"]`)).toBeVisible();
-    await expect(page.locator('.wardrobe-back a')).toHaveText(/Ver todos los pares/);
-    await expect(page.locator('.wardrobe-back a')).toHaveAttribute('href', '/pares/');
+    // Con un solo armario, el botón con borde lleva a Pares y queda centrado bajo las tarjetas.
+    const back = page.locator('.wardrobe-back a.button.outline');
+    await expect(back).toHaveText(/Ver todos los pares/);
+    await expect(back).toHaveAttribute('href', '/pares/');
+    const box = (await back.boundingBox())!;
+    const viewport = page.viewportSize()!;
+    expect(Math.abs(box.x + box.width / 2 - viewport.width / 2)).toBeLessThan(20);
+    await expect(page.locator('.page-heading .lead')).toHaveText(
+      wardrobe.wardrobeIntro ?? new RegExp(`pares de ${wardrobe.name}\\.`),
+    );
     await page.locator('.pair-card').first().click();
     await expect(
       page.getByRole('link', { name: `Armario de ${wardrobe.name}`, exact: true }),
@@ -609,4 +642,31 @@ test('El contenido y el envío siguen disponibles sin JavaScript', async ({ brow
   await page.locator('.article-hero a.photo-zoom').click();
   await expect(page).toHaveURL(/\/_astro\/vista-0\d\.[^/]+\.webp$/);
   await context.close();
+});
+
+test('Cada par cierra con su propia invitación y Pares ya no lleva la común', async ({ page }) => {
+  for (const pair of pairSources) {
+    await page.goto(`/pares/${pair.data.slug}/`);
+    const invitation = page.locator('.invitation');
+    await expect(invitation).toHaveCount(1);
+    if (pair.data.invitation) {
+      await expect(invitation.locator('h2')).toContainText(pair.data.invitation.title[1]);
+      await expect(invitation).toContainText(pair.data.invitation.text);
+    } else await expect(invitation).toContainText('¿Qué tendrán los tuyos?');
+    await expect(invitation.locator('a.button')).toHaveAttribute('href', '/participa/');
+  }
+  await page.goto('/pares/');
+  await expect(page.locator('.invitation')).toHaveCount(0);
+  await expect(page.locator('.index-note')).toContainText('los miramos todos');
+});
+
+test('Qué es El Par presenta la marca entera encima del título', async ({ page }) => {
+  await page.goto('/el-par/');
+  const brand = (await page.locator('.about-brand').boundingBox())!;
+  const title = (await page.locator('h1').boundingBox())!;
+  expect(brand.y + brand.height).toBeLessThanOrEqual(title.y);
+  await expect(page.locator('.about-brand')).toContainText('Zapatos en detalle');
+  await expect(page.locator('h1')).toHaveText(/Un zapato,\s*mirado de cerca\./);
+  await expect(page.locator('.about-principles .principle')).toHaveCount(4);
+  await expect(page.locator('.invitation')).toContainText('El siguiente puede ser el tuyo');
 });

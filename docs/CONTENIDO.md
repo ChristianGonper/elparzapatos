@@ -3,7 +3,7 @@
 Drive → Moda-Zapatos es la fuente de marca y copy. Fuentes vigentes consultadas el 6 de octubre de 2026: README, principios, nombre-y-presentacion, como-escribimos, fotos-y-colaboradoras y tareas.
 ## Armarios
 
-El índice y las páginas individuales se generan agrupando las entradas por su referencia a una colaboradora. Armario de María reúne ahora los tres análisis preparados y crece automáticamente al añadir otro. Muestra nombre, número de pares y tarjetas enlazadas a los análisis. Menos de dos pares no produce página de armario. El crédito, slug y autorización de armario se definen una sola vez en la identidad pública de la colaboradora; nunca se deducen de una hoja privada.
+El índice y las páginas individuales se generan agrupando las entradas por su referencia a una colaboradora. Armario de María reúne ahora los tres análisis preparados y crece automáticamente al añadir otro. Muestra nombre, número de pares y tarjetas enlazadas a los análisis. Menos de dos pares no produce página de armario. Bajo el título va una línea con el número de pares en letra hasta diez («Tres pares de María. Míralos juntos y fíjate en lo que se repite.»), o el texto propio del campo opcional `wardrobeIntro` de la colaboradora, escrito a partir de sus fotos y revisado por ella como sus pares. Bajo las tarjetas, un botón con borde lleva a Pares mientras haya un solo armario; con más, dice «Ver pares de otras colaboradoras» y lleva a Armarios. El crédito, slug y autorización de armario se definen una sola vez en la identidad pública de la colaboradora; nunca se deducen de una hoja privada.
 
 Las personas anónimas se acreditan como «Colaboradora» y un número estable, siempre el mismo, sin inventar identidades de muestra. El número se escribe con dos cifras, con un cero delante si hace falta («Colaboradora 07», «Colaboradora 12»); a partir de 100 lleva tres («Colaboradora 107»). El formato sale de `anonymousCredit` en `sitio/src/data/participation.ts`; el número, del campo `anonymous` de su identidad pública (de 1 a 999).
 
@@ -71,6 +71,26 @@ El orden de los bloques en el archivo es el orden de lectura. Título, entradill
 
 Los identificadores de colección son los nombres de archivo. Una ruta o identificador de par duplicados y una referencia a una colaboradora inexistente detienen la compilación, evitando sobrescribir entradas. Los términos deben usar un slug literal del glosario para que también se generen sus enlaces de consulta.
 
+Cada `type` pertenece a uno de los cuatro grupos de zapatos que contamos (Bailarinas, Tacones y tiras, Cuñas y alpargatas, Plataformas), definidos en `sitio/src/data/shoe-types.ts` con su género. Un tipo que no esté en ningún grupo detiene la compilación: se añade allí antes de publicar el par.
+
+`invitation` es opcional: la invitación final propia del par, escrita al publicarlo. Lleva `title`, dos líneas (la segunda sale en cursiva), y `text`. Patrón: el título lleva el rasgo del análisis a los zapatos de quien lee, con una pregunta o dándole la vuelta, sin resumir el par; el texto hace eco de lo visto, pide que lo manden («Mándanos…») y deja claro que pueden ser varios. La etiqueta («¿Y las tuyas?» / «¿Y los tuyos?») y el botón («Manda las tuyas» / «Manda los tuyos») salen del género del tipo. Si falta, sale la invitación genérica.
+
+```yaml
+invitation:
+  title: ['Por fuera, una bailarina sencilla.', '¿Y las tuyas, de cerca?']
+  text: 'A veces lo mejor está en la superficie: una trama, un brillo, un borde. Mándanos las tuyas, una o todas, y te contamos lo que tienen.'
+```
+
+`homeDetail` es opcional: el detalle del par que puede salir en «En qué nos fijamos», en la portada. Lleva `label` (el rasgo, como «El borde»), `title`, `text` (una frase) e `image` (el número de la vista que lo enseña). La portada elige tres, del par más reciente al más antiguo y sin contar el destacado: primero sin repetir grupo de zapato ni colaboradora; si faltan, de otros pares; y, mientras no lleguen a tres, completa con las fotos de ejemplo de Sonia, que salen sin enlace porque no son análisis.
+
+## Qué enseña la portada
+
+Todo sale del contenido; no hay que tocar la portada al publicar. Los umbrales están en `sitio/src/data/home.ts`:
+
+- «Lo último que hemos mirado» aparece desde 5 pares (`latestFrom`), con los 4 más recientes después del destacado (`latestCount`) y «Seguir mirando».
+- Con un armario, la sección Armarios lo enseña con dos fotos y su enlace. Con 2 o más, enseña hasta 3 (`homeWardrobeLimit`), cada uno en su abanico, y «Ver los armarios».
+- El final cuenta los pares de cada grupo de `shoe-types.ts`: «1 par», «{n} pares» con la foto del último, o «Aún no hay ninguno. ¿Tienes unos?» con una foto de ejemplo.
+
 `model` es opcional y aparece en «De un vistazo» solo si se conoce. No se completan datos por deducción. La decisión del 7/10 exige que quien envía un par cuente qué le gusta, pero no convierte una cita pública en obligatoria: solo se incorpora si está autorizada.
 
-`npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.
+`npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, los umbrales de la portada (con muchos pares y dos armarios, y con tres pares y uno), los recuentos por grupo de zapato, el texto de cada armario, las invitaciones propias y la genérica, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.

@@ -6,6 +6,7 @@ import Invitation from '../../components/Invitation.astro';
 import ShareLink from '../../components/ShareLink.astro';
 import { pairs, type Pair } from '../../data/pairs';
 import { pairImage } from '../../data/images';
+import { pairInvitation } from '../../data/invitations';
 import { wardrobeForPair, wardrobePath } from '../../data/wardrobes';
 export function getStaticPaths() {
   return pairs.map((pair) => ({ params: { slug: pair.slug }, props: { pair } }));
@@ -54,5 +55,5 @@ const { Content } = await render(entry);
       </div>
     </div>
   </article>
-  <Invitation compact />
+  <Invitation compact content={pairInvitation(pair)} />
 </Base>

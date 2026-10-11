@@ -1,0 +1,27 @@
+---
+import Photo from './Photo.astro';
+import { pairImage } from '../data/images';
+import type { Wardrobe } from '../data/wardrobes';
+interface Props {
+  wardrobe: Wardrobe;
+  sizes?: string;
+}
+// Un armario en un solo abanico: su primer par delante y hasta dos más asomando detrás.
+const { wardrobe, sizes = '(max-width: 700px) 70vw, 25vw' } = Astro.props;
+const [top, ...rest] = wardrobe.pairs;
+const behind = rest.slice(0, 2);
+---
+
+<div class="wardrobe-stack" data-behind={behind.length}>
+  {behind
+    .map((pair, index) => (
+      <Photo
+        src={pairImage(pair, pair.hero)}
+        alt=""
+        class={`wardrobe-behind wardrobe-behind-${index + 1}`}
+        {sizes}
+      />
+    ))
+    .reverse()}
+  <Photo src={pairImage(top, top.hero)} alt={top.photoAlt} {sizes} />
+</div>

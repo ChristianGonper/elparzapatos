@@ -20,6 +20,8 @@ const colaboradoras = defineCollection({
       name: text.optional(),
       anonymous: z.number().int().min(1).max(999).optional(),
       wardrobe: z.boolean().default(false),
+      // Texto propio bajo el título de su armario, revisado por ella. Si falta, sale la frase común.
+      wardrobeIntro: text.optional(),
     })
     .refine((entry) => (entry.name === undefined) !== (entry.anonymous === undefined), {
       message: 'Indica name o anonymous (número de colaboradora anónima), no ambos.',
@@ -65,6 +67,12 @@ const pares = defineCollection({
       brand: text.optional(),
       model: text.optional(),
       hero: image,
+      // Invitación final propia: título en dos líneas (la segunda en cursiva) y texto. Si falta,
+      // sale la genérica. Etiqueta y botón salen del género del tipo («¿Y las tuyas?»).
+      invitation: z.object({ title: z.tuple([text, text]), text }).optional(),
+      // Detalle que puede salir en «En qué nos fijamos», en la portada: etiqueta, título, frase y
+      // la vista que lo enseña.
+      homeDetail: z.object({ label: text, title: text, text, image }).optional(),
     })
     .refine((pair) => pair.status !== 'published' || !!pair.publishedAt, {
       message: 'Un par publicado necesita publishedAt (AAAA-MM-DD).',

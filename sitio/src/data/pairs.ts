@@ -1,11 +1,15 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { includeDrafts } from './site';
+import { shoeKindOf, type ShoeKind } from './shoe-types';
 
 export type Contributor = CollectionEntry<'colaboradoras'>['data'] & { id: string };
 export type Pair = CollectionEntry<'pares'>['data'] & {
   credit: string;
   entryId: string;
   terms: string[];
+  kind: ShoeKind;
+  /** Género del tipo, para «¿Y las tuyas?» o «¿Y los tuyos?». */
+  feminine: boolean;
 };
 
 export const contributors: Contributor[] = (await getCollection('colaboradoras')).map((entry) => ({
@@ -22,7 +26,15 @@ const allPairs: Pair[] = (await getCollection('pares'))
     const terms = [
       ...new Set([...(body ?? '').matchAll(/\bslug=["']([^"']+)["']/g)].map((match) => match[1])),
     ];
-    return { ...data, entryId: id, credit: contributor.name, terms };
+    const { kind, gender } = shoeKindOf(data);
+    return {
+      ...data,
+      entryId: id,
+      credit: contributor.name,
+      terms,
+      kind,
+      feminine: gender === 'f',
+    };
   })
   .sort(
     (a, b) =>

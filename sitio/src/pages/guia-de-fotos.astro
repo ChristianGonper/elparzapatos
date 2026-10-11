@@ -3,9 +3,9 @@ import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import Invitation from '../components/Invitation.astro';
 import QuickSend from '../components/QuickSend.astro';
+import { sendInvitation } from '../data/invitations';
 import { guideImage } from '../data/images';
 import { guideViews as views } from '../data/photo-guide';
-import heelViews from '../assets/guia/perspectivas-tacones.webp';
 ---
 
 <Base
@@ -33,22 +33,18 @@ import heelViews from '../assets/guia/perspectivas-tacones.webp';
     <section class="guide-lead" aria-labelledby="light-title">
       <div>
         <h2 id="light-title">Antes de empezar</h2>
-        <p>Busca buena luz y un fondo sencillo.</p>
+        <p>
+          Busca una luz con la que el zapato se vea bien, la que tengas, y un fondo en el que
+          destaque.
+        </p>
       </div>
       <ul>
-        <li>Limpia la lente y evita el flash y los filtros.</li>
-        <li>En las seis vistas, que se vea el zapato entero.</li>
+        <li>Sin flash y sin filtros: que el color sea el del zapato.</li>
+        <li>Que el zapato entre entero en cada vista, con un poco de aire alrededor.</li>
         <li>Sin llevarlos puestos: solo salen los zapatos.</li>
-        <li>Comprueba que se vean bien la forma, el color y los detalles.</li>
       </ul>
     </section>
     <span class="eyebrow">Las seis vistas</span>
-    <p class="heel-note">
-      ¿Son tacones?{' '}
-      <a href="#tacones" data-open-heel>
-        Mira lo que cambia.
-      </a>
-    </p>
     <div class="guide-grid">
       {views.map((view) => (
         <figure class="guide-card" id={`vista-${view.n}`}>
@@ -67,50 +63,20 @@ import heelViews from '../assets/guia/perspectivas-tacones.webp';
         </figure>
       ))}
     </div>
-    <details class="tacon-guide" id="tacones">
-      <summary>
-        <h2>¿Tu par tiene tacón?</h2>
-      </summary>
-      <p>
-        Son las mismas vistas. De perfil, que se vea el tacón entero; por detrás, su forma bajo el
-        talón. De frente, baja un poco el móvil para que no quede escondido.
-      </p>
-      <Photo
-        src={heelViews}
-        alt="Ilustración de las vistas de un zapato de tacón: perspectiva, perfil, frente, arriba, trasera y suela"
-        sizes="(max-width: 1040px) 92vw, 1000px"
-      />
-      <p class="small-note">
-        Ilustración hecha con IA, hasta que tengamos fotos de un par de tacón. No es el par de una
-        colaboradora.
-      </p>
-    </details>
     <section class="guide-checklist">
       <div>
         <h2>¿Lo tienes todo?</h2>
-        <p>Si falta alguna vista, te la pedimos.</p>
+        <p>Un repaso rápido. Si falta algo, te lo pedimos.</p>
       </div>
       <ul>
         <li>
-          Las seis vistas: tres cuartos por delante, de perfil por fuera, de frente, desde arriba,
+          Seis vistas de cada par: tres cuartos por delante, de perfil, de frente, desde arriba,
           tres cuartos por detrás y la suela.
         </li>
-        <li>Los detalles que te gusten.</li>
-        <li>Si mandas varios pares, las fotos de cada uno en su bloque.</li>
+        <li>Los detalles que te gusten, de cerca.</li>
+        <li>Si mandas varios pares, las fotos de cada uno en su bloque del formulario.</li>
       </ul>
     </section>
   </div>
-  <Invitation compact next="tally" />
+  <Invitation compact content={sendInvitation} id="enviar" />
 </Base>
-<script>
-  // «¿Son tacones?» baja hasta la sección plegada y la abre. Sin JavaScript, el enlace solo baja.
-  const heelGuide = document.querySelector<HTMLDetailsElement>('#tacones');
-  const openHeelGuide = () => {
-    if (heelGuide && location.hash === '#tacones') heelGuide.open = true;
-  };
-  document.querySelector('[data-open-heel]')?.addEventListener('click', () => {
-    if (heelGuide) heelGuide.open = true;
-  });
-  window.addEventListener('hashchange', openHeelGuide);
-  openHeelGuide();
-</script>

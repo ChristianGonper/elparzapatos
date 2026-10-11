@@ -5,6 +5,7 @@ import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
 import { wardrobes, wardrobePath } from '../../data/wardrobes';
 import { pairImage } from '../../data/images';
+import { wardrobeInvitation } from '../../data/invitations';
 ---
 
 <Base
@@ -19,7 +20,9 @@ import { pairImage } from '../../data/images';
       <em>Varios dicen quién los eligió.</em>
     </h1>
     <p class="lead">
-      Cuando una colaboradora nos enseña dos pares o más, los juntamos en su armario.
+      Hay armarios que vuelven una y otra vez al mismo color y otros en los que no se repite nada.
+      Cada uno se parece a quien lo ha ido llenando. Desde el segundo par, cada colaboradora tiene
+      el suyo.
     </p>
   </section>
   <div class="wrap wardrobe-index">
@@ -80,5 +83,5 @@ import { pairImage } from '../../data/images';
       </div>
     )}
   </div>
-  <Invitation compact />
+  <Invitation compact content={wardrobeInvitation} />
 </Base>
