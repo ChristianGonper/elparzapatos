@@ -133,7 +133,7 @@ test('Quien ya tiene las fotos encuentra arriba el acceso directo a Tally', asyn
   }
 });
 
-test('La portada saca sus detalles de los análisis y las fotos de ejemplo van sin enlace', async ({
+test('La portada saca sus detalles de los retratos y las fotos de ejemplo van sin enlace', async ({
   page,
 }) => {
   await page.goto('/');
@@ -532,7 +532,7 @@ test('Cada palabra del glosario lleva al par en el que aparece', async ({ page }
   }
 });
 
-test('Cada armario reúne sus pares y conecta con sus análisis', async ({ page }) => {
+test('Cada armario reúne sus pares y conecta con sus retratos', async ({ page }) => {
   for (const wardrobe of expectedWardrobes) {
     await page.goto('/armarios/');
     await page.getByRole('link', { name: new RegExp(`Armario de ${wardrobe.name}`) }).click();
