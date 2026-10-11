@@ -134,13 +134,39 @@ test('Quien ya tiene las fotos encuentra arriba el acceso directo a Tally', asyn
   }
 });
 
-test('Las fotos de ejemplo se distinguen de las entradas del catálogo', async ({ page }) => {
+test('La portada saca sus detalles de los análisis y las fotos de ejemplo van sin enlace', async ({
+  page,
+}) => {
   await page.goto('/');
-  await expect(page.locator('.editorial-intro .eyebrow')).toHaveText('Fotos de ejemplo');
-  await expect(page.locator('.look-note')).toContainText('Son fotos de ejemplo.');
-  await expect(page.locator('.look-row').getByRole('link')).toHaveCount(0);
-  await page.goto('/pares/');
-  await expect(page.locator('.pair-card')).toHaveCount(pairSources.length);
+  await expect(page.locator('.feature-footnote')).toHaveCount(0);
+  await expect(page.locator('.home-feature')).not.toContainText('Fotos de');
+  const details = page.locator('.home-details');
+  await expect(details.locator('.editorial-intro .eyebrow')).toHaveText('En qué nos fijamos');
+  await expect(details.locator('.look-card')).toHaveCount(3);
+  await expect(page.locator('.look-note')).toHaveCount(0);
+  await expect(page.locator('main')).not.toContainText('Fotos de ejemplo');
+  const featured = await page.locator('.home-feature-photo').getAttribute('href');
+  const withDetail = pairSources.filter(
+    (pair) => pair.data.homeDetail && `/pares/${pair.data.slug}/` !== featured,
+  );
+  const linked = details.locator('.look-card a');
+  await expect(linked).toHaveCount(Math.min(3, withDetail.length));
+  for (const href of await linked.evaluateAll((links) => links.map((a) => a.getAttribute('href'))))
+    expect(withDetail.map((pair) => `/pares/${pair.data.slug}/`)).toContain(href);
+  await expect(details.getByRole('link', { name: 'Ver todos los pares' })).toHaveAttribute(
+    'href',
+    '/pares/',
+  );
+  // «Lo último que hemos mirado» espera a que haya cinco pares.
+  await expect(page.locator('.home-latest')).toHaveCount(pairSources.length >= 5 ? 1 : 0);
+  const kinds = page.locator('.home-final .kind-card');
+  await expect(kinds).toHaveCount(4);
+  await expect(kinds.first()).toContainText('Bailarinas');
+  await expect(kinds.first()).toContainText(`${pairSources.length} pares`);
+  await expect(page.locator('.home-final .kind-card.empty')).toHaveCount(3);
+  await expect(page.locator('.home-final .kind-card.empty').first()).toContainText(
+    'Aún no hay ninguno. ¿Tienes unos?',
+  );
 });
 
 test('En móvil el destacado abre la portada y el lema viene después', async ({ page }) => {

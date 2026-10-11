@@ -81,6 +81,16 @@ invitation:
   text: 'A veces lo mejor está en la superficie: una trama, un brillo, un borde. Mándanos las tuyas, una o todas, y te contamos lo que tienen.'
 ```
 
+`homeDetail` es opcional: el detalle del par que puede salir en «En qué nos fijamos», en la portada. Lleva `label` (el rasgo, como «El borde»), `title`, `text` (una frase) e `image` (el número de la vista que lo enseña). La portada elige tres, del par más reciente al más antiguo y sin contar el destacado: primero sin repetir grupo de zapato ni colaboradora; si faltan, de otros pares; y, mientras no lleguen a tres, completa con las fotos de ejemplo de Sonia, que salen sin enlace porque no son análisis.
+
+## Qué enseña la portada
+
+Todo sale del contenido; no hay que tocar la portada al publicar. Los umbrales están en `sitio/src/data/home.ts`:
+
+- «Lo último que hemos mirado» aparece desde 5 pares (`latestFrom`), con los 4 más recientes después del destacado (`latestCount`) y «Seguir mirando».
+- Con un armario, la sección Armarios lo enseña con dos fotos y su enlace. Con 2 o más, enseña hasta 3 (`homeWardrobeLimit`), cada uno en su abanico, y «Ver los armarios».
+- El final cuenta los pares de cada grupo de `shoe-types.ts`: «1 par», «{n} pares» con la foto del último, o «Aún no hay ninguno. ¿Tienes unos?» con una foto de ejemplo.
+
 `model` es opcional y aparece en «De un vistazo» solo si se conoce. No se completan datos por deducción. La decisión del 7/10 exige que quien envía un par cuente qué le gusta, pero no convierte una cita pública en obligatoria: solo se incorpora si está autorizada.
 
 `npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.

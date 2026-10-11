@@ -51,21 +51,6 @@
 .home-feature-copy .text-link {
   color: var(--paper);
 }
-.feature-footnote {
-  padding-top: 1rem;
-  font-size: 0.75rem;
-  color: var(--muted);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
-}
-/* «Ver todos los pares», como botón: es la salida principal hacia el catálogo. */
-.feature-footnote .button {
-  min-height: 52px;
-  font-size: 0.95rem;
-}
 .home-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -137,9 +122,62 @@
   font-size: 0.9rem;
   max-width: 32ch;
 }
-.look-note {
-  margin-top: 2rem;
-  font-size: 0.82rem;
+.look-card .text-link {
+  margin-top: 0.8rem;
+}
+/* Salidas al catálogo o a Armarios al final de una sección: botón grande, con borde. */
+.home-more {
+  margin-top: 2.5rem;
+}
+.home-more .button {
+  min-height: 52px;
+  font-size: 0.95rem;
+}
+.home-latest > h2 {
+  margin-bottom: 2.5rem;
+}
+.home-latest .pair-index {
+  padding-bottom: 0;
+}
+.home-wardrobe-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.home-wardrobe-card {
+  display: block;
+}
+.home-wardrobe-card .eyebrow {
+  margin-top: 1.2rem;
+  color: var(--muted);
+}
+.home-wardrobe-card h3 {
+  margin-top: 0.3rem;
+}
+/* Final: los grupos de zapatos que contamos, con su recuento o el hueco que falta. */
+.kind-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.kind-card img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+}
+.kind-card h3 {
+  margin-top: 1rem;
+  font-size: calc(1.7rem * var(--hs3, 1));
+}
+.kind-card p {
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
   color: var(--muted);
 }
 .home-wardrobe {
@@ -216,6 +254,14 @@
   .home-wardrobe .wardrobe-pictures {
     max-width: 600px;
   }
+  .home-wardrobe-list {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+  .kind-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem 1rem;
+  }
 }
 @media (max-width: 540px) {
   .home-feature-copy {
@@ -231,9 +277,6 @@
     font-size: 0.62rem;
     letter-spacing: 0.02em;
     margin-bottom: 0.8rem;
-  }
-  .feature-footnote {
-    font-size: 0.68rem;
   }
   .look-row {
     grid-template-columns: 1fr 1fr;
@@ -265,6 +308,12 @@
   }
   .home-wardrobe .wardrobe-pictures img {
     aspect-ratio: 4/5;
+  }
+  .kind-card h3 {
+    font-size: calc(1.4rem * var(--hs3, 1));
+  }
+  .kind-card p {
+    font-size: 0.8rem;
   }
 }
 @media (min-width: 1000px) {
