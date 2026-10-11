@@ -27,39 +27,43 @@ const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
   </noscript>
 </div>
 <script>
-  document.querySelectorAll<HTMLElement>('.share-tools').forEach((root) => {
-    const actions = root.querySelector<HTMLElement>('.share-actions');
-    const share = root.querySelector<HTMLButtonElement>('.native-share');
-    const copy = root.querySelector<HTMLButtonElement>('.copy-link');
-    const manual = root.querySelector<HTMLLabelElement>('.share-manual');
-    const input = root.querySelector<HTMLInputElement>('input');
-    const status = root.querySelector<HTMLElement>('.share-status');
-    const url = root.dataset.shareUrl ?? new URL(location.pathname, location.origin).href;
-    if (!actions || !copy || !share || !input || !manual || !status) return;
-    actions.hidden = false;
-    input.value = url;
-    share.hidden = typeof navigator.share !== 'function';
-    const copyUrl = async () => {
-      try {
-        await navigator.clipboard.writeText(url);
-        manual.hidden = true;
-        status.textContent = 'Enlace copiado.';
-      } catch {
-        manual.hidden = false;
-        input.focus();
-        input.select();
-        status.textContent = 'Selecciona y copia el enlace.';
-      }
-    };
-    copy.addEventListener('click', copyUrl);
-    share.addEventListener('click', async () => {
-      try {
-        await navigator.share({ title: root.dataset.shareTitle, url });
-        status.textContent = 'Compartido.';
-      } catch (error) {
-        if (error instanceof DOMException && error.name === 'AbortError') return;
-        await copyUrl();
-      }
-    });
-  });
+  import { enCadaPagina, primeraVez } from '../scripts/cada-pagina';
+  enCadaPagina(() =>
+    document.querySelectorAll<HTMLElement>('.share-tools').forEach((root) => {
+      if (!primeraVez(root)) return;
+      const actions = root.querySelector<HTMLElement>('.share-actions');
+      const share = root.querySelector<HTMLButtonElement>('.native-share');
+      const copy = root.querySelector<HTMLButtonElement>('.copy-link');
+      const manual = root.querySelector<HTMLLabelElement>('.share-manual');
+      const input = root.querySelector<HTMLInputElement>('input');
+      const status = root.querySelector<HTMLElement>('.share-status');
+      const url = root.dataset.shareUrl ?? new URL(location.pathname, location.origin).href;
+      if (!actions || !copy || !share || !input || !manual || !status) return;
+      actions.hidden = false;
+      input.value = url;
+      share.hidden = typeof navigator.share !== 'function';
+      const copyUrl = async () => {
+        try {
+          await navigator.clipboard.writeText(url);
+          manual.hidden = true;
+          status.textContent = 'Enlace copiado.';
+        } catch {
+          manual.hidden = false;
+          input.focus();
+          input.select();
+          status.textContent = 'Selecciona y copia el enlace.';
+        }
+      };
+      copy.addEventListener('click', copyUrl);
+      share.addEventListener('click', async () => {
+        try {
+          await navigator.share({ title: root.dataset.shareTitle, url });
+          status.textContent = 'Compartido.';
+        } catch (error) {
+          if (error instanceof DOMException && error.name === 'AbortError') return;
+          await copyUrl();
+        }
+      });
+    }),
+  );
 </script>

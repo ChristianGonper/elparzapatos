@@ -32,6 +32,7 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
 </span>
 
 <script>
+  import { enCadaPagina, primeraVez } from '../scripts/cada-pagina';
   // Sin JavaScript, el botón abre la definición con el popover nativo. Con JavaScript:
   // en escritorio se abre al pasar el ratón o al llegar con el teclado, junto a la palabra;
   // en el móvil, el primer toque la abre y un segundo toque o tocar fuera la cierra.
@@ -44,7 +45,7 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
     timer?: number;
   };
   const anchored = window.matchMedia('(min-width: 541px)');
-  const terms: Term[] = [];
+  let terms: Term[] = [];
   const isOpen = (term: Term) => term.popover.matches(':popover-open');
   const place = (term: Term) => {
     const { popover, button } = term;
@@ -88,7 +89,8 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
     window.clearTimeout(term.timer);
     if (!term.pinned) term.timer = window.setTimeout(() => hide(term), 250);
   };
-  document.querySelectorAll<HTMLElement>('.term-popover').forEach((popover) => {
+  const setUp = (popover: HTMLElement) => {
+    if (!primeraVez(popover)) return;
     const button = document.querySelector<HTMLButtonElement>(`[aria-controls="${popover.id}"]`);
     if (!button) return;
     const term: Term = { button, popover, pinned: false };
@@ -126,6 +128,11 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
           hide(term);
       });
     popover.querySelector('.close-button')?.addEventListener('click', () => returnFocus(term));
+  };
+  // Tras navegar sin recargar se olvidan las palabras de la página anterior.
+  enCadaPagina(() => {
+    terms = terms.filter((term) => term.button.isConnected);
+    document.querySelectorAll<HTMLElement>('.term-popover').forEach(setUp);
   });
   document.addEventListener('pointerdown', (event) => {
     const target = event.target as Node;
