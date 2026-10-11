@@ -21,7 +21,7 @@ export interface HomeDetail {
   title: string;
   text: string;
   image: ImageMetadata;
-  /** El análisis del que sale. Las fotos de ejemplo de Sonia no lo tienen: no son análisis. */
+  /** El retrato del que sale. Las fotos de ejemplo de Sonia no lo tienen: no son retratos. */
   pair?: Pair;
 }
 

@@ -219,7 +219,7 @@ try {
   assert.doesNotMatch(smallHome, /home-latest|home-wardrobe-card/);
   assert.match(smallHome, /Entrar en el Armario de María/);
   assert.equal((smallHome.match(/class="look-card"/g) ?? []).length, 3);
-  assert.doesNotMatch(smallHome, /Leer el análisis/);
+  assert.doesNotMatch(smallHome, /Leer el retrato/);
   assert.match(smallHome, /<h3>Bailarinas<\/h3><p>3 pares<\/p>/);
   assert.match(await page('armarios/maria'), /href="\/pares\/"[^>]*>\s*Ver todos los pares/);
   await build({ PUBLIC_SITE_URL: 'https://example.com', PUBLIC_LAUNCH_READY: 'true' });

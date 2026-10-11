@@ -45,7 +45,7 @@ export const sendInvitation: InvitationContent = {
   title: ['Ya puedes', 'enviar tus fotos.'],
   text: 'Sube las fotos, cuéntanos qué te gusta de cada par y elige cómo apareces. Si tienes más pares, caben en el mismo envío.',
   action: { href: site.tally, label: 'Enviar mis fotos' },
-  note: `Antes de publicarlo te mandamos el análisis. Tienes ${reviewHours} horas para revisarlo.`,
+  note: `Antes de publicarlo te mandamos el retrato. Tienes ${reviewHours} horas para revisarlo.`,
 };
 
 /** Invitación final de un par: la suya si la tiene y, si no, la genérica. */

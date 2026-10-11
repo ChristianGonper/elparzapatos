@@ -158,7 +158,7 @@
   .article-section-heading h2 {
     font-size: calc(2.65rem * var(--hs2, 1));
   }
-  /* Mantiene la composición móvil de las definiciones dentro del análisis. */
+  /* Mantiene la composición móvil de las definiciones dentro del retrato. */
   .article-text .term-popover .term-title {
     font-size: 2.65rem;
   }

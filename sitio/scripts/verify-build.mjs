@@ -81,6 +81,15 @@ for (const [file, html] of documents) {
     )
   )
     errors.push(`${file}: expresión editorial descartada`);
+  // Cada par tiene su «retrato»: la palabra «análisis» no sale en ningún texto que se lea, ni en
+  // los atributos que se leen o se oyen (alt, aria-label, title, descripciones).
+  const readable = [
+    html.replace(/<(script|style)\b[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' '),
+    ...[...html.matchAll(/\b(?:alt|aria-label|title|content|placeholder)="([^"]*)"/g)].map(
+      (match) => match[1],
+    ),
+  ].join(' ');
+  if (/an[áa]lisis/i.test(readable)) errors.push(`${file}: dice «análisis» en lugar de «retrato»`);
   for (const email of html.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g) ?? [])
     if (email !== 'elparzapatos@proton.me') errors.push(`${file}: correo no previsto (${email})`);
 }
