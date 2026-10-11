@@ -71,6 +71,16 @@ El orden de los bloques en el archivo es el orden de lectura. Título, entradill
 
 Los identificadores de colección son los nombres de archivo. Una ruta o identificador de par duplicados y una referencia a una colaboradora inexistente detienen la compilación, evitando sobrescribir entradas. Los términos deben usar un slug literal del glosario para que también se generen sus enlaces de consulta.
 
+Cada `type` pertenece a uno de los cuatro grupos de zapatos que contamos (Bailarinas, Tacones y tiras, Cuñas y alpargatas, Plataformas), definidos en `sitio/src/data/shoe-types.ts` con su género. Un tipo que no esté en ningún grupo detiene la compilación: se añade allí antes de publicar el par.
+
+`invitation` es opcional: la invitación final propia del par, escrita al publicarlo. Lleva `title`, dos líneas (la segunda sale en cursiva), y `text`. Patrón: el título lleva el rasgo del análisis a los zapatos de quien lee, con una pregunta o dándole la vuelta, sin resumir el par; el texto hace eco de lo visto, pide que lo manden («Mándanos…») y deja claro que pueden ser varios. La etiqueta («¿Y las tuyas?» / «¿Y los tuyos?») y el botón («Manda las tuyas» / «Manda los tuyos») salen del género del tipo. Si falta, sale la invitación genérica.
+
+```yaml
+invitation:
+  title: ['Por fuera, una bailarina sencilla.', '¿Y las tuyas, de cerca?']
+  text: 'A veces lo mejor está en la superficie: una trama, un brillo, un borde. Mándanos las tuyas, una o todas, y te contamos lo que tienen.'
+```
+
 `model` es opcional y aparece en «De un vistazo» solo si se conoce. No se completan datos por deducción. La decisión del 7/10 exige que quien envía un par cuente qué le gusta, pero no convierte una cita pública en obligatoria: solo se incorpora si está autorizada.
 
 `npm run test:content` compila una copia temporal con 60 pares adicionales: comprueba agrupaciones, cambio de posición de la cita, anonimato, ausencia de marca/cita, exclusión de borradores al lanzar, catálogo vacío y rechazo de datos inválidos. Los ejemplos nunca se incorporan a la web real.

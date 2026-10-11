@@ -47,3 +47,25 @@ export const sendInvitation: InvitationContent = {
   action: { href: site.tally, label: 'Enviar mis fotos' },
   note: `Antes de publicarlo te mandamos el análisis. Tienes ${reviewHours} horas para revisarlo.`,
 };
+
+/** Invitación final de un par: la suya si la tiene y, si no, la genérica. */
+export const pairInvitation = (pair: {
+  feminine: boolean;
+  invitation?: { title: [string, string]; text: string };
+}): InvitationContent =>
+  pair.invitation
+    ? {
+        label: pair.feminine ? '¿Y las tuyas?' : '¿Y los tuyos?',
+        title: pair.invitation.title,
+        text: pair.invitation.text,
+        action: {
+          href: '/participa/',
+          label: pair.feminine ? 'Manda las tuyas' : 'Manda los tuyos',
+        },
+      }
+    : {
+        label: '¿Y los tuyos?',
+        title: ['Acabas de ver todo lo que tenía este par.', '¿Qué tendrán los tuyos?'],
+        text: 'Mándanos fotos y te lo contamos. Uno o todos los que quieras.',
+        action: { href: '/participa/', label: 'Manda tu par' },
+      };
