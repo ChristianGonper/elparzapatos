@@ -1,7 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PairCard from '../../components/PairCard.astro';
-import Invitation from '../../components/Invitation.astro';
 import Arrow from '../../components/Arrow.astro';
 import { pairs } from '../../data/pairs';
 ---
@@ -13,7 +12,8 @@ import { pairs } from '../../data/pairs';
   <section class="wrap page-heading">
     <h1>Pares</h1>
     <p class="lead">
-      Cada análisis parte de las fotos de una colaboradora. Elige un par y míralo de cerca.
+      Cada detalle, con su imagen. Abre el que más te llame la atención: después del primero, ya no
+      se mira igual.
     </p>
   </section>
   <div class="wrap pair-index">
@@ -26,11 +26,10 @@ import { pairs } from '../../data/pairs';
         <br />
         <em>Puede ser el siguiente.</em>
       </h2>
-      <p>Te contamos cómo hacerle las fotos.</p>
+      <p>Mándanos uno o todos los que quieras: los miramos todos y cada uno tiene su espacio.</p>
       <a class="text-link" href="/participa/">
         Cómo colaborar <Arrow />
       </a>
     </aside>
   </div>
-  <Invitation compact />
 </Base>
