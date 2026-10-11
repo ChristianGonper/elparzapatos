@@ -104,6 +104,13 @@ invitation:
   text: 'A veces lo mejor está en la superficie: una trama, un brillo, un borde. Mándanos las tuyas, una o todas, y te contamos lo que tienen.'
 ```
 
+`traits` y `colors` son listas opcionales de etiquetas. Todavía no se muestran: sirven para filtrar Pares por rasgo o color y para montar colecciones («Pares con rejilla», «En burdeos») cuando haya catálogo. `traits` recoge los rasgos que el retrato señala, en minúscula y con la palabra del glosario cuando la hay («rejilla», «garganta recortada»); `colors`, los colores tal como los nombra el retrato («burdeos», «rosa»; «oscuro» o «claro» si el texto no dice más). Se normalizarán a una lista cerrada cuando se haga el filtro. No se deducen: solo lo que el retrato dice.
+
+```yaml
+traits: ['ribete de contraste', 'aspecto aterciopelado', 'garganta recortada', 'pala larga', 'suela con trama']
+colors: ['burdeos', 'rosa']
+```
+
 `homeDetail` es opcional: el detalle del par que puede salir en «En qué nos fijamos», en la portada. Lleva `label` (el rasgo, como «El borde»), `title`, `text` (una frase) e `image` (el número de la vista que lo enseña). La portada elige tres, del par más reciente al más antiguo y sin contar el destacado: primero sin repetir grupo de zapato ni colaboradora; si faltan, de otros pares; y, mientras no lleguen a tres, completa con las fotos de ejemplo de Sonia, que salen sin enlace porque no son retratos.
 
 ## Qué enseña la portada
