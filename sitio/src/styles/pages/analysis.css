@@ -207,3 +207,32 @@
     margin-bottom: clamp(3.5rem, 5.6vw, 5.6rem);
   }
 }
+
+/* Al final de cada retrato: otros pares del mismo armario y, después, los más recientes. */
+.more-portraits {
+  padding-bottom: var(--space);
+}
+.more-portraits > h2 {
+  font-size: calc(clamp(2.2rem, 3.5vw, 3.4rem) * var(--hs2, 1));
+  margin-bottom: 2rem;
+}
+.more-portraits-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.more-portraits .pair-card h3 {
+  font-size: calc(clamp(1.8rem, 2.6vw, 2.5rem) * var(--hs2, 1));
+}
+@media (max-width: 999px) {
+  .more-portraits-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 540px) {
+  .more-portraits-list {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

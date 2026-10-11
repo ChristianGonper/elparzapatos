@@ -194,6 +194,22 @@ try {
     await page('armarios/prueba'),
     /20 pares de Colaboradora 07\. Míralos juntos y fíjate en lo que se repite\./,
   );
+  // «Más retratos»: primero el mismo armario y, si no tiene, los más recientes. Máximo tres.
+  const more = (html) => [
+    ...(html.match(/class="wrap more-portraits"[\s\S]*?<\/section>/)?.[0] ?? '').matchAll(
+      /class="pair-card" href="([^"]+)"[\s\S]*?<span>\s*([^<]*?)\s*<\/span>/g,
+    ),
+  ];
+  const fromMaria = more(await page('pares/par-de-prueba-5'));
+  assert.equal(fromMaria.length, 3);
+  for (const [, href, meta] of fromMaria) {
+    assert.notEqual(href, '/pares/par-de-prueba-5/');
+    assert.match(meta, /María$/);
+  }
+  assert.deepEqual(
+    more(await page('pares/par-de-prueba-41')).map((match) => match[1]),
+    ['/pares/par-de-prueba-20/', '/pares/par-de-prueba-1/', '/pares/par-de-prueba-0/'],
+  );
   // Invitación final: la propia del par, en su género, o la genérica.
   assert.match(
     await page('pares/par-de-prueba-5'),
@@ -294,6 +310,17 @@ try {
   );
   await rm(join(content, 'pares'), { recursive: true });
   await mkdir(join(content, 'pares'));
+  // Con un solo par no hay otros retratos que enseñar.
+  await article(join(content, 'pares/unico.mdx'), {
+    ...example,
+    id: 'PAR-1000',
+    slug: 'unico',
+    status: 'published',
+    publishedAt: '2026-10-01',
+  });
+  await build();
+  assert.doesNotMatch(await page('pares/unico'), /more-portraits|Más retratos/);
+  await rm(join(content, 'pares/unico.mdx'));
   await build();
   assert.equal(cards(await page('pares')), 0);
   assert.doesNotMatch(await page(''), /class="home-feature"/);
