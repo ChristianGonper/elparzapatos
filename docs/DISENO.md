@@ -40,6 +40,20 @@ La portada se ordena así: destacado; lema; «En qué nos fijamos», tres detall
 
 Qué es El Par abre con la marca tal como va en la cabecera, en grande (versalitas espaciadas y «Zapatos en detalle» debajo), y dos bloques con la misma composición, título a la izquierda y texto a la derecha: «Qué hacemos» y «Qué nos hace distintos», con cuatro puntos y, debajo, la nota sobre cómo tratamos las fotos. Cada armario lleva una línea bajo el título y, centrado bajo las tarjetas, un botón con borde.
 
+## Laboratorio de interacción y movimiento (bloque 7)
+
+Solo en la vista de revisión (`npm run build:review` y `npm run dev`); `npm run build` no lleva ni el panel ni el enrutador de Astro ni sus estilos (`@laboratorio` apunta a `Vacio.astro`, y `test:content` lo comprueba). Botón «Lab» abajo a la derecha; la combinación se comparte con `?lab=`, por ejemplo `?lab=N3E2R2D3V2F3L1`, y se guarda al navegar. La opción 1 de cada eje es la web actual.
+
+- **N · Navegación**: N1 Ninguna (recarga), N2 Fundido, N3 Foto que crece (la foto de la tarjeta pasa a ser la del retrato), N4 Deslizamiento.
+- **E · Entrada al aparecer**: E1 Ninguna, E2 Subida suave, E3 Cortina, E4 Escalonada.
+- **R · Al pasar el ratón** (solo con ratón): R1 Como ahora, R2 Zoom lento, R3 Elevación, R4 Subrayado.
+- **D · Detalles en la foto**: D1 Ninguno, D2 Puntos numerados, D3 Marco al leer, D4 Lupa. Usa `x`, `y` y `size` de cada `<Detalle>` (ver CONTENIDO.md).
+- **V · Visor y glosario**: V1 Como ahora, V2 Zoom desde la foto (y definición con fundido), V3 Zoom y cursor de lupa.
+- **F · Frase de la colaboradora**: F1 Al final, F2 Tras la entradilla, F3 Junto a la primera foto.
+- **L · Lectura del retrato**: L1 Sin barra, L2 Barra fina, L3 Por detalles.
+
+Con «reducir movimiento» en el sistema no hay animaciones: ni transición entre páginas, ni entradas, ni zoom del visor. El visor, el glosario, compartir y el menú se preparan otra vez tras cada navegación sin recarga (`src/scripts/cada-pagina.ts`). Cuando se elija, lo elegido pasa al código normal y el laboratorio se retira.
+
 ## CSS y responsabilidades
 
 Se mantiene CSS propio. Esta interfaz tiene composiciones editoriales, recortes de fotografía, popovers e impresión que necesitan reglas específicas. Tailwind aportaría utilidades y una escala común, pero exigiría reescribir el marcado sin resolver por sí mismo la propiedad de cada estilo. La escala ya está definida mediante variables compartidas; modularizar aporta aquí más que cambiar de framework.
