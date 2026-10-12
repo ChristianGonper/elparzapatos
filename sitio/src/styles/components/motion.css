@@ -1,0 +1,134 @@
+/* Movimiento (bloque 7). Todo se apaga con «reducir movimiento». */
+
+/* Entre páginas: la cabecera se queda quieta, la foto de la tarjeta crece hasta la del retrato
+   (scripts/movimiento.ts le da el nombre) y el resto cambia con un fundido corto. */
+.site-header {
+  view-transition-name: cabecera;
+}
+::view-transition-group(cabecera),
+::view-transition-old(cabecera),
+::view-transition-new(cabecera) {
+  animation: none;
+}
+.article-hero img {
+  view-transition-name: foto-par;
+}
+::view-transition-group(foto-par) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.3, 0.7, 0.1, 1);
+}
+::view-transition-old(foto-par),
+::view-transition-new(foto-par) {
+  height: 100%;
+  object-fit: cover;
+  animation-duration: 520ms;
+}
+::view-transition-old(root) {
+  animation: 200ms ease-out both fade-out;
+}
+::view-transition-new(root) {
+  animation: 360ms ease-out 140ms both fade-in;
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Entrada al aparecer: fundido y subida corta. */
+@media (prefers-reduced-motion: no-preference) {
+  .appears {
+    transition:
+      opacity 0.7s ease,
+      transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .appears:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+}
+
+/* Subrayado que se dibuja: en reposo, una línea tenue (sigue pareciendo un enlace); al pasar el
+   ratón, la línea entera se dibuja de izquierda a derecha. */
+@media (hover: hover) and (pointer: fine) {
+  .text-link {
+    border-bottom-color: transparent;
+    background:
+      linear-gradient(currentColor, currentColor) left bottom / 0% 1px no-repeat,
+      linear-gradient(
+          color-mix(in srgb, currentColor 30%, transparent),
+          color-mix(in srgb, currentColor 30%, transparent)
+        )
+        left bottom / 100% 1px no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  .text-link:hover,
+  .look-card:hover .text-link {
+    background-size:
+      100% 1px,
+      100% 1px;
+  }
+  .card-read {
+    width: fit-content;
+    margin-left: auto;
+    background: linear-gradient(currentColor, currentColor) right bottom / 0% 1px no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  .pair-card:hover .card-read {
+    background-size: 100% 1px;
+  }
+  :is(.pair-card, .look-card):hover svg {
+    transform: translateX(4px);
+  }
+}
+
+/* Lectura por detalles (retratos): un tramo por detalle, arriba, sin tapar nada. */
+.reading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
+  display: flex;
+  gap: 4px;
+  height: 3px;
+  pointer-events: none;
+}
+.reading-bar span {
+  flex: 1;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.reading-bar i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  .text-link,
+  .card-read {
+    transition: none;
+  }
+}
+@media print {
+  .appears {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .reading-bar {
+    display: none;
+  }
+}

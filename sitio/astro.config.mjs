@@ -11,4 +11,11 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
+  vite: {
+    resolve: {
+      // verify-growth compila una copia con node_modules enlazado: sin esto, Vite sigue el enlace y
+      // pierde la pista de los estilos de ClientRouter.astro.
+      preserveSymlinks: true,
+    },
+  },
 });

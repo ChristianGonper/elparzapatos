@@ -2,7 +2,6 @@
 import Photo from './Photo.astro';
 import { currentAnalysis } from '../data/analysis';
 import { pairImage } from '../data/images';
-import { includeDrafts } from '../data/site';
 interface Props {
   title: string;
   image: number;
@@ -11,14 +10,29 @@ interface Props {
   id?: string;
   /**
    * Punto que el texto señala en la foto, en % desde arriba a la izquierda (0 a 100), y su
-   * tamaño opcional en % del ancho de la foto. De momento solo se ve en el laboratorio.
+   * tamaño opcional en % del ancho de la foto. Se marca al leer el detalle (docs/CONTENIDO.md).
    */
   x?: number;
   y?: number;
   size?: number;
+  /** Cómo se marca: círculo (por defecto), flecha o recuadro. */
+  marca?: 'circulo' | 'flecha' | 'recuadro';
+  /** Solo con flecha: desde qué lado llega. Sin él, desde el lado con más sitio. */
+  desde?: 'izquierda' | 'derecha' | 'arriba' | 'abajo';
 }
 const pair = currentAnalysis(Astro.locals);
-const { title, image, caption, imageSide = 'left', id, x, y, size = 12 } = Astro.props;
+const {
+  title,
+  image,
+  caption,
+  imageSide = 'left',
+  id,
+  x,
+  y,
+  size = 12,
+  marca = 'circulo',
+  desde,
+} = Astro.props;
 const hasPoint = x !== undefined || y !== undefined;
 if (hasPoint) {
   for (const [name, value] of [
@@ -29,8 +43,14 @@ if (hasPoint) {
     if (value === undefined || !(value >= 0 && value <= 100))
       throw new Error(`${pair.id} · «${title}»: el punto necesita ${name} entre 0 y 100.`);
 }
-// El punto solo se pinta en la vista de revisión, donde el laboratorio decide cómo se ve.
-const showPoint = hasPoint && includeDrafts;
+if (!['circulo', 'flecha', 'recuadro'].includes(marca))
+  throw new Error(
+    `${pair.id} · «${title}»: marca «${marca}» no existe (circulo, flecha o recuadro).`,
+  );
+if (desde && !['izquierda', 'derecha', 'arriba', 'abajo'].includes(desde))
+  throw new Error(`${pair.id} · «${title}»: desde «${desde}» no existe.`);
+// La flecha llega, si no se elige, desde el lado horizontal con más sitio.
+const side = marca === 'flecha' ? (desde ?? ((x ?? 50) < 50 ? 'derecha' : 'izquierda')) : undefined;
 const headingId =
   id ??
   `detalle-${image}-${title
@@ -48,16 +68,20 @@ const headingId =
     <h2 id={headingId}>{title}</h2>
   </header>
   <figure>
-    {showPoint ? (
-      <div class="detail-photo" style={`--x: ${x}%; --y: ${y}%; --size: ${size}`}>
+    {hasPoint ? (
+      <div
+        class="detail-photo"
+        data-marca={marca}
+        data-desde={side}
+        style={`--x: ${x}%; --y: ${y}%; --size: ${size}`}
+      >
         <Photo
           src={pairImage(pair, image)}
           alt={caption}
           zoom
           sizes="(max-width: 800px) 92vw, 45vw"
         />
-        <button class="detail-point" type="button" aria-label={`Señalar en la foto: ${title}`} />
-        <span class="detail-lens" aria-hidden="true" />
+        <span class="detail-mark" aria-hidden="true" />
       </div>
     ) : (
       <Photo

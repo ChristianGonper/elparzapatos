@@ -6,6 +6,7 @@ import '../styles/index.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import PhotoViewer from '../components/PhotoViewer.astro';
+import { ClientRouter } from 'astro:transitions';
 import type { ImageMetadata } from 'astro';
 import { getImage } from 'astro:assets';
 import { guideImage } from '../data/images';
@@ -53,6 +54,7 @@ const pageTitle =
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <ClientRouter />
   </head>
   <body>
     <a class="skip-link" href="#contenido">
@@ -65,5 +67,8 @@ const pageTitle =
     </main>
     <Footer />
     <PhotoViewer />
+    <script>
+      import '../scripts/movimiento';
+    </script>
   </body>
 </html>

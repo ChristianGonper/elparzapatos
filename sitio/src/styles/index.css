@@ -12,4 +12,5 @@
 @import './pages/participation.css';
 @import './pages/guide.css';
 @import './pages/information.css';
+@import './components/motion.css';
 @import './print.css';
