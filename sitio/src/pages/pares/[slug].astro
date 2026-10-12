@@ -4,6 +4,8 @@ import { getEntry, render } from 'astro:content';
 import Arrow from '../../components/Arrow.astro';
 import Invitation from '../../components/Invitation.astro';
 import ShareLink from '../../components/ShareLink.astro';
+import PairCard from '../../components/PairCard.astro';
+import { morePortraits } from '../../data/related';
 import { pairs, type Pair } from '../../data/pairs';
 import { pairImage } from '../../data/images';
 import { pairInvitation } from '../../data/invitations';
@@ -16,6 +18,7 @@ interface Props {
 }
 const { pair } = Astro.props;
 const wardrobe = wardrobeForPair(pair);
+const more = morePortraits(pair);
 Astro.locals.analysis = pair;
 const entry = await getEntry('pares', pair.entryId);
 if (!entry) throw new Error(`Entrada inexistente: ${pair.entryId}`);
@@ -42,7 +45,7 @@ const { Content } = await render(entry);
           </>
         )}
       </p>
-      <ShareLink title={`${pair.title} · El Par`} kind="par" />
+      <ShareLink kind="par" />
     </header>
     <div class="analysis-content">
       <Content />
@@ -55,5 +58,19 @@ const { Content } = await render(entry);
       </div>
     </div>
   </article>
+  {more.length > 0 && (
+    <section class="wrap more-portraits" aria-labelledby="mas-retratos">
+      <h2 id="mas-retratos">Más retratos</h2>
+      <div class="more-portraits-list">
+        {more.map((other) => (
+          <PairCard
+            pair={other}
+            heading="h3"
+            sizes="(max-width: 700px) 90vw, (max-width: 999px) 45vw, 30vw"
+          />
+        ))}
+      </div>
+    </section>
+  )}
   <Invitation compact content={pairInvitation(pair)} />
 </Base>

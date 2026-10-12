@@ -160,6 +160,8 @@ try {
 
   // Portada con muchos pares y dos armarios: todo lo que depende de los datos aparece solo.
   const home = await page('');
+  // La vista de revisión lleva la ayuda para medir puntos.
+  assert.match(home, /measure-toggle/);
   const section = (html, name) =>
     html.match(new RegExp(`class="[^"]*${name}[\\s\\S]*?</section>`))?.[0] ?? '';
   assert.equal(cards(section(home, 'home-latest')), 4);
@@ -194,6 +196,22 @@ try {
     await page('armarios/prueba'),
     /20 pares de Colaboradora 07\. Míralos juntos y fíjate en lo que se repite\./,
   );
+  // «Más retratos»: primero el mismo armario y, si no tiene, los más recientes. Máximo tres.
+  const more = (html) => [
+    ...(html.match(/class="wrap more-portraits"[\s\S]*?<\/section>/)?.[0] ?? '').matchAll(
+      /class="pair-card" href="([^"]+)"[\s\S]*?<span>\s*([^<]*?)\s*<\/span>/g,
+    ),
+  ];
+  const fromMaria = more(await page('pares/par-de-prueba-5'));
+  assert.equal(fromMaria.length, 3);
+  for (const [, href, meta] of fromMaria) {
+    assert.notEqual(href, '/pares/par-de-prueba-5/');
+    assert.match(meta, /María$/);
+  }
+  assert.deepEqual(
+    more(await page('pares/par-de-prueba-41')).map((match) => match[1]),
+    ['/pares/par-de-prueba-20/', '/pares/par-de-prueba-1/', '/pares/par-de-prueba-0/'],
+  );
   // Invitación final: la propia del par, en su género, o la genérica.
   assert.match(
     await page('pares/par-de-prueba-5'),
@@ -209,6 +227,8 @@ try {
   );
   // La compilación por defecto excluye borradores aunque la indexación no esté activada.
   await build();
+  // La compilación normal no lleva la ayuda para medir puntos ni nada del laboratorio.
+  assert.doesNotMatch(await page(''), /measure-toggle|elpar-medir|lab-toggle|data-lab/);
   assert.equal(cards(await page('pares')), 3);
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   assert.match(await page(''), /noindex, nofollow/);
@@ -219,7 +239,7 @@ try {
   assert.doesNotMatch(smallHome, /home-latest|home-wardrobe-card/);
   assert.match(smallHome, /Entrar en el Armario de María/);
   assert.equal((smallHome.match(/class="look-card"/g) ?? []).length, 3);
-  assert.doesNotMatch(smallHome, /Leer el análisis/);
+  assert.doesNotMatch(smallHome, /Leer el retrato/);
   assert.match(smallHome, /<h3>Bailarinas<\/h3><p>3 pares<\/p>/);
   assert.match(await page('armarios/maria'), /href="\/pares\/"[^>]*>\s*Ver todos los pares/);
   await build({ PUBLIC_SITE_URL: 'https://example.com', PUBLIC_LAUNCH_READY: 'true' });
@@ -294,6 +314,17 @@ try {
   );
   await rm(join(content, 'pares'), { recursive: true });
   await mkdir(join(content, 'pares'));
+  // Con un solo par no hay otros retratos que enseñar.
+  await article(join(content, 'pares/unico.mdx'), {
+    ...example,
+    id: 'PAR-1000',
+    slug: 'unico',
+    status: 'published',
+    publishedAt: '2026-10-01',
+  });
+  await build();
+  assert.doesNotMatch(await page('pares/unico'), /more-portraits|Más retratos/);
+  await rm(join(content, 'pares/unico.mdx'));
   await build();
   assert.equal(cards(await page('pares')), 0);
   assert.doesNotMatch(await page(''), /class="home-feature"/);

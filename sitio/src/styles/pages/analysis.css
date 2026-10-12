@@ -158,7 +158,7 @@
   .article-section-heading h2 {
     font-size: calc(2.65rem * var(--hs2, 1));
   }
-  /* Mantiene la composición móvil de las definiciones dentro del análisis. */
+  /* Mantiene la composición móvil de las definiciones dentro del retrato. */
   .article-text .term-popover .term-title {
     font-size: 2.65rem;
   }
@@ -206,4 +206,138 @@
   .article-section {
     margin-bottom: clamp(3.5rem, 5.6vw, 5.6rem);
   }
+}
+
+/* Al final de cada retrato: otros pares del mismo armario y, después, los más recientes. */
+.more-portraits {
+  padding-bottom: var(--space);
+}
+.more-portraits > h2 {
+  font-size: calc(clamp(2.2rem, 3.5vw, 3.4rem) * var(--hs2, 1));
+  margin-bottom: 2rem;
+}
+.more-portraits-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+.more-portraits .pair-card h3 {
+  font-size: calc(clamp(1.8rem, 2.6vw, 2.5rem) * var(--hs2, 1));
+}
+@media (max-width: 999px) {
+  .more-portraits-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 540px) {
+  .more-portraits-list {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* Marca sobre la foto: el sitio del que habla un detalle (`x`, `y`, `size` y `marca` en el MDX).
+   Se enciende al leer el detalle (scripts/marcas.ts pone .is-marked) y no se queda fija. */
+.detail-photo {
+  position: relative;
+  container-type: inline-size;
+  overflow: hidden;
+  line-height: 0;
+}
+.detail-mark {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  z-index: 1;
+  translate: -50% -50%;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.35s ease,
+    scale 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.detail-photo.is-marked .detail-mark {
+  opacity: 1;
+}
+/* Círculo (por defecto) y recuadro: del tamaño de la zona, con el resto algo más oscuro. */
+.detail-photo:is([data-marca='circulo'], [data-marca='recuadro']) .detail-mark {
+  width: calc(var(--size) * 1cqw);
+  aspect-ratio: 1;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  box-shadow: 0 0 0 100vmax rgb(20 16 12 / 0.32);
+  scale: 0.85;
+}
+.detail-photo[data-marca='recuadro'] .detail-mark {
+  border-radius: 3px;
+}
+.detail-photo.is-marked .detail-mark {
+  scale: 1;
+}
+/* Flecha: la punta en el punto y el cuerpo hacia el lado de `desde`; llega deslizándose. */
+.detail-photo[data-marca='flecha'] .detail-mark {
+  width: clamp(48px, 18cqw, 104px);
+  height: 22px;
+  translate: -100% -50%;
+  transform-origin: 100% 50%;
+  transform: rotate(var(--giro, 0deg)) translateX(-14px);
+  color: var(--paper);
+  filter: drop-shadow(0 1px 2px rgb(20 16 12 / 0.75));
+}
+.detail-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.detail-photo[data-desde='derecha'] {
+  --giro: 180deg;
+}
+.detail-photo[data-desde='arriba'] {
+  --giro: 90deg;
+}
+.detail-photo[data-desde='abajo'] {
+  --giro: -90deg;
+}
+.detail-photo.is-marked[data-marca='flecha'] .detail-mark {
+  transform: rotate(var(--giro, 0deg));
+}
+@media (prefers-reduced-motion: reduce) {
+  .detail-mark {
+    transition: none;
+  }
+}
+
+/* La frase de la colaboradora dentro del primer detalle: nota al margen, junto a la primera foto,
+   con la letra del título bien grande. En el móvil ocupa todo el ancho del texto. */
+.article-text .wrap:has(> .quote-block) {
+  max-width: none;
+  margin: 2.4rem 0 0;
+  padding: 0;
+}
+.article-text .quote-block {
+  max-width: none;
+  margin: 0;
+  padding: 0.3rem 0 0.3rem 1.5rem;
+  border-left: 2px solid var(--accent);
+  text-align: left;
+}
+.article-text .quote-block .eyebrow {
+  margin-bottom: 0.8rem;
+}
+.article-text .quote-block blockquote {
+  font-size: clamp(2.1rem, 1.4rem + 1.6vw, 2.6rem);
+  line-height: 1.15;
+}
+@media (max-width: 800px) {
+  .article-text .quote-block {
+    padding-left: 1rem;
+  }
+}
+.article-text .quote-block blockquote p {
+  max-width: none;
+  margin: 0;
+  color: var(--ink);
+  font: inherit;
 }

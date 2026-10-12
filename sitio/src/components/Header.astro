@@ -63,15 +63,24 @@ const links = [
   </div>
 </header>
 <script>
-  const menu = document.querySelector<HTMLDetailsElement>('.mobile-menu');
-  menu?.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') {
-      menu.open = false;
-      menu.querySelector('summary')?.focus();
+  // Escuchan en el documento y buscan el menú en cada evento: siguen sirviendo cuando la cabecera
+  // se sustituye al navegar sin recargar.
+  const menu = () => document.querySelector<HTMLDetailsElement>('.mobile-menu');
+  document.addEventListener('keydown', (event) => {
+    const current = menu();
+    if (event.key === 'Escape' && current?.open && current.contains(event.target as Node)) {
+      current.open = false;
+      current.querySelector('summary')?.focus();
     }
   });
   document.addEventListener('click', (event) => {
-    if (menu?.open && event.target instanceof Node && !menu.contains(event.target))
-      menu.open = false;
+    const current = menu();
+    if (current?.open && event.target instanceof Node && !current.contains(event.target))
+      current.open = false;
+  });
+  // Al navegar sin recargar, el menú se cierra.
+  document.addEventListener('astro:after-swap', () => {
+    const current = menu();
+    if (current) current.open = false;
   });
 </script>

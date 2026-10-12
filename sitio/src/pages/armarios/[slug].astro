@@ -36,7 +36,7 @@ const sharedBy = wardrobe.anonymous ? 'han compartido' : `${wardrobe.name} ha co
       <em>{wardrobe.name}.</em>
     </h1>
     <p class="lead">{wardrobe.intro}</p>
-    <ShareLink title={`Armario de ${wardrobe.name} · El Par`} kind="armario" />
+    <ShareLink kind="armario" />
   </section>
   <div class="wrap pair-index wardrobe-pairs">
     {wardrobe.pairs.map((pair) => (

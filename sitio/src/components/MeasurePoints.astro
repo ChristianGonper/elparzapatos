@@ -1,0 +1,132 @@
+---
+// Ayuda para colocar las marcas sobre la foto. Solo en la vista de revisión (Base.astro la añade
+// con includeDrafts): un botón pequeño en los retratos, o ?medir en la dirección. Con ella
+// activada, pulsar una foto de un retrato enseña y copia x/y de ese sitio en lugar de abrirla.
+---
+
+<div class="measure" data-measure>
+  <button class="measure-toggle" type="button" aria-pressed="false">
+    Medir puntos
+  </button>
+  <output class="measure-status" role="status"></output>
+</div>
+
+<style is:global>
+  .measure {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    z-index: 60;
+    display: none;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    font:
+      600 12px/1.2 system-ui,
+      sans-serif;
+  }
+  body:has(.analysis-content) .measure {
+    display: flex;
+  }
+  .measure-toggle {
+    min-height: 36px;
+    padding: 0 12px;
+    border: 1px solid #ffffff40;
+    border-radius: 999px;
+    background: #1d1d1f;
+    color: #fff;
+    font: inherit;
+  }
+  .measure-toggle[aria-pressed='true'] {
+    background: #ff3b30;
+  }
+  .measure-status:not(:empty) {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #1d1d1f;
+    color: #fff;
+  }
+  html.is-measuring .analysis-content a.photo-zoom {
+    cursor: crosshair;
+  }
+  .measure-dot {
+    position: absolute;
+    z-index: 3;
+    width: 10px;
+    height: 10px;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: #ff3b30;
+    box-shadow: 0 0 0 2px #fff;
+    pointer-events: none;
+  }
+  .measure-dot span {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    translate: -50% 0;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: #1d1d1f;
+    color: #fff;
+    font:
+      600 12px/1.2 system-ui,
+      sans-serif;
+    white-space: nowrap;
+  }
+  html:not(.is-measuring) .measure-dot {
+    display: none;
+  }
+</style>
+
+<script>
+  import { enCadaPagina } from '../scripts/cada-pagina';
+  const key = 'elpar-medir';
+  const root = document.documentElement;
+  const active = () => sessionStorage.getItem(key) === '1';
+  if (new URLSearchParams(location.search).has('medir')) sessionStorage.setItem(key, '1');
+  const paint = () => {
+    root.classList.toggle('is-measuring', active());
+    document.querySelector('.measure-toggle')?.setAttribute('aria-pressed', String(active()));
+  };
+  enCadaPagina(paint);
+  const say = (text: string) => {
+    const status = document.querySelector('.measure-status');
+    if (status) status.textContent = text;
+  };
+  document.addEventListener('click', (event) => {
+    if (!(event.target as Element).closest('.measure-toggle')) return;
+    sessionStorage.setItem(key, active() ? '0' : '1');
+    paint();
+    say(active() ? 'Pulsa una foto del retrato.' : '');
+  });
+  window.addEventListener(
+    'click',
+    async (event) => {
+      if (!active() || event.detail === 0) return;
+      const link = (event.target as Element).closest<HTMLElement>('.analysis-content a.photo-zoom');
+      const photo = link?.querySelector('img');
+      if (!link || !photo) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      const box = photo.getBoundingClientRect();
+      const x = Math.round(((event.clientX - box.left) / box.width) * 100);
+      const y = Math.round(((event.clientY - box.top) / box.height) * 100);
+      const text = `x={${x}} y={${y}}`;
+      link.querySelector('.measure-dot')?.remove();
+      const dot = document.createElement('span');
+      dot.className = 'measure-dot';
+      dot.style.left = `${x}%`;
+      dot.style.top = `${y}%`;
+      dot.append(Object.assign(document.createElement('span'), { textContent: text }));
+      link.append(dot);
+      try {
+        await navigator.clipboard.writeText(text);
+        say(`Copiado: ${text}`);
+      } catch {
+        say(`${text} (cópialo a mano)`);
+      }
+    },
+    true,
+  );
+</script>

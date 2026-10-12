@@ -21,6 +21,9 @@ const {
 // Con zoom, la foto es un enlace a su versión grande: el visor la abre encima y, sin
 // JavaScript, el navegador la abre sola.
 const widths = [480, 960, 1600].filter((width) => width <= src.width);
+// Proporción de la foto en CSS (global.css la usa como aspect-ratio): con height:auto, Chrome
+// avisa de que una foto diferida no tiene medidas aunque lleve width y height.
+const ratio = `--ratio: ${src.width} / ${src.height}`;
 const large = zoom
   ? await getImage({ src, width: Math.min(src.width, 1600), format: 'webp' })
   : undefined;
@@ -32,6 +35,7 @@ const large = zoom
     href={large.src}
     data-pswp-width={large.attributes.width}
     data-pswp-height={large.attributes.height}
+    data-cropped="true"
     aria-label={`Ver en grande: ${alt}`}
   >
     <Picture
@@ -44,6 +48,7 @@ const large = zoom
       loading={priority ? 'eager' : 'lazy'}
       fetchpriority={priority ? 'high' : 'auto'}
       decoding="async"
+      style={ratio}
     />
   </a>
 ) : (
@@ -58,5 +63,6 @@ const large = zoom
     loading={priority ? 'eager' : 'lazy'}
     fetchpriority={priority ? 'high' : 'auto'}
     decoding="async"
+    style={ratio}
   />
 )}

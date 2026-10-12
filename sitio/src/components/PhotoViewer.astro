@@ -3,9 +3,19 @@
   // (a.photo-zoom); el visor se carga al abrir la primera y agrupa todas las de la página.
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
   import 'photoswipe/style.css';
-  if (document.querySelector('a.photo-zoom')) {
+  import { enCadaPagina } from '../scripts/cada-pagina';
+  // Al navegar sin recargar, el contenido cambia: se cierra el visor de la página anterior y se
+  // prepara otro para la nueva.
+  let current: { gallery: HTMLElement; lightbox: PhotoSwipeLightbox } | undefined;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const setUp = () => {
+    const gallery = document.querySelector<HTMLElement>('#contenido');
+    if (!gallery || gallery === current?.gallery) return;
+    current?.lightbox.destroy();
+    current = undefined;
+    if (!gallery.querySelector('a.photo-zoom')) return;
     const lightbox = new PhotoSwipeLightbox({
-      gallery: '#contenido',
+      gallery,
       children: 'a.photo-zoom',
       pswpModule: () => import('photoswipe'),
       mainClass: 'photo-viewer',
@@ -43,6 +53,17 @@
     lightbox.on('afterInit', () => {
       lightbox.pswp?.element?.setAttribute('aria-label', 'Fotografía ampliada');
     });
+    // La foto crece desde su miniatura y vuelve a ella al cerrar; sin movimiento si quien visita
+    // lo ha pedido.
+    gallery.addEventListener(
+      'click',
+      () => {
+        lightbox.options.showHideAnimationType = reduceMotion.matches ? 'none' : 'zoom';
+      },
+      { capture: true },
+    );
     lightbox.init();
-  }
+    current = { gallery, lightbox };
+  };
+  enCadaPagina(setUp);
 </script>

@@ -30,7 +30,7 @@ El visor es PhotoSwipe 5. Cada foto ampliable es un enlace a su versión grande 
 
 En Armarios, cada tarjeta enseña dos pares. Si la colaboradora tiene más, hasta dos de ellos asoman en abanico detrás del segundo, girados y con una sombra suave; el segundo se reduce al 76 % para dejarles sitio, y el abanico cabe entero en su hueco, también en el móvil. No hay etiqueta «+N»: el número total ya se lee en «N pares», dentro del enlace.
 
-Pares y armarios permiten compartir con el menú del dispositivo cuando está disponible y copiar el enlace, con alternativa manual si el portapapeles falla. La guía muestra las siete vistas en una sola cuadrícula: tres por fila en escritorio, con el detalle en una fila propia, y en el móvil una columna en la que cada vista enseña la foto y después su texto; cada vista conserva su ancla (`#vista-01` … `#vista-07`) para enlazarla directamente, por ejemplo al pedir una foto que falta. En Cómo colaborar, bajo la entrada, una lista de tres ideas («Con el móvil», «Tantos pares como quieras», «Lo lees antes que nadie») se lee en la letra de los títulos, en tres columnas separadas por un filete; en el móvil, una debajo de otra. Cómo colaborar y la guía tienen un único llamado principal, al final de la página, y no muestran «Manda tu par» en la cabecera. Arriba, junto a la entradilla, ofrecen un acceso secundario a Tally para quien ya tiene las fotos (`QuickSend`). La guía ya no lleva la ilustración de tacones ni el aviso «¿Son tacones?»: la guía de tacones vuelve cuando haya fotos de un par de tacón de una colaboradora; mientras, la vista de frente tiene una línea para los tacones.
+Pares y armarios ofrecen solo «Copiar enlace», igual en el móvil y en el ordenador: copia la dirección y avisa «Enlace copiado» unos segundos; si el portapapeles falla, enseña el enlace seleccionado para copiarlo a mano. Ya no se usa el menú de compartir del dispositivo. La guía muestra las siete vistas en una sola cuadrícula: tres por fila en escritorio, con el detalle en una fila propia, y en el móvil una columna en la que cada vista enseña la foto y después su texto; cada vista conserva su ancla (`#vista-01` … `#vista-07`) para enlazarla directamente, por ejemplo al pedir una foto que falta. En Cómo colaborar, bajo la entrada, una lista de tres ideas («Con el móvil», «Tantos pares como quieras», «Lo lees antes que nadie») se lee en la letra de los títulos, en tres columnas separadas por un filete; en el móvil, una debajo de otra. Cómo colaborar y la guía tienen un único llamado principal, al final de la página, y no muestran «Manda tu par» en la cabecera. Arriba, junto a la entradilla, ofrecen un acceso secundario a Tally para quien ya tiene las fotos (`QuickSend`). La guía ya no lleva la ilustración de tacones ni el aviso «¿Son tacones?»: la guía de tacones vuelve cuando haya fotos de un par de tacón de una colaboradora; mientras, la vista de frente tiene una línea para los tacones.
 
 ## Textos y estructura (bloque 6)
 
@@ -39,6 +39,20 @@ Cada página tiene un trabajo y cada final habla de lo que se acaba de ver. La i
 La portada se ordena así: destacado; lema; «En qué nos fijamos», tres detalles (foto, rasgo como etiqueta, título y frase) con «Leer el análisis» si salen de un par, sin enlace si son fotos de ejemplo; «Lo último que hemos mirado», las tarjetas de Pares, desde 5 pares, con «Seguir mirando»; Armarios, con un armario como antes (dos fotos y su enlace) y con más, hasta tres abanicos (`WardrobeFan`, el mismo abanico de Armarios con el primer par delante) y «Ver los armarios»; y el final propio, «¿Nos enseñas tus zapatos?», sobre el fondo de la invitación, con los cuatro grupos de zapatos: la foto de su último par y «N pares», o una foto de ejemplo y «Aún no hay ninguno. ¿Tienes unos?». Los umbrales están en `src/data/home.ts` y se explican en CONTENIDO.
 
 Qué es El Par abre con la marca tal como va en la cabecera, en grande (versalitas espaciadas y «Zapatos en detalle» debajo), y dos bloques con la misma composición, título a la izquierda y texto a la derecha: «Qué hacemos» y «Qué nos hace distintos», con cuatro puntos y, debajo, la nota sobre cómo tratamos las fotos. Cada armario lleva una línea bajo el título y, centrado bajo las tarjetas, un botón con borde.
+
+## Interacción y movimiento (bloque 7)
+
+Elegido en el laboratorio del bloque 7 (combinación N3 · E2 · R4 · D3 · V2 · F3 · L3) y ya sin variantes:
+
+- **Entre páginas**: navegación sin recarga con el enrutador de Astro. La foto de la tarjeta pulsada crece hasta ser la foto grande del retrato, y vuelve al volver; el resto cambia con un fundido corto y la cabecera no se mueve. El visor, el glosario, compartir y el menú se preparan otra vez tras cada navegación (`src/scripts/cada-pagina.ts`).
+- **Al aparecer**: fotos y tarjetas que están por debajo de la pantalla llegan con un fundido y una subida corta (`src/scripts/movimiento.ts`).
+- **Al pasar el ratón**: los enlaces de texto tienen una línea tenue y la línea entera se dibuja de izquierda a derecha; en las tarjetas, también bajo «Leer a fondo».
+- **Marcas sobre la foto**: círculo, flecha o recuadro al leer cada detalle (ver CONTENIDO.md).
+- **Visor**: la foto crece desde su miniatura y vuelve a ella al cerrar. Las definiciones del glosario aparecen con un fundido, sin botón de cerrar: con el ratón se cierran al quitarlo; tocadas, al tocar fuera; con el teclado, al salir de la palabra o con Esc.
+- **Frase de la colaboradora**: al margen del primer detalle, en Instrument Serif grande (de 2,1 a 2,6 rem, unos 38 px en el móvil y 47 px en ordenador).
+- **Lectura**: en los retratos, una línea fina arriba con un tramo por detalle que se llena al leer.
+
+Con «reducir movimiento» no hay animación ninguna. Todo vive en `src/styles/components/motion.css`, `src/scripts/movimiento.ts`, `Term.astro` y `PhotoViewer.astro`.
 
 ## CSS y responsabilidades
 

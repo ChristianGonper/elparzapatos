@@ -21,6 +21,15 @@ homeDetail:
   title: 'Un borde rosa alrededor del burdeos'
   text: 'Una línea rosa sigue la abertura y vuelve a aparecer junto al suelo.'
   image: 6
+traits:
+  [
+    'ribete de contraste',
+    'aspecto aterciopelado',
+    'garganta recortada',
+    'pala larga',
+    'suela con trama',
+  ]
+colors: ['burdeos', 'rosa']
 ---
 
 import Detalle from '../../components/AnalysisSection.astro';
@@ -31,15 +40,23 @@ import Termino from '../../components/Term.astro';
 
 <FotoPrincipal />
 
-<Detalle title="La abertura tiene su propio dibujo" image={1} caption="Desde arriba se ve el borde rosa y el recorte del extremo delantero de la abertura.">
+{/* Marcas sobre la foto (x, y, size y marca): provisionales del bloque 7, para ajustar mirando la foto. */}
+
+<Detalle title="La abertura tiene su propio dibujo" image={1} x={60} y={54} caption="Desde arriba se ve el borde rosa y el recorte del extremo delantero de la abertura.">
 
 El borde rosa permite seguir la abertura completa de un vistazo. Recorre el talón y los lados, pero por delante no termina en una curva continua: baja un poco en el centro y cambia de dirección a cada lado.
 
 Ese recorte marca la <Termino slug="garganta" />, el borde delantero donde el zapato deja de cubrir el pie. Delante queda una zona amplia de burdeos, sin tiras, lazos ni adornos añadidos.
 
+<Cita>
+
+Me encanta la originalidad de Flabelus.
+
+</Cita>
+
 </Detalle>
 
-<Detalle title="El color baja hasta la base" image={6} caption="En el perfil, el rosa aparece tanto en la abertura como en el contorno inferior." imageSide="left">
+<Detalle title="El color baja hasta la base" image={6} x={47} y={61} size={10} caption="En el perfil, el rosa aparece tanto en la abertura como en el contorno inferior." imageSide="left">
 
 De lado se ven dos líneas rosas separadas por la superficie burdeos. Una rodea la abertura. La otra sigue la base, desde la punta hasta el talón.
 
@@ -55,7 +72,7 @@ El aspecto aterciopelado se reconoce en esas variaciones: unas franjas se ven m�
 
 </Detalle>
 
-<Detalle title="La línea sigue por detrás" image={3} caption="Vista de tres cuartos por detrás: el contraste rosa continúa alrededor del talón." imageSide="left">
+<Detalle title="La línea sigue por detrás" image={3} x={26} y={50} marca="flecha" caption="Vista de tres cuartos por detrás: el contraste rosa continúa alrededor del talón." imageSide="left">
 
 El talón queda cerrado. El borde rosa pasa por su parte superior y vuelve hacia la abertura, mientras que otra franja del mismo color continúa por debajo.
 
@@ -70,11 +87,5 @@ La suela no es lisa. Tiene una trama de trazos cortos que recorren la superficie
 Alrededor aún asoma el rosa. Es el color que conecta las vistas de este par: señala la abertura cuando lo miras desde arriba y delimita la base cuando lo giras.
 
 </Detalle>
-
-<Cita>
-
-Me encanta la originalidad de Flabelus.
-
-</Cita>
 
 <Resumen />

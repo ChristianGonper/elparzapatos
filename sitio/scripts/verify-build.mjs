@@ -20,6 +20,10 @@ const documents = new Map(
 const localTarget = (url, file) =>
   resolve(url.startsWith('/') ? root : dirname(file), `.${url.startsWith('/') ? url : `/${url}`}`);
 
+for (const file of files.filter((name) => name.endsWith('.css')))
+  if (/url\(["']?data:/.test(await readFile(file, 'utf8')))
+    errors.push(`${file}: imagen data: (lo bloquea la CSP)`);
+
 for (const [file, html] of documents) {
   const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
   if (new Set(ids).size !== ids.length) errors.push(`${file}: identificadores duplicados`);
@@ -28,6 +32,11 @@ for (const [file, html] of documents) {
     errors.push(`${file}: debe tener un título principal`);
   if (!/<meta name="description" content="[^"]+"/.test(html))
     errors.push(`${file}: falta descripción`);
+  // La CSP (public/_headers) solo admite scripts e imágenes propios: nada en línea ni data:.
+  for (const script of html.matchAll(/<script\b([^>]*)>/g))
+    if (!/\bsrc=/.test(script[1])) errors.push(`${file}: script en línea (lo bloquea la CSP)`);
+  if (/\b(?:src|href|srcset)="data:|url\(["']?data:/.test(html))
+    errors.push(`${file}: recurso data: (lo bloquea la CSP)`);
 
   for (const match of html.matchAll(/\b(?:href|src)="([^"\s]+)"/g)) {
     const url = match[1];
@@ -81,6 +90,15 @@ for (const [file, html] of documents) {
     )
   )
     errors.push(`${file}: expresión editorial descartada`);
+  // Cada par tiene su «retrato»: la palabra «análisis» no sale en ningún texto que se lea, ni en
+  // los atributos que se leen o se oyen (alt, aria-label, title, descripciones).
+  const readable = [
+    html.replace(/<(script|style)\b[\s\S]*?<\/\1>/g, ' ').replace(/<[^>]+>/g, ' '),
+    ...[...html.matchAll(/\b(?:alt|aria-label|title|content|placeholder)="([^"]*)"/g)].map(
+      (match) => match[1],
+    ),
+  ].join(' ');
+  if (/an[áa]lisis/i.test(readable)) errors.push(`${file}: dice «análisis» en lugar de «retrato»`);
   for (const email of html.match(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g) ?? [])
     if (email !== 'elparzapatos@proton.me') errors.push(`${file}: correo no previsto (${email})`);
 }
