@@ -53,16 +53,12 @@
     lightbox.on('afterInit', () => {
       lightbox.pswp?.element?.setAttribute('aria-label', 'Fotografía ampliada');
     });
-    // Sin movimiento si quien visita lo ha pedido; con `data-visor-zoom` en <html>, la foto
-    // crece desde su miniatura en lugar de fundirse.
+    // La foto crece desde su miniatura y vuelve a ella al cerrar; sin movimiento si quien visita
+    // lo ha pedido.
     gallery.addEventListener(
       'click',
       () => {
-        lightbox.options.showHideAnimationType = reduceMotion.matches
-          ? 'none'
-          : document.documentElement.hasAttribute('data-visor-zoom')
-            ? 'zoom'
-            : 'fade';
+        lightbox.options.showHideAnimationType = reduceMotion.matches ? 'none' : 'zoom';
       },
       { capture: true },
     );
