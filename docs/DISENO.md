@@ -40,6 +40,20 @@ La portada se ordena así: destacado; lema; «En qué nos fijamos», tres detall
 
 Qué es El Par abre con la marca tal como va en la cabecera, en grande (versalitas espaciadas y «Zapatos en detalle» debajo), y dos bloques con la misma composición, título a la izquierda y texto a la derecha: «Qué hacemos» y «Qué nos hace distintos», con cuatro puntos y, debajo, la nota sobre cómo tratamos las fotos. Cada armario lleva una línea bajo el título y, centrado bajo las tarjetas, un botón con borde.
 
+## Interacción y movimiento (bloque 7)
+
+Elegido en el laboratorio del bloque 7 (combinación N3 · E2 · R4 · D3 · V2 · F3 · L3) y ya sin variantes:
+
+- **Entre páginas**: navegación sin recarga con el enrutador de Astro. La foto de la tarjeta pulsada crece hasta ser la foto grande del retrato, y vuelve al volver; el resto cambia con un fundido corto y la cabecera no se mueve. El visor, el glosario, compartir y el menú se preparan otra vez tras cada navegación (`src/scripts/cada-pagina.ts`).
+- **Al aparecer**: fotos y tarjetas que están por debajo de la pantalla llegan con un fundido y una subida corta (`src/scripts/movimiento.ts`).
+- **Al pasar el ratón**: los enlaces de texto tienen una línea tenue y la línea entera se dibuja de izquierda a derecha; en las tarjetas, también bajo «Leer a fondo».
+- **Marcas sobre la foto**: círculo, flecha o recuadro al leer cada detalle (ver CONTENIDO.md).
+- **Visor**: la foto crece desde su miniatura y vuelve a ella al cerrar. Las definiciones del glosario aparecen con un fundido, sin botón de cerrar: con el ratón se cierran al quitarlo; tocadas, al tocar fuera; con el teclado, al salir de la palabra o con Esc.
+- **Frase de la colaboradora**: al margen del primer detalle, en Instrument Serif grande (de 2,1 a 2,6 rem, unos 38 px en el móvil y 47 px en ordenador).
+- **Lectura**: en los retratos, una línea fina arriba con un tramo por detalle que se llena al leer.
+
+Con «reducir movimiento» no hay animación ninguna. Todo vive en `src/styles/components/motion.css`, `src/scripts/movimiento.ts`, `Term.astro` y `PhotoViewer.astro`.
+
 ## CSS y responsabilidades
 
 Se mantiene CSS propio. Esta interfaz tiene composiciones editoriales, recortes de fotografía, popovers e impresión que necesitan reglas específicas. Tailwind aportaría utilidades y una escala común, pero exigiría reescribir el marcado sin resolver por sí mismo la propiedad de cada estilo. La escala ya está definida mediante variables compartidas; modularizar aporta aquí más que cambiar de framework.

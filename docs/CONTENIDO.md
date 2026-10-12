@@ -104,18 +104,32 @@ invitation:
   text: 'A veces lo mejor está en la superficie: una trama, un brillo, un borde. Mándanos las tuyas, una o todas, y te contamos lo que tienen.'
 ```
 
-### Puntos sobre la foto
+### Marcas sobre la foto
 
-Cada `<Detalle>` puede señalar en su foto el sitio del que habla: `x` e `y` en % desde la esquina de arriba a la izquierda (de 0 a 100) y, si hace falta, `size`, el tamaño del punto en % del ancho de la foto (12 si no se pone). Se escribe en el MDX del par, en la misma etiqueta del detalle:
+Cada `<Detalle>` puede marcar en su foto el sitio del que habla. Al pasar el ratón por el texto del detalle (o por ese sitio de la foto) la marca aparece, y se va al quitarlo; un clic no la deja fija. En el móvil sale al tocar el texto y se va al tocar en otro sitio o al seguir bajando. Se escribe en el MDX del par, en la propia etiqueta del detalle:
+
+| Atributo | Qué es | Por defecto |
+| --- | --- | --- |
+| `x`, `y` | El sitio, en % desde la esquina de arriba a la izquierda (0 a 100). Sin ellos no hay marca. | |
+| `size` | Tamaño de la zona, en % del ancho de la foto (círculo y recuadro). | 12 |
+| `marca` | `"circulo"`, `"flecha"` o `"recuadro"`. | `"circulo"` |
+| `desde` | Solo con flecha: de qué lado llega, `"izquierda"`, `"derecha"`, `"arriba"` o `"abajo"`. | el lado con más sitio |
 
 ```mdx
 <Detalle title="La abertura tiene su propio dibujo" image={1} x={60} y={54} caption="…">
 <Detalle title="El color baja hasta la base" image={6} x={47} y={61} size={10} caption="…">
+<Detalle title="La línea sigue por detrás" image={3} x={26} y={50} marca="flecha" caption="…">
+<Detalle title="…" image={2} x={40} y={70} marca="flecha" desde="abajo" caption="…">
+<Detalle title="…" image={5} x={55} y={35} size={20} marca="recuadro" caption="…">
 ```
 
-Es opcional: sin `x` e `y`, el detalle no lleva punto. Un valor fuera de 0 a 100 detiene la compilación. Hoy solo los lleva [PAR-0002](../sitio/src/content/pares/par-0002.mdx) (tres detalles, valores provisionales para ajustar) y solo se ven en la vista de revisión, con el laboratorio.
+El círculo y el recuadro rodean la zona y oscurecen un poco el resto de la foto; la flecha señala el punto sin oscurecer nada (mejor para algo pequeño o en un borde). Un valor fuera de 0 a 100 o una marca que no existe detienen la compilación. Hoy las llevan tres detalles de [PAR-0002](../sitio/src/content/pares/par-0002.mdx), con valores provisionales para ajustar; el tercero es la muestra de flecha.
 
-Para verlos y ajustarlos: `npm run dev` (o la rama de revisión), abrir `/pares/slippers-burdeos-borde-rosa/`, pulsar «Lab» y elegir en «D · Detalles en la foto» cualquier opción distinta de D1; al pasar el ratón por el texto de un detalle (o tocarlo en el móvil) se ve el punto. Para medir un punto nuevo, activar en el panel «Medir puntos al pulsar una foto»: al pulsar sobre cualquier foto de un retrato, el panel enseña y copia `x={…} y={…}` de ese sitio, listo para pegar en la etiqueta del detalle. Con el interruptor activado, las fotos no se abren en el visor.
+**Medir un punto** (solo en la vista de revisión: `npm run dev` o `npm run build:review`): en un retrato, el botón pequeño «Medir puntos», abajo a la derecha, o `?medir` al final de la dirección (por ejemplo `/pares/slippers-burdeos-borde-rosa/?medir`). Con la ayuda activada, al pulsar una foto del retrato se marca ese sitio y se copia `x={…} y={…}`, listo para pegar en la etiqueta del detalle; la foto no se abre en el visor. Se apaga con el mismo botón. La compilación normal no lleva ni el botón ni su código.
+
+### Frase de la colaboradora
+
+`<Cita>` va dentro del primer `<Detalle>`, después de sus párrafos: así sale como nota al margen junto a la primera foto, con la letra del título en grande. Fuera de un detalle se ve como antes, centrada y a todo el ancho.
 
 `traits` y `colors` son listas opcionales de etiquetas. Todavía no se muestran: sirven para filtrar Pares por rasgo o color y para montar colecciones («Pares con rejilla», «En burdeos») cuando haya catálogo. `traits` recoge los rasgos que el retrato señala, en minúscula y con la palabra del glosario cuando la hay («rejilla», «garganta recortada»); `colors`, los colores tal como los nombra el retrato («burdeos», «rosa»; «oscuro» o «claro» si el texto no dice más). Se normalizarán a una lista cerrada cuando se haga el filtro. No se deducen: solo lo que el retrato dice.
 
