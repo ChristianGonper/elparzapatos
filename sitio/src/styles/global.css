@@ -68,6 +68,7 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  aspect-ratio: var(--ratio, auto);
 }
 /* Las fotos llegan envueltas en <picture> (AVIF con WebP de reserva); la caja la pone la imagen. */
 picture {
