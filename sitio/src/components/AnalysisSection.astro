@@ -81,7 +81,20 @@ const headingId =
           zoom
           sizes="(max-width: 800px) 92vw, 45vw"
         />
-        <span class="detail-mark" aria-hidden="true" />
+        <span class="detail-mark" aria-hidden="true">
+          {marca === 'flecha' && (
+            <svg viewBox="0 0 104 22" preserveAspectRatio="none">
+              <path
+                d="M3 11h88M80 3l11 8-11 8"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          )}
+        </span>
       </div>
     ) : (
       <Photo
