@@ -839,7 +839,9 @@ test('En revisión, «Medir puntos» enseña y copia x/y al pulsar una foto', as
 // las pruebas no lee _headers. Cualquier violación o error de consola en cualquier ruta falla.
 const csp = readFileSync('public/_headers', 'utf8').match(/Content-Security-Policy: (.+)/)![1];
 
-test('Ninguna página viola la CSP ni deja errores o avisos en la consola', async ({ page }) => {
+test('Ninguna página viola la CSP ni deja errores, avisos o problemas en Chrome', async ({
+  page,
+}) => {
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.route('**/*', async (route) => {
     if (route.request().resourceType() !== 'document') return route.continue();
@@ -859,9 +861,22 @@ test('Ninguna página viola la CSP ni deja errores o avisos en la consola', asyn
     if (['error', 'warning'].includes(message.type()))
       problems.push(`${page.url()} · ${message.type()}: ${message.text()}`);
   });
-  page.on('pageerror', (error) => problems.push(`${page.url()} · ${error.message}`));
+  page.on('pageerror', (error) => problems.push(`${page.url()} · excepción: ${error.message}`));
+  // Lo que Chrome lista en «Issues» (p. ej. fotos diferidas sin medidas o campos sin nombre).
+  const cdp = await page.context().newCDPSession(page);
+  cdp.on('Audits.issueAdded', ({ issue }) =>
+    problems.push(`${page.url()} · issue: ${issue.code} ${JSON.stringify(issue.details)}`),
+  );
+  await cdp.send('Audits.enable');
+  const lazyWithoutSize = () =>
+    page.evaluate(() =>
+      [...document.querySelectorAll('img[loading="lazy"]')]
+        .filter((img) => !img.getAttribute('width') || !img.getAttribute('height'))
+        .map((img) => img.getAttribute('src')),
+    );
   for (const route of [...routes, '/404/']) {
     await page.goto(route);
+    expect(await lazyWithoutSize(), route).toEqual([]);
     // Baja hasta el final para que carguen todas las fotos y se enciendan las marcas.
     await page.evaluate(async () => {
       for (let y = 0; y < document.body.scrollHeight; y += 600) {
@@ -874,9 +889,28 @@ test('Ninguna página viola la CSP ni deja errores o avisos en la consola', asyn
       .all())
       await text.hover();
   }
-  // Y una navegación sin recarga, con la foto que crece.
+  // Navegaciones sin recarga, de ida y vuelta: la foto que crece no puede repetir nombre.
   await page.goto('/pares/');
-  await page.locator('a.pair-card').first().click();
+  const cards = await page.locator('a.pair-card').count();
+  for (const index of [0, 1, 0, cards - 1]) {
+    await page.locator('a.pair-card').nth(index).click();
+    await expect(page.locator('.article-hero')).toBeVisible();
+    await page.waitForTimeout(700);
+    await page.locator('.more-portraits a.pair-card').first().click();
+    await expect(page.locator('.article-hero')).toBeVisible();
+    await page.waitForTimeout(700);
+    await page.goBack();
+    await page.waitForTimeout(700);
+    await page.goBack();
+    await expect(page).toHaveURL('/pares/');
+    await page.waitForTimeout(700);
+  }
+  await page.goto('/');
+  await page.locator('a.home-feature-photo').click();
   await expect(page.locator('.article-hero')).toBeVisible();
+  await page.waitForTimeout(700);
+  await page.goBack();
+  await page.waitForTimeout(700);
+  expect(await lazyWithoutSize()).toEqual([]);
   expect(problems).toEqual([]);
 });
