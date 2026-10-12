@@ -850,3 +850,49 @@ test('En revisión, «Medir puntos» enseña y copia x/y al pulsar una foto', as
   await expect(other.locator('html')).toHaveClass(/is-measuring/);
   await context.close();
 });
+
+// La CSP de public/_headers (la que aplica Cloudflare) se pone también aquí, porque el servidor de
+// las pruebas no lee _headers. Cualquier violación o error de consola en cualquier ruta falla.
+const csp = readFileSync('public/_headers', 'utf8').match(/Content-Security-Policy: (.+)/)![1];
+
+test('Ninguna página viola la CSP ni deja errores o avisos en la consola', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.route('**/*', async (route) => {
+    if (route.request().resourceType() !== 'document') return route.continue();
+    const response = await route.fetch();
+    await route.fulfill({
+      response,
+      headers: { ...response.headers(), 'content-security-policy': csp },
+    });
+  });
+  await page.addInitScript(() =>
+    document.addEventListener('securitypolicyviolation', (event) =>
+      console.error(`CSP: ${event.violatedDirective} ${event.blockedURI}`),
+    ),
+  );
+  const problems: string[] = [];
+  page.on('console', (message) => {
+    if (['error', 'warning'].includes(message.type()))
+      problems.push(`${page.url()} · ${message.type()}: ${message.text()}`);
+  });
+  page.on('pageerror', (error) => problems.push(`${page.url()} · ${error.message}`));
+  for (const route of [...routes, '/404/']) {
+    await page.goto(route);
+    // Baja hasta el final para que carguen todas las fotos y se enciendan las marcas.
+    await page.evaluate(async () => {
+      for (let y = 0; y < document.body.scrollHeight; y += 600) {
+        window.scrollTo(0, y);
+        await new Promise((resolve) => setTimeout(resolve, 60));
+      }
+    });
+    for (const text of await page
+      .locator('.article-section:has(.detail-photo) .article-text')
+      .all())
+      await text.hover();
+  }
+  // Y una navegación sin recarga, con la foto que crece.
+  await page.goto('/pares/');
+  await page.locator('a.pair-card').first().click();
+  await expect(page.locator('.article-hero')).toBeVisible();
+  expect(problems).toEqual([]);
+});
