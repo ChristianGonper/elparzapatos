@@ -17,7 +17,7 @@ const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
   <p class="share-status small-note" role="status"></p>
   <label class="share-manual small-note" hidden>
     Enlace para copiar
-    <input type="url" readonly aria-label={`Enlace de este ${kind}`} />
+    <input type="url" name="enlace" readonly aria-label={`Enlace de este ${kind}`} />
   </label>
   <noscript>
     <p class="small-note">Puedes compartir este {kind} copiando la dirección de esta página.</p>
