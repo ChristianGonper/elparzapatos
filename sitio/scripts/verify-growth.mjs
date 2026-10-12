@@ -160,6 +160,8 @@ try {
 
   // Portada con muchos pares y dos armarios: todo lo que depende de los datos aparece solo.
   const home = await page('');
+  // La vista de revisión lleva la ayuda para medir puntos.
+  assert.match(home, /measure-toggle/);
   const section = (html, name) =>
     html.match(new RegExp(`class="[^"]*${name}[\\s\\S]*?</section>`))?.[0] ?? '';
   assert.equal(cards(section(home, 'home-latest')), 4);
@@ -225,6 +227,8 @@ try {
   );
   // La compilación por defecto excluye borradores aunque la indexación no esté activada.
   await build();
+  // La compilación normal no lleva la ayuda para medir puntos ni nada del laboratorio.
+  assert.doesNotMatch(await page(''), /measure-toggle|elpar-medir|lab-toggle|data-lab/);
   assert.equal(cards(await page('pares')), 3);
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   assert.match(await page(''), /noindex, nofollow/);
