@@ -173,6 +173,8 @@ const esRetrato = (ruta: string) => /^\/pares\/[^/]+\/$/.test(ruta);
 window.addEventListener(
   'click',
   (event) => {
+    // Un nombre de transición no puede repetirse: antes de dárselo a la foto pulsada se quita de
+    // cualquier otra (también de la que lo recibió al volver a esta página).
     document.querySelectorAll<HTMLElement>('[data-crece]').forEach((foto) => {
       foto.style.viewTransitionName = '';
       delete foto.dataset.crece;
@@ -196,7 +198,9 @@ document.addEventListener('astro:before-swap', (event) => {
   const tarjeta = event.newDocument.querySelector<HTMLElement>(
     `a[href="${event.from.pathname}"] img`,
   );
-  if (tarjeta) tarjeta.style.viewTransitionName = nombre;
+  if (!tarjeta) return;
+  tarjeta.style.viewTransitionName = nombre;
+  tarjeta.dataset.crece = '1';
 });
 
 let ultima: HTMLElement | undefined;
