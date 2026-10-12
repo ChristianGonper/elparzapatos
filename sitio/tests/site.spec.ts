@@ -391,8 +391,10 @@ test('Las definiciones abren, enlazan al glosario y se cierran', async ({ page }
   while (!(await button.evaluate((element) => element === document.activeElement)))
     await page.keyboard.press('Tab');
   await expect(button).toHaveAttribute('aria-expanded', 'true');
+  // Sin botón de cerrar: Tab entra en el enlace de la definición, que sigue abierta.
+  await expect(popover.getByRole('button')).toHaveCount(0);
   await page.keyboard.press('Tab');
-  await expect(popover.getByRole('button', { name: 'Cerrar definición' })).toBeFocused();
+  await expect(popover.getByRole('link')).toBeFocused();
   await page.keyboard.press('Escape');
   await expect(popover).toHaveCount(0);
   await expect(button).toBeFocused();
@@ -405,6 +407,12 @@ test('Las definiciones abren, enlazan al glosario y se cierran', async ({ page }
   await page.keyboard.press('Escape');
   await expect(button).toHaveAttribute('aria-expanded', 'false');
   await expect(button).toBeFocused();
+  // Al salir de la palabra con el teclado, se cierra.
+  await page.keyboard.press('Shift+Tab');
+  await page.keyboard.press('Tab');
+  await expect(popover).toBeVisible();
+  await page.keyboard.press('Shift+Tab');
+  await expect(page.getByRole('dialog', { name: 'Definición de Rejilla' })).toBeHidden();
 });
 
 test('En escritorio la definición se abre al pasar el ratón, junto a la palabra', async ({
@@ -428,13 +436,15 @@ test('En escritorio la definición se abre al pasar el ratón, junto a la palabr
   await page.mouse.move(5, 400);
   await expect(popover).toBeHidden();
   await expect(button).toHaveAttribute('aria-expanded', 'false');
-  // Con un clic se queda abierta aunque el ratón se vaya; un clic fuera la cierra.
+  // Un clic con el ratón no la deja fija: al quitar el ratón se cierra igual.
   await button.click();
-  await page.mouse.move(5, 400);
-  await page.waitForTimeout(400);
   await expect(popover).toBeVisible();
-  await page.mouse.click(5, 400);
+  await page.mouse.move(5, 400);
   await expect(popover).toBeHidden();
+  // Y la tarjeta no lleva botón de cerrar.
+  await button.hover();
+  await expect(popover).toBeVisible();
+  await expect(popover.getByRole('button')).toHaveCount(0);
 });
 
 test('En el móvil la definición se abre con un toque y se cierra con otro o tocando fuera', async ({
@@ -688,4 +698,155 @@ test('Cada retrato termina con «Más retratos»: su armario primero, sin repeti
     for (const href of first)
       expect(sameWardrobe.map((other) => `/pares/${other.data.slug}/`)).toContain(href);
   }
+});
+
+test('Ningún texto visible dice «análisis»', async ({ page }) => {
+  for (const route of [...routes, '/404/']) {
+    await page.goto(route);
+    const text = await page.evaluate(
+      () =>
+        document.body.innerText +
+        document.title +
+        [...document.querySelectorAll('[alt], [aria-label], [title], meta[content]')]
+          .map((element) =>
+            ['alt', 'aria-label', 'title', 'content'].map((name) => element.getAttribute(name)),
+          )
+          .join(' '),
+    );
+    expect(text, route).not.toMatch(/an[aá]lisis/i);
+  }
+});
+
+// Interacción y movimiento (bloque 7).
+const retrato = `/pares/${pairSources.find((pair) => pair.id === 'par-0002')!.data.slug}/`;
+
+test('No queda ningún panel de laboratorio', async ({ page }) => {
+  for (const route of ['/', retrato]) {
+    await page.goto(`${route}?lab=N2E3`);
+    await expect(page.locator('.lab-toggle, #laboratorio, [data-lab-n]')).toHaveCount(0);
+  }
+});
+
+test('Tras navegar con transición, el visor y el glosario siguen funcionando', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto('/');
+  await page.evaluate(() => ((window as unknown as { marca: number }).marca = 1));
+  await page.locator('a[href="/pares/"]').first().click();
+  await page.locator(`a.pair-card[href="${retrato}"]`).click();
+  await expect(page).toHaveURL(retrato);
+  // Sin recarga: la marca puesta en la portada sigue ahí.
+  expect(await page.evaluate(() => (window as unknown as { marca?: number }).marca)).toBe(1);
+  await page.locator('.article-section a.photo-zoom').first().click();
+  await expect(page.locator('.pswp--open')).toBeVisible();
+  await page.waitForTimeout(700);
+  await page.keyboard.press('Escape');
+  await expect(page.locator('.pswp')).toHaveCount(0);
+  const term = page.locator('button.term').first();
+  await term.scrollIntoViewIfNeeded();
+  await term.hover();
+  await expect(page.locator('.term-popover:popover-open')).toHaveCount(1);
+  await page.mouse.move(5, 5);
+  await expect(page.locator('.term-popover:popover-open')).toHaveCount(0);
+  // Y de un retrato a otro desde «Más retratos».
+  await page.locator('.more-portraits a.pair-card').first().click();
+  await expect(page.locator('h1')).not.toContainText('borde rosa');
+  await page.locator('.article-section a.photo-zoom').first().click();
+  await expect(page.locator('.pswp--open')).toBeVisible();
+  expect(errors).toEqual([]);
+});
+
+test('Con «reducir movimiento» no hay animaciones', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.appears')).toHaveCount(0);
+  await page.locator('a[href="/pares/"]').first().click();
+  expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
+  await expect(page).toHaveURL('/pares/');
+  await page.goto(retrato);
+  await page.locator('.article-section a.photo-zoom').first().click();
+  await expect(page.locator('.pswp--open')).toBeVisible();
+  expect(await page.evaluate(() => document.getAnimations().length)).toBe(0);
+});
+
+test('Sin «reducir movimiento», lo que está más abajo aparece al llegar', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('/pares/');
+  const later = page.locator('.appears').first();
+  await expect(later).not.toHaveClass(/is-visible/);
+  await later.scrollIntoViewIfNeeded();
+  await expect(later).toHaveClass(/is-visible/);
+});
+
+test('La marca sobre la foto se enciende al leer y no se queda fija con un clic', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(retrato);
+  const section = page.locator('.article-section:has(.detail-photo)').first();
+  const photo = section.locator('.detail-photo');
+  await expect(photo).toHaveAttribute('data-marca', 'circulo');
+  await section.scrollIntoViewIfNeeded();
+  await section.locator('.article-text').hover();
+  await expect(photo).toHaveClass(/is-marked/);
+  await section.locator('.article-text p').first().click();
+  await page.mouse.move(2, 2);
+  await expect(photo).not.toHaveClass(/is-marked/);
+  // También al pasar por la zona marcada de la foto.
+  const box = (await photo.boundingBox())!;
+  await page.mouse.move(box.x + box.width * 0.6, box.y + box.height * 0.54);
+  await expect(photo).toHaveClass(/is-marked/);
+  await page.mouse.move(box.x + 10, box.y + 10);
+  await expect(photo).not.toHaveClass(/is-marked/);
+  // Modo flecha: llega desde el lado con más sitio si no se elige.
+  const arrow = page.locator('.detail-photo[data-marca="flecha"]');
+  await expect(arrow).toHaveAttribute('data-desde', 'derecha');
+});
+
+test('En el móvil la marca sale al tocar el texto y se va al tocar fuera o seguir bajando', async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    viewport: { width: 390, height: 844 },
+    hasTouch: true,
+    isMobile: true,
+  });
+  const page = await context.newPage();
+  await page.goto(`http://localhost:4322${retrato}`);
+  const section = page.locator('.article-section:has(.detail-photo)').first();
+  const photo = section.locator('.detail-photo');
+  await section.locator('.article-text p').first().tap();
+  await expect(photo).toHaveClass(/is-marked/);
+  await page.locator('h1').tap();
+  await expect(photo).not.toHaveClass(/is-marked/);
+  await section.locator('.article-text p').first().tap();
+  await expect(photo).toHaveClass(/is-marked/);
+  await page.mouse.wheel(0, 300);
+  await page.evaluate(() => window.scrollBy(0, 300));
+  await expect(photo).not.toHaveClass(/is-marked/);
+  await context.close();
+});
+
+test('En revisión, «Medir puntos» enseña y copia x/y al pulsar una foto', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  const page = await context.newPage();
+  await page.goto(`http://localhost:4322${retrato}`);
+  await page.getByRole('button', { name: 'Medir puntos' }).click();
+  await expect(page.getByRole('button', { name: 'Medir puntos' })).toHaveAttribute(
+    'aria-pressed',
+    'true',
+  );
+  const photo = page.locator('.article-section a.photo-zoom').first();
+  await photo.scrollIntoViewIfNeeded();
+  const box = (await photo.boundingBox())!;
+  await page.mouse.click(box.x + box.width * 0.25, box.y + box.height * 0.75);
+  await expect(page.locator('.pswp')).toHaveCount(0);
+  await expect(page.locator('.measure-status')).toHaveText('Copiado: x={25} y={75}');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('x={25} y={75}');
+  // Con ?medir llega ya activada.
+  const other = await context.newPage();
+  await other.goto(`http://localhost:4322/pares/?medir`);
+  await expect(other.locator('html')).toHaveClass(/is-measuring/);
+  await context.close();
 });

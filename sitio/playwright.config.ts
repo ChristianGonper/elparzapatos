@@ -7,6 +7,9 @@ export default defineConfig({
   fullyParallel: false,
   reporter: [['list']],
   use: {
+    // Las pruebas de maquetación miden posiciones: sin animaciones de entrada. Las pruebas de
+    // movimiento lo vuelven a activar con emulateMedia.
+    contextOptions: { reducedMotion: 'reduce' },
     baseURL: 'http://localhost:4322',
     headless: true,
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE
