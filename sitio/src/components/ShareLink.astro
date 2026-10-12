@@ -1,18 +1,15 @@
 ---
 import { siteUrl } from '../data/site';
 interface Props {
-  title: string;
   kind: 'par' | 'armario';
 }
-const { title, kind } = Astro.props;
+// Solo «Copiar enlace», igual en el móvil y en el ordenador, con un aviso breve al copiar.
+const { kind } = Astro.props;
 const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
 ---
 
-<div class="share-tools" data-share-title={title} data-share-url={url}>
+<div class="share-tools" data-share-url={url}>
   <div class="share-actions" hidden>
-    <button class="share-button native-share" type="button" hidden>
-      Compartir este {kind} <span aria-hidden="true">↗</span>
-    </button>
     <button class="share-button copy-link" type="button">
       Copiar enlace <span aria-hidden="true">⧉</span>
     </button>
@@ -32,21 +29,22 @@ const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
     document.querySelectorAll<HTMLElement>('.share-tools').forEach((root) => {
       if (!primeraVez(root)) return;
       const actions = root.querySelector<HTMLElement>('.share-actions');
-      const share = root.querySelector<HTMLButtonElement>('.native-share');
       const copy = root.querySelector<HTMLButtonElement>('.copy-link');
       const manual = root.querySelector<HTMLLabelElement>('.share-manual');
       const input = root.querySelector<HTMLInputElement>('input');
       const status = root.querySelector<HTMLElement>('.share-status');
       const url = root.dataset.shareUrl ?? new URL(location.pathname, location.origin).href;
-      if (!actions || !copy || !share || !input || !manual || !status) return;
+      if (!actions || !copy || !input || !manual || !status) return;
       actions.hidden = false;
       input.value = url;
-      share.hidden = typeof navigator.share !== 'function';
+      let timer: number | undefined;
       const copyUrl = async () => {
         try {
           await navigator.clipboard.writeText(url);
           manual.hidden = true;
-          status.textContent = 'Enlace copiado.';
+          status.textContent = 'Enlace copiado';
+          window.clearTimeout(timer);
+          timer = window.setTimeout(() => (status.textContent = ''), 2500);
         } catch {
           manual.hidden = false;
           input.focus();
@@ -55,15 +53,6 @@ const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
         }
       };
       copy.addEventListener('click', copyUrl);
-      share.addEventListener('click', async () => {
-        try {
-          await navigator.share({ title: root.dataset.shareTitle, url });
-          status.textContent = 'Compartido.';
-        } catch (error) {
-          if (error instanceof DOMException && error.name === 'AbortError') return;
-          await copyUrl();
-        }
-      });
     }),
   );
 </script>

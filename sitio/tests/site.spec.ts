@@ -266,9 +266,7 @@ test('En móvil el visor también deja acercar la foto', async ({ browser }) => 
   await context.close();
 });
 
-test('Compartir pares y armarios permite copiar o usar el menú del dispositivo', async ({
-  page,
-}) => {
+test('Compartir pares y armarios es solo «Copiar enlace», con un aviso breve', async ({ page }) => {
   await page.addInitScript(() => {
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
@@ -278,30 +276,18 @@ test('Compartir pares y armarios permite copiar o usar el menú del dispositivo'
         },
       },
     });
-    Object.defineProperty(navigator, 'share', {
-      configurable: true,
-      value: async (data: { title: string; url: string }) => {
-        document.body.dataset.sharedUrl = data.url;
-        document.body.dataset.sharedTitle = data.title;
-      },
-    });
   });
-  for (const [route, kind] of [
-    ['/pares/bailarinas-rejilla-flores/', 'par'],
-    ['/armarios/maria/', 'armario'],
-  ]) {
+  for (const route of ['/pares/bailarinas-rejilla-flores/', '/armarios/maria/']) {
     await page.goto(route);
+    await expect(page.locator('.share-tools button')).toHaveCount(1);
+    await expect(page.getByRole('button', { name: /Compartir/ })).toHaveCount(0);
     await page.getByRole('button', { name: 'Copiar enlace', exact: true }).click();
     await expect(page.locator('body')).toHaveAttribute(
       'data-copied-url',
       `http://localhost:4322${route}`,
     );
-    await page.getByRole('button', { name: `Compartir este ${kind}`, exact: false }).click();
-    await expect(page.locator('body')).toHaveAttribute(
-      'data-shared-url',
-      `http://localhost:4322${route}`,
-    );
-    await expect(page.locator('.share-status')).toHaveText('Compartido.');
+    await expect(page.locator('.share-status')).toHaveText('Enlace copiado');
+    await expect(page.locator('.share-status')).toBeEmpty({ timeout: 5000 });
   }
 });
 
@@ -317,10 +303,8 @@ test('Si el portapapeles no está disponible se puede copiar el enlace manualmen
         },
       },
     });
-    Object.defineProperty(navigator, 'share', { configurable: true, value: undefined });
   });
   await page.goto('/armarios/maria/');
-  await expect(page.getByRole('button', { name: 'Compartir este armario' })).not.toBeVisible();
   await page.getByRole('button', { name: 'Copiar enlace' }).click();
   await expect(page.getByRole('textbox', { name: 'Enlace de este armario' })).toHaveValue(
     'http://localhost:4322/armarios/maria/',
