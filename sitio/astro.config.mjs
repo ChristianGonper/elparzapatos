@@ -13,6 +13,9 @@ export default defineConfig({
   trailingSlash: 'always',
   build: { format: 'directory' },
   vite: {
+    // Nada en línea: la CSP (public/_headers) solo admite scripts e imágenes propios, y Vite
+    // pondría dentro del HTML los scripts pequeños (el del menú) como <script> en línea.
+    build: { assetsInlineLimit: 0 },
     // La ayuda para medir puntos solo entra en la vista de revisión (build:review y desarrollo);
     // en la compilación normal, «@medir» es un componente vacío y no deja ni estilos ni script.
     resolve: {
