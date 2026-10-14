@@ -24,4 +24,19 @@ Enlaces locales siempre `[texto](ruta/al/archivo.md)`, nunca backticks aislados 
    - Trabajo del usuario e intenciones futuras: [TAREAS.md](TAREAS.md).
    - Decisiones arquitectónicas y alternativas descartadas: en la especificación que las gobierna (globales en [sitio/ESPECIFICACION.md](sitio/ESPECIFICACION.md); locales en su respectiva especificación viva bajo `sitio/specs/`).
 
+## Cursor Cloud specific instructions
+
+El producto que hay que poder abrir es el prototipo HTML estático. No hay `package.json`, gestor de paquetes, lint, tests ni build: la migración a Astro sigue abierta en [TAREAS.md](TAREAS.md) y no forma parte del arranque.
+
+En cada arranque el entorno sirve la raíz del repositorio en el puerto `8080` con el módulo estándar `http.server` de Python 3. La raíz tiene que ser el repositorio, y no [sitio/](sitio/README.md), para que los enlaces de [cómo colaborar](sitio/como-colaborar.html) hacia [marca/activos/](marca/activos/) resuelvan.
+
+Comprobación manual, con el servidor ya en marcha:
+
+- Portada: `http://127.0.0.1:8080/sitio/index.html`
+- Institucional: `http://127.0.0.1:8080/sitio/sobre-el-par.html`
+- Colaboración: `http://127.0.0.1:8080/sitio/como-colaborar.html`
+- Monografía: `http://127.0.0.1:8080/sitio/entradas/salon-aguja.html` (el botón «Cotas anatómicas» y los términos del glosario son la interacción propia de la pieza)
+
+Newsreader, Plus Jakarta Sans, JetBrains Mono y Tailwind llegan por CDN (`fonts.googleapis.com`, `fonts.gstatic.com`, `cdn.tailwindcss.com`). Sin salida a internet el HTML se sirve igual y los estilos no cargan. No hay secretos ni servicios externos propios.
+
 
