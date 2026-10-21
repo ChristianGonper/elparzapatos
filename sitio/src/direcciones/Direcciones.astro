@@ -1,0 +1,81 @@
+---
+// Direcciones visuales (bloque 9): solo entran en la vista de revisión (build:review y desarrollo).
+// astro.config.mjs resuelve «@direcciones» a este archivo o a components/Empty.astro, así que ni
+// el selector ni sus estilos ni sus fuentes llegan a la compilación normal.
+import './estilos/selector.css';
+import { direcciones } from './opciones';
+interface Props {
+  parte: 'cabeza' | 'selector';
+}
+const { parte } = Astro.props;
+---
+
+{parte === 'cabeza' && <script is:inline src="/direcciones/aplicar.js" />}
+{parte === 'selector' && (
+  <div class="dir-selector" transition:persist="direcciones">
+    <button class="dir-toggle" type="button" aria-expanded="false" aria-controls="direcciones">
+      Dirección
+    </button>
+    <div id="direcciones" class="dir-panel" hidden>
+      <fieldset>
+        <legend>Dirección visual</legend>
+        {direcciones.map((direccion) => (
+          <label class="dir-option">
+            <input
+              type="radio"
+              name="dir"
+              value={direccion.clave}
+              checked={direccion.clave === 'actual'}
+            />
+            <span>
+              <b>{direccion.nombre}</b>
+              <small>{direccion.nota}</small>
+            </span>
+          </label>
+        ))}
+      </fieldset>
+      <button class="dir-close" type="button">
+        Cerrar
+      </button>
+    </div>
+  </div>
+)}
+
+<script>
+  interface Api {
+    leer: () => string;
+    poner: (valor: string) => void;
+  }
+  const api = (window as unknown as { elParDirecciones?: Api }).elParDirecciones;
+  const panel = document.querySelector<HTMLElement>('#direcciones');
+  const abrir = document.querySelector<HTMLButtonElement>('.dir-toggle');
+  if (api && panel && abrir) {
+    const marcar = () => {
+      const elegida = panel.querySelector<HTMLInputElement>(`input[value="${api.leer()}"]`);
+      if (elegida) elegida.checked = true;
+      abrir.textContent = `Dirección · ${elegida?.nextElementSibling?.querySelector('b')?.textContent ?? ''}`;
+    };
+    marcar();
+    document.addEventListener('astro:page-load', marcar);
+    panel.addEventListener('change', (event) => {
+      const input = event.target as HTMLInputElement;
+      api.poner(input.value);
+      // La dirección queda también en la barra, para poder copiarla tal cual.
+      const url = new URL(location.href);
+      url.searchParams.set('dir', input.value);
+      history.replaceState(history.state, '', url);
+      marcar();
+    });
+    const mostrar = (abierto: boolean) => {
+      panel.hidden = !abierto;
+      abrir.setAttribute('aria-expanded', String(abierto));
+      if (abierto) panel.querySelector<HTMLInputElement>('input:checked')?.focus();
+      else abrir.focus();
+    };
+    abrir.addEventListener('click', () => mostrar(panel.hidden));
+    panel.querySelector('.dir-close')?.addEventListener('click', () => mostrar(false));
+    panel.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') mostrar(false);
+    });
+  }
+</script>
