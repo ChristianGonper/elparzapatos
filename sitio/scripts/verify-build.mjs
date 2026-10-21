@@ -1,6 +1,7 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { dirname, join, resolve } from 'node:path';
 import { imageSize } from 'image-size';
+import { checkConventions } from './check-conventions.mjs';
 
 const root = resolve('dist');
 const errors = [];
@@ -105,10 +106,11 @@ for (const [file, html] of documents) {
 
 for (const page of ['index.html', 'pares/index.html', 'armarios/index.html'])
   if (!documents.has(join(root, page))) errors.push(`Falta la página ${page}`);
+errors.push(...(await checkConventions()));
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exitCode = 1;
 } else
   console.log(
-    `Verificados ${pages.length} documentos: enlaces, anclas, imágenes, srcset y estructura.`,
+    `Verificados ${pages.length} documentos (enlaces, anclas, imágenes, srcset y estructura) y las convenciones del código.`,
   );
