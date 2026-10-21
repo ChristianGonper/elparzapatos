@@ -3,6 +3,7 @@ import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
 import { pairPath, type Pair } from '../data/pairs';
 import { pairImage } from '../data/images';
+import { includeDrafts } from '../data/site';
 interface Props {
   pair: Pair;
   sizes?: string;
@@ -12,7 +13,8 @@ interface Props {
 const { pair, sizes = '(max-width: 700px) 90vw, 50vw', heading: Heading = 'h2' } = Astro.props;
 ---
 
-<a class="pair-card" href={pairPath(pair)}>
+{/* La referencia (PAR-0002) solo la usa la dirección «Archivo» de la vista de revisión. */}
+<a class="pair-card" href={pairPath(pair)} data-ref={includeDrafts ? pair.id : undefined}>
   <div class="card-image">
     <Photo src={pairImage(pair, pair.hero)} alt={pair.photoAlt} {sizes} />
   </div>

@@ -1,0 +1,450 @@
+/* Dirección «Revista»: revista impresa. Cabecera de periódico centrada, rejilla con filetes de
+   tinta entre columnas y secciones, títulos en Fraunces (serifa de contraste, con cursiva) y el
+   texto en Instrument Sans. Papel algo más cálido; el color sigue siendo papel y tinta. */
+html[data-dir='revista'] {
+  --paper: #f4f1ea;
+  --surface: #ebe7de;
+  --tint: #e6e1d6;
+  --line: #121212;
+  --rule: 1px solid var(--ink);
+  --serif: 'Fraunces Variable', serif;
+  --hs1: 0.82;
+  --hs2: 0.8;
+  --hs3: 0.86;
+}
+html[data-dir='revista'] :is(h1, h2, h3) {
+  font-variation-settings: 'opsz' 144;
+  font-weight: 330;
+  letter-spacing: -0.012em;
+  line-height: 1;
+}
+html[data-dir='revista'] :is(h1, h2, h3) em {
+  font-weight: 300;
+}
+/* Antetítulos: versalitas con un filete encima, como la sección de una revista. */
+html[data-dir='revista'] .eyebrow {
+  display: inline-block;
+  padding-top: 0.45rem;
+  border-top: 2px solid var(--ink);
+  letter-spacing: 0.18em;
+}
+
+/* Cabecera: la marca centrada arriba y la navegación debajo, entre filetes. */
+html[data-dir='revista'] .site-header {
+  border-bottom: 3px double var(--ink);
+}
+html[data-dir='revista'] .brand-name {
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  margin-right: -0.32em;
+}
+html[data-dir='revista'] .brand-descriptor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+@media (min-width: 801px) {
+  html[data-dir='revista'] .header-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: '. brand .' 'nav nav cta';
+    gap: 0;
+    padding-top: 1.4rem;
+    min-height: 0;
+  }
+  html[data-dir='revista'] .brand {
+    grid-area: brand;
+    align-items: center;
+    padding-bottom: 1.2rem;
+  }
+  html[data-dir='revista'] .desktop-nav {
+    grid-area: nav;
+    gap: 0;
+    border-top: var(--rule);
+    margin-right: -1px;
+  }
+  html[data-dir='revista'] .desktop-nav a {
+    padding-inline: 1.2rem;
+    border-right: var(--rule);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  html[data-dir='revista'] .desktop-nav a:first-child {
+    padding-left: 0;
+  }
+  html[data-dir='revista'] .desktop-nav a:after {
+    left: 1.2rem;
+    right: 1.2rem;
+  }
+  html[data-dir='revista'] .desktop-nav a:first-child:after {
+    left: 0;
+  }
+  html[data-dir='revista'] .header-cta {
+    grid-area: cta;
+    justify-self: end;
+    border-top: var(--rule);
+    width: 100%;
+    justify-content: flex-end;
+    min-height: 46px;
+    padding: 0;
+    background: none;
+    border-inline: 0;
+    border-bottom: 0;
+    color: var(--ink);
+  }
+}
+html[data-dir='revista'] .mobile-menu nav > a {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  border-bottom-color: var(--ink);
+}
+
+/* Botones: rectángulos de filete, en versalitas. */
+html[data-dir='revista'] .button {
+  border-radius: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+html[data-dir='revista'] .text-link {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+
+/* Portada: la foto y, al lado, el texto sobre el papel, separado por un filete vertical. */
+html[data-dir='revista'] .home-feature {
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  padding-top: 2rem;
+}
+html[data-dir='revista'] .home-feature-copy {
+  background: none;
+  color: var(--ink);
+  border-left: var(--rule);
+  margin-left: 2rem;
+  padding: 0 0 0 2rem;
+  justify-content: flex-start;
+}
+html[data-dir='revista'] .feature-meta {
+  border-block: var(--rule);
+  padding-block: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+}
+html[data-dir='revista'] .home-feature-copy h1 {
+  font-size: calc(clamp(3rem, 5.4vw, 5.6rem) * var(--hs1, 1));
+  max-width: none;
+}
+html[data-dir='revista'] .home-feature-copy p {
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+html[data-dir='revista'] .home-feature-copy .text-link {
+  color: var(--ink);
+}
+html[data-dir='revista'] .home-feature-copy :focus-visible {
+  outline-color: var(--ink);
+}
+html[data-dir='revista'] .home-intro {
+  border-bottom: var(--rule);
+}
+html[data-dir='revista'] .section {
+  border-top: 3px double var(--ink);
+}
+html[data-dir='revista'] .home-intro + .section {
+  border-top: 0;
+}
+/* Los tres detalles, en columnas con filete entre ellas y sin escalones. */
+html[data-dir='revista'] .look-row {
+  gap: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+html[data-dir='revista'] .look-card,
+html[data-dir='revista'] .look-card:nth-child(n) {
+  padding: 0 1.5rem;
+  border-left: var(--rule);
+}
+html[data-dir='revista'] .look-card:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+html[data-dir='revista'] .look-card:last-child {
+  padding-right: 0;
+}
+html[data-dir='revista'] .look-card img {
+  aspect-ratio: 1;
+}
+html[data-dir='revista'] .look-card .eyebrow {
+  margin-top: 1rem;
+}
+html[data-dir='revista'] .kind-grid {
+  gap: 0;
+}
+html[data-dir='revista'] .kind-card {
+  padding: 0 1rem;
+  border-left: var(--rule);
+}
+html[data-dir='revista'] .kind-card:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+html[data-dir='revista'] .invitation {
+  background: var(--paper);
+  border-top: 3px double var(--ink);
+}
+
+/* Tarjeta de par: titular arriba, como un artículo de sumario; la foto después. */
+html[data-dir='revista'] .pair-card {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.6rem;
+  border-top: 2px solid var(--ink);
+}
+html[data-dir='revista'] .card-meta {
+  order: -2;
+  margin: 0 0 0.6rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.16em;
+}
+html[data-dir='revista'] .pair-card :is(h2, h3) {
+  order: -1;
+  margin-bottom: 1.2rem;
+}
+html[data-dir='revista'] .pair-card p {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+html[data-dir='revista'] .card-read {
+  justify-content: flex-start;
+  margin-top: 1rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+}
+html[data-dir='revista'] .pair-index {
+  column-gap: 0;
+}
+html[data-dir='revista'] .pair-index > * {
+  padding-inline: clamp(1rem, 2.5vw, 2.5rem);
+  border-left: var(--rule);
+}
+html[data-dir='revista'] .pair-index > :nth-child(odd) {
+  padding-left: 0;
+  border-left: 0;
+}
+html[data-dir='revista'] .pair-index > :nth-child(even) {
+  padding-right: 0;
+}
+html[data-dir='revista'] .index-note {
+  background: none;
+  margin-top: 0;
+  border-top: 2px solid var(--ink);
+}
+html[data-dir='revista'] .page-heading {
+  border-bottom: var(--rule);
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 1000px) {
+  html[data-dir='revista'] .wardrobe-pairs > :nth-child(n) {
+    padding-inline: 1.5rem;
+    border-left: var(--rule);
+  }
+  html[data-dir='revista'] .wardrobe-pairs > :nth-child(3n + 1) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  html[data-dir='revista'] .wardrobe-pairs > :nth-child(3n) {
+    padding-right: 0;
+  }
+  html[data-dir='revista'] .wardrobe-pairs {
+    column-gap: 0;
+  }
+}
+
+/* Retrato: entradilla en serifa, capitular en cada detalle y pies de foto en cursiva. */
+html[data-dir='revista'] .article-heading {
+  border-bottom: var(--rule);
+  margin-bottom: 2.5rem;
+}
+html[data-dir='revista'] .article-heading h1 {
+  font-size: calc(clamp(3.4rem, 8vw, 7.6rem) * var(--hs1, 1));
+}
+html[data-dir='revista'] .article-heading .lead {
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 340;
+  line-height: 1.4;
+  color: var(--ink);
+}
+html[data-dir='revista'] :is(.article-hero, .article-section) figcaption {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.92rem;
+  padding-top: 0.5rem;
+  border-top: var(--rule);
+  margin-top: 0.6rem;
+}
+html[data-dir='revista'] .article-section {
+  padding-top: 1.2rem;
+  border-top: var(--rule);
+}
+html[data-dir='revista'] .article-section-heading {
+  align-self: start;
+}
+html[data-dir='revista'] .article-text > p:first-child::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  font-family: var(--serif);
+  font-size: 4.1em;
+  font-weight: 300;
+  line-height: 0.82;
+  color: var(--ink);
+}
+html[data-dir='revista'] .article-text .quote-block {
+  border-left: 0;
+  border-block: 3px double var(--ink);
+  padding: 1rem 0;
+}
+html[data-dir='revista'] .article-text .quote-block blockquote {
+  font-style: italic;
+  font-weight: 300;
+}
+/* «De un vistazo»: una tabla de datos entre filetes, sin fondo. */
+html[data-dir='revista'] .at-a-glance {
+  background: none;
+  padding: 1.2rem 0 0;
+  border-top: 3px double var(--ink);
+}
+html[data-dir='revista'] .at-a-glance dl {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+html[data-dir='revista'] .at-a-glance dl > div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-bottom: var(--rule);
+}
+html[data-dir='revista'] .at-a-glance dt {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+html[data-dir='revista'] .at-a-glance dd {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+html[data-dir='revista'] .more-portraits {
+  border-top: 3px double var(--ink);
+  padding-top: 1.5rem;
+}
+html[data-dir='revista'] .more-portraits-list {
+  gap: 0;
+}
+html[data-dir='revista'] .more-portraits-list > * {
+  padding-inline: 1.5rem;
+  border-left: var(--rule);
+}
+html[data-dir='revista'] .more-portraits-list > :first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+/* Pie: el nombre en grande, como el colofón, y columnas separadas por filetes. */
+html[data-dir='revista'] .site-footer {
+  border-top: 3px double var(--ink);
+  padding-top: 2.5rem;
+}
+html[data-dir='revista'] .footer-brand {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  letter-spacing: 0.28em;
+}
+html[data-dir='revista'] .footer-top nav {
+  border-left: var(--rule);
+  padding-left: 1.5rem;
+}
+html[data-dir='revista'] .footer-bottom {
+  border-top-color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  html[data-dir='revista'] .home-feature {
+    grid-template-columns: 1fr;
+  }
+  html[data-dir='revista'] .home-feature-copy {
+    border-left: 0;
+    margin: 1.2rem 0 0;
+    padding: 0;
+  }
+  html[data-dir='revista'] .look-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  html[data-dir='revista'] .look-card:nth-child(3) {
+    grid-column: 1/-1;
+    padding: 1.5rem 0 0;
+    margin-top: 1.5rem;
+    border-left: 0;
+    border-top: var(--rule);
+  }
+  html[data-dir='revista'] .kind-grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1.5rem;
+  }
+  html[data-dir='revista'] .kind-card:nth-child(3) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  html[data-dir='revista'] .more-portraits-list {
+    row-gap: 2rem;
+  }
+  html[data-dir='revista'] .more-portraits-list > :nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+@media (max-width: 540px) {
+  html[data-dir='revista'] .pair-index > :nth-child(n),
+  html[data-dir='revista'] .more-portraits-list > :nth-child(n) {
+    padding-inline: 0;
+    border-left: 0;
+  }
+  html[data-dir='revista'] .look-row {
+    grid-template-columns: 1fr;
+  }
+  html[data-dir='revista'] .look-card:nth-child(n) {
+    display: block;
+    grid-column: auto;
+    padding: 1.2rem 0 0;
+    margin: 0;
+    border-left: 0;
+    border-top: var(--rule);
+  }
+  html[data-dir='revista'] .look-card:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  html[data-dir='revista'] .at-a-glance dl > div {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+  html[data-dir='revista'] .footer-top nav {
+    border-left: 0;
+    padding-left: 0;
+    border-top: var(--rule);
+    padding-top: 0.8rem;
+  }
+  html[data-dir='revista'] .article-heading h1 {
+    font-size: calc(3.4rem * var(--hs1, 1));
+  }
+}

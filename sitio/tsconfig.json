@@ -2,7 +2,8 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "paths": {
-      "@medir": ["./src/components/MeasurePoints.astro"]
+      "@medir": ["./src/components/MeasurePoints.astro"],
+      "@direcciones": ["./src/direcciones/Direcciones.astro"]
     }
   }
 }

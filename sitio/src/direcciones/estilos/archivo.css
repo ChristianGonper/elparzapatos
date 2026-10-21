@@ -1,0 +1,487 @@
+/* Dirección «Archivo»: catálogo de museo. Cada par es una ficha blanca con su referencia sobre
+   un papel gris de archivo; las fotos van sobre un paspartú. Títulos y texto en IBM Plex Sans y
+   todo lo que es dato (etiquetas, referencias, botones, pies) en IBM Plex Mono. */
+html[data-dir='archivo'] {
+  --paper: #ecebe6;
+  --surface: #ffffff;
+  --tint: #e2e0d9;
+  --line: #b9b5ab;
+  --muted: #55544f;
+  --rule: 1px solid var(--ink);
+  --serif: 'IBM Plex Sans Variable', sans-serif;
+  --sans: 'IBM Plex Sans Variable', sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --hs1: 0.66;
+  --hs2: 0.62;
+  --hs3: 0.7;
+}
+html[data-dir='archivo'] body {
+  font-size: 0.95rem;
+}
+html[data-dir='archivo'] :is(h1, h2, h3) {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+html[data-dir='archivo'] :is(h1, h2, h3) em {
+  font-weight: 300;
+}
+/* Todo lo que es dato va en monoespaciada. */
+html[data-dir='archivo']
+  :is(
+    .eyebrow,
+    .card-meta,
+    .feature-meta,
+    .breadcrumb,
+    .button,
+    .text-link,
+    .card-read,
+    .desktop-nav a,
+    .at-a-glance dt,
+    .article-hero figcaption,
+    .article-section figcaption,
+    .article-credit,
+    .review-notice,
+    .footer-bottom
+  ) {
+  font-family: var(--mono);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+html[data-dir='archivo'] .eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+html[data-dir='archivo'] :is(.article-hero, .article-section) figcaption {
+  text-transform: none;
+}
+
+/* Cabecera: una barra de archivo, con la navegación en casillas. */
+html[data-dir='archivo'] .site-header {
+  border-bottom: var(--rule);
+}
+html[data-dir='archivo'] .header-inner {
+  min-height: 64px;
+}
+html[data-dir='archivo'] .brand {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.9rem;
+}
+html[data-dir='archivo'] .brand-name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  margin-right: 0;
+}
+html[data-dir='archivo'] .brand-descriptor {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  padding-left: 0.9rem;
+  border-left: var(--rule);
+}
+@media (min-width: 801px) {
+  html[data-dir='archivo'] .header-inner {
+    align-items: stretch;
+  }
+  html[data-dir='archivo'] .brand {
+    align-self: center;
+  }
+  html[data-dir='archivo'] .desktop-nav {
+    gap: 0;
+    margin-left: auto;
+  }
+  html[data-dir='archivo'] .desktop-nav a {
+    padding-inline: 1.1rem;
+    border-left: var(--rule);
+    font-size: 0.7rem;
+  }
+  html[data-dir='archivo'] .desktop-nav a:after {
+    display: none;
+  }
+  html[data-dir='archivo'] .desktop-nav a[aria-current] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  html[data-dir='archivo'] .desktop-nav a:hover {
+    background: var(--surface);
+  }
+  html[data-dir='archivo'] .desktop-nav a[aria-current]:hover {
+    background: var(--ink);
+  }
+  html[data-dir='archivo'] .header-cta {
+    align-self: center;
+  }
+}
+html[data-dir='archivo'] .mobile-menu nav > a {
+  font-family: var(--mono);
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+/* Botones: etiquetas rectangulares en monoespaciada. */
+html[data-dir='archivo'] .button {
+  min-height: 44px;
+  border-radius: 0;
+  font-size: 0.72rem;
+  gap: 1.2rem;
+}
+html[data-dir='archivo'] .button.outline {
+  background: var(--surface);
+}
+html[data-dir='archivo'] .text-link {
+  font-size: 0.72rem;
+}
+
+/* Ficha: caja blanca con filete, la referencia arriba y la foto sobre un paspartú. */
+html[data-dir='archivo']
+  :is(.pair-card, .look-card, .kind-card, .home-wardrobe-card, .index-note, .at-a-glance) {
+  background: var(--surface);
+  border: var(--rule);
+}
+html[data-dir='archivo'] .pair-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 0;
+}
+html[data-dir='archivo'] .pair-card::before {
+  content: attr(data-ref);
+  grid-column: 1/-1;
+  padding: 0.45rem 0.8rem;
+  border-bottom: var(--rule);
+  font: 500 0.7rem/1.5 var(--mono);
+  letter-spacing: 0.06em;
+}
+html[data-dir='archivo'] .pair-card > * {
+  grid-column: 1/-1;
+}
+html[data-dir='archivo'] .card-image {
+  padding: clamp(0.8rem, 2vw, 1.6rem);
+  background: var(--paper);
+  border-bottom: var(--rule);
+}
+html[data-dir='archivo'] .card-image img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+html[data-dir='archivo'] .card-meta {
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  border-bottom: 1px dashed var(--line);
+  font-size: 0.66rem;
+}
+html[data-dir='archivo'] .pair-card :is(h2, h3) {
+  padding: 0.8rem 0.8rem 0;
+  font-size: calc(clamp(1.9rem, 2.6vw, 2.5rem) * var(--hs2, 1));
+}
+html[data-dir='archivo'] .pair-card p {
+  padding: 0 0.8rem;
+  margin-top: 0.5rem;
+  font-size: 0.86rem;
+}
+html[data-dir='archivo'] .card-read {
+  margin-top: 1rem;
+  padding: 0.6rem 0.8rem;
+  border-top: var(--rule);
+  font-size: 0.7rem;
+}
+html[data-dir='archivo'] .pair-card:hover .card-read {
+  background: var(--ink);
+  color: var(--paper);
+}
+html[data-dir='archivo'] .pair-index {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1rem;
+}
+html[data-dir='archivo'] .index-note {
+  margin-top: 0;
+  padding: 1.5rem;
+}
+html[data-dir='archivo'] .index-note h2 {
+  font-size: calc(2.4rem * var(--hs2, 1));
+}
+
+/* Portada: el destacado es una ficha grande, foto con paspartú a un lado y datos al otro. */
+html[data-dir='archivo'] .home-feature {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  padding-top: 1.5rem;
+}
+html[data-dir='archivo'] .home-feature-photo {
+  padding: clamp(1rem, 3vw, 2.5rem);
+  background: var(--surface);
+  border: var(--rule);
+}
+html[data-dir='archivo'] .home-feature-photo img {
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+html[data-dir='archivo'] .home-feature-copy {
+  background: var(--surface);
+  color: var(--ink);
+  border: var(--rule);
+  border-left: 0;
+  padding: 0;
+  justify-content: flex-start;
+}
+html[data-dir='archivo'] .home-feature-copy > * {
+  padding-inline: clamp(1rem, 2.5vw, 2rem);
+}
+html[data-dir='archivo'] .feature-meta {
+  margin: 0 0 2rem;
+  padding-block: 0.6rem;
+  border-bottom: var(--rule);
+}
+html[data-dir='archivo'] .home-feature-copy h1 {
+  font-size: calc(clamp(2.8rem, 4.4vw, 4.4rem) * var(--hs1, 1) * 1.2);
+}
+html[data-dir='archivo'] .home-feature-copy p {
+  color: var(--muted);
+}
+html[data-dir='archivo'] .home-feature-copy .text-link {
+  color: var(--ink);
+  margin-inline: clamp(1rem, 2.5vw, 2rem);
+  padding-inline: 0;
+}
+html[data-dir='archivo'] .home-feature-copy :focus-visible {
+  outline-color: var(--ink);
+}
+html[data-dir='archivo'] .look-row {
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+html[data-dir='archivo'] .look-card:nth-child(n) {
+  padding: 0 0 1rem;
+}
+html[data-dir='archivo'] .look-card img {
+  aspect-ratio: 1;
+  border-bottom: var(--rule);
+}
+html[data-dir='archivo'] .look-card figcaption {
+  padding-inline: 0.8rem;
+}
+html[data-dir='archivo'] .look-card .eyebrow {
+  margin-top: 0.8rem;
+}
+html[data-dir='archivo'] .kind-grid {
+  gap: 1rem;
+}
+html[data-dir='archivo'] .kind-card {
+  padding-bottom: 0.8rem;
+}
+html[data-dir='archivo'] .kind-card img {
+  aspect-ratio: 1;
+  border-bottom: var(--rule);
+}
+html[data-dir='archivo'] .kind-card :is(h3, p) {
+  padding-inline: 0.8rem;
+}
+html[data-dir='archivo'] .kind-card p {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+html[data-dir='archivo'] .home-wardrobe .wardrobe-pictures img {
+  border: var(--rule);
+}
+html[data-dir='archivo'] .invitation {
+  background: var(--paper);
+  border-top: var(--rule);
+}
+html[data-dir='archivo'] .section + .section,
+html[data-dir='archivo'] .home-intro {
+  border-top: var(--rule);
+}
+html[data-dir='archivo'] .wardrobe-stack img {
+  box-shadow: 0 0 0 1px var(--ink);
+}
+
+/* Retrato: cabecera a la izquierda como la portada de un expediente; cada detalle numerado. */
+html[data-dir='archivo'] .article-heading {
+  max-width: 1480px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 3rem;
+  align-items: end;
+}
+html[data-dir='archivo'] .article-heading > * {
+  grid-column: 1;
+}
+html[data-dir='archivo'] .article-heading .lead {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  margin: 0;
+  font-size: 1rem;
+}
+html[data-dir='archivo'] .article-heading > :last-child {
+  grid-column: 1/-1;
+}
+html[data-dir='archivo'] .article-hero {
+  max-width: 1480px;
+}
+html[data-dir='archivo'] .article-hero img {
+  padding: clamp(1rem, 4vw, 4rem);
+  background: var(--surface);
+  border: var(--rule);
+  max-height: 80vh;
+  object-fit: contain;
+}
+html[data-dir='archivo'] .analysis-content {
+  counter-reset: detalle;
+}
+html[data-dir='archivo'] .article-section {
+  counter-increment: detalle;
+  padding-top: 1rem;
+  border-top: var(--rule);
+}
+/* El número es decorativo: el texto alternativo vacío lo deja fuera del lector de pantalla. */
+html[data-dir='archivo'] .article-section-heading::before {
+  content: counter(detalle, decimal-leading-zero) / '';
+  display: block;
+  margin-bottom: 0.6rem;
+  font: 500 0.75rem/1 var(--mono);
+}
+html[data-dir='archivo'] .article-section figure > :first-child {
+  padding: clamp(0.6rem, 2vw, 1.4rem);
+  background: var(--surface);
+  border: var(--rule);
+}
+html[data-dir='archivo'] .article-section figcaption {
+  font-size: 0.7rem;
+}
+html[data-dir='archivo'] .article-text p {
+  font-size: 0.98rem;
+}
+html[data-dir='archivo'] .article-text .quote-block {
+  padding: 1rem;
+  background: var(--surface);
+  border: var(--rule);
+}
+html[data-dir='archivo'] .article-text .quote-block blockquote {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 1.1rem + 1vw, 1.9rem);
+  letter-spacing: -0.02em;
+}
+/* «De un vistazo»: la ficha técnica, con una casilla para cada dato. */
+html[data-dir='archivo'] .at-a-glance {
+  padding: 0;
+  gap: 0;
+  grid-template-columns: 1fr;
+}
+html[data-dir='archivo'] .at-a-glance > div:first-child {
+  padding: 0.6rem 0.8rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+html[data-dir='archivo'] .at-a-glance h2 {
+  font: 500 0.8rem/1.4 var(--mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+html[data-dir='archivo'] .at-a-glance dl {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 0;
+}
+html[data-dir='archivo'] .at-a-glance dl > div {
+  padding: 0.8rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+html[data-dir='archivo'] .at-a-glance dt {
+  font-size: 0.64rem;
+}
+html[data-dir='archivo'] .more-portraits-list {
+  gap: 1rem;
+}
+html[data-dir='archivo'] .page-heading h1 {
+  font-size: calc(clamp(3.2rem, 7.2vw, 7rem) * var(--hs1, 1));
+}
+
+/* Pie: un colofón en casillas. */
+html[data-dir='archivo'] .site-footer {
+  border-top: var(--rule);
+  padding-top: 0;
+}
+html[data-dir='archivo'] .footer-top {
+  gap: 0;
+  padding-bottom: 0;
+}
+html[data-dir='archivo'] .footer-top > * {
+  padding: 1.5rem 1rem 2rem;
+  border-left: var(--rule);
+}
+html[data-dir='archivo'] .footer-top > :first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+html[data-dir='archivo'] .footer-brand {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+}
+html[data-dir='archivo'] .footer-top nav a {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+html[data-dir='archivo'] .footer-bottom {
+  border-top-color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  html[data-dir='archivo'] .home-feature {
+    grid-template-columns: 1fr;
+  }
+  html[data-dir='archivo'] .home-feature-copy {
+    border-left: var(--rule);
+    border-top: 0;
+    padding-bottom: 1rem;
+  }
+  html[data-dir='archivo'] .look-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  html[data-dir='archivo'] .look-card:nth-child(3) {
+    grid-column: 1/-1;
+  }
+  html[data-dir='archivo'] .article-heading {
+    grid-template-columns: 1fr;
+  }
+  html[data-dir='archivo'] .article-heading .lead {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  html[data-dir='archivo'] .kind-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 540px) {
+  html[data-dir='archivo'] .look-row {
+    grid-template-columns: 1fr;
+  }
+  html[data-dir='archivo'] .look-card:nth-child(n) {
+    display: block;
+    padding: 0 0 1rem;
+  }
+  html[data-dir='archivo'] .footer-top > :nth-child(n) {
+    padding: 1rem 0;
+    border-left: 0;
+  }
+  html[data-dir='archivo'] .footer-top > :nth-child(3) {
+    padding-left: 1rem;
+    border-left: var(--rule);
+  }
+  html[data-dir='archivo'] .brand {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  html[data-dir='archivo'] .brand-descriptor {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

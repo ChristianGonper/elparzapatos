@@ -1,0 +1,288 @@
+/* Dirección «Cuaderno»: el cuaderno de una diseñadora. Papel punteado, fotos pegadas con cinta y
+   algo torcidas, notas a mano en Caveat y los títulos en Instrument Serif con un subrayado de
+   rotulador. Botones y recuadros con bordes «a mano» (terceros/papercss-bordes.css). */
+@import './terceros/papercss-bordes.css';
+
+html[data-dir='cuaderno'] {
+  --paper: #f7f4ec;
+  --surface: #fffdf8;
+  --tint: #ebe4d3;
+  --line: #d9d2c2;
+  --hand: 'Caveat Variable', cursive;
+  --marker: #e2d8bf;
+}
+html[data-dir='cuaderno'] body {
+  background-color: var(--paper);
+  background-image: radial-gradient(circle, #cfc7b5 1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+/* El subrayado de rotulador bajo la parte en cursiva de cada título. */
+html[data-dir='cuaderno'] :is(h1, h2, h3) em {
+  background: linear-gradient(
+    transparent 58%,
+    var(--marker) 58%,
+    var(--marker) 92%,
+    transparent 92%
+  );
+  padding-inline: 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+/* Antetítulos, pies de foto y datos: notas a mano. */
+html[data-dir='cuaderno']
+  :is(.eyebrow, figcaption, .card-meta, .feature-meta, .at-a-glance dt, .article-credit) {
+  font-family: var(--hand);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-transform: none;
+}
+html[data-dir='cuaderno'] .eyebrow {
+  display: inline-block;
+  rotate: -2deg;
+  font-size: 1.45rem;
+  color: var(--ink);
+}
+
+/* Cabecera: el nombre con su apunte a mano debajo y la navegación subrayada a mano. */
+html[data-dir='cuaderno'] .site-header {
+  background: var(--paper);
+  border-bottom: 2px dashed var(--line);
+}
+html[data-dir='cuaderno'] .brand-descriptor {
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-top: 0.1rem;
+  rotate: -2deg;
+}
+html[data-dir='cuaderno'] .desktop-nav a:after {
+  height: 3px;
+  border-radius: var(--mano-1);
+  background: var(--ink);
+  bottom: 6px;
+}
+html[data-dir='cuaderno'] .mobile-menu nav > a {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  border-bottom-style: dashed;
+}
+
+/* Botones de PaperCSS: borde a mano, sombra baja que crece al pasar por encima. */
+html[data-dir='cuaderno'] .button {
+  border: 2px solid var(--ink);
+  border-radius: var(--mano-1);
+  box-shadow: var(--mano-sombra);
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+}
+html[data-dir='cuaderno'] .button:hover {
+  box-shadow: var(--mano-sombra-encima);
+  background: var(--accent);
+}
+html[data-dir='cuaderno'] .button.outline {
+  background: var(--surface);
+}
+html[data-dir='cuaderno'] .button.outline:hover {
+  background: var(--surface);
+}
+html[data-dir='cuaderno'] .text-link {
+  border-bottom: 0;
+  background: linear-gradient(transparent 70%, var(--marker) 70%);
+  padding-inline: 0.2rem;
+}
+
+/* Fotos pegadas: marco blanco, cinta arriba y un giro pequeño, distinto en cada una. */
+html[data-dir='cuaderno']
+  :is(.card-image, .home-feature-photo, .look-card > img, .look-card picture img, .kind-card img) {
+  background: var(--surface);
+  padding: 0.6rem 0.6rem 1.6rem;
+  box-shadow:
+    0 1px 2px #1212121f,
+    0 8px 18px -10px #12121240;
+}
+html[data-dir='cuaderno'] .card-image,
+html[data-dir='cuaderno'] .home-feature-photo {
+  position: relative;
+  overflow: visible;
+}
+html[data-dir='cuaderno'] :is(.card-image, .home-feature-photo, .article-section figure)::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: -0.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.5rem;
+  translate: -50% 0;
+  rotate: -3deg;
+  background: #e8e1cfcc;
+  box-shadow: 0 1px 2px #12121214;
+  pointer-events: none;
+}
+html[data-dir='cuaderno'] .pair-card:nth-child(odd) .card-image,
+html[data-dir='cuaderno'] .look-card:nth-child(odd) img,
+html[data-dir='cuaderno'] .kind-card:nth-child(odd) img {
+  rotate: -1.2deg;
+}
+html[data-dir='cuaderno'] .pair-card:nth-child(even) .card-image,
+html[data-dir='cuaderno'] .look-card:nth-child(even) img,
+html[data-dir='cuaderno'] .kind-card:nth-child(even) img {
+  rotate: 1.4deg;
+}
+html[data-dir='cuaderno'] .pair-card:hover .card-image img {
+  transform: none;
+}
+html[data-dir='cuaderno'] .card-meta {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+html[data-dir='cuaderno'] .card-read {
+  justify-content: flex-start;
+  font-family: var(--hand);
+  font-size: 1.4rem;
+}
+html[data-dir='cuaderno'] .index-note {
+  background: var(--surface);
+  border: 2px solid var(--ink);
+  border-radius: var(--mano-4);
+  rotate: 1deg;
+}
+
+/* Portada: el destacado como una página del cuaderno, foto pegada y nota al lado. */
+html[data-dir='cuaderno'] .home-feature {
+  gap: 2.5rem;
+  align-items: center;
+  padding-top: 3rem;
+}
+html[data-dir='cuaderno'] .home-feature-photo {
+  rotate: -1deg;
+}
+html[data-dir='cuaderno'] .home-feature-photo:hover img {
+  transform: none;
+}
+html[data-dir='cuaderno'] .home-feature-copy {
+  background: none;
+  color: var(--ink);
+  padding: 0;
+}
+html[data-dir='cuaderno'] .feature-meta {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+html[data-dir='cuaderno'] .home-feature-copy p {
+  color: var(--muted);
+}
+html[data-dir='cuaderno'] .home-feature-copy .text-link {
+  color: var(--ink);
+}
+html[data-dir='cuaderno'] .home-feature-copy :focus-visible {
+  outline-color: var(--ink);
+}
+html[data-dir='cuaderno'] .look-card figcaption {
+  padding-inline: 0.4rem;
+}
+html[data-dir='cuaderno'] .invitation {
+  background: transparent;
+  border-top: 2px dashed var(--line);
+}
+html[data-dir='cuaderno'] .home-wardrobe .wardrobe-pictures {
+  overflow: visible;
+}
+html[data-dir='cuaderno'] .home-wardrobe .wardrobe-pictures img {
+  background: var(--surface);
+  padding: 0.5rem 0.5rem 1.4rem;
+  box-shadow: 0 8px 18px -10px #12121240;
+  rotate: 2deg;
+}
+html[data-dir='cuaderno'] .home-wardrobe .wardrobe-pictures picture:first-child img {
+  rotate: -2deg;
+}
+html[data-dir='cuaderno'] .wardrobe-stack:not([data-behind='0']) img {
+  box-shadow:
+    0 0 0 6px var(--surface),
+    0 8px 18px #12121233;
+}
+
+/* Retrato: la frase de la colaboradora, escrita a mano; las marcas, redondeadas a mano. */
+html[data-dir='cuaderno'] .article-hero img {
+  background: var(--surface);
+  padding: 0.8rem 0.8rem 2.2rem;
+  box-shadow:
+    0 1px 2px #1212121f,
+    0 12px 24px -14px #12121255;
+}
+html[data-dir='cuaderno'] .article-section figure {
+  position: relative;
+}
+html[data-dir='cuaderno'] .article-section figure > :first-child {
+  background: var(--surface);
+  padding: 0.6rem 0.6rem 0;
+  box-shadow:
+    0 1px 2px #1212121f,
+    0 8px 18px -10px #12121240;
+}
+html[data-dir='cuaderno'] .article-section:nth-of-type(odd) figure {
+  rotate: 0.8deg;
+}
+html[data-dir='cuaderno'] .article-section:nth-of-type(even) figure {
+  rotate: -0.8deg;
+}
+html[data-dir='cuaderno'] .article-section figure figcaption {
+  margin-top: 0.4rem;
+  color: var(--ink);
+}
+html[data-dir='cuaderno']
+  .detail-photo:is([data-marca='circulo'], [data-marca='recuadro'])
+  .detail-mark {
+  border-radius: var(--mano-3);
+  border-width: 3px;
+}
+html[data-dir='cuaderno'] .article-text .quote-block {
+  border-left: 0;
+  padding: 1rem 1.2rem;
+  background: var(--surface);
+  border-radius: var(--mano-4);
+  box-shadow: var(--mano-sombra);
+  rotate: -1deg;
+}
+html[data-dir='cuaderno'] .article-text .quote-block blockquote {
+  font-family: var(--hand);
+  font-size: clamp(2.2rem, 1.6rem + 1.6vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+/* «De un vistazo»: una nota adhesiva sobre la página. */
+html[data-dir='cuaderno'] .at-a-glance {
+  background: #efe7d2;
+  rotate: -0.6deg;
+  box-shadow: 0 14px 24px -16px #12121266;
+}
+html[data-dir='cuaderno'] .at-a-glance dt {
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+/* Pie: separado por una línea discontinua; el resto, igual. */
+html[data-dir='cuaderno'] .site-footer {
+  border-top: 2px dashed var(--line);
+}
+html[data-dir='cuaderno'] .footer-bottom {
+  border-top-style: dashed;
+}
+
+@media (max-width: 800px) {
+  html[data-dir='cuaderno'] .home-feature {
+    gap: 1.5rem;
+    padding-top: 1.8rem;
+  }
+}
+@media (max-width: 540px) {
+  html[data-dir='cuaderno'] .look-card:nth-child(3) img {
+    rotate: 1deg;
+  }
+}

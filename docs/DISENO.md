@@ -54,6 +54,21 @@ Elegido en el laboratorio del bloque 7 (combinación N3 · E2 · R4 · D3 · V2 
 
 Con «reducir movimiento» no hay animación ninguna. Todo vive en `src/styles/components/motion.css`, `src/scripts/movimiento.ts`, `Term.astro` y `PhotoViewer.astro`.
 
+## Direcciones visuales (bloque 9)
+
+Cuatro maneras de vestir la misma web, para comparar con la actual. Solo existen en la vista de revisión (`npm run build:review` y `npm run dev`): en la compilación normal, `@direcciones` es `components/Empty.astro` y no llegan ni el selector, ni los estilos, ni las fuentes, ni el script. Los textos, el marcado y las páginas son los mismos; cada dirección es una hoja en `src/direcciones/estilos/` con todas sus reglas bajo `html[data-dir='…']`, que cambia variables (papel, líneas, familias, escala de títulos `--hs1/2/3`) y la composición de cada componente.
+
+- **Revista** (`revista`): revista impresa. Cabecera de periódico con la marca centrada y la navegación entre filetes, rejilla con filetes de tinta entre columnas y secciones, titulares en Fraunces, capitular en cada detalle, «De un vistazo» como tabla entre filetes.
+- **Archivo** (`archivo`): archivo de museo. Cada par es una ficha blanca con su referencia (PAR-0002) sobre papel gris de archivo, fotos sobre paspartú, detalles numerados, «De un vistazo» como ficha técnica en casillas; IBM Plex Sans y, para todo lo que es dato, IBM Plex Mono.
+- **Galería** (`galeria`): galería mínima. Fotos a sangre (el destacado de la portada, la foto principal del retrato, las rejillas de pares), texto pequeño de cartela, botones en cápsula y casi ninguna línea; una sola familia, Inter Tight.
+- **Cuaderno** (`cuaderno`): cuaderno de diseñadora. Papel punteado, fotos pegadas con cinta y algo torcidas, notas a mano en Caveat, subrayado de rotulador bajo la cursiva de los títulos, la frase de la colaboradora escrita a mano y «De un vistazo» como nota adhesiva.
+
+Cómo se cambia: `?dir=revista` (o `archivo`, `galeria`, `cuaderno`) en cualquier dirección de la vista de revisión; se guarda en el navegador (`localStorage`, clave `elpar-direccion`) y sigue al navegar. `?dir=actual` vuelve a la web actual. También con el botón «Dirección», abajo a la izquierda, que deja la elegida en la barra de direcciones para copiarla.
+
+Cómo funciona: `src/direcciones/publico/aplicar.js` se copia a `/direcciones/aplicar.js` (archivo propio, sin script en línea, por la CSP) y se carga en `<head>` antes de pintar; pone `data-dir` en `<html>` y lo vuelve a poner en cada página nueva antes del cambio de las transiciones (`astro:before-swap`). La referencia de las fichas de «Archivo» sale de `data-ref` en `PairCard.astro`, que solo se escribe en la vista de revisión.
+
+Componentes de terceros: los bordes «a mano» y la sombra de los botones de «Cuaderno» vienen de PaperCSS (https://github.com/papercss/papercss, licencia ISC), copiados y adaptados de Sass a variables CSS en `src/direcciones/estilos/terceros/papercss-bordes.css`, con su aviso de licencia. Las fuentes nuevas (Fraunces, IBM Plex Sans, IBM Plex Mono, Inter Tight y Caveat, todas con licencia SIL Open Font License) se sirven desde el propio sitio con Fontsource, como Instrument Serif e Instrument Sans.
+
 ## CSS y responsabilidades
 
 Se mantiene CSS propio. Esta interfaz tiene composiciones editoriales, recortes de fotografía, popovers e impresión que necesitan reglas específicas. Tailwind aportaría utilidades y una escala común, pero exigiría reescribir el marcado sin resolver por sí mismo la propiedad de cada estilo. La escala ya está definida mediante variables compartidas; modularizar aporta aquí más que cambiar de framework.

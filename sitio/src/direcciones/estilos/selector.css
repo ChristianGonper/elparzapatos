@@ -1,0 +1,111 @@
+/* Selector de dirección: abajo a la izquierda (Medir puntos va a la derecha). Medidas en px,
+   letra del sistema y colores propios para que no cambie con las direcciones. */
+.dir-selector {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  z-index: 900;
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+  letter-spacing: normal;
+  text-transform: none;
+}
+.dir-toggle {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid #ffffff40;
+  border-radius: 999px;
+  background: #1d1d1f;
+  color: #fff;
+  font:
+    600 13px/1 system-ui,
+    sans-serif;
+  box-shadow: 0 4px 16px #0000004d;
+}
+.dir-panel {
+  position: absolute;
+  left: 0;
+  bottom: 54px;
+  width: min(340px, calc(100vw - 24px));
+  padding: 12px 14px 14px;
+  background: #fff;
+  color: #1d1d1f;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px #00000040;
+}
+.dir-panel fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.dir-panel legend {
+  padding: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.dir-option {
+  display: block;
+  position: relative;
+}
+.dir-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.dir-option span {
+  display: block;
+  min-height: 44px;
+  margin-bottom: 6px;
+  padding: 8px 12px;
+  border: 1px solid #c8c8c8;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.dir-option b {
+  display: block;
+  font-size: 14px;
+}
+.dir-option small {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #4a4a4a;
+}
+.dir-option input:checked + span {
+  background: #1d1d1f;
+  border-color: #1d1d1f;
+  color: #fff;
+}
+.dir-option input:checked + span small {
+  color: #e8e8e8;
+}
+.dir-option input:focus-visible + span,
+.dir-selector button:focus-visible {
+  outline: 2px solid #1a56db;
+  outline-offset: 2px;
+}
+.dir-close {
+  min-height: 40px;
+  margin-top: 4px;
+  padding: 0 14px;
+  border: 1px solid #c8c8c8;
+  border-radius: 999px;
+  background: #fff;
+  color: #1d1d1f;
+  font:
+    13px/1 system-ui,
+    sans-serif;
+}
+@media print {
+  .dir-selector {
+    display: none !important;
+  }
+}
