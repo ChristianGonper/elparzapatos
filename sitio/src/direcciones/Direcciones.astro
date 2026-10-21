@@ -2,6 +2,9 @@
 // Direcciones visuales (bloque 9): solo entran en la vista de revisión (build:review y desarrollo).
 // astro.config.mjs resuelve «@direcciones» a este archivo o a components/Empty.astro, así que ni
 // el selector ni sus estilos ni sus fuentes llegan a la compilación normal.
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/fraunces/opsz-italic.css';
+import './estilos/revista.css';
 import './estilos/selector.css';
 import { direcciones } from './opciones';
 interface Props {
