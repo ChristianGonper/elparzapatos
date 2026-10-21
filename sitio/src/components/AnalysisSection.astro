@@ -20,7 +20,6 @@ interface Props {
   /** Solo con flecha: desde qué lado llega. Sin él, desde el lado con más sitio. */
   desde?: 'izquierda' | 'derecha' | 'arriba' | 'abajo';
 }
-const pair = currentAnalysis(Astro.locals);
 const {
   title,
   image,
@@ -33,6 +32,7 @@ const {
   marca = 'circulo',
   desde,
 } = Astro.props;
+const pair = currentAnalysis(Astro.locals);
 const hasPoint = x !== undefined || y !== undefined;
 if (hasPoint) {
   for (const [name, value] of [

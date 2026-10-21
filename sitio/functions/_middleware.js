@@ -1,5 +1,5 @@
 // Cierra con contraseña todo lo que publica Cloudflare Pages (producción y vistas previas)
-// mientras la web no esté abierta. Se borra en el bloque 6, al publicar.
+// mientras la web no esté abierta. Se borra al publicar (docs/LANZAMIENTO.md).
 // Usuario «elpar»; la contraseña es la variable secreta SITE_PASSWORD del proyecto.
 const USER = 'elpar';
 const REALM = 'El Par (privado)';

@@ -65,7 +65,7 @@ Abrir la dirección local que muestra Astro. Al guardar el MDX se actualiza la p
 | Bloque | Qué permite |
 | --- | --- |
 | `<FotoPrincipal />` | Colocar la foto elegida en `hero` donde se quiera. |
-| `<Detalle title="..." image={2} caption="...">` | Texto junto a una vista, con ampliación y pie. `imageSide="left"` cambia el lado en escritorio. |
+| `<Detalle title="..." image={2} caption="...">` | Texto junto a una vista, con ampliación y pie. En escritorio la foto va a la izquierda; `imageSide="right"` la pasa a la derecha. |
 | `<Cita>...</Cita>` | Cita literal atribuida automáticamente a la colaboradora. Puede ir antes de la foto, entre detalles o al final; se puede omitir. |
 | `<Resumen />` | Los datos de «De un vistazo», sin copiar nombre, marca ni tipo. Puede moverse u omitirse. |
 | `<Termino slug="rejilla" />` | Definición contextual del glosario; `label="..."` permite adaptar la palabra a la frase. |

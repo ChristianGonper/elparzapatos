@@ -22,7 +22,7 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
 </span>
 
 <script>
-  import { enCadaPagina, primeraVez } from '../scripts/cada-pagina';
+  import { onEveryPage, firstTime } from '../scripts/every-page';
   // Sin JavaScript, el botón abre y cierra la definición con el popover nativo. Con JavaScript:
   // - con el ratón, se abre al pasar por la palabra y se cierra sola al quitarlo (también si se
   //   ha hecho clic), salvo mientras el ratón está sobre la tarjeta;
@@ -78,7 +78,7 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
     if (!term.pinned) term.timer = window.setTimeout(() => hide(term), 250);
   };
   const setUp = (popover: HTMLElement) => {
-    if (!primeraVez(popover)) return;
+    if (!firstTime(popover)) return;
     const button = document.querySelector<HTMLButtonElement>(`[aria-controls="${popover.id}"]`);
     if (!button) return;
     const term: Term = { button, popover, pinned: false };
@@ -126,7 +126,7 @@ if (!term) throw new Error(`Término desconocido: ${slug}`);
       });
   };
   // Tras navegar sin recargar se olvidan las palabras de la página anterior.
-  enCadaPagina(() => {
+  onEveryPage(() => {
     terms = terms.filter((term) => term.button.isConnected);
     document.querySelectorAll<HTMLElement>('.term-popover').forEach(setUp);
   });

@@ -24,10 +24,10 @@ const url = siteUrl ? new URL(Astro.url.pathname, siteUrl).href : undefined;
   </noscript>
 </div>
 <script>
-  import { enCadaPagina, primeraVez } from '../scripts/cada-pagina';
-  enCadaPagina(() =>
+  import { onEveryPage, firstTime } from '../scripts/every-page';
+  onEveryPage(() =>
     document.querySelectorAll<HTMLElement>('.share-tools').forEach((root) => {
-      if (!primeraVez(root)) return;
+      if (!firstTime(root)) return;
       const actions = root.querySelector<HTMLElement>('.share-actions');
       const copy = root.querySelector<HTMLButtonElement>('.copy-link');
       const manual = root.querySelector<HTMLLabelElement>('.share-manual');

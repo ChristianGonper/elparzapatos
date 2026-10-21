@@ -37,6 +37,17 @@
   box-shadow: 0 12px 60px #1212121a;
   z-index: 50;
 }
+.term-title {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.term-definition {
+  display: block;
+  line-height: 1.65;
+}
 /* En escritorio, con JavaScript, la definición se abre junto a la palabra. */
 .term-popover.is-anchored {
   inset: var(--term-top) auto auto var(--term-left);
@@ -87,14 +98,12 @@
   line-height: 1.45;
   text-align: center;
   pointer-events: none;
+  transition: opacity 0.2s;
 }
 .photo-viewer-caption:empty {
   display: none;
 }
 /* Al acercar, el pie se aparta para no tapar la foto. */
-.photo-viewer-caption {
-  transition: opacity 0.2s;
-}
 .photo-viewer.pswp--zoomed-in .photo-viewer-caption {
   opacity: 0;
 }
@@ -108,18 +117,6 @@
   .photo-viewer-caption {
     font-size: 0.75rem;
   }
-}
-
-.term-title {
-  display: block;
-  font-family: var(--serif);
-  font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-}
-.term-definition {
-  display: block;
-  line-height: 1.65;
 }
 
 /* La definición aparece con un fundido corto (sin movimiento si se ha pedido). */

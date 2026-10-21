@@ -4,7 +4,8 @@ import { reviewHours } from './participation';
 import { guideImage } from './images';
 
 // Invitaciones del final de cada página. Cada final habla de lo que se acaba de ver: la común solo
-// queda en Qué es El Par; la portada, cada par, los armarios, Cómo colaborar y la guía llevan la suya.
+// queda en Qué es El Par; cada par, los armarios, Cómo colaborar y la guía llevan la suya. La
+// portada cierra con su propia sección.
 export interface InvitationContent {
   label: string;
   /** Título en dos líneas; la segunda va en cursiva. */

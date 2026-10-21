@@ -20,6 +20,13 @@
   margin-top: 1.6rem;
   color: var(--muted);
 }
+.article-credit a {
+  border-bottom: 1px solid var(--line);
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--accent);
+}
 .article-hero {
   max-width: 1120px;
   margin: auto;
@@ -175,14 +182,6 @@
     gap: 1.3rem;
   }
 }
-.article-credit a {
-  border-bottom: 1px solid var(--line);
-  display: inline-flex;
-  min-height: 44px;
-  align-items: center;
-  color: var(--accent);
-}
-
 .analysis-content > .article-hero + .article-section {
   margin-top: clamp(3rem, 6vw, 6rem);
 }
@@ -238,7 +237,7 @@
 }
 
 /* Marca sobre la foto: el sitio del que habla un detalle (`x`, `y`, `size` y `marca` en el MDX).
-   Se enciende al leer el detalle (scripts/marcas.ts pone .is-marked) y no se queda fija. */
+   Se enciende al leer el detalle (scripts/motion.ts pone .is-marked) y no se queda fija. */
 .detail-photo {
   position: relative;
   container-type: inline-size;
@@ -267,7 +266,7 @@
   aspect-ratio: 1;
   border: 2px solid var(--paper);
   border-radius: 50%;
-  box-shadow: 0 0 0 100vmax rgb(20 16 12 / 0.32);
+  box-shadow: 0 0 0 100vmax #14100c52;
   scale: 0.85;
 }
 .detail-photo[data-marca='recuadro'] .detail-mark {
@@ -282,9 +281,9 @@
   height: 22px;
   translate: -100% -50%;
   transform-origin: 100% 50%;
-  transform: rotate(var(--giro, 0deg)) translateX(-14px);
+  transform: rotate(var(--angle, 0deg)) translateX(-14px);
   color: var(--paper);
-  filter: drop-shadow(0 1px 2px rgb(20 16 12 / 0.75));
+  filter: drop-shadow(0 1px 2px #14100cbf);
 }
 .detail-mark svg {
   display: block;
@@ -292,16 +291,16 @@
   height: 100%;
 }
 .detail-photo[data-desde='derecha'] {
-  --giro: 180deg;
+  --angle: 180deg;
 }
 .detail-photo[data-desde='arriba'] {
-  --giro: 90deg;
+  --angle: 90deg;
 }
 .detail-photo[data-desde='abajo'] {
-  --giro: -90deg;
+  --angle: -90deg;
 }
 .detail-photo.is-marked[data-marca='flecha'] .detail-mark {
-  transform: rotate(var(--giro, 0deg));
+  transform: rotate(var(--angle, 0deg));
 }
 @media (prefers-reduced-motion: reduce) {
   .detail-mark {

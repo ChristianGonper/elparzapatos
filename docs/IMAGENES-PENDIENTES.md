@@ -27,7 +27,7 @@ Antes de decidir, comparar peso y aspecto en varias fotos del proyecto, especial
 ## Qué cerrar antes del lanzamiento
 
 - Dónde viven los archivos públicos y quién puede subirlos o retirarlos.
-- Si se empieza con WebP o se añade AVIF con fallback.
+- Si se mantiene AVIF con WebP de reserva, como hoy, y con qué calidad.
 - Tamaños necesarios para tarjetas, artículos y ampliación; calidad según los resultados visuales.
 - Nombres estables y sustitución de una foto sin dejar cachés desactualizadas.
 - Cómo se retiran todas las copias de un par cuando se pide su retirada.

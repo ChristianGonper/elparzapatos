@@ -1,6 +1,6 @@
 # Experimento tras la revisión transversal
 
-7 de octubre de 2026. Implementado en este worktree para probarlo entre nosotros. Público: mujeres a las que les gustan los zapatos, aunque no sepan de moda. Se contemplan entradas desde portada, Instagram y enlaces compartidos.
+7 de octubre de 2026. Se conserva como antecedente: parte de lo que se cuenta cambió después (por ejemplo, el visor pasó a PhotoSwipe y compartir es solo «Copiar enlace»); lo vigente está en [Diseño](DISENO.md). Implementado entonces en un worktree para probarlo entre nosotros. Público: mujeres a las que les gustan los zapatos, aunque no sepan de moda. Se contemplan entradas desde portada, Instagram y enlaces compartidos.
 
 ## Cambios
 

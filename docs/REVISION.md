@@ -1,6 +1,6 @@
 # Revisión de la web
 
-Reconstrucción desde `par-astro`, comprobada el 6 de octubre de 2026. Las capturas corresponden a la compilación con los tres pares de María, sin dominio ni indexación activada.
+Reconstrucción desde `par-astro`, comprobada el 6 de octubre de 2026. Las capturas y el resumen son de esa fecha, con los tres pares de María, sin dominio ni indexación activada; la web ha cambiado después (ver [Diseño](DISENO.md)). Las verificaciones de abajo sí describen las comprobaciones vigentes.
 
 ## Resultado
 
@@ -34,17 +34,16 @@ Se usa la presentación aprobada de Drive, las fotografías autorizadas y citas 
 
 ## Verificaciones
 
-- Tipos y compilación de Astro: 0 errores, advertencias o sugerencias.
-- 13 documentos HTML: enlaces locales, anclas, identificadores, estructura, imágenes y anchos reales de cada srcset verificados.
-- 32 pruebas de navegador: todas las rutas en siete anchos de 320 a 1440 px, recorrido hasta Tally (final de la guía y acceso directo arriba en Cómo colaborar y en la guía), distinción entre fotos de ejemplo y catálogo, pasos y preguntas de Cómo colaborar, menú por teclado, definiciones (teclado, ratón en escritorio y toque en el móvil), visor (se abre pulsando la foto, sin botón de ampliar, foto entera, acercar con clic, rueda y botón, también en el móvil), guía (tres vistas por fila en escritorio, foto antes del texto en el móvil) y su enlace a la sección de tacones, enlaces del glosario a su par, armarios y su indicador de pares de más, recuperación del 404 y lectura sin JavaScript (la foto abre su versión grande).
-- La compilación rechaza expresiones descartadas, también la raya larga, y cualquier correo distinto de elparzapatos@proton.me.
-- Auditoría automática axe con reglas WCAG 2 A/AA y 2.1 AA en todas las páginas públicas. Superar la auditoría automática no certifica accesibilidad completa; se revisaron además teclado y vistas de móvil y escritorio.
-- Formato de código comprobado y dependencias de producción sin vulnerabilidades en la auditoría de npm.
-- Servidor de desarrollo comprobado en una copia temporal: al guardar cambios de título y posición de la cita en MDX, la entrada local se actualiza sin editar una plantilla.
-- Variables de lanzamiento comprobadas con un dominio de prueba: canónicas, sitemap de 12 rutas, robots e Instagram. Después se restauró la compilación de trabajo sin indexación ni enlace a la cuenta.
-- Prueba de crecimiento en una copia temporal con 63 pares: nuevas páginas, incorporación automática al armario existente y creación de otro; exclusión de armarios sin autorización o con un único par; anonimato estable, entradas sin marca/cita y rechazo de referencias inexistentes y rutas duplicadas. También verifica cita movida antes de la foto principal, imagen propia de compartir, exclusión de borradores al lanzar y catálogo vacío.
+Lo que se comprueba hoy en cada cambio, desde `sitio/` (ver README):
 
-GitHub Actions repite formato, compilación, verificación y pruebas en cada cambio. Conserva el resultado como artefacto de revisión, sin desplegarlo.
+- `npm run verify` y `npm run verify:review`: tipos y compilación de Astro sin errores, advertencias ni sugerencias, y `scripts/verify-build.mjs` sobre cada documento HTML: enlaces locales, anclas, identificadores únicos, un solo título principal, descripción, imágenes con texto alternativo y medidas, anchos reales de cada srcset, nada en línea ni imágenes `data:` (CSP), ninguna expresión descartada (también la raya larga), ningún correo distinto de elparzapatos@proton.me y ningún «análisis» en el texto legible. También revisa las [convenciones del código](CONVENCIONES.md).
+- `npm run test:content`: prueba de crecimiento en una copia temporal con 60 pares más (detalle en [Contenido](CONTENIDO.md#qué-enseña-la-portada)).
+- `npm run test:e2e`: 43 pruebas de navegador en Chromium sobre la vista de revisión: todas las rutas en siete anchos de 320 a 1440 px, recorrido hasta Tally y acceso directo, portada, visor (se abre pulsando la foto y acerca con clic, rueda, botón o dedos), compartir con «Copiar enlace», Cómo colaborar, menú por teclado, definiciones (teclado, ratón y toque), guía (impresión, tres vistas por fila en escritorio y foto antes del texto en el móvil), glosario, armarios y su abanico, «Más retratos», página no encontrada, lectura sin JavaScript, transiciones, marcas sobre la foto, «Medir puntos», «reducir movimiento», axe con reglas WCAG 2 A/AA y 2.1 AA, y ninguna violación de la CSP ni error o aviso de Chrome. Superar la auditoría automática no certifica accesibilidad completa.
+- `npm run format:check`: formato de Prettier.
+
+El flujo de GitHub Actions (`.github/workflows/verifica-web.yml`) repite formato, compilación, verificación y pruebas y conserva el resultado como artefacto, sin desplegarlo; hoy solo se lanza a mano, porque sus disparadores siguen apuntando a las ramas antiguas `par-astro` y `reconstruccion/el-par-desde-par-astro`.
+
+Comprobado a mano el 6 de octubre, sin repetirse desde entonces: dependencias de producción sin vulnerabilidades en la auditoría de npm; servidor de desarrollo en una copia temporal (al guardar cambios de título y posición de la cita en MDX, la entrada local se actualiza sin editar una plantilla); variables de lanzamiento con un dominio de prueba (canónicas, sitemap, robots e Instagram).
 
 La reorganización del CSS se comparó en 33 vistas (11 rutas a 390, 768 y 1440 px): mismas dimensiones y estilos calculados antes y después. Las reglas responsive están junto a su familia y la entrada de estilos documenta su orden.
 
