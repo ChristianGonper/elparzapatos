@@ -23,7 +23,7 @@ Mientras la web no esté abierta, producción y vistas previas piden usuario y c
 - Sin credenciales o con credenciales incorrectas: 401 con `WWW-Authenticate: Basic realm="El Par (privado)", charset="UTF-8"`, `Cache-Control: no-store` y `X-Robots-Tag: noindex`. Las respuestas autorizadas llevan también `X-Robots-Tag: noindex`. La contraseña se compara en tiempo constante.
 - La contraseña no se guarda en el repositorio ni en el código; se comparte con quien tenga que revisar por un canal privado.
 - En local no interviene: `astro dev`, `astro build`, `astro preview` y Playwright no usan Pages Functions.
-- **Bloque 6, al publicar:** borrar `sitio/functions/_middleware.js` (y la carpeta `functions` si queda vacía) y quitar `functions` de los scripts `format` y `format:check`. Después se puede eliminar el secreto `SITE_PASSWORD`. Si se quieren mantener protegidas las vistas previas, hay que decidirlo antes, porque el middleware se aplica a todas las ramas por igual.
+- **Al publicar:** borrar `sitio/functions/_middleware.js` (y la carpeta `functions` si queda vacía) y quitar `functions` de los scripts `format` y `format:check`. Después se puede eliminar el secreto `SITE_PASSWORD`. Si se quieren mantener protegidas las vistas previas, hay que decidirlo antes, porque el middleware se aplica a todas las ramas por igual.
 
 ## Variables públicas
 
@@ -31,10 +31,10 @@ El servidor de desarrollo muestra los borradores sin configurar variables. La co
 
 - `PUBLIC_SITE_URL`: origen HTTPS del dominio definitivo, sin ruta. Activa URLs canónicas e imágenes para compartir.
 - `PUBLIC_LAUNCH_READY=true`: solo después de revisar los análisis con las colaboradoras y completar los textos legales. Activa indexación y sitemap junto a un dominio configurado. Cada análisis autorizado debe indicar `status: published` y `publishedAt: 'AAAA-MM-DD'`.
-- `PUBLIC_INCLUDE_DRAFTS=true`: solo para revisión local. Incluye borradores e identifica la vista. No puede combinarse con `PUBLIC_LAUNCH_READY=true`; la compilación falla. `build:review` establece las variables necesarias sin modificar archivos `.env`.
+- `PUBLIC_INCLUDE_DRAFTS=true`: solo para la vista de revisión (en local y en las vistas de Cloudflare, cerradas con contraseña). Incluye borradores y la ayuda para medir puntos, e identifica la vista. No puede combinarse con `PUBLIC_LAUNCH_READY=true`; la compilación falla. `build:review` establece las variables necesarias sin modificar archivos `.env`.
 - `PUBLIC_INSTAGRAM_READY=true`: solo cuando la cuenta ya se haya renombrado a @elparzapatos. Activa el enlace en el pie.
 
-La vista de trabajo incluye noindex y robots de exclusión. Eso evita indexación; no sustituye un control de acceso. No publicar borradores sensibles en una URL accesible por internet.
+La vista de trabajo incluye noindex y robots de exclusión. Eso evita indexación; el control de acceso lo pone, mientras exista, el middleware con contraseña. Sin él, no publicar borradores sensibles en una URL accesible por internet.
 
 El orden del catálogo y el destacado se resuelven por fecha de publicación descendente, con `order` para empates. La fecha no representa una aprobación: se añade cuando se publica de verdad.
 

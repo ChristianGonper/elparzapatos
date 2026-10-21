@@ -2,6 +2,8 @@
 
 6 de octubre de 2026 · Propuesta de trabajo e implementación
 
+Es la propuesta inicial y se conserva como antecedente. Después cambiaron, entre otras cosas, la paleta (papel y tinta), las fuentes (Instrument Serif e Instrument Sans), la ilustración de tacones (retirada) y el nombre de los «análisis» («retratos»). Lo vigente está en [Diseño](DISENO.md) y [Contenido](CONTENIDO.md).
+
 ## Qué tiene que conseguir
 
 Que alguien llegue por una foto, descubra algo que no había visto en un zapato y piense en un par suyo. La web debe dar ganas de leer, de volver y de participar. Quien colabora debe poder compartir la página de sus zapatos con orgullo.
