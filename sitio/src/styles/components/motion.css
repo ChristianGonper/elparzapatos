@@ -14,20 +14,20 @@
   view-transition-name: foto-par;
 }
 ::view-transition-group(foto-par) {
-  animation-duration: 520ms;
+  animation-duration: 0.52s;
   animation-timing-function: cubic-bezier(0.3, 0.7, 0.1, 1);
 }
 ::view-transition-old(foto-par),
 ::view-transition-new(foto-par) {
   height: 100%;
   object-fit: cover;
-  animation-duration: 520ms;
+  animation-duration: 0.52s;
 }
 ::view-transition-old(root) {
-  animation: 200ms ease-out both fade-out;
+  animation: 0.2s ease-out both fade-out;
 }
 ::view-transition-new(root) {
-  animation: 360ms ease-out 140ms both fade-in;
+  animation: 0.36s ease-out 0.14s both fade-in;
 }
 @keyframes fade-out {
   to {

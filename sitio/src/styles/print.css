@@ -1,7 +1,7 @@
 @media print {
   body {
-    background: white;
-    color: #222;
+    background: var(--white);
+    color: #222222;
     font-size: 10pt;
   }
   .site-header,

@@ -50,21 +50,6 @@
 .guide-card figcaption {
   margin-top: 1.2rem;
 }
-/* En escritorio, tres vistas por fila: fotos algo más pequeñas y la guía se recorre antes.
-   El detalle ocupa la fila entera con su foto del mismo ancho que las demás. */
-@media (min-width: 1000px) {
-  .guide-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3rem 2rem;
-  }
-  .guide-grid .guide-card:last-child {
-    grid-template-columns: subgrid;
-  }
-  .guide-grid .guide-card:last-child figcaption {
-    grid-column: span 2;
-    margin-top: 0;
-  }
-}
 .guide-card h3 {
   font-size: calc(1.8rem * var(--hs3, 1));
   margin: 0.4rem 0 0.7rem;
@@ -78,6 +63,21 @@
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--accent);
+}
+/* En escritorio, tres vistas por fila: fotos algo más pequeñas y la guía se recorre antes.
+   El detalle ocupa la fila entera con su foto del mismo ancho que las demás. */
+@media (min-width: 1000px) {
+  .guide-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.2rem 2rem;
+  }
+  .guide-grid .guide-card:last-child {
+    grid-template-columns: subgrid;
+  }
+  .guide-grid .guide-card:last-child figcaption {
+    grid-column: span 2;
+    margin-top: 0;
+  }
 }
 .guide-checklist {
   margin-top: 4rem;
@@ -134,10 +134,5 @@
   }
   .guide-checklist {
     padding: 1.6rem;
-  }
-}
-@media (min-width: 1000px) {
-  .guide-grid {
-    row-gap: 2.2rem;
   }
 }
