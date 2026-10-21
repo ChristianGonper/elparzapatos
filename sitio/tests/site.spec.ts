@@ -715,12 +715,12 @@ test('Tras navegar con transición, el visor y el glosario siguen funcionando', 
   const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto('/');
-  await page.evaluate(() => ((window as unknown as { marca: number }).marca = 1));
+  await page.evaluate(() => ((window as unknown as { marker: number }).marker = 1));
   await page.locator('a[href="/pares/"]').first().click();
   await page.locator(`a.pair-card[href="${retrato}"]`).click();
   await expect(page).toHaveURL(retrato);
   // Sin recarga: la marca puesta en la portada sigue ahí.
-  expect(await page.evaluate(() => (window as unknown as { marca?: number }).marca)).toBe(1);
+  expect(await page.evaluate(() => (window as unknown as { marker?: number }).marker)).toBe(1);
   await page.locator('.article-section a.photo-zoom').first().click();
   await expect(page.locator('.pswp--open')).toBeVisible();
   await page.waitForTimeout(700);

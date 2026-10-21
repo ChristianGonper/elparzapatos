@@ -5,8 +5,8 @@ import { pairImage } from '../data/images';
 interface Props {
   caption?: string;
 }
-const pair = currentAnalysis(Astro.locals);
 const { caption = 'Pulsa cualquier foto para verla en grande.' } = Astro.props;
+const pair = currentAnalysis(Astro.locals);
 ---
 
 <figure class="article-hero wrap">
