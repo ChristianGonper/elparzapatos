@@ -914,3 +914,102 @@ test('Ninguna página viola la CSP ni deja errores, avisos o problemas en Chrome
   expect(await lazyWithoutSize()).toEqual([]);
   expect(problems).toEqual([]);
 });
+
+// Direcciones visuales (bloque 9): solo en la vista de revisión, con ?dir= o con el selector.
+const direcciones = ['revista', 'archivo', 'galeria', 'cuaderno'];
+const paginasDirecciones = ['/', '/pares/', retrato, '/armarios/maria/'];
+
+test('En revisión, ?dir= cambia la dirección, se guarda y sigue al navegar', async ({ page }) => {
+  for (const dir of direcciones) {
+    await page.goto(`/?dir=${dir}`);
+    await expect(page.locator('html')).toHaveAttribute('data-dir', dir);
+    await page.goto('/pares/');
+    await expect(page.locator('html')).toHaveAttribute('data-dir', dir);
+    await page.locator('a.pair-card').first().click();
+    await expect(page.locator('.article-hero')).toBeVisible();
+    await expect(page.locator('html')).toHaveAttribute('data-dir', dir);
+  }
+  await page.goto('/?dir=actual');
+  await expect(page.locator('html')).not.toHaveAttribute('data-dir', /.+/);
+  await page.goto('/pares/');
+  await expect(page.locator('html')).not.toHaveAttribute('data-dir', /.+/);
+  // Con el selector: se abre, se elige y la barra de direcciones lo recoge.
+  await page.getByRole('button', { name: /^Dirección/ }).click();
+  await page.getByRole('radio', { name: /^Galería/ }).check();
+  await expect(page.locator('html')).toHaveAttribute('data-dir', 'galeria');
+  await expect(page).toHaveURL(/\?dir=galeria$/);
+  await expect(page.getByRole('button', { name: 'Dirección · Galería' })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#direcciones')).toBeHidden();
+  await page.goto('/?dir=actual');
+});
+
+for (const dir of direcciones) {
+  test(`La dirección «${dir}» no desborda, pasa accesibilidad y no deja errores ni avisos`, async ({
+    page,
+  }) => {
+    await page.route('**/*', async (route) => {
+      if (route.request().resourceType() !== 'document') return route.continue();
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        headers: { ...response.headers(), 'content-security-policy': csp },
+      });
+    });
+    const problems: string[] = [];
+    page.on('console', (message) => {
+      if (['error', 'warning'].includes(message.type()))
+        problems.push(`${page.url()} · ${message.type()}: ${message.text()}`);
+    });
+    page.on('pageerror', (error) => problems.push(`${page.url()} · excepción: ${error.message}`));
+    await page.goto(`/?dir=${dir}`);
+    for (const width of [390, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const route of paginasDirecciones) {
+        await page.goto(route);
+        await expect(page.locator('html')).toHaveAttribute('data-dir', dir);
+        await page.evaluate(async () => {
+          for (let y = 0; y < document.body.scrollHeight; y += 600) {
+            window.scrollTo(0, y);
+            await new Promise((resolve) => setTimeout(resolve, 40));
+          }
+          await document.fonts.ready;
+        });
+        expect(
+          await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1),
+          `${dir} ${route} ${width}`,
+        ).toBe(true);
+      }
+    }
+    expect(problems).toEqual([]);
+    // axe se inyecta como script en línea: se pasa ya sin la CSP de prueba.
+    await page.unrouteAll();
+    for (const width of [390, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const route of paginasDirecciones) {
+        await page.goto(route);
+        await page.addScriptTag({ path: axePath });
+        const violations = await page.evaluate(async () => {
+          const axe = (
+            window as unknown as {
+              axe: {
+                run: (options: object) => Promise<{
+                  violations: { id: string; nodes: { target: string[] }[] }[];
+                }>;
+              };
+            }
+          ).axe;
+          const result = await axe.run({
+            runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21aa'] },
+          });
+          return result.violations.map((v) => ({
+            id: v.id,
+            targets: v.nodes.map((n) => n.target),
+          }));
+        });
+        expect(violations, `${dir} ${route} ${width}`).toEqual([]);
+      }
+    }
+    await page.goto('/?dir=actual');
+  });
+}

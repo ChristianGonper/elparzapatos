@@ -162,6 +162,9 @@ try {
   const home = await page('');
   // La vista de revisión lleva la ayuda para medir puntos.
   assert.match(home, /measure-toggle/);
+  // Y el selector de direcciones visuales del bloque 9.
+  assert.match(home, /class="dir-toggle"/);
+  assert.match(home, /src="\/direcciones\/aplicar\.js"/);
   const section = (html, name) =>
     html.match(new RegExp(`class="[^"]*${name}[\\s\\S]*?</section>`))?.[0] ?? '';
   assert.equal(cards(section(home, 'home-latest')), 4);
@@ -229,6 +232,8 @@ try {
   await build();
   // La compilación normal no lleva la ayuda para medir puntos ni nada del laboratorio.
   assert.doesNotMatch(await page(''), /measure-toggle|elpar-medir|lab-toggle|data-lab/);
+  // Ni las direcciones visuales: ni selector, ni script, ni la referencia de las fichas.
+  assert.doesNotMatch(await page(''), /dir-toggle|direcciones|data-dir|data-ref/);
   assert.equal(cards(await page('pares')), 3);
   await assert.rejects(page('pares/bailarinas-rejilla-flores'), { code: 'ENOENT' });
   assert.match(await page(''), /noindex, nofollow/);
