@@ -1,5 +1,5 @@
-// Interacción y movimiento de la web (bloque 7). Se prepara al cargar y después de cada
-// navegación sin recarga. Con «reducir movimiento», nada se anima: lo que aparece ya está.
+// Interacción y movimiento de la web. Se prepara al cargar y después de cada navegación sin
+// recarga. Con «reducir movimiento», nada se anima: lo que aparece ya está.
 import { enCadaPagina } from './cada-pagina';
 
 const reducir = window.matchMedia('(prefers-reduced-motion: reduce)');

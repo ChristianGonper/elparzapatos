@@ -425,7 +425,6 @@ test('En escritorio la definición se abre al pasar el ratón, junto a la palabr
   await expect(popover).toBeVisible();
   await page.mouse.move(5, 400);
   await expect(popover).toBeHidden();
-  // Y la tarjeta no lleva botón de cerrar.
   await button.hover();
   await expect(popover).toBeVisible();
   await expect(popover.getByRole('button')).toHaveCount(0);
@@ -468,7 +467,7 @@ test('La guía contiene el set completo y se puede imprimir desde el navegador',
   await expect(page.locator('.guide-number')).toHaveCount(1);
   await expect(page.locator('.guide-card').last()).toContainText('Y además, los detalles');
   await expect(page.locator('#print-guide')).toHaveCount(0);
-  // La guía de tacones, con su ilustración, vuelve cuando haya fotos de un par de tacón.
+  // La guía de tacones no sale hasta que haya fotos de un par de tacón de una colaboradora.
   await expect(page.locator('.tacon-guide, #tacones, .heel-note')).toHaveCount(0);
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).not.toBeVisible();
@@ -701,7 +700,7 @@ test('Ningún texto visible dice «análisis»', async ({ page }) => {
   }
 });
 
-// Interacción y movimiento (bloque 7).
+// Interacción y movimiento.
 const retrato = `/pares/${pairSources.find((pair) => pair.id === 'par-0002')!.data.slug}/`;
 
 test('No queda ningún panel de laboratorio', async ({ page }) => {
@@ -828,7 +827,6 @@ test('En revisión, «Medir puntos» enseña y copia x/y al pulsar una foto', as
   await expect(page.locator('.pswp')).toHaveCount(0);
   await expect(page.locator('.measure-status')).toHaveText('Copiado: x={25} y={75}');
   expect(await page.evaluate(() => navigator.clipboard.readText())).toBe('x={25} y={75}');
-  // Con ?medir llega ya activada.
   const other = await context.newPage();
   await other.goto(`http://localhost:4322/pares/?medir`);
   await expect(other.locator('html')).toHaveClass(/is-measuring/);

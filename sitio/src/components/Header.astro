@@ -78,7 +78,6 @@ const links = [
     if (current?.open && event.target instanceof Node && !current.contains(event.target))
       current.open = false;
   });
-  // Al navegar sin recargar, el menú se cierra.
   document.addEventListener('astro:after-swap', () => {
     const current = menu();
     if (current) current.open = false;

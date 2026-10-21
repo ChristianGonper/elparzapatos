@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
 import { glossary } from '../data/glossary';
 import { pairs, pairPath } from '../data/pairs';
-// Cada palabra enlaza con el primer par del catálogo que la usa, no siempre con el mismo.
+// Cada palabra enlaza con el primer par del catálogo que la usa.
 const firstPairWith = (slug: string) => pairs.find((pair) => pair.terms.includes(slug));
 ---
 

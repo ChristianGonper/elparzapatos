@@ -238,7 +238,7 @@
 }
 
 /* Marca sobre la foto: el sitio del que habla un detalle (`x`, `y`, `size` y `marca` en el MDX).
-   Se enciende al leer el detalle (scripts/marcas.ts pone .is-marked) y no se queda fija. */
+   Se enciende al leer el detalle (scripts/movimiento.ts pone .is-marked) y no se queda fija. */
 .detail-photo {
   position: relative;
   container-type: inline-size;
