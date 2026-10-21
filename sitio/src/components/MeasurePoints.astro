@@ -80,7 +80,7 @@
 </style>
 
 <script>
-  import { enCadaPagina } from '../scripts/cada-pagina';
+  import { onEveryPage } from '../scripts/every-page';
   const key = 'elpar-medir';
   const root = document.documentElement;
   const active = () => sessionStorage.getItem(key) === '1';
@@ -89,7 +89,7 @@
     root.classList.toggle('is-measuring', active());
     document.querySelector('.measure-toggle')?.setAttribute('aria-pressed', String(active()));
   };
-  enCadaPagina(paint);
+  onEveryPage(paint);
   const say = (text: string) => {
     const status = document.querySelector('.measure-status');
     if (status) status.textContent = text;

@@ -3,7 +3,7 @@
   // (a.photo-zoom); el visor se carga al abrir la primera y agrupa todas las de la página.
   import PhotoSwipeLightbox from 'photoswipe/lightbox';
   import 'photoswipe/style.css';
-  import { enCadaPagina } from '../scripts/cada-pagina';
+  import { onEveryPage } from '../scripts/every-page';
   // Al navegar sin recargar, el contenido cambia: se cierra el visor de la página anterior y se
   // prepara otro para la nueva.
   let current: { gallery: HTMLElement; lightbox: PhotoSwipeLightbox } | undefined;
@@ -65,5 +65,5 @@
     lightbox.init();
     current = { gallery, lightbox };
   };
-  enCadaPagina(setUp);
+  onEveryPage(setUp);
 </script>
